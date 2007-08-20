@@ -78,8 +78,6 @@ class ScreenletInstaller:
 		contents of the archive to the user's screenlet dir."""
 		print 'Installing %s' % filename
 		result = False
-		# TODO: set busy cursor
-		# ...
 		# get name of screenlet
 		basename	= os.path.basename(filename)
 		extension	= os.path.splitext(filename)
@@ -467,7 +465,7 @@ class ScreenletsManager:
 		"""Craete/Show the install-dialog."""
 		# create filter
 		flt = gtk.FileFilter()
-		#flt.add_pattern('*.tar.bz2')
+		flt.add_pattern('*.tar.bz2')
 		flt.add_pattern('*.tar.gz')
 		flt.add_pattern('*.zip')
 		# create dialog

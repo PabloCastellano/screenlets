@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="100"
+   height="100"
+   id="svg4230"
+   sodipodi:version="0.32"
+   inkscape:version="0.44"
+   version="1.0"
+   sodipodi:docbase="/home/ryx/Documents/scripts/python/screenlets/clock/themes/time4linux-inverse"
+   sodipodi:docname="clock-hour-hand-shadow.svg">
+  <defs
+     id="defs4232" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="4.08"
+     inkscape:cx="50"
+     inkscape:cy="69.362745"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     height="100px"
+     width="100px"
+     inkscape:window-width="989"
+     inkscape:window-height="626"
+     inkscape:window-x="61"
+     inkscape:window-y="278" />
+  <metadata
+     id="metadata4235">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-12.63383,-7.215581)">
+    <path
+       style="fill:black;fill-opacity:0.23208193;stroke:none;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 0.15625 -4.25 C -2.1343888 -4.25 -4 -2.3843888 -4 -0.09375 C -4 2.1968888 -2.1343888 4.0624998 0.15625 4.0625 C 1.6644971 4.0625 2.9609568 3.235725 3.6875 2.03125 L 22.65625 0.125 L 3.8125 -2 C 3.1202551 -3.3280515 1.7565968 -4.2500001 0.15625 -4.25 z "
+       transform="translate(12.63383,7.215581)"
+       id="rect2884" />
+  </g>
+</svg>

@@ -1,0 +1,3 @@
+#!/bin/bash
+python -u /usr/local/share/screenlets-manager/screenlets-manager.py
+

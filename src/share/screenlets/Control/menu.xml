@@ -1,0 +1,115 @@
+<menu>
+	<!-- 
+		This is the menu-definition for the ControlScreenlet. This file
+		gives full access to the layout of the right-click menu and allows
+		to connect menu-items to certain actions by defining the action in
+		the "id"-field of an item. 
+		
+		Available actions are:
+			- "exec:<shell-command>" executes a shell command
+			- "add:<Screenlet-classname>" adds a new instance of the given class
+			- "info" shows about/info dialog for the Screenlet
+			- "size:<size>" sets the Screenlet's size to the given number
+			
+		Available items are <item>, <checkitem>, <imagetem> and 
+		<separator>. Please don't forget to only write valid XML, otherwise the
+		menu can not be created. There is an experimental feature <scandir> - 
+		it allows scanning directories for files/dirs, skip certain files, 
+		replace string(s) in filenames, append prefix/suffix and 
+		finally create a gtk.MenuItem for each file in the dir.
+	-->
+	<!-- Uncomment to add Hide/show option to menu -->
+	<!--<item label="Hide/Show" id="hide_show" />-->
+	<!-- user definable actions here: -->
+	<imageitem label="Firefox" icon="firefox" id="exec:firefox" />
+	<imageitem label="Terminal" icon="terminal" id="exec:gnome-terminal  --working-directory=$HOME" />
+	<!--<imageitem label="SciTE" icon="/usr/share/pixmaps/Sci48M.png" id="exec:scite" />-->
+	<imageitem label="gEdit" icon="text-editor" id="exec:gedit" />
+	<imageitem label="gconf-editor" icon="gconf-editor" id="exec:gconf-editor" />
+	<imageitem label="Inkscape" icon="inkscape" id="exec:inkscape" />
+	<separator />
+	<!-- add applications-menu -->
+	<!--<item label="Applications">
+		<appdir path="/usr/share/applications/" 
+			cats="Office,Development,Game,Utility" />
+	</item>
+	<separator />-->
+	<!-- Screenlet-menu -->
+	<item label="Screenlet">
+		<item label="Add">
+			<!--<item label="Clock" id="add:ClockScreenlet" />
+			<item label="CPU-Meter" id="add:CPUMeterScreenlet" />
+			<item label="Example" id="add:ExampleScreenlet" />
+			<item label="Sticky Note" id="add:NotesScreenlet" />
+			<item label="Ruler" id="add:RulerScreenlet" />
+			<item label="Window-List" id="add:WindowlistScreenlet" />-->
+			<!-- TEST -->
+			<!--<scandir directory="." 
+				filter="*Screenlet.py"
+				skip="ControlScreenlet.py"
+				id_prefix="add:"
+				id_suffix="Screenlet"
+				search="Screenlet.py"
+				replace=""
+			/>-->
+			<scandir directory="/usr/local/share/screenlets" 
+				filter="*"
+				skip="screenletsd.py,add-screenlet.py"
+				id_prefix="add:"
+				id_suffix="Screenlet"
+				search=""
+				replace=""
+			/>
+			<separator />
+			<scandir directory="$HOME/.screenlets" 
+				filter="*"
+				id_prefix="add:"
+				id_suffix="Screenlet"
+				search=""
+				replace=""
+			/>
+			<!-- TODO: replace $HOME in directory -->
+			<!-- <scandir directory="$HOME/.screenlets" /> -->
+		</item>
+		<!-- Window-menu -->
+		<!--<item label="Window">-->
+			<!-- NOTE: This is still a problem because the saved settings are
+					not properly set on start -->
+			<!--<checkitem label="Sticky" checked="1" id="setting:is_sticky" />
+			<checkitem label="Widget" id="setting:is_widget" />
+			<checkitem label="Keep above" id="setting:keep_above" />
+			<checkitem label="Keep below" id="setting:keep_below" />-->
+		<!--</item>-->
+		<!-- Themes-menu -->
+		<item label="Size">
+			<item label="20%" id="scale:0.2" />
+			<item label="50%" id="scale:0.5" />
+			<item label="75%" id="scale:0.75" />
+			<item label="100%" id="scale:1.0" />
+			<item label="200%" id="scale:2.0" />
+			<item label="300%" id="scale:3.0" />
+			<item label="400%" id="scale:4.0" />
+			<item label="500%" id="scale:5.0" />
+			<item label="750%" id="scale:7.5" />
+			<item label="1000%" id="scale:10.0" />
+		</item>
+		<item label="Themes">
+			<!-- NOTE: this is still not perfect but works here -->
+			<scandir 
+				directory="/usr/local/share/screenlets/Control/themes"  
+				filter="*" 
+				id_prefix="theme:"
+				id_suffix=""
+				search=""
+				replace=""  
+			/>
+		</item>
+		<separator />
+		<item label="Properties..." id="options" />
+		<!--<separator />
+		<item label="Info..." id="info" />-->
+	</item>
+	<separator />
+	<!-- delete Screenlet -->
+	<item label="Delete Screenlet ..." id="delete" />
+</menu>

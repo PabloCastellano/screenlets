@@ -1,0 +1,3 @@
+#!/bin/bash
+echo "Screenletsd isn't used for starting screenlets anymore. Please use the new 'screenlets-manager' or start each Screenlet individually from now on."
+

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="100"
+   height="100"
+   id="svg4230"
+   sodipodi:version="0.32"
+   inkscape:version="0.44"
+   version="1.0"
+   sodipodi:docbase="/home/ryx/Documents/scripts/python/screenlets/clock/themes/time4linux-white"
+   sodipodi:docname="clock-minute-hand.svg">
+  <defs
+     id="defs4232" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="11.539983"
+     inkscape:cx="28.575846"
+     inkscape:cy="92.472141"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     height="100px"
+     width="100px"
+     inkscape:window-width="989"
+     inkscape:window-height="626"
+     inkscape:window-x="193"
+     inkscape:window-y="197" />
+  <metadata
+     id="metadata4235">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-11.95511,-3.94816)">
+    <g
+       id="g2903"
+       style="fill:black;fill-opacity:1"
+       transform="translate(-37.98372,-46.77937)">
+      <path
+         sodipodi:nodetypes="cccc"
+         id="path2897"
+         d="M 80.684828,50.809743 L 53.291615,53.042821 L 53.291615,48.190845 L 80.684828,50.809743 z "
+         style="fill:black;fill-opacity:1;stroke:none;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1" />
+      <path
+         transform="matrix(0,0.969,-0.969,0,100.0083,1.691864)"
+         d="M 55.742811 51.623203 A 5.3751998 5.3751998 0 1 1  44.992411,51.623203 A 5.3751998 5.3751998 0 1 1  55.742811 51.623203 z"
+         sodipodi:ry="5.3751998"
+         sodipodi:rx="5.3751998"
+         sodipodi:cy="51.623203"
+         sodipodi:cx="50.367611"
+         id="path2899"
+         style="fill:black;fill-opacity:1;stroke:none;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         sodipodi:type="arc" />
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,22 @@
+<!DOCTYPE Menu
+  PUBLIC '-//freedesktop//DTD Menu 1.0//EN'
+  'http://standards.freedesktop.org/menu-spec/menu-1.0.dtd'>
+<Menu>
+	<Name>Applications</Name>
+	<MergeFile type="parent">/etc/xdg/menus/applications.menu</MergeFile>
+	<Menu>
+		<Name>Screenlets</Name>
+		<Directory>Screenlets.directory</Directory>
+		<Include>
+			<Filename>NotesScreenlet.desktop</Filename>
+			<Filename>ControlScreenlet.desktop</Filename>
+			<Filename>ClockScreenlet.desktop</Filename>
+			<Filename>CPUMeterScreenlet.desktop</Filename>
+			<Filename>PicframeScreenlet.desktop</Filename>
+			<Filename>RulerScreenlet.desktop</Filename>
+			<Filename>MailCheckScreenlet.desktop</Filename>
+			<Filename>WindowlistScreenlet.desktop</Filename>
+			<Filename>LauncherScreenlet.desktop</Filename>
+		</Include>
+	</Menu>
+</Menu>

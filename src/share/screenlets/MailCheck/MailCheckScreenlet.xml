@@ -1,0 +1,64 @@
+<screenlet name="MailCheck" version="">
+	
+	<!-- TODO: <info>This is an Example of a Screenlet.</info> -->
+	
+	<!-- NOTE: this is only an idea yet, could be extended ... -->
+	
+	<group name="MailCheck">
+	
+		<info>General settings for the MailCheckScreenlet.</info>
+		
+		<option name="check_interval2" type="int">
+			<label>Checking interval (minutes)</label>
+			<info>The interval (in minutes) after that is checked for new mail ...</info>
+			<default>10</default>
+			<min>1</min>
+			<max>1200</max>
+		</option>
+		
+		<option name="backend_type" type="string" choices="POP3,maildir">
+			<label>Server/Backend Type</label>
+			<info>The server or backend to retrieve mails from ...</info>
+			<default>POP3</default>
+		</option>
+		
+		<option name="storage_type2" type="string" choices="keyring,plaintext">
+			<label>Password Storage</label>
+			<info>The way to store the password ...</info>
+			<default>keyring</default>
+		</option>
+		
+		<option name="mail_client2" type="string">
+			<label>Mail Client</label>
+			<info>The e-mail client-application to open ...</info>
+			<default>evolution</default>
+		</option>
+		
+	</group>
+	
+	<group name="POP3">
+	
+		<info>General settings for POP3-servers (only needed 
+if Server/Backend is set to "POP3").</info>
+		
+		<option name="pop3_server" type="string" realtime="False">
+			<label>Server</label>
+			<info>The POP3-server to check for new mail ...</info>
+			<default>pop3.somewhere.tld</default>
+		</option>
+		
+		<option name="pop3_user" type="string">
+			<label>User</label>
+			<info>The username for your POP3-mailbox ...</info>
+			<default>User</default>
+		</option>
+		
+		<option name="pop3_pass" type="string" password="True" realtime="False">
+			<label>Password</label>
+			<info>The password for your POP3-mailbox ...</info>
+			<default>User</default>
+		</option>
+		
+	</group>
+	
+</screenlet>

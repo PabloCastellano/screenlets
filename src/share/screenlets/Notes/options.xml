@@ -1,0 +1,83 @@
+<screenlet name="NotesScreenlet">
+
+	<!-- NOTE: this is only an idea yet, it isn't used ... -->
+	
+	<group name="Text">
+	
+		<info>Text-/Font-related settings for the sticknotes (this page is generated from the options-metadata).</info>
+		
+		<option name="font_name" type="string">
+			<label>Default Font</label>
+			<info>The default font of the text (when no Markup is used) ...</info>
+			<default>Sans</default>
+		</option>
+		
+		<option name="rgba_color" type="color">
+			<label>Default Color</label>
+			<info>The default color of the text (when no Markup is used) ...</info>
+			<default>(167,13,65,87)</default>
+		</option>
+		
+		<option name="text_prefix" type="string">
+			<label>Text Prefix</label>
+			<info>The text or Pango-Markup to be placed before the text ...</info>
+			<default>&lt;b&gt;</default>
+		</option>
+		
+		<option name="text_suffix" type="string">
+			<label>Text Suffix</label>
+			<info>The text or Pango-Markup to be placed after the text ...</info>
+			<default>&lt;/b&gt;</default>
+		</option>
+		
+		<option name="note_text" type="string" hidden="True">
+			<default>A new note ...</default>
+		</option>
+		
+	</group>
+	
+	<group name="Layout">
+	
+		<info>Layout-related settings for the sticknotes(this page is generated from the options-metadata).</info>
+		
+		<option name="pin_x" type="int">
+			<label>X-Position of Pin</label>
+			<info>The X-Position of the tack/pin for the sticknote ...</info>
+			<default>100</default>
+			<min>0</min>
+			<max>200</max>
+		</option>
+		
+		<option name="pin_y" type="int">
+			<label>Y-Position of Pin</label>
+			<info>The Y-Position of the tack/pin for the sticknote ...</info>
+			<default>20</default>		
+			<min>0</min>
+			<max>200</max>
+		</option>
+		
+		<option name="random_pin_pos" type="bool">
+			<label>Randomize Pin</label>
+			<info>If active, the pin/tack will be slightly moved randomly whenever the note is picked up ...</info>
+			<default>True</default>		
+		</option>
+		
+		<option name="text_x" type="int">
+			<label>X-Position of Text</label>
+			<info>The X-Position of the text-rectangle's upper left corner ...</info>
+			<default>10</default>		
+			<min>0</min>
+			<max>200</max>
+		</option>
+		
+		<option name="text_y" type="int">
+			<label>Y-Position of Text</label>
+			<info>The Y-Position of the text-rectangle's upper left corner ...</info>
+			<default>21</default>		
+			<min>0</min>
+			<max>200</max>
+		</option>
+		
+	</group>
+	
+</screenlet>

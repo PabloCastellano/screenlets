@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Categories=Screenlets;
+Name=Flower
+Name[de]=Blume
+Comment=A growing plant for your desktop, with support for multiple themes.
+Comment[de]=Eine wachsende Pflanze für Ihren Desktop, mit auswechselbaren Stilen.
+MimeType=application/x-screenlet
+Encoding=UTF-8
+Icon=/usr/local/share/screenlets/Flower/icon.svg
+Exec=/usr/local/share/screenlets/Flower/FlowerScreenlet.py > /dev/null
+

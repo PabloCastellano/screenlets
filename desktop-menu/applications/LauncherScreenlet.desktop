@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Categories=Screenlets;
+Name=Launcher
+Name[de]=Anwendungsstarter
+Comment=A simple application-launcher icon.
+Comment[de]=Ein Icon, das Anwendungen startet (wie ein Desktop-Icon).
+MimeType=application/x-screenlet
+Encoding=UTF-8
+Icon=/usr/local/share/screenlets/Launcher/icon.svg
+Exec=/usr/local/share/screenlets/Launcher/LauncherScreenlet.py > /dev/null
+

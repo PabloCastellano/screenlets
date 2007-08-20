@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Categories=Settings;
+Name=Screenlets
+Name[de]=Screenlets
+Comment=A graphical tool to manage your Screenlets.
+Comment[de]=Ein grafisches Werkzeug, um Ihre Screenlets zu verwalten.
+Encoding=UTF-8
+Icon=/usr/share/icons/screenlets.svg
+Exec=/usr/local/share/screenlets-manager/screenlets-manager.py > /dev/null
+StartupNotify=true
+

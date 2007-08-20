@@ -1,0 +1,77 @@
+--------------------------------------------------------------------------------
+  Screenlets v0.0.11 - (c) 2007 by RYX (aka Rico Pfaus) <ryx@ryxperience.com>
+--------------------------------------------------------------------------------
+
+This is the unsorted TODO-list for the Screenlets. See the file TODO-0.1.0 for a
+brief roadmap and a general overview of the existing tasks and plans. The
+tasks in this file are the ones to be completed before I will push the whole
+project to its first official version (0.2). Before that I want all common
+problems to be eliminated and have successful testing-resonance for at least the 
+major (desktop-oriented) distros (ubuntu, redhat, suse, mandriva, gentoo, ...).
+
+
++ TODO: core
+------------------------------------------------------------
+- commandline-option for using gconf-backend
+- DirectoryOption is set twice or more when selected in editor (bug in gtk?)
+- use startup-notification during startup of a screenlet (to show busy cursor)
+- switching themes slowly increases the memory usage (maybe rsvg leak?)
+- add option-groups and improve EditableOptions-class to use them (and edit
+  the OptionsEditor afterwards), then modify all Option-classes and 
+  definitions to pass the object instead of the group-name to the Option's init
+- option-definitions shouldn't be retrieved by each instance of the same
+  Screenlet, there should be some global place within the session where that
+  info is stored ... preferably read from the metadata-file
+- the same for the Properties-dialog, it should get created once and then be
+  reused by all open instances ...
+- regular expression which allows hide/show individual options from the editor
+  when special conditions are met (like some other option has a special value)?
+- handle non-composited state by using a 2bit shape-bitmap whenever the
+  "composited-changed" signal is received (so if compositing gets unavailable)
+- TimeOption, DateOption (for Clock)
+- XMLOption for a better and separate storage?
+- ?remove __*__-attributes from Screenlet-class and find a better way for that
+  (that naming is reserved for internal python-functions I think)
+- make "realtime"-attribute for option available in metadata
+- fix "sticky problem" (right-click menu shows incorrect values)
+- removing session-folder when removing last instance of a Screenlet doesn't
+  work for some reason
+- (try to) stop unwanted initial saves
+- find a way to get notified about end of a begin_move_drag-operation?
+- ScreenletService: send signals when instance got hidden/shown?
+- ??screenlets should get their own .service-files for dbus to launch the 
+  main instance if none is running (causes very long delay on startup - why?)
+- add/finish missing handlers:
+  on_key_up, on_minimize, on_maxmize, ...
+- [PermanentItem] code cleanup and bug-hunt
+
+
++ TODO: individual screenlets
+		[NOTE: there may be more tasks in the individual Screenlet-files ...]
+------------------------------------------------------------
+- add missing states to Flower (state 7/8, dry 1, wet 1/2)
+- improve Flower's "AI" (it is more "artificial insanity" than intelligence :D)
+- add custom services to more screenlets (e.g. Notes, MailCheck, ...)
+- icons for Windowlist, Storage, ...
+- autosize on drop in Picframe
+- improve Windowlist and add some options to it (and improve some things)
+- ??improve Picframe to render with gtk.pixbuf instead of cairo's PNGSurface
+- ??drag&drop in Control (would require editing the menu.xml)
+- improve XML-based menu and use it where possible
+- Pager needs some care, too
+- Finish In-Place-Editing for the Notes (still some bugs in key-handling and 
+  cursor-placement)
+- finish all current Screenlets before adding new ones :D ...
+- 5 picture Slideshow in PicframeScreenlet (with mousewheel-switching)
+
+
++ TODO: screenlets-manager
+------------------------------------------------------------
+- "Download more"-button and link to website
+- details-button
+- reset settings function
+- start autostarted screenlets via menu-option
+- quit all screenlets function
+- (monitor all paths in SCREENLETS_PATH and check for newly installed
+  screenlets (and show them if they are added and the manager is open))
+

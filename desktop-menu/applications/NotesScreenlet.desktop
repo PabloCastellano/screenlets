@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Categories=Screenlets;
+Name=Notes
+Name[de]=Notizen
+Comment=Helpful sticky notes with transparency and support for multiple themes.
+Comment[de]=Hilfreiche Klebezettel mit Transparenz und wechselbarem Aussehen.
+MimeType=application/x-screenlet
+Encoding=UTF-8
+Icon=/usr/local/share/screenlets/Notes/icon.svg
+Exec=/usr/local/share/screenlets/Notes/NotesScreenlet.py > /dev/null
+StartupNotify=true

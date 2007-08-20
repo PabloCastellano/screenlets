@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Categories=Screenlets;
+Name=CPU-Meter
+Name[de]=CPU-Meter
+Comment=A themeable CPU-meter that displays your cpu's usage.
+Comment[de]=Ein CPU-Meter mit wechselbaren Stilen, das die aktuelle CPU-Auslastung anzeigt.
+MimeType=application/x-screenlet
+Encoding=UTF-8
+Icon=/usr/local/share/screenlets/CPUMeter/icon.svg
+Exec=/usr/local/share/screenlets/CPUMeter/CPUMeterScreenlet.py > /dev/null
+

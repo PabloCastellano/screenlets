@@ -1,0 +1,7 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Screenlets Daemon
+Exec=/usr/local/share/screenlets-manager/screenlets-daemon.py
+X-GNOME-Autostart-enabled=true
+Name[de_DE]=Screenlets Daemon

@@ -1,0 +1,18 @@
+# include all files in root
+include *
+exclude MANIFEST *~
+
+# include the Makefile in docs
+include docs/Makefile
+
+# include all files in desktop-menu (no temp-files)
+recursive-include desktop-menu *
+recursive-exclude desktop-menu *~
+
+# include all files in bin (except temp-files)
+recursive-include bin *
+recursive-exclude bin *~
+
+# include all files in src and below (except temp-files and bytecode-files)
+recursive-include src * *.*
+recursive-exclude src *.pyc *.pyo *~

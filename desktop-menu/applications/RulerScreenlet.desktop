@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Categories=Screenlets;
+Name=Ruler
+Name[de]=Lineal
+Comment=A themeable screen ruler for your measuring needs.
+Comment[de]=Ein Bildschirm-Lineal mit wechselbaren Stilen. Zum Abmessen von Entfernungen am Bildschirm.
+MimeType=application/x-screenlet
+Encoding=UTF-8
+Icon=/usr/local/share/screenlets/Ruler/icon.svg
+Exec=python -u /usr/local/share/screenlets/Ruler/RulerScreenlet.py > /dev/null
+StartupNotify=true

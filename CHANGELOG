@@ -1,0 +1,585 @@
+--------------------------------------------------------------------------------
+  Screenlets v0.0.10 - (c) 2007 by RYX (aka Rico Pfaus) <ryx@ryxperience.com>
+--------------------------------------------------------------------------------
+
+CHANGELOG:
+
+0.0.10:
+--------
+:19.08.2007:
+- AccountOption should now correctly use the default session (if any)
+- added new "threading"-keyword to screenlets.session.create_session, this
+  should be set to true if a screenlet uses threads
+- modified Launcher and Picframe to use new ImageOption
+- removed ScrolledWindow from option-editor, option inputs are not inside
+  a scrollable area anymore, instead they should be organized in groups
+- modified option editor and added new inputs for image/dir options
+- splitted ImageOption and DirectoryOption from FileOption to remove the
+  complexity of the attributes
+- added "image"-attribute to FileOption, allows to make a FileOption
+  show all image-types supported by Gtk
+- added small patch to make the Clock correctly switch the date on 00:00h and
+  after suspend/restore (thanks to Rene Auberger)
+- slightly fixed and optimized the options.ListOptionDialog
+- added "patterns"-attribute to FileOption, which now allows to define
+  special file-patterns to be shown in the file selection dialog
+- fixed bug in manager (removed "python -u" from autostart files)
+:18.08.2007:
+- added screenlets-packager script which allows simply packaging a 
+  third-party screenlet into a distributable archive (containing a special
+  "Screenlet.package"-file used by the manager to verify the archive)
+- added a legacy-function to raise a fatal error when a screenlet is written
+  for a version before 0.0.9
+- added a function screenlets.fatal_error that can be used to raise fatal
+  errors that need to quit the app
+- added delete-functionality to manager, user-screenlets can now by easily
+  deleted
+- modified screenlets.show_message and screenlets.quit_message to be able
+  to be used from non-Screenlet classes (needed for manager)
+:17.08.2007:
+- added Install-button and -functionality to screenlets-manager, allows to
+  easily install screenlets from their packages
+- moified session to use utils.list_running_screenlets to check for running
+  instances of a screenlet (instead of checking for a running service), this 
+  hopefully fixes the startup error several people reported
+:16.08.2007:
+- slightly shortened confirmation-message when selecting "Delete Screenlet..."
+  in right-click menu
+- manager now automatically creates autostart-files when autostart gets enabled
+- "screenlets-manager"-script gets installed into bin-dir and desktop-file
+  is globally installed, too (manager now shows up under System/Settings)
+- manager now gets installed through Makefile
+- added new screenlets-manager (and a new screenlets-daemon which belongs to the
+  manager and is invisible to the user)
+- added screenlets.utils.Notifier-class as replacement for the notify-functions
+- new function screenlets.utils.list_running_screenlets()
+- modified ScreenletSession to now save the name of each running Screenlet
+  in the file /tmp/screenlets/screenlets.running, that simplifies keeping track 
+  of currently opened screenlets
+- added some minor uninstall info to main Makefile (should be automatic)
+:15.08.2007:
+- added screenlets.utils.get_screenlet_metadata-function whicih returns a dict
+  with name, desc, author, version (used by manager)
+:06.08.2007:
+- finished and added the first version of the new CopyStackScreenlet
+- added create_drag_icon-function and on_create_drag_icon-handler to Screenlet
+- added on_drag_begin-handler to Screenlet
+:03.08.2007:
+- replaced all occurences of self.__name__[:-9] and self.__class__.__name__[:-9]
+  with self.get_short_name() in all base-classes
+- added Screenlet.get_short_name(), returns the short name of the screenlet
+  (the classname without trailing "Screenlet"), always use this now (instead
+  of self.__name__[:-9])
+:01.08.2007:
+- screenlets.utils.notify must now be initialized before it can be used, that
+  is done by calling screenlets.utils.init_notify()
+- modified screenlets.utils.notify, screenlet-argument now needs to be a
+  Screenlet-instance (instead of a string with the short name)
+- added IMAPBackend to MailCheck, contributed by Robert Gartler (thanks :))
+- applied Sorcerer's patch for adding alarm_command-feature to Clock (thx :D)
+- applied Sorcerer's patch for adding GconfBackend (thx)
+- applied Sorcerer's patch for adding lock_position-feature (thx)
+- added Screenlet.on_init-handler, gets called after initialization is 
+  complete and all options are applied
+:24.07.2007:
+- removed Screenlet.show_about_dialog, was not really needed anymore
+- screenletsd is now just an empty script which outputs a small note
+- removed screenletsd.py and add-screenlet.py from package
+- removed functions create_new_instance, load_class_from_module and 
+  import_and_create_screenlet from screenlets-module
+- removed all screenletsd-related code from core
+
+
+0.0.9:
+--------
+:23.07.2007:
+- added new option to Makefile: "make epydoc" now generates the eypdoc-docs
+  into docs/epydoc (python-epydoc must be installed)
+- slightly optimized ScreenletTheme.render-function
+- images in ScreenletTheme are now stored inside two dicts (svgs and pngs), the
+  dict-inheritance will get removed soon
+- most screenlets (except Pager and Test) now use the render-function and allow
+  creating themes with png OR svg images (please avoid mixing them up :D :D)
+- removed FlowerService from Flower, was only for testing and totally useless
+- removed Notification-support from baseclass
+- added new screenlets.utils.notify-function which greatly simplifies the
+  Notifications-support (only if notify-daemon is installed, default in gnome)
+- Control and Notes can now use both, SVG- or PNG-images, in their themes
+- some more code-optimization and cleanup in Control
+- fixed Control to now use the new launch_screenlet-function for adding new
+  Screenlets through the "Add"-submenu
+- added function screenlets.launch_screenlet which is now the recommended way
+  of launching a screenlet from the "outside"
+- added small workaround to XmlMenu, the scan-directive now replaces "$HOME"
+  within the directory-name with the environment var $HOME ... this should now
+  properly show all installed screenlets in the Control's "Add"-submenu
+- Removed choices from Screenlet.theme_name (which is now a hidden option due 
+  to the new Themes-selection)
+- small fix in Screenlet-class, __setattr__ now calls the method 
+  GObject.__setattr__ instead of object.__setattr__ when calling superclass
+:22.07.2007:
+- heavily optimized NotesScreenlet and improved the general class-layout of it
+  (I'd even call it a major rewrite :D ... not a full one, though)
+- NotesScreenlet now creates PangoLayout on init and stores it in the class,
+  instead of re-creating it on each draw (didn't know this actually works :))
+:21.07.2007:
+- theme_name-option is not shown in Options-editor anymore, instead the
+  new Themes-tab is now the recommended way of changing themes
+- ScreenletTheme.load_conf now uses IniReader-class to read theme.conf
+- Theme-tab in OptionsDialog now shows a list of all available themes for the 
+  screenlet, it checks all paths for themes and also displays themes from the
+  user's screenlets-dir
+- added simple IniReader-class to screenlets.utils (should get used by
+  themes and maybe backend, too ... but only experimental for now)
+- added "uses_theme"-attribute to Screenlet-class
+- added "Themes"-tab to OptionsDialog, will become a theme-selection with
+  more info about a theme (should use theme.conf for getting data)
+- optimized and cleaned code in OptionsDialog, should be faster now
+:20.7.2007:
+- cleaned up NotesScreenlet and splitted drawing-code into smaller functions
+- added Screenlet.disable_updates-attributes which gets used by the session and 
+  the theme to disable updating the screenlet while options are loaded or 
+  overridden (should remove some ugliness on startup due to reducing the
+  number of reshapes/redraws)
+- added Screenlet.allow_option_override-option which allows entirely disabling
+  option-overrides through themes
+- added Screenlet.ask_on_option_override-option which allows disabling the
+  confirmation-dialog when a theme wants to override the options in a Screenlet
+- corrected Clock-themes to use new theme.conf-format
+- added "text_x" and "text_y" options to CPUMeter to allow setting the position
+  of the upper left corner of the text
+- themes now care for protected options and not allow overriding them
+- slightly changed the format of the theme.conf: now supports sections,
+  the theme infos have to be supplied without trailing underscore inside the
+  "Theme"-section, overridden options have to be defined in the "Options"-
+  section, comment-lines need to start with '#' or ';', no support for multiline
+  comments (yet)
+- added "date_format"-option to Clock, allows changing the display format of
+  today's date
+- added new "cpu"-theme to CPUMeter
+- added two new handlers to Screenlet: on_scroll_up and on_scroll_down allow
+  easy handling of mouse-scrolling (thanks to DeathCarrot)
+- MailCheck's "white"-theme is now named "default" and the "default"-theme is
+  now named "ryx-glass" (and icon for MailCheck updated, too)
+- created .desktop-file for MailCheckScreenlet, now gets installed by running
+  "make menu"
+- added src/share/examples-directory which now contains some example-code 
+  showing how to do several things from outside the screenlets (only service-
+  related code yet)
+- modified ScreenletService.get/set to not get/set protected options
+- added "protected"-attribute to Option-class and enabled it by default in
+  AccountOption. This attribute should indicate that a certain option 
+  MUST NOT be get/set through the service
+- MailCheck now uses AccountOption for storing data
+:19.07.2007:
+- added support for new AccountOption-type to Options-Editor, it can now be
+  used similar to all other options
+- added screenlets.options.AccountOption which can be used to store 
+  username/password-combinations in a safe storage (only gnomekeyring for now
+  because python-gnome2-desktop should be installed anyway)
+- splitted icons from theme in Mailcheck (now contains mailcheck-icon-refresh, 
+  mailcheck-icon-error ... the mailcheck-refresh/error.svg are gone)
+- fixed blinking-effect in MailCheckScreenlet
+- Screenlet-info and options are now on two different tab-pages within the
+  Properties-dialog
+- added password-attribute to StringOption to create password input elements
+  in OptionsDialog
+- several more optimizations and fixes in MailCheck
+- partial rewrite of the MailCheckScreenlet, it now uses a (threaded)
+  MailCheckBackend-class to be able to retrieve mails from multiple types of 
+  backend (e.g. gmail, pop3, imap, maildir, ...), once the needed backends
+  are written :)
+- splitted TODO-tasks into "core" and "screenlets" (look much smaller now :D)
+:17.07.2007:
+- fixed small bug in OptionEditor, color-options were displayed incorrectly
+- added screenlets.options.EditableOptions.add_options_from_file() which
+  allows loading option-definitions from an XML-file with metadata. You can
+  use this function to keep your code a bit more clean and (hopefully) make 
+  translation of all Screenlets a bit easier, too (in the future)
+- added screenlets.options.create_option_from_node (does what its name says)
+- added ScreenletTheme.render-function which supports rendering either PNG or
+  SVG images with the same call, this now also allows creating themes using
+  PNG-images (if a Screenlet uses the render-function) ... will ruin the 
+  scalability but hopefully encourage more people to create new themes :D
+- Launcher now uses Name-attribute from .desktop-files to set the label
+- Launcher now correctly sets width/height when setting new icon
+- Launcher should now correctly set icons from .desktop-files
+- Launcher now can be configured by dragging/dropping a .desktop-file onto it,
+  this allows easy dragging&dropping of apps from your main-menu
+- re-added usage of rsvg to Launcher to support scalable images when using an 
+  SVG-icon (pixbuf-loaded svgs are not scalable)
+- added drag&drop-functionality to Launcher
+- Launcher now supports more image-types than only svg (should support all
+  gtk-supported types now), removed usage of rsvg
+- splitted Screenlet.redraw_canvas into two functions (added new function 
+  Screenlet.redraw_canvas_area), should speed things up in that case by 
+  removing an if-statement
+:16.07.2007:
+- TestScreenlet now uses new session system and coding guidelines, too :)
+- all .desktop-files now execute with output set to /dev/null
+- slightly changed description of ControlScreenlet
+- added ScreenletService.get_first_instance()
+- added two new signals to ScreenletService (instance_added, instance_removed)
+  and modified Screenlet-class to send the signals on the appropriate events
+- added icons to Control and Launcher
+- fixed small bug in Launcher and removed absolute path for default icon
+- added .desktop-files for Control, Launcher and Windowlist
+- corrected a small problem with the services and added a ClockService to
+  the ClockScreenlet
+- renamed "gnome"-directory to "desktop-menu" and added "menu"-option to
+  main Makefile (for easily installing menu-entries run "make menu")
+- slightly changed screenlets.SCREENLETS_PATH to only contain user-dir and
+  system-dir (maybe add $PWD again, too?)
+
+
+0.0.8:
+--------
+:15.07.2007:
+- added makefile in gnome/ to install .desktop, .directory and .menu files
+  for accessing the Screenlets through the Applications-menu (at least in
+  gnome this should work, don't know about KDE)
+- added confirmation-dialog before a screenlet gets deleted via popup-menu
+- on_delete-event now properly gets called again
+- removed event-argument from Screenlet.on_delete
+- converted all screenlets to new session system, cleaned the code and
+  applied new formatting rules to all screenlets
+- corrected "white"-theme in MailCheckScreenlet (added missing states)
+- Flower now grows (if it is treated right :D)
+- added dead/dry-states to Flower
+:14.07.2007:
+- added "default-blue"-theme to PicframeScreenlet
+- added "simplewood"-theme to PicframeScreenlet
+- fixed inputs for FloatOption and IntOption in OptionsDialog, increment and 
+  digits are now properly handled
+- PicframeScreenlet now shows images which are dragged onto it
+- added new PicframeScreenlet (displaying a simple picture frame)
+:13.07.2007:
+- fixed problem with mousecursor moving away from the screenlet while dragging
+  it around
+- the session now handles sigkill/sigint instead of throwing an exception
+- added ScreenletsBackend.flush-function which is used to save pending 
+  changes before the main process ends (to avoid losing options due to the
+  caching functionality of the CachingBackend)
+- screenlets.utils.find_first_screenlet_path is now used to get the path
+  for the screenlet (Screenlet.get_screenlet_dir now uses this function, too),
+  this should now eliminate the problem with launching screenlets from non-PWD
+  locations
+:12.07.2007:
+- several whitespace-changes in base-modules, (in function definitions it is 
+  now recommended to put a space between name and opening brace)
+- changed dbus-address/path of ScreenletService-class to org.screenlets.*
+  (e.g. the FlowerScreenlet now uses the service "org.screenlets.Flower", the
+  object's path is "/org/screenlets/Flower", the interface is still
+  "org.screenlets.ScreenletService" but will be changed)
+- added service_class-attribute to Screenlet.__init__ for easily passing
+  a custom ScreenletService-class to the constructor
+- session now uses the service for adding new instances when the Screenlet
+  has already a running instance (to keep screenlets of the same type
+  within the same process)
+- renamed services.is_service_running to services.service_is_running
+- deleting/quitting screenlets and instances now properly works with the new
+  session-system
+- added ScreenletSession.delete_instance-function
+- added "enable_saving" keyword attribute to Screenlet's __init__-function
+  (only needed internally, can be ignored)
+- added Screenlet.enable_saving-function which allows enabling/disabling
+  saving of options (mainly used within session to prevent initial saves)
+:09.07.2007:
+- added xdg-basedir compliance to ScreenletSession-class, sessions are now
+  properly stored in their folders (which now are created automatically)
+:08.07.2007:
+- added screenlets.services.is_service_running-function to simplify checking for
+  the availability of a Screenlet's service
+:07.07.2007:
+- added screenlets.session.create_session-function to simplify creating the
+  session within the "__main__"-part
+- added ScreenletSession.backend-attribute and modified Screenlet-baseclass to
+  use the session's backend if available (for now the screenletsd is still
+  supported but it will be removed soon)
+- modified ScreenletSession to use a ScreenletsBackend instead of directly
+  saving/loading instances
+- moved backend-related code from screenletsd.py into the new screenlets.backend 
+  module
+:06.07.2007:
+- added Screenlet.register_session-function to simplify creating a service for
+  multi-instance screenlets
+- added Screenlet.service and Screenlet.session attributes to Screenlet-class,
+  they are now available to all Screenlets
+:05.07.2007:
+- all Screenlets now have IDs, which allows accessing multiple instances over 
+  the same remote-interface
+- added a screenlets.session module containing the new ScreenletSession-class
+  which is now responsible for things like handling startup and multiple 
+  instances of a screenlet. The session further cares for restoring options 
+  and will get a backend-object soon (to also care for saving options).
+:04.07.2007:
+- added an unfinished FlowerScreenlet which displays a themeable growing plant
+- modified Screenlet.update_shape to now store the current shape_bitmap and its
+  dimensions until it actually gets resized (instead of re-creating it on update)
+- added screenlets.services.get_service_by_name-function which allows easily
+  retrieving an interface-object from a Screenlet's dbus-service
+:03.07.2007:
+- added a screenlets.services module and a ScreenletService-class to finally
+  implement the base for easily making Screenlet-actions available through Dbus.
+  Screenlets can now offer custom methods or propagate their own signals over
+  dbus, and other apps (e.g. other Screenlets) can call/receive them easily.
+:26.02.2007:
+- added new default-theme to ExampleScreenlet and removed ugly graffiti-theme
+:25.02.2007:
+- added module screenlets.utils for placing helper-functions
+- fixed clock to switch date at 00:00h (but I guess it still doesn't work)
+:20.02.2007:
+- added screenlets.options.ListOption and screenlets.options.ListOptionDialog 
+  and added ListOption-support to OptionsDialog. The ListOption must be a list
+  of strings
+:19.02.2007:
+- Screenlet's Width/Height options are now hidden
+- added theme.conf to all Clock-themes, removed funky-theme
+- added box-theme to StorageScreenlet
+- added StorageScreenlet (drag/drop example)
+:18.02.2007:
+- moved get_cpu_load from CPUMeter to screenlets.sensors
+- added module screenlets.sensors which will be extended to a general
+  cpu/net/ram/*-meter helper-library (any help greatly appreciated ;) ...)
+:17.02.2007:
+- added 'debug'-action to screenletsd-startup script, 'start' action now
+  outputs to /dev/null
+- added handler Screenlet.on_drag_leave
+- added handler Screenlet.on_drag_enter
+- updated screnlets.create_new_instance and screenlets.load_class_from_module
+  to use __import__ instead of exec for loading modules (thanks, Vasek)
+:15.02.2007:
+- added Screenlet.on_drop-handler (activate D&D by passing drag_drop=True
+  to Screenlet.__init__)
+- cleaned __init__-handlers of Options/Option-subclasses to now use 
+  **keyword_args instead of passing the superclasses' key-args
+- moved Screenlet bus/notification-attribs from class to __init__ (bugfix?)
+- NotesScreenlet now shows a confirmation-dialog when it gets deleted (using
+  the new on_delete-handler)
+- Screenlet.on_delete-handler now works properly and can return True to cancel
+  the deletion of the Screenlet
+:14.02.2007:
+- extended Screenlet.redraw_canvas to allow redrawing only a rectangular area if
+  the optional x/y/width/height attributes are set
+- added basic (drag&)drop-support (only on_drop yet) to NotesScreenlet (will
+  go into baseclass once fully tested)
+
+
+0.0.7 (codename "Bond"):
+--------
+:10.02.1007:
+- addded meta-attribute Screenlet.__requires__ (list with needed imports)
+  unused for now, but will be used in future release
+- ScreenletThemes can now contain a theme.conf with _name, _version, _author
+  and _info meta-description. Additionally, options within the Screenlet can 
+  be overridden through the theme.
+- added Screenlet.on_realize-handler
+- Screenlet.on_quit-handler is now properly called and the recommended place 
+  for cleaning up used ressources and disconnect from external signals
+- added Screenlet.on_delete-handler (called before on_quit, can be cancelled)
+- moved module-loader into screenlets-module
+- module "options" is now "screenlets.options"
+- placed dbus-constants into screenlets-module (BACKEND_BUS, 
+  BACKEND_OBJ, BACKEND_IFACE)
+- Screenlet's directories now must be named like the classname, without 
+  trailing "Screenlet" and NOT in lowercase anymore
+:09.02.2007:
+- added Makefile offering following actions: install, clean, docs and 
+  source_package (which creates a release-tarball)
+- added MANIFEST.in for setup.py
+- Screenlet.__init__ now MUST have an additonal **keyword_args-argument
+  as last argument (all subclasses MUST have this, too)
+- added (simple) module-loader-functionality to screenletsd.py to allow 
+  adding screenlets from a non-library path like /usr/local/share/screenlets/ 
+  and $HOME/.screenlets
+- screenlets/screenlets.py is now src/lib/__init__.py (only a formal change)
+- Screenlets (the .py-files) now have to be placed within the screenlet's 
+  personal directory
+- entirely new structure of the source-package: The base-classes now need to
+  be installed (using "setup.py install") to work but can be launched
+  from anywhere in the system (and be packaged) 
+- created setup.py
+:08.02.2007:
+- added screenletsd-shellscript to package (thanks, raptros-v76 :) ...)
+- "took over" and included CalendarScreenlet (thanks, robgig1088 :) ..)
+- applied Sorcerer's show_date-path (adds show_date option to Clock) 
+  (thanks, Sorcerer :) ...)
+- renamed dbus path/object/iface all to "org.freedesktop.Screenlets", (until
+  we have org.screenlets.* as service)
+- fixed directory-problem on first run and added some checks
+- removed options.load_objects_from_file
+- removed options.save_objects_to_file
+
+
+0.0.6:
+--------
+:07.02.2007:
+- ClockScreenlet now has new icon (railway-theme)
+- added queue in CachingBackend (to avoid losing options on multiple elements)
+:06.02.2007:
+- stripped load/save functionality off the Control, the Control is now 
+  sending requests to the backend for adding a new Screenlet
+- finished settings-daemon and backend (quickly said, but a full day work :) )
+
+
+0.0.5 (unreleased due to instability):
+--------
+:06.02.2007:
+- added screenlets.create_new_instance(): this is the recommended way
+  of creating new instances of (stand-alone) screenlets
+:05.02.2007:
+- added screenletsd.py: contains ScreenletsService and ScreenletsBackend and 
+  offers a new way of creating persistent options (using any type of
+  backend - from flat-file to gconf) ... not running and experimental yet!
+:04.02.2007:
+- added notifications-patch from Sorcerer (thnx :))
+- added Screenlet.skip_taskbar-option
+- added Screenlet.skip_pager-option
+:02.02.2007:
+- added options.load_objects_from_file
+- added options.save_objects_to_file
+- added new Clock-theme "station"
+:01.02:2007:
+- removed width/height arguments from Screenlet.__init__ - Screenlets now
+  have a default size of 100x100 pixels, this has to match the size of all
+  graphics within the theme (if theme used). The width/height-arguments
+  can still be set as keyword-attributes (passed to __init__)
+- added PNG-support to ScreenletTheme
+- changed "Size"-menuitems to percentage values and use scale for sizing
+- added new handler Screenlet.on_scale() (fired when scale-attribute is changed)
+- modified all screenlets to use scale instead of width/height
+- added scale-factor to Screenlet-class
+:31.01.2007:
+- added new handler Screenlet.on_menuitem_select(id)
+- added MailCheckScreenlet
+:30.01.2007:
+- added ClockScreenlet.set_update_interval
+- added show_seconds_hand-option to ClockScreenlet
+- added new handler Screenlet.on_mouse_enter(event)
+- added new handler Screenlet.on_mouse_leave(event)
+- added new handler Screenlet.on_mouse_up(event)
+- added new handler Screenlet.on_mouse_down(event)
+- added new handler Screenlet.on_unfocus()
+- added new handler Screenlet.on_focus()
+- added new handler Screenlet.on_show()
+- added new handler Screenlet.on_hide()
+- added new handler Screenlet.on_switch_widget_state(state)
+- added new handler naming-convention: All (non-gtk) handlers now start
+  with "on_" ... e.g. on_mouse_down, on_mouse_up, on_draw, on-draw_shape, ...
+:29.01.2007:
+- added realtime-attribute to Option: if realtime is False, the option has an
+  additional Apply-button next to its entry and only updates when the 
+  button is pressed
+- added OptionsDialog.apply_options_callback (internal handler)
+- added OptionsDialog.read_option_from_widget
+- added basic in-place-editing to NotesScreenlet (a little gift to MacSlow :))
+- some minor code-optimizations: 'name == "test and name == "test2" ...' 
+  is now 'name in ("test", "test2", ...)'
+
+
+0.0.4:
+--------
+:28.01.2007:
+- fixed startup-crash when config-file missing
+- applied new naming convention to all other Screenlets
+:27.01.2007:
+- applied new naming convention (see README) to ClockScreenlet
+- replaced exported_settings: new way of creating persistent options that
+  are invisible in the options-editor is adding editable options with the 
+  "hidden"-attribute set to True
+- removed DefaultMenuItem.INFO from defaults (deprecated)
+- DefaultMenuItem.OPTIONS is now DefaultMenuItem.PROPERTIES
+- renamed Screenlet._y to Screenlet.y
+- renamed Screenlet._x to Screenlet.x
+- added option ClockScreenlet.alarm_length
+- added option ClockScreenlet.hour_format
+- added Alarm-function to Clock
+:26.01.2007:
+- added EditableOptions.disable_option
+- added option ControlScreenlet.hide_show_on_click
+- added options.FileOption
+- added function screenlets.show_message() to ease notificiation-output
+- renamed AppLauncherScreenlet to LauncherScreenlet
+- improved and finished AppLauncherScreenlet
+- added (slightly modified) XDG-basedir-compliance patch from RAOF (thank you)
+:25.01.2007:
+- ability to add callbacks to Option-classes (to monitor when options
+  change within the OptionsDialog)
+- "Settings" now called "Options" (and DefaultMenuItem.SETTINGS is now
+  DefaultMenuItem.OPTIONS)
+- major optimization of the settings-system: now using Option-classes
+  instead of SettingsType.*
+- Control now saves settings when killed with SIGTERM (not SIGKILL)
+- removed ControlScreenlet.create_menu() (replaced by XML-menu)
+- DefaultMenuItem.XML now (kind of) working
+- added settings-dialog to Control
+- added add_screenlet_as_widget-setting to Control
+- added get_screenlet_dir-function to Screenlet-class
+:24.01.2007:
+- updated all Screenlets to new settings-system
+- added choices-option to STRING-setting (to provide a combobox-selection)
+- added Screenlet.get_available_themes()
+- removed useless code from Clock (get/set for time-property)
+- added font_name- and rgba_color-setting to NotesScreenlet
+- added SettingsType.COLOR and SettingsType.FONT to settings
+- added random_pin_pos-setting to NotesScreenlet
+:22.01.2007:
+- added text_prefix, text_suffix as settings to CPUMeter
+- added pin_x, pin_y, text_x, text_y, text_prefix, text_suffix as settings to Notes
+- settings-editor now supports different groups (option-tabs)
+- started AppLauncherScreenlet (unfinished, maybe gets dumped)
+:21.01.2007:
+- added time_offset-attribute to ClockScreenlet
+- added new menuitem for settings (DefaultMenuItem.SETTINGS)
+- made Screenlet also inherit from EditableSettings (besides gobject)
+- added EditableSettings, EditableSettingsDialog and EditableSettingsOption classes
+:20.01.2007:
+- fixed a small bug in ControlScreenlet's shape (which was drawn in double size)
+
+
+0.0.3:
+--------
+:19.01.2007:
+- added <scandir>-tag to XmlMenu for scanning dirs for entries and add 
+  a dynamically created menu that way
+:18.01.2007:
+- fixed crash on start when closing Control on viewport different than 1
+- added private info/name/author/desc-fields as metainfo to Screenlets
+- added Sorcerer's About-Dialog (slightly modified to match metainfo)
+- added XML-based menu to ControlScreenlet (for user-configurable menus)
+:14.01.2007
+- added support for compiz' widget-plugin (thanks to mikedee)
+- added Window-submenu to Screenlet's right-click menu
+- added sticky/widget/keep_above/keep_below-options to Screenlet
+
+
+0.0.2:
+--------
+:13.01.2007
+- finished Windowlist
+- fixed clock-shadows
+- added "ryx-glass"-theme to Clock
+- added "time4linux-inverse"-theme to Clock
+- added resize-functionality
+- added "Size"-submenu (DefaultMenuItem.SIZE)
+- made Notes resize dynamically (while font-size stays the same)
+:12.01.2007
+- added screenlets.ShapedWidget-class
+- Windowlist now uses TaskIconWidget-childwidgets
+- added flashing-function to Windowlist (for "demands-attention"-state)
+:11.01.2007
+- added WindowlistScreenlet (using libwnck)
+- made ControlScreenlet skip_taskbar
+- added "default-gray"-theme for CPUMeter
+:10.01.2007
+- added MessageDialog as "Info"-MenuItem
+- added ExampleScreenlet that simply displays an SVG
+- added simple CPUMeterScreenlet with Text-display
+- added "default-blue"-theme for CPUMeter
+- added (very basic) graph-display to CPUMeter
+
+
+0.0.1:
+--------
+:06.01.2007
+- initial release

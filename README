@@ -1,0 +1,122 @@
+--------------------------------------------------------------------------------
+  Screenlets v0.0.11 - (c) by RYX (Rico Pfaus) 2007 <ryx@ryxperience.com>
+--------------------------------------------------------------------------------
+
+This software is released under the GNU Public License v3. You are free
+to modify and copy this software unless you keep the above coypright 
+notice and don' pretend this to be your work. The author gives you NO 
+warranties at all.
+
+
+--------------------------------------------------------------------------------
++ INFO:
+--------------------------------------------------------------------------------
+Screenlets (short form of "Screen-Applets") are small owner-drawn applications 
+that can be described as "the virtual representation of things lying/standing 
+around on your desk": Sticknotes, clocks, rulers, ... the possibilities are 
+endless. 
+
+The goal of the Screenlets-framework is to simplify the creation of fully 
+themeable mini-apps that each solve basic desktop-work-related needs and 
+generally improve the usability and eye-candy of the modern Linux-desktop.
+
+Screenlets strongly follow the UNIX-idea of modularization and having one 
+tool for one purpose. They are in some way the modern evolution of that
+idea (ported from commandline-tools to desktop-apps). One intention of the
+screenlets is to encourage creation of visually appealing graphical frontends 
+to common unix-tools to attract the "modern" user while still "keeping it real".
+
+Screenlets are in fact shaped Gtk-Windows that take care of drawing
+themselves. They contain a window a menu and (optionally) a theme
+(of type ScreenletTheme). Screenlets also offer a simple way of
+handling/changing settings/options (for both - user and developer). Since
+version 0.0.8 all screenlets can also be controlled over DBus and can easily
+offer customized services.
+
+See the CHANGELOG for more information on this (and other) release(s).
+
+
+
+--------------------------------------------------------------------------------
++ INSTALLATION:
+--------------------------------------------------------------------------------
+Extract the archive into some directory. Navigate to that directory. 
+As root-user run "make install" (Ubuntu users just add a leading "sudo"). 
+
+By entering "make menu" (again as root) you can install .desktop-files for the
+screenlets (not all, only the more stable ones). That allows easily adding 
+your screenlets through the Applications-menu or the Alt+F2 dialog.
+
+To generate the default (and ugly) pydoc-documentation within the docs-
+directory, run "make pydoc".
+
+To generate the doxygen-documentation run "make doxydoc" (you need to install 
+doxygen first).
+
+To generate the epydoc-documentation (in docs/epydoc) run "make epydoc" (you
+need to install python-epydoc first). NOTE: this is the best one ;)
+
+
+
+--------------------------------------------------------------------------------
++ USAGE:
+--------------------------------------------------------------------------------
+Since v0.0.8 the recommended way of starting the screenlets is by launching them
+directly. You can launch a screenlet as many times as you like, new instances
+will automatically get added to the running instance. Screenlets of the same
+type always run in the same process!
+You can run each Screenlet individually with (e.g):
+"/usr/local/share/screenlets/Clock/ClockScreenlet.py". 
+
+Please, DO NOT USE "screenletsd" for starting screenlets anymore. Preferably you 
+should use the Applications-menu or the ControlScreenlet for launching new 
+screenlets. 
+
+GNOME:
+If you want individual screenlets to be launched on startup, you 
+should add them to your session's startup programs. That way they will be 
+started when you log into your gnome-session.
+
+
+
+--------------------------------------------------------------------------------
++ KNOWN BUGS:
+--------------------------------------------------------------------------------
+- Flower misses some states and images
+- when switching to metacity and back to compiz the screenlet loses 
+  its window-attributes (like sticky/widget) [problem in compiz/metacity]
+- Screenlets have a memory-leak when switching themes that contain SVGs
+- mailcheck doesn't correctly switch back to idle state and refresh-icon always
+  stays visible then
+
+
+
+--------------------------------------------------------------------------------
++ CODING/NAMING RULES (see ExampleScreenlet for an example):
+  (NOTE: some of these may change until version 0.1.0 ...)
+--------------------------------------------------------------------------------
+- A Screenlet's classname must end on "Screenlet" (e.g. ClockScreenlet)
+- Not more than 80 chars per line (where possible).
+- Tabs are 4 char-wide "\t"-characters.
+- Classes MUST have a documentation-string.
+- After class-headers's documentation, one separating line.
+- ??(Internal attributes MUST start with TWO leading underscores.)
+- Editable options NEVER have leading underscores.
+- All functions that are no inherited event-handlers MUST
+  have a documentation-string.
+- Constructors of Screenlet-subclasses must implement the **keyword_args
+  parameter as last argument to their __init__-function.
+- All screenlet-files MUST have the name of the Screenlet-classes
+  they contain (with a .py-extension).
+- All Screenlets MUST have a head-comment containing license/author note,
+  information and a TODO-list (optional).
+- All Screenlets have to define the metainfo-attributes __name__, __desc__, 
+  __version__ and __author__. These may be extended in the future.
+- Screenlets need to be placed into a directory named like the Screenlet's
+  class (without trailing "Screenlet"). This directory may contain a 
+  "themes"-directory where the Screenlet's themes are stored. It may also
+  contain other files (of course).
+- Screenlets should supply an icon named "icon.svg" within their directory.
+
+
+

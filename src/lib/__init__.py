@@ -741,7 +741,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 		return self.__class__.__name__[:-9]
 		
 	def get_screenlet_dir (self):
-		"""Return the name of this screenlet's personal directory."""
+		"""@DEPRECATED: Return the name of this screenlet's personal directory."""
 		p = utils.find_first_screenlet_path(self.get_short_name())
 		if p:
 			return p
@@ -759,15 +759,18 @@ class Screenlet (gobject.GObject, EditableOptions):
 	def get_available_themes (self):
 		"""Returns a list with the names of all available themes in this
 			Screenlet's theme-directory."""
-		dirname = self.get_theme_dir()
-		dirlst = glob.glob(dirname + '*')
-		dirlst.sort()
-		tdlen = len(dirname)
 		lst = []
-		for fname in dirlst:
-			dname = fname[tdlen:]
-			# TODO: check if it's a dir
-			lst.append(dname)
+		for p in SCREENLETS_PATH:
+			d = p + '/' + self.get_short_name() + '/themes/'
+			if os.path.isdir(d):
+				#dirname = self.get_theme_dir()
+				dirlst = glob.glob(d + '*')
+				dirlst.sort()
+				tdlen = len(d)
+				for fname in dirlst:
+					dname = fname[tdlen:]
+					# TODO: check if it's a dir
+					lst.append(dname)
 		return lst
 	
 	def hide (self):

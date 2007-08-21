@@ -25,10 +25,15 @@ import gtk, gobject
 import screenlets
 from screenlets import utils
 import dbus
+import gettext
+
+gettext.textdomain('screenlets-manager')
+gettext.bindtextdomain('screenlets-manager', '/usr/share/locale')
 
 # stub for gettext - we not translate yet, but we will :D
 def _(s):
-	return s
+	#return s
+	return gettext.gettext(s)
 
 
 # name/version of this app

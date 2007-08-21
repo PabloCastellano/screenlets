@@ -18,6 +18,8 @@
 #    - different View-modes (icons/details)
 #
 
+import pygtk
+pygtk.require('2.0')
 import os
 import gtk, gobject
 import screenlets
@@ -254,18 +256,19 @@ class ScreenletsManager:
 				img = noimg
 			# get metadata and create ScreenletInfo-object from it
 			meta = utils.get_screenlet_metadata(s)
-			info = ScreenletInfo(s, meta['name'], meta['info'], meta['author'], 
-				meta['version'], img)
-			# check if already running
-			if lst_r.count(s + 'Screenlet'):
-				info.active = True
-			# check if system-wide
-			#if path.startswith(screenlets.INSTALL_PREFIX):
-			#	print "SYSTEM: %s" % s
-			#	info.system = True
-			# add to model
-			self.model.append(['<span size="9000">%s</span>' % s, img, info])
-	
+			if meta:
+				info = ScreenletInfo(s, meta['name'], meta['info'], 
+					meta['author'], meta	['version'], img)
+				# check if already running
+				if lst_r.count(s + 'Screenlet'):
+					info.active = True
+				# check if system-wide
+				#if path.startswith(screenlets.INSTALL_PREFIX):
+				#	print "SYSTEM: %s" % s
+				#	info.system = True
+				# add to model
+				self.model.append(['<span size="9000">%s</span>' % s, img, info])
+		
 	def quit_screenlet_by_name (self, name):
 		"""Quit all instances of the given screenlet type."""
 		# get service for instance and call quit method

@@ -362,7 +362,7 @@ class CopyStackScreenlet (screenlets.Screenlet):
 
 
 # TODO: put in screenlets.ui
-class Tooltip ():
+class Tooltip:
 	"""A window that displays a text and serves as Tooltip (very basic yet)."""
 	
 	# internals

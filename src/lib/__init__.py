@@ -518,7 +518,13 @@ class Screenlet (gobject.GObject, EditableOptions):
 			self.update_shape()
 		elif name == "theme_name":
 			#self.__dict__ ['theme_name'] = value
-			self.load_theme(self.get_theme_dir() + value)
+			print "LOAD NEW THEME: " + value
+			print "FOUND: " + str(self.find_theme(value))
+			#self.load_theme(self.get_theme_dir() + value)
+			# load theme
+			path = self.find_theme(value)
+			if path:
+				self.load_theme(path)
 			#self.load_first_theme(value)
 			self.redraw_canvas()
 			self.update_shape()
@@ -719,6 +725,15 @@ class Screenlet (gobject.GObject, EditableOptions):
 		"""Enable/Disable realtime-saving of options."""
 		self.saving_enabled = enabled
 	
+	def find_theme (self, name):
+		"""Find the first occurence of a theme and return its global path."""
+		sn = self.get_short_name()
+		for p in SCREENLETS_PATH:
+			fpath = p + '/' + sn + '/themes/' + name
+			if os.path.isdir(fpath):
+				return fpath
+		return None
+	
 	def get_short_name (self):
 		"""Return the short name of this screenlet. This returns the classname
 		of the screenlet without trailing "Screenlet". Please always use
@@ -737,7 +752,8 @@ class Screenlet (gobject.GObject, EditableOptions):
 				return os.getcwd()
 	
 	def get_theme_dir (self):
-		"""Return the name of this screenlet's personal theme-dir."""
+		"""@DEPRECATED: Return the name of this screenlet's personal theme-dir.
+		(Only returns the dir under the screenlet's location"""
 		return self.get_screenlet_dir() + "/themes/"
 	
 	def get_available_themes (self):

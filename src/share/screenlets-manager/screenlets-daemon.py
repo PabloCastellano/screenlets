@@ -20,6 +20,13 @@ import gobject
 
 import screenlets
 from screenlets import utils
+import gettext
+
+gettext.textdomain('screenlets-manager')
+gettext.bindtextdomain('screenlets-manager', '/usr/share/locale')
+
+def _(s):
+	return gettext.gettext(s)
 
 SLD_BUS		= 'org.screenlets.ScreenletsDaemon'
 SLD_PATH	= '/org/screenlets/ScreenletsDaemon'
@@ -52,7 +59,7 @@ class ScreenletsDaemon (dbus.service.Object):
 		"""Register the screenlet with the given name as running."""
 		self.running_screenlets.append(name)
 		self.screenlet_registered(name)		# send signal
-		print "ScreenletsDaemon: registered %s" % name
+		print _("ScreenletsDaemon: registered %s") % name
 	
 	@dbus.service.method(SLD_IFACE)
 	def unregister_screenlet (self, name):
@@ -60,7 +67,7 @@ class ScreenletsDaemon (dbus.service.Object):
 		if self.running_screenlets.count(name):
 			self.running_screenlets.remove(name)
 			self.screenlet_unregistered(name)		# send signal
-			print "screenletsDaemon: unregistered %s" % name
+			print _("screenletsDaemon: unregistered %s") % name
 	
 	@dbus.service.signal(SLD_IFACE)
 	def screenlet_registered (self, name):
@@ -87,7 +94,7 @@ if __name__ == '__main__':
 	sys.exit(1)"""
 	# create new daemon
 	daemon = ScreenletsDaemon()
-	print 'ScreenletsDaemon running ...'
+	print _('ScreenletsDaemon running ...')
 	# and start mainloop
 	try:
 		# start mainloop
@@ -96,8 +103,8 @@ if __name__ == '__main__':
 	except KeyboardInterrupt:
 		# notify when daemon is closed
 		#service.notify('Screenlets-backend has been shut down .... ', 5000)
-		print 'ScreenletsDaemon has been shut down ...'
+		print _('ScreenletsDaemon has been shut down ...')
 	except Exception, ex:
-		print "Exception in ScreenletsDaemon: %s" % ex
+		print _("Exception in ScreenletsDaemon: %s") % ex
 
 

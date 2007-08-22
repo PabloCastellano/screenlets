@@ -13,6 +13,13 @@ import dbus
 import os
 import sys
 import stat
+import gettext
+
+gettext.textdomain('screenlets')
+gettext.bindtextdomain('screenlets', '/usr/share/locale')
+
+def _(s):
+	return gettext.gettext(s)
 
 
 # ------------------------------------------------------------------------------
@@ -63,7 +70,7 @@ def get_screenlet_metadata (screenlet_name):
 			'version'	: cls.__version__
 			}
 	except Exception, ex:
-		print "Unable to load '%s' from %s: %s " % (screenlet_name, path, ex)
+		print _("Unable to load '%s' from %s: %s ") % (screenlet_name, path, ex)
 		return None
 
 def list_available_screenlets ():
@@ -82,7 +89,7 @@ def list_available_screenlets ():
 					if not sls.count(name):
 						sls.append(name)
 				else:
-					print "LISTED PATH NOT EXISTS: " + path
+					print _("LISTED PATH NOT EXISTS: ") + path
 		except OSError: # Raised by os.listdir: the directory doesn't exist
 			pass
 	return sls
@@ -178,7 +185,7 @@ class IniReader:
 								try:
 									self.sections[section_name].append(o)
 								except:
-									print "Section %s not found!" % section_name
+									print _("Section %s not found!") % section_name
 			f.close()
 			return True
 		else:
@@ -212,7 +219,7 @@ class Notifier:
 				[], {}, timeout)
 			return True
 		else:
-			print "Notify: No DBus running or notifications-daemon unavailable."
+			print _("Notify: No DBus running or notifications-daemon unavailable.")
 		return False
 
 

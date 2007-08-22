@@ -3,6 +3,13 @@
 
 import sys
 import re
+import gettext
+
+gettext.textdomain('screenlets')
+gettext.bindtextdomain('screenlets', '/usr/share/locale')
+
+def _(s):
+	return gettext.gettext(s)
 
 # calculate cpu-usage by values from /proc/stat
 # (written by Bernd Wurst)
@@ -13,7 +20,7 @@ def get_cpu_load (old_cuse = [0]):
 		tmp = f.readlines(200)
 		f.close()
 	except:
-		print "Failed to open /proc/stat"
+		print _("Failed to open /proc/stat")
 		sys.exit(1)
 	# 200 bytes should be enough because the information we 
 	# need ist typically stored in the first line. Info about individual 

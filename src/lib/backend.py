@@ -13,12 +13,19 @@
 import glob
 import os
 import gobject
+import gettext
+
+gettext.textdomain('screenlets')
+gettext.bindtextdomain('screenlets', '/usr/share/locale')
+
+def _(s):
+	return gettext.gettext(s)
 
 
 try:
 	import gconf
 except:
-	print "GConf python module not found. GConf settings backend is disabled."
+	print _("GConf python module not found. GConf settings backend is disabled.")
 
 
 class ScreenletsBackend:
@@ -57,7 +64,7 @@ class GconfBackend:
 	
 	def __init__ (self):
 		ScreenletsBackend.__init__(self)
-		print 'GConfBackend: initializing'
+		print _('GConfBackend: initializing')
 		self.client = gconf.client_get_default()
 	
 	def delete_instance (self, id):
@@ -88,7 +95,8 @@ class GconfBackend:
 	def save_option (self, id, name, value):
 		"""Save one option for the instance with the given id."""
 		self.client.set_string(self.gconf_dir + id + '/' + name, value)
-		print 'Saved option ' + self.gconf_dir + id + '/' + name + ' = ' + value
+		print 'Saved option ' + self.gconf_dir + id + '/' + name + ' = ' + value % (self.gconf_dir, id, name, value)
+		print _('Saved option %s%s/%s = %s') % (self.gconf_dir, id, name, value)
 
 
 class CachingBackend (ScreenletsBackend):
@@ -121,9 +129,9 @@ class CachingBackend (ScreenletsBackend):
 				os.remove(self.path + id + '.ini')
 			except Exception,ex:
 				print ex
-				print "Temporary file didn't exist - nothing to remove."
+				print _("Temporary file didn't exist - nothing to remove.")
 				return False
-		print "CachingBackend: <#" + id + "> removed!"
+		print _("CachingBackend: <#%s> removed!") % id
 		return True
 	
 	def flush (self):
@@ -172,7 +180,7 @@ class CachingBackend (ScreenletsBackend):
 			dname = fname[tdlen:]
 			if dname.endswith('.ini'):
 				id = dname[:-4]
-				print "CachingBackend: Loading <"+id+">"
+				print _("CachingBackend: Loading <%s>") % id
 				#print "ID: "+id
 				if self.__instances.has_key(id) == False:
 					self.__instances[id] = {}
@@ -188,7 +196,7 @@ class CachingBackend (ScreenletsBackend):
 							self.__instances[id][parts[0]] = parts[1]
 					f.close()
 				except Exception, ex:
-					print "Error while loading options: " + str(ex)
+					print _("Error while loading options: %s") % str(ex)
 	
 	def __save_cache (self):
 		"""Save the cache (for all pending instances in queue) to self.path."""
@@ -196,11 +204,11 @@ class CachingBackend (ScreenletsBackend):
 		for id in self.__queue:
 			# if element with id not exists, remove it and break
 			if self.__instances.has_key(id) == False:
-				print "Queue-element <"+id+"> not found (already removed?)!"
+				print _("Queue-element <%s> not found (already removed?)!") % id
 				self.__queue.remove(id)
 				break
 			# create list with options
-			print "CachingBackend: Saving <#"+id+"> :) ..."
+			print _("CachingBackend: Saving <#%s> :) ...") % id
 			lst = []
 			for oname in self.__instances[id]:
 				lst.append([oname, self.__instances[id][oname]])
@@ -213,7 +221,7 @@ class CachingBackend (ScreenletsBackend):
 					f.close()
 					print "OK"
 				except:
-					print "error while saving config: "+self.path+oname
+					print _("error while saving config: %s%s") % (self.path, oname)
 		# clear queue
 		self.__queue = []
 		# NOT continue the timeout-function (!!!!!)

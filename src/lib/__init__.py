@@ -34,6 +34,7 @@ import rsvg
 import sys
 import os
 import glob
+import gettext
 
 # import screenlet-submodules
 from options import *
@@ -69,7 +70,11 @@ PATH = INSTALL_PREFIX + '/share/screenlets'
 # from its personal dir)
 SCREENLETS_PATH = [os.environ['HOME'] + '/.screenlets', PATH]
 
+gettext.textdomain('screenlets')
+gettext.bindtextdomain('screenlets', '/usr/share/locale')
 
+def _(s):
+	return gettext.gettext(s)
 
 #-------------------------------------------------------------------------------
 # CLASSES
@@ -123,7 +128,7 @@ class ScreenletTheme (dict):
 		self.option_overrides = {}
 		self.loaded = self.__load_all()
 		if self.loaded == False:
-			raise Exception("Error while loading ScreenletTheme in: " + path)
+			raise Exception(_("Error while loading ScreenletTheme in: ") + path)
 	
 	def __getattr__ (self, name):
 		if name in ("width", "height"):
@@ -144,7 +149,7 @@ class ScreenletTheme (dict):
 		theme_name = ''
 		# loop through overrides and appply them
 		for name in self.option_overrides:
-			print "Override: "+name
+			print _("Override: ") + name
 			o = screenlet.get_option_by_name(name)
 			if o and not o.protected:
 				if name == 'theme_name':
@@ -155,7 +160,7 @@ class ScreenletTheme (dict):
 					setattr(screenlet, name, 
 						o.on_import(self.option_overrides[name]))
 			else:
-				print "WARNING: Option '%s' not found or protected." % name
+				print _("WARNING: Option '%s' not found or protected.") % name
 		# now apply theme
 		if theme_name != '':
 			screenlet.theme_name = theme_name
@@ -191,13 +196,13 @@ class ScreenletTheme (dict):
 				if opts:
 					for o in opts:
 						self.option_overrides[o[0]] = o[1]
-			print "theme.conf loaded: "
-			print "Name: " + str(self.__name__)
-			print "Author: " +str(self.__author__)
-			print "Version: " +str(self.__version__)
-			print "Info: " +str(self.__info__)
+			print _("theme.conf loaded: ")
+			print _("Name: ") + str(self.__name__)
+			print _("Author: ") +str(self.__author__)
+			print _("Version: ") +str(self.__version__)
+			print _("Info: ") +str(self.__info__)
 		else:
-			print "Failed to load theme.conf"
+			print _("Failed to load theme.conf")
 	
 	
 	def load_svg (self, filename):
@@ -247,7 +252,7 @@ class ScreenletTheme (dict):
 				if self.load_png(fname) == False:
 					return False
 			elif fname == "theme.conf":
-				print "theme.conf found! Loading option-overrides."
+				print _("theme.conf found! Loading option-overrides.")
 				# theme.conf
 				if self.load_conf(file) == False:
 					return False
@@ -302,10 +307,10 @@ class Screenlet (gobject.GObject, EditableOptions):
 	their owner-drawn graphics on fully transparent background."""
 	
 	# default meta-info for Screenlets
-	__name__	= 'No name set for this Screenlet'
+	__name__	= _('No name set for this Screenlet')
 	__version__	= '0.0'
-	__author__	= 'No author defined for this Screenlet'
-	__desc__	= 'No info set for this Screenlet'
+	__author__	= _('No author defined for this Screenlet')
+	__desc__	= _('No info set for this Screenlet')
 	__requires__	= []		# still unused
 	#__target_version__ = '0.0.0'
 	#__backend_version__ = '0.0.1'
@@ -393,7 +398,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 		self.__shape_bitmap_height = 0
 		# "editable" options, first create a group
 		self.add_options_group('Screenlet', 
-			'The basic settings for this Screenlet-instance.')
+			_('The basic settings for this Screenlet-instance.'))
 		# if this Screenlet uses themes, add theme-specific options
 		# (NOTE: this option became hidden with 0.0.9 and doesn't use
 		# get_available_themes anymore for showing the choices)
@@ -403,49 +408,49 @@ class Screenlet (gobject.GObject, EditableOptions):
 				'default', '', '', hidden=True))
 		# create/add options
 		self.add_option(IntOption('Screenlet', 'x', 
-			0, 'X-Position', 'The X-position of this Screenlet ...', 
+			0, _('X-Position'), _('The X-position of this Screenlet ...'), 
 			min=0, max=gtk.gdk.screen_width()))
 		self.add_option(IntOption('Screenlet', 'y', 
-			0, 'Y-Position', 'The Y-position of this Screenlet ...', 
+			0, _('Y-Position'), _('The Y-position of this Screenlet ...'), 
 			min=0, max=gtk.gdk.screen_height()))
 		self.add_option(IntOption('Screenlet', 'width', 
-			width, 'Width', 'The width of this Screenlet ...', 
+			width, _('Width'), _('The width of this Screenlet ...'), 
 			min=16, max=1000, hidden=True))
 		self.add_option(IntOption('Screenlet', 'height', 
-			height, 'Height', 'The height of this Screenlet ...', 
+			height, _('Height'), _('The height of this Screenlet ...'), 
 			min=16, max=1000, hidden=True))
 		self.add_option(FloatOption('Screenlet', 'scale', 
-			self.scale, 'Scale', 'The scale-factor of this Screenlet ...', 
+			self.scale, _('Scale'), _('The scale-factor of this Screenlet ...'), 
 			min=0.1, max=10.0, digits=2, increment=0.1))
 		self.add_option(BoolOption('Screenlet', 'is_sticky', 
-			is_sticky, 'Stick to Desktop', 
-			'Show this Screenlet on all workspaces ...'))
+			is_sticky, _('Stick to Desktop'), 
+			_('Show this Screenlet on all workspaces ...')))
 		self.add_option(BoolOption('Screenlet', 'is_widget', 
-			is_widget, 'Treat as Widget', 
-			'Treat this Screenlet as a "Widget" ...'))
+			is_widget, _('Treat as Widget'), 
+			_('Treat this Screenlet as a "Widget" ...')))
 		self.add_option(BoolOption('Screenlet', 'lock_position', 
-			self.lock_position, 'Lock position', 
-			'Stop the screenlet from being moved...'))
+			self.lock_position, _('Lock position'), 
+			_('Stop the screenlet from being moved...')))
 		self.add_option(BoolOption('Screenlet', 'keep_above', 
-			self.keep_above, 'Keep above', 
-			'Keep this Screenlet above other windows ...'))
+			self.keep_above, _('Keep above'), 
+			_('Keep this Screenlet above other windows ...')))
 		self.add_option(BoolOption('Screenlet', 'keep_below', 
-			self.keep_below, 'Keep below', 
-			'Keep this Screenlet below other windows ...'))
+			self.keep_below, _('Keep below'), 
+			_('Keep this Screenlet below other windows ...')))
 		self.add_option(BoolOption('Screenlet', 'skip_pager', 
-			self.skip_pager, 'Skip Pager', 
-			'Set this Screenlet to show/hide in pagers ...'))
+			self.skip_pager, _('Skip Pager'), 
+			_('Set this Screenlet to show/hide in pagers ...')))
 		self.add_option(BoolOption('Screenlet', 'skip_taskbar', 
-			self.skip_pager, 'Skip Taskbar', 
-			'Set this Screenlet to show/hide in taskbars ...'))
+			self.skip_pager, _('Skip Taskbar'), 
+			_('Set this Screenlet to show/hide in taskbars ...')))
 		if uses_theme:
 			self.add_option(BoolOption('Screenlet', 'allow_option_override', 
-			self.allow_option_override, 'Allow overriding Options', 
-				'Allow themes to override options in this screenlet ...'))
+			self.allow_option_override, _('Allow overriding Options'), 
+				_('Allow themes to override options in this screenlet ...')))
 			self.add_option(BoolOption('Screenlet', 'ask_on_option_override', 
-				self.ask_on_option_override, 'Ask on Override', 
-				'Show a confirmation-dialog when a theme wants to override '+\
-				'the current options of this Screenlet ...'))
+				self.ask_on_option_override, _('Ask on Override'), 
+				_('Show a confirmation-dialog when a theme wants to override ')+\
+				_('the current options of this Screenlet ...')))
 		# disable width/height
 		self.disable_option('width')
 		self.disable_option('height')
@@ -518,8 +523,8 @@ class Screenlet (gobject.GObject, EditableOptions):
 			self.update_shape()
 		elif name == "theme_name":
 			#self.__dict__ ['theme_name'] = value
-			print "LOAD NEW THEME: " + value
-			print "FOUND: " + str(self.find_theme(value))
+			print _("LOAD NEW THEME: ") + value
+			print _("FOUND: ") + str(self.find_theme(value))
 			#self.load_theme(self.get_theme_dir() + value)
 			# load theme
 			path = self.find_theme(value)
@@ -592,7 +597,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 			pass
 		# add size-selection
 		if flags & DefaultMenuItem.SIZE:
-			size_item = gtk.MenuItem("Size")
+			size_item = gtk.MenuItem(_("Size"))
 			size_item.show()
 			size_menu = gtk.Menu()
 			menu.append(size_item)
@@ -607,7 +612,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 				size_menu.append(item)
 		# create theme-selection menu
 		if flags & DefaultMenuItem.THEMES:
-			themes_item = gtk.MenuItem("Theme")
+			themes_item = gtk.MenuItem(_("Theme"))
 			themes_item.show()
 			themes_menu = gtk.Menu()
 			menu.append(themes_item)
@@ -622,34 +627,34 @@ class Screenlet (gobject.GObject, EditableOptions):
 				themes_menu.append(item)
 		# add window-options menu
 		if flags & DefaultMenuItem.WINDOW_MENU:
-			winmenu_item = gtk.MenuItem("Window")
+			winmenu_item = gtk.MenuItem(_("Window"))
 			winmenu_item.show()
 			winmenu_menu = gtk.Menu()
 			menu.append(winmenu_item)
 			winmenu_item.set_submenu(winmenu_menu)
 			# add "Sticky"-menuitem
-			self.__mi_sticky = item = gtk.CheckMenuItem("Sticky")
+			self.__mi_sticky = item = gtk.CheckMenuItem(_("Sticky"))
 			item.set_active(self.is_sticky)
 			item.connect("activate", self.menuitem_callback, 
 				"option:sticky")
 			item.show()
 			winmenu_menu.append(item)
 			# add "Widget"-menuitem
-			self.__mi_widget = item = gtk.CheckMenuItem("Widget")
+			self.__mi_widget = item = gtk.CheckMenuItem(_("Widget"))
 			item.set_active(self.is_widget)
 			item.connect("activate", self.menuitem_callback, 
 				"option:widget")
 			item.show()
 			winmenu_menu.append(item)
 			# add "Keep above"-menuitem
-			self.__mi_keep_above = item = gtk.CheckMenuItem("Keep above")
+			self.__mi_keep_above = item = gtk.CheckMenuItem(_("Keep above"))
 			item.set_active(self.keep_above)
 			item.connect("activate", self.menuitem_callback, 
 				"option:keep_above")
 			item.show()
 			winmenu_menu.append(item)
 			# add "Keep Below"-menuitem
-			self.__mi_keep_below = item = gtk.CheckMenuItem("Keep below")
+			self.__mi_keep_below = item = gtk.CheckMenuItem(_("Keep below"))
 			item.set_active(self.keep_below)
 			item.connect("activate", self.menuitem_callback, 
 				"option:keep_below")
@@ -658,18 +663,18 @@ class Screenlet (gobject.GObject, EditableOptions):
 		# add Settings-item
 		if flags & DefaultMenuItem.PROPERTIES:
 			self.add_menuitem("", "-")
-			self.add_menuitem("options", "Properties...")
+			self.add_menuitem("options", _("Properties..."))
 		# add info-item
 		if flags & DefaultMenuItem.INFO:
 			self.add_menuitem("", "-")
-			self.add_menuitem("info", "Info...")
+			self.add_menuitem("info", _("Info..."))
 		# add delete item
 		if flags & DefaultMenuItem.DELETE:
 			self.add_menuitem("", "-")
-			self.add_menuitem("delete", "Delete Screenlet ...")
+			self.add_menuitem("delete", _("Delete Screenlet ..."))
 		# add Quit-item
 		self.add_menuitem("", "-")
-		self.add_menuitem("quit", "Quit %s ..." % self.get_short_name())
+		self.add_menuitem("quit", _("Quit %s ...") % self.get_short_name())
 
 	def add_menuitem (self, id, label, callback=None):
 		"""Simple way to add menuitems to the right-click menu."""
@@ -791,7 +796,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 		self.theme = ScreenletTheme(path)
 		# check for errors
 		if self.theme.loaded == False:
-			print "Error while loading theme: " + path
+			print _("Error while loading theme: ") + path
 			self.theme = None
 		else:
 			# call user-defined handler
@@ -801,8 +806,8 @@ class Screenlet (gobject.GObject, EditableOptions):
 				if self.theme.has_overrides():
 					if self.ask_on_option_override==True and \
 						show_question(self, 
-						'This theme wants to override your settings for '+\
-						'this Screenlet. Do you want to allow that?') == False:
+						_('This theme wants to override your settings for ')+\
+						_('this Screenlet. Do you want to allow that?')) == False:
 						return
 					self.theme.apply_option_overrides(self)
 	# /EXPERIMENTAL
@@ -908,7 +913,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 		# if updates are disabled, just exit
 		if self.disable_updates:
 			return
-		print "UPDATING SHAPE"
+		print _("UPDATING SHAPE")
 		# TODO:
 		#if not self.window.is_composited():
 		#	self.update_shape_non_composited()
@@ -967,9 +972,8 @@ class Screenlet (gobject.GObject, EditableOptions):
 	def on_delete (self):
 		"""Called when the Screenlet gets deleted. Return True to cancel.
 		TODO: sometimes not properly called"""
-		return not show_question(self, 'To quit all ' + 
-			self.__class__.__name__ + 's, use "Quit" instead. Really delete '+\
-			' this ' + self.get_short_name() + ' and its settings?')
+		return not show_question(self, _("To quit all %s's, use 'Quit' instead. ") % self.__class__.__name__ +\
+			_('Really delete this %s and its settings?') % self.get_short_name())
 		"""return not show_question(self, 'Deleting this instance of the '+\
 				self.__name__ + ' will also delete all your personal '+\
 				'changes you made to it!! If you just want to close the '+\
@@ -1119,10 +1123,10 @@ class Screenlet (gobject.GObject, EditableOptions):
 		if event.button == 3:
 			self.menu.popup(None, None, None, event.button, event.time)
 		elif event.button == 4:
-			print "MOUSEWHEEL"
+			print _("MOUSEWHEEL")
 			self.scale -= 0.1
 		elif event.button == 5:
-			print "MOUSEWHEEL"
+			print _("MOUSEWHEEL")
 			self.scale += 0.1
 		return False
 	
@@ -1154,7 +1158,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 		# cancel event?
 		print "delete_event"
 		if self.on_delete() == True:
-			print "Cancel delete_event"
+			print _("Cancel delete_event")
 			return True
 		else:
 			self.close()
@@ -1174,7 +1178,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 			del self		# ??? does this really work???
 	
 	def drag_begin (self, widget, drag_context):
-		print "Start drag"
+		print _("Start drag")
 		self.is_dragged = True
 		self.on_drag_begin(drag_context)
 		#return False
@@ -1183,7 +1187,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 		return self.on_drop(x, y, sel_data, timestamp)
 	
 	def drag_end (self, widget, drag_context):
-		print "End drag"
+		print _("End drag")
 		self.is_dragged = False
 		return False
 	
@@ -1264,7 +1268,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 				if type(self.__dict__[id[8:]]) == bool:
 					self.__dict__[id[8:]] = not self.__dict__[id[8:]]	# UNSAFE!!
 			except:
-				print "Error: Cannot set missing or non-boolean value '"\
+				print _("Error: Cannot set missing or non-boolean value '")\
 					+ id[8:] + "'"
 		elif id[:7] == "option:":
 			# NOTE: this part should be removed and XML-menus

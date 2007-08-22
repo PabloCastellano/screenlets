@@ -438,8 +438,8 @@ class Screenlet (gobject.GObject, EditableOptions):
 			self.keep_below, _('Keep below'), 
 			_('Keep this Screenlet below other windows ...')))
 		self.add_option(BoolOption('Screenlet', 'skip_pager', 
-			self.skip_pager, _('Skip Pager', 
-			'Set this Screenlet to show/hide in pagers ...')))
+			self.skip_pager, _('Skip Pager'), 
+			_('Set this Screenlet to show/hide in pagers ...')))
 		self.add_option(BoolOption('Screenlet', 'skip_taskbar', 
 			self.skip_pager, _('Skip Taskbar'), 
 			_('Set this Screenlet to show/hide in taskbars ...')))
@@ -972,7 +972,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 	def on_delete (self):
 		"""Called when the Screenlet gets deleted. Return True to cancel.
 		TODO: sometimes not properly called"""
-		return not show_question(self, "To quit all %s 's, use 'Quit' instead. " % self.__class__.__name__ +\
+		return not show_question(self, "To quit all %s's, use 'Quit' instead. " % self.__class__.__name__ +\
 			'Really delete this %s and its settings?' % self.get_short_name())
 		"""return not show_question(self, 'Deleting this instance of the '+\
 				self.__name__ + ' will also delete all your personal '+\

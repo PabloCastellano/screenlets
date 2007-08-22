@@ -13,6 +13,13 @@ import dbus
 import os
 import sys
 import stat
+import gettext
+
+gettext.textdomain('screenlets')
+gettext.bindtextdomain('screenlets', '/usr/share/locale')
+
+def _(s):
+	return gettext.gettext(s)
 
 
 # ------------------------------------------------------------------------------

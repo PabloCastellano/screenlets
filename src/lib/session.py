@@ -38,6 +38,14 @@ import utils
 
 import dbus	# TEMPORARY!! only needed for workaround
 
+import gettext
+
+gettext.textdomain('screenlets')
+gettext.bindtextdomain('screenlets', '/usr/share/locale')
+
+def _(s):
+	return gettext.gettext(s)
+
 
 # temporary path for saving files for opened screenlets
 TMP_DIR		= '/tmp/screenlets'

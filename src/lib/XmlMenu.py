@@ -12,6 +12,13 @@ import glob, gtk
 import xml.dom.minidom
 from xml.dom.minidom import Node
 import os
+import gettext
+
+gettext.textdomain('screenlets')
+gettext.bindtextdomain('screenlets', '/usr/share/locale')
+
+def _(s):
+	return gettext.gettext(s)
 
 # creates a nw gtk.ImageMenuItem from a given icon-/filename.
 # If no absolute path is given, the function checks for the name 
@@ -34,7 +41,7 @@ def imageitem_from_name (filename, label, icon_size=32):
 			else:
 				image.set_from_pixbuf(pb)
 		except:
-			print "Error while creating image from file: "+filename
+			print _("Error while creating image from file: %s") % filename
 			return None
 	else:
 		image.set_from_icon_name(filename, 3)	# TODO: use better size
@@ -50,7 +57,7 @@ def read_desktop_file (filename):
 	try:
 		f = open (filename, "r")
 	except:
-		print "Error: file " + filename + " not found."
+		print "Error: file %s not found." % filename
 	if f:
 		lines = f.readlines()
 		for line in lines:
@@ -171,7 +178,7 @@ def create_menu_from_file (filename, callback):
 	try:
 		doc = xml.dom.minidom.parse(filename)
 	except Exception, e:
-		print "XML-Error: "+str(e)
+		print _("XML-Error: %s") % str(e)
 		return None
 	return create_menu_from_xml(doc.firstChild, callback)
 
@@ -217,8 +224,8 @@ class ApplicationMenu:
 					#if typ == "Application":
 					self.__applications.append(df)
 				except Exception, ex:
-					print "Exception: "+str(ex)
-					print "An error occured with desktop-file: "+file
+					print _("Exception: %s") % str(ex)
+					print _("An error occured with desktop-file: %s") % file
 	
 	# return a gtk.Menu with all app in the given category
 	def get_menu_for_category (self, cat_name, callback):
@@ -324,4 +331,4 @@ if __name__ == "__main__":
 		win.show()
 		gtk.main()
 	else:
-		print "Error while creating menu."
+		print _("Error while creating menu.")

@@ -28,6 +28,13 @@ import os
 import gtk, gobject
 import xml.dom.minidom
 from xml.dom.minidom import Node
+import gettext
+
+gettext.textdomain('screenlets')
+gettext.bindtextdomain('screenlets', '/usr/share/locale')
+
+def _(s):
+	return gettext.gettext(s)
 
 
 # -----------------------------------------------------------------------

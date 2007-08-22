@@ -17,6 +17,13 @@ import dbus
 import dbus.service
 if getattr(dbus, 'version', (0,0,0)) >= (0,41,0):
 	import dbus.glib
+import gettext
+
+gettext.textdomain('screenlets')
+gettext.bindtextdomain('screenlets', '/usr/share/locale')
+
+def _(s):
+	return gettext.gettext(s)
 
 # quick access to dbus decorator-method (to avoid importing dbus in screenlets
 # and keep the possibility to create custom decorators in the future)
@@ -39,7 +46,7 @@ class ScreenletService (dbus.service.Object):
 	def __init__ (self, screenlet, name, id=None):
 		# check types and vals
 		if name == '':
-			raise Exception('No name set in ScreenletService.__init__!');
+			raise Exception(_('No name set in ScreenletService.__init__!'));
 		# init props
 		self.screenlet	= screenlet
 		self.name		= name
@@ -87,7 +94,7 @@ class ScreenletService (dbus.service.Object):
 			if not o.protected:
 				return getattr(sl, attrib)
 			else:
-				print "Cannot get/set protected options through service."
+				print _("Cannot get/set protected options through service.")
 				return None
 	
 	@action(IFACE)
@@ -119,15 +126,15 @@ class ScreenletService (dbus.service.Object):
 		instance with the given id will be accessed. """
 		sl = self.screenlet.session.get_instance_by_id(id)
 		if sl == None:
-			raise Exception('Trying to access invalid instance "%s".' % id)
+			raise Exception(_('Trying to access invalid instance "%s".') % id)
 		if sl.get_option_by_name(attrib) == None:
-			raise Exception('Trying to access invalid option "%s".' % attrib)
+			raise Exception(_('Trying to access invalid option "%s".') % attrib)
 		else:
 			o = sl.get_option_by_name(attrib)
 			if not o.protected:
 				setattr(sl, attrib, value)
 			else:
-				print "Cannot get/set protected options through service."
+				print _("Cannot get/set protected options through service.")
 	
 	@signal(IFACE)
 	def instance_added (self, id):
@@ -153,7 +160,7 @@ def get_service_by_name (name, interface=ScreenletService.IFACE):
 				#return dbus.Interface(proxy_obj, ScreenletService.IFACE)
 				return dbus.Interface(proxy_obj, interface)
 		except Exception, ex:
-			print "Error in screenlets.services.get_service_by_name: " + str(ex)
+			print _("Error in screenlets.services.get_service_by_name: %s") % str(ex)
 	return None
 
 def service_is_running (name):

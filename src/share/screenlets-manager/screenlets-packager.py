@@ -9,11 +9,18 @@
 import sys, os
 from datetime import datetime
 import screenlets
+import gettext
+
+gettext.textdomain('screenlets-manager')
+gettext.bindtextdomain('screenlets-manager', '/usr/share/locale')
+
+def _(s):
+	return gettext.gettext(s)
 
 
 # + constants
-USAGE				= """Screenlets packager - (c) RYX (Rico Pfaus) 2007
-Usage: %s <path> [options]""" % sys.argv[0]
+USAGE				= _("""Screenlets packager - (c) RYX (Rico Pfaus) 2007
+Usage: %s <path> [options]""") % sys.argv[0]
 PACKAGE_INFO_FILE	= 'Screenlet.package'
 
 
@@ -51,20 +58,20 @@ if argc > 2:
 
 # check for existence of directory to be packaged
 if not os.path.isdir(path):
-	die('The specified path "%s" does not exist.' % path)
-msg('Found path "%s".' % path)
+	die(_('The specified path "%s" does not exist.') % path)
+msg(_('Found path "%s".') % path)
 
 # get name of screenlet from the pathname
 try:
 	sl_name = path[path.rfind('/')+1:]
 except:
-	die('Failed to extract screenlet name from path.')
-msg('Screenlet name is %s.' % sl_name)
+	die(_('Failed to extract screenlet name from path.'))
+msg(_('Screenlet name is %s.') % sl_name)
 
 # check for correct file inside path
 if not os.path.isfile(path + '/' + sl_name + 'Screenlet.py'):
-	die('No screenlet-file "%sScreenlet.py" found in the given path.' % sl_name)
-msg('Found %sScreenlet.py in path.' % sl_name)
+	die(_('No screenlet-file "%sScreenlet.py" found in the given path.') % sl_name)
+msg(_('Found %sScreenlet.py in path.') % sl_name)
 
 # import the screenlets module from inside the dir and lookup the class
 if sys.path.count(path) == 0:
@@ -73,17 +80,17 @@ try:
 	sl_module = __import__(sl_name + 'Screenlet')
 	sys.path.remove(path)
 except Exception, ex:
-	die("Unable to import module '%s' from %s. (%s)" % (sl_name, path, ex))
-msg('Successfully imported module: ' + str(sl_module))
+	die(_("Unable to import module '%s' from %s. (%s)") % (sl_name, path, ex))
+msg(_('Successfully imported module: %s') % str(sl_module))
 
 # lookup screenlet class
 try:
 	sl_class = getattr(sl_module, sl_name + 'Screenlet')
 except Exception, ex:
-	die("Unable to import class from module.")
+	die(_("Unable to import class from module."))
 if not issubclass(sl_class, screenlets.Screenlet):
-	die('The class inside the module is no subclass of screenlets.Screenlet.')
-msg('Successfully got class from module: ' + str(sl_class))
+	die(_('The class inside the module is no subclass of screenlets.Screenlet.'))
+msg(_('Successfully got class from module: %s') % str(sl_class))
 
 # create a file with the package-info inside the screenlet's dir
 meta = """[Screenlet Package]
@@ -101,8 +108,8 @@ if f:
 	f.write(meta)
 	f.close()
 else:
-	die('Failed to create package info in %s.' % path)
-msg('Created package info file.')
+	die(_('Failed to create package info in %s.') % path)
+msg(_('Created package info file.'))
 
 # cd into path, package the whole stuff up into an archive and save it to our pwd
 pwd = os.getcwd()
@@ -114,7 +121,7 @@ os.system('cd %s && cd .. && tar cfz %s/%s.tar.gz %s %s' % (path, pwd,
 
 # remove the metadata file
 os.system('rm %s/%s' % (path, PACKAGE_INFO_FILE))
-msg('Cleaned up and finished.')
+msg(_('Cleaned up and finished.'))
 
 # OK
 print 'OK.'

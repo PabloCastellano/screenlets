@@ -972,8 +972,8 @@ class Screenlet (gobject.GObject, EditableOptions):
 	def on_delete (self):
 		"""Called when the Screenlet gets deleted. Return True to cancel.
 		TODO: sometimes not properly called"""
-		return not show_question(self, "To quit all %s's, use 'Quit' instead. " % self.__class__.__name__ +\
-			'Really delete this %s and its settings?' % self.get_short_name())
+		return not show_question(self, _("To quit all %s's, use 'Quit' instead. ") % self.__class__.__name__ +\
+			_('Really delete this %s and its settings?') % self.get_short_name())
 		"""return not show_question(self, 'Deleting this instance of the '+\
 				self.__name__ + ' will also delete all your personal '+\
 				'changes you made to it!! If you just want to close the '+\

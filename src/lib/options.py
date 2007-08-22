@@ -136,7 +136,7 @@ class IntOption (Option):
 				return int(strvalue[1:]) * -1
 			return int(strvalue)
 		except:
-			print "Error during on_import - option: %s." % self.name
+			print _("Error during on_import - option: %s.") % self.name
 			return 0
 
 
@@ -218,19 +218,19 @@ class AccountOption (Option):
 			protected=True, **keyword_args)
 		# check for availability of keyring
 		if not gnomekeyring.is_available():
-			raise Exception('GnomeKeyring is not available!!')	# TEMP!!!
+			raise Exception(_('GnomeKeyring is not available!!'))	# TEMP!!!
 		# THIS IS A WORKAROUND FOR A BUG IN KEYRING (usually we would use
 		# gnomekeyring.get_default_keyring_sync() here):
 		# find first available keyring
 		keyring_list = gnomekeyring.list_keyring_names_sync()
 		if len(keyring_list) == 0:
-			raise Exception('No keyrings found. Create one first!')
+			raise Exception(_('No keyrings found. Create one first!'))
 		else:
 			# we prefer the default keyring
 			if keyring_list.count('default') > 0:
 				self.keyring = 'default'
 			else:
-				print "Warn: No default keyring found, storage not permanent!"
+				print _("Warn: No default keyring found, storage not permanent!")
 				self.keyring = keyring_list[0]
 	
 	def on_import (self, strvalue):
@@ -246,12 +246,12 @@ class AccountOption (Option):
 				pw = gnomekeyring.item_get_info_sync('session', 
 					int(auth_token)).get_secret()
 			except Exception, ex:
-				print "ERROR: Unable to read password from keyring: %s" % ex
+				print _("ERROR: Unable to read password from keyring: %s") % ex
 				pw = ''
 			# return
 			return (name, pw)
 		else:
-			raise Exception('Illegal value in AccountOption.on_import.')
+			raise Exception(_('Illegal value in AccountOption.on_import.'))
 	
 	def on_export (self, value):
 		"""Export the given tuple/list containing a username and a password. The
@@ -375,7 +375,7 @@ class EditableOptions:
 		try:
 			self.__options_groups__[option.group]['options'].append(option)
 		except:
-			print "Options: Error- group " + option.group + " not defined."
+			print _("Options: Error- group %s not defined.") % option.group
 			return False
 		# now add the option
 		self.__options__.append(option)
@@ -433,11 +433,11 @@ class EditableOptions:
 		try:
 			doc = xml.dom.minidom.parse(filename)
 		except:
-			raise Exception('Invalid XML in metadata-file (or file missing): "%s".' % filename)
+			raise Exception(_('Invalid XML in metadata-file (or file missing): "%s".') % filename)
 		# get rootnode
 		root = doc.firstChild
 		if not root or root.nodeName != 'screenlet':
-			raise Exception('Missing or invalid rootnode in metadata-file: "%s".' % filename)
+			raise Exception(_('Missing or invalid rootnode in metadata-file: "%s".') % filename)
 		# ok, let's check the nodes: this one should contain option-groups
 		groups = []
 		for node in root.childNodes:
@@ -446,13 +446,13 @@ class EditableOptions:
 				#print node
 				if node.nodeName != 'group' or not node.hasChildNodes():
 					# we only allow groups in the first level (groups need children)
-					raise Exception('Error in metadata-file "%s" - only <group>-tags allowed in first level. Groups must contain at least one <info>-element.' % filename)
+					raise Exception(_('Error in metadata-file "%s" - only <group>-tags allowed in first level. Groups must contain at least one <info>-element.') % filename)
 				else:
 					# ok, create a new group and parse its elements
 					group = {}
 					group['name']		= node.getAttribute("name")
 					if not group['name']:
-						raise Exception('No name for group defined in "%s".' % filename)
+						raise Exception(_('No name for group defined in "%s".') % filename)
 					group['info']		= ''
 					group['options']	= []
 					# check all children in group
@@ -468,7 +468,7 @@ class EditableOptions:
 								if opt:
 									group['options'].append(opt)
 								else:
-									raise Exception('Invalid option-node found in "%s".' % filename)
+									raise Exception(_('Invalid option-node found in "%s".') % filename)
 					
 					# create new group
 					if len(group['options']):
@@ -571,7 +571,7 @@ class ListOptionDialog (gtk.Dialog):
 		entry = gtk.Entry()
 		entry.set_text(default)
 		entry.show()
-		dlg = gtk.Dialog("Add/Edit Item", flags=gtk.DIALOG_DESTROY_WITH_PARENT,
+		dlg = gtk.Dialog(_("Add/Edit Item"), flags=gtk.DIALOG_DESTROY_WITH_PARENT,
 			buttons = (gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL, gtk.STOCK_OK, 
 			gtk.RESPONSE_OK))
 		dlg.set_keep_above(True)
@@ -621,7 +621,7 @@ class OptionsDialog (gtk.Dialog):
 	def __init__ (self, width, height):
 		# call gtk.Dialog.__init__
 		super(OptionsDialog, self).__init__(
-			"Edit Options", flags=gtk.DIALOG_DESTROY_WITH_PARENT |
+			_("Edit Options"), flags=gtk.DIALOG_DESTROY_WITH_PARENT |
 			gtk.DIALOG_NO_SEPARATOR,
 			buttons = (#gtk.STOCK_REVERT_TO_SAVED, gtk.RESPONSE_APPLY,
 				gtk.STOCK_CLOSE, gtk.RESPONSE_OK))
@@ -747,7 +747,7 @@ class OptionsDialog (gtk.Dialog):
 			try:
 				dircontent = os.listdir(p)
 			except:
-				print "Path %s not found." % p
+				print _("Path %s not found.") % p
 				continue
 			# check all themes in path
 			for name in dircontent:
@@ -813,7 +813,7 @@ class OptionsDialog (gtk.Dialog):
 		self.page_about.pack_start(self.infotext, 1, 1, 5)
 		# add page
 		self.page_about.show()
-		self.main_notebook.append_page(self.page_about, gtk.Label('About '))	
+		self.main_notebook.append_page(self.page_about, gtk.Label(_('About ')))	
 	
 	def create_options_page (self):
 		"""Create the "Options"-tab."""
@@ -825,14 +825,14 @@ class OptionsDialog (gtk.Dialog):
 		self.page_options.add(self.vbox_editor)
 		# show/add page
 		self.page_options.show()
-		self.main_notebook.append_page(self.page_options, gtk.Label('Options '))
+		self.main_notebook.append_page(self.page_options, gtk.Label(_('Options ')))
 
 	def create_themes_page (self):
 		"""Create the "Themes"-tab."""
 		self.page_themes = gtk.VBox(spacing=3)
 		self.page_themes.set_border_width(5)
 		# create info-text list
-		txt = gtk.Label('Themes allow you to easily switch the appearance of your Screenlets. On this page you find a list of all available themes for this Screenlet.')
+		txt = gtk.Label(_('Themes allow you to easily switch the appearance of your Screenlets. On this page you find a list of all available themes for this Screenlet.'))
 		txt.set_size_request(450, -1)
 		txt.set_line_wrap(True)
 		txt.set_alignment(0.0, 0.0)
@@ -861,7 +861,7 @@ class OptionsDialog (gtk.Dialog):
 		# show/add page
 		self.page_themes.add(vbox)
 		self.page_themes.show()
-		self.main_notebook.append_page(self.page_themes, gtk.Label('Themes '))
+		self.main_notebook.append_page(self.page_themes, gtk.Label(_('Themes ')))
 		
 	def __render_cell(self, tvcolumn, cell, model, iter):
 		"""Callback for rendering the cells in the theme-treeview."""
@@ -960,7 +960,7 @@ class OptionsDialog (gtk.Dialog):
 			widget.set_font_name(value)
 			widget.connect("font-set", self.options_callback, option)		
 		elif t == FileOption:
-			widget = gtk.FileChooserButton("Choose File")
+			widget = gtk.FileChooserButton(_("Choose File"))
 			widget.set_filename(value)
 			widget.set_size_request(180, 28)
 			widget.connect("selection-changed", self.options_callback, option)
@@ -969,7 +969,7 @@ class OptionsDialog (gtk.Dialog):
 				gtk.RESPONSE_CANCEL, gtk.STOCK_OPEN, gtk.RESPONSE_OK),
 				action=gtk.FILE_CHOOSER_ACTION_SELECT_FOLDER)
 			widget = gtk.FileChooserButton(dlg)
-			widget.set_title("Choose Directory")
+			widget.set_title(_("Choose Directory"))
 			widget.set_filename(value)
 			widget.set_size_request(180, 28)
 			widget.connect("selection-changed", self.options_callback, option)
@@ -995,7 +995,7 @@ class OptionsDialog (gtk.Dialog):
 			def but_callback (widget):
 				dlg = gtk.FileChooserDialog(buttons=(gtk.STOCK_CANCEL, 
 					gtk.RESPONSE_CANCEL, gtk.STOCK_OPEN, gtk.RESPONSE_OK))
-				dlg.set_title("Choose Image")
+				dlg.set_title(_("Choose Image"))
 				dlg.set_keep_above(True)
 				dlg.set_filename(entry.get_text())
 				flt = gtk.FileFilter()
@@ -1062,7 +1062,7 @@ class OptionsDialog (gtk.Dialog):
 				dlg.destroy()
 			but.show()
 			but.connect("clicked", open_listeditor)
-			self.tooltips.set_tip(but, 'Open List-Editor ...')
+			self.tooltips.set_tip(but, _('Open List-Editor ...'))
 			self.tooltips.set_tip(entry, option.desc)
 			widget = gtk.HBox()
 			widget.add(entry)
@@ -1083,14 +1083,14 @@ class OptionsDialog (gtk.Dialog):
 			vb.add(input_name)
 			vb.add(input_pass)
 			vb.show()
-			self.tooltips.set_tip(but, 'Apply username/password ...')
-			self.tooltips.set_tip(input_name, 'Enter username here ...')
-			self.tooltips.set_tip(input_pass, 'Enter password here ...')
+			self.tooltips.set_tip(but, _('Apply username/password ...'))
+			self.tooltips.set_tip(input_name, _('Enter username here ...'))
+			self.tooltips.set_tip(input_pass, _('Enter password here ...'))
 			widget.add(vb)
 			widget.add(but)
 		else:
 			widget = gtk.Entry()
-			print "unsupported type '"+str(t)+"'"
+			print _("unsupported type '%s'") % str(t)
 		hbox = gtk.HBox()
 		label = gtk.Label()
 		label.set_alignment(0.0, 0.0)
@@ -1107,7 +1107,7 @@ class OptionsDialog (gtk.Dialog):
 			widget.show()
 			# check if needs Apply-button
 			if option.realtime == False:
-				but = gtk.Button('Apply', gtk.STOCK_APPLY)
+				but = gtk.Button(_('Apply'), gtk.STOCK_APPLY)
 				but.show()
 				but.connect("clicked", self.apply_options_callback, 
 					option, widget)
@@ -1163,7 +1163,7 @@ class OptionsDialog (gtk.Dialog):
 					c2 = c.get_children()
 					val = (c2[0].get_text(), c2[1].get_text())
 		else:
-			print "OptionsDialog: Unknown option type: " + str(t)
+			print _("OptionsDialog: Unknown option type: %s") % str(t)
 			return None
 		# return the value
 		return val
@@ -1173,7 +1173,7 @@ class OptionsDialog (gtk.Dialog):
 	# TODO: custom callback/signal for each option?
 	def options_callback (self, widget, optionobj):
 		"""Callback for handling changed-events on entries."""
-		print "Changed: "+optionobj.name
+		print _("Changed: %s") % optionobj.name
 		if self.__shown_object:
 			# if the option is not real-time updated,
 			if optionobj.realtime == False:

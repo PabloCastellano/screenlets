@@ -56,8 +56,8 @@ class ScreenletSession (object):
 		# check type
 		if not screenlet_classobj.__name__.endswith('Screenlet'):
 			# TODO: also check for correct type (Screenlet-subclass)!!
-			raise Exception("""ScreenletSession.__init__ has to be called with a
-			 valid Screenlet-classobject as first argument!""")
+			raise Exception(_("""ScreenletSession.__init__ has to be called with a
+			 valid Screenlet-classobject as first argument!"""))
 		# init props
 		self.name 		= name
 		self.screenlet 	= screenlet_classobj
@@ -75,7 +75,7 @@ class ScreenletSession (object):
 		else:
 			# no config-dir? use dummy-backend and note about problem
 			self.backend = backend.ScreenletsBackend()
-			print "Unable to init backend - settings will not be saved!"
+			print _("Unable to init backend - settings will not be saved!")
 		# WORKAROUND: connect to daemon (ideally the daemon should watch the 
 		#             tmpfile for changes!!)
 		self.connect_daemon()
@@ -93,15 +93,15 @@ class ScreenletSession (object):
 				if proxy_obj:
 					self.daemon_iface = dbus.Interface(proxy_obj, iface)
 			except Exception, ex:
-				print "Error in screenlets.session.connect_daemon: %s" % ex
+				print _("Error in screenlets.session.connect_daemon: %s") % ex
 	
 	def create_instance (self, id=None, **keyword_args):
 		"""Create a new instance with ID 'id' and add it to this session. The 
 		function returns either the new Screenlet-instance or None."""
-		print "Creating new instance: "
+		print _("Creating new instance: ")
 		# if id is none or already exists
 		if id==None or id=='' or self.get_instance_by_id(id) != None:
-			print "ID is unset or already in use - creating new one!"
+			print _("ID is unset or already in use - creating new one!")
 			id = self.__get_next_id()
 		sl = self.screenlet(id=id, session=self, **keyword_args)
 		if sl:
@@ -123,22 +123,22 @@ class ScreenletSession (object):
 			try:
 				self.backend.delete_instance(id)
 			except Exception:
-				print "Failed to remove INI-file for instance (not critical)."
+				print _("Failed to remove INI-file for instance (not critical).")
 			# if this was the last instance
 			if len(self.instances) == 0:
 				# maybe show confirmation popup?
-				print "Removing last instance from session"
+				print _("Removing last instance from session")
 				# TODO: remove whole session directory
-				print "TODO: remove self.path: %s" % self.path
+				print _("TODO: remove self.path: %s") % self.path
 				try:
 					os.rmdir(self.path)
 				except:
-					print "Failed to remove session dir '%s' - not empty?" % self.name
+					print _("Failed to remove session dir '%s' - not empty?") % self.name
 				# ...
 				# quit gtk on closing screenlet
 				sl.quit_on_close = True
 			else:
-				print "Removing instance from session but staying alive"
+				print _("Removing instance from session but staying alive")
 				sl.quit_on_close = False
 			# delete screenlet instance
 			sl.close()
@@ -164,25 +164,25 @@ class ScreenletSession (object):
 		running = utils.list_running_screenlets()
 		if running and running.count(self.screenlet.__name__) > 0:
 		#if services.service_is_running(sln):
-			print "Found a running session of %s, adding new instance by service." % sln
+			print _("Found a running session of %s, adding new instance by service.") % sln
 			srvc = services.get_service_by_name(sln)
 			if srvc:
-				print "Adding new instance through: " + str(srvc)
+				print _("Adding new instance through: %s") % str(srvc)
 				srvc.add('')
 				return False
 		# ok, we have a new session running - indicate that to the system
 		self.__register_screenlet()
 		# check for existing entries in the session with the given name
-		print "Loading instances in: " + self.path
+		print _("Loading instances in: %s") % self.path
 		if self.__load_instances():
 			# restored existing entries?
-			print "Restored instances from session '%s' ..." % self.name
+			print _("Restored instances from session '%s' ...") % self.name
 			# call mainloop of first instance (starts application)
 			#self.instances[0].main()
 			self.__run_session(self.instances[0])
 		else:
 			# create new first instance
-			print 'No instance(s) found in session-path, creating new one.'
+			print _('No instance(s) found in session-path, creating new one.')
 			sl = self.screenlet(session=self, id=self.__get_next_id())
 			if sl:
 				# add screenlet to session
@@ -194,7 +194,7 @@ class ScreenletSession (object):
 				#sl.main()
 				self.__run_session(sl)
 			else:
-				print 'Failed creating instance of: ' + self.classobj.__name__
+				print _('Failed creating instance of: %s') % self.classobj.__name__
 				# remove us from the running screenlets
 				self.__unregister_screenlet()
 				return False
@@ -205,7 +205,7 @@ class ScreenletSession (object):
 		"""Create new entry for this session in the global TMP_FILE."""
 		# if tempfile not exists, create it
 		if not os.path.isfile(self.tempfile) and not self.__create_tempfile():
-			print 'Error: Unable to create temp entry - screenlets-manager will not work properly.'
+			print _('Error: Unable to create temp entry - screenlets-manager will not work properly.')
 			return False
 		# open temp file for appending data
 		f = open(self.tempfile, 'a')
@@ -213,7 +213,7 @@ class ScreenletSession (object):
 			# if screenlet not already added
 			running = utils.list_running_screenlets()
 			if running.count(self.screenlet.__name__) == 0:
-				print "Creating new entry for %s in %s" % (self.screenlet.__name__, self.tempfile)
+				print _("Creating new entry for %s in %s") % (self.screenlet.__name__, self.tempfile)
 				f.write(self.screenlet.__name__ + '\n')
 			f.close()
 		# WORKAROUND: for now we manually add this to the daemon,
@@ -226,10 +226,10 @@ class ScreenletSession (object):
 		used for indicating which screnlets are currently running."""
 		# check for existence of TMP_DIR and create it if missing
 		if not os.path.isdir(TMP_DIR):
-			print "No global tempfile found, creating new one."
+			print _("No global tempfile found, creating new one.")
 			os.mkdir(TMP_DIR)
 			if not os.path.isdir(TMP_DIR):
-				print 'Error: Unable to create temp directory %s - screenlets-manager will not work properly.' % TMP_DIR
+				print _('Error: Unable to create temp directory %s - screenlets-manager will not work properly.') % TMP_DIR
 				return False
 		else:
 			# create entry in temp dir
@@ -248,17 +248,17 @@ class ScreenletSession (object):
 			try:
 				self.daemon_iface.unregister_screenlet(name)
 			except Exception, ex:
-				print "Failed to unregister from daemon: %s" % ex
+				print _("Failed to unregister from daemon: %s") % ex
 		# /WORKAROUND
 		# get running screenlets
 		running = utils.list_running_screenlets()
 		if running and len(running) > 0:
-			print "Removing entry for %s from global tempfile %s" % (name, self.tempfile)
+			print _("Removing entry for %s from global tempfile %s") % (name, self.tempfile)
 			try:
 				running.remove(name)
 			except:
 				# not found, so ok
-				print "Entry not found. Will (obviously) not be removed."
+				print _("Entry not found. Will (obviously) not be removed.")
 				return True
 			# still running screenlets?
 			if running and len(running) > 0:
@@ -270,24 +270,24 @@ class ScreenletSession (object):
 					f.close()
 					return True
 				else:
-					print "Error global tempfile not found. Some error before?"
+					print _("Error global tempfile not found. Some error before?")
 				return False
 			else:
-				print 'No more screenlets running.'
+				print _('No more screenlets running.')
 				self.__delete_tempfile(name)
 		else:
-			print 'No screenlets running?'
+			print _('No screenlets running?')
 			return False
 	
 	def __delete_tempfile (self, name=None):
 		"""Delete the tempfile for this session."""
 		if self.tempfile and os.path.isfile(self.tempfile):
-			print "Deleting global tempfile %s" % self.tempfile
+			print _("Deleting global tempfile %s") % self.tempfile
 			try:
 				os.remove(self.tempfile)
 				return True
 			except:
-				print "Error: Failed to delete global tempfile"
+				print _("Error: Failed to delete global tempfile")
 				return False
 	
 	def __get_next_id (self):
@@ -308,20 +308,20 @@ class ScreenletSession (object):
 		tdlen = len(self.path)
 		for filename in dirlst:
 			filename = filename[tdlen:]		# strip path from filename
-			print 'File: ' + filename
+			print _('File: %s') % filename
 			if filename.endswith('.ini'):
 				# create new instance
 				sl = self.create_instance(id=filename[:-4], enable_saving=False)
 				if sl:
 					# set options for the screenlet
-					print "Set options in " + sl.__name__
+					print _("Set options in %s") % sl.__name__
 					#self.__restore_options_from_file (sl, self.path + filename)
 					self.__restore_options_from_backend(sl, self.path+filename)
 					sl.enable_saving(True)
 					# and call init handler
 					sl.on_init()
 				else:
-					print "Failed to create instance of '%s'!" % filename[:-4]
+					print _("Failed to create instance of '%s'!") % filename[:-4]
 		# if instances were found, return True, else False
 		if len(self.instances) > 0:
 			return True
@@ -354,7 +354,7 @@ class ScreenletSession (object):
 		# add sigkill-handler
 		import signal
 		def on_kill():
-			print "Screenlet has been killed. TODO: make this an event"
+			print _("Screenlet has been killed. TODO: make this an event")
 		signal.signal(signal.SIGTERM, on_kill)
 		# set name of tempfile for later (else its missing after kill)
 		tempfile = self.screenlet.__name__
@@ -364,9 +364,9 @@ class ScreenletSession (object):
 			main_instance.main()
 		except KeyboardInterrupt:
 			# notify when daemon is closed
-			print "Screenlet '%s' has been interrupted by keyboard. TODO: make this an event" % self.screenlet.__name__
+			print _("Screenlet '%s' has been interrupted by keyboard. TODO: make this an event") % self.screenlet.__name__
 		except Exception, ex:
-			print "Exception in ScreenletSession: " + ex
+			print _("Exception in ScreenletSession: ") + ex
 		# finally delete the tempfile
 		self.__unregister_screenlet(name=tempfile)
 	

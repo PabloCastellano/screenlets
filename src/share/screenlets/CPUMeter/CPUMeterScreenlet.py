@@ -7,22 +7,22 @@
 # 
 # TODO:
 # - graph is incomplete: implement themed graph (with better clipping)
-# -font/color settings
+# - font/color settings
 
 import screenlets
-import screenlets.sensors
+from screenlets.sensors import CPUSensor
 from screenlets.options import FloatOption, BoolOption, StringOption, IntOption
 
 import cairo
 import pango
-import gobject
+
 
 class CPUMeterScreenlet (screenlets.Screenlet):
 	"""A simple themeable CPU-Meter Screenlet."""
 	
 	# default meta-info for Screenlets
 	__name__	= 'CPUMeterScreenlet'
-	__version__	= '0.4'
+	__version__	= '0.5'
 	__author__	= 'RYX (Rico Pfaus) 2007'
 	__desc__	= __doc__
 
@@ -40,8 +40,11 @@ class CPUMeterScreenlet (screenlets.Screenlet):
 	
 	# constructor
 	def __init__ (self, **keyword_args):
-		#call super (and not show window yet)
+		# call super
 		screenlets.Screenlet.__init__(self, uses_theme=True, **keyword_args)
+		# init CPU sensor
+		self.sensor = CPUSensor(int(self.update_interval))
+		self.sensor.connect('sensor_updated', self.handle_sensor_updated)
 		# set theme
 		self.theme_name = "default"
 		# add default menu items
@@ -71,88 +74,62 @@ class CPUMeterScreenlet (screenlets.Screenlet):
 		self.add_option(IntOption('CPU-Meter', 'text_y', self.text_y, 'Text Y', 
 			'The vertical offset for drawing the text at ...',
 			min=0, max=100))
-		# init the timeout function
-		self.update_interval = self.update_interval
 	
 	# attribute-"setter", handles setting of attributes
 	def __setattr__ (self, name, value):
 		# call Screenlet.__setattr__ in baseclass (ESSENTIAL!!!!)
 		screenlets.Screenlet.__setattr__(self, name, value)
 		# check for this Screenlet's attributes, we are interested in:
-		if name == "update_interval":
-			if value > 0:
-				self.__dict__['update_interval'] = value
-				if self.__timeout:
-					gobject.source_remove(self.__timeout)
-				self.__timeout = gobject.timeout_add(int(value * 1000), self.update_graph)
-			else:
-				# TODO: raise exception!!!
-				self.__dict__['update_interval'] = 1
-				pass
+		if name == 'update_interval':
+			self.sensor.set_interval(int(value * 1000))
 		elif name in ('text_x', 'text_y'):
 			self.redraw_canvas()
 	
-	# timeout-function
-	def update_graph (self):
+	# sensor callback, called on each interval
+	def handle_sensor_updated (self, sensor):
 		self.redraw_canvas()
-		return True
 	
 	def on_draw (self, ctx):
-		# get load
-		load = screenlets.sensors.get_cpu_load()	#self.get_cpu_load()
-		if load > 99: load = 99
-		elif load < 0: load=0
 		# set size
 		ctx.scale(self.scale, self.scale)
 		# draw bg (if theme available)
 		ctx.set_operator(cairo.OPERATOR_OVER)
 		if self.theme:
-			#self.theme['cpumeter-bg.svg'].render_cairo(ctx)
 			self.theme.render(ctx, 'cpumeter-bg')
+			# get load
+			load = self.sensor.get_load()
 			# draw cpu-graph
 			if self.show_graph:
-				#self.theme['cpumeter-graph-bg.svg'].render_cairo(ctx)
 				h = (float(load) / 100.0) * 70.0
-				#print "height: "+str(h)
-				# get step
-				#steps_height = 7
-				#h = 40
 				ctx.save()
 				ctx.rectangle(20, 10+(70-h), 60, h)
-				#ctx.rectangle(20, 15+(70-h), 60, h)
 				ctx.clip()
 				ctx.new_path()
-				#self.theme['cpumeter-graph.svg'].render_cairo(ctx)
 				self.theme.render(ctx, 'cpumeter-graph')
 				ctx.restore()
 			# draw text
 			if self.show_text:
 				ctx.save()
 				ctx.translate(self.text_x, self.text_y)
-				#ctx.set_operator(cairo.OPERATOR_OVER)
 				p_layout = ctx.create_layout()
 				p_fdesc = pango.FontDescription("Free Sans 25")
-				#p_fdesc.set_family_static("Free Sans")
-				#p_fdesc.set_size(25 * pango.SCALE)
 				p_layout.set_font_description(p_fdesc)
 				p_layout.set_width((self.width) * pango.SCALE)
 				if len(str(load))==1:
 					load = "0" + str(load)
-				p_layout.set_markup(self.text_prefix + str(load) + self.text_suffix)
+				p_layout.set_markup(self.text_prefix + str(load) + \
+					self.text_suffix)
 				ctx.set_source_rgba(1, 1, 1, 0.8)
 				ctx.show_layout(p_layout)
 				ctx.fill()
 				ctx.restore()
 			# draw glass (if theme available)
-			#self.theme['cpumeter-glass.svg'].render_cairo(ctx)
 			self.theme.render(ctx, 'cpumeter-glass')
 		
 	def on_draw_shape (self,ctx):
 		if self.theme:
 			# set size rel to width/height
-			#ctx.scale(self.width/100.0, self.height/100.0)
 			ctx.scale(self.scale, self.scale)
-			#self.theme['cpumeter-bg.svg'].render_cairo(ctx)
 			self.theme.render(ctx, 'cpumeter-bg')
 
 	

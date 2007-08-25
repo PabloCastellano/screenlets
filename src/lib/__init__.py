@@ -397,57 +397,57 @@ class Screenlet (gobject.GObject, EditableOptions):
 		self.__shape_bitmap_width = 0
 		self.__shape_bitmap_height = 0
 		# "editable" options, first create a group
-		self.add_options_group('Screenlet', 
+		grp = self.create_option_group('Screenlet', 
 			_('The basic settings for this Screenlet-instance.'))
 		# if this Screenlet uses themes, add theme-specific options
 		# (NOTE: this option became hidden with 0.0.9 and doesn't use
 		# get_available_themes anymore for showing the choices)
 		if uses_theme:
 			self.uses_theme = True
-			self.add_option(StringOption('Screenlet', 'theme_name', 
+			grp.add_option(StringOption('theme_name', 
 				'default', '', '', hidden=True))
 		# create/add options
-		self.add_option(IntOption('Screenlet', 'x', 
+		grp.add_option(IntOption('x', 
 			0, _('X-Position'), _('The X-position of this Screenlet ...'), 
 			min=0, max=gtk.gdk.screen_width()))
-		self.add_option(IntOption('Screenlet', 'y', 
+		grp.add_option(IntOption('y', 
 			0, _('Y-Position'), _('The Y-position of this Screenlet ...'), 
 			min=0, max=gtk.gdk.screen_height()))
-		self.add_option(IntOption('Screenlet', 'width', 
+		grp.add_option(IntOption('width', 
 			width, _('Width'), _('The width of this Screenlet ...'), 
 			min=16, max=1000, hidden=True))
-		self.add_option(IntOption('Screenlet', 'height', 
+		grp.add_option(IntOption('height', 
 			height, _('Height'), _('The height of this Screenlet ...'), 
 			min=16, max=1000, hidden=True))
-		self.add_option(FloatOption('Screenlet', 'scale', 
+		grp.add_option(FloatOption('scale', 
 			self.scale, _('Scale'), _('The scale-factor of this Screenlet ...'), 
 			min=0.1, max=10.0, digits=2, increment=0.1))
-		self.add_option(BoolOption('Screenlet', 'is_sticky', 
+		grp.add_option(BoolOption('is_sticky', 
 			is_sticky, _('Stick to Desktop'), 
 			_('Show this Screenlet on all workspaces ...')))
-		self.add_option(BoolOption('Screenlet', 'is_widget', 
+		grp.add_option(BoolOption('is_widget', 
 			is_widget, _('Treat as Widget'), 
 			_('Treat this Screenlet as a "Widget" ...')))
-		self.add_option(BoolOption('Screenlet', 'lock_position', 
+		grp.add_option(BoolOption('lock_position', 
 			self.lock_position, _('Lock position'), 
 			_('Stop the screenlet from being moved...')))
-		self.add_option(BoolOption('Screenlet', 'keep_above', 
+		grp.add_option(BoolOption('keep_above', 
 			self.keep_above, _('Keep above'), 
 			_('Keep this Screenlet above other windows ...')))
-		self.add_option(BoolOption('Screenlet', 'keep_below', 
+		grp.add_option(BoolOption('keep_below', 
 			self.keep_below, _('Keep below'), 
 			_('Keep this Screenlet below other windows ...')))
-		self.add_option(BoolOption('Screenlet', 'skip_pager', 
+		grp.add_option(BoolOption('skip_pager', 
 			self.skip_pager, _('Skip Pager'), 
 			_('Set this Screenlet to show/hide in pagers ...')))
-		self.add_option(BoolOption('Screenlet', 'skip_taskbar', 
+		grp.add_option(BoolOption('skip_taskbar', 
 			self.skip_pager, _('Skip Taskbar'), 
 			_('Set this Screenlet to show/hide in taskbars ...')))
 		if uses_theme:
-			self.add_option(BoolOption('Screenlet', 'allow_option_override', 
+			grp.add_option(BoolOption('allow_option_override', 
 			self.allow_option_override, _('Allow overriding Options'), 
 				_('Allow themes to override options in this screenlet ...')))
-			self.add_option(BoolOption('Screenlet', 'ask_on_option_override', 
+			grp.add_option(BoolOption('ask_on_option_override', 
 				self.ask_on_option_override, _('Ask on Override'), 
 				_('Show a confirmation-dialog when a theme wants to override ')+\
 				_('the current options of this Screenlet ...')))

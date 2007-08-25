@@ -41,19 +41,17 @@ class TestScreenlet (screenlets.Screenlet):
 		# add default menu items
 		self.add_default_menuitems()
 		# add option group
-		self.add_options_group('Example', 'This is an example of editable' +\
-			' options within an options-group ...')
+		group = self.add_options_group('Example', 'This is an example of ' +\
+			'editable options within an options-group ...')
 		# add editable option
-		self.add_option(StringOption('Example', # group name
-			'test_text', 						# attribute-name
-			self.test_text,						# default-value
-			'Test-Text', 						# widget-label
+		group.add_option(StringOption('test_text', 	# attribute-name
+			self.test_text,							# default-value
+			'Test-Text', 							# widget-label
 			'The Test-Text option for this Screenlet ...'	# description
 			)) 
 		# test of new account-option
-		self.add_option(AccountOption('Example', 'pop3_account', 
-			self.pop3_account, 'Username/Password', 
-			'Enter username/password here ...'))
+		group.add_option(AccountOption('pop3_account', self.pop3_account, 
+			'Username/Password', 'Enter username/password here ...'))
 		# drag-test
 		self.window.connect("drag-data-get", self.drag_data_get)
 		self.window.drag_source_set(gtk.gdk.BUTTON1_MASK, [],

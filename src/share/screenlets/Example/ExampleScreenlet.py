@@ -37,18 +37,19 @@ class ExampleScreenlet (screenlets.Screenlet):
 		# add default menu items
 		self.add_default_menuitems()
 		# add option group
-		self.add_options_group('Example', 'This is an example of editable' +\
-			' options within an options-group ...')
-		# add editable option
-		self.add_option(StringOption('Example', # group name
+		group = self.create_option_group('Example', 'This is an example of ' +\
+			' editable options within an OptionGroup ...')
+		# add editable option to the group
+		group.add_option(StringOption('Example', # group name
 			'test_text', 						# attribute-name
 			self.test_text,						# default-value
 			'Test-Text', 						# widget-label
 			'The Test-Text option for this Screenlet ...'	# description
 			))
 		# NEW: load options from file "ExampleScreenlet.xml" in screenlet's dir
-		self.init_options_from_metadata()
+		self.init_options_from_metadata()	# TEST
 	
+	# ONLY FOR TESTING!!!!!!!!!
 	def init_options_from_metadata (self):
 		"""Try to load metadata-file with options. The file has to be named
 		like the Screenlet, with the extension ".xml" and needs to be placed

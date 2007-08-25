@@ -253,37 +253,36 @@ class MailCheckScreenlet (screenlets.Screenlet):
 		self.add_menuitem('open_client', 'Open client ...')
 		self.add_default_menuitems()
 		# add option groups
-		self.add_options_group('E-Mail', 'General MailCheck options ...')
-		self.add_options_group('POP3', 'POP3-account options ...')
-		self.add_options_group('IMAP', 'IMAP-account options ...')
+		grp_mail = self.create_option_group('E-Mail', 'General mail-options.')
+		grp_pop3 = self.create_option_group('POP3 ', 'POP3-account options.')
+		grp_imap = self.create_option_group('IMAP ', 'IMAP-account options.')
 		# add editable options
-		self.add_option(StringOption('E-Mail','backend_type', self.backend_type,
+		grp_mail.add_option(StringOption('backend_type', self.backend_type,
 			'Backend-Type', 'The type of the backend for getting mails ...',
-			choices=['POP3', 'IMAP']))
-		self.add_option(IntOption('E-Mail','check_interval', 
+			choices=[ 'IMAP']))
+		grp_mail.add_option(IntOption('check_interval', 
 			self.check_interval, 'Checking interval (minutes)', 
 			'The interval (in minutes) after that is checked for new mail ...', 
 			min=1, max=1200))
-		self.add_option(StringOption('E-Mail','mail_client', self.mail_client,
+		grp_mail.add_option(StringOption('mail_client', self.mail_client,
 			'Mail-Client', 'The e-mail client-application to open ...'))
 		# POP3 settings (TODO: let this be added by the backend)
-		self.add_option(StringOption('POP3','pop3_server', self.pop3_server,
-			'Server URL', 'The url of the POP3-server to check ...'), 
-			realtime=False)
-		self.add_option(AccountOption('POP3', 'pop3_account', 
-			self.pop3_account, 'Username/Password', 
-			'Enter username/password here ...'))
+		grp_pop3.add_option(StringOption('pop3_server', self.pop3_server,
+			'Server URL', 'The url of the POP3-server to check ...', 
+			realtime=False))
+		grp_pop3.add_option(AccountOption('pop3_account', self.pop3_account, 
+			'Username/Password', 'Enter username/password here ...'))
 		# IMAP settings
-		self.add_option(StringOption('IMAP','imap_server', self.imap_server,
-			'Server URL', 'The url of the IMAP-server to check ...'), 
-			realtime=False)
-		self.add_option(AccountOption('IMAP','imap_account',self.imap_account,
+		grp_imap.add_option(StringOption('imap_server', self.imap_server,
+			'Server URL', 'The url of the IMAP-server to check ...', 
+			realtime=False))
+		grp_imap.add_option(AccountOption('imap_account',self.imap_account,
 			'Username/Password','Enter username/password here ...'))
         # hidden options
-		self.add_option(IntOption('E-Mail','known_mailcount', 
-			self.known_mailcount, '', '', hidden=True))
-		self.add_option(IntOption('E-Mail','unchecked_mails', 
-			self.unchecked_mails, '', '', hidden=True))
+		grp_mail.add_option(IntOption('known_mailcount', self.known_mailcount, 
+			'', '', hidden=True))
+		grp_mail.add_option(IntOption('unchecked_mails', self.unchecked_mails, 
+			'', '', hidden=True))
 		# TEST: add options from metadata (NOTE: need less ugly way for this)
 		#mypath = __file__[:__file__.rfind('/')]
 		#self.add_options_from_file( mypath + '/' + self.__name__ + '.xml')	

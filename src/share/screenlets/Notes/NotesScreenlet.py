@@ -89,47 +89,37 @@ class NotesScreenlet (screenlets.Screenlet):
 		# add default menuitems
 		self.add_default_menuitems()
 		# add settings groups
-		self.add_options_group('Text', 
+		grp_txt	= self.create_option_group('Text ', 
 			'Text-/Font-related settings for the sticknotes.')
-		self.add_options_group('Layout', 
+		grp_lo	= self.create_option_group('Layout ', 
 			'The Layout-related settings for the sticknotes..')
 		# add editable options
-		self.add_option(IntOption('Layout', 'pin_x', 
-			self.pin_x, 'X-Position of Pin', 
+		grp_lo.add_option(IntOption('pin_x', self.pin_x, 'X-Position of Pin', 
 			'The X-Position of the tack/pin for the sticknote ...', 
 			min=0, max=200))
-		self.add_option(IntOption('Layout', 'pin_y', 
-			self.pin_y, 'Y-Position of Pin', 
+		grp_lo.add_option(IntOption('pin_y', self.pin_y, 'Y-Position of Pin', 
 			'The Y-Position of the tack/pin for the sticknote ...', 
 			min=0, max=200))
-		self.add_option(BoolOption('Layout', 'random_pin_pos', 
-			self.random_pin_pos, 'Randomize Pin', 
-			'If active, the pin/tack will be slightly moved randomly '+\
-			'whenever the note is picked up ...'))
-		self.add_option(FontOption('Text', 'font_name', 
-			self.font_name, 'Default Font', 
-			'The default font of the text (when no Markup is used) ...'))
-		self.add_option(ColorOption('Text', 'rgba_color', 
-			self.rgba_color, 'Default Color', 
-			'The default color of the text (when no Markup is used) ...'))
-		self.add_option(IntOption('Layout', 'text_x', 
-			self.text_x, 'X-Position of Text', 
+		grp_lo.add_option(BoolOption('random_pin_pos', self.random_pin_pos, 
+			'Randomize Pin', 'If active, the pin/tack will be slightly '+\
+			'moved randomly whenever the note is picked up ...'))
+		grp_txt.add_option(FontOption('font_name', self.font_name, 
+			'Default Font', 'Default font of the text (without Markup) ...'))
+		grp_txt.add_option(ColorOption('rgba_color', self.rgba_color, 
+			'Default Color', 'Default color of the text (without Markup) ...'))
+		grp_txt.add_option(IntOption('text_x', self.text_x, 'X-Position of Text', 
 			'The X-Position of the text-rectangle\'s upper left corner ...', 
 			min=0, max=200))
-		self.add_option(IntOption('Layout', 'text_y', 
-			self.text_y, 'Y-Position of Text', 
+		grp_txt.add_option(IntOption('text_y', self.text_y, 'Y-Position of Text', 
 			'The Y-Position of the text-rectangle\'s upper left corner ...', 
 			min=0, max=200))
-		self.add_option(StringOption('Text', 'text_prefix', 
-			self.text_prefix, 'Text-Prefix', 
-			'The text/Pango-Markup to be placed before the text ...'))
-		self.add_option(StringOption('Text', 'text_suffix', 
-			self.text_suffix, 'Text-Suffix', 
-			'The text/Pango-Markup to be placed after the text ...'))
+		grp_txt.add_option(StringOption('text_prefix', self.text_prefix, 
+			'Text-Prefix', 'The text/Pango-Markup before the text ...'))
+		grp_txt.add_option(StringOption('text_suffix', self.text_suffix, 
+			'Text-Suffix', 'The text/Pango-Markup after the text ...'))
 		# add hidden "note_text"-option (to save but not show in editor)
-		self.add_option(StringOption('Text', 'note_text', 
-			self.note_text, 'Note-Text', 
-			'The text on this sticky note ...', hidden=True))
+		grp_txt.add_option(StringOption('note_text', self.note_text, 
+			'Note-Text', 'The text on this sticky note ...', hidden=True))
 				
 	def __setattr__ (self, name, value):
 		# call Screenlet.__setattr__ in baseclass (ESSENTIAL!!!!)

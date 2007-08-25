@@ -79,20 +79,20 @@ class FlowerScreenlet (screenlets.Screenlet):
 		self.__timeout = gobject.timeout_add(self.day_length * 1000, 
 			self.__check_status)
 		# add option group to properties-dialog
-		self.add_options_group('Flower', 'Flower-related settings ...')
+		grp = self.create_option_group('Flower', 'Flower-related settings.')
 		# make 'day_length' an editable option
 		"""self.add_option(IntOption('Flower', 'day_length', self.day_length, 
 			'Day length', 'Length of one day (in minutes) ...', min=0, max=6 )) """
 		# add hidden options
-		self.add_option(IntOption('Flower', 'age', self.age, '',
+		grp.add_option(IntOption('age', self.age, '',
 			'', hidden=True)) 
-		self.add_option(IntOption('Flower', 'state', self.state, '',
+		grp.add_option(IntOption('state', self.state, '',
 			'', hidden=True)) 
-		self.add_option(IntOption('Flower', 'avail_water', self.avail_water, 
+		grp.add_option(IntOption('avail_water', self.avail_water, 
 			'', '', hidden=True))
-		self.add_option(IntOption('Flower', 'days_wet', self.days_wet, 
+		grp.add_option(IntOption('days_wet', self.days_wet, 
 			'', '', hidden=True))
-		self.add_option(IntOption('Flower', 'days_dry', self.days_dry, 
+		grp.add_option(IntOption('days_dry', self.days_dry, 
 			'', '', hidden=True))
 		# cause initial water-check
 		#self.__check_water()

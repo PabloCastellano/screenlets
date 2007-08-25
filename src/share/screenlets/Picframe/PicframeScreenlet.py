@@ -58,22 +58,19 @@ class PicframeScreenlet (screenlets.Screenlet):
 		# add default menuitems (all the standard ones)
 		self.add_default_menuitems()
 		# add option group to properties-dialog
-		self.add_options_group('Picframe', 'Picframe-related settings ...')
+		group = self.create_option_group('Picframe', 'Picframe settings.')
 		# add editable options
-		self.add_option(ImageOption('Picframe', 'image_filename', 
-			self.image_filename, 'Filename',
-			'Filename of image to be shown in this Picframe ...')) 
-		self.add_option(FloatOption('Picframe', 'image_scale', self.image_scale, 
+		group.add_option(ImageOption('image_filename', self.image_filename, 
+			'Image', 'Image to be shown in this Picframe ...')) 
+		group.add_option(FloatOption('image_scale', self.image_scale, 
 			'Image Scale', 'Scale of image within this Picframe ...', 
 			min=0.01, max=10.0, digits=2, increment=0.01))
-		self.add_option(IntOption('Picframe', 'image_offset_x', 
-			self.image_offset_x, 'Image Offset X', 'X-offset of upper left '+\
-			'corner of the image within this Picframe ...', 
-			min=0, max=self.width))
-		self.add_option(IntOption('Picframe', 'image_offset_y', 
-			self.image_offset_y, 'Image Offset Y', 'Y-offset of upper left '+\
-			'corner of the image within this Picframe ...', 
-			min=0, max=self.height))
+		group.add_option(IntOption('image_offset_x', self.image_offset_x, 
+			'Image Offset X', 'X-offset of upper left corner of the image '+\
+			'within this Picframe ...', min=0, max=self.width))
+		group.add_option(IntOption('image_offset_y', self.image_offset_y, 
+			'Image Offset Y', 'Y-offset of upper left corner of the image ' +\
+			'within this Picframe ...', min=0, max=self.height))
 		
 	def __setattr__ (self, name, value):
 		if name == "image_filename":

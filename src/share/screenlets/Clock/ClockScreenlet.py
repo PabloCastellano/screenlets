@@ -128,69 +128,71 @@ class ClockScreenlet (Screenlet):
 		self.__timeout = gobject.timeout_add(1000, self.update)
 		# add default menuitems
 		self.add_default_menuitems()
-		# add settings-groups
-		self.add_options_group('Clock', 'Clock-specific settings.')
-		self.add_options_group('Alarm', 'Settings for the Alarm-function.')
-		self.add_options_group('Face', 
+		# create/add OptionGroups
+		group_clock	= self.add_options_group('Clock', 
+			'Clock-specific settings.')
+		group_alarm	= self.add_options_group('Alarm',
+			'Settings for the Alarm-function.')
+		group_face	= self.add_options_group('Face', 
 			'Additional settings for the face-layout ...')
 		# add editable settings to this Screenlet
-		self.add_option(IntOption('Clock', 'time_offset', 
+		group_clock.add_option(IntOption('time_offset', 
 			0, 'Time-Offset', 'The-time offset for this Clock instance. ' + 
 			'This can be used to create Clocks for different timezones ...',
 			min=-12, max=12))
-		self.add_option(StringOption('Clock', 'hour_format', 
+		group_clock.add_option(StringOption('hour_format', 
 			self.hour_format, 'Hour-Format', 
 			'The hour-format (12/24) ...', choices=['12', '24']))
-		self.add_option(BoolOption('Clock', 'show_seconds_hand', 
+		group_clock.add_option(BoolOption('show_seconds_hand', 
 			self.show_seconds_hand, 'Show seconds-hand', 
 			'Show/Hide the seconds-hand ...'))
-		self.add_option(BoolOption('Alarm', 'alarm_activated', 
+		group_alarm.add_option(BoolOption('alarm_activated', 
 			self.alarm_activated, 'Activate Alarm', 
 			'Activate the alarm for this clock-instance ...'))
-		self.add_option(BoolOption('Alarm', 'run_command', 
+		group_alarm.add_option(BoolOption('run_command', 
 			self.run_command, 'Run a command', 
 			'Run a command when the alarm is activated...'))
-		self.add_option(StringOption('Alarm', 'alarm_command', 
+		group_alarm.add_option(StringOption('alarm_command', 
 			self.alarm_command, 'Alarm command', 
 			'The command that should be run when the alarm goes off...'))
- 		self.add_option(IntOption('Alarm', 'alarm_time_h', 
+ 		group_alarm.add_option(IntOption('alarm_time_h', 
  			self.alarm_time_h, 'Alarm-Time (Hour)', 
  			'The hour of the alarm-time ...',min=0, max=23))
-		self.add_option(IntOption('Alarm', 'alarm_time_h', 
+		group_alarm.add_option(IntOption('alarm_time_h', 
 			self.alarm_time_h, 'Alarm-Time (Hour)', 
 			'The hour of the alarm-time ...',min=0, max=23))
-		self.add_option(IntOption('Alarm', 'alarm_time_m', 
+		group_alarm.add_option(IntOption('alarm_time_m', 
 			self.alarm_time_m, 'Alarm-Time (Minute)', 
 			'The minute of the alarm-time ...', min=0, max=59))
-		self.add_option(IntOption('Alarm', 'alarm_time_s', 
+		group_alarm.add_option(IntOption('alarm_time_s', 
 			self.alarm_time_s, 'Alarm-Time (Second)', 
 			'The second of the alarm-time ...', min=0, max=59))
-		self.add_option(IntOption('Alarm', 'alarm_length', 
+		group_alarm.add_option(IntOption('alarm_length', 
 			self.alarm_length, 'Alarm stops after', 
 			'The times the clock shall blink before auto-stopped. ' + \
 			'Divide the number by two to get the seconds ...', 
 			min=0, max=5000))
-		self.add_option(StringOption('Face', 'face_text', 
+		group_face.add_option(StringOption('face_text', 
 			self.face_text, 'Face-Text', 
 			'The text/Pango-Markup to be placed on the clock\'s face ...'))
-		self.add_option(FontOption('Face', 'face_text_font', 
+		group_face.add_option(FontOption('face_text_font', 
 			self.face_text_font, 'Text-Font', 
 			'The font of the text (when no Markup is used) ...'))
-		self.add_option(ColorOption('Face', 'face_text_color', 
+		group_face.add_option(ColorOption('face_text_color', 
 			self.face_text_color, 'Text-Color', 
 			'The color of the text (when no Markup is used) ...'))
-		self.add_option(IntOption('Face', 'face_text_x', 
+		group_face.add_option(IntOption('face_text_x', 
 			self.face_text_x, 'X-Position of Text', 
 			'The X-Position of the text-rectangle\'s upper left corner ...', 
 			min=0, max=100))
-		self.add_option(IntOption('Face', 'face_text_y', 
+		group_face.add_option(IntOption('face_text_y', 
 			self.face_text_y, 'Y-Position of Text', 
 			'The Y-Position of the text-rectangle\'s upper left corner ...', 
 			min=0, max=100))
-		self.add_option(BoolOption('Face', 'show_date', 
+		group_face.add_option(BoolOption('show_date', 
 			self.show_date, 'Show today\'s date', 
 			'Show date on the clock\'s face ...'))
-		self.add_option(StringOption('Face', 'date_format', self.date_format, 
+		group_face.add_option(StringOption('date_format', self.date_format, 
 			'Date Format', 'Format of the date displayed by this Clock. '+\
 			'Some vars are %d for day, %m for months and %Y for the year.'))
 	

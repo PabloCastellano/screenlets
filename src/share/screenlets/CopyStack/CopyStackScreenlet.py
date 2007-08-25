@@ -66,8 +66,9 @@ class CopyStackScreenlet (screenlets.Screenlet):
 		# add options
 		#group_cs = OptionsGroup('CopyStack', 'CopyStack-related settings ...')
 		#self.add_options_group(group_cs)
-		self.add_options_group('CopyStack', 'CopyStack-related settings ...')
-		self.add_option(IntOption('CopyStack', 'element_spacing', 
+		grp = self.create_option_group('CopyStack', 
+			'CopyStack-related settings.')
+		grp.add_option(IntOption('element_spacing', 
 			self.element_spacing, 'Element Spacing', 
 			'The vertical space between element-symbols on the stack ...',
 			min=5, max=30))

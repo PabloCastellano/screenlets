@@ -10,15 +10,12 @@
 #   for now ... :)
 #
 # TODO:
-# - option-widgets for all option-types (e.g. ListOptionWidget, ColorOptionWidget)
-# - OptionGroup-class instead of (or behind) add_options_group
+# - own widgets for all option-types (e.g. ListOptionWidget, ColorOptionWidget)
 # - TimeOption, DateOption
-# - FileOption needs filter/limit-attribute
 # - allow options to disable/enable other options
 # - support for EditableOptions-subclasses as options
 # - separate OptionEditorWidget from Editor-Dialog
 # - place ui-code into screenlets.options.ui-module
-# - create own widgets for each Option-subclass
 #
 
 import screenlets
@@ -49,8 +46,9 @@ class Option(gobject.GObject):
 	__gsignals__ = dict(option_changed=(gobject.SIGNAL_RUN_FIRST,
 		gobject.TYPE_NONE, (gobject.TYPE_OBJECT,)))
 	
-	def __init__ (self, group, name, default, label, desc,  
-		disabled=False, hidden=False, callback=None, protected=False):
+	def __init__ (self, name, default, label, desc,  
+		disabled=False, hidden=False, callback=None, protected=False,
+		realtime=True):
 		"""Creates a new Option with the given information."""
 		super(Option, self).__init__()
 		self.name = name
@@ -59,12 +57,10 @@ class Option(gobject.GObject):
 		self.default = default
 		self.disabled = disabled
 		self.hidden = hidden
-		# for groups (TODO: OptionGroup)
-		self.group= group
 		# callback to be notified when this option changes
 		self.callback = callback
 		# real-time update?
-		self.realtime = True
+		self.realtime = realtime
 		# protected from get/set through service
 		self.protected = protected
 		
@@ -90,9 +86,9 @@ class FileOption (Option):
 	supported by gtk.Pixmap. If the directory-attributue is true, the
 	dialog will ony allow directories."""
 
-	def __init__ (self, group, name, default, label, desc, 
+	def __init__ (self, name, default, label, desc, 
 		patterns=['*'], image=False, directory=False, **keyword_args):
-		Option.__init__(self, group, name, default,label, desc, **keyword_args)
+		Option.__init__(self, name, default,label, desc, **keyword_args)
 		self.patterns	= patterns
 		self.image		= image
 		self.directory	= False
@@ -119,9 +115,9 @@ class BoolOption (Option):
 class StringOption (Option):
 	"""An Option for values of type string."""
 	
-	def __init__ (self, group, name, default, label, desc, 
+	def __init__ (self, name, default, label, desc, 
 		choices=None, password=False, **keyword_args):
-		Option.__init__(self, group, name, default,label, desc, **keyword_args)
+		Option.__init__(self, name, default,label, desc, **keyword_args)
 		self.choices	= choices
 		self.password	= password
 
@@ -129,9 +125,9 @@ class StringOption (Option):
 class IntOption (Option):
 	"""An Option for values of type number (can be int or float)."""
 	
-	def __init__ (self, group, name, default, label, desc,  min=0, max=0, 
+	def __init__ (self, name, default, label, desc,  min=0, max=0, 
 		increment=1, **keyword_args):
-		Option.__init__(self, group, name, default, label, desc, **keyword_args)
+		Option.__init__(self, name, default, label, desc, **keyword_args)
 		self.min = min
 		self.max = max
 		self.increment = increment
@@ -150,9 +146,9 @@ class IntOption (Option):
 class FloatOption (IntOption):
 	"""An Option for values of type float."""
 	
-	def __init__ (self, group, name, default, label, desc, digits=1, 
+	def __init__ (self, name, default, label, desc, digits=1, 
 		**keyword_args):
-		IntOption.__init__(self, group, name, default, label, desc,
+		IntOption.__init__(self, name, default, label, desc,
 			**keyword_args)
 		self.digits = digits
 	
@@ -220,8 +216,8 @@ class AccountOption (Option):
 	- on_delete-function for removing the data from keyring when the
 	  Screenlet holding the option gets deleted"""
 	
-	def __init__ (self, group, name, default, label, desc, **keyword_args):
-		Option.__init__ (self, group, name, default, label, desc, 
+	def __init__ (self, name, default, label, desc, **keyword_args):
+		Option.__init__ (self, name, default, label, desc, 
 			protected=True, **keyword_args)
 		# check for availability of keyring
 		if not gnomekeyring.is_available():
@@ -283,11 +279,59 @@ print o.on_import(exported_account)
 import sys
 sys.exit(0)"""
 
+
+
+# -----------------------------------------------------------------------
+# OptionGroup class
+# -----------------------------------------------------------------------
+
+class OptionGroup (list):
+	"""A container that is used to group options."""
+	
+	def __init__ (self, name, info=''):
+		self._name	= name
+		self._info	= info
+	
+	def __repr__ (self):
+		s = ''
+		for el in self: s += str(el) + ', '
+		return '<OptionGroup (%i elements): %s>' % (len(self), s)
+	
+	def add_option (self, option, callback=None):
+		"""Add an option to this group and add a callvback, if needed."""
+		self.append(option)
+		if callback:
+			option.connect("option_changed", callback)
+	
+	def get_info (self):
+		"""Return the info for this group."""
+		return self._info
+	
+	def get_name (self):
+		"""Return the name of this group."""
+		return self._name
+	
+	def get_option_by_name (self, name):
+		"""Get an Option whithin this OptionGroup by its name."""
+		for o in self:
+			if o.name == name:
+				return o
+		return None
+	
+	def remove_option_by_name (self, name):
+		"""Remove an option from this OptionGroup by its name."""
+		for o in self:
+			if o.name == name:
+				del o
+				return True
+		return True
+	
+
 # -----------------------------------------------------------------------
 # EditableOptions-class and needed functions
 # -----------------------------------------------------------------------
 
-def create_option_from_node (node, groupname):
+def create_option_from_node (node):
 	"""Create an Option from an XML-node with option-metadata."""
 	#print "TODO OPTION: " + str(cn)
 	otype = node.getAttribute("type")
@@ -328,7 +372,7 @@ def create_option_from_node (node, groupname):
 			#print 'Create: ' +cls +' / ' + oname + ' ('+otype+')'
 			# and build new instance (we use on_import for setting default val)
 			clsobj = getattr(__import__(__name__), cls)
-			opt = clsobj(groupname, oname, None, olabel, oinfo)
+			opt = clsobj(oname, None, olabel, oinfo)
 			opt.default = opt.on_import(odefault)
 			# set values to the correct types
 			if cls == 'IntOption':
@@ -356,86 +400,66 @@ def create_option_from_node (node, groupname):
 
 class EditableOptions:
 	"""The EditableOptions can be inherited from to allow objects to export 
-	editable options for editing them with the OptionsEditor-class.
-	NOTE: This could use some improvement and is very poorly coded :) ..."""
+	editable options for editing them with the OptionsEditor-class."""
 	
 	def __init__ (self):
-		self.__options__ = []
-		self.__options_groups__ = {}
-		# This is a workaround to remember the order of groups
-		self.__options_groups_ordered__ = []
+		self._options = []
+		# TODO: remove this somewhen, only for backwards support
+		self.add_options_group = self.create_option_group
 	
-	def add_option (self, option, callback=None, realtime=True):
-		"""Add an editable option to this object. Editable Options can be edited
-		and configured using the OptionsDialog. The optional callback-arg can be
-		used to set a callback that gets notified when the option changes its 
-		value."""
-		#print "Add option: "+option.name
-		# if option already editable (i.e. initialized), return
-		for o in self.__options__:
-			if o.name == option.name:
-				return False
-		self.__dict__[option.name] = option.default
-		# set auto-update (TEMPORARY?)
-		option.realtime = realtime
-		# add option to group (output error if group is undefined)
-		try:
-			self.__options_groups__[option.group]['options'].append(option)
-		except:
-			print _("Options: Error- group %s not defined.") % option.group
-			return False
-		# now add the option
-		self.__options__.append(option)
-		# if callback is set, add callback
-		if callback:
-			option.connect("option_changed", callback)
-		return True
-		
-		
-	def add_options_group (self, name, group_info):
-		"""Add a new options-group to this Options-object"""
-		self.__options_groups__[name] = {'label':name, 
-			'info':group_info, 'options':[]}
-		self.__options_groups_ordered__.append(name)
-		#print self.options_groups
+	def add_option (self, obj):
+		"""DEPRECATED"""
+		print "WARNING: add_option is not supported any longer, instead create an OptionGroup, add your Options to it and add it via add_option_group."
 	
-	def disable_option (self, name):
-		"""Disable the inputs for a certain Option."""
-		for o in self.__options__:
-			if o.name == name:
-				o.disabled = True
-				return True
+	def add_option_group (self, group):
+		"""Add an OptionGroup-object to this EditableOptions-object."""	
+		self._options.append(group)
+	
+	def create_option_group (self, name, info):
+		"""Create a new OptionGroup with name/info, add it to this object
+		and return a reference to it."""
+		group = OptionGroup(name, info)
+		self.add_option_group(group)
+		return group
+	
+	def disable_option (self, name, disabled=True):
+		"""Disable the inputs for a certain Option.
+		TODO: make default and rename old version"""
+		o = self.get_option_by_name(name)
+		if o:
+			o.disabled = disabled
+			return True
 		return False
 	
-	def export_options_as_list (self):
-		"""Returns all editable options within a list (without groups)
-		as key/value tuples."""
-		lst = []
-		for o in self.__options__:
-			lst.append((o.name, getattr(self, o.name)))
-		return lst
-	
-	def get_option_by_name (self, name):
-		"""Returns an option in this Options by it's name (or None).
-		TODO: this gives wrong results in childclasses ... maybe access
-		as class-attribute??"""
-		for o in self.__options__:
-			if o.name == name:
-				return o
+	def get_option_group_by_name (self, name):
+		"""Return the OptionGroup with the given name."""
+		for grp in self._options:
+			if grp.get_name() == name:
+				return grp
 		return None
 	
-	def remove_option (self, name):
-		"""Remove an option from this Options."""
-		for o in self.__options__:
-			if o.name == name:
-				del o
-				return True
-		return True
+	def get_option_groups (self):
+		"""Return a list with all OptionGroups within this object."""
+		return self._options
+	
+	def get_option_by_name (self, name):
+		"""Searches all options in all groups within this object and returns
+		the first found Option with the given name.
+		TODO: rename and deprecate old version"""
+		for grp in self._options:
+			for o in grp:
+				if o.name == name:
+					return o
+		return None
+	
+	def has_option_groups (self):
+		"""Returns true if this object has option groups."""
+		return len(self._options)
 	
 	def add_options_from_file (self, filename):
 		"""This function creates options from an XML-file with option-metadata.
 		TODO: make this more reusable and place it into module (once the groups
-		are own objects)"""
+		are own objects)."""
 		# create xml document
 		try:
 			doc = xml.dom.minidom.parse(filename)
@@ -456,34 +480,33 @@ class EditableOptions:
 					raise Exception(_('Error in metadata-file "%s" - only <group>-tags allowed in first level. Groups must contain at least one <info>-element.') % filename)
 				else:
 					# ok, create a new group and parse its elements
-					group = {}
-					group['name']		= node.getAttribute("name")
-					if not group['name']:
+					name	= node.getAttribute("name")
+					info	= ''
+					options	= []
+					if not name:
 						raise Exception(_('No name for group defined in "%s".') % filename)
-					group['info']		= ''
-					group['options']	= []
 					# check all children in group
 					for on in node.childNodes:
 						if on.nodeType == Node.ELEMENT_NODE:
 							if on.nodeName == 'info':
 								# info-node? set group-info
-								group['info'] = on.firstChild.nodeValue
+								info = on.firstChild.nodeValue
 							elif on.nodeName == 'option':
 								# option node? parse option node
-								opt = create_option_from_node (on, group['name'])
+								opt = create_option_from_node (on)
 								# ok? add it to list
 								if opt:
-									group['options'].append(opt)
+									options.append(opt)
 								else:
 									raise Exception(_('Invalid option-node found in "%s".') % filename)
-					
-					# create new group
-					if len(group['options']):
-						self.add_options_group(group['name'], group['info'])
-						for o in group['options']:
-							self.add_option(o)
-					# add group to list
-					#groups.append(group)
+					# create new group and add options to it
+					if len(options):
+						group = OptionGroup(name, info)
+						self.add_option_group(group)
+						for o in options:
+							group.add_option(o)
+
+
 
 # -----------------------------------------------------------------------
 # OptionsDialog and UI-classes
@@ -498,7 +521,7 @@ class ListOptionDialog (gtk.Dialog):
 	
 	# call gtk.Dialog.__init__
 	def __init__ (self):
-		super(ListOptionDialog, self).__init__("Edit List", 
+		super(ListOptionDialog, self).__init__(_("Edit List"), 
 			flags=gtk.DIALOG_DESTROY_WITH_PARENT | gtk.DIALOG_NO_SEPARATOR,
 			buttons = (gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL, 
 				gtk.STOCK_OK, gtk.RESPONSE_OK))
@@ -623,7 +646,7 @@ class OptionsDialog (gtk.Dialog):
 	"""A dynamic options-editor for editing Screenlets which are implementing 
 	the EditableOptions-class."""
 	
-	__shown_object = None
+	_shown_object = None
 	
 	def __init__ (self, width, height):
 		# call gtk.Dialog.__init__
@@ -664,10 +687,10 @@ class OptionsDialog (gtk.Dialog):
 		"""Reset all entries for the currently shown object to their default 
 		values (the values the object has when it is first created).
 		NOTE: This function resets ALL options, so BE CARFEUL!"""
-		if self.__shown_object:
-			for o in self.__shown_object.__options__:
+		if self._shown_object:
+			for o in self._shown_object.__options__:
 				# set default value
-				setattr(self.__shown_object, o.name, o.default)
+				setattr(self._shown_object, o.name, o.default)
 
 	def set_info (self, name, info, copyright='', version='', icon=None):
 		"""Update the "About"-page with the given information."""
@@ -695,45 +718,41 @@ class OptionsDialog (gtk.Dialog):
 
 	def show_options_for_object (self, obj):
 		"""Update the OptionsEditor to show the options for the given Object.
-		The Object needs to be an EditableOptions-subclass.
-		NOTE: This needs heavy improvement and should use OptionGroups once
-		      they exist"""
-		self.__shown_object = obj
+		The Object needs to be an EditableOptions-subclass."""
+		self._shown_object = obj
 		# create notebook for groups
 		notebook = gtk.Notebook()
+		self.vbox_editor.set_border_width(10)
 		self.vbox_editor.add(notebook)
-		for group in obj.__options_groups_ordered__:
-			group_data = obj.__options_groups__[group]
-			# create box for tab-page
-			page = gtk.VBox()
-			page.set_border_width(10)
-			if group_data['info'] != '':
-				info = gtk.Label(group_data['info'])
-				info.show()
-				info.set_alignment(0, 0)
-				page.pack_start(info, 0, 0, 7)
-				sep = gtk.HSeparator()
-				sep.show()
-				#page.pack_start(sep, 0, 0, 5)
-			# create VBox for inputs
-			box = gtk.VBox()
-			box.show()
-			box.set_border_width(5)
-			# add box to page
-			page.add(box)
-			page.show()
-			# add new notebook-page
-			label = gtk.Label(group_data['label'])
-			label.show()
-			notebook.append_page(page, label)
-			# and create inputs
-			for option in group_data['options']:
-				if option.hidden == False:
-					val = getattr(obj, option.name)#obj.__dict__[option.name]
-					w = self.get_widget_for_option(option, val)
-					if w:
-						box.pack_start(w, 0, 0)
-						w.show()
+		# get all options/groups
+		for o in obj.get_option_groups():
+			print o
+			if isinstance(o, OptionGroup):
+				# create box for tab-page
+				page = gtk.VBox()
+				page.set_border_width(10)
+				info = o.get_info()
+				if info != '':
+					info = gtk.Label(info)
+					info.set_alignment(0, 0)
+					page.pack_start(info, 0, 0, 7)
+				# create VBox for inputs
+				box = gtk.VBox()
+				box.set_border_width(5)
+				# add box to page
+				page.add(box)
+				page.show_all()
+				# add new notebook-page
+				label = gtk.Label(o.get_name())
+				notebook.append_page(page, label)
+				# and create inputs
+				for option in o:
+					if option.hidden == False:
+						val = getattr(obj, option.name)
+						w = self.get_widget_for_option(option, val)
+						if w:
+							box.pack_start(w, 0, 0)
+							w.show()
 		notebook.show()	
 		# show/hide themes tab, depending on whether the screenlet uses themes
 		if obj.uses_theme and obj.theme_name != '':
@@ -847,13 +866,13 @@ class OptionsDialog (gtk.Dialog):
 		self.page_themes.pack_start(txt, False, True)
 		# create theme-selector list
 		self.tree.set_headers_visible(False)
-		self.tree.connect('cursor-changed', self.__tree_cursor_changed)
+		self.tree.connect('cursor-changed', self._tree_cursor_changed)
 		self.tree.show()
 		col = gtk.TreeViewColumn('')
 		cell = gtk.CellRendererText()
 		col.pack_start(cell, True)
 		#cell.set_property('foreground', 'black')
-		col.set_cell_data_func(cell, self.__render_cell)
+		col.set_cell_data_func(cell, self._render_cell)
 		self.tree.append_column(col)
 		# wrap tree in scrollwin
 		sw = gtk.ScrolledWindow()
@@ -870,7 +889,7 @@ class OptionsDialog (gtk.Dialog):
 		self.page_themes.show()
 		self.main_notebook.append_page(self.page_themes, gtk.Label(_('Themes ')))
 		
-	def __render_cell(self, tvcolumn, cell, model, iter):
+	def _render_cell (self, tvcolumn, cell, model, iter):
 		"""Callback for rendering the cells in the theme-treeview."""
 		# get attributes-list from Treemodel
 		attrib = model.get_value(iter, 0)
@@ -891,7 +910,7 @@ class OptionsDialog (gtk.Dialog):
 	
 	# UI-callbacks
 	
-	def __tree_cursor_changed (self, treeview):
+	def _tree_cursor_changed (self, treeview):
 		"""Callback for handling selection changes in the Themes-treeview."""
 		sel = self.tree.get_selection()
 		if sel:
@@ -900,11 +919,11 @@ class OptionsDialog (gtk.Dialog):
 				it = s[1]
 				if it:
 					attribs = self.liststore.get_value(it, 0)
-					if attribs and self.__shown_object:
+					if attribs and self._shown_object:
 						#print attribs
 						# set theme in Screenlet (if not already active)
-						if self.__shown_object.theme_name != attribs[0]:
-							self.__shown_object.theme_name = attribs[0]
+						if self._shown_object.theme_name != attribs[0]:
+							self._shown_object.theme_name = attribs[0]
 	
 	# option-widget creation (should be split in several classes)
 	
@@ -931,27 +950,23 @@ class OptionsDialog (gtk.Dialog):
 						p = i
 					i+=1
 				widget.set_active(p)
-				#widget.connect("changed", self.options_callback, option)
 			else:
 				widget = gtk.Entry()
 				widget.set_text(value)
 				# if it is a password, set text to be invisible
 				if option.password:
 					widget.set_visibility(False)
-			#widget.connect("key-press-event", self.options_callback, option)
 			widget.connect("changed", self.options_callback, option)
-			#widget.set_size_request(180, 28)
 		elif t == IntOption or t == FloatOption:
 			widget = gtk.SpinButton()
-			#widget.set_size_request(50, 22)
-			#widget.set_text(str(value))
 			if t == FloatOption:
 				widget.set_digits(option.digits)
-				widget.set_increments(option.increment, int(option.max/option.increment))
+				widget.set_increments(option.increment, 
+					int(option.max/option.increment))
 			else:
-				widget.set_increments(option.increment, int(option.max/option.increment))
+				widget.set_increments(option.increment, 
+					int(option.max/option.increment))
 			if option.min!=None and option.max!=None:
-				#print "Setting range for input to: %f, %f" % (option.min, option.max)
 				widget.set_range(option.min, option.max)
 			widget.set_value(value)
 			widget.connect("value-changed", self.options_callback, option)
@@ -1084,7 +1099,7 @@ class OptionsDialog (gtk.Dialog):
 			input_pass.set_visibility(False)	# password
 			input_pass.set_text(value[1])
 			input_pass.show()
-			but = gtk.Button('Apply', gtk.STOCK_APPLY)
+			but = gtk.Button(stock=gtk.STOCK_APPLY)
 			but.show()
 			but.connect("clicked", self.apply_options_callback, option, widget)
 			vb.add(input_name)
@@ -1114,7 +1129,7 @@ class OptionsDialog (gtk.Dialog):
 			widget.show()
 			# check if needs Apply-button
 			if option.realtime == False:
-				but = gtk.Button(_('Apply'), gtk.STOCK_APPLY)
+				but = gtk.Button(stock=gtk.STOCK_APPLY)
 				but.show()
 				but.connect("clicked", self.apply_options_callback, 
 					option, widget)
@@ -1181,7 +1196,7 @@ class OptionsDialog (gtk.Dialog):
 	def options_callback (self, widget, optionobj):
 		"""Callback for handling changed-events on entries."""
 		print _("Changed: %s") % optionobj.name
-		if self.__shown_object:
+		if self._shown_object:
 			# if the option is not real-time updated,
 			if optionobj.realtime == False:
 				return False
@@ -1190,20 +1205,20 @@ class OptionsDialog (gtk.Dialog):
 			if val != None:
 				#print "SetOption: "+optionobj.name+"="+str(val)
 				# set option
-				setattr(self.__shown_object, optionobj.name, val)
+				setattr(self._shown_object, optionobj.name, val)
 				# notify option-object's on_changed-handler
 				optionobj.emit("option_changed", optionobj)
 		return False
 
 	def apply_options_callback (self, widget, optionobj, entry):
 		"""Callback for handling Apply-button presses."""
-		if self.__shown_object:
+		if self._shown_object:
 			# read option
 			val = self.read_option_from_widget(entry, optionobj)
 			if val != None:
 				#print "SetOption: "+optionobj.name+"="+str(val)
 				# set option
-				setattr(self.__shown_object, optionobj.name, val)
+				setattr(self._shown_object, optionobj.name, val)
 				# notify option-object's on_changed-handler
 				optionobj.emit("option_changed", optionobj)
 		return False
@@ -1232,58 +1247,89 @@ if __name__ == "__main__":
 		text_suffix	= '</b>'
 		note_text	= ""	# hidden option because val has its own editing-dialog
 		random_pin_pos	= True
+		opt1 = 'testval 1'
+		opt2 = 'testval 2'
+		filename2	= ''
+		filename	= ''
+		dirname		= ''
+		font = 'Sans 12'
+		color = (0.1, 0.5, 0.9, 0.9)
+		name = 'a name'
+		name2 = 'another name'
+		combo_test = 'el2'
+		flt = 0.5
+		x = 10
+		y = 25
+		width = 30
+		height = 50
+		is_sticky = False
+		is_widget = False
 		
 		def __init__ (self):
 			EditableOptions.__init__(self)
-			# Add group
-			self.add_options_group('General', 
+			# NEW way of seting options:
+			# create option groups
+			"""group_tst = OptionGroup('Test', 'Test options ...')
+			group_gen = OptionGroup('General', 'The general options for this Object ...')
+			group_win = OptionGroup('Window', 'The Window-related options for this Object ...')
+			# add groups to Screenlet
+			self.add_option_group(group_tst)
+			self.add_option_group(group_gen)
+			self.add_option_group(group_win)"""
+			# short way of creating OptionGroups
+			group_tst = self.create_option_group('Test', 
+				'Test options ...')
+			group_gen = self.create_option_group('General', 
 				'The general options for this Object ...')
-			self.add_options_group('Window', 
+			group_win = self.create_option_group('Window', 
 				'The Window-related options for this Object ...')
-			self.add_options_group('Test', 'A Test-group ...')
-			# Add editable options
-			self.add_option(ListOption('Test', 'testlist', self.testlist,
+			# add options
+			group_tst.add_option(StringOption('opt1', self.opt1,
+				'NewOpt 1', 'A string option ...'))
+			group_tst.add_option(StringOption('opt2', self.opt2,
+				'NewOpt 2', 'A second string option ...', realtime=False))
+			group_tst.add_option(ImageOption('filename2', os.environ['HOME'],
+				'Image-Test', 'Testing the ImageOption-type ...'))
+			group_tst.add_option(DirectoryOption('dirname', os.environ['HOME'],
+				'Directory-Test', 'Testing a FileOption-type ...'))
+			group_gen.add_option(ListOption('testlist', self.testlist,
 				'ListOption-Test', 'Testing a ListOption-type ...'))
-			self.add_option(StringOption('Window', 'name', 'TESTNAME',
-				'Testname', 'The name/id of this Screenlet-instance ...'), 
-				realtime=False)
-			self.add_option(AccountOption('Test', 'pop3_account', 
+			group_gen.add_option(StringOption('name', 'TESTNAME',
+				'Testname', 'The name/id of this Screenlet-instance ...', 
+				realtime=False))
+			group_gen.add_option(AccountOption('pop3_account', 
 				self.pop3_account, 'Username/Password', 
 				'Enter username/password here ...'))
-			self.add_option(StringOption('Window', 'name2', 'TESTNAME2',
+			group_gen.add_option(StringOption('name2', 'TESTNAME2',
 				'String2', 'Another string-test ...'))
-			self.add_option(StringOption('Test', 'combo_test', "el1", 'Combo', 
+			group_gen.add_option(StringOption('combo_test', "el1", 'Combo', 
 				'A StringOption displaying a drop-down-list with choices...', 
 				choices=['el1', 'el2', 'element 3']))
-			self.add_option(FloatOption('General', 'flt', 30, 
+			group_gen.add_option(FloatOption('flt', 30, 
 				'A Float', 'Testing a FLOAT-type ...', 
 				min=0, max=gtk.gdk.screen_width(), increment=0.01, digits=4))
-			self.add_option(IntOption('General', 'x', 30, 
+			group_win.add_option(IntOption('x', 30, 
 				'X-Position', 'The X-position of this Screenlet ...', 
 				min=0, max=gtk.gdk.screen_width()))
-			self.add_option(IntOption('General', 'y', 30, 
+			group_win.add_option(IntOption('y', 30, 
 				'Y-Position', 'The Y-position of this Screenlet ...',
 				min=0, max=gtk.gdk.screen_height()))
-			self.add_option(IntOption('Test', 'width', 300, 
+			group_win.add_option(IntOption('width', 300, 
 				'Width', 'The width of this Screenlet ...', min=100, max=1000))
-			self.add_option(IntOption('Test', 'height', 150, 
+			group_win.add_option(IntOption('height', 150, 
 				'Height', 'The height of this Screenlet ...', 
 				min=100, max=1000))
-			self.add_option(BoolOption('General', 'is_sticky', True, 
+			group_win.add_option(BoolOption('is_sticky', True, 
 				'Stick to Desktop', 'Show this Screenlet always ...'))
-			self.add_option(BoolOption('General', 'is_widget', False,  
+			group_win.add_option(BoolOption('is_widget', False,  
 				'Treat as Widget', 'Treat this Screenlet as a "Widget" ...'))
-			self.add_option(FontOption('Test', 'font', 'Sans 14', 
+			group_tst.add_option(FontOption('font', 'Sans 14', 
 				'Font', 'The font for whatever ...'))
-			self.add_option(ColorOption('Test', 'color', (1, 0.35, 0.35, 0.7), 
+			group_tst.add_option(ColorOption('color', (1, 0.35, 0.35, 0.7), 
 				'Color', 'The color for whatever ...'))
-			self.add_option(FileOption('Test', 'filename', os.environ['HOME'],
+			group_tst.add_option(FileOption('filename', os.environ['HOME'],
 				'Filename-Test', 'Testing a FileOption-type ...',
 				patterns=['*.py', '*.pyc']))
-			self.add_option(ImageOption('Test', 'filename2', os.environ['HOME'],
-				'Image-Test', 'Testing the ImageOption-type ...'))
-			self.add_option(DirectoryOption('Test', 'dirname', os.environ['HOME'],
-				'Directory-Test', 'Testing a FileOption-type ...'))
 			# TEST
 			self.disable_option('width')
 			self.disable_option('height')
@@ -1307,11 +1353,12 @@ if __name__ == "__main__":
 		
 		def __init__ (self):
 			TestObject.__init__(self)
-			self.add_option(StringOption('Test', 'anothertest', 'ksjhsjgd',
+			# init properties
+			self.anothertest = 'sdhglksdgklsdg'
+			# init options
+			group = self.get_option_group_by_name ('Test')
+			group.add_option(StringOption('anothertest', self.anothertest,
 				'Another Test', 'An attribute in the subclass  ...'))
-			self.add_option(StringOption('Test', 'theme_name', self.theme_name,
-				'Theme', 'The theme for this Screenelt  ...',
-				choices=['test1', 'test2', 'mytheme', 'blue', 'test']))
 	
 	
 	# TEST: load/save
@@ -1334,5 +1381,5 @@ if __name__ == "__main__":
 	else:
 		print "Cancelled."
 	se.destroy()
-	print to.export_options_as_list()
+	#print to.export_options_as_list()
 

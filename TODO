@@ -16,9 +16,6 @@ major (desktop-oriented) distros (ubuntu, redhat, suse, mandriva, gentoo, ...).
 - DirectoryOption is set twice or more when selected in editor (bug in gtk?)
 - use startup-notification during startup of a screenlet (to show busy cursor)
 - switching themes slowly increases the memory usage (maybe rsvg leak?)
-- add option-groups and improve EditableOptions-class to use them (and edit
-  the OptionsEditor afterwards), then modify all Option-classes and 
-  definitions to pass the object instead of the group-name to the Option's init
 - option-definitions shouldn't be retrieved by each instance of the same
   Screenlet, there should be some global place within the session where that
   info is stored ... preferably read from the metadata-file

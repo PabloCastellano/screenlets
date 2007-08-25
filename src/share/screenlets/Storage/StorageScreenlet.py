@@ -49,13 +49,11 @@ class StorageScreenlet (screenlets.Screenlet):
 			DefaultMenuItem.PROPERTIES |
 			DefaultMenuItem.THEMES)
 		# add option group
-		self.add_options_group('Storage', 'Storage-options ...')
+		group = self.create_option_group('Storage', 'Storage-options.')
 		# add some editable options
-		self.add_option(ListOption('Storage', 'uris', self.uris, 
-			'Stored URLs', 
+		group.add_option(ListOption('uris', self.uris, 'Stored URLs', 
 			'The list of URLs stored in this Storage ...'))		
-		self.add_option(ListOption('Storage', 'texts', self.texts, 
-			'Stored Texts', 
+		group.add_option(ListOption('texts', self.texts, 'Stored Texts', 
 			'The list of texts stored in this Storage ...'))
 	
 	def on_menuitem_select (self, id):

@@ -9,7 +9,6 @@
 import screenlets
 import cairo
 import pango
-#import time
 import datetime
 
 class CalendarScreenlet (screenlets.Screenlet):
@@ -24,8 +23,7 @@ class CalendarScreenlet (screenlets.Screenlet):
 	# constructor
 	def __init__(self, **keyword_args):
 		# call super
-		screenlets.Screenlet.__init__(self, width=200, height=200, 
-			uses_theme=True, **keyword_args)
+		screenlets.Screenlet.__init__(self, uses_theme=True, **keyword_args)
 		# set some options
 		self.text_shadow_offset = 0.666
 		# set theme

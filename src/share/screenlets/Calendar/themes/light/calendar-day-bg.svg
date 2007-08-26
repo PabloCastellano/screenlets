@@ -6,18 +6,43 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="100"
    height="100"
    id="svg2"
    sodipodi:version="0.32"
-   inkscape:version="0.44"
+   inkscape:version="0.45"
    version="1.0"
-   sodipodi:docbase="/home/ryx/programs/cairo-clock-0.3.2/themes/osx"
-   sodipodi:docname="clock-face-shadow.svg">
+   sodipodi:docbase="/home/ryx/Documents/scripts/python/screenlets/trunk/src/share/screenlets/Calendar/themes/light"
+   sodipodi:docname="calendar-day-bg.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   sodipodi:modified="true">
   <defs
      id="defs4">
+    <linearGradient
+       id="linearGradient2772">
+      <stop
+         style="stop-color:#00dcff;stop-opacity:0.69411767;"
+         offset="0"
+         id="stop2774" />
+      <stop
+         style="stop-color:#4b8cb7;stop-opacity:0;"
+         offset="1"
+         id="stop2776" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3655">
+      <stop
+         style="stop-color:#48acd1;stop-opacity:1;"
+         offset="0"
+         id="stop3657" />
+      <stop
+         style="stop-color:black;stop-opacity:0;"
+         offset="1"
+         id="stop3659" />
+    </linearGradient>
     <linearGradient
        id="linearGradient2202">
       <stop
@@ -29,6 +54,15 @@
          offset="1"
          id="stop2206" />
     </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3655"
+       id="linearGradient3661"
+       x1="1.4713519"
+       y1="0"
+       x2="1.4713519"
+       y2="2.846041"
+       gradientUnits="userSpaceOnUse" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -37,17 +71,17 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1"
-     inkscape:cx="50"
-     inkscape:cy="50"
+     inkscape:zoom="11.313709"
+     inkscape:cx="-2.4351299"
+     inkscape:cy="90.265063"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showguides="true"
      inkscape:guide-bbox="true"
      inkscape:window-width="989"
-     inkscape:window-height="625"
-     inkscape:window-x="39"
-     inkscape:window-y="85">
+     inkscape:window-height="626"
+     inkscape:window-x="197"
+     inkscape:window-y="232">
     <sodipodi:guide
        orientation="horizontal"
        position="50"
@@ -103,5 +137,15 @@
   <g
      inkscape:label="Ebene 1"
      inkscape:groupmode="layer"
-     id="layer1" />
+     id="layer1">
+    <rect
+       style="opacity:1;fill:#cccccc;fill-opacity:0.54266214;fill-rule:nonzero;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1887"
+       width="11"
+       height="8"
+       x="-1.4067523e-16"
+       y="0"
+       ry="2.563262"
+       rx="2.563262" />
+  </g>
 </svg>

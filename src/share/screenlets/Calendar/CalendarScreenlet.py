@@ -9,7 +9,7 @@
 import screenlets
 import cairo
 import pango
-import time
+#import time
 import datetime
 
 class CalendarScreenlet (screenlets.Screenlet):
@@ -17,9 +17,8 @@ class CalendarScreenlet (screenlets.Screenlet):
 	
 	# default meta-info for Screenlets
 	__name__	= 'CalendarScreenlet'
-	__version__	= '0.2'
+	__version__	= '0.3'
 	__author__	= 'RYX (initial version by robgig1088)'
-	__website__	= 'http://www.screenlets.org/screenlets'
 	__desc__	= __doc__
 
 	# constructor
@@ -27,25 +26,23 @@ class CalendarScreenlet (screenlets.Screenlet):
 		# call super
 		screenlets.Screenlet.__init__(self, width=200, height=200, 
 			uses_theme=True, **keyword_args)
+		# set some options
+		self.text_shadow_offset = 0.666
 		# set theme
 		self.theme_name = "ryx"
 		# add default menu items
 		self.add_default_menuitems()
 		
-	# attribute-"setter", handles setting of attributes
-	#def __setattr__(self, name, value):
-	#	# call Screenlet.__setattr__ in baseclass (ESSENTIAL!!!!)
-	#	screenlets.Screenlet.__setattr__(self, name, value)
-
-	def get_date_info(self, old_cuse = [0]):
+	def get_date_info(self):
+		now = datetime.datetime.now()
 		#get day
-		day = datetime.datetime.now().strftime("%d")
+		day = now.strftime("%d")
 		#get the month number
-		month_num = datetime.datetime.now().strftime("%m")
+		month_num = now.strftime("%m")
 		# get the year
-		year = datetime.datetime.now().strftime("%Y")
+		year = now.strftime("%Y")
 		 #get the month name
-		month_name = datetime.datetime.now().strftime("%B")
+		month_name = now.strftime("%B")
 		#make a date (1st of month)
 		when = datetime.date(int(year), int(month_num), int(1))
 		# get the first day of the month (mon, tues, etc..)
@@ -65,10 +62,72 @@ class CalendarScreenlet (screenlets.Screenlet):
 			start_day = 0   
 		start_day = start_day + 1
 		# return the whole stuff
-		return [day, month_num, year, month_name, 
-			days_in_month, first_day, start_day]
+		return [day, month_num, year, month_name, days_in_month, 
+			first_day, start_day]
 	
-	def on_draw(self, ctx):
+	def draw_year_and_month (self, ctx, pl, year, month):
+		ctx.save()
+		ctx.translate(5 + self.text_shadow_offset, 5 + self.text_shadow_offset)
+		# draw the month
+		pl.set_width((self.width) * pango.SCALE)
+		pl.set_markup('<b>' + month + '</b>')
+		ctx.set_source_rgba(0, 0, 0, 0.3)
+		ctx.show_layout(pl)
+		ctx.translate(-self.text_shadow_offset, -self.text_shadow_offset)
+		ctx.set_source_rgba(1, 1, 1, 0.8)
+		ctx.show_layout(pl)
+		# draw the year
+		ctx.translate(70 + self.text_shadow_offset, self.text_shadow_offset)
+		pl.set_markup('<b>' + year + '</b>')
+		ctx.set_source_rgba(0, 0, 0, 0.3)
+		ctx.show_layout(pl)
+		ctx.translate(-self.text_shadow_offset, -self.text_shadow_offset)
+		ctx.set_source_rgba(1, 1, 1, 0.8)
+		ctx.show_layout(pl)
+		ctx.restore()
+	
+	def draw_header (self, ctx, pl):
+		ctx.save()
+		ctx.translate(5 + self.text_shadow_offset, 17 + self.text_shadow_offset)
+		pl.set_markup('<b>' + "Su  Mo  Tu  We  Th  Fr  Sa" + '</b>')
+		ctx.set_source_rgba(0, 0, 0, 0.3)
+		ctx.show_layout(pl)
+		ctx.translate(-self.text_shadow_offset, -self.text_shadow_offset)
+		ctx.set_source_rgba(1, 1, 1, 0.8)
+		ctx.show_layout(pl)
+		ctx.restore()
+	
+	def draw_days (self, ctx, pl, date):
+		#ctx.translate(-5, 0)
+		row = 1
+		day = int(date[6])
+		tso = self.text_shadow_offset
+		for x in range(date[4] + 1):
+			ctx.save()
+			ctx.translate(4 + (day-1) * 13 + tso, 30 + 12 * (row - 1) + tso)
+			if str(int(x)+1) == str(date[0]) or \
+				"0" + str(int(x)+1) == str(date[0]):
+				ctx.save()
+				ctx.translate(0, -1)
+				self.theme.render(ctx, 'calendar-day-bg')
+				ctx.restore()
+			if int(x)+1 < 10:
+				# draw the days
+				pl.set_markup('<b>' + " 0" + str(x+1) + '</b>')
+			else:
+				pl.set_markup('<b>' + " " + str(x+1) + '</b>')
+			ctx.set_source_rgba(0, 0, 0, 0.3)
+			ctx.show_layout(pl)
+			ctx.translate(-tso, -tso)
+			ctx.set_source_rgba(1, 1, 1, 0.8)
+			ctx.show_layout(pl)
+			if day == 7:
+				day = 0
+				row = row + 1
+			day = day + 1
+			ctx.restore()
+	
+	def on_draw (self, ctx):
 		# get dates
 		date = self.get_date_info()
 		# set size
@@ -77,60 +136,22 @@ class CalendarScreenlet (screenlets.Screenlet):
 		ctx.set_operator(cairo.OPERATOR_OVER)
 		if self.theme:
 			# render bg
-			self.theme.render(ctx, 'date-bg')
-			#self.theme.render(ctx, 'date-border')
-			ctx.save()
-			ctx.translate(5,5)
+			self.theme.render(ctx, 'calendar-bg')
+			# create layout
 			p_layout = ctx.create_layout()
 			p_fdesc = pango.FontDescription("Free Sans 5")
 			p_layout.set_font_description(p_fdesc)
-			# draw the month
-			p_layout.set_width((self.width) * pango.SCALE)
-			p_layout.set_markup('<b>' + date[3] + '</b>')
-			ctx.set_source_rgba(1, 1, 1, 0.8)
-			ctx.show_layout(p_layout)
-			# draw the year
-			ctx.translate(70, 0)
-			p_layout.set_markup('<b>' + date[2] + '</b>')
-			ctx.set_source_rgba(1, 1, 1, 0.8)
-			ctx.show_layout(p_layout)
-			ctx.restore()
-			ctx.save()
-			ctx.translate(0,15)
-			#draw the header background
-			self.theme.render(ctx, 'header-bg')
-			ctx.translate(8, 1)
-			p_layout.set_markup('<b>' + "S    M    T    W    T    F    S" + \
-				'</b>')
-			ctx.set_source_rgba(1, 1, 1, 0.8)
-			ctx.show_layout(p_layout)
-			ctx.restore()
-			row = 1
-			day = int(date[6])
-			#print str(date[0])
-			for x in range(date[4] + 1):
-				ctx.save()
-				ctx.translate(5 + (day-1)*13, 29 + 12*(row - 1))
-				if str(int(x)+1) == str(date[0]) or \
-					"0"+str(int(x)+1) == str(date[0]):
-					self.theme.render(ctx, 'day-bg')
-				if int(x)+1 < 10:
-					# draw the days
-					p_layout.set_markup('<b>' + " 0"+str(x+1) + '</b>')
-				else:
-					p_layout.set_markup('<b>' + " "+str(x+1) + '</b>')
-				ctx.set_source_rgba(1, 1, 1, 0.8)
-				ctx.show_layout(p_layout)
-				if day == 7:
-					day = 0
-					row = row + 1
-				day = day + 1
-				ctx.restore()
+			# draw year/month
+			self.draw_year_and_month(ctx, p_layout, date[2], date[3])
+			# draw header
+			self.draw_header(ctx, p_layout)
+			# draw days
+			self.draw_days(ctx, p_layout, date)
 		
 	def on_draw_shape(self,ctx):
 		ctx.scale(self.scale, self.scale)
 		if self.theme:
-			self.theme.render(ctx, 'date-bg')
+			self.theme.render(ctx, 'calendar-bg')
 
 	
 # If the program is run directly or passed as an argument to the python

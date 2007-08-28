@@ -100,15 +100,20 @@ Desc=%s
 Version=%s
 ApiVersion=%s
 Created=%s
-""" % (sl_class.__name__, sl_class.__author__, sl_class.__desc__, 
-	sl_class.__version__, screenlets.VERSION, 
+""" % (sl_class.__name__, sl_class.__author__, sl_class.__desc__.replace('\n', 
+	'').replace('\t', ''), sl_class.__version__, screenlets.VERSION, 
 	datetime.now().strftime("%Y/%m/%d"))
-f = open('%s/%s' % (path, PACKAGE_INFO_FILE), 'w')
-if f:
-	f.write(meta)
-	f.close()
-else:
-	die(_('Failed to create package info in %s.') % path)
+fail=False
+try:
+	f = open('%s/%s' % (path, PACKAGE_INFO_FILE), 'w')
+	if f:
+		f.write(meta)
+		f.close()
+		fail=True
+except:
+	fail=True
+if fail:
+	die(_('Failed to create package info in "%s" (no permission?).') % path)
 msg(_('Created package info file.'))
 
 # cd into path, package the whole stuff up into an archive and save it to our pwd
@@ -116,8 +121,8 @@ pwd = os.getcwd()
 excl = ''
 for e in excludes:
 	excl += ' --exclude=' + e
-os.system('cd %s && cd .. && tar cfz %s/%s.tar.gz %s %s' % (path, pwd, 
-	sl_name, sl_name, excl))
+os.system('cd %s && cd .. && tar cfz %s/%sScreenlet-%s.tar.gz %s %s' % (path, 
+	pwd, sl_name, sl_class.__version__, sl_name, excl))
 
 # remove the metadata file
 os.system('rm %s/%s' % (path, PACKAGE_INFO_FILE))

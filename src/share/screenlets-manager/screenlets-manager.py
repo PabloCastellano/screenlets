@@ -20,7 +20,7 @@
 
 import pygtk
 pygtk.require('2.0')
-import os
+import os, sys
 import gtk, gobject
 import screenlets
 from screenlets import utils
@@ -30,7 +30,7 @@ import gettext
 gettext.textdomain('screenlets-manager')
 gettext.bindtextdomain('screenlets-manager', '/usr/share/locale')
 
-# stub for gettext - we not translate yet, but we will :D
+# stub for gettext
 def _(s):
 	#return s
 	return gettext.gettext(s)
@@ -41,10 +41,21 @@ APP_NAME	= _('Screenlets Manager')
 APP_VERSION	= '0.1'
 
 # some constants
-DIR_USER		= os.environ['HOME'] + '/.screenlets'
-DIR_AUTOSTART	= os.environ['HOME'] + '/.config/autostart'
 DIR_TMP			= '/tmp/screenlets/'
 DEBUG_MODE		= True
+
+# get executing user (root or normal) and set user-dependant constants
+if os.geteuid()==0:
+	# we run as root, install system-wide
+	USER = 0
+	DIR_USER		= screenlets.INSTALL_PREFIX + '/share/screenlets'
+	DIR_AUTOSTART	= '/etc/xdg/autostart'			# TODO: use pyxdg here
+else:
+	# we run as normal user, install into $HOME
+	USER = 1
+	DIR_USER		= os.environ['HOME'] + '/.screenlets'
+	DIR_AUTOSTART	= os.environ['HOME'] + '/.config/autostart'
+
 
 
 # classes
@@ -63,36 +74,72 @@ class ScreenletInfo:
 		self.system		= not os.path.isfile('%s/%s/%sScreenlet.py' % (DIR_USER, name, name))
 		self.autostart	= os.path.isfile(DIR_AUTOSTART + '/' + name + 'Screenlet.desktop')
 
-
 class ScreenletInstaller:
-	"""A simple utility to install screenlets into the user's screenlets-
-	directory in $HOME/.screenlets/."""
+	"""A simple utility to install screenlets into the current user's directory 
+	(so either into $HOME/.screenlets/ for normal users or, if run as root, 
+	into screenlets.INSTALL_PREFIX/share/screenlets/)."""
 	
 	def __init__ (self):
 		self._message = ''
-	
-	def get_result_message (self):
-		"""Return a human-readble result message about the last operation."""
-		return self._message
 	
 	def create_user_dir (self):
 		"""Create the userdir for the screenlets."""
 		if not os.path.isdir(DIR_USER):
 			os.mkdir(DIR_USER)
 	
+	def get_info_from_package_name (self, filename):
+		"""Return all info we can get from the package-name or return None
+		if something went wrong. If nothing failed, the returned value is
+		a 4-tuple of the form: (name, version, basename, extension)."""
+		base	= os.path.basename(filename)
+		ext		= filename[filename.rfind('.')+1:]
+		# prepend "tar." if we have a bz2 or gz archive
+		if ext == 'gz' or ext == 'bz2':
+			ext = 'tar.' + ext
+		fullname	= base[:-len(ext)-1]
+		t = fullname.split('Screenlet-')
+		if len(t) < 2 or ext == '' or fullname == '':
+			return None
+		version	= t[1]
+		name	= t[0]
+		if version == '' or name == '':
+			return None
+		return (name, version, base, ext)
+	
+	def get_result_message (self):
+		"""Return a human-readable result message about the last operation."""
+		return self._message
+	
+	def is_installed (self, name):
+		"""Checks if the given screenlet with the name defined by 'name' 
+		(without trailing 'Screenlet') is already installed in the current
+		install target location."""
+		return os.path.isdir(DIR_USER + '/' + name)
+			
 	def install (self, filename):
 		"""Install a screenlet from a given archive-file. Extracts the
 		contents of the archive to the user's screenlet dir."""
 		print 'Installing %s' % filename
 		result = False
 		# get name of screenlet
-		basename	= os.path.basename(filename)
-		extension	= os.path.splitext(filename)
-		name		= basename[:basename.find('.')]
-		print name
+		#basename	= os.path.basename(filename)
+		#extension	= os.path.splitext(filename)
+		#name		= basename[:basename.find('.')]
+		#print name
+		info = self.get_info_from_package_name(filename)
+		if not info:
+			self._message = _("Invalid archive name. Name must be like 'SomeScreenlet-0.1.2.tar.gz', alternatively with a 'zip' or 'tar.bz2' extension.")
+			return False
+		name	= info[0]
+		ext		= info[2]
+		# check if screenlet is already installed
+		#found_path = screenlets.utils.find_first_screenlet_path(name)
+		if self.is_installed(name):#found_path != None:
+			self._message = _("The %sScreenlet is already installed in '%s'. Please remove it first!" % (name, DIR_USER))
+			return False
 		# check extension and create appropriate args for tar
 		tar_opts = 'xfz'
-		if extension == 'bz2':
+		if ext == 'tar.bz2':
 			tar_opts = 'xfj'
 		# extract archive to temporary dir
 		if not os.path.isdir(DIR_TMP):
@@ -124,7 +171,15 @@ class ScreenletInstaller:
 		os.system('rm -rf %s/install-temp' % DIR_TMP)
 		# ready
 		return result
-	
+
+# TEST:	
+#inst = ScreenletInstaller()
+#print inst.get_info_from_package_name('ClockScreenlet-0.3.2.tar.bz2')
+#print inst.get_info_from_package_name('/home/ryx/tmp/ExampleScreenlet-0.3.zip')
+#print inst.get_info_from_package_name('/somewhere/MyScreenlet-0.1.tar.gz')
+#sys.exit(1)
+# /TEST
+
 
 class ScreenletsManager:
 	"""The main application class."""
@@ -136,9 +191,14 @@ class ScreenletsManager:
 		self.create_ui()
 		# populate UI
 		self.load_screenlets()
-		# connect dameon
-		self.connect_daemon()		
-	
+		# if we are running as root, show error
+		if USER == 0:
+			screenlets.show_error(None, _("""Important! You are running this application as root user, almost all functionality is disabled. You can use this to install screenlets into the system-wide path."""), 
+				_('Warning!'))
+		else:
+			# connect dameon
+			self.connect_daemon()	
+		
 	# screenlets stuff
 	
 	def connect_daemon (self):
@@ -323,7 +383,10 @@ class ScreenletsManager:
 		"""Create UI."""
 		# window
 		self.window = w = gtk.Window()
-		w.set_title(APP_NAME)
+		if USER == 0:	# add note about "root-mode"
+			w.set_title(APP_NAME + ' (root mode)')
+		else:
+			w.set_title(APP_NAME)
 		w.set_skip_taskbar_hint(False)
 		w.set_skip_pager_hint(False)
 		#w.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_NORMAL)
@@ -345,6 +408,9 @@ class ScreenletsManager:
 		iv.set_model(self.model)
 		iv.set_markup_column(0)
 		iv.set_pixbuf_column(1)
+		# disable UI for root user
+		if USER == 0:
+			iv.set_sensitive(False)
 		iv.connect('selection-changed', self.selection_changed)
 		iv.connect('item-activated', self.item_activated)
 		# wrap iconview in scrollwin
@@ -489,6 +555,10 @@ class ScreenletsManager:
 		if resp == gtk.RESPONSE_OK:
 			# create new installer
 			installer = ScreenletInstaller()
+			# TEST
+			#print installer.get_info_from_package_name (filename)
+			#return
+			# /TEST
 			# try installing and show result dialog
 			self.window.window.set_cursor(gtk.gdk.Cursor(gtk.gdk.WATCH))
 			result = installer.install(filename)

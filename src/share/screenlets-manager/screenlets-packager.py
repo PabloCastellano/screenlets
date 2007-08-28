@@ -109,6 +109,7 @@ try:
 	if f:
 		f.write(meta)
 		f.close()
+	else:
 		fail=True
 except:
 	fail=True
@@ -117,12 +118,16 @@ if fail:
 msg(_('Created package info file.'))
 
 # cd into path, package the whole stuff up into an archive and save it to our pwd
-pwd = os.getcwd()
-excl = ''
+pwd			= os.getcwd()
+excl		= ''
+pkgname		= '%sScreenlet-%s.tar.gz' % (sl_name, sl_class.__version__)
 for e in excludes:
 	excl += ' --exclude=' + e
-os.system('cd %s && cd .. && tar cfz %s/%sScreenlet-%s.tar.gz %s %s' % (path, 
-	pwd, sl_name, sl_class.__version__, sl_name, excl))
+os.system('cd %s && cd .. && tar cfz %s/%s %s %s' % (path, pwd, pkgname, 
+	sl_name, excl))
+
+# finally "inject" the package info, waiting in '/tmp'
+#os.system('tar --add-file=/tmp/%s %s' % (PACKAGE_INFO_FILE, pkgname))
 
 # remove the metadata file
 os.system('rm %s/%s' % (path, PACKAGE_INFO_FILE))

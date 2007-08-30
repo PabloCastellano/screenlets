@@ -27,7 +27,7 @@ import pygtk
 pygtk.require('2.0')
 import gtk
 import math
-import cairo
+import cairo, pango
 from datetime import datetime
 import gobject
 import rsvg
@@ -327,6 +327,8 @@ class Screenlet (gobject.GObject, EditableOptions):
 	saving_enabled	= True		# if False, saving is disabled
 	dragging_over 	= False		# true if something is dragged over
 	disable_updates	= False		# to temporarily avoid refresh/reshape
+	p_context		= None		# PangoContext
+	p_layout		= None		# PangoLayout
 	
 	# default editable options, available for all Screenlets
 	x = 0
@@ -364,7 +366,8 @@ class Screenlet (gobject.GObject, EditableOptions):
 	def __init__ (self, id='', width=100, height=100, parent_window=None, 
 		show_window=True, is_widget=False, is_sticky=False, 
 		uses_theme=False, path=os.getcwd(), drag_drop=False, session=None, 
-		enable_saving=True, service_class=services.ScreenletService):
+		enable_saving=True, service_class=services.ScreenletService,
+		uses_pango=False):
 		"""Constructor - should only be subclassed"""
 		# call gobject and EditableOptions superclasses
 		super(Screenlet, self).__init__()
@@ -463,6 +466,13 @@ class Screenlet (gobject.GObject, EditableOptions):
 		self.window.resize(width, height)
 		self.window.set_decorated(False)
 		self.window.set_app_paintable(True)
+		# create pango layout, if active
+		if uses_pango:
+			self.p_context = self.window.get_pango_context()
+			if self.p_context:
+				self.p_layout = pango.Layout(self.p_context)
+				self.p_layout.set_font_description(\
+					pango.FontDescription("Sans 12"))
 		# set type hint
 		#self.window.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_DOCK)
 		self.window.set_keep_above(True)

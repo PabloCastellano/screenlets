@@ -12,6 +12,7 @@
 import screenlets
 from screenlets.sensors import CPUSensor
 from screenlets.options import FloatOption, BoolOption, StringOption, IntOption
+from screenlets.options import FontOption
 
 import cairo
 import pango
@@ -26,22 +27,21 @@ class CPUMeterScreenlet (screenlets.Screenlet):
 	__author__	= 'RYX (Rico Pfaus) 2007'
 	__desc__	= __doc__
 
-	# internals
-	__timeout = None
-	
-	# settings
+	# options
 	update_interval = 1.0
 	show_text		= True
 	show_graph		= True
+	font			= 'Free Sans 25'
 	text_prefix 	= '<span size="xx-small" rise="10000">% </span><b>'
 	text_suffix 	= '</b>'
-	text_x	= 17
-	text_y	= 31
+	text_x			= 17
+	text_y			= 31
 	
 	# constructor
 	def __init__ (self, **keyword_args):
 		# call super
-		screenlets.Screenlet.__init__(self, uses_theme=True, **keyword_args)
+		screenlets.Screenlet.__init__(self, uses_theme=True, uses_pango=True, 
+			**keyword_args)
 		# init CPU sensor
 		self.sensor = CPUSensor(int(self.update_interval))
 		self.sensor.connect('sensor_updated', self.handle_sensor_updated)
@@ -59,6 +59,8 @@ class CPUMeterScreenlet (screenlets.Screenlet):
 			'Show the text on the CPU-meter ...'))
 		grp.add_option(BoolOption('show_graph', self.show_graph, 'Show Graph', 
 			'Show the graph on the CPU-meter ...'))
+		grp.add_option(FontOption('font', self.font, 'Font', 
+			'The font used for the text on the display ...'))
 		grp.add_option(StringOption('text_prefix', self.text_prefix, 
 			'Text Prefix', 'Text (or Pango-Markup) to be placed before info.', 
 			realtime=False))
@@ -71,7 +73,7 @@ class CPUMeterScreenlet (screenlets.Screenlet):
 		grp.add_option(IntOption('text_y', self.text_y, 'Text Y', 
 			'The vertical offset for drawing the text at ...',
 			min=0, max=100))
-	
+		
 	# attribute-"setter", handles setting of attributes
 	def __setattr__ (self, name, value):
 		# call Screenlet.__setattr__ in baseclass (ESSENTIAL!!!!)
@@ -81,6 +83,12 @@ class CPUMeterScreenlet (screenlets.Screenlet):
 			self.sensor.set_interval(int(value * 1000))
 		elif name in ('text_x', 'text_y'):
 			self.redraw_canvas()
+		elif name == 'width':
+			if self.p_layout:
+				self.p_layout.set_width((self.width) * pango.SCALE)
+		elif name == 'font':
+			self.p_layout.set_font_description(\
+				pango.FontDescription(value))
 	
 	# sensor callback, called on each interval
 	def handle_sensor_updated (self, sensor):
@@ -90,7 +98,6 @@ class CPUMeterScreenlet (screenlets.Screenlet):
 		# set size
 		ctx.scale(self.scale, self.scale)
 		# draw bg (if theme available)
-		ctx.set_operator(cairo.OPERATOR_OVER)
 		if self.theme:
 			self.theme.render(ctx, 'cpumeter-bg')
 			# get load
@@ -108,16 +115,12 @@ class CPUMeterScreenlet (screenlets.Screenlet):
 			if self.show_text:
 				ctx.save()
 				ctx.translate(self.text_x, self.text_y)
-				p_layout = ctx.create_layout()
-				p_fdesc = pango.FontDescription("Free Sans 25")
-				p_layout.set_font_description(p_fdesc)
-				p_layout.set_width((self.width) * pango.SCALE)
 				if len(str(load))==1:
 					load = "0" + str(load)
-				p_layout.set_markup(self.text_prefix + str(load) + \
+				self.p_layout.set_markup(self.text_prefix + str(load) + \
 					self.text_suffix)
 				ctx.set_source_rgba(1, 1, 1, 0.8)
-				ctx.show_layout(p_layout)
+				ctx.show_layout(self.p_layout)
 				ctx.fill()
 				ctx.restore()
 			# draw glass (if theme available)

@@ -57,7 +57,7 @@ class ScreenletsBackend:
 		pass
 	
 
-class GconfBackend:
+class GconfBackend (ScreenletsBackend):
 	"""Backend for storing settings in the GConf registry"""
 	
 	gconf_dir = '/apps/screenlets/'
@@ -85,9 +85,8 @@ class GconfBackend:
 		"""Load all options for the instance with the given id."""
 		keys = []
 		vals = []
-		print "Loading options for " + id
 		for i in self.client.all_entries(self.gconf_dir + id):
-			keys.append(i.key[34:])
+			keys.append(i.key.split('/')[4])
 			vals.append(self.client.get_string(i.key))
 		return dict(zip(keys, vals))
 		return None
@@ -95,7 +94,6 @@ class GconfBackend:
 	def save_option (self, id, name, value):
 		"""Save one option for the instance with the given id."""
 		self.client.set_string(self.gconf_dir + id + '/' + name, value)
-		print 'Saved option ' + self.gconf_dir + id + '/' + name + ' = ' + value % (self.gconf_dir, id, name, value)
 		print _('Saved option %s%s/%s = %s') % (self.gconf_dir, id, name, value)
 
 

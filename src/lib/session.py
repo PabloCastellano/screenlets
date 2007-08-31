@@ -59,7 +59,7 @@ class ScreenletSession (object):
 	session-object."""
 	
 	# constructor
-	def __init__ (self, screenlet_classobj, name='default'):
+	def __init__ (self, screenlet_classobj, backend_type='caching', name='default'):
 		object.__init__(self)
 		# check type
 		if not screenlet_classobj.__name__.endswith('Screenlet'):
@@ -79,7 +79,10 @@ class ScreenletSession (object):
 		if self.path == None:
 			self.path = BaseDirectory.save_config_path('Screenlets/' + p)
 		if self.path:
-			self.backend = backend.CachingBackend(path=self.path)
+			if backend_type == 'caching':
+				self.backend = backend.CachingBackend(path=self.path)
+			elif backend_type == 'gconf':
+				self.backend = backend.GconfBackend()	
 		else:
 			# no config-dir? use dummy-backend and note about problem
 			self.backend = backend.ScreenletsBackend()
@@ -391,11 +394,11 @@ class ScreenletSession (object):
 
 
 
-def create_session (classobj, threading=False):
+def create_session (classobj, backend='caching', threading=False):
 	"""A very simple utility-function to easily create/start a new session."""
 	if threading:
 		import gtk
 		gtk.gdk.threads_init()
-	session = ScreenletSession(classobj)
+	session = ScreenletSession(classobj, backend_type=backend)
 	session.start()
 

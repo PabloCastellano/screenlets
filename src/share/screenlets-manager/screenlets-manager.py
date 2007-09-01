@@ -26,6 +26,7 @@ import screenlets
 from screenlets import utils
 import dbus
 import gettext
+import subprocess
 
 gettext.textdomain('screenlets-manager')
 gettext.bindtextdomain('screenlets-manager', '/usr/share/locale')
@@ -518,6 +519,7 @@ class ScreenletsManager:
 	def show_about_dialog (self):
 		"""Create/Show about dialog for this app."""
 		dlg = gtk.AboutDialog()
+		gtk.about_dialog_set_url_hook(self.website_open, None)
 		# add baisc info
 		dlg.set_name(APP_NAME)
 		dlg.set_comments(_('A graphical manager application that simplifies managing, starting and (un-)installing Screenlets.'))
@@ -534,7 +536,10 @@ class ScreenletsManager:
 		# run/destroy
 		dlg.run()
 		dlg.destroy()
-	
+		
+	def website_open(self, d, link, data):
+		subprocess.Popen(["firefox", "http://www.screenlets.org"])
+
 	def show_install_dialog (self):
 		"""Craete/Show the install-dialog."""
 		# create filter

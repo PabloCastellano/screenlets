@@ -55,7 +55,10 @@ else:
 	# we run as normal user, install into $HOME
 	USER = 1
 	DIR_USER		= os.environ['HOME'] + '/.screenlets'
-	DIR_AUTOSTART	= os.environ['HOME'] + '/.config/autostart'
+	if os.environ['DESKTOP_SESSION'].startswith('kde'):
+		DIR_AUTOSTART	= os.environ['HOME'] + '/.kde/Autostart'
+	else:
+		DIR_AUTOSTART	= os.environ['HOME'] + '/.config/autostart'
 
 
 
@@ -253,6 +256,7 @@ class ScreenletsManager:
 				code.append('Name=%sScreenlet' % name)
 				code.append('Encoding=UTF-8')
 				code.append('Version=1.0')
+				code.append('Type=Application')
 				code.append('Exec=%s/%sScreenlet.py > /dev/null' % (path, name))
 				code.append('X-GNOME-Autostart-enabled=true')
 				#print code
@@ -323,17 +327,34 @@ class ScreenletsManager:
 			# get metadata and create ScreenletInfo-object from it
 			meta = utils.get_screenlet_metadata(s)
 			if meta:
-				info = ScreenletInfo(s, meta['name'], meta['info'], 
-					meta['author'], meta	['version'], img)
+				# get meta values
+				def setfield(name, default):
+					if meta.has_key(name):
+						if meta[name] != None:
+							return meta[name]
+						else:
+							return default
+					else:
+						return default
+				name	= setfield('name', '')
+				info	= setfield('info', '')
+				author	= setfield('author', '')
+				version	= setfield('version', '')
+				# get info
+				slinfo = ScreenletInfo(s, name, info, author, version, img)
 				# check if already running
 				if lst_r.count(s + 'Screenlet'):
-					info.active = True
+					slinfo.active = True
 				# check if system-wide
 				#if path.startswith(screenlets.INSTALL_PREFIX):
 				#	print "SYSTEM: %s" % s
 				#	info.system = True
-				# add to model
-				self.model.append(['<span size="9000">%s</span>' % s, img, info])
+			else:
+				print _('Error while loading screenlets metadata for "%s".' % s)
+				slinfo = ScreenletInfo(s, '', '', '', '', img)
+			# add to model
+			self.model.append(['<span size="9000">%s</span>' % s, img, 
+				slinfo])	
 		
 	def quit_screenlet_by_name (self, name):
 		"""Quit all instances of the given screenlet type."""

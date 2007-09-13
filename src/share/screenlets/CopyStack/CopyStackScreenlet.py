@@ -61,6 +61,7 @@ class CopyStackScreenlet (screenlets.Screenlet):
 		self.theme_name	= "default"
 		# add menuitems
 		self.add_menuitem('element_delete', 'Delete Element')
+		self.add_menuitem('delete_all', 'Clear Stack')
 		# and append efault items
 		self.add_default_menuitems()
 		# add options
@@ -148,6 +149,13 @@ class CopyStackScreenlet (screenlets.Screenlet):
 			self.add_element(obj)
 			return True
 		return False
+	
+	def delete_all_elements (self):
+		"""Deletes all elements inside this stack."""
+		self.elements = []
+		self.selected_index		= -1
+		self.selected_element	= None
+		self.elements			= self.elements
 	
 	def delete_selected_element (self):
 		"""Deletes the currently selected (hovered) element."""
@@ -281,6 +289,11 @@ class CopyStackScreenlet (screenlets.Screenlet):
 					'also delete the data from the clipboard.') == False:
 					return
 			self.delete_selected_element()
+		elif id == 'delete_all':
+			if screenlets.show_question(self, 'Are you sure? This will ' + \
+				'delete ALL entries from the stack.') == False:
+				return
+			self.delete_all_elements()
 	
 	def on_mouse_down (self, event):
 		self.tooltip.hide()

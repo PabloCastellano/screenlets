@@ -35,7 +35,7 @@ import gettext
 
 # import screenlet-submodules
 from options import IntOption, FloatOption, BoolOption, StringOption
-from options import EditableOptions
+from options import EditableOptions, OptionsDialog
 import services
 import utils
 
@@ -1428,9 +1428,9 @@ def launch_screenlet (name, debug=False):
 	class without trailing 'Screenlet'.
 	NOTE: we could only launch the file here"""
 	# check for service
-	if screenlets.services.service_is_running(name):
+	if services.service_is_running(name):
 		# add screenlet through service, if running
-		srvc = screenlets.services.get_service_by_name(name)
+		srvc = services.get_service_by_name(name)
 		if srvc:
 			try:
 				srvc.add('')	# empty string for auto-creating ID
@@ -1438,7 +1438,7 @@ def launch_screenlet (name, debug=False):
 			except Exception, ex:
 				print "Error while adding instance by service: %s" % ex
 	# service not running or error? launch screenlet's file
-	path = screenlets.utils.find_first_screenlet_path(name)
+	path = utils.find_first_screenlet_path(name)
 	if path:
 		# get full path of screenlet's file
 		slfile = path + '/' + name + 'Screenlet.py'

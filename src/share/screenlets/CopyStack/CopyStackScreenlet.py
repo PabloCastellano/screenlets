@@ -94,8 +94,9 @@ class CopyStackScreenlet (screenlets.Screenlet):
 			self.__dict__[name] = value
 			# calculate height difference and set new height
 			#diff = self.height - (len(value)* self.element_spacing)
-			self.height = len(value) * self.element_spacing +\
-				self.theme_height
+			height = len(value) * self.element_spacing + self.theme_height
+			self.y += self.height - height
+			self.height = height
 			print value
 			# add offset to y-position
 			#self.y -= diff * self.element_spacing
@@ -114,7 +115,7 @@ class CopyStackScreenlet (screenlets.Screenlet):
 			self.topmost_element().data != element.data:
 			self.elements.append(element)
 			self.elements = self.elements		# causes save/redraw
-			self.y -= int(self.element_spacing * self.scale)
+			#self.y -= int(self.element_spacing * self.scale)
 			return True
 		return False
 	

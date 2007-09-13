@@ -26,18 +26,16 @@
 import pygtk
 pygtk.require('2.0')
 import gtk
-import math
 import cairo, pango
-from datetime import datetime
 import gobject
 import rsvg
-import sys
 import os
 import glob
 import gettext
 
 # import screenlet-submodules
-from options import *
+from options import IntOption, FloatOption, BoolOption, StringOption
+from options import EditableOptions
 import services
 import utils
 
@@ -59,22 +57,19 @@ INSTALL_PREFIX = '/usr/local'
 # the global PATH where the screenlets are installed 
 PATH = INSTALL_PREFIX + '/share/screenlets'
 
-# dbus-access to backend (DEPRECATED)
-#BACKEND_BUS		= 'org.freedesktop.Screenlets'
-#BACKEND_OBJ		= '/org/freedesktop/Screenlets'
-#BACKEND_IFACE	= 'org.freedesktop.Screenlets'
-
 # A list containing all the paths to search for screenlet-"packages"
 # (these paths get searched when a new screenlet-instance shall be
 # loaded through the module-loader function or a screenlet needs data
 # from its personal dir)
 SCREENLETS_PATH = [os.environ['HOME'] + '/.screenlets', PATH]
 
+# translation stuff
 gettext.textdomain('screenlets')
 gettext.bindtextdomain('screenlets', '/usr/share/locale')
 
 def _(s):
 	return gettext.gettext(s)
+
 
 #-------------------------------------------------------------------------------
 # CLASSES
@@ -184,7 +179,7 @@ class ScreenletTheme (dict):
 	
 	def load_conf (self, filename):
 		"""Load a config-file from this theme's dir and save vars in list."""
-		ini = screenlets.utils.IniReader()
+		ini = utils.IniReader()
 		if ini.load(filename):
 			if ini.has_section('Theme'):
 				self.__name__ = ini.get_option('name', section='Theme')
@@ -207,7 +202,8 @@ class ScreenletTheme (dict):
 	
 	def load_svg (self, filename):
 		"""Load an SVG-file into this theme and reference it as ref_name."""
-		# TODO: use second way and remove first
+		if self.has_key(filename):
+			del self[filename]
 		self[filename] = rsvg.Handle(self.path + "/" + filename)
 		self.svgs[filename[:-4]] = self[filename]
 		if self[filename] != None:
@@ -222,7 +218,8 @@ class ScreenletTheme (dict):
 	
 	def load_png (self, filename):
 		"""Load a PNG-file into this theme and reference it as ref_name."""
-		# TODO: use second way and remove first
+		if self.has_key(filename):
+			del self[filename]
 		self[filename] = cairo.ImageSurface.create_from_png(self.path + 
 			"/" + filename)
 		self.pngs[filename[:-4]] = self[filename]

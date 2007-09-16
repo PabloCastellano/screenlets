@@ -309,18 +309,25 @@ class ScreenletsManager:
 		if not lst_r:
 			lst_r = []
 		for s in lst_a:
-			path = screenlets.SCREENLETS_PATH[0] + '/' + s + '/icon.svg'
+			#path = screenlets.SCREENLETS_PATH[0] + '/' + s + '/icon.svg'
 			#print path
+			# not really beautiful, but it works .. (maybe make a function)
+			p = screenlets.SCREENLETS_PATH
+			icon_svg = '/' + s + '/icon.svg'
+			icon_png = '/' + s + '/icon.png'
+			if os.path.isfile(p[0] + icon_svg):
+				path = p[0] + icon_svg
+			elif os.path.isfile(p[0] + icon_png):
+				path = p[0] + icon_png
+			elif os.path.isfile(p[1] + icon_svg):
+				path = p[1] + icon_svg
+			elif os.path.isfile(p[1] +icon_png):
+				path = p[1] + icon_png
+			else:
+				img = noimg	
 			try:
-				if os.path.isfile(path):
-					img = gtk.gdk.pixbuf_new_from_file_at_size(path, 48, 48)
-				else:
-					path = screenlets.SCREENLETS_PATH[1] + '/' + s + '/icon.svg'
-					if os.path.isfile(path):
-						img = gtk.gdk.pixbuf_new_from_file_at_size(path, 48, 48)
-					else:
-						#print "Unable to load icon for %s, using default" % s
-						img = noimg
+				img = gtk.gdk.pixbuf_new_from_file_at_size(path, 48, 48)
+				path = ''
 			except Exception, ex:
 				#print "Exception while loading icon '%s': %s" % (path, ex)
 				img = noimg

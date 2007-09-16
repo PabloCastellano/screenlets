@@ -873,14 +873,17 @@ class Screenlet (gobject.GObject, EditableOptions):
 		se = OptionsDialog(490, 450)
 		img = gtk.Image()
 		try:
-			icn = gtk.gdk.pixbuf_new_from_file(self.get_screenlet_dir() + 
-				'/icon.svg')
+			d = self.get_screenlet_dir()
+			if os.path.isfile(d + '/icon.svg'):
+				icn = gtk.gdk.pixbuf_new_from_file(d + '/icon.svg')
+			elif os.path.isfile(d + '/icon.png'):
+				icn = gtk.gdk.pixbuf_new_from_file(d + '/icon.png')
 			img.set_from_pixbuf(icn)
 		except:
 			img.set_from_stock(gtk.STOCK_PROPERTIES, 5)
 		se.set_title(self.__name__)
-		se.set_info(self.__name__, self.__desc__, '(c) by '+self.__author__, 
-			version='v'+self.__version__, icon=img)
+		se.set_info(self.__name__, self.__desc__, '(c) by ' + self.__author__, 
+			version='v' + self.__version__, icon=img)
 		se.show_options_for_object(self)
 		resp = se.run()
 		if resp == gtk.RESPONSE_REJECT:	# TODO!!!!!
@@ -896,8 +899,8 @@ class Screenlet (gobject.GObject, EditableOptions):
 		if self.disable_updates:
 			return
 		if self.window:
-			alc = self.window.get_allocation()
-			rect = gtk.gdk.Rectangle(alc.x, alc.y, alc.width, alc.height)
+			x, y, w, h = self.window.get_allocation()
+			rect = gtk.gdk.Rectangle(x, y, w, h)
 			if self.window.window:
 				self.window.window.invalidate_rect(rect, True)
 				self.window.window.process_updates(True)

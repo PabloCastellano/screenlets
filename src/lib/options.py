@@ -279,6 +279,9 @@ print o.on_import(exported_account)
 import sys
 sys.exit(0)"""
 
+class TimeOption (ColorOption):
+	"""An Option-subclass for string-values that contain dates."""
+
 
 
 # -----------------------------------------------------------------------
@@ -855,8 +858,8 @@ class OptionsDialog (gtk.Dialog):
 
 	def create_themes_page (self):
 		"""Create the "Themes"-tab."""
-		self.page_themes = gtk.VBox(spacing=3)
-		self.page_themes.set_border_width(5)
+		self.page_themes = gtk.VBox(spacing=5)
+		self.page_themes.set_border_width(10)
 		# create info-text list
 		txt = gtk.Label(_('Themes allow you to easily switch the appearance of your Screenlets. On this page you find a list of all available themes for this Screenlet.'))
 		txt.set_size_request(450, -1)
@@ -971,11 +974,12 @@ class OptionsDialog (gtk.Dialog):
 			widget.set_value(value)
 			widget.connect("value-changed", self.options_callback, option)
 		elif t == ColorOption:
-			widget = gtk.ColorButton()
+			widget = gtk.ColorButton(gtk.gdk.Color(int(value[0]*65535), 
+				int(value[1]*65535), int(value[2]*65535)))
 			widget.set_use_alpha(True)
-			widget.set_alpha(int(value[3]*65535/255))
-			widget.set_color(gtk.gdk.Color(int(value[0]*65535/255), 
-				int(value[1]*65535/255), int(value[2]*65535/255)))
+			print value
+			print value[3]
+			widget.set_alpha(int(value[3]*65535))
 			widget.connect("color-set", self.options_callback, option)
 		elif t == FontOption:
 			widget = gtk.FontButton()
@@ -1110,6 +1114,39 @@ class OptionsDialog (gtk.Dialog):
 			self.tooltips.set_tip(input_pass, _('Enter password here ...'))
 			widget.add(vb)
 			widget.add(but)
+		elif t == TimeOption:
+			widget = gtk.HBox()
+			input_hour		= gtk.SpinButton()#climb_rate=1.0)
+			input_minute	= gtk.SpinButton()
+			input_second	= gtk.SpinButton()
+			input_hour.set_range(0, 23)
+			input_hour.set_max_length(2)
+			input_hour.set_increments(1, 1)
+			input_hour.set_numeric(True)
+			input_hour.set_value(value[0])
+			input_minute.set_range(0, 59)
+			input_minute.set_max_length(2)
+			input_minute.set_increments(1, 1)
+			input_minute.set_numeric(True)
+			input_minute.set_value(value[1])
+			input_second.set_range(0, 59)
+			input_second.set_max_length(2)
+			input_second.set_increments(1, 1)
+			input_second.set_numeric(True)
+			input_second.set_value(value[2])
+			input_hour.connect('value-changed', self.options_callback, option)
+			input_minute.connect('value-changed', self.options_callback, option)
+			input_second.connect('value-changed', self.options_callback, option)
+			self.tooltips.set_tip(input_hour, option.desc)
+			self.tooltips.set_tip(input_minute, option.desc)
+			self.tooltips.set_tip(input_second, option.desc)
+			widget.add(input_hour)
+			widget.add(gtk.Label(':'))
+			widget.add(input_minute)
+			widget.add(gtk.Label(':'))
+			widget.add(input_second)
+			widget.add(gtk.Label('h'))
+			widget.show_all()
 		else:
 			widget = gtk.Entry()
 			print _("unsupported type '%s'") % str(t)
@@ -1184,6 +1221,11 @@ class OptionsDialog (gtk.Dialog):
 				if c.__class__ == gtk.VBox:
 					c2 = c.get_children()
 					val = (c2[0].get_text(), c2[1].get_text())
+		elif t == TimeOption:
+			box = widget.get_parent()
+			inputs = box.get_children()
+			val = (int(inputs[0].get_value()), int(inputs[2].get_value()), 
+				int(inputs[4].get_value()))
 		else:
 			print _("OptionsDialog: Unknown option type: %s") % str(t)
 			return None
@@ -1264,6 +1306,7 @@ if __name__ == "__main__":
 		height = 50
 		is_sticky = False
 		is_widget = False
+		time	= (12, 32, 49)		# a time-value (tuple with ints)
 		
 		def __init__ (self):
 			EditableOptions.__init__(self)
@@ -1330,6 +1373,8 @@ if __name__ == "__main__":
 			group_tst.add_option(FileOption('filename', os.environ['HOME'],
 				'Filename-Test', 'Testing a FileOption-type ...',
 				patterns=['*.py', '*.pyc']))
+			group_tst.add_option(TimeOption('time', self.time,
+				'TimeOption-Test', 'Testing a TimeOption-type ...'))
 			# TEST
 			self.disable_option('width')
 			self.disable_option('height')

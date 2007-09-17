@@ -14,6 +14,7 @@ import os
 import sys
 import stat
 import gettext
+import re
 
 gettext.textdomain('screenlets')
 gettext.bindtextdomain('screenlets', '/usr/share/locale')
@@ -110,6 +111,40 @@ def list_running_screenlets ():
 			running[i] = running[i][:-1]	# strip trailing EOL
 		return running
 	return False
+
+def _contains_path (string):
+	"""Internal function: Returns true if the given string contains one of the
+	SCREENLETS_PATH entries."""
+	for p in screenlets.SCREENLETS_PATH:
+		if string.find(p) > -1:
+			return True
+	return False
+
+def list_running_screenlets2 ():
+	"""Returns a list with names of running screenlets. The list can be empty if
+	no Screenlet is currently running."""
+	p = os.popen("ps aux | awk '/Screenlet.py/{ print $11, $12, $13, $14, $15, $16 }'")
+	lst = []
+	regex = re.compile('/([A-Za-z0-9]+)Screenlet.py ')
+	for line in p.readlines():
+		if not line.endswith('awk /Screenlet.py/{\n') and line != 'sh -c\n' \
+			and _contains_path(line):
+			slname = regex.findall(line)
+			if slname and type(slname) == list and len(slname) > 0:
+				lst.append(slname[0])
+	p.close()
+	return lst
+
+def get_screenlet_process (name):
+	"""Returns the PID of the given screenlet (if running) or None."""
+	p = os.popen("ps aux | awk '/[" + name[0] + "]" + name[1:] + \
+		"Screenlet.py/{ print $2, $11, $12, $13, $14, $15, $16 }'")
+	line = p.readlines()
+	p.close()
+	#print line
+	if len(line) and _contains_path(line[0]):
+		return int(line[0].split(' ')[0])
+	return None
 
 
 # ------------------------------------------------------------------------------
@@ -260,7 +295,16 @@ if __name__ == '__main__':
 	# notify
 	print "\nNotify-test:"
 	n = Notifier()
-	n.notify('Hi there! This is sent through screenlets.utils.notify ..', title='Test')
+	n.notify('Hi there! This is sent through screenlets.utils.Notifier.notify', 
+		title='Test')
 	n.notify('A second note ..', title='Another note', timeout=2000)
 	n.notify('A second note ..', title='Another note', icon='/usr/local/share/screenlets/Notes/icon.svg')
 	
+	# some tests of the list/find screenlets functions
+	print "\nRunning screenlets: "
+	print list_running_screenlets2()
+	print "\n"
+	print get_screenlet_process('Clock')
+	print get_screenlet_process('Ruler')
+	print get_screenlet_process('Webtest')
+

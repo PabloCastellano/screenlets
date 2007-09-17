@@ -16,7 +16,7 @@
 
 import screenlets
 from screenlets import Screenlet
-from screenlets.options import IntOption, BoolOption
+from screenlets.options import IntOption, BoolOption, TimeOption
 from screenlets.options import StringOption, FontOption, ColorOption
 from screenlets.services import ScreenletService
 
@@ -78,7 +78,7 @@ class ClockScreenlet (Screenlet):
 	
 	# default meta-info for Screenlets
 	__name__	= 'ClockScreenlet'
-	__version__	= '0.5'
+	__version__	= '0.6'
 	__author__	= 'RYX (aka Rico Pfaus)'
 	__desc__	= __doc__
 	
@@ -99,9 +99,7 @@ class ClockScreenlet (Screenlet):
 	face_text_color	= (0.0, 0.0, 0.0, 0.3)
 	face_text_font	= "Sans Medium 5"
 	alarm_activated	= False
-	alarm_time_h	= 10
-	alarm_time_m	= 30
-	alarm_time_s	= 0
+	alarm_time		= (7, 30, 0)
 	alarm_length	= 500	# times to blink before auto-stop
 	hour_format		= "12"
 	show_date		= False
@@ -149,30 +147,20 @@ class ClockScreenlet (Screenlet):
 		group_alarm.add_option(BoolOption('alarm_activated', 
 			self.alarm_activated, 'Activate Alarm', 
 			'Activate the alarm for this clock-instance ...'))
+		group_alarm.add_option(TimeOption('alarm_time', self.alarm_time, 
+ 			'Alarm-Time', 'The time to run the alarm at (if active) ...'))
+		group_alarm.add_option(IntOption('alarm_length', 
+			self.alarm_length, 'Alarm stops after', 
+			'The times the clock shall blink before auto-stopped. ' + \
+			'Divide the number by two to get the seconds ...', 
+			min=0, max=5000))
 		group_alarm.add_option(BoolOption('run_command', 
 			self.run_command, 'Run a command', 
 			'Run a command when the alarm is activated...'))
 		group_alarm.add_option(StringOption('alarm_command', 
 			self.alarm_command, 'Alarm command', 
 			'The command that should be run when the alarm goes off...'))
- 		group_alarm.add_option(IntOption('alarm_time_h', 
- 			self.alarm_time_h, 'Alarm-Time (Hour)', 
- 			'The hour of the alarm-time ...',min=0, max=23))
-		group_alarm.add_option(IntOption('alarm_time_h', 
-			self.alarm_time_h, 'Alarm-Time (Hour)', 
-			'The hour of the alarm-time ...',min=0, max=23))
-		group_alarm.add_option(IntOption('alarm_time_m', 
-			self.alarm_time_m, 'Alarm-Time (Minute)', 
-			'The minute of the alarm-time ...', min=0, max=59))
-		group_alarm.add_option(IntOption('alarm_time_s', 
-			self.alarm_time_s, 'Alarm-Time (Second)', 
-			'The second of the alarm-time ...', min=0, max=59))
-		group_alarm.add_option(IntOption('alarm_length', 
-			self.alarm_length, 'Alarm stops after', 
-			'The times the clock shall blink before auto-stopped. ' + \
-			'Divide the number by two to get the seconds ...', 
-			min=0, max=5000))
-		group_face.add_option(StringOption('face_text', 
+ 		group_face.add_option(StringOption('face_text', 
 			self.face_text, 'Face-Text', 
 			'The text/Pango-Markup to be placed on the clock\'s face ...'))
 		group_face.add_option(FontOption('face_text_font', 
@@ -287,6 +275,7 @@ class ClockScreenlet (Screenlet):
 			ctx_back.show_layout(p_layout)
 			ctx_back.fill()
 			ctx_back.restore()
+			del p_layout
 		self.theme['clock-marks.svg'].render_cairo(ctx_back)
 	
 	def start_alarm (self):
@@ -315,9 +304,9 @@ class ClockScreenlet (Screenlet):
 		
 	def check_alarm (self):
 		"""Checks current time with alarm-time and start alarm on match."""
-		if self.__time.hour == self.alarm_time_h and \
-			self.__time.minute == self.alarm_time_m and \
-			self.__time.second == self.alarm_time_s:
+		if self.__time.hour == self.alarm_time[0] and \
+			self.__time.minute == self.alarm_time[1] and \
+			self.__time.second == self.alarm_time[2]:
 			self.start_alarm()
 				
 	def update (self):

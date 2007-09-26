@@ -93,6 +93,10 @@ files_list.insert(0, (INSTALL_PATH + '-manager',
 	'src/share/screenlets-manager/screenlets-packager.py',
 	'src/share/screenlets-manager/noimage.svg']))
 	
+#Desktop file and icon for screenlets-manager
+files_list.insert(0, ('/usr/share/applications', ['desktop-menu/screenlets-manager.desktop']))
+files_list.insert(0, ('/usr/share/icons', ['desktop-menu/screenlets.svg']))
+	
 # + Call setup function (installs screenlets into python's root)
 setup(name = 'screenlets',
 	# metainfo for this package

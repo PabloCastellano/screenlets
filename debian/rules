@@ -1,0 +1,11 @@
+#!/usr/bin/make -f
+DEB_AUTO_CLEANUP_RCS            := yes
+DEB_PYTHON_SYSTEM 		:= pycentral
+
+include /usr/share/cdbs/1/rules/debhelper.mk
+include /usr/share/cdbs/1/class/python-distutils.mk
+include /usr/share/cdbs/1/rules/simple-patchsys.mk
+
+binary-install/screenlets::
+	dh_desktop
+	dh_pycentral

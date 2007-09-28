@@ -9,6 +9,6 @@ Comment[de]=Ein grafisches Werkzeug, um Ihre Screenlets zu verwalten.
 Comment[et]=Graafiline tööriist Screenlets vidinate haldamiseks
 Encoding=UTF-8
 Icon=/usr/share/icons/screenlets.svg
-Exec=/usr/local/share/screenlets-manager/screenlets-manager.py > /dev/null
+Exec=/usr/share/screenlets-manager/screenlets-manager.py > /dev/null
 StartupNotify=true
 

@@ -9,6 +9,6 @@ Comment[de]=Eine wachsende Pflanze für Ihren Desktop, mit auswechselbaren Stile
 Comment[et]=Erinevate teemade abil kohandatav lill sinu töölauale.
 MimeType=application/x-screenlet
 Encoding=UTF-8
-Icon=/usr/local/share/screenlets/Flower/icon.svg
-Exec=/usr/local/share/screenlets/Flower/FlowerScreenlet.py > /dev/null
+Icon=/usr/share/screenlets/Flower/icon.svg
+Exec=/usr/share/screenlets/Flower/FlowerScreenlet.py > /dev/null
 

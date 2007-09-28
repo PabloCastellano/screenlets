@@ -9,6 +9,6 @@ Comment[de]=Eine Fensterliste, die Fenster-Icons auf transparentem Hintergund an
 Comment[et]=Screenlet vidin, mis näitab kõiki su lahtiolevaid aknaid.
 MimeType=application/x-screenlet
 Encoding=UTF-8
-Icon=/usr/local/share/screenlets/Windowlist/icon.svg
-Exec=/usr/local/share/screenlets/Windowlist/WindowlistScreenlet.py > /dev/null
+Icon=/usr/share/screenlets/Windowlist/icon.svg
+Exec=/usr/share/screenlets/Windowlist/WindowlistScreenlet.py > /dev/null
 

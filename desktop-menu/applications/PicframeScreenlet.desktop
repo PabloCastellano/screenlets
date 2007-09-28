@@ -9,6 +9,6 @@ Comment[de]=Ein Bilderrahmen zum Ausstellen Ihrer Bilder.
 Comment[et]=Screenlet vidin, mida saab kasutada oma fotode kuvamiseks töölaual.
 MimeType=application/x-screenlet
 Encoding=UTF-8
-Icon=/usr/local/share/screenlets/Picframe/icon.svg
-Exec=/usr/local/share/screenlets/Picframe/PicframeScreenlet.py > /dev/null
+Icon=/usr/share/screenlets/Picframe/icon.svg
+Exec=/usr/share/screenlets/Picframe/PicframeScreenlet.py > /dev/null
 

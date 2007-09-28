@@ -19,7 +19,7 @@ import sys
 #----------------------------------------------------------------------------
 
 # install prefix (if you want to change this, change it in src/lib/__init__.py)
-INSTALL_PREFIX	= '/usr/local'
+INSTALL_PREFIX	= '/usr'
 # global install-path for daemon and screenlets-packages
 INSTALL_PATH	= INSTALL_PREFIX + '/share/screenlets'
 # current version of package

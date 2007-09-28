@@ -18,8 +18,8 @@ install:
 
 # uninstall the Screenlets (NOT FINISHED)
 uninstall:
-	rm -r /usr/local/share/screenlets
-	rm /usr/local/bin/screenletsd
+	rm -r /usr/share/screenlets
+	rm /usr/bin/screenletsd
 	rm /usr/share/icons/screenlets.svg
 	@echo "Makefile: Uninstall of python-libs not supported yet ..."
 	@echo "          To uninstall, run 'rm -rf /usr/lib/python2.x/site-packages/screenlets*'"

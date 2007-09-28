@@ -279,7 +279,7 @@ if __name__ == '__main__':
 	# IniReader
 	print "\nTest INI-reader:"
 	ini = IniReader()
-	if not ini.load('/usr/local/share/screenlets/CPUMeter/themes/default/theme.conf'):
+	if not ini.load('/usr/share/screenlets/CPUMeter/themes/default/theme.conf'):
 		print "Error while loading ini-file"
 	else:
 		# check for section
@@ -298,7 +298,7 @@ if __name__ == '__main__':
 	n.notify('Hi there! This is sent through screenlets.utils.Notifier.notify', 
 		title='Test')
 	n.notify('A second note ..', title='Another note', timeout=2000)
-	n.notify('A second note ..', title='Another note', icon='/usr/local/share/screenlets/Notes/icon.svg')
+	n.notify('A second note ..', title='Another note', icon='/usr/share/screenlets/Notes/icon.svg')
 	
 	# some tests of the list/find screenlets functions
 	print "\nRunning screenlets: "

@@ -52,7 +52,7 @@ import XmlMenu
 VERSION = "0.0.11"
 
 # install prefix (/usr or /usr/local) DO NOT CHANGE YET, WILL CHANGE WITH v0.1.0
-INSTALL_PREFIX = '/usr/local'
+INSTALL_PREFIX = '/usr'
 
 # the global PATH where the screenlets are installed 
 PATH = INSTALL_PREFIX + '/share/screenlets'

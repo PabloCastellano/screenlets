@@ -9,6 +9,6 @@ Comment[de]=Ein CPU-Meter mit wechselbaren Stilen, das die aktuelle CPU-Auslastu
 Comment[et]=CPU-näidik, mis kuvab protsessori koormust.
 MimeType=application/x-screenlet
 Encoding=UTF-8
-Icon=/usr/local/share/screenlets/CPUMeter/icon.svg
-Exec=/usr/local/share/screenlets/CPUMeter/CPUMeterScreenlet.py > /dev/null
+Icon=/usr/share/screenlets/CPUMeter/icon.svg
+Exec=/usr/share/screenlets/CPUMeter/CPUMeterScreenlet.py > /dev/null
 

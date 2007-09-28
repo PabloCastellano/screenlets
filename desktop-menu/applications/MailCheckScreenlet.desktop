@@ -9,6 +9,6 @@ Comment[de]=Ein Screenlet, das in bestimmten Zeitabständen einen Ort/Server nac
 Comment[et]=Screenlet vidin, mis kindla ajavahemiku järel kontrollib sinu e-posti kontot.  
 MimeType=application/x-screenlet
 Encoding=UTF-8
-Icon=/usr/local/share/screenlets/MailCheck/icon.svg
-Exec=/usr/local/share/screenlets/MailCheck/MailCheckScreenlet.py > /dev/null
+Icon=/usr/share/screenlets/MailCheck/icon.svg
+Exec=/usr/share/screenlets/MailCheck/MailCheckScreenlet.py > /dev/null
 

@@ -9,6 +9,6 @@ Comment[de]=Ein Icon, das Anwendungen startet (wie ein Desktop-Icon).
 Comment[et]=Lihtne ikoon rakenduste käivitamiseks.
 MimeType=application/x-screenlet
 Encoding=UTF-8
-Icon=/usr/local/share/screenlets/Launcher/icon.svg
-Exec=/usr/local/share/screenlets/Launcher/LauncherScreenlet.py > /dev/null
+Icon=/usr/share/screenlets/Launcher/icon.svg
+Exec=/usr/share/screenlets/Launcher/LauncherScreenlet.py > /dev/null
 

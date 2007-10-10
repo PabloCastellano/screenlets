@@ -201,6 +201,8 @@ class ScreenletSession (object):
 				# now cause a save of the options to initially create the
 				# INI-file for this instance
 				self.backend.save_option(sl.id, 'x', sl.x)
+				# call on_init-handler
+				sl.on_init()
 				# call mainloop and give control to Screenlet
 				#sl.main()
 				self.__run_session(sl)

@@ -52,7 +52,7 @@
 				search="Screenlet.py"
 				replace=""
 			/>-->
-			<scandir directory="/usr/local/share/screenlets" 
+			<scandir directory="/usr/share/screenlets" 
 				filter="*"
 				skip="screenletsd.py,add-screenlet.py"
 				id_prefix="add:"
@@ -96,7 +96,7 @@
 		<item label="Themes">
 			<!-- NOTE: this is still not perfect but works here -->
 			<scandir 
-				directory="/usr/local/share/screenlets/Control/themes"  
+				directory="/usr/share/screenlets/Control/themes"  
 				filter="*" 
 				id_prefix="theme:"
 				id_suffix=""

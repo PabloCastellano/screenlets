@@ -43,7 +43,7 @@ class CPUMeterScreenlet (screenlets.Screenlet):
 		screenlets.Screenlet.__init__(self, uses_theme=True, uses_pango=True, 
 			**keyword_args)
 		# init CPU sensor
-		self.sensor = CPUSensor(int(self.update_interval))
+		self.sensor = CPUSensor()
 		self.sensor.connect('sensor_updated', self.handle_sensor_updated)
 		# set theme
 		self.theme_name = "default"

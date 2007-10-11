@@ -56,9 +56,9 @@ else:
 	USER = 1
 	DIR_USER		= os.environ['HOME'] + '/.screenlets'
 	if os.environ['DESKTOP_SESSION'].startswith('kde'):
-		DIR_AUTOSTART	= os.environ['HOME'] + '/.kde/Autostart'
+		DIR_AUTOSTART	= os.environ['HOME'] + '/.kde/Autostart/'
 	else:
-		DIR_AUTOSTART	= os.environ['HOME'] + '/.config/autostart'
+		DIR_AUTOSTART	= os.environ['HOME'] + '/.config/autostart/'
 
 
 
@@ -262,6 +262,19 @@ class ScreenletsManager:
 	def create_autostarter (self, name):
 		"""Create a .desktop-file for the screenlet with the given name in 
 		$HOME/.config/autostart."""
+		if not os.path.isdir(DIR_AUTOSTART):
+			# create autostart directory, if not existent
+			if screenlets.show_question(None, 
+				_("There is no existing autostart directory for your user account yet. Do you want me to automatically create it for you?"), 
+				_('Error')):
+				print "Auto-create autostart dir ..."
+				os.system('mkdir %s' % DIR_AUTOSTART)
+				if not os.path.isdir(DIR_AUTOSTART):
+					screenlets.show_error(None, _("Automatic creation failed. Please manually create the directory:\n%s") % DIR_AUTOSTART, _('Error'))
+					return False
+			else:
+				screenlets.show_message(None, _("Please manually create the directory:\n%s") % DIR_AUTOSTART)
+				return False
 		if name.endswith('Screenlet'):
 			name = name[:-9]
 		starter = '%s/%sScreenlet.desktop' % (DIR_AUTOSTART, name)
@@ -287,6 +300,7 @@ class ScreenletsManager:
 				return False
 		else:
 			print "Starter already exists."
+			return True
 	
 	def delete_autostarter (self, name):
 		"""Delete the autostart for the given screenlet."""
@@ -698,7 +712,9 @@ class ScreenletsManager:
 		if info:
 			info.autostart = not info.autostart
 			if info.autostart:
-				self.create_autostarter(info.name)
+				if not self.create_autostarter(info.name):
+					widget.set_active(False)
+					widget.set_sensitive(False)
 			else:
 				self.delete_autostarter(info.name)
 			

@@ -188,6 +188,8 @@ class ScreenletInstaller:
 class ScreenletsManager:
 	"""The main application class."""
 	
+	daemon_iface = None
+	
 	def __init__ (self):
 		# inti props
 		self.tips = gtk.Tooltips()
@@ -200,15 +202,50 @@ class ScreenletsManager:
 			screenlets.show_error(None, _("""Important! You are running this application as root user, almost all functionality is disabled. You can use this to install screenlets into the system-wide path."""), 
 				_('Warning!'))
 		else:
-			# connect dameon
+			# lookup, connect dameon
+			self.lookup_daemon()
 			self.connect_daemon()	
 		
 	# screenlets stuff
 	
+	def lookup_daemon (self):
+		"""Find the screenlets-daemon or try to launch it. Initializes 
+		self.daemon_iface if daemon is found."""
+		self.daemon_iface = self.get_daemon_iface()
+		# if daemon is not available, 
+		if self.daemon_iface == None:
+			# try to launch it 
+			print "Trying to launching screenlets-daemon ..."
+			os.system(screenlets.INSTALL_PREFIX + \
+				'/share/screenlets-manager/screenlets-daemon.py &')
+			def daemon_check ():
+				print "checking for running daemon again ..."
+				self.daemon_iface = self.get_daemon_iface()
+				if self.daemon_iface:
+					print "DAEMON FOUND - Ending timeout"
+					self.connect_daemon()
+				else:
+					print "Error: Unable to connect/launch daemon."
+					screenlets.show_error(None, _("Unable to connect or launch daemon. Some values may be displayed incorrectly."), _('Error'))
+			import gobject
+			gobject.timeout_add(2000, daemon_check)
+			return False
+		else:
+			return True
+	
 	def connect_daemon (self):
 		"""Connect to org.screenlets.ScreenletsDaemon and connect to
 		the register/unregister signals."""
-		self.daemon_iface = None
+		if self.daemon_iface:
+			print "DAEMON FOUND!"
+			# connect to signals
+			self.daemon_iface.connect_to_signal('screenlet_registered', 
+				self.handle_screenlet_registered)
+			self.daemon_iface.connect_to_signal('screenlet_unregistered', 
+				self.handle_screenlet_unregistered)
+	
+	def get_daemon_iface (self):
+		"""Check if the daemon is already running and return its interface."""
 		bus = dbus.SessionBus()
 		if bus:
 			try:
@@ -217,30 +254,10 @@ class ScreenletsManager:
 				iface		= 'org.screenlets.ScreenletsDaemon'
 				proxy_obj = bus.get_object(bus_name, path)
 				if proxy_obj:
-					self.daemon_iface = dbus.Interface(proxy_obj, iface)
+					return dbus.Interface(proxy_obj, iface)
 			except Exception, ex:
 				print "Error in ScreenletsManager.connect_daemon: %s" % ex
-		# if daemon is not available, 
-		if not self.daemon_iface:
-			# if daemon is unavailable, try to launch it 
-			print "Trying to launching screenlets-daemon ..."
-			os.system(screenlets.INSTALL_PREFIX + \
-				'/share/screenlets-manager/screenlets-daemon.py &')
-			os.system('sleep 2')
-		# running now?
-		if self.daemon_iface:
-			print "DAEMON FOUND!"
-			# connect to signals
-			self.daemon_iface.connect_to_signal('screenlet_registered', 
-				self.handle_screenlet_registered)
-			self.daemon_iface.connect_to_signal('screenlet_unregistered', 
-				self.handle_screenlet_unregistered)
-			# ok
-			return True
-		else:
-			#print "Error: Unable to connect/launch daemon."
-			screenlets.show_error(None, _("Unable to connect or launch daemon. Some values may be displayed incorrectly."), _('Error'))
-		return False
+		return None
 	
 	def create_autostarter (self, name):
 		"""Create a .desktop-file for the screenlet with the given name in 

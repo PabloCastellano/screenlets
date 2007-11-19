@@ -49,7 +49,7 @@ def _(s):
 
 # temporary path for saving files for opened screenlets
 TMP_DIR		= '/tmp/screenlets'
-TMP_FILE	= 'screenlets.running'
+TMP_FILE	= 'screenlets.' + os.environ['USER'] + '.running'
 
 
 class ScreenletSession (object):

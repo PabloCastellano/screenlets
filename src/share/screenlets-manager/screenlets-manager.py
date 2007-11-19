@@ -287,7 +287,7 @@ class ScreenletsManager:
 				code.append('Encoding=UTF-8')
 				code.append('Version=1.0')
 				code.append('Type=Application')
-				code.append('Exec=%s/%sScreenlet.py > /dev/null' % (path, name))
+				code.append('Exec= python %s/%sScreenlet.py > /dev/null' % (path, name))
 				code.append('X-GNOME-Autostart-enabled=true')
 				#print code
 				f = open(starter, 'w')

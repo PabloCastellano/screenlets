@@ -339,6 +339,7 @@ class ScreenletsManager:
 		lst_r = utils.list_running_screenlets()
 		if not lst_r:
 			lst_r = []
+		lst_a.sort()
 		for s in lst_a:
 			#path = screenlets.SCREENLETS_PATH[0] + '/' + s + '/icon.svg'
 			#print path

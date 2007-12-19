@@ -1,14 +1,15 @@
-# Screenlets translation file
+# Screenlets translation template
 # Copyright (C) 2007 Rico Pfaus
 # This file is distributed under the same license as the screenlets package.
-# Hendrik Kaju <hendrik@kaju.pri.ee>, 2007
-
+# Hendrik Kaju <hendrik@kaju.pri.ee>, 2007.
+#
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.0.11\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-22 12:11+0300\n"
-"PO-Revision-Date: 2007-08-22 12:11+0300\n"
+"POT-Creation-Date: 2007-12-19 20:48+0200\n"
+"PO-Revision-Date: 2007-12-19 20:48+0200\n"
 "Last-Translator: Hendrik Kaju <hendrik@kaju.pri.ee>\n"
 "Language-Team: Hendrik Kaju <hendrik@kaju.pri.ee>\n"
 "MIME-Version: 1.0\n"
@@ -23,272 +24,95 @@ msgstr ""
 msgid "GConfBackend: initializing"
 msgstr ""
 
-#: backend.py:99
+#: backend.py:97
 #, python-format
 msgid "Saved option %s%s/%s = %s"
 msgstr ""
 
-#: backend.py:132
+#: backend.py:130
 msgid "Temporary file didn't exist - nothing to remove."
 msgstr ""
 
-#: backend.py:134
+#: backend.py:132
 #, python-format
 msgid "CachingBackend: <#%s> removed!"
 msgstr ""
 
-#: backend.py:183
+#: backend.py:181
 #, python-format
 msgid "CachingBackend: Loading <%s>"
 msgstr ""
 
-#: backend.py:199
+#: backend.py:197
 #, python-format
 msgid "Error while loading options: %s"
 msgstr ""
 
-#: backend.py:207
+#: backend.py:205
 #, python-format
 msgid "Queue-element <%s> not found (already removed?)!"
 msgstr ""
 
-#: backend.py:211
+#: backend.py:209
 #, python-format
 msgid "CachingBackend: Saving <#%s> :) ..."
 msgstr ""
 
-#: backend.py:224
+#: backend.py:222
 #, python-format
 msgid "error while saving config: %s%s"
 msgstr ""
 
-#: options.py:146
-#, python-format
-msgid "Error during on_import - option: %s."
-msgstr ""
-
-#: options.py:228
-msgid "GnomeKeyring is not available!!"
-msgstr ""
-
-#: options.py:234
-msgid "No keyrings found. Create one first!"
-msgstr ""
-
-#: options.py:240
-msgid "Warn: No default keyring found, storage not permanent!"
-msgstr ""
-
-#: options.py:256
-#, python-format
-msgid "ERROR: Unable to read password from keyring: %s"
-msgstr ""
-
-#: options.py:261
-msgid "Illegal value in AccountOption.on_import."
-msgstr ""
-
-#: options.py:385
-#, python-format
-msgid "Options: Error- group %s not defined."
-msgstr ""
-
-#: options.py:443
-#, python-format
-msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
-msgstr ""
-
-#: options.py:447
-#, python-format
-msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
-msgstr ""
-
-#: options.py:456
-#, python-format
-msgid ""
-"Error in metadata-file \"%s\" - only <group>-tags allowed in first level. "
-"Groups must contain at least one <info>-element."
-msgstr ""
-
-#: options.py:462
-#, python-format
-msgid "No name for group defined in \"%s\"."
-msgstr ""
-
-#: options.py:478
-#, python-format
-msgid "Invalid option-node found in \"%s\"."
-msgstr ""
-
-#: options.py:581
-msgid "Add/Edit Item"
-msgstr ""
-
-#: options.py:631
-msgid "Edit Options"
-msgstr ""
-
-#: options.py:757
-#, python-format
-msgid "Path %s not found."
-msgstr ""
-
-#: options.py:823
-msgid "About "
-msgstr ""
-
-#: options.py:835
-msgid "Options "
-msgstr ""
-
-#: options.py:842
-msgid ""
-"Themes allow you to easily switch the appearance of your Screenlets. On this "
-"page you find a list of all available themes for this Screenlet."
-msgstr ""
-
-#: options.py:871
-msgid "Themes "
-msgstr ""
-
-#: options.py:970
-msgid "Choose File"
-msgstr ""
-
-#: options.py:979
-msgid "Choose Directory"
-msgstr ""
-
-#: options.py:1005
-msgid "Choose Image"
-msgstr ""
-
-#: options.py:1072
-msgid "Open List-Editor ..."
-msgstr ""
-
-#: options.py:1093
-msgid "Apply username/password ..."
-msgstr ""
-
-#: options.py:1094
-msgid "Enter username here ..."
-msgstr ""
-
-#: options.py:1095
-msgid "Enter password here ..."
-msgstr ""
-
-#: options.py:1100
-#, python-format
-msgid "unsupported type '%s'"
-msgstr ""
-
-#: options.py:1117
-msgid "Apply"
-msgstr ""
-
-#: options.py:1173
-#, python-format
-msgid "OptionsDialog: Unknown option type: %s"
-msgstr ""
-
-#: options.py:1183
-#, python-format
-msgid "Changed: %s"
-msgstr ""
-
-#: services.py:49
-msgid "No name set in ScreenletService.__init__!"
-msgstr ""
-
-#: services.py:97 services.py:137
-msgid "Cannot get/set protected options through service."
-msgstr ""
-
-#: services.py:129
-#, python-format
-msgid "Trying to access invalid instance \"%s\"."
-msgstr ""
-
-#: services.py:131
-#, python-format
-msgid "Trying to access invalid option \"%s\"."
-msgstr ""
-
-#: services.py:163
-#, python-format
-msgid "Error in screenlets.services.get_service_by_name: %s"
-msgstr ""
-
-#: utils.py:73
-#, python-format
-msgid "Unable to load '%s' from %s: %s "
-msgstr ""
-
-#: utils.py:92
-msgid "LISTED PATH NOT EXISTS: "
-msgstr ""
-
-#: utils.py:188
-#, python-format
-msgid "Section %s not found!"
-msgstr ""
-
-#: utils.py:222
-msgid "Notify: No DBus running or notifications-daemon unavailable."
-msgstr ""
-
-#: __init__.py:131
+#: __init__.py:126
 msgid "Error while loading ScreenletTheme in: "
 msgstr ""
 
-#: __init__.py:152
+#: __init__.py:147
 msgid "Override: "
 msgstr ""
 
-#: __init__.py:163
+#: __init__.py:158
 #, python-format
 msgid "WARNING: Option '%s' not found or protected."
 msgstr ""
 
-#: __init__.py:199
+#: __init__.py:194
 msgid "theme.conf loaded: "
 msgstr ""
 
-#: __init__.py:200
+#: __init__.py:195
 msgid "Name: "
 msgstr ""
 
-#: __init__.py:201
+#: __init__.py:196
 msgid "Author: "
 msgstr ""
 
-#: __init__.py:202
+#: __init__.py:197
 msgid "Version: "
 msgstr ""
 
-#: __init__.py:203
+#: __init__.py:198
 msgid "Info: "
 msgstr ""
 
-#: __init__.py:205
+#: __init__.py:200
 msgid "Failed to load theme.conf"
 msgstr ""
 
-#: __init__.py:255
+#: __init__.py:252
 msgid "theme.conf found! Loading option-overrides."
 msgstr ""
 
-#: __init__.py:310
+#: __init__.py:307
 msgid "No name set for this Screenlet"
 msgstr ""
 
-#: __init__.py:312
+#: __init__.py:309
 msgid "No author defined for this Screenlet"
 msgstr ""
 
-#: __init__.py:313
+#: __init__.py:310
 msgid "No info set for this Screenlet"
 msgstr ""
 
@@ -360,7 +184,7 @@ msgstr ""
 msgid "Stop the screenlet from being moved..."
 msgstr ""
 
-#: __init__.py:435 __init__.py:650
+#: __init__.py:435 __init__.py:657
 msgid "Keep above"
 msgstr ""
 
@@ -368,7 +192,7 @@ msgstr ""
 msgid "Keep this Screenlet above other windows ..."
 msgstr ""
 
-#: __init__.py:438 __init__.py:657
+#: __init__.py:438 __init__.py:664
 msgid "Keep below"
 msgstr ""
 
@@ -412,99 +236,257 @@ msgstr ""
 msgid "the current options of this Screenlet ..."
 msgstr ""
 
-#: __init__.py:526
+#: __init__.py:533
 msgid "LOAD NEW THEME: "
 msgstr ""
 
-#: __init__.py:527
+#: __init__.py:534
 msgid "FOUND: "
 msgstr ""
 
-#: __init__.py:600
+#: __init__.py:607
 msgid "Size"
 msgstr ""
 
-#: __init__.py:615
+#: __init__.py:622
 msgid "Theme"
 msgstr ""
 
-#: __init__.py:630
+#: __init__.py:637
 msgid "Window"
 msgstr ""
 
-#: __init__.py:636
+#: __init__.py:643
 msgid "Sticky"
 msgstr ""
 
-#: __init__.py:643
+#: __init__.py:650
 msgid "Widget"
 msgstr ""
 
-#: __init__.py:666
+#: __init__.py:673
 msgid "Properties..."
 msgstr ""
 
-#: __init__.py:670
+#: __init__.py:677
 msgid "Info..."
 msgstr ""
 
-#: __init__.py:674
+#: __init__.py:681
 msgid "Delete Screenlet ..."
 msgstr ""
 
-#: __init__.py:677
+#: __init__.py:684
 #, python-format
 msgid "Quit %s ..."
 msgstr ""
 
-#: __init__.py:799
+#: __init__.py:806
 msgid "Error while loading theme: "
 msgstr ""
 
-#: __init__.py:809
+#: __init__.py:816
 msgid "This theme wants to override your settings for "
 msgstr ""
 
-#: __init__.py:810
+#: __init__.py:817
 msgid "this Screenlet. Do you want to allow that?"
 msgstr ""
 
-#: __init__.py:916
+#: __init__.py:926
 msgid "UPDATING SHAPE"
 msgstr ""
 
-#: __init__.py:975
+#: __init__.py:985
 #, python-format
 msgid "To quit all %s's, use 'Quit' instead. "
 msgstr ""
 
-#: __init__.py:976
+#: __init__.py:986
 #, python-format
 msgid "Really delete this %s and its settings?"
 msgstr ""
 
-#: __init__.py:1126 __init__.py:1129
+#: __init__.py:1136 __init__.py:1139
 msgid "MOUSEWHEEL"
 msgstr ""
 
-#: __init__.py:1161
+#: __init__.py:1171
 msgid "Cancel delete_event"
 msgstr ""
 
-#: __init__.py:1181
+#: __init__.py:1191
 msgid "Start drag"
 msgstr ""
 
-#: __init__.py:1190
+#: __init__.py:1200
 msgid "End drag"
 msgstr ""
 
-#: __init__.py:1271
+#: __init__.py:1281
 msgid "Error: Cannot set missing or non-boolean value '"
 msgstr ""
 
-#: sensors.py:23
+#: options.py:142
+#, python-format
+msgid "Error during on_import - option: %s."
+msgstr ""
+
+#: options.py:224
+msgid "GnomeKeyring is not available!!"
+msgstr ""
+
+#: options.py:230
+msgid "No keyrings found. Create one first!"
+msgstr ""
+
+#: options.py:236
+msgid "Warn: No default keyring found, storage not permanent!"
+msgstr ""
+
+#: options.py:252
+#, python-format
+msgid "ERROR: Unable to read password from keyring: %s"
+msgstr ""
+
+#: options.py:257
+msgid "Illegal value in AccountOption.on_import."
+msgstr ""
+
+#: options.py:470
+#, python-format
+msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
+msgstr ""
+
+#: options.py:474
+#, python-format
+msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
+msgstr ""
+
+#: options.py:483
+#, python-format
+msgid ""
+"Error in metadata-file \"%s\" - only <group>-tags allowed in first level. "
+"Groups must contain at least one <info>-element."
+msgstr ""
+
+#: options.py:490
+#, python-format
+msgid "No name for group defined in \"%s\"."
+msgstr ""
+
+#: options.py:504
+#, python-format
+msgid "Invalid option-node found in \"%s\"."
+msgstr ""
+
+#: options.py:527
+msgid "Edit List"
+msgstr ""
+
+#: options.py:607
+msgid "Add/Edit Item"
+msgstr ""
+
+#: options.py:657
+msgid "Edit Options"
+msgstr ""
+
+#: options.py:779
+#, python-format
+msgid "Path %s not found."
+msgstr ""
+
+#: options.py:845
+msgid "About "
+msgstr ""
+
+#: options.py:857
+msgid "Options "
+msgstr ""
+
+#: options.py:864
+msgid ""
+"Themes allow you to easily switch the appearance of your Screenlets. On this "
+"page you find a list of all available themes for this Screenlet."
+msgstr ""
+
+#: options.py:893
+msgid "Themes "
+msgstr ""
+
+#: options.py:989
+msgid "Choose File"
+msgstr ""
+
+#: options.py:998
+msgid "Choose Directory"
+msgstr ""
+
+#: options.py:1024
+msgid "Choose Image"
+msgstr ""
+
+#: options.py:1091
+msgid "Open List-Editor ..."
+msgstr ""
+
+#: options.py:1112
+msgid "Apply username/password ..."
+msgstr ""
+
+#: options.py:1113
+msgid "Enter username here ..."
+msgstr ""
+
+#: options.py:1114
+msgid "Enter password here ..."
+msgstr ""
+
+#: options.py:1152
+#, python-format
+msgid "unsupported type '%s'"
+msgstr ""
+
+#: options.py:1230
+#, python-format
+msgid "OptionsDialog: Unknown option type: %s"
+msgstr ""
+
+#: options.py:1240
+#, python-format
+msgid "Changed: %s"
+msgstr ""
+
+#: sensors.py:31
 msgid "Failed to open /proc/stat"
+msgstr ""
+
+#: sensors.py:287
+msgid "CPUSensor: Failed to open /proc/stat. Sensor stopped."
+msgstr ""
+
+#: services.py:49
+msgid "No name set in ScreenletService.__init__!"
+msgstr ""
+
+#: services.py:97 services.py:137
+msgid "Cannot get/set protected options through service."
+msgstr ""
+
+#: services.py:129
+#, python-format
+msgid "Trying to access invalid instance \"%s\"."
+msgstr ""
+
+#: services.py:131
+#, python-format
+msgid "Trying to access invalid option \"%s\"."
+msgstr ""
+
+#: services.py:163
+#, python-format
+msgid "Error in screenlets.services.get_service_by_name: %s"
 msgstr ""
 
 #: session.py:67
@@ -513,158 +495,176 @@ msgid ""
 "\t\t\t valid Screenlet-classobject as first argument!"
 msgstr ""
 
-#: session.py:86
+#: session.py:89
 msgid "Unable to init backend - settings will not be saved!"
 msgstr ""
 
-#: session.py:104
+#: session.py:107
 #, python-format
 msgid "Error in screenlets.session.connect_daemon: %s"
 msgstr ""
 
-#: session.py:109
+#: session.py:112
 msgid "Creating new instance: "
 msgstr ""
 
-#: session.py:112
+#: session.py:115
 msgid "ID is unset or already in use - creating new one!"
 msgstr ""
 
-#: session.py:134
+#: session.py:137
 msgid "Failed to remove INI-file for instance (not critical)."
 msgstr ""
 
-#: session.py:138
+#: session.py:141
 msgid "Removing last instance from session"
 msgstr ""
 
-#: session.py:140
+#: session.py:143
 #, python-format
 msgid "TODO: remove self.path: %s"
 msgstr ""
 
-#: session.py:144
+#: session.py:147
 #, python-format
 msgid "Failed to remove session dir '%s' - not empty?"
 msgstr ""
 
-#: session.py:149
+#: session.py:152
 msgid "Removing instance from session but staying alive"
-msgstr ""
-
-#: session.py:175
-#, python-format
-msgid "Found a running session of %s, adding new instance by service."
 msgstr ""
 
 #: session.py:178
 #, python-format
-msgid "Adding new instance through: %s"
+msgid "Found a running session of %s, adding new instance by service."
 msgstr ""
 
-#: session.py:184
+#: session.py:181
 #, python-format
-msgid "Loading instances in: %s"
+msgid "Adding new instance through: %s"
 msgstr ""
 
 #: session.py:187
 #, python-format
+msgid "Loading instances in: %s"
+msgstr ""
+
+#: session.py:190
+#, python-format
 msgid "Restored instances from session '%s' ..."
 msgstr ""
 
-#: session.py:193
+#: session.py:196
 msgid "No instance(s) found in session-path, creating new one."
 msgstr ""
 
-#: session.py:205
+#: session.py:210
 #, python-format
 msgid "Failed creating instance of: %s"
 msgstr ""
 
-#: session.py:216
+#: session.py:221
 msgid ""
 "Error: Unable to create temp entry - screenlets-manager will not work "
 "properly."
 msgstr ""
 
-#: session.py:224
+#: session.py:229
 #, python-format
 msgid "Creating new entry for %s in %s"
 msgstr ""
 
-#: session.py:237
+#: session.py:242
 msgid "No global tempfile found, creating new one."
 msgstr ""
 
-#: session.py:240
+#: session.py:245
 #, python-format
 msgid ""
 "Error: Unable to create temp directory %s - screenlets-manager will not work "
 "properly."
 msgstr ""
 
-#: session.py:259
+#: session.py:264
 #, python-format
 msgid "Failed to unregister from daemon: %s"
 msgstr ""
 
-#: session.py:264
+#: session.py:269
 #, python-format
 msgid "Removing entry for %s from global tempfile %s"
 msgstr ""
 
-#: session.py:269
+#: session.py:274
 msgid "Entry not found. Will (obviously) not be removed."
 msgstr ""
 
-#: session.py:281
+#: session.py:286
 msgid "Error global tempfile not found. Some error before?"
 msgstr ""
 
-#: session.py:284
+#: session.py:289
 msgid "No more screenlets running."
 msgstr ""
 
-#: session.py:287
+#: session.py:292
 msgid "No screenlets running?"
 msgstr ""
 
-#: session.py:293
+#: session.py:298
 #, python-format
 msgid "Deleting global tempfile %s"
 msgstr ""
 
-#: session.py:298
+#: session.py:303
 msgid "Error: Failed to delete global tempfile"
 msgstr ""
 
-#: session.py:319
+#: session.py:324
 #, python-format
 msgid "File: %s"
 msgstr ""
 
-#: session.py:325
+#: session.py:330
 #, python-format
 msgid "Set options in %s"
 msgstr ""
 
-#: session.py:332
+#: session.py:337
 #, python-format
 msgid "Failed to create instance of '%s'!"
 msgstr ""
 
-#: session.py:365
+#: session.py:370
 msgid "Screenlet has been killed. TODO: make this an event"
 msgstr ""
 
-#: session.py:375
+#: session.py:380
 #, python-format
 msgid ""
 "Screenlet '%s' has been interrupted by keyboard. TODO: make this an event"
 msgstr ""
 
-#: session.py:377
+#: session.py:382
 msgid "Exception in ScreenletSession: "
+msgstr ""
+
+#: utils.py:74
+#, python-format
+msgid "Unable to load '%s' from %s: %s "
+msgstr ""
+
+#: utils.py:93
+msgid "LISTED PATH NOT EXISTS: "
+msgstr ""
+
+#: utils.py:223
+#, python-format
+msgid "Section %s not found!"
+msgstr ""
+
+#: utils.py:257
+msgid "Notify: No DBus running or notifications-daemon unavailable."
 msgstr ""
 
 #: XmlMenu.py:44

@@ -114,6 +114,8 @@ class ScreenletTheme (dict):
 	width		= 0
 	height		= 0
 	option_overrides = {}
+	p_fdesc = None
+	p_layout = None
 	
 	def __init__ (self, path):
 		# set theme-path and load all files in path
@@ -172,6 +174,27 @@ class ScreenletTheme (dict):
 		except:
 			#raise Exception
 			return False
+
+	def draw_text(self, ctx, text, x, y,  font, size, color_red, color_green, color_blue, color_alpha, width, allignment):
+		import pango
+		ctx.save()
+		ctx.translate(x, y)
+		if self.p_layout == None :
+	
+			self.p_layout = ctx.create_layout()
+		else:
+			
+			ctx.update_layout(self.p_layout)
+		self.p_fdesc = pango.FontDescription()
+		self.p_fdesc.set_family_static(font)
+		self.p_fdesc.set_size(size * pango.SCALE)
+		self.p_layout.set_font_description(self.p_fdesc)
+		self.p_layout.set_width(width * pango.SCALE)
+		self.p_layout.set_alignment(allignment)
+		self.p_layout.set_markup(text)
+		ctx.set_source_rgba(color_red, color_green, color_blue, color_alpha)
+		ctx.show_layout(self.p_layout)
+		ctx.restore()
 	
 	def has_overrides (self):
 		"""Check if this theme contains overrides for options."""

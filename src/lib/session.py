@@ -202,7 +202,7 @@ class ScreenletSession (object):
 				# INI-file for this instance
 				self.backend.save_option(sl.id, 'x', sl.x)
 				# call on_init-handler
-				sl.on_init()
+				sl.finish_loading()
 				# call mainloop and give control to Screenlet
 				#sl.main()
 				self.__run_session(sl)
@@ -332,7 +332,7 @@ class ScreenletSession (object):
 					self.__restore_options_from_backend(sl, self.path+filename)
 					sl.enable_saving(True)
 					# and call init handler
-					sl.on_init()
+					sl.finish_loading()
 				else:
 					print _("Failed to create instance of '%s'!") % filename[:-4]
 		# if instances were found, return True, else False

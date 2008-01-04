@@ -807,6 +807,10 @@ class Screenlet (gobject.GObject, EditableOptions):
 					# TODO: check if it's a dir
 					lst.append(dname)
 		return lst
+
+	def finish_loading(self):
+		"""Called when screenlet finishes loading"""
+		self.on_init()
 	
 	def hide (self):
 		"""Hides this Screenlet's underlying gtk.Window"""

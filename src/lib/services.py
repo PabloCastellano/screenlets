@@ -75,6 +75,7 @@ class ScreenletService (dbus.service.Object):
 		by passing an empty string. The function returns None if adding a 
 		new instance failed for some reason."""
 		sl = self.screenlet.session.create_instance(id)
+		sl.finish_loading()
 		if sl != None:
 			return sl.id
 		return False

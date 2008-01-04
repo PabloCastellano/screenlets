@@ -543,7 +543,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 		elif name in ("width", "height"):
 			#self.__dict__ [name] = value
 			if self.window:
-				self.window.resize(self.width, self.height)
+				self.window.resize(int(self.width*self.scale), int(self.height*self.scale))
 				#self.redraw_canvas()
 				self.update_shape()
 		elif name == "is_widget":

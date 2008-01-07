@@ -504,6 +504,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 		self.update_shape()
 		#self.window.set_events(gtk.gdk.BUTTON_PRESS_MASK)
 		self.window.set_events(gtk.gdk.ALL_EVENTS_MASK)
+		self.window.connect("composited-changed", self.composite_changed)
 		self.window.connect("delete_event", self.delete_event)
 		self.window.connect("destroy", self.destroy)
 		self.window.connect("expose_event", self.expose)
@@ -534,10 +535,11 @@ class Screenlet (gobject.GObject, EditableOptions):
 			self.window.connect("drag-leave", self.drag_leave)
 		# create menu
 		self.menu = gtk.Menu()
-		# show window
+		# show window ao it can realize , but hiding it so we can show it only when atributes have been set , this fixes some placement errors arround the screen egde
 		if show_window:
 			self.window.show()
-	
+			self.window.hide()	
+
 	def __setattr__ (self, name, value):
 		# set the value in GObject (ESSENTIAL!!!!)
 		gobject.GObject.__setattr__(self, name, value)
@@ -811,7 +813,11 @@ class Screenlet (gobject.GObject, EditableOptions):
 	def finish_loading(self):
 		"""Called when screenlet finishes loading"""
 		self.on_init()
-	
+		try: self.window.show()			
+		except:	print 'unable to show window'
+		# the keep above and keep bellow must be reset after the window is shown this is absolutly necessary 
+		self.keep_above= self.keep_above
+		self.keep_below= self.keep_below
 	def hide (self):
 		"""Hides this Screenlet's underlying gtk.Window"""
 		self.window.hide()
@@ -943,7 +949,12 @@ class Screenlet (gobject.GObject, EditableOptions):
 			if self.window.window:
 				self.window.window.invalidate_rect(rect, True)
 				self.window.window.process_updates(True)
-	
+
+	def remove_shape(self):
+		"""Removed shaped window , in case the nom composited shape has been set"""
+		if self.window.window:
+			self.window.window.shape_combine_mask(None,0,0)	
+
 	def update_shape (self):
 		"""Update window shape (only call this when shape has changed
 		because it is very ressource intense if ran too often)."""
@@ -970,13 +981,20 @@ class Screenlet (gobject.GObject, EditableOptions):
 		# create context and draw shape
 		ctx = self.__shape_bitmap.cairo_create()
 		self.clear_cairo_context(ctx)		#TEST
-		self.on_draw_shape(ctx)
-		# and cut window with mask 
-		self.window.input_shape_combine_mask(self.__shape_bitmap, 0, 0)
-		#self.window.shape_combine_mask(self.__shape_bitmap, 0, 0)
-		# TEST!!!!!!!!!!
-		#self.update_shape_non_composited()
-	
+
+		# shape the window acording if the window is composited  or not
+
+		if self.window.is_composited():
+			
+			self.on_draw_shape(ctx)
+			# and cut window with mask 	
+			self.window.input_shape_combine_mask(self.__shape_bitmap, 0, 0)
+		else:
+			try: self.on_draw(ctx) #Works better then the shape method on non composited windows
+			except:	self.on_draw_shape(ctx) # if error on on_draw use standard shape method
+			# and cut window with mask 
+			self.window.shape_combine_mask(self.__shape_bitmap,0,0)
+
 	def update_shape_non_composited (self):
 		"""TEST: This function is intended to shape the window whenever no
 		composited environment can be found. (NOT WORKING YET!!!!)"""
@@ -1173,7 +1191,16 @@ class Screenlet (gobject.GObject, EditableOptions):
 		if self.on_mouse_up(event):
 			return True
 		return False
-	
+
+	def composite_changed(self,widget):
+		#this handle is called when composition changed
+		self.remove_shape() # removing previous set shape , this is absolutly necessary
+		self.window.hide() # hiding the window and showing it again so the window can convert to the right composited state
+		self.window.show()
+		print 'composite change to ' + str(self.window.is_composited())
+		self.redraw_canvas()
+		self.update_shape()
+
 	# NOTE: this should somehow handle the end of a move_drag-operation
 	def configure_event (self, widget, event):
 		#print "onConfigure"

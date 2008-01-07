@@ -635,7 +635,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 			menu.append(size_item)
 			size_item.set_submenu(size_menu)
 			#for i in xrange(10):
-			for i in (0.2, 0.5, 0.75, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0, 7.5, 10):
+			for i in (0.2,0.3,0.4, 0.5,0.6, 0.7,0.8,0.9, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0, 7.5, 10):
 				s = str(int(i * 100))
 				item = gtk.MenuItem(s + " %")
 				item.connect("activate", self.menuitem_callback, 

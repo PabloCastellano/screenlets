@@ -55,12 +55,13 @@ else:
 	# we run as normal user, install into $HOME
 	USER = 1
 	DIR_USER		= os.environ['HOME'] + '/.screenlets'
+	
 	if os.environ['DESKTOP_SESSION'].startswith('kde'):
 		DIR_AUTOSTART	= os.environ['HOME'] + '/.kde/Autostart/'
 	else:
 		DIR_AUTOSTART	= os.environ['HOME'] + '/.config/autostart/'
 
-
+DIR_CONFIG = os.environ['HOME'] + '/.config/Screenlets'
 
 # classes
 
@@ -192,6 +193,10 @@ class ScreenletsManager:
 	
 	def __init__ (self):
 		# inti props
+
+		if not os.path.isdir(DIR_CONFIG):
+			os.system('mkdir %s' % DIR_CONFIG)
+		
 		self.tips = gtk.Tooltips()
 		# create ui and populate it
 		self.create_ui()
@@ -695,6 +700,7 @@ class ScreenletsManager:
 	
 	def toggle_enabled (self, widget):
 		"""Callback for handling changes to the Enable/Disable CheckButton."""
+		
 		info = self.get_selection()
 		if info:
 			info.active = not info.active

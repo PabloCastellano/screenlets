@@ -535,7 +535,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 			self.window.connect("drag-leave", self.drag_leave)
 		# create menu
 		self.menu = gtk.Menu()
-		# show window ao it can realize , but hiding it so we can show it only when atributes have been set , this fixes some placement errors arround the screen egde
+		# show window so it can realize , but hiding it so we can show it only when atributes have been set , this fixes some placement errors arround the screen egde
 		if show_window:
 			self.window.show()
 			self.window.hide()	

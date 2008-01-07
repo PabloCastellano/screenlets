@@ -49,7 +49,7 @@ import XmlMenu
 #-------------------------------------------------------------------------------
 
 # the version of the Screenlets-baseclass in use
-VERSION = "0.0.11"
+VERSION = "0.0.12"
 
 # install prefix (/usr or /usr/local) DO NOT CHANGE YET, WILL CHANGE WITH v0.1.0
 INSTALL_PREFIX = '/usr'

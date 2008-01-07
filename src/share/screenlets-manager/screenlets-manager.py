@@ -515,9 +515,15 @@ class ScreenletsManager:
 		self.tips.set_tip(but1, _('Launch/add a new instance of the selected Screenlet ...'))
 		self.tips.set_tip(but2, _('Install a new Screenlet from a zipped archive (tar.gz, tar.bz2 or zip) ...'))
 		self.tips.set_tip(but3, _('Permanently uninstall/delete the currently selected Screenlet ...'))
+
+			
+		self.label = gtk.Label('Screenlets Manager')
+		self.label.set_line_wrap(1)
+		self.label.set_width_chars(30)
 		butbox.pack_start(but1, False)
 		butbox.pack_start(but2, False)
 		butbox.pack_start(but3, False)
+		butbox.pack_start(self.label, False)
 		butbox.show_all()
 		hbox.pack_end(butbox, False, False, 10)
 		# create lower buttonbox
@@ -678,6 +684,9 @@ class ScreenletsManager:
 		if info:
 			print info.name
 			self.set_info(info)
+			self.label.set_line_wrap(1)
+			self.label.set_label('Screenlet : ' + info.name + '\nAuthor : ' + info.author + '\nInfo : ' + info.info + '\nVersion : ' + info.version)
+
 			self.button_add.set_sensitive(True)
 			if not info.system:
 				self.button_delete.set_sensitive(True)
@@ -685,6 +694,7 @@ class ScreenletsManager:
 				self.button_delete.set_sensitive(False)
 		else:
 			# nothing selected? 
+			self.label.set_label('Screenlets Manager')
 			self.cb_enable_disable.set_sensitive(False)
 			self.cb_autostart.set_sensitive(False)
 			self.button_add.set_sensitive(False)

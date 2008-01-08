@@ -177,7 +177,7 @@ class WindowlistScreenlet (screenlets.Screenlet):
 	# ---------------------------------------------------------------------
 	
 	# called when the active window has changed
-	def active_window_changed (self, screen=None):
+	def active_window_changed (self, screen=None, data=None):
 		if screen==None:
 			screen = wnck.screen_get_default()
 		active_win = screen.get_active_window()
@@ -330,7 +330,10 @@ class TaskIconWidget (screenlets.ShapedWidget):
 		if name=="active":
 			self.queue_draw()
 		# set the value in object (ESSENTIAL)
-		object.__setattr__(self, name, value)
+		try:
+			object.__setattr__(self, name, value)
+		except TypeError:
+			self.__dict__[name] = value
 		
 	# return the private WnckWindow for this TaskIcon
 	def get_wnck_window (self):

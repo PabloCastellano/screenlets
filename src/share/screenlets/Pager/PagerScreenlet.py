@@ -152,7 +152,7 @@ class PagerScreenlet (screenlets.Screenlet):
 	# ---------------------------------------------------------------------
 	
 	# called when the active window has changed
-	def active_window_changed (self, screen=None):
+	def active_window_changed (self, screen=None, data=None):
 		if screen==None:
 			screen = wnck.screen_get_default()
 		active_win = screen.get_active_window()

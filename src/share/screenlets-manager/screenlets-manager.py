@@ -479,6 +479,13 @@ class ScreenletsManager:
 			iv.set_sensitive(False)
 		iv.connect('selection-changed', self.selection_changed)
 		iv.connect('item-activated', self.item_activated)
+		iv.drag_dest_set(gtk.DEST_DEFAULT_MOTION |
+				gtk.DEST_DEFAULT_DROP, #gtk.DEST_DEFAULT_ALL, 
+				[("text/plain", 0, 0), 
+				("image", 0, 1),
+				("text/uri-list", 0, 2)], 
+				gtk.gdk.ACTION_COPY)
+		iv.connect("drag_data_received", self.drag_data_received)
 		# wrap iconview in scrollwin
 		sw = gtk.ScrolledWindow()
 		sw.set_size_request(560, 300)
@@ -610,6 +617,39 @@ class ScreenletsManager:
 		
 	def website_open(self, d, link, data):
 		subprocess.Popen(["firefox", "http://www.screenlets.org"])
+
+	def drag_data_received (self, widget, dc, x, y, sel_data, info, timestamp):
+			
+		print "Data dropped ..."
+		filename = ''
+		# get text-elements in selection data
+		txt = sel_data.get_text()
+		if txt:
+			if txt[-1] == '\n':
+				txt = txt[:-1]
+			txt.replace('\n', '\\n')
+			# if it is a filename, use it
+			if txt.startswith('file://'):
+				filename = txt[7:]
+			else:
+				screenlets.show_error(self, 'Invalid string: %s.' % txt)
+		else:
+			# else get uri-part of selection
+			uris = sel_data.get_uris()
+			if uris and len(uris)>0:
+				#print "URIS: "+str(uris	)
+				filename = uris[0][7:]
+		if filename != '':
+			#self.set_image(filename)
+			installer = ScreenletInstaller()
+			result = installer.install(filename)
+			if result:
+			# reload screenlets to add new screenlet to iconview and show result
+				self.model.clear()
+				self.load_screenlets()
+				screenlets.show_message(None, installer.get_result_message())
+			else:
+				screenlets.show_error(None, installer.get_result_message())
 
 	def show_install_dialog (self):
 		"""Craete/Show the install-dialog."""

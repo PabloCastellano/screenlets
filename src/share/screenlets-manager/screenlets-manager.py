@@ -97,19 +97,31 @@ class ScreenletInstaller:
 		if something went wrong. If nothing failed, the returned value is
 		a 4-tuple of the form: (name, version, basename, extension)."""
 		base	= os.path.basename(filename)
-		ext		= filename[filename.rfind('.')+1:]
+		ext		= str(filename)[len(str(filename)) -3:]
 		# prepend "tar." if we have a bz2 or gz archive
-		if ext == 'gz' or ext == 'bz2':
-			ext = 'tar.' + ext
-		fullname	= base[:-len(ext)-1]
-		t = fullname.split('Screenlet-')
-		if len(t) < 2 or ext == '' or fullname == '':
-			return None
-		version	= t[1]
-		name	= t[0]
-		if version == '' or name == '':
-			return None
-		return (name, version, base, ext)
+		tar_opts = 'xfz'
+		if ext == 'bz2':
+			tar_opts = 'xfj'
+
+		# extract archive to temporary dir
+		if not os.path.isdir('/tmp/screenlets/'):
+			os.system('mkdir ' + '/tmp/screenlets/')
+		
+		tmpdir = '/tmp/screenlets' + '/install-temp/'
+		os.system('mkdir %s' % tmpdir)
+		
+		
+		os.system('tar %s %s -C %s' % (tar_opts, chr(34)+filename+chr(34), tmpdir))
+		for d in tmpdir : #for each item in folders
+  			if os.path.exists(d) and os.path.isdir(d): #is it a valid folder?
+				for f in os.listdir(tmpdir): 
+					
+					name = f
+		try:
+			print name
+		except:
+			screenlets.show_message(None,"Archive damaged or unsuported, only tar , bz2 or gz.")
+		return (name, ext)
 	
 	def get_result_message (self):
 		"""Return a human-readable result message about the last operation."""
@@ -132,26 +144,25 @@ class ScreenletInstaller:
 		#name		= basename[:basename.find('.')]
 		#print name
 		info = self.get_info_from_package_name(filename)
-		if not info:
-			self._message = _("Invalid archive name. Name must be like 'SomeScreenlet-0.1.2.tar.gz', alternatively with a 'zip' or 'tar.bz2' extension.")
-			return False
 		name	= info[0]
-		ext		= info[2]
+		ext		= info[1]
+		
+		tar_opts = 'xfz'
+		if ext == 'bz2':
+			tar_opts = 'xfj'
+			
+			
+
 		# check if screenlet is already installed
 		#found_path = screenlets.utils.find_first_screenlet_path(name)
 		if self.is_installed(name):#found_path != None:
-			self._message = _("The %sScreenlet is already installed in '%s'. Please remove it first!" % (name, DIR_USER))
-			return False
+			if screenlets.show_question(None,("The %sScreenlet is already installed in '%s'.\nDo you wish to continue?" % (name, DIR_USER)),('Install %s'% (name))):
+				pass
+			else:
+				self._message= '%sScreenlet is already installed'% (name)
+				return False
 		# check extension and create appropriate args for tar
-		tar_opts = 'xfz'
-		if ext == 'tar.bz2':
-			tar_opts = 'xfj'
-		# extract archive to temporary dir
-		if not os.path.isdir(DIR_TMP):
-			os.system('mkdir ' + DIR_TMP)
 		tmpdir = DIR_TMP + '/install-temp'
-		os.system('mkdir %s' % tmpdir)
-		os.system('tar %s %s -C %s' % (tar_opts, filename, tmpdir))
 		# verify contents
 		if not os.path.isdir('%s/%s' % (tmpdir, name)):
 			# dir missing
@@ -162,11 +173,15 @@ class ScreenletInstaller:
 		else:
 			# check for package-info
 			if not os.path.isfile('%s/%s/Screenlet.package' % (tmpdir, name)):
-				self._message = _("Invalid archive. Archive does not contain a package info, screenlet seems to be outdated.")
+				if screenlets.show_question(None,("This package was not packaged with the screenlet packager. Do you wish to continue and try to install it?" % (name, DIR_USER)),('Install %s'% (name))):
+					pass
+				else:
+					self._message = _("This package was not packaged with the screenlet packager.")
+					return False	
 			else:
 				# copy archive to user dir (and create if not exists)
 				self.create_user_dir()
-				os.system('tar %s %s -C %s' % (tar_opts, filename, DIR_USER))
+				os.system('tar %s %s -C %s' % (tar_opts, chr(34)+filename+chr(34), DIR_USER))
 				# delete package info from target dir
 				os.system('rm %s/%s/Screenlet.package' % (DIR_USER, name))
 				# set msg/result
@@ -642,14 +657,21 @@ class ScreenletsManager:
 		if filename != '':
 			#self.set_image(filename)
 			installer = ScreenletInstaller()
-			result = installer.install(filename)
-			if result:
-			# reload screenlets to add new screenlet to iconview and show result
-				self.model.clear()
-				self.load_screenlets()
-				screenlets.show_message(None, installer.get_result_message())
+			if not self.containsAny(filename,'%'):
+				result = installer.install(filename)
+				if result:
+				# reload screenlets to add new screenlet to iconview and show result
+					self.model.clear()
+					self.load_screenlets()
+					screenlets.show_message(None, installer.get_result_message())
+				else:
+					screenlets.show_error(None, installer.get_result_message())
 			else:
-				screenlets.show_error(None, installer.get_result_message())
+				self.show_install_dialog()
+				print 'Please install screenlets from folders without strange characters'
+	def containsAny(self,str, set):
+		"""Check whether 'str' contains ANY of the chars in 'set'"""
+		return 1 in [c in str for c in set]
 
 	def show_install_dialog (self):
 		"""Craete/Show the install-dialog."""

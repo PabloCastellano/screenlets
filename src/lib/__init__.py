@@ -378,7 +378,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 	__mi_keep_below = None
 	__mi_widget = None
 	__mi_sticky = None
-	
+	__mi_lock = None	
 	# for custom signals (which aren't acutally used ... yet)
 	__gsignals__ = dict(screenlet_removed=(gobject.SIGNAL_RUN_FIRST,
 		gobject.TYPE_NONE, (gobject.TYPE_OBJECT,)))
@@ -664,6 +664,13 @@ class Screenlet (gobject.GObject, EditableOptions):
 			winmenu_menu = gtk.Menu()
 			menu.append(winmenu_item)
 			winmenu_item.set_submenu(winmenu_menu)
+			# add "lock"-menuitem
+			self.__mi_lock = item = gtk.CheckMenuItem(_("Lock"))
+			item.set_active(self.lock_position)
+			item.connect("activate", self.menuitem_callback, 
+				"option:lock")
+			item.show()
+			winmenu_menu.append(item)
 			# add "Sticky"-menuitem
 			self.__mi_sticky = item = gtk.CheckMenuItem(_("Sticky"))
 			item.set_active(self.is_sticky)
@@ -1340,6 +1347,8 @@ class Screenlet (gobject.GObject, EditableOptions):
 			# NOTE: this part should be removed and XML-menus
 			#		should be used by default ... maybe
 			# set option
+			if id[7:]=="lock":
+				self.lock_position = not self.lock_position
 			if id[7:]=="sticky":
 				self.is_sticky = not self.is_sticky
 				#widget.toggle()

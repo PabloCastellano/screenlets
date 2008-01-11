@@ -40,7 +40,7 @@ except:
 	print 'You dont have gtkmozembed , please install python gnome extras'
 
 class GooglemapsScreenlet (screenlets.Screenlet):
-	"""A Google Maps Screenlet, If you use this screenlet to make other html screenlets please give me some credits"""
+	"""A Google Maps Screenlet, you need a package called gnome extras installed"""
 	
 	# default meta-info for Screenlets
 	__name__		= 'GooglemapsScreenlet'

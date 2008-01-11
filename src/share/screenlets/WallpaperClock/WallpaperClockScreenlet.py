@@ -43,7 +43,7 @@ class WallpaperClockScreenlet (screenlets.Screenlet):
 	
 	__name__		= 'WallpaperClockScreenlet'
 	__version__		= '2.0'
-	__author__		= 'Helder Fraga based aka Whise , The Wallpaper Clocks are completly made by Vlad Gerasimov at http://www.vladstudio.com , I have no association with him or his project'
+	__author__		= 'Helder Fraga based aka Whise , The Wallpaper Clocks are completly made by Vlad Gerasimov at http://www.vladstudio.com , you need a package called python imaging installed'
 	__desc__		= __doc__
 
 	time = datetime.now()

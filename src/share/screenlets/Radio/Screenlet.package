@@ -1,0 +1,7 @@
+[Screenlet Package]
+Name=RadioScreenlet
+Author=Helder Fraga aka Whise
+Desc=A Radio Streaming Screenlet , you can add more radios on the menu.xml file , see inside on how to, this version requires Mplayer installed with codecs and no longuer gstreamer , plays http, mms, rtsp , rm ,ram and others
+Version=0.4
+ApiVersion=0.0.10
+Created=2007/10/08

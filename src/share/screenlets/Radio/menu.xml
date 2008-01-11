@@ -1,0 +1,80 @@
+<menu>
+	<!-- 
+		This is the menu-definition for the ControlScreenlet. This file
+		gives full access to the layout of the right-click menu and allows
+		to connect menu-items to certain actions by defining the action in
+		the "id"-field of an item. 
+		
+		Available actions are:
+			- "exec:<shell-command>" executes a shell command
+			- "add:<Screenlet-classname>" adds a new instance of the given class
+			- "info" shows about/info dialog for the Screenlet
+			- "size:<size>" sets the Screenlet's size to the given number
+			
+		Available items are <item>, <checkitem>, <imagetem> and 
+		<separator>. Please don't forget to only write valid XML, otherwise the
+		menu can not be created. There is an experimental feature <scandir> - 
+		it allows scanning directories for files/dirs, skip certain files, 
+		replace string(s) in filenames, append prefix/suffix and 
+		finally create a gtk.MenuItem for each file in the dir.
+	-->
+	<!-- Uncomment to add Hide/show option to menu -->
+	<!--<item label="Hide/Show" id="hide_show" />-->
+	<!-- user definable actions here: -->
+	<!-- <item label="radio name"  id="radio address SPACE radio name" />-->
+	<item label="Radio List">
+		<item label="Europe">
+			<item label="Antena 3"  id="mms://rdp.oninet.pt/antena3 Antena 3" />
+			<item label="Ministry of Sound"  id="http://www.ministryofsound.com/radio/radioplayer/ Ministry of Sound" />
+			<item label="BBC Radio 1"  id="http://www.bbc.co.uk/radio1/realaudio/media/r1live.ram BBC Radio 1" />
+			<item label="BBC Radio 2"  id="http://www.bbc.co.uk/radio2/realmedia/fmg2.ram BBC Radio 2" />
+			<item label="BBC Radio 3"  id="http://www.bbc.co.uk/radio3/ram/r3g2.ram BBC Radio 3" />
+			<item label="BBC Radio 4"  id="http://www.bbc.co.uk/radio4/realplayer/media/fmg2.ram BBC Radio 4" />
+			<item label="BBC Radio 5"  id="http://www.bbc.co.uk/fivelive/live/surestream_int.ram BBC Radio 5" />
+			<item label="BBC News"  id="http://www.bbc.co.uk/worldservice/meta/tx/nb/live_news_au_nb.ram BBC News" />
+			<item label="Frequence 3"  id="http://80.65.234.120:8000/ Frequence 3" />
+			<item label="Hitz Channel"  id="http://scfire-chi0l-1.stream.aol.com/stream/1074 Hitz Channel" />
+			<item label="Hot 108 Jamz"  id="http://scfire-nyk0l-2.stream.aol.com/stream/1071 Hot 108 Jamz" />
+			<item label="RMF FM"  id="http://213.251.140.62:8002 RMF FM" />
+			<item label="80s Channel"  id="http://scfire-nyk0l-2.stream.aol.com/stream/1040 80s Channel" />
+			<item label="Sky FM Jazz"  id="http://scfire-ntc0l-1.stream.aol.com/stream/1010 Sky FM Jazz" />
+			<item label="Techno 4ever"  id="http://80.237.156.79:8000/ Techno 4ever" />
+			<item label="Digitally imported"  id="http://scfire-nyk0l-1.stream.aol.com/stream/1003 Digitally imported" />
+			<item label="Sky FM Top Hits"  id="http://scfire-chi0l-2.stream.aol.com/stream/1014 Sky FM Top Hits" />
+			<item label="Smooth Jazz"  id="http://scfire-ntc0l-1.stream.aol.com/stream/1005 Smooth Jazz" />
+			<item label="ChroniX Aggression"  id="http://scfire-chi0l-1.stream.aol.com/stream/1039 ChroniX Aggression" />
+			<item label="Powerhitz"  id="http://205.188.215.229:8006/ Powerhitz" />
+			<item label="Kronehit "  id="http://www.kronehit.at:8081/stream.m3u Kronehit" />
+			<item label="Energy 104,2"  id="http://80.237.157.46:8120/listen.pls Energy 104,2" />
+			<item label="Welle 1"  id="http://82.150.198.157:8000/welle1.mp3.m3u Welle 1" />
+			<item label="Welle 2"  id="http://live-eu.welle1.at:8056/listen.pls Welle 2" />
+			<item label="Q-Music"  id="http://www.q-music.be/asx/q_high.asx Q-Music" />
+			<item label="NRJ"  id="http://broadcast.infomaniak.net/nrjbe-high.mp3.m3u NRJ" />
+			<item label="FUN"  id="http://www.funradio.be/funradiobe-low.high.pls FUN" />
+			<item label="Radio Express"  id="http://online.radioexpress.bg:8000/listen.pls Radio Express" />
+			<item label="Radio Fresh"  id="http://193.108.24.21:8000/fresh.ogg.m3u Radio Fresh" />
+			<item label="Radio Vitosha"  id="http://217.75.128.46:8000/listen.pls Radio Vitosha" />
+			<item label="Evropa 2"  id="http://www.play.cz/radio/evropa2-128.asx Evropa 2" />
+			<item label="The Voice"  id="http://dix.media.webpartner.dk/voice128 The Voice" />
+			<item label="Caz"  id="http://www.garnierstreamingmedia.com/asx/caz.pls Caz" />
+			<item label="Capital 95.8"  id="http://mediaweb.musicradio.com/Playlist.asx?StreamID=1 Capital 95.8" />
+
+		</item>
+		<item label="US">
+			<item label="KCLD"  id="mms://wmc2.liquidcompass.cc/KCLD KCLD" />
+			<item label="KELZ"  id="mms://66.250.188.14/KELZ_FM KELZ" />
+			<item label="KHOP"  id="mms://mmslb.eonstreams.com/citadel_ca_modesto_khop_fm.asf KHOP" />
+			<item label="KHTT"  id="mms://nick9.surfernetwork.com/KHTT KHTT" />
+			<item label="Magic FM"  id="mms://mmslb.eonstreams.com/citadel_co_coloradosprings_kkmg_fm.asf Magic FM" />
+			<item label="KKOB FM"  id="mms://mmslb.eonstreams.com/citadel_nm_albuquerque_kkob_fm.asf KKOB FM" />
+			<item label="Wild"  id="mms://mmslb.eonstreams.com/citadel_ok_oklahomacity_kkwd_fm.asf Wild" />
+			<item label="Alice"  id="mms://mmslb.eonstreams.com/citadel_ar_littlerock_klal_fm.asf Alice" />
+			<item label="KKOB FM"  id="mms://mmslb.eonstreams.com/citadel_nm_albuquerque_kkob_fm.asf KKOB FM" />
+			<item label="Wild"  id="mms://mmslb.eonstreams.com/citadel_ok_oklahomacity_kkwd_fm.asf Wild" />
+			<item label="Alice"  id="mms://mmslb.eonstreams.com/citadel_ar_littlerock_klal_fm.asf Alice" />
+		</item>
+	</item>
+	<separator />
+	<item label="Start"  id="start" />
+	<item label="Stop"  id="stop" />
+</menu>

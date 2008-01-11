@@ -1,0 +1,26 @@
+25. 03. 2007 / 0.4
+- added general support for negative values
+
+27. 02. 2007 / 0.3
+- updated icon
+
+21. 02. 2007 / 0.3
+- added a focus in/out reaction
+
+19. 02. 2007 / 0.3
+- added RatioConverter
+- reworked current converters to use RatioConverter
+- removed AspectConverter from 'distribution', available on demand
+- added many comments for plugin developers
+- fixed a bug that the choices in the Options dialog box were not cleared on reload
+
+15. 02. 2007 / 0.3
+- moved Converter classes from ConvertScreenlet to separate files
+- removed list of all converters to be loaded, substituted by scanning directory for ?*Converter*.py
+- renamed 'description' to '__title__'
+- simplified converter loading
+- added elipsize feature to handle too long output
+- added 'str' function to Converter - see comment
+- created icon
+
+Older: not recorded :-)

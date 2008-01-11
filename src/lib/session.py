@@ -182,16 +182,15 @@ class ScreenletSession (object):
 		return None
 
 	def quit_instance (self, id):
-		"""Delete the given instance with ID 'id' and remove its session file.
-		When the last instance within the session is removed, the session dir 
-		is completely removed."""
+		"""quit the given instance with ID 'id'"""
+		
 		sl = self.get_instance_by_id(id)
 		if sl:
-			print sl
+			print self.instances
 			# remove instance from session
 
 
-			if len(self.instances) == 0:
+			if len(self.instances) == 1:
 				sl.quit_on_close = True
 			else:
 				print _("Removing instance from session but staying alive")
@@ -202,8 +201,7 @@ class ScreenletSession (object):
 			print sl
 			# remove session file
 			return True
-		else:
-			return False
+		return False
 
 	
 	def start (self):

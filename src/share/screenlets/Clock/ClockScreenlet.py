@@ -127,62 +127,61 @@ class ClockScreenlet (Screenlet):
 		# add default menuitems
 		self.add_default_menuitems()
 		# create/add OptionGroups
-		group_clock	= self.add_options_group('Clock', 
-			'Clock-specific settings.')
-		group_alarm	= self.add_options_group('Alarm',
-			'Settings for the Alarm-function.')
-		group_face	= self.add_options_group('Face', 
+		self.add_options_group('Clock', 'Clock-specific settings.')
+		self.add_options_group('Alarm', 'Settings for the Alarm-function.')
+		self.add_options_group('Face', 
 			'Additional settings for the face-layout ...')
 		# add editable settings to this Screenlet
-		group_clock.add_option(IntOption('time_offset', 
+		self.add_option(IntOption('Clock','time_offset', 
 			0, 'Time-Offset', 'The-time offset for this Clock instance. ' + 
 			'This can be used to create Clocks for different timezones ...',
 			min=-12, max=12))
-		group_clock.add_option(StringOption('hour_format', 
+		self.add_option(StringOption('Clock','hour_format', 
 			self.hour_format, 'Hour-Format', 
 			'The hour-format (12/24) ...', choices=['12', '24']))
-		group_clock.add_option(BoolOption('show_seconds_hand', 
+		self.add_option(BoolOption('Clock','show_seconds_hand', 
 			self.show_seconds_hand, 'Show seconds-hand', 
 			'Show/Hide the seconds-hand ...'))
-		group_alarm.add_option(BoolOption('alarm_activated', 
+		self.add_option(BoolOption('Alarm','alarm_activated', 
 			self.alarm_activated, 'Activate Alarm', 
 			'Activate the alarm for this clock-instance ...'))
-		group_alarm.add_option(TimeOption('alarm_time', self.alarm_time, 
+		self.add_option(TimeOption('Alarm','alarm_time', self.alarm_time, 
  			'Alarm-Time', 'The time to run the alarm at (if active) ...'))
-		group_alarm.add_option(IntOption('alarm_length', 
+		self.add_option(IntOption('Alarm','alarm_length', 
 			self.alarm_length, 'Alarm stops after', 
 			'The times the clock shall blink before auto-stopped. ' + \
 			'Divide the number by two to get the seconds ...', 
 			min=0, max=5000))
-		group_alarm.add_option(BoolOption('run_command', 
+		self.add_option(BoolOption('Alarm','run_command', 
 			self.run_command, 'Run a command', 
 			'Run a command when the alarm is activated...'))
-		group_alarm.add_option(StringOption('alarm_command', 
+		self.add_option(StringOption('Alarm','alarm_command', 
 			self.alarm_command, 'Alarm command', 
 			'The command that should be run when the alarm goes off...'))
- 		group_face.add_option(StringOption('face_text', 
+ 		self.add_option(StringOption('Face', 'face_text', 
 			self.face_text, 'Face-Text', 
 			'The text/Pango-Markup to be placed on the clock\'s face ...'))
-		group_face.add_option(FontOption('face_text_font', 
+		self.add_option(FontOption('Face', 'face_text_font', 
 			self.face_text_font, 'Text-Font', 
 			'The font of the text (when no Markup is used) ...'))
-		group_face.add_option(ColorOption('face_text_color', 
+		self.add_option(ColorOption('Face', 'face_text_color', 
 			self.face_text_color, 'Text-Color', 
 			'The color of the text (when no Markup is used) ...'))
-		group_face.add_option(IntOption('face_text_x', 
+		self.add_option(IntOption('Face', 'face_text_x', 
 			self.face_text_x, 'X-Position of Text', 
 			'The X-Position of the text-rectangle\'s upper left corner ...', 
 			min=0, max=100))
-		group_face.add_option(IntOption('face_text_y', 
+		self.add_option(IntOption('Face', 'face_text_y', 
 			self.face_text_y, 'Y-Position of Text', 
 			'The Y-Position of the text-rectangle\'s upper left corner ...', 
 			min=0, max=100))
-		group_face.add_option(BoolOption('show_date', 
+		self.add_option(BoolOption('Face', 'show_date', 
 			self.show_date, 'Show today\'s date', 
 			'Show date on the clock\'s face ...'))
-		group_face.add_option(StringOption('date_format', self.date_format, 
+		self.add_option(StringOption('Face', 'date_format', self.date_format, 
 			'Date Format', 'Format of the date displayed by this Clock. '+\
 			'Some vars are %d for day, %m for months and %Y for the year.'))
+	
 	
 	def __setattr__ (self, name, value):
 		super(ClockScreenlet, self).__setattr__(name, value)

@@ -66,14 +66,16 @@ class LauncherScreenlet (screenlets.Screenlet):
 		# set default icon and action
 		self.icon = self.get_screenlet_dir() + '/default-icon.svg'
 		# add editable settings
-		group = self.create_option_group('Starter', 
+		self.add_options_group('Starter', 
 			'Some options related to the Launcher-Screenlet.')
-		group.add_option(StringOption('label', self.label, 'Tooltip/Label', 
-			'A string that will be displayed as tooltip ...'))
-		group.add_option(StringOption('action', self.action, 'Command', 
+		self.add_option(StringOption('Starter', 'label', self.label, 
+			'Tooltip/Label', 'A string that will be displayed as tooltip ...'))
+		self.add_option(StringOption('Starter', 'action', 
+			self.action, 'Command', 
 			'Shell-command to be executed when icon is clicked ...'))
-		group.add_option(ImageOption('icon', self.icon, 'Icon-Filename', 
-			'The image to display on this Launcher ...'))
+		self.add_option(ImageOption('Starter', 'icon', self.icon, 
+			'Icon-Filename', 'The image to display on this Launcher ...'))
+		
 		
 	def __setattr__ (self, name, value):
 		screenlets.Screenlet.__setattr__(self, name, value)

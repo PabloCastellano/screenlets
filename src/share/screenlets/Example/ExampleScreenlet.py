@@ -43,50 +43,48 @@ class ExampleScreenlet (screenlets.Screenlet):
 			uses_theme=True, **keyword_args)
 		# set theme
 		self.theme_name = "png"
-		# add default menu items
-		self.add_default_menuitems()
 		# add option group
-		group = self.create_option_group('Example', 'This is an example of ' +\
+		self.add_options_group('Example', 'This is an example of ' +\
 			' editable options within an OptionGroup ...')
 		# add editable option to the group
-		group.add_option(StringOption('test_text',			# attribute-name
+		self.add_option(StringOption('Example','test_text',			# attribute-name
 			self.test_text,						# default-value
 			'Test-Text', 						# widget-label
 			'The Test-Text option for this Screenlet ...'	# description
 			))
 
-		group.add_option(BoolOption('bool_example', 
+		self.add_option(BoolOption('Example','bool_example', 
 			self.bool_example, 'Option group bool', 
 			'Example options group using bool'))
 
-		group.add_option(TimeOption('time_example', self.time_example, 
+		self.add_option(TimeOption('Example','time_example', self.time_example, 
  			'Option group time', 'Example options group using time'))
 
-		group.add_option(IntOption('int_example', 
+		self.add_option(IntOption('Example','int_example', 
 			self.int_example, 'Option group integer', 
 			'Example options group using integer', 
 			min=0, max=5000))
 
-		group.add_option(FontOption('font_example', 
+		self.add_option(FontOption('Example','font_example', 
 			self.font_example, 'Option group font', 
 			'Example options group using font'))
 
-		group.add_option(ColorOption('color_example', 
+		self.add_option(ColorOption('Example','color_example', 
 			self.color_example, 'Option group color', 
 			'Example options group using color'))
 
-		group.add_option(AccountOption('account_example',self.account_example,
+		self.add_option(AccountOption('Example','account_example',self.account_example,
 			'Option group account','Using keyring encryption'))
-		group.add_option(ImageOption('image_example', self.image_example, 
+		self.add_option(ImageOption('Example','image_example', self.image_example, 
 			'Option group Image', 'Example options group using Image')) 
 
-		group.add_option(FileOption('file_example', self.file_example, 
+		self.add_option(FileOption('Example','file_example', self.file_example, 
 			'Option group file', 'Example options group using file')) 
 
-		group.add_option(DirectoryOption('directory_example', self.directory_example, 
+		self.add_option(DirectoryOption('Example','directory_example', self.directory_example, 
 			'Option group directory', 'Example options group using directory')) 
 
-		group.add_option(ListOption('list_example', self.list_example, 
+		self.add_option(ListOption('Example','list_example', self.list_example, 
 			'Option group list', 'Example options group using list')) 
 
 		# NEW: load options from file "ExampleScreenlet.xml" in screenlet's dir
@@ -123,6 +121,8 @@ class ExampleScreenlet (screenlets.Screenlet):
 		screenlet finished its initialization. If you want to have your
 		Screenlet do things on startup you should use this handler."""
 		print 'i just got started'
+		# add default menu items
+		self.add_default_menuitems()
 
 	def on_key_down (self, keycode, keyvalue, event=None):
 		"""Called when a key is pressed within the screenlet's window."""

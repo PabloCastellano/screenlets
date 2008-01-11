@@ -53,10 +53,10 @@ class ControlScreenlet (screenlets.Screenlet):
 		# quit gtk when this window is closed
 		self.quit_on_close = True
 		# add editable settings
-		grp = self.create_option_group('Control', 
+		self.add_options_group('Control', 
 			'Additional settings for the ControlScreenlet.')
 		# add editable settings to this Screenlet
-		grp.add_option(BoolOption('add_screenlet_as_widget', 
+		self.add_option(BoolOption('Control', 'add_screenlet_as_widget', 
 			self.add_screenlet_as_widget, 'Add as "Widget"', 
 			'If active, adds new Screenlets as "Widgets" (NOTE: When this ' + 
 			'is active, you will not immediately see newly added Screenlets ' +

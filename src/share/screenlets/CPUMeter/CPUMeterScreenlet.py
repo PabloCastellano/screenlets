@@ -50,30 +50,30 @@ class CPUMeterScreenlet (screenlets.Screenlet):
 		# add default menu items
 		self.add_default_menuitems()
 		# add options
-		grp = self.create_option_group('CPU-Meter', 
-			'CPU-Meter specific options.')
-		grp.add_option(FloatOption('update_interval', self.update_interval, 
-			'Update-Interval', 'Interval for updating the graph (in seconds).',
+		self.add_options_group('CPU-Meter', 'CPU-Meter specific options')
+		self.add_option(FloatOption('CPU-Meter', 'update_interval', 
+			self.update_interval, 'Update-Interval', 
+			'The interval for updating the CPU-meter (in seconds) ...',
 			min=0.1, max=60.0))
-		grp.add_option(BoolOption('show_text', self.show_text, 'Show Text', 
-			'Show the text on the CPU-meter ...'))
-		grp.add_option(BoolOption('show_graph', self.show_graph, 'Show Graph', 
+		self.add_option(BoolOption('CPU-Meter', 'show_text', 
+			self.show_text, 'Show Text', 'Show the text on the CPU-meter ...'))
+		self.add_option(BoolOption('CPU-Meter', 'show_graph', 
+			self.show_graph, 'Show Graph', 
 			'Show the graph on the CPU-meter ...'))
-		grp.add_option(FontOption('font', self.font, 'Font', 
-			'The font used for the text on the display ...'))
-		grp.add_option(StringOption('text_prefix', self.text_prefix, 
-			'Text Prefix', 'Text (or Pango-Markup) to be placed before info.', 
-			realtime=False))
-		grp.add_option(StringOption('text_suffix', self.text_suffix, 
-			'Text Suffix', 'Text (or Pango-Markup) to be placed after info.',
-			realtime=False))
-		grp.add_option(IntOption('text_x', self.text_x, 'Text X', 
+		self.add_option(StringOption('CPU-Meter', 'text_prefix', 
+			self.text_prefix, 'Text Prefix', 
+			'Text (or Pango-Markup) that shall be placed before the load ...'), 
+			realtime=False)
+		self.add_option(StringOption('CPU-Meter', 'text_suffix', 
+			self.text_suffix, 'Text Suffix', 
+			'Text (or Pango-Markup) that shall be placed after the load ...'),
+			realtime=False)
+		self.add_option(IntOption('CPU-Meter', 'text_x', self.text_x, 'Text X', 
 			'The horizontal offset for drawing the text at ...',
 			min=0, max=100))
-		grp.add_option(IntOption('text_y', self.text_y, 'Text Y', 
+		self.add_option(IntOption('CPU-Meter', 'text_y', self.text_y, 'Text Y', 
 			'The vertical offset for drawing the text at ...',
 			min=0, max=100))
-		
 	# attribute-"setter", handles setting of attributes
 	def __setattr__ (self, name, value):
 		# call Screenlet.__setattr__ in baseclass (ESSENTIAL!!!!)

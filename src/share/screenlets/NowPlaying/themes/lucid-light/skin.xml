@@ -1,0 +1,12 @@
+<skin name="Lucid-light" width="320" height="79">
+
+  <image src="toast.png" x="0" y="0" width="320" height="79"/> 
+  <albumcover x="254" y="12" width="50" height="50"/>
+
+  <titlename x="17" y="14" width="230" maxchars="41" font="Frutiger Linotype Bold 8" color="#ffffffFF"/>   
+  <artistname x="17" y="37" width="230" maxchars="44" font="Frutiger Linotype 7" color="#ffffffFF"/>
+  <albumname x="17" y="52" width="230" maxchars="44" font="Frutiger Linotype 7" color="#ffffffFF"/>
+
+  
+</skin>
+

@@ -713,7 +713,10 @@ class Screenlet (gobject.GObject, EditableOptions):
 			self.add_menuitem("delete", _("Delete Screenlet ..."))
 		# add Quit-item
 		self.add_menuitem("", "-")
-		self.add_menuitem("quit", _("Quit %s ...") % self.get_short_name())
+		self.add_menuitem("quit_instance", _("Quit this %s ...") % self.get_short_name())
+		# add Quit-item
+		self.add_menuitem("", "-")
+		self.add_menuitem("quit", _("Quit all %ss ...") % self.get_short_name())
 
 	def add_menuitem (self, id, label, callback=None):
 		"""Simple way to add menuitems to the right-click menu."""
@@ -1318,6 +1321,10 @@ class Screenlet (gobject.GObject, EditableOptions):
 				self.session.delete_instance (self.id)
 				# notify about being rmeoved (does this get send???)
 				self.service.instance_removed(self.id)
+		elif id == "quit_instance":
+			print 'quiting this one only'
+			self.session.quit_instance (self.id)
+			self.service.instance_removed(self.id)
 		elif id == "quit":
 			self.close()
 		elif id in ("info", "about", "settings", "options", "properties"):

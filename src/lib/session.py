@@ -114,6 +114,23 @@ class ScreenletSession (object):
 		if id==None or id=='' or self.get_instance_by_id(id) != None:
 			print _("ID is unset or already in use - creating new one!")
 			id = self.__get_next_id()
+			dirlst = glob.glob(self.path + '*')
+			tdlen = len(self.path)
+			for filename in dirlst:
+				filename = filename[tdlen:]		# strip path from filename
+				print _('File: %s') % filename
+				if filename.endswith(id + '.ini'):
+				# create new instance
+					sl = self.create_instance(id=filename[:-4], enable_saving=False)
+					if sl:
+						# set options for the screenlet
+						print _("Set options in %s") % sl.__name__
+						#self.__restore_options_from_file (sl, self.path + filename)
+						self.__restore_options_from_backend(sl, self.path+filename)
+						sl.enable_saving(True)
+						# and call init handler
+						sl.finish_loading()
+						return sl
 		sl = self.screenlet(id=id, session=self, **keyword_args)
 		if sl:
 			self.instances.append(sl)		# add screenlet to session
@@ -163,6 +180,31 @@ class ScreenletSession (object):
 			if inst.id == id:
 				return inst
 		return None
+
+	def quit_instance (self, id):
+		"""Delete the given instance with ID 'id' and remove its session file.
+		When the last instance within the session is removed, the session dir 
+		is completely removed."""
+		sl = self.get_instance_by_id(id)
+		if sl:
+			print sl
+			# remove instance from session
+
+
+			if len(self.instances) == 0:
+				sl.quit_on_close = True
+			else:
+				print _("Removing instance from session but staying alive")
+				sl.quit_on_close = False
+			self.backend.flush()
+			sl.close()
+			self.instances.remove(sl)
+			print sl
+			# remove session file
+			return True
+		else:
+			return False
+
 	
 	def start (self):
 		"""Start a new session (or restore an existing session) for the

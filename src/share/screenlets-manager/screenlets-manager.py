@@ -441,6 +441,18 @@ class ScreenletsManager:
 				return self.model.get_value(it, 2)
 		return None
 	
+	def reset_selected_screenlet(self):
+		sel = self.view.get_selected_items()
+		if sel and len(sel) > 0 and len(sel[0]) > 0:
+			it = self.model.get_iter(sel[0][0])
+			if it:
+				info = self.model.get_value(it, 2)
+				if screenlets.show_question(None, _('Do you really want to reset the %sScreenlet configuration?' % info.name), _('Reset Screenlet')):
+					# delete screenlet's config directory 
+					os.system('rm -rf %s/%s' % (DIR_CONFIG, info.name))
+					# remove entry from model
+					
+				
 	def set_info (self, info_obj):
 		"""Set the values in the infobox according to the given data in the
 		ScreenletInfo-object (and recreate infobox first)."""
@@ -531,13 +543,18 @@ class ScreenletsManager:
 		but3.set_sensitive(False)
 		but3.set_image(gtk.image_new_from_stock(gtk.STOCK_DELETE, 
 			gtk.ICON_SIZE_BUTTON))
+		self.button_reset = but4 = gtk.Button(_('Reset Screenlet Config ...'))
+		but4.set_sensitive(False)
+		but4.set_image(gtk.image_new_from_stock(gtk.STOCK_CLEAR, 
+			gtk.ICON_SIZE_BUTTON))
 		but1.connect('clicked', self.button_clicked, 'add')
 		but2.connect('clicked', self.button_clicked, 'install')
 		but3.connect('clicked', self.button_clicked, 'uninstall')
+		but4.connect('clicked', self.button_clicked, 'reset')
 		self.tips.set_tip(but1, _('Launch/add a new instance of the selected Screenlet ...'))
 		self.tips.set_tip(but2, _('Install a new Screenlet from a zipped archive (tar.gz, tar.bz2 or zip) ...'))
 		self.tips.set_tip(but3, _('Permanently uninstall/delete the currently selected Screenlet ...'))
-
+		self.tips.set_tip(but4, _('Reset this Screenlet configuration (will only work if screenlet isnt running)'))
 			
 		self.label = gtk.Label('Screenlets Manager')
 		self.label.set_line_wrap(1)
@@ -545,6 +562,7 @@ class ScreenletsManager:
 		butbox.pack_start(but1, False)
 		butbox.pack_start(but2, False)
 		butbox.pack_start(but3, False)
+		butbox.pack_start(but4, False)
 		butbox.pack_start(self.label, False)
 		butbox.show_all()
 		hbox.pack_end(butbox, False, False, 10)
@@ -725,6 +743,8 @@ class ScreenletsManager:
 			self.show_install_dialog()
 		elif id == 'uninstall':
 			self.delete_selected_screenlet()
+		elif id == 'reset':
+			self.reset_selected_screenlet()
 		elif id == 'website':
 			print "TODO: open website"
 	
@@ -750,6 +770,7 @@ class ScreenletsManager:
 			self.label.set_label('Screenlet : ' + info.name + '\nAuthor : ' + info.author + '\nInfo : ' + info.info + '\nVersion : ' + info.version)
 
 			self.button_add.set_sensitive(True)
+			self.button_reset.set_sensitive(True)
 			if not info.system:
 				self.button_delete.set_sensitive(True)
 			else:
@@ -761,6 +782,7 @@ class ScreenletsManager:
 			self.cb_autostart.set_sensitive(False)
 			self.button_add.set_sensitive(False)
 			self.button_delete.set_sensitive(False)
+			self.button_reset.set_sensitive(False)
 			self.label_info.set_text('')
 	
 	def item_activated (self, iconview, item):

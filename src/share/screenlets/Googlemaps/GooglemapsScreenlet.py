@@ -22,12 +22,12 @@ if sys.argv[0].endswith('GooglemapsScreenlet.py'):
 
 	if commands.getoutput("lsb_release -is") == 'Ubuntu':
 		mypath = sys.argv[0][:sys.argv[0].find('GooglemapsScreenlet.py')].strip()
-		if os.path.isfile(mypath + "running"):
-			os.system("rm -f " + mypath + "running")
+		if os.path.isfile("/tmp/gmapsrunning"):
+			os.system("rm -f " +  "/tmp/gmapsrunning")
 		
 		else:
 			os.system ("export LD_LIBRARY_PATH=/usr/lib/firefox \n export MOZILLA_FIVE_HOME=/usr/lib/firefox \n python "+ sys.argv[0] + " &")
-			fileObj = open(mypath + "running","w") #// open for for write
+			fileObj = open("/tmp/gmapsrunning","w") #// open for for write
 			fileObj.write('gtkmozembed bug workarround')
 		
 			fileObj.close()
@@ -64,8 +64,7 @@ class GooglemapsScreenlet (screenlets.Screenlet):
 		# init stuff
 		screenlets.Screenlet.__init__(self, width=int(self.width*self.scale), height=int(self.height*self.scale),uses_theme=True, 
 			is_widget=False, is_sticky=True, **keyword_args)
-		#self.add_default_menuitems(DefaultMenuItem.XML)
-		self.add_default_menuitems()
+
 	
 		#self.disable_option('scale')
 		# create container for our moz-widget
@@ -103,6 +102,10 @@ class GooglemapsScreenlet (screenlets.Screenlet):
 	#def moz_button_press (self, widget, event):
 		
 		#print "Button press inside Mozilla Widget"
+	def on_init (self):
+		print "Screenlet has been initialized."
+		# add default menuitems
+		self.add_default_menuitems()
 
 	def on_draw (self, ctx):
 		ctx.scale(self.scale, self.scale)

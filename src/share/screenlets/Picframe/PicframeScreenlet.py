@@ -55,8 +55,6 @@ class PicframeScreenlet (screenlets.Screenlet):
 		self.theme_name = "default"
 		# initially apply default image (for newly created instances)
 		#self.image_filename = screenlets.PATH + '/Picframe/dali.png'
-		# add default menuitems (all the standard ones)
-		self.add_default_menuitems()
 		# add option group to properties-dialog
 		self.add_options_group('Picframe', 'Picframe-related settings ...')
 		# add editable options
@@ -74,6 +72,11 @@ class PicframeScreenlet (screenlets.Screenlet):
 			self.image_offset_y, 'Image Offset Y', 'Y-offset of upper left '+\
 			'corner of the image within this Picframe ...', 
 			min=0, max=self.height))
+	def on_init (self):
+		print "Screenlet has been initialized."
+		# add default menuitems
+		self.add_default_menuitems()
+
 	def __setattr__ (self, name, value):
 		if name == "image_filename":
 			#print "SET IMAGEFILENAME"

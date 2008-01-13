@@ -49,7 +49,7 @@ class RadioScreenlet(screenlets.Screenlet):
 		
 		self.theme_name = "default"
 		self.add_default_menuitems(DefaultMenuItem.XML)
-		self.add_default_menuitems()
+
 
 		self.pipe = None
 		self.add_options_group('Radio', 'Settings.')
@@ -65,6 +65,10 @@ class RadioScreenlet(screenlets.Screenlet):
 		self.password = self.password
 		password = self.password
 		
+	def on_init (self):
+		print "Screenlet has been initialized."
+		# add default menuitems
+		self.add_default_menuitems()
 
 	def __setattr__(self, name, value):
 		# call Screenlet.__setattr__ in baseclass (ESSENTIAL!!!!)

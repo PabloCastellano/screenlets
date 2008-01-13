@@ -120,8 +120,7 @@ class NowPlayingScreenlet(screenlets.Screenlet):
 		self.add_menuitem("playpause", "Play/Pause")
 		self.add_menuitem("next", "Next")
 		self.add_menuitem("previous", "Previous")
-		# add default menu items
-		self.add_default_menuitems()
+
 
 		# Options
 		self.add_options_group('Scrolling', 'Scroll-specific settings.')
@@ -214,6 +213,10 @@ class NowPlayingScreenlet(screenlets.Screenlet):
 					os.system((self.default_player) +  '  \n')
 				else:
 					os.system((self.default_player) +  '  &')
+	
+			print "Screenlet has been initialized."
+			# add default menuitems
+			self.add_default_menuitems()
 
 	def on_scale(self):
 		if self.window:

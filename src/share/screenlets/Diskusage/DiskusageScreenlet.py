@@ -35,8 +35,6 @@ class DiskusageScreenlet(screenlets.Screenlet):
 		screenlets.Screenlet.__init__(self, width=220, height=50,uses_theme=True, **keyword_args)
 		# set theme
 		self.theme_name = "default"
-		# add default menu items
-		self.add_default_menuitems()
 		# add options
 		self.add_options_group('Disk-Usage', 'Disk-Usage specific options')
 		self.add_option(FloatOption('Disk-Usage', 'update_interval', 
@@ -66,6 +64,10 @@ class DiskusageScreenlet(screenlets.Screenlet):
 				# TODO: raise exception!!!
 				self.__dict__['update_interval'] = 1
 				pass
+	def on_init (self):
+		print "Screenlet has been initialized."
+		# add default menuitems
+		self.add_default_menuitems()
 	
 	#function to get a list of dictionaries with device information
 	#written by me

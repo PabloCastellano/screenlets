@@ -79,7 +79,7 @@ class SlideshowScreenlet (screenlets.Screenlet):
 		#self.image_filename = screenlets.PATH + '/Picframe/dali.png'
 		# add default menuitems (all the standard ones)
 		self.add_default_menuitems(DefaultMenuItem.XML)
-		self.add_default_menuitems()
+
 		
 		# add option group to properties-dialog
 		self.add_options_group('SlideShow', 'Slideshow-related settings ...')
@@ -185,6 +185,10 @@ class SlideshowScreenlet (screenlets.Screenlet):
 	def on_init(self):
 		self.height = int(200 * self.factor)
 		self.update()
+		print "Screenlet has been initialized."
+		# add default menuitems
+		self.add_default_menuitems()
+
 
 	def set_image(self, filename):
 		"""Set new image for this pictureframe (does NOT call redraw).

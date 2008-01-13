@@ -124,8 +124,6 @@ class ClockScreenlet (Screenlet):
 		self.update()
 		# update the clock once a second
 		self.__timeout = gobject.timeout_add(1000, self.update)
-		# add default menuitems
-		self.add_default_menuitems()
 		# create/add OptionGroups
 		self.add_options_group('Clock', 'Clock-specific settings.')
 		self.add_options_group('Alarm', 'Settings for the Alarm-function.')
@@ -323,7 +321,8 @@ class ClockScreenlet (Screenlet):
 	
 	def on_init (self):
 		print "OK - Clock has been initialized."
-	
+		# add default menuitems
+		self.add_default_menuitems()
 	def on_draw (self, ctx):
 		# no theme? no drawing
 		if self.theme==None:

@@ -84,7 +84,7 @@ class WallpaperClockScreenlet (screenlets.Screenlet):
 		self.theme_name = "default"
 
 		self.add_default_menuitems(DefaultMenuItem.XML)
-		self.add_default_menuitems()
+
 		self.add_options_group('WallpaperClock', 'WallpaperClock-related settings ...')
 		# add editable options
 		self.add_option(StringOption('WallpaperClock', 'hour_format', self.hour_format, 'Hour-Format', 'The hour-format (12/24) ...', choices=['12', '24']))		
@@ -242,6 +242,10 @@ class WallpaperClockScreenlet (screenlets.Screenlet):
 
 	def on_init(self):
 		self.update()
+		print "Screenlet has been initialized."
+		# add default menuitems
+		self.add_default_menuitems()
+
 	def update_buttons(self):
 		x, y = self.window.get_pointer()
 		x /= (2*self.scale)

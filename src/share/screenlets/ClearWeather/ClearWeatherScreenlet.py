@@ -60,8 +60,6 @@ class ClearWeatherScreenlet(screenlets.Screenlet):
 		# add zip code menu item 
 		self.add_menuitem("zipcode", "Zip Code...")
 		self.add_menuitem("mini", "Toggle mini-view")
-		# add default menu items
-		self.add_default_menuitems()
 		# init the timeout function
 		self.update_interval = self.update_interval
                 self.add_options_group('Weather',
@@ -100,6 +98,10 @@ class ClearWeatherScreenlet(screenlets.Screenlet):
 				# TODO: raise exception!!!
 				pass
 
+	def on_init (self):
+		print "Screenlet has been initialized."
+		# add default menuitems
+		self.add_default_menuitems()	
 
 	def update(self):
 		gobject.idle_add(self.update_weather_data)

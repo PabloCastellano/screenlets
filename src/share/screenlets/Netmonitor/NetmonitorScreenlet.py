@@ -77,7 +77,7 @@ class NetmonitorScreenlet(screenlets.Screenlet):
 		
 		self.theme_name = "default"
 		self.add_menuitem("toggle", "Toggle mini view")	
-		self.add_default_menuitems()
+
 		self.update_interval = self.update_interval
 		#self.disable_updates = True
 
@@ -88,6 +88,11 @@ class NetmonitorScreenlet(screenlets.Screenlet):
 		self.add_option(BoolOption('Options', 'mini', self.mini,'Use mini mode', '',))
 
 		self.__timeout = gobject.timeout_add(1000, self.update)
+
+	def on_init (self):
+		print "Screenlet has been initialized."
+		# add default menuitems
+		self.add_default_menuitems()
 
 	def __setattr__(self, name, value):
 		# call Screenlet.__setattr__ in baseclass (ESSENTIAL!!!!)

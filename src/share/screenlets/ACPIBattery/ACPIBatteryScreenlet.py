@@ -47,8 +47,6 @@ class ACPIBatteryScreenlet(screenlets.Screenlet):
 		screenlets.Screenlet.__init__(self, uses_theme=True, **keyword_args)
 		# set theme
 		self.theme_name = "default"
-		# add default menu items
-		self.add_default_menuitems()
 		# add settings
 		self.add_options_group('ACPI Battery', 'ACPI Battery specific options')
 		self.add_option(IntOption('ACPI Battery', 'update_interval', 
@@ -104,7 +102,10 @@ class ACPIBatteryScreenlet(screenlets.Screenlet):
 			if self.__flag>0:
 				self.__dict__['file_auto']=0
 			self.__flag+=1
-			
+	def on_init (self):
+		print "Screenlet has been initialized."
+		# add default menuitems
+		self.add_default_menuitems()			
 	def getValue(self):
 		charge_status='NA'
 		ispresent='no'

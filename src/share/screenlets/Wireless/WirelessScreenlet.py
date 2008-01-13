@@ -56,8 +56,6 @@ class WirelessScreenlet(screenlets.Screenlet):
 		screenlets.Screenlet.__init__(self, width=200, height=100, **keyword_args)
 		# set theme
 		self.theme_name = "default"
-		# add default menu items
-		self.add_default_menuitems()
 		# add option groups
 		self.__update_interval = self.__update_interval
 		self.add_options_group('Wireless', 'Wireless settings')
@@ -71,6 +69,11 @@ class WirelessScreenlet(screenlets.Screenlet):
 			interfaces = self.get_wireless_interfaces()
 			if len(interfaces) > 0:
 				self.interface = interfaces[0]
+
+	def on_init (self):
+		print "Screenlet has been initialized."
+		# add default menuitems
+		self.add_default_menuitems()
 
 	def __setattr__(self, name, value):
 		# call Screenlet.__setattr__ in baseclass (ESSENTIAL!!!!)

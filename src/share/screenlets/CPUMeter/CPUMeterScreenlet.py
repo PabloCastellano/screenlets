@@ -47,8 +47,6 @@ class CPUMeterScreenlet (screenlets.Screenlet):
 		self.sensor.connect('sensor_updated', self.handle_sensor_updated)
 		# set theme
 		self.theme_name = "default"
-		# add default menu items
-		self.add_default_menuitems()
 		# add options
 		self.add_options_group('CPU-Meter', 'CPU-Meter specific options')
 		self.add_option(FloatOption('CPU-Meter', 'update_interval', 
@@ -89,6 +87,10 @@ class CPUMeterScreenlet (screenlets.Screenlet):
 		elif name == 'font':
 			self.p_layout.set_font_description(\
 				pango.FontDescription(value))
+	def on_init (self):
+		print "Screenlet has been initialized."
+		# add default menuitems
+		self.add_default_menuitems()
 	
 	# sensor callback, called on each interval
 	def handle_sensor_updated (self, sensor):

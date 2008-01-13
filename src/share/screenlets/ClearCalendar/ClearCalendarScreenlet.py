@@ -66,8 +66,6 @@ class ClearCalendarScreenlet(screenlets.Screenlet):
 		self.add_menuitem("mini", "Toggle view events")
 		self.add_menuitem("update", "Update events")	
 		self.theme_name = "default"
-		# add add default menu items
-		self.add_default_menuitems()
 		# add settings
 		self.add_options_group('iCalendar', 'Calendar specific options')
 		self.add_option(StringOption('iCalendar', 'first_weekday', self.first_weekday,
@@ -115,6 +113,10 @@ class ClearCalendarScreenlet(screenlets.Screenlet):
 				self.__buttons_timeout = None
 				self.__buttons_alpha = 0
 				self.update()
+	def on_init (self):
+		print "Screenlet has been initialized."
+		# add default menuitems
+		self.add_default_menuitems()	
 	
 	def get_date_info(self):
 		today = datetime.datetime.now()

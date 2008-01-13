@@ -47,8 +47,7 @@ class PagerScreenlet (screenlets.Screenlet):
 			uses_theme=True, **keyword_args)
 		# set theme
 		self.theme_name = "default"
-		# add default menu items
-		self.add_default_menuitems()
+
 		# get screen and active window
 		self.__screen = wnck.screen_get_default()
 		self.__active_win = self.__screen.get_active_window()
@@ -68,7 +67,10 @@ class PagerScreenlet (screenlets.Screenlet):
 	# ---------------------------------------------------------------------
 	# public methods
 	# ---------------------------------------------------------------------
-	
+	def on_init (self):
+		print "Screenlet has been initialized."
+		# add default menuitems
+		self.add_default_menuitems()
 	def calculate_size (self):
 		"""Calculate/set size relative to screen coordinates and viewports"""
 		# get number of viewports

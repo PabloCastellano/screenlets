@@ -251,7 +251,7 @@ class MailCheckScreenlet (screenlets.Screenlet):
 		# add menuitems
 		self.add_menuitem('check_mail', 'Check now!')
 		self.add_menuitem('open_client', 'Open client ...')
-		self.add_default_menuitems()
+
 		# add option groups
 		self.add_options_group('E-Mail', 'General MailCheck options ...')
 		self.add_options_group('POP3', 'POP3-account options ...')
@@ -292,6 +292,11 @@ class MailCheckScreenlet (screenlets.Screenlet):
 		self.notifier = screenlets.utils.Notifier(self)
 		# init mailcheck
 		self.set_check_interval(self.check_interval)
+
+	def on_init (self):
+		print "Screenlet has been initialized."
+		# add default menuitems
+		self.add_default_menuitems()
 	
 	def __setattr__ (self, name, value):
 		screenlets.Screenlet.__setattr__(self, name, value)

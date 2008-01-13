@@ -45,9 +45,7 @@ class StorageScreenlet (screenlets.Screenlet):
 		# add menuitems
 		self.add_menuitem('show_data', 'Show content ...')
 		# add default menu items
-		self.add_default_menuitems(DefaultMenuItem.DELETE |
-			DefaultMenuItem.PROPERTIES |
-			DefaultMenuItem.THEMES)
+
 		# add option group
 		self.add_options_group('Storage', 'Storage-options ...')
 		# add some editable options
@@ -57,6 +55,13 @@ class StorageScreenlet (screenlets.Screenlet):
 		self.add_option(ListOption('Storage', 'texts', self.texts, 
 			'Stored Texts', 
 			'The list of texts stored in this Storage ...'))
+
+	def on_init (self):
+		print "Screenlet has been initialized."
+
+		self.add_default_menuitems(DefaultMenuItem.DELETE |
+			DefaultMenuItem.PROPERTIES |
+			DefaultMenuItem.THEMES)
 	
 	def on_menuitem_select (self, id):
 		print id

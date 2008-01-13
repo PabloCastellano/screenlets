@@ -87,7 +87,6 @@ class NotesScreenlet (screenlets.Screenlet):
 		self.add_menuitem("", "-")
 		self.add_menuitem("clear", "Clear")
 		# add default menuitems
-		self.add_default_menuitems()
 		# add settings groups
 		self.add_options_group('Text', 
 			'Text-/Font-related settings for the sticknotes.')
@@ -130,7 +129,12 @@ class NotesScreenlet (screenlets.Screenlet):
 		self.add_option(StringOption('Text', 'note_text', 
 			self.note_text, 'Note-Text', 
 			'The text on this sticky note ...', hidden=True))
-				
+
+	def on_init (self):
+		print "Screenlet has been initialized."
+		# add default menuitems
+		self.add_default_menuitems()
+			
 	def __setattr__ (self, name, value):
 		# call Screenlet.__setattr__ in baseclass (ESSENTIAL!!!!)
 		screenlets.Screenlet.__setattr__(self, name, value)

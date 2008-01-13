@@ -41,7 +41,7 @@ class MyIpScreenlet(screenlets.Screenlet):
 
 		self.theme_name = "default"
 		self.add_default_menuitems(DefaultMenuItem.XML)
-		self.add_default_menuitems()
+
 		self.gen()
 		self.__timeout = gobject.timeout_add(24 * 60 * 60 * 1000, self.update)
 	def __setattr__(self, name, value):
@@ -49,6 +49,10 @@ class MyIpScreenlet(screenlets.Screenlet):
 		screenlets.Screenlet.__setattr__(self, name, value)
 		if name == 'password':
 			self.redraw_canvas()
+	def on_init (self):
+		print "Screenlet has been initialized."
+		# add default menuitems
+		self.add_default_menuitems()
 
 	def update (self):
 		self.gen()

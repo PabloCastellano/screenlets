@@ -49,7 +49,7 @@ class ControlScreenlet (screenlets.Screenlet):
 		# set theme and redraw
 		self.theme_name = "default"
 		# create menu
-		self.add_default_menuitems(DefaultMenuItem.XML)
+
 		# quit gtk when this window is closed
 		self.quit_on_close = True
 		# add editable settings
@@ -66,7 +66,10 @@ class ControlScreenlet (screenlets.Screenlet):
 			self.hide_show_on_click, 'Hide/Show on click', 
 			'Hide/Show all open Screenlets (added by this Control) when '+
 			'the Control is left-clicked.'))"""
-
+	def on_init (self):
+		print "Screenlet has been initialized."
+		# add default menuitems
+		self.add_default_menuitems(DefaultMenuItem.XML)
 	def on_mouse_down (self, event):
 		"""If hide_show_on_click is active, switch hide/show state."""
 		#if self.hide_show_on_click and event.button==1:

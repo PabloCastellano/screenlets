@@ -62,8 +62,6 @@ class CopyStackScreenlet (screenlets.Screenlet):
 		# add menuitems
 		self.add_menuitem('element_delete', 'Delete Element')
 		self.add_menuitem('delete_all', 'Clear Stack')
-		# and append efault items
-		self.add_default_menuitems()
 		# add options
 		#group_cs = OptionsGroup('CopyStack', 'CopyStack-related settings ...')
 		#self.add_options_group(group_cs)
@@ -278,7 +276,9 @@ class CopyStackScreenlet (screenlets.Screenlet):
 			return (None, None)
 	
 	def on_init (self):
-		# add element if something is in the current clipboard
+		print "Screenlet has been initialized."
+		# add default menuitems
+		self.add_default_menuitems()
 		self.add_element_from_clipboard(gtk.clipboard_get())
 	
 	def on_menuitem_select (self, id):

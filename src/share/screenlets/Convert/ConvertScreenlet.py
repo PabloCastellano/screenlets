@@ -63,8 +63,8 @@ class ConvertScreenlet(screenlets.Screenlet):
 			# FIXME: how do I abort the initialization?
 			print "ConvertScreenlet: No converters found in current directory!"
 			return
-		# add default menu items
-		self.add_default_menuitems()
+
+
 		# add options
 		self.add_options_group('Converter', 'Converter specific options')
 		self.add_option(StringOption('Converter', 'converter', self.converter,
@@ -74,6 +74,11 @@ class ConvertScreenlet(screenlets.Screenlet):
 		self.window.connect('key-press-event', self.key_press)
 		# initialize default converter
 		self.set_converter('BaseConverter')
+
+	def on_init (self):
+		print "Screenlet has been initialized."
+		# add default menuitems
+		self.add_default_menuitems()
 
 	def __setattr__(self, name, value):
 		# call Screenlet.__setattr__ in baseclass (ESSENTIAL!!!!)

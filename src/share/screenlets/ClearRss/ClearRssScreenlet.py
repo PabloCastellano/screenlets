@@ -80,7 +80,7 @@ class ClearRssScreenlet(screenlets.Screenlet):
 		self.add_option(IntOption('Rss', 'update_interval', 
 			self.update_interval, 'Update interval', 
 			'The interval for refreshing RSS feed (in minutes)', min=1, max=60))
-		self._create_menu()
+
 		#self.add_menuitem("next", "next")
 		#self.add_menuitem("prev", "prev")
 		self.update_interval = self.update_interval
@@ -102,13 +102,13 @@ class ClearRssScreenlet(screenlets.Screenlet):
 			else:
 				self.__dict__['update_interval'] = 1
 				pass
-	def on_init(self):
-		print 'aaaaaaaaaaaaaa'	
-	def _create_menu(self):
-		"""Create menu from a XML file and add default menuitems 
-		after the XML menu"""
+
+	def on_init (self):
+		print "Screenlet has been initialized."
+		# add default menuitems
 		self.add_default_menuitems(DefaultMenuItem.XML)
 		self.add_default_menuitems()
+
 							
 	def menuitem_callback(self, widget, id):
 		screenlets.Screenlet.menuitem_callback(self, widget, id)

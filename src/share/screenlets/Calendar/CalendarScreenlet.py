@@ -28,8 +28,11 @@ class CalendarScreenlet (screenlets.Screenlet):
 		self.text_shadow_offset = 0.666
 		# set theme
 		self.theme_name = "ryx"
-		# add default menu items
-		self.add_default_menuitems()
+
+	def on_init (self):
+		print "Screenlet has been initialized."
+		# add default menuitems
+		self.add_default_menuitems()	
 		
 	def get_date_info(self):
 		now = datetime.datetime.now()

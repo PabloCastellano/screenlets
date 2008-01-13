@@ -41,10 +41,13 @@ class RulerScreenlet (screenlets.Screenlet):
 		self.width	= sizes[0]
 		self.height	= sizes[1]
 		self.update_shape()
-		# add default menuitems (all the standard ones)
-		self.add_default_menuitems()
 		# finally, show window
 		self.window.show()
+
+	def on_init (self):
+		print "Screenlet has been initialized."
+		# add default menuitems
+		self.add_default_menuitems()
 	
 	def on_draw (self, ctx):
 		ctx.set_operator(cairo.OPERATOR_OVER)

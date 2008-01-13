@@ -55,7 +55,6 @@ class GmailScreenlet(screenlets.Screenlet):
 		self.theme_name = "default"
 		# add default menu items
 		self.add_default_menuitems(DefaultMenuItem.XML)
-		self.add_default_menuitems()
 	
 		self.add_options_group('gmail', 'Gmail Screenlet settings ...')
 		self.add_option(IntOption('gmail', 'update_interval', 
@@ -90,6 +89,10 @@ class GmailScreenlet(screenlets.Screenlet):
 			else:
 				self.__dict__['update_interval'] = 1
 				pass
+	def on_init (self):
+		print "Screenlet has been initialized."
+		# add default menuitems
+		self.add_default_menuitems()
 
 	def update(self):
 		self.check()

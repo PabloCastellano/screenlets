@@ -74,7 +74,6 @@ class FlowerScreenlet (screenlets.Screenlet):
 		# add menuitems
 		self.add_menuitem('give_water', 'Give water')
 		#self.add_menuitem('give_water', 'Give water')
-		self.add_default_menuitems()
 		# add timeout function for checking status after a certain interval
 		self.__timeout = gobject.timeout_add(self.day_length * 1000, 
 			self.__check_status)
@@ -106,6 +105,10 @@ class FlowerScreenlet (screenlets.Screenlet):
 	# --------------------------------------------------------------------------
 	# custom functions for Flower
 	# --------------------------------------------------------------------------
+	def on_init (self):
+		print "Screenlet has been initialized."
+		# add default menuitems
+		self.add_default_menuitems()
 	
 	def __check_status (self):
 		"""Timeout function, called in certain intervals to check the status

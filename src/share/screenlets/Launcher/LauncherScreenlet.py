@@ -60,9 +60,7 @@ class LauncherScreenlet (screenlets.Screenlet):
 		# call super (and enable drag/drop)
 		screenlets.Screenlet.__init__(self, drag_drop=True, **keyword_args)
 		# add default menu items
-		self.add_default_menuitems(DefaultMenuItem.SIZE |
-			DefaultMenuItem.WINDOW_MENU | DefaultMenuItem.PROPERTIES |
-			DefaultMenuItem.DELETE)
+
 		# set default icon and action
 		self.icon = self.get_screenlet_dir() + '/default-icon.svg'
 		# add editable settings
@@ -76,6 +74,12 @@ class LauncherScreenlet (screenlets.Screenlet):
 		self.add_option(ImageOption('Starter', 'icon', self.icon, 
 			'Icon-Filename', 'The image to display on this Launcher ...'))
 		
+	def on_init (self):
+		print "Screenlet has been initialized."
+		# add default menuitems
+		self.add_default_menuitems(DefaultMenuItem.SIZE |
+			DefaultMenuItem.WINDOW_MENU | DefaultMenuItem.PROPERTIES |
+			DefaultMenuItem.DELETE)
 		
 	def __setattr__ (self, name, value):
 		screenlets.Screenlet.__setattr__(self, name, value)

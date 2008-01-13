@@ -66,11 +66,8 @@ class WindowlistScreenlet (screenlets.Screenlet):
 		self.window.add(self.__box)
 		# create tooltips
 		self.__tooltips = gtk.Tooltips()
-		# add default menu items (no themes)
-		self.add_default_menuitems(
-			DefaultMenuItem.WINDOW_MENU | 
-			DefaultMenuItem.PROPERTIES | 
-			DefaultMenuItem.DELETE)
+
+
 		# connect screen-signal handlers
 		screen = wnck.screen_get_default()
 		self.__active_win = screen.get_active_window()
@@ -96,6 +93,14 @@ class WindowlistScreenlet (screenlets.Screenlet):
 	# Check, if a window is allowed to be displayed
 	# TODO: add a "blacklist"-property
 	# TODO: don't use only window names for this check
+	def on_init (self):
+		print "Screenlet has been initialized."
+
+		self.add_default_menuitems(
+			DefaultMenuItem.WINDOW_MENU | 
+			DefaultMenuItem.PROPERTIES | 
+			DefaultMenuItem.DELETE)
+
 	def check_window_name (self, name):
 		if name[-10:] != "Screenlets" and name[-12:] != "Screenlet.py" \
 			and name[-9:] != "Screenlet" and name != "Desktop":

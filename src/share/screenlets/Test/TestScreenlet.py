@@ -38,8 +38,7 @@ class TestScreenlet (screenlets.Screenlet):
 			drag_drop=True, **keyword_args)
 		# set theme
 		self.theme_name = "default"
-		# add default menu items
-		self.add_default_menuitems()
+
 		# add option group
 		self.add_options_group('Example', 'This is an example of editable' +\
 			' options within an options-group ...')
@@ -66,7 +65,13 @@ class TestScreenlet (screenlets.Screenlet):
 		#self.window.drag_source_add_image_targets()
 		#self.add_drag_type("text/plain", self.DRAGDATA_TYPE_TEXT)
 		#self.add_drag_type("image/x-xpixmap", self.DRAGDATA_TYPE_PIXMAP)
-	
+
+	def on_init (self):
+		print "Screenlet has been initialized."
+		# add default menuitems
+		self.add_default_menuitems()
+
+
 	def on_draw (self, ctx):
 		# if theme is loaded
 		if self.theme:

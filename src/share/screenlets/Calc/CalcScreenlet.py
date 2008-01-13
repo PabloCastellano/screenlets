@@ -41,12 +41,15 @@ class CalcScreenlet(screenlets.Screenlet):
 			**keyword_args)
 		# set theme
 		self.theme_name = "default"
-		# add default menu items
-		self.add_default_menuitems()
 		self.window.connect("key-press-event", self.key_press)
 		self.window.connect("key-release-event", self.key_release)
 		self.window.connect("focus-in-event", self.focus_in)
 		self.window.connect("focus-out-event", self.focus_out)
+
+	def on_init (self):
+		print "Screenlet has been initialized."
+		# add default menuitems
+		self.add_default_menuitems()	
 		
 	def focus_in(self, widget, event):
 		self.has_focus = True

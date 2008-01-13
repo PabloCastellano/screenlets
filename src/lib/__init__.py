@@ -366,7 +366,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 	lock_position	= False
 	allow_option_override 	= True		# if False, overrides are ignored
 	ask_on_option_override	= True		# if True, overrides need confirmation
-	
+	has_started = False
 	
 	# internals (deprecated? we still don't get the end of a begin_move_drag)
 	__lastx = 0
@@ -610,6 +610,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 	def add_default_menuitems (self, flags=DefaultMenuItem.STANDARD):
 		"""Appends the default menu-items to self.menu. You can add on OR'ed
 		   flag with DefaultMenuItems you want to add."""
+		if not self.has_started: print 'WARNING - add_default_menuitems and add_menuitems should be set in on_init ,menu values will be displayed incorrectly'
 		# children already exist? add separator
 		if len(self.menu.get_children()) > 0:
 			self.add_menuitem("", "-")
@@ -720,6 +721,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 
 	def add_menuitem (self, id, label, callback=None):
 		"""Simple way to add menuitems to the right-click menu."""
+		if not self.has_started: print 'WARNING - add_default_menuitems and add_menuitems should be set in on_init ,menu values will be displayed incorrectly'
 		if callback == None:
 			callback = self.menuitem_callback
 		if label == "-":
@@ -822,6 +824,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 
 	def finish_loading(self):
 		"""Called when screenlet finishes loading"""
+		self.has_started = True
 		self.on_init()
 		try: self.window.show()			
 		except:	print 'unable to show window'

@@ -1189,11 +1189,13 @@ class Screenlet (gobject.GObject, EditableOptions):
 					int(event.y_root), event.time)
 		
 		if event.button == 3:
-			self.__mi_lock.set_active(self.lock_position)
-			self.__mi_sticky.set_active(self.is_sticky)
-			self.__mi_widget.set_active(self.is_widget)
-			self.__mi_keep_above.set_active(self.keep_above)
-			self.__mi_keep_below.set_active(self.keep_below)
+			try:
+				self.__mi_lock.set_active(self.lock_position)
+				self.__mi_sticky.set_active(self.is_sticky)
+				self.__mi_widget.set_active(self.is_widget)
+				self.__mi_keep_above.set_active(self.keep_above)
+				self.__mi_keep_below.set_active(self.keep_below)
+			except : pass
 			self.menu.popup(None, None, None, event.button, event.time)
 		elif event.button == 4:
 			print _("MOUSEWHEEL")

@@ -1189,6 +1189,11 @@ class Screenlet (gobject.GObject, EditableOptions):
 					int(event.y_root), event.time)
 		
 		if event.button == 3:
+			self.__mi_lock.set_active(self.lock_position)
+			self.__mi_sticky.set_active(self.is_sticky)
+			self.__mi_widget.set_active(self.is_widget)
+			self.__mi_keep_above.set_active(self.keep_above)
+			self.__mi_keep_below.set_active(self.keep_below)
 			self.menu.popup(None, None, None, event.button, event.time)
 		elif event.button == 4:
 			print _("MOUSEWHEEL")
@@ -1358,18 +1363,29 @@ class Screenlet (gobject.GObject, EditableOptions):
 			#		should be used by default ... maybe
 			# set option
 			if id[7:]=="lock":
-				self.lock_position = not self.lock_position
-			if id[7:]=="sticky":
-				self.is_sticky = not self.is_sticky
+				if self.__mi_lock.get_active () != self.lock_position:
+					self.lock_position = not self.lock_position
+			elif id[7:]=="sticky":
+				if self.__mi_sticky.get_active () != self.is_sticky:
+					self.is_sticky = not self.is_sticky
 				#widget.toggle()
 			elif id[7:]=="widget":
-				self.is_widget = not self.is_widget
+				if self.__mi_widget.get_active () != self.is_widget:
+					self.is_widget = not self.is_widget
 			elif id[7:]=="keep_above":
-				self.keep_above = not self.keep_above
-				self.__mi_keep_above.set_active(self.keep_above)
+				if self.__mi_keep_above.get_active () != self.keep_above:
+					self.keep_above = not self.keep_above
+					self.__mi_keep_above.set_active(self.keep_above)
+					if self.keep_below and self.keep_above : 
+						self.keep_below = False
+						self.__mi_keep_below.set_active(False)
 			elif id[7:]=="keep_below":
-				self.keep_below = not self.keep_below
-				self.__mi_keep_below.set_active(self.keep_below)
+				if self.__mi_keep_below.get_active () != self.keep_below:
+					self.keep_below = not self.keep_below
+					self.__mi_keep_below.set_active(self.keep_below)
+					if self.keep_below and self.keep_above : 
+						self.keep_above = False
+						self.__mi_keep_above.set_active(False)
 		else:
 			#print "Item: " + string
 			pass

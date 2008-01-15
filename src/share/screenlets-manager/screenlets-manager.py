@@ -771,7 +771,7 @@ class ScreenletsManager:
 			for f in os.listdir(DIR_USER + '/' + info.name + '/themes/'):
 				x= x +1
 				
-			os.system('tar %s %s -C %s' % (tar_opts, filename, DIR_USER + '/' + info.name + '/themes/'))
+			os.system('tar %s %s -C %s' % (tar_opts, chr(34)+ filename + chr(34), chr(34) + DIR_USER + '/' + info.name + '/themes/'+ chr(34)))
 			for f in os.listdir(DIR_USER + '/' + info.name + '/themes/'):
 				y= y +1
 			if y > x:

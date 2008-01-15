@@ -515,7 +515,7 @@ class ScreenletsManager:
 		iv.connect("drag_data_received", self.drag_data_received)
 		# wrap iconview in scrollwin
 		sw = gtk.ScrolledWindow()
-		sw.set_size_request(560, 300)
+		sw.set_size_request(560, 320)
 		sw.set_shadow_type(gtk.SHADOW_IN)
 		sw.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
 		sw.add(iv)
@@ -547,14 +547,20 @@ class ScreenletsManager:
 		but4.set_sensitive(False)
 		but4.set_image(gtk.image_new_from_stock(gtk.STOCK_CLEAR, 
 			gtk.ICON_SIZE_BUTTON))
+		self.button_theme = but5 = gtk.Button(_('Install Screenlet Theme  ...'))
+		but5.set_sensitive(False)
+		but5.set_image(gtk.image_new_from_stock(gtk.STOCK_ADD, 
+			gtk.ICON_SIZE_BUTTON))
 		but1.connect('clicked', self.button_clicked, 'add')
 		but2.connect('clicked', self.button_clicked, 'install')
 		but3.connect('clicked', self.button_clicked, 'uninstall')
 		but4.connect('clicked', self.button_clicked, 'reset')
+		but5.connect('clicked', self.button_clicked, 'theme')
 		self.tips.set_tip(but1, _('Launch/add a new instance of the selected Screenlet ...'))
 		self.tips.set_tip(but2, _('Install a new Screenlet from a zipped archive (tar.gz, tar.bz2 or zip) ...'))
 		self.tips.set_tip(but3, _('Permanently uninstall/delete the currently selected Screenlet ...'))
 		self.tips.set_tip(but4, _('Reset this Screenlet configuration (will only work if screenlet isnt running)'))
+		self.tips.set_tip(but5, _('Install new theme for this screenlet'))
 			
 		self.label = gtk.Label('Screenlets Manager')
 		self.label.set_line_wrap(1)
@@ -563,6 +569,7 @@ class ScreenletsManager:
 		butbox.pack_start(but2, False)
 		butbox.pack_start(but3, False)
 		butbox.pack_start(but4, False)
+		butbox.pack_start(but5, False)
 		butbox.pack_start(self.label, False)
 		butbox.show_all()
 		hbox.pack_end(butbox, False, False, 10)
@@ -726,7 +733,60 @@ class ScreenletsManager:
 				screenlets.show_message(None, installer.get_result_message())
 			else:
 				screenlets.show_error(None, installer.get_result_message())
-		
+
+	def show_install_theme_dialog (self):
+		"""Craete/Show the install-dialog."""
+		# create filter
+		flt = gtk.FileFilter()
+		flt.add_pattern('*.tar.bz2')
+		flt.add_pattern('*.tar.gz')
+		flt.add_pattern('*.zip')
+
+		# create dialog
+		dlg = gtk.FileChooserDialog(buttons=(gtk.STOCK_CANCEL, 
+			gtk.RESPONSE_CANCEL, gtk.STOCK_OPEN, gtk.RESPONSE_OK))
+		dlg.set_current_folder(os.environ['HOME'])
+		dlg.set_title(('Install a new theme for the selected Screenlet'))
+		dlg.set_filter(flt)
+		# run
+		resp		= dlg.run()
+		filename	= dlg.get_filename()
+		dlg.destroy()
+		if resp == gtk.RESPONSE_OK:
+			# create new installer
+			
+			# try installing and show result dialog
+			self.window.window.set_cursor(gtk.gdk.Cursor(gtk.gdk.WATCH))
+			print 'Installing %s' % filename
+			result = False
+			info = self.get_selection()
+			basename	= os.path.basename(filename)
+			ext	= str(filename)[len(str(filename)) -3:]
+	
+			tar_opts = 'xfz'
+			if ext == 'bz2':
+				tar_opts = 'xfj'
+			x = 0
+			y = 0
+			for f in os.listdir(DIR_USER + '/' + info.name + '/themes/'):
+				x= x +1
+				
+			os.system('tar %s %s -C %s' % (tar_opts, filename, DIR_USER + '/' + info.name + '/themes/'))
+			for f in os.listdir(DIR_USER + '/' + info.name + '/themes/'):
+				y= y +1
+			if y > x:
+				
+				screenlets.show_message(None,"Theme installed" )
+				self.window.window.set_cursor(gtk.gdk.Cursor(gtk.gdk.LEFT_PTR))	
+				result = True
+
+			else:
+				screenlets.show_message(None,"Error found - Theme not installed ")
+				self.window.window.set_cursor(gtk.gdk.Cursor(gtk.gdk.LEFT_PTR))	
+				result = False
+		else:
+			self.window.window.set_cursor(gtk.gdk.Cursor(gtk.gdk.LEFT_PTR))	
+			result = False
 	# event-callbacks
 	
 	def button_clicked (self, widget, id):
@@ -745,6 +805,8 @@ class ScreenletsManager:
 			self.delete_selected_screenlet()
 		elif id == 'reset':
 			self.reset_selected_screenlet()
+		elif id == 'theme':
+			self.show_install_theme_dialog()
 		elif id == 'website':
 			print "TODO: open website"
 	
@@ -773,8 +835,10 @@ class ScreenletsManager:
 			self.button_reset.set_sensitive(True)
 			if not info.system:
 				self.button_delete.set_sensitive(True)
+				self.button_theme.set_sensitive(True)
 			else:
 				self.button_delete.set_sensitive(False)
+				self.button_theme.set_sensitive(False)	
 		else:
 			# nothing selected? 
 			self.label.set_label('Screenlets Manager')

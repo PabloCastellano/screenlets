@@ -768,27 +768,53 @@ class ScreenletsManager:
 				tar_opts = 'xfj'
 			x = 0
 			y = 0
-
-			if not info.system:
-				for f in os.listdir(DIR_USER + '/' + info.name + '/themes/'):
-					x= x +1
-				os.system('tar %s %s -C %s' % (tar_opts, chr(34)+ filename + chr(34), chr(34) + DIR_USER + '/' + info.name + '/themes/'+ chr(34)))
-				for f in os.listdir(DIR_USER + '/' + info.name + '/themes/'):
-					y= y +1
 			
+			if not info.system:
+				install_dir = DIR_USER + '/' 
+				themes_dir = DIR_USER + '/' + info.name + '/themes/'
+				install_prefix = ''
 			else:
-				if screenlets.show_question(None,"You are about to install a theme in root mode, only procced if you have gksudo installed, do you wish to procced?"):
-					for f in os.listdir(screenlets.INSTALL_PREFIX + '/share/screenlets' + '/' + info.name + '/themes/'):
-						x= x +1
-					os.system('gksudo '+chr(34) +'tar '+tar_opts+' '+ chr(39)+ filename + chr(39)+ ' -C ' + chr(39) + screenlets.INSTALL_PREFIX + '/share/screenlets' + '/' + info.name + '/themes/'+ chr(39)+chr(34))
+				if not screenlets.show_question(None,"You are about to install a theme in root mode, only procced if you have gksudo installed, do you wish to procced?"):
+					self.window.window.set_cursor(gtk.gdk.Cursor(gtk.gdk.LEFT_PTR))	
+					result = False
+				themes_dir = screenlets.INSTALL_PREFIX + '/share/screenlets' + '/'  + info.name + '/themes/'
+				install_dir = screenlets.INSTALL_PREFIX + '/share/screenlets' + '/' 
+				install_prefix = 'gksudo '
+
+			if not os.path.isdir('/tmp/screenlets/'):
+				os.system('mkdir ' + '/tmp/screenlets/')
+		
+			tmpdir = '/tmp/screenlets' + '/install-temp/'
+			os.system('mkdir %s' % tmpdir)
+		
+			os.system('tar %s %s -C %s' % (tar_opts, chr(34)+filename+chr(34), tmpdir))
+			print os.listdir(tmpdir)[0]
+			if not os.path.exists(tmpdir + os.listdir(tmpdir)[0]):	
+				screenlets.show_message(None,"Theme install error 1 found - Theme not installed , maybe a package error ")				
+				self.window.window.set_cursor(gtk.gdk.Cursor(gtk.gdk.LEFT_PTR))	
+				result = False #is it a valid folder?
+
+			if os.listdir(tmpdir)[0] == 'themes': 
+				install_dir = install_dir + info.name
+				print "list contains themes folder"
+			elif os.listdir(tmpdir)[0] == info.name:
+				print "list contains the screenlet name folder"
+				install_dir = install_dir
+			else:
+				install_dir = install_dir + info.name + '/themes/'
+				print "only contains the themes folders"
+			print install_dir
+			print install_prefix						
+			os.system('rm -rf %s/install-temp' % DIR_TMP)
+
+			for f in os.listdir(themes_dir):
+				x= x +1
+			os.system(install_prefix +chr(34) +'tar '+tar_opts+' '+ chr(39)+ filename + chr(39)+ ' -C ' + chr(39) + install_dir + chr(39)+chr(34))
 
 
  #% (tar_opts, chr(39)+ filename + chr(39), chr(39) + screenlets.INSTALL_PREFIX + '/share/screenlets' + '/' + info.name + '/themes/'+ chr(39)))
-				else:
-					self.window.window.set_cursor(gtk.gdk.Cursor(gtk.gdk.LEFT_PTR))	
-					result = False
-				for f in os.listdir(screenlets.INSTALL_PREFIX + '/share/screenlets' + '/' + info.name + '/themes/'):
-					y= y +1
+			for f in os.listdir(themes_dir):
+				y= y +1
 
 			if y > x:
 				
@@ -797,7 +823,7 @@ class ScreenletsManager:
 				result = True
 
 			else:
-				screenlets.show_message(None,"Error found - Theme not installed ")
+				screenlets.show_message(None,"Theme install error 2 found - Theme not installed or already installed")
 				self.window.window.set_cursor(gtk.gdk.Cursor(gtk.gdk.LEFT_PTR))	
 				result = False
 		else:

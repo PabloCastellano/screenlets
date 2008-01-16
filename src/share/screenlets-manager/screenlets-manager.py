@@ -768,12 +768,28 @@ class ScreenletsManager:
 				tar_opts = 'xfj'
 			x = 0
 			y = 0
-			for f in os.listdir(DIR_USER + '/' + info.name + '/themes/'):
-				x= x +1
-				
-			os.system('tar %s %s -C %s' % (tar_opts, chr(34)+ filename + chr(34), chr(34) + DIR_USER + '/' + info.name + '/themes/'+ chr(34)))
-			for f in os.listdir(DIR_USER + '/' + info.name + '/themes/'):
-				y= y +1
+
+			if not info.system:
+				for f in os.listdir(DIR_USER + '/' + info.name + '/themes/'):
+					x= x +1
+				os.system('tar %s %s -C %s' % (tar_opts, chr(34)+ filename + chr(34), chr(34) + DIR_USER + '/' + info.name + '/themes/'+ chr(34)))
+				for f in os.listdir(DIR_USER + '/' + info.name + '/themes/'):
+					y= y +1
+			
+			else:
+				if screenlets.show_question(None,"You are about to install a theme in root mode, only procced if you have gksudo installed, do you wish to procced?"):
+					for f in os.listdir(screenlets.INSTALL_PREFIX + '/share/screenlets' + '/' + info.name + '/themes/'):
+						x= x +1
+					os.system('gksudo '+chr(34) +'tar '+tar_opts+' '+ chr(39)+ filename + chr(39)+ ' -C ' + chr(39) + screenlets.INSTALL_PREFIX + '/share/screenlets' + '/' + info.name + '/themes/'+ chr(39)+chr(34))
+
+
+ #% (tar_opts, chr(39)+ filename + chr(39), chr(39) + screenlets.INSTALL_PREFIX + '/share/screenlets' + '/' + info.name + '/themes/'+ chr(39)))
+				else:
+					self.window.window.set_cursor(gtk.gdk.Cursor(gtk.gdk.LEFT_PTR))	
+					result = False
+				for f in os.listdir(screenlets.INSTALL_PREFIX + '/share/screenlets' + '/' + info.name + '/themes/'):
+					y= y +1
+
 			if y > x:
 				
 				screenlets.show_message(None,"Theme installed" )
@@ -833,12 +849,11 @@ class ScreenletsManager:
 
 			self.button_add.set_sensitive(True)
 			self.button_reset.set_sensitive(True)
+			self.button_theme.set_sensitive(True)
 			if not info.system:
 				self.button_delete.set_sensitive(True)
-				self.button_theme.set_sensitive(True)
 			else:
 				self.button_delete.set_sensitive(False)
-				self.button_theme.set_sensitive(False)	
 		else:
 			# nothing selected? 
 			self.label.set_label('Screenlets Manager')
@@ -847,6 +862,7 @@ class ScreenletsManager:
 			self.button_add.set_sensitive(False)
 			self.button_delete.set_sensitive(False)
 			self.button_reset.set_sensitive(False)
+			self.button_theme.set_sensitive(False)	
 			self.label_info.set_text('')
 	
 	def item_activated (self, iconview, item):

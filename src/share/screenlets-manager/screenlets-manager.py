@@ -353,7 +353,7 @@ class ScreenletsManager:
 		# fallback icon
 		noimg = gtk.gdk.pixbuf_new_from_file_at_size(\
 			screenlets.INSTALL_PREFIX + '/share/screenlets-manager/noimage.svg', 
-			48, 48)
+			56, 56)
 		# get list of available/running screenlets
 		lst_a = utils.list_available_screenlets()
 		lst_r = utils.list_running_screenlets()
@@ -378,7 +378,7 @@ class ScreenletsManager:
 			else:
 				img = noimg	
 			try:
-				img = gtk.gdk.pixbuf_new_from_file_at_size(path, 48, 48)
+				img = gtk.gdk.pixbuf_new_from_file_at_size(path, 56, 56)
 				path = ''
 			except Exception, ex:
 				#print "Exception while loading icon '%s': %s" % (path, ex)
@@ -412,9 +412,12 @@ class ScreenletsManager:
 				print _('Error while loading screenlets metadata for "%s".' % s)
 				slinfo = ScreenletInfo(s, '', '', '', '', img)
 			# add to model
-			self.model.append(['<span size="9000">%s</span>' % s, img, 
-				slinfo])	
-		
+			sss = str(self.txtsearch.get_text()).lower()
+			slname = str(s).lower()
+			a = slname.find(sss)
+			if sss == None or a != -1:
+				self.model.append(['<span size="9000">%s</span>' % s, img, slinfo])	
+				#self.txtsearch.get_text('')
 	def quit_screenlet_by_name (self, name):
 		"""Quit all instances of the given screenlet type."""
 		# get service for instance and call quit method
@@ -514,8 +517,8 @@ class ScreenletsManager:
 				gtk.gdk.ACTION_COPY)
 		iv.connect("drag_data_received", self.drag_data_received)
 		# wrap iconview in scrollwin
-		sw = gtk.ScrolledWindow()
-		sw.set_size_request(560, 320)
+		sw = self.slwindow = gtk.ScrolledWindow()
+		sw.set_size_request(560, 300)
 		sw.set_shadow_type(gtk.SHADOW_IN)
 		sw.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
 		sw.add(iv)
@@ -531,7 +534,7 @@ class ScreenletsManager:
 		#w.vbox.add(hbox)
 		#vbox.add(hbox)
 		# create right area with buttons
-		butbox = gtk.VBox()
+		butbox = self.bbox = gtk.VBox()
 		self.button_add = but1 = gtk.Button(_('Launch/Add ...'))
 		but1.set_image(gtk.image_new_from_stock(gtk.STOCK_EXECUTE, 
 			gtk.ICON_SIZE_BUTTON))
@@ -551,6 +554,7 @@ class ScreenletsManager:
 		but5.set_sensitive(False)
 		but5.set_image(gtk.image_new_from_stock(gtk.STOCK_ADD, 
 			gtk.ICON_SIZE_BUTTON))
+		#self.sep = gtk.Separator()	
 		but1.connect('clicked', self.button_clicked, 'add')
 		but2.connect('clicked', self.button_clicked, 'install')
 		but3.connect('clicked', self.button_clicked, 'uninstall')
@@ -562,15 +566,33 @@ class ScreenletsManager:
 		self.tips.set_tip(but4, _('Reset this Screenlet configuration (will only work if screenlet isnt running)'))
 		self.tips.set_tip(but5, _('Install new theme for this screenlet'))
 			
-		self.label = gtk.Label('Screenlets Manager')
+		self.label = gtk.Label('')
 		self.label.set_line_wrap(1)
-		self.label.set_width_chars(30)
+		self.label.set_width_chars(70)
+		self.label.set_alignment(0, 0)
+		self.label.set_size_request(-1, 65)
+    		self.searchbox = gtk.HBox()
+    		self.txtsearch = gtk.Entry()
+    		self.searchbox.pack_start(self.txtsearch, True, True)
+    		self.btnsearch = gtk.Button("")
+		self.btnsearch.set_image(gtk.image_new_from_stock(gtk.STOCK_FIND, 
+			gtk.ICON_SIZE_BUTTON))
+    		self.btnsearch.connect("clicked",self.redraw_screenlets)
+    		self.txtsearch.connect("activate",self.redraw_screenlets, 'enter')
+    		self.txtsearch.connect("backspace",self.redraw_screenlets, 'backspace')
+    		self.searchbox.pack_start(self.btnsearch, False)
+		self.sep =   gtk.HSeparator()
+		butbox.pack_start(self.searchbox, False)
+		#butbox.pack_start(self.sep, False)
+		butbox.pack_start(self.sep, False)
 		butbox.pack_start(but1, False)
 		butbox.pack_start(but2, False)
 		butbox.pack_start(but3, False)
 		butbox.pack_start(but4, False)
 		butbox.pack_start(but5, False)
-		butbox.pack_start(self.label, False)
+
+		#butbox.pack_start(self.label, False)
+		butbox.pack_start(self.sep, True)
 		butbox.show_all()
 		hbox.pack_end(butbox, False, False, 10)
 		# create lower buttonbox
@@ -632,8 +654,19 @@ class ScreenletsManager:
 		#ibox.pack_start(itxt, True, True)
 		ibox.show_all()
 		# add infbox to lower paned area
-		self.paned.pack2(ibox, False, True)
-	
+		self.paned.pack2(self.label,False,True)
+		self.bbox.pack_start(ibox, False, True)
+
+	def redraw_screenlets(self,widget,id):
+		if id == 'backspace':
+			if len(self.txtsearch.get_text()) == 1:
+				self.txtsearch.set_text('')
+				self.model.clear()
+				self.load_screenlets()
+		else:
+			self.model.clear()
+			self.load_screenlets()
+
 	def show_about_dialog (self):
 		"""Create/Show about dialog for this app."""
 		dlg = gtk.AboutDialog()
@@ -642,7 +675,7 @@ class ScreenletsManager:
 		dlg.set_name(APP_NAME)
 		dlg.set_comments(_('A graphical manager application that simplifies managing, starting and (un-)installing Screenlets.'))
 		dlg.set_version(APP_VERSION)
-		dlg.set_copyright('(c) RYX (Rico Pfaus) 2007')
+		dlg.set_copyright('(c) RYX (Rico Pfaus) and Whise 2007')
 		dlg.set_website('http://www.screenlets.org')
 		dlg.set_website_label('http://www.screenlets.org')
 		dlg.set_license(_('This application is released under the GNU General Public License v3 (or, at your option, any later version). You can find the full text of the license under http://www.gnu.org/licenses/gpl.txt. By using, editing and/or distributing this software you agree to the terms and conditions of this license. Thank you for using free software!'))
@@ -694,6 +727,10 @@ class ScreenletsManager:
 			else:
 				self.show_install_dialog()
 				print 'Please install screenlets from folders without strange characters'
+	def containsAll(self,str, set):
+		for c in set:
+			if c not in str: return 0;
+		return 1;
 	def containsAny(self,str, set):
 		"""Check whether 'str' contains ANY of the chars in 'set'"""
 		return 1 in [c in str for c in set]
@@ -866,12 +903,15 @@ class ScreenletsManager:
 		
 	def selection_changed (self, iconview):
 		"""Callback for handling selection changes in the IconView."""
+		self.slwindow.set_size_request(560, 300)
 		info = self.get_selection()
 		if info:
 			print info.name
 			self.set_info(info)
 			self.label.set_line_wrap(1)
-			self.label.set_label('Screenlet : ' + info.name + '\nAuthor : ' + info.author + '\nInfo : ' + info.info + '\nVersion : ' + info.version)
+			a = info.name + ' ' + info.version+' by ' + info.author + '\n' + info.info
+			a = a[:200]
+			self.label.set_label(a + '...')
 
 			self.button_add.set_sensitive(True)
 			self.button_reset.set_sensitive(True)
@@ -882,7 +922,7 @@ class ScreenletsManager:
 				self.button_delete.set_sensitive(False)
 		else:
 			# nothing selected? 
-			self.label.set_label('Screenlets Manager')
+			self.label.set_label('')
 			self.cb_enable_disable.set_sensitive(False)
 			self.cb_autostart.set_sensitive(False)
 			self.button_add.set_sensitive(False)

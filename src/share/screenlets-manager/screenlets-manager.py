@@ -535,22 +535,22 @@ class ScreenletsManager:
 		#vbox.add(hbox)
 		# create right area with buttons
 		butbox = self.bbox = gtk.VBox()
-		self.button_add = but1 = gtk.Button(_('Launch/Add ...'))
+		self.button_add = but1 = gtk.Button(_('Launch/Add'))
 		but1.set_image(gtk.image_new_from_stock(gtk.STOCK_EXECUTE, 
 			gtk.ICON_SIZE_BUTTON))
 		but1.set_sensitive(False)
-		but2 = gtk.Button(_('Install Screenlet ...'))
+		but2 = gtk.Button(_('Install Screenlet'))
 		but2.set_image(gtk.image_new_from_stock(gtk.STOCK_ADD, 
 			gtk.ICON_SIZE_BUTTON))
-		self.button_delete = but3 = gtk.Button(_('Uninstall Screenlet ...'))
+		self.button_delete = but3 = gtk.Button(_('Uninstall Screenlet'))
 		but3.set_sensitive(False)
 		but3.set_image(gtk.image_new_from_stock(gtk.STOCK_DELETE, 
 			gtk.ICON_SIZE_BUTTON))
-		self.button_reset = but4 = gtk.Button(_('Reset Screenlet Config ...'))
+		self.button_reset = but4 = gtk.Button(_('Reset Screenlet Config'))
 		but4.set_sensitive(False)
 		but4.set_image(gtk.image_new_from_stock(gtk.STOCK_CLEAR, 
 			gtk.ICON_SIZE_BUTTON))
-		self.button_theme = but5 = gtk.Button(_('Install Screenlet Theme  ...'))
+		self.button_theme = but5 = gtk.Button(_('Install Screenlet Theme'))
 		but5.set_sensitive(False)
 		but5.set_image(gtk.image_new_from_stock(gtk.STOCK_ADD, 
 			gtk.ICON_SIZE_BUTTON))
@@ -571,20 +571,17 @@ class ScreenletsManager:
 		self.label.set_width_chars(70)
 		self.label.set_alignment(0, 0)
 		self.label.set_size_request(-1, 65)
-    		self.searchbox = gtk.HBox()
-    		self.txtsearch = gtk.Entry()
-    		self.searchbox.pack_start(self.txtsearch, True, True)
     		self.btnsearch = gtk.Button("")
 		self.btnsearch.set_image(gtk.image_new_from_stock(gtk.STOCK_FIND, 
 			gtk.ICON_SIZE_BUTTON))
-    		self.btnsearch.connect("clicked",self.redraw_screenlets)
+    		self.btnsearch.connect("clicked",self.redraw_screenlets, 'enter')
     		self.txtsearch.connect("activate",self.redraw_screenlets, 'enter')
     		self.txtsearch.connect("backspace",self.redraw_screenlets, 'backspace')
+    		self.searchbox = gtk.HBox()
+    		self.txtsearch = gtk.Entry()
+    		self.searchbox.pack_start(self.txtsearch, False)
     		self.searchbox.pack_start(self.btnsearch, False)
-		self.sep =   gtk.HSeparator()
-		butbox.pack_start(self.searchbox, False)
-		#butbox.pack_start(self.sep, False)
-		butbox.pack_start(self.sep, False)
+		butbox.pack_start(self.searchbox, False,0,3)
 		butbox.pack_start(but1, False)
 		butbox.pack_start(but2, False)
 		butbox.pack_start(but3, False)
@@ -592,7 +589,6 @@ class ScreenletsManager:
 		butbox.pack_start(but5, False)
 
 		#butbox.pack_start(self.label, False)
-		butbox.pack_start(self.sep, True)
 		butbox.show_all()
 		hbox.pack_end(butbox, False, False, 10)
 		# create lower buttonbox
@@ -632,8 +628,8 @@ class ScreenletsManager:
 		#itxt.set_padding(3, 3)
 		itxt.show()
 		# create checkboxes
-		self.cb_enable_disable = cb = gtk.CheckButton(_('Enable/Disable'))
-		self.cb_autostart = cb2 = gtk.CheckButton(_('Automatically start on login'))
+		self.cb_enable_disable = cb = gtk.CheckButton(_('Start/Stop'))
+		self.cb_autostart = cb2 = gtk.CheckButton(_('Auto start on login'))
 		if info_obj:
 			cb.set_sensitive(True)
 			cb2.set_sensitive(True)
@@ -650,12 +646,16 @@ class ScreenletsManager:
 		cb2.connect('toggled', self.toggle_autostart)
 		#cb.show()
 		ibox.pack_start(cb, False, False)
-		ibox.pack_start(cb2, False, False, 3)
+		ibox.pack_start(cb2, False,False, 3)
 		#ibox.pack_start(itxt, True, True)
 		ibox.show_all()
 		# add infbox to lower paned area
-		self.paned.pack2(self.label,False,True)
-		self.bbox.pack_start(ibox, False, True)
+		self.paned.pack2(self.label,False,False)
+		#self.bbox.set_spacing(2)
+		sep1 =   gtk.HSeparator()
+		sep2 =   gtk.HSeparator()
+		self.bbox.pack_start(sep1, False,False,20)
+		self.bbox.pack_start(ibox, False,False)
 
 	def redraw_screenlets(self,widget,id):
 		if id == 'backspace':

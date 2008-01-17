@@ -55,6 +55,7 @@ class ScreenletsDaemon (dbus.service.Object):
 			self.running_screenlets = running
 		tray = gtk.StatusIcon()
 		tray.set_from_pixbuf(pixbuf)
+		tray.connect("activate", self.openit)
 		tray.connect("popup-menu", self.show_menu)
 		tray.set_tooltip("Screenlets daemon")
 		tray.set_visible(True)		

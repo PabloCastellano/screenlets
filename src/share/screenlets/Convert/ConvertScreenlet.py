@@ -71,7 +71,6 @@ class ConvertScreenlet(screenlets.Screenlet):
 			'Convert engine', 'Active convert engine',
 			choices = [classobj.__title__ for classobj in self.__conv_list]))
 		# connect additional event handlers
-		self.window.connect('key-press-event', self.key_press)
 		# initialize default converter
 		self.set_converter('BaseConverter')
 

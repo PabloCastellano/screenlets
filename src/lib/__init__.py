@@ -32,6 +32,7 @@ import rsvg
 import os
 import glob
 import gettext
+import math
 
 # import screenlet-submodules
 from options import IntOption, FloatOption, BoolOption, StringOption
@@ -176,6 +177,7 @@ class ScreenletTheme (dict):
 			return False
 
 	def draw_text(self, ctx, text, x, y,  font, size, color_red, color_green, color_blue, color_alpha, width, allignment):
+		"""Draws text"""
 		import pango
 		ctx.save()
 		ctx.translate(x, y)
@@ -195,7 +197,47 @@ class ScreenletTheme (dict):
 		ctx.set_source_rgba(color_red, color_green, color_blue, color_alpha)
 		ctx.show_layout(self.p_layout)
 		ctx.restore()
+
+
+	def draw_circle(self,ctx,width,height):
+		"""Draws a circule"""
+       		ctx.arc(width/2,height/2,min(height,width)/2,0,2*math.pi)
+	        ctx.fill()
+
+	def draw_rectangle(self,ctx,width,height):
+		"""Draws a rectangle"""
+		ctx.rectangle (0,0,width,height)
+		ctx.fill()
+
+	def draw_rounded_rectangle(self,ctx,rounded_angle,width,height):
+		"""Draws a rounded rectangle"""
+		padding=0 # Padding from the edges of the window
+        	rounded=rounded_angle # How round to make the edges 20 is ok
+        	w = width
+		h = height
+
+        	# Move to top corner
+        	ctx.move_to(0+padding+rounded, 0+padding)
+        	
+        	# Top right corner and round the edge
+        	ctx.line_to(w-padding-rounded, 0+padding)
+        	ctx.arc(w-padding-rounded, 0+padding+rounded, rounded, math.pi/2, 0)
 	
+        	# Bottom right corner and round the edge
+        	ctx.line_to(w-padding, h-padding-rounded)
+        	ctx.arc(w-padding-rounded, h-padding-rounded, rounded, 0, math.pi/2)
+       	
+        	# Bottom left corner and round the edge.
+        	ctx.line_to(0+padding+rounded, h-padding)
+        	ctx.arc(0+padding+rounded, h-padding-rounded, rounded, math.pi+math.pi/2, math.pi)
+	
+        	# Top left corner and round the edge
+        	ctx.line_to(0+padding, 0+padding+rounded)
+        	ctx.arc(0+padding+rounded, 0+padding+rounded, rounded, math.pi/2, 0)
+        	
+        	# Fill in the shape.
+        	ctx.fill()
+
 	def has_overrides (self):
 		"""Check if this theme contains overrides for options."""
 		return len(self.option_overrides) > 0

@@ -104,9 +104,11 @@ class ScreenletInstaller:
 			tar_opts = 'xfj'
 
 		# extract archive to temporary dir
+
 		if not os.path.isdir('/tmp/screenlets/'):
 			os.system('mkdir ' + '/tmp/screenlets/')
-		
+		try: os.system('rm -rf /tmp/screenlets/install-temp')
+		except: pass		
 		tmpdir = '/tmp/screenlets' + '/install-temp/'
 		os.system('mkdir %s' % tmpdir)
 		
@@ -172,21 +174,22 @@ class ScreenletInstaller:
 			self._message = _("Invalid archive. Archive does not contain a screenlet.")
 		else:
 			# check for package-info
+
 			if not os.path.isfile('%s/%s/Screenlet.package' % (tmpdir, name)):
-				if screenlets.show_question(None,("This package was not packaged with the screenlet packager. Do you wish to continue and try to install it?" % (name, DIR_USER)),('Install %s'% (name))):
+				if screenlets.show_question(None,("%s was not packaged with the screenlet packager. Do you wish to continue and try to install it?" % (name)),('Install %s'% (name))):
 					pass
 				else:
 					self._message = _("This package was not packaged with the screenlet packager.")
 					return False	
-			else:
-				# copy archive to user dir (and create if not exists)
-				self.create_user_dir()
-				os.system('tar %s %s -C %s' % (tar_opts, chr(34)+filename+chr(34), DIR_USER))
-				# delete package info from target dir
-				os.system('rm %s/%s/Screenlet.package' % (DIR_USER, name))
-				# set msg/result
-				self._message = _("The %sScreenlet has been succesfully installed." % name)
-				result = True
+			
+			# copy archive to user dir (and create if not exists)
+			self.create_user_dir()
+			os.system('tar %s %s -C %s' % (tar_opts, chr(34)+filename+chr(34), DIR_USER))
+			# delete package info from target dir
+			os.system('rm %s/%s/Screenlet.package' % (DIR_USER, name))
+			# set msg/result
+			self._message = _("The %sScreenlet has been succesfully installed." % name)
+			result = True
 		# remove temp contents
 		os.system('rm -rf %s/install-temp' % DIR_TMP)
 		# ready

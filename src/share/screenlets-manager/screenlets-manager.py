@@ -841,6 +841,9 @@ class ScreenletsManager:
 			elif os.listdir(tmpdir)[0] == info.name:
 				print "list contains the screenlet name folder"
 				install_dir = install_dir
+				if os.path.exists(tmpdir + os.listdir(tmpdir)[0] + '/'+ info.name + 'Screenlet.py') and os.path.isfile(tmpdir + os.listdir(tmpdir)[0] + '/'+ info.name + 'Screenlet.py'):
+					screenlets.show_message(None,"This package seams to contain a full Screenlet and not just a theme, please use the screenlet install instead")
+					return False
 			else:
 				install_dir = install_dir + info.name + '/themes/'
 				print "only contains the themes folders"

@@ -4,7 +4,7 @@
 import os
 import dbus
 import gobject
-import mpdclient2
+import mpdclient3
 from GenericPlayer import GenericAPI
 
 class SonataAPI(GenericAPI):

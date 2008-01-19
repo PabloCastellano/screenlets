@@ -199,17 +199,26 @@ class ScreenletTheme (dict):
 		ctx.restore()
 
 
-	def draw_circle(self,ctx,width,height):
+	def draw_circle(self,ctx,width,height,fill=True):
 		"""Draws a circule"""
        		ctx.arc(width/2,height/2,min(height,width)/2,0,2*math.pi)
-	        ctx.fill()
+		if fill:ctx.fill()
+		else: ctx.stroke()
 
-	def draw_rectangle(self,ctx,width,height):
+	#def draw_line(self,ctx,x1,y1,x2,y2,fill=True):
+	#	"""Draws a line"""
+        #	ctx.move_to(x1, y1)
+        #	ctx.rel_line_to(x2, y2)
+	#	if fill:ctx.fill()
+	#	else: ctx.stroke()
+
+	def draw_rectangle(self,ctx,width,height,fill=True):
 		"""Draws a rectangle"""
 		ctx.rectangle (0,0,width,height)
-		ctx.fill()
+		if fill:ctx.fill()
+		else: ctx.stroke()
 
-	def draw_rounded_rectangle(self,ctx,rounded_angle,width,height):
+	def draw_rounded_rectangle(self,ctx,rounded_angle,width,height,fill=True):
 		"""Draws a rounded rectangle"""
 		padding=0 # Padding from the edges of the window
         	rounded=rounded_angle # How round to make the edges 20 is ok
@@ -236,7 +245,8 @@ class ScreenletTheme (dict):
         	ctx.arc(0+padding+rounded, 0+padding+rounded, rounded, math.pi/2, 0)
         	
         	# Fill in the shape.
-        	ctx.fill()
+		if fill:ctx.fill()
+		else: ctx.stroke()
 
 	def has_overrides (self):
 		"""Check if this theme contains overrides for options."""

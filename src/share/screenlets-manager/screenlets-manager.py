@@ -782,7 +782,8 @@ class ScreenletsManager:
 		flt.add_pattern('*.tar.bz2')
 		flt.add_pattern('*.tar.gz')
 		flt.add_pattern('*.zip')
-
+		try: os.system('rm -rf /tmp/screenlets/install-temp')
+		except:pass
 		# create dialog
 		dlg = gtk.FileChooserDialog(buttons=(gtk.STOCK_CANCEL, 
 			gtk.RESPONSE_CANCEL, gtk.STOCK_OPEN, gtk.RESPONSE_OK))
@@ -829,7 +830,13 @@ class ScreenletsManager:
 			os.system('mkdir %s' % tmpdir)
 		
 			os.system('tar %s %s -C %s' % (tar_opts, chr(34)+filename+chr(34), tmpdir))
-			print os.listdir(tmpdir)[0]
+			try:
+				print os.listdir(tmpdir)[0]
+			except:				
+				screenlets.show_message(None,"Error Found")				
+				self.window.window.set_cursor(gtk.gdk.Cursor(gtk.gdk.LEFT_PTR))	
+				result = False #is it a valid folder?
+				
 			if not os.path.exists(tmpdir + os.listdir(tmpdir)[0]):	
 				screenlets.show_message(None,"Theme install error 1 found - Theme not installed , maybe a package error ")				
 				self.window.window.set_cursor(gtk.gdk.Cursor(gtk.gdk.LEFT_PTR))	
@@ -843,8 +850,20 @@ class ScreenletsManager:
 				install_dir = install_dir
 				if os.path.exists(tmpdir + os.listdir(tmpdir)[0] + '/'+ info.name + 'Screenlet.py') and os.path.isfile(tmpdir + os.listdir(tmpdir)[0] + '/'+ info.name + 'Screenlet.py'):
 					screenlets.show_message(None,"This package seams to contain a full Screenlet and not just a theme, please use the screenlet install instead")
+					self.window.window.set_cursor(gtk.gdk.Cursor(gtk.gdk.LEFT_PTR))			
 					return False
 			else:
+				z =0 
+				for f in os.listdir(tmpdir + os.listdir(tmpdir)[0]):
+					f = str(f).lower()
+					print f
+					if f.endswith('png') or f.endswith('svg'):
+						if not f.startswith('icon'):
+							z=z+1
+				if z == 0:
+					screenlets.show_message(None,"This package doesnt seem to contain a theme")
+					self.window.window.set_cursor(gtk.gdk.Cursor(gtk.gdk.LEFT_PTR))	
+					return False
 				install_dir = install_dir + info.name + '/themes/'
 				print "only contains the themes folders"
 			print install_dir
@@ -853,8 +872,10 @@ class ScreenletsManager:
 
 			for f in os.listdir(themes_dir):
 				x= x +1
-			os.system(install_prefix +chr(34) +'tar '+tar_opts+' '+ chr(39)+ filename + chr(39)+ ' -C ' + chr(39) + install_dir + chr(39)+chr(34))
-
+			if install_prefix != '':
+				os.system(install_prefix +chr(34) +'tar '+tar_opts+' '+ chr(39)+ filename + chr(39)+ ' -C ' + chr(39) + install_dir + chr(39)+chr(34))
+			else:
+				os.system('tar '+tar_opts+' '+ chr(39)+ filename + chr(39)+ ' -C ' + chr(39) + install_dir + chr(39))
 
  #% (tar_opts, chr(39)+ filename + chr(39), chr(39) + screenlets.INSTALL_PREFIX + '/share/screenlets' + '/' + info.name + '/themes/'+ chr(39)))
 			for f in os.listdir(themes_dir):
@@ -862,7 +883,7 @@ class ScreenletsManager:
 
 			if y > x:
 				
-				screenlets.show_message(None,"Theme installed" )
+				screenlets.show_message(None,"Theme installed , please restart " + info.name )
 				self.window.window.set_cursor(gtk.gdk.Cursor(gtk.gdk.LEFT_PTR))	
 				result = True
 

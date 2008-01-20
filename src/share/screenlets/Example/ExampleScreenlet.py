@@ -12,6 +12,7 @@ import screenlets
 from screenlets.options import StringOption , BoolOption , IntOption , FileOption , DirectoryOption , ListOption , AccountOption , TimeOption , FontOption, ColorOption , ImageOption
 from screenlets.options import create_option_from_node
 import pango
+import gobject
 
 class ExampleScreenlet (screenlets.Screenlet):
 	"""A simple example of how to create a Screenlet"""
@@ -36,6 +37,8 @@ class ExampleScreenlet (screenlets.Screenlet):
 	file_example = ''
 	directory_example = ''
 	list_example = ('','')
+	hover = False
+	number = 0
 	# constructor
 	def __init__ (self, **keyword_args):
 		#call super (width/height MUST match the size of graphics in the theme)
@@ -87,8 +90,16 @@ class ExampleScreenlet (screenlets.Screenlet):
 		self.add_option(ListOption('Example','list_example', self.list_example, 
 			'Option group list', 'Example options group using list')) 
 
-		# NEW: load options from file "ExampleScreenlet.xml" in screenlet's dir
-	#	self.init_options_from_metadata()	# TEST
+		# ADD a 1 second (1000) TIMER
+		self.timer = gobject.timeout_add( 1000, self.update)
+
+	def update (self):
+		if self.number <= 100:
+			self.number = self.number+1
+		else:
+			self.number = 0
+		self.redraw_canvas()
+		return True # keep running this event	
 	
 	# ONLY FOR TESTING!!!!!!!!!
 	def init_options_from_metadata (self):
@@ -143,11 +154,18 @@ class ExampleScreenlet (screenlets.Screenlet):
 	
 	def on_mouse_enter (self, event):
 		"""Called when the mouse enters the Screenlet's window."""
+		self.hover = True
 		print 'mouse is over me'
 		
 	def on_mouse_leave (self, event):
 		"""Called when the mouse leaves the Screenlet's window."""
+		self.hover = False
 		print 'mouse leave'
+
+	def on_mouse_move(self, event):
+		"""Called when the mouse moves in the Screenlet's window."""
+		self.redraw_canvas()
+		pass
 
 	def on_mouse_up (self, event):
 		"""Called when a buttonrelease-event occured in Screenlet's window. 
@@ -156,6 +174,8 @@ class ExampleScreenlet (screenlets.Screenlet):
 	
 	def on_quit (self):
 		"""Callback for handling destroy-event. Perform your cleanup here!"""
+		screenlets.show_message(self, 'This is an example screenlet with all the events and maximum data on how to build you how screenlet')
+		screenlets.show_question(self, 'Do you really want to exit?')
 		return True
 		
 	def on_realize (self):
@@ -190,10 +210,22 @@ class ExampleScreenlet (screenlets.Screenlet):
 		if self.theme:
 			# set scale rel. to scale-attribute
 			ctx.scale(self.scale, self.scale)
+
+			if self.hover:
+				ctx.set_source_rgba(self.color_example[2], self.color_example[1], self.color_example[0],0.4)	
+				self.theme.draw_rounded_rectangle(ctx,20,self.width,self.height)
+
 			# TEST: render example-bg into context (either PNG or SVG)
 			self.theme.render(ctx, 'example-bg')
 			self.theme.draw_text(ctx, self.test_text, 0, 0, self.font_example , 10, self.color_example[0], self.color_example[1], self.color_example[2],self.color_example[3],self.width,pango.ALIGN_LEFT)
+
+			self.theme.draw_text(ctx, 'timer - ' + str(self.number), 0, 130, self.font_example , 10, self.color_example[0], self.color_example[1], self.color_example[2],self.color_example[3],self.width,pango.ALIGN_LEFT)
+
 			self.theme.draw_text(ctx, self.theme_name, 0, 50, self.font_example , 10, self.color_example[0], self.color_example[1], self.color_example[2],self.color_example[3],self.width,pango.ALIGN_LEFT)
+
+			self.theme.draw_text(ctx, 'mouse x ' + str(self.mousex ) + ' \n mouse y ' + str(self.mousex ) , 0, 170, self.font_example , 10, self.color_example[0], self.color_example[1], self.color_example[2],self.color_example[3],self.width,pango.ALIGN_LEFT)
+
+
 			# render svg-file
 			#self.theme['example-bg.svg'].render_cairo(ctx)
 			# render png-file

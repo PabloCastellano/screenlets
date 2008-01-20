@@ -405,6 +405,8 @@ class Screenlet (gobject.GObject, EditableOptions):
 	# default editable options, available for all Screenlets
 	x = 0
 	y = 0
+	mousex = 0
+	mousey = 0
 	width	= 100
 	height	= 100
 	scale	= 1.0
@@ -570,6 +572,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 		self.window.connect("focus-in-event", self.focus_in_event)
 		self.window.connect("focus-out-event", self.focus_out_event)
 		self.window.connect("scroll-event", self.scroll_event)
+		self.window.connect("motion-notify-event",self.motion_notify_event)
 		# add key-handlers (TODO: use keyword-attrib to activate?)
 		self.window.connect("key-press-event", self.key_press)
 		# drag/drop support (NOTE: still experimental and incomplete)
@@ -1173,6 +1176,10 @@ class Screenlet (gobject.GObject, EditableOptions):
 	def on_mouse_leave (self, event):
 		"""Called when the mouse leaves the Screenlet's window."""
 		pass
+
+	def on_mouse_move(self, event):
+		"""Called when the mouse moves in the Screenlet's window."""
+		pass
 	
 	def on_mouse_up (self, event):
 		"""Called when a buttonrelease-event occured in Screenlet's window. 
@@ -1446,6 +1453,11 @@ class Screenlet (gobject.GObject, EditableOptions):
 		# call user-handler
 		self.on_menuitem_select(id)
 		return False
+
+	def motion_notify_event(self, widget, event):
+		self.mousex = event.x / self.scale
+		self.mousey = event.y / self.scale
+		self.on_mouse_move(event)
 	
 	def realize_event (self, widget):
 		"""called when window has been realized"""

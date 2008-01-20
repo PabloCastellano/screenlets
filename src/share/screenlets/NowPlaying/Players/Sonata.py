@@ -48,15 +48,15 @@ class SonataAPI(GenericAPI):
 
     # The following return Strings
     def get_title(self):
-                song = mpdclient2.connect().currentsong()
+	song = mpdclient3.connect().currentsong()
         return song.title
     
     def get_album(self):
-                song = mpdclient2.connect().currentsong()
+	song = mpdclient3.connect().currentsong()
         return song.album
 
     def get_artist(self):
-                song = mpdclient2.connect().currentsong()
+	song = mpdclient3.connect().currentsong()
         return song.artist
 
     def get_cover_path(self):
@@ -65,7 +65,7 @@ class SonataAPI(GenericAPI):
                 filename = os.path.expanduser("~/.covers/" + artist + "-" + album + ".jpg")
                 if os.path.isfile(filename):
                         return filename
-                songfile = mpdclient2.connect().currentsong().file
+                songfile = mpdclient3.connect().currentsong().file
                 songpath = self.musicdir + os.sep + os.path.dirname(songfile)
                 filename = songpath + "/cover.jpg"
                 if os.path.isfile(filename):
@@ -81,24 +81,24 @@ class SonataAPI(GenericAPI):
 
     # Returns Boolean
     def is_playing(self):
-                status = mpdclient2.connect().status()
+                status = mpdclient3.connect().status()
                 return (status.state != 'stop')
 
     # The following do not return any values
     def play_pause(self):
-                status = mpdclient2.connect().status()
+                status = mpdclient3.connect().status()
                 if status.state == 'play':
-                        mpdclient2.connect().pause(1)
+                        mpdclient3.connect().pause(1)
                 elif status.state == 'pause':
-                        mpdclient2.connect().pause(0)
+                        mpdclient3.connect().pause(0)
                 else:
-                        mpdclient2.connect().play()
+                        mpdclient3.connect().play()
 
     def next(self):
-        mpdclient2.connect().next()
+        mpdclient3.connect().next()
 
     def previous(self):
-        mpdclient2.connect().previous()
+        mpdclient3.connect().previous()
 
     def register_change_callback(self, fn):
         self.callback_fn = fn

@@ -175,7 +175,7 @@ class ExampleScreenlet (screenlets.Screenlet):
 	def on_quit (self):
 		"""Callback for handling destroy-event. Perform your cleanup here!"""
 		screenlets.show_message(self, 'This is an example screenlet with all the events and maximum data on how to build you how screenlet')
-		screenlets.show_question(self, 'Do you really want to exit?')
+		screenlets.show_question(self, 'Do you like screenlets?')
 		return True
 		
 	def on_realize (self):
@@ -223,7 +223,7 @@ class ExampleScreenlet (screenlets.Screenlet):
 
 			self.theme.draw_text(ctx, self.theme_name, 0, 50, self.font_example , 10, self.color_example[0], self.color_example[1], self.color_example[2],self.color_example[3],self.width,pango.ALIGN_LEFT)
 
-			self.theme.draw_text(ctx, 'mouse x ' + str(self.mousex ) + ' \n mouse y ' + str(self.mousex ) , 0, 170, self.font_example , 10, self.color_example[0], self.color_example[1], self.color_example[2],self.color_example[3],self.width,pango.ALIGN_LEFT)
+			self.theme.draw_text(ctx, 'mouse x ' + str(self.mousex ) + ' \n mouse y ' + str(self.mousey ) , 0, 170, self.font_example , 10, self.color_example[0], self.color_example[1], self.color_example[2],self.color_example[3],self.width,pango.ALIGN_LEFT)
 
 
 			# render svg-file

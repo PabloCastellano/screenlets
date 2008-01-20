@@ -15,16 +15,15 @@
    sodipodi:version="0.32"
    inkscape:version="0.45.1"
    version="1.0"
-   sodipodi:docbase="/usr/local/share/screenlets/Weather/themes/dark"
+   sodipodi:docbase="/home/helder/screenlets/src/share/screenlets/ClearWeather/themes/default"
    sodipodi:docname="weather-bg-mini.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape">
   <defs
      id="defs4">
     <linearGradient
-       inkscape:collect="always"
        id="linearGradient7153">
       <stop
-         style="stop-color:#666666;stop-opacity:1;"
+         style="stop-color:#000000;stop-opacity:1;"
          offset="0"
          id="stop7155" />
       <stop
@@ -288,10 +287,10 @@
      inkscape:current-layer="layer3"
      width="132px"
      height="100px"
-     inkscape:window-width="1280"
-     inkscape:window-height="956"
-     inkscape:window-x="0"
-     inkscape:window-y="36" />
+     inkscape:window-width="1270"
+     inkscape:window-height="790"
+     inkscape:window-x="13"
+     inkscape:window-y="31" />
   <metadata
      id="metadata7">
     <rdf:RDF>

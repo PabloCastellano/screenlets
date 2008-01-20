@@ -1,14 +1,14 @@
 Source: screenlets
 Section: gnome
 Priority: optional
-Maintainer: Hendrik Kaju <hendrik@kaju.pri.ee>
+Maintainer: Helder Fraga <helder.fraga@hotmail.com> 
 Build-Depends: cdbs (>= 0.4.43), debhelper (>= 5.0.37.2), python-central (>= 0.5), python-all-dev (>= 2.4)
 Standards-Version: 3.7.2
 XS-Python-Version: all
 
 Package: screenlets
 Architecture: all
-Depends: ${python:Depends}, ${misc:Depends},  python-setuptools, xcompmgr | compiz | beryl, python-cairo, python-dbus, python-gnome2-desktop, python-gtk2 (>= 2.10), python-xdg
+Depends: ${python:Depends}, ${misc:Depends}, python-cairo, python-dbus, python-gnome2-desktop, python-gtk2 (>= 2.10), python-xdg
 XB-Python-Version: ${python:Versions}
 Description: Screenlets are small owner-drawn applications (written in Python, a 
  very simple object-oriented programming-language) that can be described as "the 
@@ -17,3 +17,4 @@ Description: Screenlets are small owner-drawn applications (written in Python, a
  simplify the creation of fully themeable mini-apps that each solve basic desktop-work-related
  needs and generally improve the usability and eye-candy of the modern Linux-desktop.
  The Screenlets baseclass and core screenlets using it were created by RYX (aka Rico Pfaus)
+ The Screenlets-New Branch was created by Whise aka Helder Fraga

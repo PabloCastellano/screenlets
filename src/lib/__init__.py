@@ -627,7 +627,8 @@ class Screenlet (gobject.GObject, EditableOptions):
 				#self.redraw_canvas()
 				self.update_shape()
 		elif name == "is_widget":
-			self.set_is_widget(value)
+			if self.has_started:
+				self.set_is_widget(value)
 		elif name == "is_sticky":
 			if value == True:
 				self.window.stick()
@@ -886,6 +887,8 @@ class Screenlet (gobject.GObject, EditableOptions):
 		# the keep above and keep bellow must be reset after the window is shown this is absolutly necessary 
 		self.keep_above= self.keep_above
 		self.keep_below= self.keep_below
+		if self.is_widget:
+			self.set_is_widget(True)
 	def hide (self):
 		"""Hides this Screenlet's underlying gtk.Window"""
 		self.window.hide()
@@ -1463,8 +1466,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 		"""called when window has been realized"""
 		if self.window.window:
 			self.window.window.set_back_pixmap(None, False)	# needed?
-		if self.is_widget:
-			self.set_is_widget(True)
+
 		self.on_realize()
 	
 	def scroll_event (self, widget, event):

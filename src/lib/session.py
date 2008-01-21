@@ -417,6 +417,7 @@ class ScreenletSession (object):
 			main_instance.main()
 		except KeyboardInterrupt:
 			# notify when daemon is closed
+			self.backend.flush()
 			print _("Screenlet '%s' has been interrupted by keyboard. TODO: make this an event") % self.screenlet.__name__
 		except Exception, ex:
 			print _("Exception in ScreenletSession: ") + ex

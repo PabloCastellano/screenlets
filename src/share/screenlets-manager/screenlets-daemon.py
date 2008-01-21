@@ -32,7 +32,8 @@ def _(s):
 SLD_BUS		= 'org.screenlets.ScreenletsDaemon'
 SLD_PATH	= '/org/screenlets/ScreenletsDaemon'
 SLD_IFACE	= 'org.screenlets.ScreenletsDaemon'
-
+DIR_USER	= os.environ['HOME'] + '/.screenlets'
+DIR_TMP		= '/tmp/screenlets/'
 
 class ScreenletsDaemon (dbus.service.Object):
 	"""A simple backend class where screenlets register and unregister. It
@@ -232,9 +233,8 @@ class ScreenletsDaemon (dbus.service.Object):
 			# create new installer
 			
 			# try installing and show result dialog
-			self.window.window.set_cursor(gtk.gdk.Cursor(gtk.gdk.WATCH))
 			self.install (filename)	
-			self.window.window.set_cursor(gtk.gdk.Cursor(gtk.gdk.LEFT_PTR))
+			
 		
 		
 
@@ -252,26 +252,24 @@ class ScreenletsDaemon (dbus.service.Object):
 		# ...
 		# get name of screenlet
 		basename	= os.path.basename(filename)
-		extension	= str(filename)[len(str(filename)) -3:]
+		ext	= str(filename)[len(str(filename)) -3:]
 #		name		= basename[:basename.find('.')]
 		
 		# check extension and create appropriate args for tar
-		tar_opts = 'xfz'
 	
-		if extension == 'bz2':
-			tar_opts = 'xvf'
-		if extension == 'tar':
-			tar_opts = 'xvf'
-
+		tar_opts = 'xfz'
+		if ext == 'bz2':
+			tar_opts = 'xfj'
+			
 		# extract archive to temporary dir
 		if not os.path.isdir('/tmp/screenlets/'):
 			os.system('mkdir ' + '/tmp/screenlets/')
 		
 		tmpdir = '/tmp/screenlets' + '/install-temp/'
-		os.system('mkdir %s' % tmpdir)
+		if not os.path.isdir('/tmp/screenlets' + '/install-temp/'): os.system('mkdir %s' % tmpdir)
 		
 		
-		os.system('tar %s %s -C %s' % (tar_opts, filename, tmpdir))
+		os.system('tar %s %s -C %s' % (tar_opts,  chr(34)+filename+chr(34), tmpdir))
 		for d in tmpdir : #for each item in folders
   			if os.path.exists(d) and os.path.isdir(d): #is it a valid folder?
 				for f in os.listdir(tmpdir): 
@@ -280,29 +278,36 @@ class ScreenletsDaemon (dbus.service.Object):
 		try:
 			print name
 		except:
-			screenlets.show_message(self,"Archive damaged or unsuported, only tar , bz2 or gz.")
-		# verify contents
-	
+			screenlets.show_message (None,"Archive damaged or unsuported, only tar , bz2 or gz.")
 		if not os.path.isdir('%s/%s' % (tmpdir, name)):
 			# dir missing
-			
-			screenlets.show_message(self,"Invalid archive. Archive must contain a directory with the screenlet's name.")
+			screenlets.show_message (None,"Invalid archive. Archive must contain a directory with the screenlet's name.")
 		elif not os.path.isfile('%s/%s/%sScreenlet.py' % (tmpdir, name, name)):
 			# Screenlet.py missing
-			screenlets.show_message(self,"Invalid archive. Archive does not contain a screenlet.")
+			screenlets.show_message (None,"Invalid archive. Archive does not contain a screenlet.")
 		else:
+			# check for package-info
+
+			if not os.path.isfile('%s/%s/Screenlet.package' % (tmpdir, name)):
+				if screenlets.show_question(None,("%s was not packaged with the screenlet packager. Do you wish to continue and try to install it?" % (name)),('Install %s'% (name))):
+					pass
+				else:
+					screenlets.show_message (None,"This package was not packaged with the screenlet packager.")
+					return False	
 			
+			# copy archive to user dir (and create if not exists)
 			self.create_user_dir()
-			os.system('tar %s %s -C %s' % (tar_opts, filename, os.environ['HOME'] + '/.screenlets'))
+			os.system('tar %s %s -C %s' % (tar_opts, chr(34)+filename+chr(34), DIR_USER))
 			# delete package info from target dir
-			os.system('rm %s/%s/Screenlet.package' % (os.environ['HOME'] + '/.screenlets', name))
+			os.system('rm %s/%s/Screenlet.package' % (DIR_USER, name))
 			# set msg/result
-			screenlets.show_message(self,"The %sScreenlet has been succesfully installed." % name)
+			screenlets.show_message (None,"The %sScreenlet has been succesfully installed." % name)
 			result = True
 		# remove temp contents
-		os.system('rm -rf %s/install-temp' % '/tmp/screenlets/')
+		os.system('rm -rf %s/install-temp' % DIR_TMP)
+	
 		
-		self.add_default_menuitems()
+
 		return result
 
 if __name__ == '__main__':

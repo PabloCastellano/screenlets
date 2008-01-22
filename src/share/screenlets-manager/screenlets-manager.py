@@ -214,7 +214,8 @@ class ScreenletsManager:
 
 		if not os.path.isdir(DIR_CONFIG):
 			os.system('mkdir %s' % DIR_CONFIG)
-		
+		if not os.path.isdir(DIR_USER):
+			os.system('mkdir %s' % DIR_USER)	
 		self.tips = gtk.Tooltips()
 		# create ui and populate it
 		self.create_ui()

@@ -41,7 +41,7 @@ class ScreenletsDaemon (dbus.service.Object):
 	DIR_USER = os.environ['HOME'] + '/.screenlets'
 	DIR_USER1 = '/usr/share/screenlets'
 	DIR_USER2 = '/usr/local/share/screenlets'	
-	show_in_tray = 'False'
+	show_in_tray = 'True'
 	def __init__ (self):
 		# create bus, call super
 		pixbuf = gtk.gdk.pixbuf_new_from_file("/usr/share/icons/screenlets.svg")

@@ -636,6 +636,11 @@ class ScreenletsManager:
 		self.cb_autostart = cb2 = gtk.CheckButton(_('Auto start on login'))
 		self.cb_tray = cb3 = gtk.CheckButton(_('Show Deamon in tray'))
 		ini = utils.IniReader()
+		if not os.path.isfile(DIR_USER + '/config.ini'):
+			f = open(DIR_USER + '/config.ini', 'w')
+			f.write("[Options]\n")
+			f.write("show_in_tray=True\n")
+			f.close()
 		try:
 			if ini.load(DIR_USER + '/config.ini'):
 				show_in_tray = ini.get_option('show_in_tray', section='Options')

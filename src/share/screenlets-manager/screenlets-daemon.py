@@ -41,6 +41,7 @@ class ScreenletsDaemon (dbus.service.Object):
 	DIR_USER = os.environ['HOME'] + '/.screenlets'
 	DIR_USER1 = '/usr/share/screenlets'
 	DIR_USER2 = '/usr/local/share/screenlets'	
+	show_in_tray = 'False'
 	def __init__ (self):
 		# create bus, call super
 		pixbuf = gtk.gdk.pixbuf_new_from_file("/usr/share/icons/screenlets.svg")
@@ -54,13 +55,20 @@ class ScreenletsDaemon (dbus.service.Object):
 		running = utils.list_running_screenlets()
 		if running:
 			self.running_screenlets = running
-		tray = gtk.StatusIcon()
-		tray.set_from_pixbuf(pixbuf)
-		tray.connect("activate", self.openit)
-		tray.connect("popup-menu", self.show_menu)
-		tray.set_tooltip("Screenlets daemon")
-		tray.set_visible(True)		
-		gtk.main()
+		try:
+			ini = utils.IniReader()
+			if ini.load(DIR_USER + '/config.ini'):
+				self.show_in_tray = ini.get_option('show_in_tray', section='Options')
+		except:
+			self.show_in_tray = 'True'
+		if self.show_in_tray == 'True':
+			tray = gtk.StatusIcon()
+			tray.set_from_pixbuf(pixbuf)
+			tray.connect("activate", self.openit)
+			tray.connect("popup-menu", self.show_menu)
+			tray.set_tooltip("Screenlets daemon")
+			tray.set_visible(True)		
+			gtk.main()
 	
 	@dbus.service.method(SLD_IFACE)
 	def get_running_screenlets (self):
@@ -152,14 +160,59 @@ class ScreenletsDaemon (dbus.service.Object):
 		menu.append(item0)
 
 
+
+#		item = gtk.MenuItem("Restart all Screenlets")
+#		item.connect("activate", self.restartit)
+#		menu.append(item)
+#		item = gtk.MenuItem("Close all Screenlets")
+#		item.connect("activate", self.closeit)
+#		menu.append(item)		
 		sep = gtk.SeparatorMenuItem()
-		menu1.append(sep)
-				
+		menu1.append(sep)		
 		itema = gtk.ImageMenuItem(stock_id=gtk.STOCK_ABOUT)
 		itema.connect("activate", self.about)
 		menu.append(itema)
 		menu.show_all()
 		menu.popup(None, None, None, button, activate_time)
+
+#	def quit_screenlet_by_name (self, name):
+#		"""Quit all instances of the given screenlet type."""
+#		# get service for instance and call quit method
+#		service = screenlets.services.get_service_by_name(name)
+#		if service:
+#			service.quit()
+
+#	def restartit(self, widget):
+#		a = utils.list_running_screenlets()
+#		import time
+#		if a != None:
+#			for s in a:
+#				print 'restarting' + str(s)
+#				if s.endswith('Screenlet'):
+#					s = s[:-9]
+#				time.sleep(0.4)
+#				self.unregister_screenlet(s)
+#				self.quit_screenlet_by_name(s)
+#				
+#		if a != None:
+#			for s in a:
+#				if s.endswith('Screenlet'):
+#					s = s[:-9]
+#				try:
+#					screenlets.launch_screenlet(s)
+#				except:
+#					pass
+#
+#	def closeit(self, widget):
+#		a = utils.list_running_screenlets()
+#		if a != None:
+#			for s in a:
+#				print 'closing' + str(s)
+#				if s.endswith('Screenlet'):
+#					s = s[:-9]
+#				self.unregister_screenlet(s)
+#				self.quit_screenlet_by_name(s)
+				
 	def openit(self, widget):
 		try:
 			os.system('screenlets-manager &')	

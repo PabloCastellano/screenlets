@@ -634,6 +634,28 @@ class ScreenletsManager:
 		# create checkboxes
 		self.cb_enable_disable = cb = gtk.CheckButton(_('Start/Stop'))
 		self.cb_autostart = cb2 = gtk.CheckButton(_('Auto start on login'))
+		self.cb_tray = cb3 = gtk.CheckButton(_('Show Deamon in tray'))
+		ini = utils.IniReader()
+		try:
+			if ini.load(DIR_USER + '/config.ini'):
+				show_in_tray = ini.get_option('show_in_tray', section='Options')
+				if show_in_tray == 'True': #doesnt work with the bool variable directly..dont know why
+					cb3.set_active(True)
+				else:
+					cb3.set_active(False)
+			
+		except:
+			f = open(DIR_USER + '/config.ini', 'w')
+			f.write("[Options]\n")
+			f.write("show_in_tray=True\n")
+			f.close()
+			if ini.load(DIR_USER + '/config.ini'):
+				show_in_tray = ini.get_option('show_in_tray', section='Options')
+				if show_in_tray == 'True':
+					cb3.set_active(True)
+				else:
+					cb3.set_active(False)
+			
 		if info_obj:
 			cb.set_sensitive(True)
 			cb2.set_sensitive(True)
@@ -648,16 +670,19 @@ class ScreenletsManager:
 			cb2.set_sensitive(False)
 		cb.connect('toggled', self.toggle_enabled)
 		cb2.connect('toggled', self.toggle_autostart)
+		cb3.connect('toggled', self.toggle_tray)
 		#cb.show()
+		sep2 =   gtk.HSeparator()
 		ibox.pack_start(cb, False, False)
 		ibox.pack_start(cb2, False,False, 3)
+		ibox.pack_start(sep2, False,False,20)
+		ibox.pack_start(cb3, False,False)
 		#ibox.pack_start(itxt, True, True)
 		ibox.show_all()
 		# add infbox to lower paned area
 		self.paned.pack2(self.label,False,False)
 		#self.bbox.set_spacing(2)
 		sep1 =   gtk.HSeparator()
-		sep2 =   gtk.HSeparator()
 		self.bbox.pack_start(sep1, False,False,20)
 		self.bbox.pack_start(ibox, False,False)
 
@@ -992,7 +1017,19 @@ class ScreenletsManager:
 					widget.set_sensitive(False)
 			else:
 				self.delete_autostarter(info.name)
-			
+
+	def toggle_tray (self, widget):
+		"""Callback for handling changes to the tray-CheckButton."""
+		
+		f = open(DIR_USER + '/config.ini', 'w')
+		DIR_USER + '/config.ini'
+		f.write("[Options]\n")
+		f.write("show_in_tray="+str(widget.get_active())+"\n")
+		f.close()
+		os.system('pkill -f screenlets-daemon.py') #restart the deamon
+		os.system(screenlets.INSTALL_PREFIX + \
+				'/share/screenlets-manager/screenlets-daemon.py &')
+						
 	def delete_event (self, widget, event):
 		gtk.main_quit()
 		print "Quit!"

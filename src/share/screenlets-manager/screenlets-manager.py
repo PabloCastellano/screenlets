@@ -227,10 +227,51 @@ class ScreenletsManager:
 				_('Warning!'))
 		else:
 			# lookup, connect dameon
+			self.lookup_daemon_autostart()
 			self.lookup_daemon()
 			self.connect_daemon()	
 		
 	# screenlets stuff
+
+	def lookup_daemon_autostart (self):
+		"""Adds Screenlets-deamon to autostart if not already"""
+		if not os.path.isdir(DIR_AUTOSTART):
+		# create autostart directory, if not existent
+			if screenlets.show_question(None, "There is no existing autostart directory for your user account yet. Do you want me to automatically create it for you?",'Error'):
+				print "Auto-create autostart dir ..."
+				os.system('mkdir %s' % DIR_AUTOSTART)
+				if not os.path.isdir(DIR_AUTOSTART):
+					screenlets.show_error(None, _("Automatic creation failed. Please manually create the directory:\n%s") % DIR_AUTOSTART, _('Error'))
+					return False
+			else:
+				screenlets.show_message(None, _("Please manually create the directory:\n%s") % DIR_AUTOSTART)
+				return False
+		starter = '%sScreenlets Daemon.desktop' % (DIR_AUTOSTART)
+		print starter
+		print '%sscreenlets-daemon.desktop' % (DIR_AUTOSTART)
+		print os.path.isfile('%s/screenlets-daemon.desktop' % (DIR_AUTOSTART))
+		if not os.path.isfile(starter) and os.path.isfile('%sscreenlets-daemon.desktop' % (DIR_AUTOSTART)) == False:
+			print "Create autostarter for: Screenlets Daemon"
+			code = ['[Desktop Entry]']
+			code.append('Encoding=UTF-8')
+			code.append('Version=1.0')
+			code.append('Name=Screenlets Daemon')
+			code.append('Type=Application')
+			code.append('Exec=%s/share/screenlets-manager/screenlets-daemon.py' % (screenlets.INSTALL_PREFIX))
+			code.append('X-GNOME-Autostart-enabled=true')
+			f = open(starter, 'w')
+			if f:
+				for l in code:
+					f.write(l + '\n')
+				f.close()
+				return True
+			print 'Failed to create autostarter for %s.' % name
+			return False
+		else:
+			print "Starter already exists."
+			return True
+	
+
 	
 	def lookup_daemon (self):
 		"""Find the screenlets-daemon or try to launch it. Initializes 
@@ -301,7 +342,9 @@ class ScreenletsManager:
 				return False
 		if name.endswith('Screenlet'):
 			name = name[:-9]
-		starter = '%s/%sScreenlet.desktop' % (DIR_AUTOSTART, name)
+		starter = '%s%sScreenlet.desktop' % (DIR_AUTOSTART, name)
+		print DIR_AUTOSTART
+		print starter
 		if not os.path.isfile(starter):
 			path = utils.find_first_screenlet_path(name)
 			if path:
@@ -331,7 +374,7 @@ class ScreenletsManager:
 		if name.endswith('Screenlet'):
 			name = name[:-9]
 		print 'Delete autostarter for %s.' % name
-		os.system('rm %s/%sScreenlet.desktop' % (DIR_AUTOSTART, name))
+		os.system('rm %s%sScreenlet.desktop' % (DIR_AUTOSTART, name))
 	
 	def delete_selected_screenlet (self):
 		"""Delete the selected screenlet from the user's screenlet dir."""

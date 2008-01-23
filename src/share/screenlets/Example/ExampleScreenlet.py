@@ -154,11 +154,13 @@ class ExampleScreenlet (screenlets.Screenlet):
 	
 	def on_mouse_enter (self, event):
 		"""Called when the mouse enters the Screenlet's window."""
+	        self.theme.show_tooltip("this is a tooltip , it is set to shows on mouse hover",self.x+self.mousex,self.y+self.mousey)
 		self.hover = True
 		print 'mouse is over me'
 		
 	def on_mouse_leave (self, event):
 		"""Called when the mouse leaves the Screenlet's window."""
+	        self.theme.hide_tooltip()
 		self.hover = False
 		print 'mouse leave'
 

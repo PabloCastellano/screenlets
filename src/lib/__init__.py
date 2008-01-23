@@ -117,7 +117,8 @@ class ScreenletTheme (dict):
 	option_overrides = {}
 	p_fdesc = None
 	p_layout = None
-	
+	tooltip = None
+
 	def __init__ (self, path):
 		# set theme-path and load all files in path
 		self.path = path
@@ -247,6 +248,19 @@ class ScreenletTheme (dict):
         	# Fill in the shape.
 		if fill:ctx.fill()
 		else: ctx.stroke()
+
+	def show_tooltip (self,text,tooltipx,tooltipy):
+	        """Show tooltip window at current mouse position."""
+      		self.tooltip = Tooltip(300, 400)
+        	self.tooltip.text = text
+        	self.tooltip.x    = tooltipx
+        	self.tooltip.y    = tooltipy
+		self.tooltip.show()
+
+	def hide_tooltip (self):
+	        """hide tooltip window"""
+		self.tooltip.hide()
+		self.tooltip = None		
 
 	def has_overrides (self):
 		"""Check if this theme contains overrides for options."""
@@ -392,7 +406,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 	id				= ''		# id-attribute for handling instances
 	window 			= None		# the gtk.Window behind the scenes
 	theme 			= None		# the assigned ScreenletTheme
-	uses_theme		= False		# flag indicating whether Screenlet uses themes
+	uses_theme		= True		# flag indicating whether Screenlet uses themes
 	menu 			= None		# the right-click gtk.Menu
 	is_dragged 		= False		# TODO: make this work
 	quit_on_close 	= True		# if True, closing this instance quits gtk
@@ -439,7 +453,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 
 	def __init__ (self, id='', width=100, height=100, parent_window=None, 
 		show_window=True, is_widget=False, is_sticky=False, 
-		uses_theme=False, path=os.getcwd(), drag_drop=False, session=None, 
+		uses_theme=True, path=os.getcwd(), drag_drop=False, session=None, 
 		enable_saving=True, service_class=services.ScreenletService,
 		uses_pango=False):
 		"""Constructor - should only be subclassed"""
@@ -1560,6 +1574,119 @@ class ShapedWidget (gtk.DrawingArea):
 		# and delete context
 		del ctx
 		return False
+
+class Tooltip ():
+    """A window that displays a text and serves as Tooltip (very basic yet)."""
+    import gobject
+    # internals
+    __timeout    = None
+    
+    # attribs
+    text        = ''
+    font_name    = 'FreeSans 9'
+    width        = 100
+    height        = 20
+    x             = 0
+    y             = 0
+    
+    def __init__ (self, width, height):
+        object.__init__(self)
+        # init
+        self.__dict__['width']    = width
+        self.__dict__['height']    = height
+        self.window = gtk.Window()
+        self.window.set_app_paintable(True)
+        self.window.set_size_request(width, height)
+        self.window.set_decorated(False)
+        self.window.set_skip_pager_hint(True)
+        self.window.set_skip_taskbar_hint(True)
+        self.window.set_keep_above(True)
+        self.screen_changed(self.window)
+        self.window.connect("expose_event", self.expose)
+        self.window.connect("screen-changed", self.screen_changed)
+#        self.window.show()
+        self.p_context = self.window.get_pango_context()
+        self.p_layout = pango.Layout(self.p_context)
+        self.p_layout.set_font_description(\
+            pango.FontDescription(self.font_name))
+#        self.p_layout.set_width(-1)
+        self.p_layout.set_width(width * pango.SCALE - 6)
+    
+    def __setattr__ (self, name, value):
+        self.__dict__[name] = value
+        if name in ('width', 'height', 'text'):
+            if name== 'width':
+                self.p_layout.set_width(width)
+            elif name == 'text':
+                self.p_layout.set_markup(value)
+                ink_rect, logical_rect = self.p_layout.get_pixel_extents()
+                self.height = min(max(logical_rect[3], 16), 400) + 6
+                self.window.set_size_request(self.width, self.height)
+            self.window.queue_draw()
+        elif name == 'x':
+            self.window.move(int(value), int(self.y))
+        elif name == 'y':
+            self.window.move(int(self.x), int(value))
+    
+    def show (self):
+        """Show the Tooltip window."""
+        self.cancel_show()
+        self.window.show()
+        self.window.set_keep_above(True)
+   
+    def show_delayed (self, delay):
+        """Show the Tooltip window after a given delay."""
+        self.cancel_show()
+        self.__timeout = gobject.timeout_add(delay, self.__show_timeout)
+    
+    def hide (self):
+        """Hide the Tooltip window."""
+        self.cancel_show()
+        self.window.destroy()
+    
+    def cancel_show (self):
+        """Cancel showing of the Tooltip."""
+        if self.__timeout:
+        	gobject.source_remove(self.__timeout)
+     		self.p_context = None
+        	self.p_layout = None
+    
+    def __show_timeout (self):
+        self.show()
+    
+    def screen_changed (self, window, screen=None):
+        if screen == None:
+            screen = window.get_screen()
+        map = screen.get_rgba_colormap()
+        if not map:
+            map = screen.get_rgb_colormap()
+        window.set_colormap(map)
+    
+    def expose (self, widget, event):
+        ctx = self.window.window.cairo_create()
+        ctx.set_antialias (cairo.ANTIALIAS_SUBPIXEL)    # ?
+        # set a clip region for the expose event
+        ctx.rectangle(event.area.x, event.area.y,
+            event.area.width, event.area.height)
+        ctx.clip()
+        # clear context
+        ctx.set_source_rgba(1, 1, 1, 0)
+        ctx.set_operator (cairo.OPERATOR_SOURCE)
+        ctx.paint()
+        # draw rectangle
+        ctx.set_source_rgba(1, 1, 0.5, 1)
+        ctx.rectangle(0, 0, self.width, self.height)
+        ctx.fill()
+        # draw text
+        ctx.save()
+        ctx.translate(3, 3)
+        ctx.set_source_rgba(0, 0, 0, 1) 
+        ctx.show_layout(self.p_layout)
+        ctx.fill()
+        ctx.restore()
+        ctx.rectangle(0, 0, self.width, self.height)
+        ctx.set_source_rgba(0, 0, 0, 0.7)
+        ctx.stroke()
 
 
 # TEST (as the name implies)

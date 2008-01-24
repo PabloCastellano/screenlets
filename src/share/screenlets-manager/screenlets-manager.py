@@ -234,7 +234,7 @@ class ScreenletsManager:
 	# screenlets stuff
 
 	def lookup_daemon_autostart (self):
-		"""Adds Screenlets-deamon to autostart if not already"""
+		"""Adds Screenlets-daemon to autostart if not already"""
 		if not os.path.isdir(DIR_AUTOSTART):
 		# create autostart directory, if not existent
 			if screenlets.show_question(None, "There is no existing autostart directory for your user account yet. Do you want me to automatically create it for you?",'Error'):
@@ -678,7 +678,7 @@ class ScreenletsManager:
 		# create checkboxes
 		self.cb_enable_disable = cb = gtk.CheckButton(_('Start/Stop'))
 		self.cb_autostart = cb2 = gtk.CheckButton(_('Auto start on login'))
-		self.cb_tray = cb3 = gtk.CheckButton(_('Show Deamon in tray'))
+		self.cb_tray = cb3 = gtk.CheckButton(_('Show Daemon in tray'))
 		ini = utils.IniReader()
 		if not os.path.isfile(DIR_USER + '/config.ini'):
 			f = open(DIR_USER + '/config.ini', 'w')
@@ -890,7 +890,7 @@ class ScreenletsManager:
 				themes_dir = DIR_USER + '/' + info.name + '/themes/'
 				install_prefix = ''
 			else:
-				if not screenlets.show_question(None,"You are about to install a theme in root mode, only procced if you have gksudo installed, do you wish to procced?"):
+				if not screenlets.show_question(None,"You are about to install a theme in root mode. Continue only if you have gksudo installed, do you wish to continue?"):
 					self.window.window.set_cursor(gtk.gdk.Cursor(gtk.gdk.LEFT_PTR))	
 					result = False
 				themes_dir = screenlets.INSTALL_PREFIX + '/share/screenlets' + '/'  + info.name + '/themes/'
@@ -1075,7 +1075,7 @@ class ScreenletsManager:
 		f.write("[Options]\n")
 		f.write("show_in_tray="+str(widget.get_active())+"\n")
 		f.close()
-		os.system('pkill -f screenlets-daemon.py') #restart the deamon
+		os.system('pkill -f screenlets-daemon.py') #restart the daemon
 		os.system(screenlets.INSTALL_PREFIX + \
 				'/share/screenlets-manager/screenlets-daemon.py &')
 						

@@ -35,8 +35,7 @@ import gettext
 import math
 
 # import screenlet-submodules
-from options import IntOption, FloatOption, BoolOption, StringOption
-from options import EditableOptions, OptionsDialog
+from options import *
 import services
 import utils
 

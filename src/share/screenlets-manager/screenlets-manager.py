@@ -613,18 +613,29 @@ class ScreenletsManager:
 		but5.set_sensitive(False)
 		but5.set_image(gtk.image_new_from_stock(gtk.STOCK_ADD, 
 			gtk.ICON_SIZE_BUTTON))
+		self.button_restartall = but6 = gtk.Button(_('Re-Start all Screenlets'))
+		but6.set_sensitive(True)
+		but6.set_image(gtk.image_new_from_stock(gtk.STOCK_REFRESH, 
+			gtk.ICON_SIZE_BUTTON))
+		self.button_closeall = but7 = gtk.Button(_('Close all Screenlets'))
+		but7.set_sensitive(True)
+		but7.set_image(gtk.image_new_from_stock(gtk.STOCK_REMOVE, 
+			gtk.ICON_SIZE_BUTTON))
 		#self.sep = gtk.Separator()	
 		but1.connect('clicked', self.button_clicked, 'add')
 		but2.connect('clicked', self.button_clicked, 'install')
 		but3.connect('clicked', self.button_clicked, 'uninstall')
 		but4.connect('clicked', self.button_clicked, 'reset')
 		but5.connect('clicked', self.button_clicked, 'theme')
+		but6.connect('clicked', self.button_clicked, 'restartall')
+		but7.connect('clicked', self.button_clicked, 'closeall')
 		self.tips.set_tip(but1, _('Launch/add a new instance of the selected Screenlet ...'))
 		self.tips.set_tip(but2, _('Install a new Screenlet from a zipped archive (tar.gz, tar.bz2 or zip) ...'))
 		self.tips.set_tip(but3, _('Permanently uninstall/delete the currently selected Screenlet ...'))
 		self.tips.set_tip(but4, _('Reset this Screenlet configuration (will only work if screenlet isnt running)'))
 		self.tips.set_tip(but5, _('Install new theme for this screenlet'))
-			
+		self.tips.set_tip(but6, _('Restart all screenlets that have auto start at login'))
+		self.tips.set_tip(but7, _('Close all screenlets running'))			
 		self.label = gtk.Label('')
 		self.label.set_line_wrap(1)
 		self.label.set_width_chars(70)
@@ -647,6 +658,8 @@ class ScreenletsManager:
 		butbox.pack_start(but3, False)
 		butbox.pack_start(but4, False)
 		butbox.pack_start(but5, False)
+		butbox.pack_start(but6, False)
+		butbox.pack_start(but7, False)
 
 		#butbox.pack_start(self.label, False)
 		butbox.show_all()
@@ -736,7 +749,7 @@ class ScreenletsManager:
 		sep2 =   gtk.HSeparator()
 		ibox.pack_start(cb, False, False)
 		ibox.pack_start(cb2, False,False, 3)
-		ibox.pack_start(sep2, False,False,20)
+		ibox.pack_start(sep2, False,False,10)
 		ibox.pack_start(cb3, False,False)
 		#ibox.pack_start(itxt, True, True)
 		ibox.show_all()
@@ -744,7 +757,7 @@ class ScreenletsManager:
 		self.paned.pack2(self.label,False,False)
 		#self.bbox.set_spacing(2)
 		sep1 =   gtk.HSeparator()
-		self.bbox.pack_start(sep1, False,False,20)
+		self.bbox.pack_start(sep1, False,False,10)
 		self.bbox.pack_start(ibox, False,False)
 
 	def redraw_screenlets(self,widget,id):
@@ -1000,6 +1013,33 @@ class ScreenletsManager:
 			self.reset_selected_screenlet()
 		elif id == 'theme':
 			self.show_install_theme_dialog()
+		elif id == 'restartall':
+			a = utils.list_running_screenlets()
+			if a != None:
+				for s in a:
+					print 'closing' + str(s)
+					if s.endswith('Screenlet'):
+						s = s[:-9]
+						try:
+							self.quit_screenlet_by_name(s)
+						except:
+							pass
+			for s in os.listdir(DIR_AUTOSTART):
+		
+				if s.lower().endswith('screenlet.desktop'):
+					#s = s[:-17]
+					os.system('sh '+ DIR_AUTOSTART + s + ' &')	
+		elif id == 'closeall':
+			a = utils.list_running_screenlets()
+			if a != None:
+				for s in a:
+					print 'closing' + str(s)
+					if s.endswith('Screenlet'):
+						s = s[:-9]
+						try:
+							self.quit_screenlet_by_name(s)
+						except:
+							pass
 		elif id == 'website':
 			print "TODO: open website"
 	
@@ -1030,6 +1070,8 @@ class ScreenletsManager:
 			self.button_add.set_sensitive(True)
 			self.button_reset.set_sensitive(True)
 			self.button_theme.set_sensitive(True)
+#			self.button_restartall.set_sensitive(True)
+#			self.button_closeall.set_sensitive(True)
 			if not info.system:
 				self.button_delete.set_sensitive(True)
 			else:
@@ -1043,6 +1085,8 @@ class ScreenletsManager:
 			self.button_delete.set_sensitive(False)
 			self.button_reset.set_sensitive(False)
 			self.button_theme.set_sensitive(False)	
+#			self.button_restartall.set_sensitive(False)
+#			self.button_closeall.set_sensitive(False)
 			self.label_info.set_text('')
 	
 	def item_activated (self, iconview, item):

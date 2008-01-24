@@ -1,3 +1,79 @@
-#!/bin/bash
-echo "Screenletsd isn't used for starting screenlets anymore. Please use the new 'screenlets-manager' or start each Screenlet individually from now on."
+#/bin/bash
 
+runDaemon()
+{
+if [ -z "`ps -f -C python | grep screenlets-daemon`" ]; then		#Check if Daemon is running
+	echo "Loading Daemon"		#Load Daemon
+	/usr/share/screenlets-manager/screenlets-daemon.py > /dev/null &
+else
+	echo "Daemon is already running"
+fi
+}
+
+startgui()
+{
+exec /usr/share/screenlets-manager/screenlets-manager.py $@		#Load Gui
+}
+
+findScreenlet()
+{
+screenlet="$1"
+
+#find new screenlet
+if [ -e $HOME/.screenlets/$screenlet/`echo -en $screenlet`Screenlet.py ]; then 			#Check in /usr/share/screenlet
+	location="$HOME/.screenlets/$screenlet/`echo -en $screenlet`Screenlet.py"
+elif [ -e /usr/share/screenlets/$screenlet/`echo -en $screenlet`Screenlet.py ]; then 		#Check in ~/.screenlets
+	location="/usr/share/screenlets/$screenlet/`echo -en $screenlet`Screenlet.py"
+else
+    echo -e "There is no screenlet named $screenlet"
+    exit 1
+fi
+}
+
+auScreenlet()
+{
+AU_DIR="$HOME/.config/autostart"		#Autostart folder
+echo -e "[Desktop Entry]" > $AU_DIR/`echo -e $1`Screenlet.desktop		#Make a .desktop entry to autostart the screenlet
+echo -e "Name=`echo -e $1`Screenlet" >> $AU_DIR/`echo -e $1`Screenlet.desktop
+echo -e "Encoding=UTF-8" >> $AU_DIR/`echo -e $1`Screenlet.desktop
+echo -e "Version=1.0" >> $AU_DIR/`echo -e $1`Screenlet.desktop
+echo -e "Exec=$location > /dev/null" >> $AU_DIR/`echo -e $1`Screenlet.desktop
+echo -e "X-GNOME-Autostart-enabled=true" >> $AU_DIR/`echo -e $1`Screenlet.desktop
+}
+
+runScreenlet()
+{
+	$location > /dev/null &		#Run Screenlet
+}
+
+help_me()			#Help
+{
+echo -e "  Options:"
+echo -e "\t --gui \t\t\t Open up the Graphical Interface"
+echo -e "\t --cli \t\t\t Use the Command Line interface"
+echo -e "  Cli Options (only use one at a time):"
+echo -e "\t    run \t\t\t Run the Screenlet"
+echo -e "\t    au \t\t\t Add the Screenlet to your autostart list"
+}
+
+if [ x$1 == x"--gui" ]; then		#Decide what to do
+	runDaemon
+	startgui $2 $3 $4 $5 $6 $7
+	exit 0
+elif [ x$1 == x"--cli" ]; then
+	if [ x$2 == x"run" ]; then
+		findScreenlet $3
+		runScreenlet
+		exit 0
+	elif [ x$2 == x"au" ]; then
+		findScreenlet $3
+		auScreenlet $3
+		exit 0
+	else
+		help_me
+		exit 1
+	fi
+else
+	help_me
+	exit 1
+fi

@@ -11,6 +11,7 @@
 import screenlets
 from screenlets.options import StringOption , BoolOption , IntOption , FileOption , DirectoryOption , ListOption , AccountOption , TimeOption , FontOption, ColorOption , ImageOption
 from screenlets.options import create_option_from_node
+from screenlets import DefaultMenuItem
 import pango
 import gobject
 
@@ -135,8 +136,13 @@ class ExampleScreenlet (screenlets.Screenlet):
 		screenlet finished its initialization. If you want to have your
 		Screenlet do things on startup you should use this handler."""
 		print 'i just got started'
+		# add  menu items from xml file
+		self.add_default_menuitems(DefaultMenuItem.XML)
+		# add menu item
+		self.add_menuitem("at_runtime", "A")
 		# add default menu items
 		self.add_default_menuitems()
+
 
 	def on_key_down (self, keycode, keyvalue, event=None):
 		"""Called when a key is pressed within the screenlet's window."""
@@ -148,6 +154,10 @@ class ExampleScreenlet (screenlets.Screenlet):
 	
 	def on_menuitem_select (self, id):
 		"""Called when a menuitem is selected."""
+		if id == "at_runtime":
+			screenlets.show_message(self, 'This is an example on a menu created at runtime')
+		if id == "at_xml":
+			screenlets.show_message(self, 'This is an example on a menu created in the menu.xml')
 		pass
 	
 	def on_mouse_down (self, event):

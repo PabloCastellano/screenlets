@@ -345,7 +345,13 @@ class ScreenletsManager:
 		starter = '%s%sScreenlet.desktop' % (DIR_AUTOSTART, name)
 		print DIR_AUTOSTART
 		print starter
-		if not os.path.isfile(starter):
+		for f in os.listdir(DIR_AUTOSTART):
+			a = f.find(name + 'Screenlet')
+			if a != -1:
+				print str(f) + ' duplicate entry'
+				os.system('rm %s%s' % (chr(34)+DIR_AUTOSTART,f+chr(34)))
+				print 'Removed duplicate entry'
+		if not os.path.isfile(starter) and not os.path.exists('/home/helder/.config/autostart/CalendarScreenlet'):
 			path = utils.find_first_screenlet_path(name)
 			if path:
 				print "Create autostarter for: %s/%sScreenlet.py" % (path, name)
@@ -375,6 +381,12 @@ class ScreenletsManager:
 			name = name[:-9]
 		print 'Delete autostarter for %s.' % name
 		os.system('rm %s%sScreenlet.desktop' % (DIR_AUTOSTART, name))
+		for f in os.listdir(DIR_AUTOSTART):
+			a = f.find(name + 'Screenlet')
+			if a != -1:
+				print str(f) + ' duplicate entry'
+				os.system('rm %s%s' % (chr(34)+DIR_AUTOSTART,f+chr(34)))
+				print 'Removed duplicate entry'
 	
 	def delete_selected_screenlet (self):
 		"""Delete the selected screenlet from the user's screenlet dir."""

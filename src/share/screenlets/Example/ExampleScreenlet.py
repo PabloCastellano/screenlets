@@ -93,6 +93,9 @@ class ExampleScreenlet (screenlets.Screenlet):
 		# ADD a 1 second (1000) TIMER
 		self.timer = gobject.timeout_add( 1000, self.update)
 
+		#Also add options from xml file for example porpuse
+		self.init_options_from_metadata() 
+
 	def update (self):
 		if self.number <= 100:
 			self.number = self.number+1

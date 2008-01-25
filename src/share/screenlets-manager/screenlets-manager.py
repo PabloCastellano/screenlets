@@ -56,10 +56,31 @@ else:
 	USER = 1
 	DIR_USER		= os.environ['HOME'] + '/.screenlets'
 	
-	if os.environ['DESKTOP_SESSION'].startswith('kde'):
+
+
+        desktop_environment = 'gnome'
+
+        if os.environ.get('KDE_FULL_SESSION') == 'true':
+            desktop_environment = 'kde'
+        elif os.environ.get('GNOME_DESKTOP_SESSION_ID'):
+            desktop_environment = 'gnome'
+        else:
+            try:
+		import commands
+                info = commands.getoutput('xprop -root _DT_SAVE_MODE')
+                if ' = "xfce4"' in info:
+                    desktop_environment = 'xfce'
+            except (OSError, RuntimeError):
+                pass
+
+        print 'It looks like you are running '+ desktop_environment
+
+	if desktop_environment == 'kde':
 		DIR_AUTOSTART	= os.environ['HOME'] + '/.kde/Autostart/'
-	else:
+	elif desktop_environment == 'gnome':
 		DIR_AUTOSTART	= os.environ['HOME'] + '/.config/autostart/'
+	elif desktop_environment == 'xfce':
+		DIR_AUTOSTART	= os.environ['HOME'] + '/Desktop/Autostart/'
 
 DIR_CONFIG = os.environ['HOME'] + '/.config/Screenlets'
 

@@ -724,7 +724,7 @@ class ScreenletsManager:
 		# create checkboxes
 		self.cb_enable_disable = cb = gtk.CheckButton(_('Start/Stop'))
 		self.cb_autostart = cb2 = gtk.CheckButton(_('Auto start on login'))
-		self.cb_tray = cb3 = gtk.CheckButton(_('Show Daemon in tray'))
+		self.cb_tray = cb3 = gtk.CheckButton(_('Show daemon in tray'))
 		ini = utils.IniReader()
 		if not os.path.isfile(DIR_USER + '/config.ini'):
 			f = open(DIR_USER + '/config.ini', 'w')
@@ -770,7 +770,7 @@ class ScreenletsManager:
 		sep2 =   gtk.HSeparator()
 		ibox.pack_start(cb, False, False)
 		ibox.pack_start(cb2, False,False, 3)
-		ibox.pack_start(sep2, False,False,10)
+		ibox.pack_start(sep2, False,False,3)
 		ibox.pack_start(cb3, False,False)
 		#ibox.pack_start(itxt, True, True)
 		ibox.show_all()
@@ -778,7 +778,7 @@ class ScreenletsManager:
 		self.paned.pack2(self.label,False,False)
 		#self.bbox.set_spacing(2)
 		sep1 =   gtk.HSeparator()
-		self.bbox.pack_start(sep1, False,False,10)
+		self.bbox.pack_start(sep1, False,False,5)
 		self.bbox.pack_start(ibox, False,False)
 
 	def redraw_screenlets(self,widget,id):

@@ -1574,7 +1574,7 @@ class ShapedWidget (gtk.DrawingArea):
 		del ctx
 		return False
 
-class Tooltip ():
+class Tooltip:
 	"""A window that displays a text and serves as Tooltip (very basic yet)."""
 	
 	# internals

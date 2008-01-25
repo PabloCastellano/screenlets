@@ -27,6 +27,12 @@ from screenlets import utils
 import dbus
 import gettext
 import subprocess
+import commands
+#a = commands.getoutput("ps -ef | grep 'screenlets-manager.py'" )
+#b = a.find('/usr/share/screenlets-manager/screenlets-manager.py')
+#if b != -1:
+#	print b
+#	exit()
 
 gettext.textdomain('screenlets-manager')
 gettext.bindtextdomain('screenlets-manager', '/usr/share/locale')

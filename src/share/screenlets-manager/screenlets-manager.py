@@ -1155,7 +1155,13 @@ class ScreenletsManager:
 		os.system('pkill -f screenlets-daemon.py') #restart the daemon
 		os.system(screenlets.INSTALL_PREFIX + \
 				'/share/screenlets-manager/screenlets-daemon.py &')
-						
+		screenlets.show_message(None, 'Screenlets-Manager must now be restarted')
+		try:
+			os.system('screenlets-manager &')	
+		except:
+			pass
+		self.delete_event(self.window, None)		
+				
 	def delete_event (self, widget, event):
 		gtk.main_quit()
 		print "Quit!"

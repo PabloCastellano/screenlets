@@ -27,23 +27,13 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 	__desc__	= __doc__	# set description to docstring of class
 	
 	# editable options (options that are editable through the UI)
-	test_text = 'Hi.. im a screenlet'
-	demo_text = ''
-	demo_number = ''
+
 	fontsize = 10
 	expand = True
-	time_example =  (7, 30, 0)
-	account_example =  ('','')
 	color_text =(1.0, 1.0, 1.0, 0.7)
 	color_background =(0.0, 0.0, 0.0, 0.7)
 	color_graph =(1.0, 1.0, 1.0, 0.2)
 	font= "Sans"
-	image_example = ''
-	file_example = ''
-	directory_example = ''
-	list_example = ('','')
-	hover = False
-	number = 0
 	username = ''
 	hostname = ''
 	date = ''
@@ -74,7 +64,10 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 	wire_list = []
 	wire_data = []
 	newheight = gtk.gdk.screen_height()
-
+	show_logo = True
+	show_frame = True
+	starty = 0
+	number = 0
 	# constructor
 	def __init__ (self, **keyword_args):
 		#call super (width/height MUST match the size of graphics in the theme)
@@ -91,6 +84,15 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 			self.expand, 'Expand height', 
 			'Expand height to screen height'))
 
+		self.add_option(BoolOption('Sysmonitor','show_logo', 
+			self.show_logo, 'Show distro logo if available', 
+			'Show distro logo if available'))
+
+		self.add_option(BoolOption('Sysmonitor','show_frame', 
+			self.show_frame, 'Show frame', 
+			'Show frame window'))
+
+		self.add_option(IntOption('Sysmonitor', 'starty',self.starty, 'Y position to start the text','',min=0, max=500))
 
 		self.add_option(FontOption('Sysmonitor','font', 
 			self.font, 'Text Font', 
@@ -281,28 +283,30 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 		if self.theme:
 			# set scale rel. to scale-attribute
 			ctx.scale(self.scale, self.scale)
-
-			if os.path.exists (self.get_screenlet_dir() + '/themes/'+ self.theme_name + '/' + self.distroshort.lower() + '.svg') or os.path.exists (self.get_screenlet_dir() + '/themes/'+ self.theme_name + '/' +self.distroshort.lower() + '.png'):
-				ctx.translate(0,20)
-				self.theme.render(ctx,self.distroshort.lower())
-				ctx.translate(0,-20)
+			if self.show_logo:
+				if os.path.exists (self.get_screenlet_dir() + '/themes/'+ self.theme_name + '/' + self.distroshort.lower() + '.svg') or os.path.exists (self.get_screenlet_dir() + '/themes/'+ self.theme_name + '/' +self.distroshort.lower() + '.png'):
+					ctx.translate(0,20)
+					self.theme.render(ctx,self.distroshort.lower())
+					ctx.translate(0,-20)
 			#DRAW BACKGROUND ALLWAYS
-			ctx.set_source_rgba(0, 0, 0,0.7)	
-			self.theme.draw_rectangle(ctx,self.width,self.height,False)
-			ctx.set_source_rgba(89/255, 89/255, 89/255,0.43)	
-			ctx.translate (1,1)
-			self.theme.draw_rectangle(ctx,self.width-2,self.height-2,False)
+			if self.show_frame:
+				ctx.set_source_rgba(0, 0, 0,0.7)	
+				self.theme.draw_rectangle(ctx,self.width,self.height,False)
+				ctx.set_source_rgba(89/255, 89/255, 89/255,0.43)	
+				ctx.translate (1,1)
+				self.theme.draw_rectangle(ctx,self.width-2,self.height-2,False)
 
-			ctx.set_source_rgba(229/255, 229/255, 229/255,76/255)	
-			ctx.translate (1,1)
-			self.theme.draw_rectangle(ctx,self.width-2,self.height-2)
-			ctx.translate (-2,-2)
+				ctx.set_source_rgba(229/255, 229/255, 229/255,76/255)	
+				ctx.translate (1,1)
+				self.theme.draw_rectangle(ctx,self.width-2,self.height-2)
+				ctx.translate (-2,-2)
+			
 			#DRAW BACKGROUND USER SELECTED
 			ctx.set_source_rgba(self.color_background[0], self.color_background[1], self.color_background[2],self.color_background[3])	
 			self.theme.draw_rectangle(ctx,self.width,self.height)
 
 			#DRAW TEXT
-			m = 5
+			m = self.starty + 5
 			self.theme.draw_text(ctx, ' ' + self.time, 0, m, self.font, self.fontsize + 10, self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3],self.width,pango.ALIGN_CENTER)
 			m = m + 25
 			self.theme.draw_text(ctx, self.date, 0, m, self.font, self.fontsize, self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3],self.width,pango.ALIGN_CENTER)

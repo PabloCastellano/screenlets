@@ -154,7 +154,9 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 		self.bat_list = sensors.bat_get_battery_list()
 		if self.bat_list:
 			self.bat_data = sensors.bat_get_data(self.bat_list[0])
-			self.bat_load = (self.bat_data[1]*100)/self.bat_data[2]
+			try:
+				self.bat_load = (self.bat_data[1]*100)/self.bat_data[2]
+			except: self.bat_load = 0
 		if self.wire_list:
 			self.wire_data = sensors.wir_get_stats(self.wire_list[0])
 			

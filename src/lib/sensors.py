@@ -7,7 +7,9 @@ import gobject
 import gettext
 from datetime import datetime
 import commands
-
+import time
+import os
+import subprocess
 gettext.textdomain('screenlets')
 gettext.bindtextdomain('screenlets', '/usr/share/locale')
 
@@ -19,43 +21,225 @@ def _(s):
 # FUNCTIONS
 # ------------------------------------------------------------------------------
 
+
+
+###########################################
+#                                         #
+#                 CPU                     #
+#                                         #
+###########################################
+
 # calculate cpu-usage by values from /proc/stat
-# (written by Bernd Wurst, various modifications by RYX)
-def get_cpu_load (processor_number=1, old_cuse = [0]):
+# (written by Helder Fraga aka Whise
+def cpu_get_load (processor_number=0):
 	"""Calculates the system load."""
 	try:
-		f = open("/proc/stat", "r")
-		tmp = f.readlines(200)
-		f.close()
+		data = commands.getoutput("cat /proc/stat")
+		tmp = data.split('\n')
+
 	except:
 		print _("Failed to open /proc/stat")
 		sys.exit(1)
-	# 200 bytes should be enough because the information we 
-	# need ist typically stored in the first line. Info about individual 
-	# processors (not yet supported) is in the second (, ...?) line
-	#for line in tmp:
+	if processor_number == 0 : sufix = ''
+	else: sufix = str(processor_number -1)
 	line = tmp[processor_number]
-	if line[0:5] == "cpu%i " % processor_number:
-		reg = re.compile('[0-9]+')
-		load_values = reg.findall(line)
-		# extract values from /proc/stat
-		cuse = int(load_values[0])
-		csys = int(load_values[2])
-		load = cuse + csys - old_cuse[0]
-		#load = int(load / self.update_interval)
-		old_cuse[0] = cuse + csys
-	return load
+
+	if line.startswith("cpu%s"% (sufix)):
+		cuse = float( line.split()[1] )
+		cn = float( line.split()[2] )
+		csys = float( line.split()[3])
+		load = cuse + csys + cn
+
+		#load = int(load / .update_interval)
+		return load
+	return None
+
+def cpu_get_cpu_name():
+	try:
+		f = open("/proc/cpuinfo", "r")
+		tmp = f.readlines(500)
+		f.close()
+	except:
+		print "Failed to open /proc/cpuinfo"
+		sys.exit(1)
+		list = []
+	for line in tmp:
+		if line.startswith("model name"):
+			return line.split(':')[1].strip()
+	return ''
+
+def cpu_get_cpu_list ():
+	try:
+		f = open("/proc/stat", "r")
+		tmp = f.readlines(2000)
+		f.close()
+	except:
+		print "Failed to open /proc/stat"
+		sys.exit(1)
+	list = []
+	for line in tmp:
+		if line.startswith("cpu"):
+			list.append(line.split(' ')[0])
+			
+	return list
+
+def cpu_get_nb_cpu ():
+	try:
+		f = open("/proc/stat", "r")
+		tmp = f.readlines(2000)
+		f.close()
+	except:
+		print "Failed to open /proc/stat"
+		sys.exit(1)
+	nb = 0
+	for line in tmp:
+		if line.startswith("cpu"):
+			nb = nb+1
+	return nb -1
+
+
+###########################################
+#                                         #
+#                 System info             #
+#                                         #
+###########################################
 
 # written by Hendrik Kaju
-def get_freemem ():
+def sys_get_uptime_long ():
+	"""Get uptime using 'cat /proc/uptime'"""
+	data1 = commands.getoutput("cat /proc/uptime")
+	uptime = float( data1.split()[0] )
+	days = int( uptime / 60 / 60 / 24 )
+	uptime = uptime - days * 60 * 60 * 24
+	hours = int( uptime / 60 / 60 )
+	uptime = uptime - hours * 60 * 60
+	minutes = int( uptime / 60 )
+	return str(days) + " days, " + str(hours) + " hours and " + str(minutes) + " minutes"
+
+def sys_get_uptime():
+	try:
+		f = open("/proc/uptime", "r")
+		tmp = f.readlines(100)
+		f.close()
+		t = tmp[0].split()[0]
+		h = int(float(t)/3600)
+		m = int((float(t)-h*3600)/60)
+		if m < 10:
+			return str(h)+':'+'0'+str(m)
+		else:
+			return str(h)+':'+str(m)
+	except:
+		print "Failed to open /proc/uptime"
+	return 'Error'
+
+
+def sys_get_username():
+	res = commands.getstatusoutput('whoami')
+	if res[0]==0:
+		return res[1].strip()
+	return ''
+
+
+# written by Hendrik Kaju
+def sys_get_hostname ():
+	"""Get user- and hostname and return user@hostname."""
+	hostname = commands.getoutput("hostname")
+	return hostname
+
+
+# written by Hendrik Kaju
+def sys_get_average_load ():
+	"""Get average load (as 3-tuple with floats)."""
+	data = commands.getoutput("cat /proc/loadavg")
+	load1 = str(float( data.split()[0] ))[:4]
+	load2 = str(float( data.split()[1] ))[:4]
+	load3 = str(float( data.split()[2] ))[:4]
+	return load1+ ','+ load2 +','+ load3
+
+	
+def sys_get_distrib_name():
+	try:
+		f = open("/etc/issue", "r")
+		tmp = f.readlines(100)
+		f.close()
+		return tmp[0].replace('\\n','').replace('\l','').replace('\r','').strip()
+	except:
+		print "Failed to open /etc/issue"
+	return 'Error'
+
+
+def sys_get_distroshort ():
+	"""Get distro short name"""
+	distros = commands.getoutput("lsb_release -is")
+	return distros
+
+def sys_get_desktop_enviroment():
+	""" shows kde or gnome or xface"""
+        if os.environ.get('KDE_FULL_SESSION') == 'true':
+            desktop_environment = 'kde'
+        elif os.environ.get('GNOME_DESKTOP_SESSION_ID'):
+            desktop_environment = 'gnome'
+        else:
+            try:
+		import commands
+                info = commands.getoutput('xprop -root _DT_SAVE_MODE')
+                if ' = "xfce4"' in info:
+                    desktop_environment = 'xfce'
+            except (OSError, RuntimeError):
+                pass
+	return desktop_environment
+
+def sys_get_kernel_version():
+	res = commands.getstatusoutput('uname -r')
+	if res[0]==0:
+		return res[1].strip()
+	return "Can't get kernel version"
+
+def sys_get_kde_version():
+	res = commands.getstatusoutput('kde-config --version')
+	if res[0]==0:
+		lst = res[1].splitlines()
+		for i in lst:
+			if i.startswith('KDE:'):
+				return i[4:].strip()
+	return "Can't get KDE version"
+
+def sys_get_gnome_version():
+	res = commands.getstatusoutput('gnome-about --gnome-version')
+	if res[0]==0:
+		lst = res[1].splitlines()
+		for i in lst:
+			if i.startswith('Version:'):
+				return i[8:].strip()
+	return "Can't get Gnome version"
+
+# by whise
+def sys_get_linux_version ():
+	"""Get linux version string."""
+	return commands.getoutput("cat /proc/version")
+
+# by whise
+# TODO: return dict and parse the output of cpuinfo (function does not much yet)
+def sys_get_full_info ():	
+	"""Get cpu info from /proc/cpuinfo."""
+	return commands.getoutput("cat /proc/cpuinfo")
+
+###########################################
+#                                         #
+#               Memory                    #
+#                                         #
+###########################################
+
+
+def mem_get_freemem ():# written by Hendrik Kaju
 	"""Get free memory."""
 	cached = commands.getoutput("""cat /proc/meminfo | grep Cached | awk 'BEGIN {FS=":"} {print $2}' | awk '{print $1, $9}'""")
 	buffers = commands.getoutput("""cat /proc/meminfo | grep Buffers | awk 'BEGIN {FS=":"} {print $2}' | awk '{print $1, $9}'""")
 	free = commands.getoutput("""cat /proc/meminfo | grep MemFree | awk 'BEGIN {FS=":"} {print $2}' | awk '{print $1, $9}'""")
 	return int(cached.split()[0])/1024 + int(buffers)/1024 + int(free)/1024
 
-# written by Hendrik Kaju
-def get_usedmem ():
+
+def mem_get_usedmem ():# written by Hendrik Kaju
 	"""Get used memory."""
 	total = commands.getoutput("""cat /proc/meminfo | grep MemTotal | awk 'BEGIN {FS=":"} {print $2}' | awk '{print $1, $9}'""")
 	cached = commands.getoutput("""cat /proc/meminfo | grep Cached | awk 'BEGIN {FS=":"} {print $2}' | awk '{print $1, $9}'""")
@@ -64,8 +248,50 @@ def get_usedmem ():
 	return int(total)/1024 - int(cached.split()[0])/1024 - \
 		int(buffers)/1024 - int(free)/1024
 
-# written by Helder Fraga aka whise
-def get_drive_info (mount_point):
+def mem_get_usage():
+	try:
+		meminfo_file = open('/proc/meminfo')
+		meminfo = {}
+		for x in meminfo_file:
+		    	try:
+				(key,value,junk) = x.split(None, 2)
+				key = key[:-1] 
+				meminfo[key] = int(value)
+			except:
+				pass
+		meminfo_file.close()
+		return int((100*(int(meminfo['MemTotal'])-int(meminfo['Cached']) - int(meminfo['Buffers']) - int(meminfo['MemFree'])))/int(meminfo['MemTotal']))
+	except:
+		print("Can't parse /proc/meminfo")
+		return 0
+
+def mem_get_usedswap():
+	try:
+		meminfo_file = open('/proc/meminfo')
+		meminfo = {}
+		for x in meminfo_file:
+			try:
+				(key,value,junk) = x.split(None, 2)
+				key = key[:-1]
+				meminfo[key] = int(value)
+			except:
+				pass
+		meminfo_file.close()
+		if(meminfo['SwapTotal']==0):
+			return 0
+		return int((100*(int(meminfo['SwapTotal'])-int(meminfo['SwapCached']) - int(meminfo['SwapFree'])))/int(meminfo['SwapTotal']))
+	except:
+		print("Can't parse /proc/meminfo")
+		return 0
+
+###########################################
+#                                         #
+#               Disks                     #
+#                                         #
+###########################################
+
+
+def disk_get_drive_info (mount_point):
 	"""Returns info about the given mount point (as dict)."""
 	proc = subprocess.Popen('df -h -a -P | grep ^/dev/ ', shell='true', 
 		stdout=subprocess.PIPE)
@@ -85,59 +311,111 @@ def get_drive_info (mount_point):
 			return dev
 	return None
 
-# written by Hendrik Kaju
-def get_uptime ():
-	"""Get uptime using 'cat /proc/uptime'"""
-	data1 = commands.getoutput("cat /proc/uptime")
-	uptime = float( data1.split()[0] )
-	days = int( uptime / 60 / 60 / 24 )
-	uptime = uptime - days * 60 * 60 * 24
-	hours = int( uptime / 60 / 60 )
-	uptime = uptime - hours * 60 * 60
-	minutes = int( uptime / 60 )
-	return str(days) + " days, " + str(hours) + " hours and " + str(minutes) + " minutes"
+def disk_get_swap ():
+	"""Get a list of swap partitions."""
+	swap = commands.getoutput("cat /proc/swaps")
+	swap = str(swap.split()[5:])
+	swap = swap.replace("'","")
+	swap = swap.replace("[","")
+	swap = swap.replace("]","")
+	swap = swap.replace(",","")
+	return str(swap)
 
-# written by Hendrik Kaju
-def get_hostname ():
-	"""Get user- and hostname and return user@hostname."""
-	user = commands.getoutput("echo $USER")
-	hostname = commands.getoutput("hostname")
-	return user + "@" + hostname
 
-# written by Hendrik Kaju
-def get_average_load ():
-	"""Get average load (as 3-tuple with floats)."""
-	data = commands.getoutput("cat /proc/loadavg")
-	load1 = float( data.split()[0] )
-	load2 = float( data.split()[1] )
-	load3 = float( data.split()[2] )
-	return (load1, load2, load3)
+def disk_get_usage(disk_disk):
+	res = commands.getoutput('df -h -a -P').splitlines()
+	for i in res:
+		if i.startswith('/dev/'):
+			data = re.findall("(\S*)\s*", i)
+			
+			if (data[5] == disk_disk) or (data[0] == disk_disk):
+				return data
+	
+def disk_get_disk_list():
+	disks = []
+	res = commands.getoutput('df -h -a -P').splitlines()
+	for i in res:
+		if i.startswith('/dev/'):
+			data = re.findall("(\S*)\s*", i)
+			disks.append(data[5])
+	return disks
 
-# this one needs some more finetuning. It should return an array or info-object
-# with separated info ...
-#def get_distro_info ():
-#		#"""Get user- and hostname and return user@hostname""" written by Helder Fraga aka Whise
-#	distinf = commands.getoutput("lsb_release -a")
-#	return distinf
 
-# by whise
-def get_kernel ():
-	"""Returns output of uname -r."""
-	return commands.getoutput("uname -r")
+###########################################
+#                                         #
+#             Internet                    #
+#                                         #
+###########################################
 
-# by whise, modified by RYX
-def get_net_activity (device):
+def net_get_ip(): # by Whise
+	"""Returns ip if it can"""
+	ip = commands.getoutput("ifconfig")
+	x = 0
+	while True:
+		ip = ip[ip.find("inet addr:"):]
+		ip = ip[10:]
+		ipc = ip[:ip.find(chr(32))]
+		if ipc != '127.0.0.1' and ipc != None and ipc !='1': 
+			
+			return ipc
+			
+
+	return 'Cannot get ip'
+
+
+def net_get_updown():
+	try:
+		f = open("/proc/net/dev", "r")
+		data = f.readlines(2000)
+		f.close()
+		newNetUp = 0
+		newNetDown = 0
+		for i in data:
+			if i.find(':') != -1 and i.strip().startswith('lo:') == False:
+				v = i.split(':')[1].split()
+				newNetUp = float( v[8] )+newNetUp
+				newNetDown = float( v[0] )+newNetDown
+
+	
+		return (newNetUp/1024), (newNetDown/1024)
+	except:
+		print("Can't open /proc/net/dev")
+		return 0,0
+
+
+def net_get_activity (device):
 	"""This will return the total download and upload this session. As 2-tuple
 	with floats)."""
 	data = commands.getoutput("cat /proc/net/dev")
 	data = data[data.find(device + ":") + 5:]
 	return (float(data.split()[0]), float(data.split()[8]))
 
-# written by Patrik Kullman
-def get_wireless_stats (interface):
+
+###########################################
+#                                         #
+#                 Wireless                #
+#                                         #
+###########################################
+
+def wir_get_interfaces():
+	try:
+		interfaces = []
+		f = open("/proc/net/wireless")
+		cards = f.read(1024)
+		f.close()
+		for line in cards.splitlines():
+			colon = line.find(":")
+			if colon > 0:
+				interfaces.append(line[:colon].strip())
+		return interfaces
+	except:
+		print("Can't open /proc/net/wireless")
+		return []
+
+def wir_get_stats (interface):
 	"""Returns wireless stats as dict."""
 	stats = {}
-	iwcfd = popen("iwconfig " + interface)
+	iwcfd = os.popen("iwconfig " + interface)
 	iwconfig = iwcfd.read(1024)
 	iwcfd.close()
 	essid = iwconfig[iwconfig.find('ESSID:"')+7:]
@@ -163,38 +441,173 @@ def get_wireless_stats (interface):
 		stats['noise'] = noise[:noise.find('\n')]
 		return stats
 
-# written by Helder Fraga aka Whise
-# NOTE: This one also needs refinement - it should return a list instead of a string
-def get_swap ():
-	"""Get a list of swap partitions."""
-	swap = commands.getoutput("cat /proc/swaps")
-	swap = str(swap.split()[5:])
-	swap = swap.replace("'","")
-	swap = swap.replace("[","")
-	swap = swap.replace("]","")
-	swap = swap.replace(",","")
-	return str(swap)
+###########################################
+#                                         #
+#                calendar                 #
+#                                         #
+###########################################
 
-# by whise
-def get_linux_version ():
-	"""Get linux version string."""
-	return commands.getoutput("cat /proc/version")
-
-# by whise
-# TODO: return dict and parse the output of cpuinfo (function does not much yet)
-def get_cpu_info ():	
-	"""Get cpu info from /proc/cpuinfo."""
-	return commands.getoutput("cat /proc/cpuinfo")
 
 # by whise	
-def get_datetime ():
-	"""Get datetime.now without the need for importing datetime module."""	
+def cal_get_now ():
+	"""Returns full now time and date"""	
 	return str(datetime.now())
+
+
+def cal_get_local_date ():
+	"""returns date using local format"""	
+	return str(datetime.now().strftime("%x"))
+
+def cal_get_date ():
+	"""returns date."""	
+	return str(datetime.now().strftime("%d/%m/%Y"))
+
+def cal_get_local_time ():
+	"""returns time using local format"""	
+	return str(datetime.now().strftime("%X"))
+
+def cal_get_time ():
+	"""returns time"""	
+	return str(datetime.now().strftime("%H:%M:%S"))
+
+def cal_get_time24 ():
+	"""returns 24 hour time"""	
+	return str(datetime.now().strftime("%R"))
+
+def cal_get_time12 ():
+	"""returns 12 hour time"""	
+	return str(datetime.now().strftime("%r"))
+
+def cal_get_year ():
+	"""returns the years."""	
+	return str(datetime.now().strftime("%Y"))
+
+def cal_get_month ():
+	"""returns the month"""	
+	return str(datetime.now().strftime("%B"))
+
+def cal_get_month_name ():
+	"""returns the month name"""	
+	return str(datetime.now().strftime("%m"))
+
+def cal_get_day ():
+	"""returns the day"""	
+	return str(datetime.now().strftime("%d"))
+
+def cal_get_day_monday ():
+	"""returns the number of the day of the week starting from monday"""	
+	return str(datetime.now().strftime("%u"))
+
+def cal_get_day_sonday ():
+	"""returns the number of the day of the week starting from sonday"""	
+	return str(datetime.now().strftime("%w"))
+
+def cal_get_day_name ():
+	"""returns the day name"""	
+	return str(datetime.now().strftime("%A"))
+
+def cal_get_hour ():
+	"""returns the hour"""	
+	return str(datetime.now().strftime("%H"))
+
+def cal_get_hour24 ():
+	"""returns the hour"""	
+	return str(datetime.now().strftime("%H"))
+
+def cal_get_hour12 ():
+	"""returns the hours"""	
+	return str(datetime.now().strftime("%I"))
+
+def cal_get_minute ():
+	"""returns minutes"""	
+	return str(datetime.now().strftime("%M"))
+
+def cal_get_second ():
+	"""returns seconds"""	
+	return str(datetime.now().strftime("%S"))
+
+def cal_get_ampm ():
+	"""return am/pm or None if not available"""	
+	return str(datetime.now().strftime("%p"))
+
+
+
+###########################################
+#                                         #
+#               Battery                   #
+#                                         #
+###########################################
+
+
+def bat_get_battery_list():
+	try:
+		path = "/proc/acpi/battery/"
+		files = os.listdir(path)
+		return files
+	except:
+		return[]
+	
+def bat_get_data(name):
+	path = "/proc/acpi/battery/"+name+"/info"
+	try:
+		f = commands.getoutput('cat ' +path)
+		lines = f.split('\n')
+		total = 0
+		current = 0
+		full = 0
+		state = ''
+		present = True
+		for i in lines:
+			if i.startswith('present:') and i.find('yes')==-1:
+				present = False
+			elif i.startswith('design capacity:'):
+				total = int(i.split(':')[1].strip().split(' ')[0])
+			elif i.startswith('last full capacity:'):
+				full = int(i.split(':')[1].strip().split(' ')[0])
+			elif i.startswith('remaining capacity:'):
+				current = int(i.split(':')[1].strip().split(' ')[0])
+			elif i.startswith('charging state:'):
+				state = i.split(':')[1].strip().split(' ')[0]
+			
+		path = "/proc/acpi/battery/"+name+"/state"
+		f = commands.getoutput('cat ' +path)
+		lines = f.split('\n')
+		for i in lines:
+			if i.startswith('present:') and i.find('yes')==-1:
+				present = False
+			elif i.startswith('design capacity:'):
+				total = int(i.split(':')[1].strip().split(' ')[0])
+			elif i.startswith('last full capacity:'):
+				full = int(i.split(':')[1].strip().split(' ')[0])
+			elif i.startswith('remaining capacity:'):
+				current = int(i.split(':')[1].strip().split(' ')[0])
+			elif i.startswith('charging state:'):
+				state = i.split(':')[1].strip().split(' ')[0]
+		return total, current, full, state, present
+	except:
+		return 0, 0, 0, '', False
+
+def bat_get_value(line):
+	return line.split(':')[1].strip().split(' ')[0]
+
+
+###########################################
+#                                         #
+#                 Processes               #
+#                                         #
+###########################################
+
+
+def top_process_get_list():
+	res = commands.getoutput('ps -eo pcpu,pmem,comm --sort pcpu').splitlines()
+	l = res.__len__()
+	return res,l
+
 
 
 
 # ------------------------------------------------------------------------------
-# CLASSES
+# CLASSES should not be used , calling classes from multiple screenlets instances causes erros due to goobject multiple instaces
 # ------------------------------------------------------------------------------
 
 class Sensor (gobject.GObject):

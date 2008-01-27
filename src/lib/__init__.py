@@ -178,7 +178,6 @@ class ScreenletTheme (dict):
 
 	def draw_text(self, ctx, text, x, y,  font, size, color_red, color_green, color_blue, color_alpha, width, allignment):
 		"""Draws text"""
-		import pango
 		ctx.save()
 		ctx.translate(x, y)
 		if self.p_layout == None :

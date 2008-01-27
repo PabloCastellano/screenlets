@@ -18,12 +18,12 @@ import gtk
 import os
 
 class SysmonitorScreenlet (screenlets.Screenlet):
-	"""A simple example of how to create a Screenlet"""
+	"""A simple system monitor Screenlet based in conky"""
 	
 	# default meta-info for Screenlets (should be removed and put into metainfo)
 	__name__	= 'SysmonitorScreenlet'
-	__version__	= '0.4'
-	__author__	= 'RYX and Whise'
+	__version__	= '0.1'
+	__author__	= 'Whise'
 	__desc__	= __doc__	# set description to docstring of class
 	
 	# editable options (options that are editable through the UI)

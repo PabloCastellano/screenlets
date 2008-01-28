@@ -129,7 +129,7 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 		self.wire_list = sensors.wir_get_interfaces()
 
 	def get_variables(self):
-		self.time = sensors.cal_get_local_time() + ' ' + sensors.cal_get_ampm()
+		self.time = sensors.cal_get_local_time()
 		self.date = sensors.cal_get_day_name() + ' '+  sensors.cal_get_local_date()
 		self.avg_load = sensors.sys_get_average_load()
 		for i in range (0,self.cpu_nb+1):
@@ -307,7 +307,7 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 			ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
 			#DRAW TEXT
 			m = self.starty + 5
-			self.theme.draw_text(ctx, ' ' + self.time, 0, m, self.font, self.fontsize + 10,  self.width,pango.ALIGN_CENTER)
+			self.theme.draw_text(ctx, ' ' + self.time, 0, m, self.font, self.fontsize + 8,  self.width,pango.ALIGN_CENTER)
 			m = m + 25
 			self.theme.draw_text(ctx, self.date, 0, m, self.font, self.fontsize,  self.width,pango.ALIGN_CENTER)
 			m = m + 40

@@ -304,20 +304,20 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 			#DRAW BACKGROUND USER SELECTED
 			ctx.set_source_rgba(self.color_background[0], self.color_background[1], self.color_background[2],self.color_background[3])	
 			self.theme.draw_rectangle(ctx,self.width,self.height)
-
+			ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
 			#DRAW TEXT
 			m = self.starty + 5
-			self.theme.draw_text(ctx, ' ' + self.time, 0, m, self.font, self.fontsize + 10, self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3],self.width,pango.ALIGN_CENTER)
+			self.theme.draw_text(ctx, ' ' + self.time, 0, m, self.font, self.fontsize + 10,  self.width,pango.ALIGN_CENTER)
 			m = m + 25
-			self.theme.draw_text(ctx, self.date, 0, m, self.font, self.fontsize, self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3],self.width,pango.ALIGN_CENTER)
+			self.theme.draw_text(ctx, self.date, 0, m, self.font, self.fontsize,  self.width,pango.ALIGN_CENTER)
 			m = m + 40
-			self.theme.draw_text(ctx, self.username + '@' + self.hostname, 0, m, self.font, self.fontsize + 1, self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3],self.width,pango.ALIGN_CENTER)
+			self.theme.draw_text(ctx, self.username + '@' + self.hostname, 0, m, self.font, self.fontsize + 1,  self.width,pango.ALIGN_CENTER)
 			m = m + 20
-			self.theme.draw_text(ctx, self.distro, 0, m, self.font, self.fontsize + 1, self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3],self.width,pango.ALIGN_CENTER)
+			self.theme.draw_text(ctx, self.distro, 0, m, self.font, self.fontsize + 1,  self.width,pango.ALIGN_CENTER)
 			m = m + 20
-			self.theme.draw_text(ctx, 'kernel: ' + self.kernel, 0, m, self.font, self.fontsize, self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3],self.width,pango.ALIGN_CENTER)
+			self.theme.draw_text(ctx, 'kernel: ' + self.kernel, 0, m, self.font, self.fontsize,  self.width,pango.ALIGN_CENTER)
 			m = m + 40
-			self.theme.draw_text(ctx, self.cpu_name, 0, m, self.font, self.fontsize - 2, self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3],self.width,pango.ALIGN_CENTER)
+			self.theme.draw_text(ctx, self.cpu_name, 0, m, self.font, self.fontsize - 2,  self.width,pango.ALIGN_CENTER)
 			
 			m = m + 30
 			ctx.save()
@@ -333,8 +333,9 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 				ctx.set_source_rgba(self.color_graph[0], self.color_graph[1], self.color_graph[2],self.color_graph[3])	
 				self.theme.draw_rectangle(ctx,40,a)
 				ctx.translate(75,-5-(40-a))
-				self.theme.draw_text(ctx, 'CPU' , -75-70, 0, self.font, self.fontsize, self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3],self.width,pango.ALIGN_CENTER)
-				self.theme.draw_text(ctx,str( a)+ '%', -75-70, 30, self.font, self.fontsize - 2, self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3],self.width,pango.ALIGN_CENTER)
+				ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
+				self.theme.draw_text(ctx, 'CPU' , -75-70, 0, self.font, self.fontsize,  self.width,pango.ALIGN_CENTER)
+				self.theme.draw_text(ctx,str( a)+ '%', -75-70, 30, self.font, self.fontsize - 2,  self.width,pango.ALIGN_CENTER)
 
 				ctx.restore()
 			if self.cpu_nb >= 2:
@@ -349,8 +350,9 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 				self.theme.draw_rectangle(ctx,40,a)
 				ctx.translate(75,-5-(40-a))
 				ctx.restore()
-				self.theme.draw_text(ctx, 'CPU 1' , -65, 0, self.font, self.fontsize, self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3],self.width,pango.ALIGN_CENTER)
-				self.theme.draw_text(ctx,str( a)+ '%', -65, 30, self.font, self.fontsize - 2, self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3],self.width,pango.ALIGN_CENTER)
+				ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
+				self.theme.draw_text(ctx, 'CPU 1' , -65, 0, self.font, self.fontsize,  self.width,pango.ALIGN_CENTER)
+				self.theme.draw_text(ctx,str( a)+ '%', -65, 30, self.font, self.fontsize - 2,  self.width,pango.ALIGN_CENTER)
 				ctx.translate(75,0)
 
 
@@ -363,8 +365,9 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 				ctx.set_source_rgba(self.color_graph[0], self.color_graph[1], self.color_graph[2],self.color_graph[3])
 				self.theme.draw_rectangle(ctx,40,a)
 				ctx.restore()
-				self.theme.draw_text(ctx, 'CPU 2' , -65, 0, self.font, self.fontsize, self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3],self.width,pango.ALIGN_CENTER)
-				self.theme.draw_text(ctx,str( a)+ '%' , -65, 30, self.font, self.fontsize - 2, self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3],self.width,pango.ALIGN_CENTER)
+				ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
+				self.theme.draw_text(ctx, 'CPU 2' , -65, 0, self.font, self.fontsize,  self.width,pango.ALIGN_CENTER)
+				self.theme.draw_text(ctx,str( a)+ '%' , -65, 30, self.font, self.fontsize - 2,  self.width,pango.ALIGN_CENTER)
 				ctx.restore()
 		
 				d = 4
@@ -382,8 +385,9 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 					self.theme.draw_rectangle(ctx,40,a)
 					ctx.translate(75,-5-(40-a))
 					ctx.restore()
-					self.theme.draw_text(ctx, 'CPU 3' , -65, 0, self.font, self.fontsize, self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3],self.width,pango.ALIGN_CENTER)
-					self.theme.draw_text(ctx,str( a)+ '%', -65, 30, self.font, self.fontsize - 2, self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3],self.width,pango.ALIGN_CENTER)
+					ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
+					self.theme.draw_text(ctx, 'CPU 3' , -65, 0, self.font, self.fontsize,  self.width,pango.ALIGN_CENTER)
+					self.theme.draw_text(ctx,str( a)+ '%', -65, 30, self.font, self.fontsize - 2,  self.width,pango.ALIGN_CENTER)
 					ctx.translate(75,0)
 
 
@@ -396,19 +400,19 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 					ctx.set_source_rgba(self.color_graph[0], self.color_graph[1], self.color_graph[2],self.color_graph[3])
 					self.theme.draw_rectangle(ctx,40,a)
 					ctx.restore()
-
-					self.theme.draw_text(ctx, 'CPU 4' , -65, 0, self.font, self.fontsize, self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3],self.width,pango.ALIGN_CENTER)
-					self.theme.draw_text(ctx,str( a)+ '%' , -65, 30, self.font, self.fontsize - 2, self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3],self.width,pango.ALIGN_CENTER)
+					ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
+					self.theme.draw_text(ctx, 'CPU 4' , -65, 0, self.font, self.fontsize,  self.width,pango.ALIGN_CENTER)
+					self.theme.draw_text(ctx,str( a)+ '%' , -65, 30, self.font, self.fontsize - 2,  self.width,pango.ALIGN_CENTER)
 					self.theme.draw_rounded_rectangle(ctx,10,50,50)
 					ctx.restore()
 			m = m +60
-			
-			self.theme.draw_text(ctx, 'Load : ' + self.avg_load, 0, m, self.font, self.fontsize, self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3],self.width,pango.ALIGN_CENTER)
+			ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
+			self.theme.draw_text(ctx, 'Load : ' + self.avg_load, 0, m, self.font, self.fontsize,  self.width,pango.ALIGN_CENTER)
 
 			m = m +20
 			ctx.save()
-
-			self.theme.draw_text(ctx, 'Ram ' + str(self.mem_used) + '%', 0, m, self.font, self.fontsize, self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3],self.width,pango.ALIGN_CENTER)
+			ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
+			self.theme.draw_text(ctx, 'Ram ' + str(self.mem_used) + '%', 0, m, self.font, self.fontsize,  self.width,pango.ALIGN_CENTER)
 			ctx.translate(0,m)
 			ctx.translate(20,15)
 			ctx.set_source_rgba(self.color_background[0], self.color_background[1], self.color_background[2],0.2)
@@ -419,7 +423,8 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 			m = m +20
 			ctx.restore()
 			ctx.save()
-			self.theme.draw_text(ctx,'Swap ' + str(self.swap_used)+ "%", 0, m, self.font, self.fontsize, self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3],self.width,pango.ALIGN_CENTER)
+			ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
+			self.theme.draw_text(ctx,'Swap ' + str(self.swap_used)+ "%", 0, m, self.font, self.fontsize,  self.width,pango.ALIGN_CENTER)
 			ctx.translate(0,m)
 			ctx.translate(20,15)
 			ctx.set_source_rgba(self.color_background[0], self.color_background[1], self.color_background[2],0.2)
@@ -430,18 +435,20 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 			ctx.restore()
 			ctx.save()
 			m = m +30
-			self.theme.draw_text(ctx, 'IP : ' + self.ip, 0, m, self.font, self.fontsize, self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3],self.width,pango.ALIGN_CENTER)
+			ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
+			self.theme.draw_text(ctx, 'IP : ' + self.ip, 0, m, self.font, self.fontsize,  self.width,pango.ALIGN_CENTER)
 			m = m +25
-			self.theme.draw_text(ctx, 'Upload - ' + str(self.upload)[:3] + ' KB/sec', 0, m, self.font, self.fontsize, self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3],self.width,pango.ALIGN_CENTER)
+			self.theme.draw_text(ctx, 'Upload - ' + str(self.upload)[:3] + ' KB/sec', 0, m, self.font, self.fontsize,  self.width,pango.ALIGN_CENTER)
 			m = m +20
 
-			self.theme.draw_text(ctx, 'Download - ' + str(self.download)[:3] + ' KB/sec', 0, m, self.font, self.fontsize, self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3],self.width,pango.ALIGN_CENTER)
+			self.theme.draw_text(ctx, 'Download - ' + str(self.download)[:3] + ' KB/sec', 0, m, self.font, self.fontsize,  self.width,pango.ALIGN_CENTER)
 			m = m +40
 			ctx.restore()
 			ctx.save()
 			for i in self.disks:
 				a = sensors.disk_get_usage(i)
-				self.theme.draw_text(ctx,a[0]+  ' ' + a[4], 0, m, self.font, self.fontsize, self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3],self.width,pango.ALIGN_CENTER)
+				ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
+				self.theme.draw_text(ctx,a[0]+  ' ' + a[4], 0, m, self.font, self.fontsize,  self.width,pango.ALIGN_CENTER)
 				ctx.translate(0,m)
 				ctx.translate(20,15)
 				ctx.set_source_rgba(self.color_background[0], self.color_background[1], self.color_background[2],0.2)
@@ -473,9 +480,10 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 				self.theme.draw_rectangle(ctx,40,a)
 				ctx.translate(75,-5-(40-a))
 				ctx.restore()
-				self.theme.draw_text(ctx, self.bat_list[0] , -65, 0, self.font, self.fontsize, self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3],self.width,pango.ALIGN_CENTER)
+				ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
+				self.theme.draw_text(ctx, self.bat_list[0] , -65, 0, self.font, self.fontsize,  self.width,pango.ALIGN_CENTER)
 
-				self.theme.draw_text(ctx,str(self.bat_load) + '%', -65, 30, self.font, self.fontsize - 2, self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3],self.width,pango.ALIGN_CENTER)
+				self.theme.draw_text(ctx,str(self.bat_load) + '%', -65, 30, self.font, self.fontsize - 2,  self.width,pango.ALIGN_CENTER)
 
 				ctx.translate(75,0)
 
@@ -492,16 +500,17 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 				ctx.set_source_rgba(self.color_graph[0], self.color_graph[1], self.color_graph[2],self.color_graph[3])
 				self.theme.draw_rectangle(ctx,40,a)
 				ctx.restore()
-				self.theme.draw_text(ctx, self.wire_list[0] , -65, 0, self.font, self.fontsize, self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3],self.width,pango.ALIGN_CENTER)
+				ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
+				self.theme.draw_text(ctx, self.wire_list[0] , -65, 0, self.font, self.fontsize,  self.width,pango.ALIGN_CENTER)
 
-				self.theme.draw_text(ctx,str( int(self.wire_data['percentage']))+ '%' , -65, 30, self.font, self.fontsize - 2, self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3],self.width,pango.ALIGN_CENTER)
+				self.theme.draw_text(ctx,str( int(self.wire_data['percentage']))+ '%' , -65, 30, self.font, self.fontsize - 2,  self.width,pango.ALIGN_CENTER)
 
 			m = m +60
 			if self.height != m and self.expand == False:
 				self.height = m
-#							ctx.translate(-20,-15)self.theme.draw_text(ctx, self.theme_name, 0, 50, self.font, self.fontsize, self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3],self.width,pango.ALIGN_LEFT)
+#							ctx.translate(-20,-15)self.theme.draw_text(ctx, self.theme_name, 0, 50, self.font, self.fontsize,  self.width,pango.ALIGN_LEFT)
 
-#			self.theme.draw_text(ctx, 'mouse x ' + str(self.mousex ) + ' \n mouse y ' + str(self.mousey ) , 0, 170, self.font, self.fontsize, self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3],self.width,pango.ALIGN_LEFT)
+#			self.theme.draw_text(ctx, 'mouse x ' + str(self.mousex ) + ' \n mouse y ' + str(self.mousey ) , 0, 170, self.font, self.fontsize,  self.width,pango.ALIGN_LEFT)
 
 
 			# render svg-file

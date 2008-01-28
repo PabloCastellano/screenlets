@@ -232,13 +232,14 @@ class ExampleScreenlet (screenlets.Screenlet):
 
 			# TEST: render example-bg into context (either PNG or SVG)
 			self.theme.render(ctx, 'example-bg')
-			self.theme.draw_text(ctx, self.test_text, 0, 0, self.font_example , 10, self.color_example[0], self.color_example[1], self.color_example[2],self.color_example[3],self.width,pango.ALIGN_LEFT)
+			ctx.set_source_rgba( self.color_example[0], self.color_example[1], self.color_example[2],self.color_example[3])
+			self.theme.draw_text(ctx, self.test_text, 0, 0, self.font_example , 10,self.width,pango.ALIGN_LEFT)
 
-			self.theme.draw_text(ctx, 'timer - ' + str(self.number), 0, 130, self.font_example , 10, self.color_example[0], self.color_example[1], self.color_example[2],self.color_example[3],self.width,pango.ALIGN_LEFT)
+			self.theme.draw_text(ctx, 'timer - ' + str(self.number), 0, 130, self.font_example , 10, self.width,pango.ALIGN_LEFT)
 
-			self.theme.draw_text(ctx, self.theme_name, 0, 50, self.font_example , 10, self.color_example[0], self.color_example[1], self.color_example[2],self.color_example[3],self.width,pango.ALIGN_LEFT)
+			self.theme.draw_text(ctx, self.theme_name, 0, 50, self.font_example , 10, self.width,pango.ALIGN_LEFT)
 
-			self.theme.draw_text(ctx, 'mouse x ' + str(self.mousex ) + ' \n mouse y ' + str(self.mousey ) , 0, 170, self.font_example , 10, self.color_example[0], self.color_example[1], self.color_example[2],self.color_example[3],self.width,pango.ALIGN_LEFT)
+			self.theme.draw_text(ctx, 'mouse x ' + str(self.mousex ) + ' \n mouse y ' + str(self.mousey ) , 0, 170, self.font_example , 10,self.width,pango.ALIGN_LEFT)
 
 
 			# render svg-file

@@ -176,7 +176,7 @@ class ScreenletTheme (dict):
 			#raise Exception
 			return False
 
-	def draw_text(self, ctx, text, x, y,  font, size, color_red, color_green, color_blue, color_alpha, width, allignment):
+	def draw_text(self, ctx, text, x, y,  font, size, width, allignment):
 		"""Draws text"""
 		ctx.save()
 		ctx.translate(x, y)
@@ -193,7 +193,6 @@ class ScreenletTheme (dict):
 		self.p_layout.set_width(width * pango.SCALE)
 		self.p_layout.set_alignment(allignment)
 		self.p_layout.set_markup(text)
-		ctx.set_source_rgba(color_red, color_green, color_blue, color_alpha)
 		ctx.show_layout(self.p_layout)
 		ctx.restore()
 

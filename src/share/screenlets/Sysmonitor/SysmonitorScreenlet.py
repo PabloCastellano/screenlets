@@ -335,7 +335,7 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 				ctx.translate(75,-5-(40-a))
 				ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
 				self.theme.draw_text(ctx, 'CPU' , -75-70, 0, self.font, self.fontsize,  self.width,pango.ALIGN_CENTER)
-				self.theme.draw_text(ctx,str( a)+ '%', -75-70, 30, self.font, self.fontsize - 2,  self.width,pango.ALIGN_CENTER)
+				self.theme.draw_text(ctx,str(self.cpu_load[0])+ '%', -75-70, 30, self.font, self.fontsize - 2,  self.width,pango.ALIGN_CENTER)
 
 				ctx.restore()
 			if self.cpu_nb >= 2:
@@ -352,7 +352,7 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 				ctx.restore()
 				ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
 				self.theme.draw_text(ctx, 'CPU 1' , -65, 0, self.font, self.fontsize,  self.width,pango.ALIGN_CENTER)
-				self.theme.draw_text(ctx,str( a)+ '%', -65, 30, self.font, self.fontsize - 2,  self.width,pango.ALIGN_CENTER)
+				self.theme.draw_text(ctx,str(self.cpu_load[1])+ '%', -65, 30, self.font, self.fontsize - 2,  self.width,pango.ALIGN_CENTER)
 				ctx.translate(75,0)
 
 
@@ -367,7 +367,7 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 				ctx.restore()
 				ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
 				self.theme.draw_text(ctx, 'CPU 2' , -65, 0, self.font, self.fontsize,  self.width,pango.ALIGN_CENTER)
-				self.theme.draw_text(ctx,str( a)+ '%' , -65, 30, self.font, self.fontsize - 2,  self.width,pango.ALIGN_CENTER)
+				self.theme.draw_text(ctx,str(self.cpu_load[2])+ '%' , -65, 30, self.font, self.fontsize - 2,  self.width,pango.ALIGN_CENTER)
 				ctx.restore()
 		
 				d = 4
@@ -387,7 +387,7 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 					ctx.restore()
 					ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
 					self.theme.draw_text(ctx, 'CPU 3' , -65, 0, self.font, self.fontsize,  self.width,pango.ALIGN_CENTER)
-					self.theme.draw_text(ctx,str( a)+ '%', -65, 30, self.font, self.fontsize - 2,  self.width,pango.ALIGN_CENTER)
+					self.theme.draw_text(ctx,str(self.cpu_load[3])+ '%', -65, 30, self.font, self.fontsize - 2,  self.width,pango.ALIGN_CENTER)
 					ctx.translate(75,0)
 
 
@@ -402,7 +402,7 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 					ctx.restore()
 					ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
 					self.theme.draw_text(ctx, 'CPU 4' , -65, 0, self.font, self.fontsize,  self.width,pango.ALIGN_CENTER)
-					self.theme.draw_text(ctx,str( a)+ '%' , -65, 30, self.font, self.fontsize - 2,  self.width,pango.ALIGN_CENTER)
+					self.theme.draw_text(ctx,str(self.cpu_load[4])+ '%' , -65, 30, self.font, self.fontsize - 2,  self.width,pango.ALIGN_CENTER)
 					self.theme.draw_rounded_rectangle(ctx,0,0,10,50,50)
 					ctx.restore()
 			m = m +60

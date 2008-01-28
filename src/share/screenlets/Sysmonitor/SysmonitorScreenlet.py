@@ -291,19 +291,19 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 			#DRAW BACKGROUND ALLWAYS
 			if self.show_frame:
 				ctx.set_source_rgba(0, 0, 0,0.7)	
-				self.theme.draw_rectangle(ctx,self.width,self.height,False)
+				self.theme.draw_rectangle(ctx,0,0,self.width,self.height,False)
 				ctx.set_source_rgba(89/255, 89/255, 89/255,0.43)	
 				ctx.translate (1,1)
-				self.theme.draw_rectangle(ctx,self.width-2,self.height-2,False)
+				self.theme.draw_rectangle(ctx,0,0,self.width-2,self.height-2,False)
 
 				ctx.set_source_rgba(229/255, 229/255, 229/255,76/255)	
 				ctx.translate (1,1)
-				self.theme.draw_rectangle(ctx,self.width-2,self.height-2)
+				self.theme.draw_rectangle(ctx,0,0,self.width-2,self.height-2)
 				ctx.translate (-2,-2)
 			
 			#DRAW BACKGROUND USER SELECTED
 			ctx.set_source_rgba(self.color_background[0], self.color_background[1], self.color_background[2],self.color_background[3])	
-			self.theme.draw_rectangle(ctx,self.width,self.height)
+			self.theme.draw_rectangle(ctx,0,0,self.width,self.height)
 			ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
 			#DRAW TEXT
 			m = self.starty + 5
@@ -327,11 +327,11 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 				ctx.translate(65,m)
 				ctx.set_source_rgba(self.color_background[0], self.color_background[1], self.color_background[2],0.2)	
 				a = (40* self.cpu_load[0])/100
-				self.theme.draw_rounded_rectangle(ctx,10,50,50)
+				self.theme.draw_rounded_rectangle(ctx,0,0,10,50,50)
 				ctx.translate(5,5)
 				ctx.translate (0,40-a)
 				ctx.set_source_rgba(self.color_graph[0], self.color_graph[1], self.color_graph[2],self.color_graph[3])	
-				self.theme.draw_rectangle(ctx,40,a)
+				self.theme.draw_rectangle(ctx,0,0,40,a)
 				ctx.translate(75,-5-(40-a))
 				ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
 				self.theme.draw_text(ctx, 'CPU' , -75-70, 0, self.font, self.fontsize,  self.width,pango.ALIGN_CENTER)
@@ -343,11 +343,11 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 				a = (40* self.cpu_load[1])/100
 				ctx.set_source_rgba(self.color_background[0], self.color_background[1], self.color_background[2],0.2)	
 				ctx.save()
-				self.theme.draw_rounded_rectangle(ctx,10,50,50)
+				self.theme.draw_rounded_rectangle(ctx,0,0,10,50,50)
 				ctx.translate(5,5)
 				ctx.translate (0,40-a)
 				ctx.set_source_rgba(self.color_graph[0], self.color_graph[1], self.color_graph[2],self.color_graph[3])	
-				self.theme.draw_rectangle(ctx,40,a)
+				self.theme.draw_rectangle(ctx,0,0,40,a)
 				ctx.translate(75,-5-(40-a))
 				ctx.restore()
 				ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
@@ -359,11 +359,11 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 				a = (40* self.cpu_load[2])/100
 				ctx.set_source_rgba(self.color_background[0], self.color_background[1], self.color_background[2],0.2)
 				ctx.save()
-				self.theme.draw_rounded_rectangle(ctx,10,50,50)
+				self.theme.draw_rounded_rectangle(ctx,0,0,10,50,50)
 				ctx.translate(5,5)
 				ctx.translate (0,40-a)
 				ctx.set_source_rgba(self.color_graph[0], self.color_graph[1], self.color_graph[2],self.color_graph[3])
-				self.theme.draw_rectangle(ctx,40,a)
+				self.theme.draw_rectangle(ctx,0,0,40,a)
 				ctx.restore()
 				ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
 				self.theme.draw_text(ctx, 'CPU 2' , -65, 0, self.font, self.fontsize,  self.width,pango.ALIGN_CENTER)
@@ -378,11 +378,11 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 					a = (40* self.cpu_load[3])/100
 					ctx.set_source_rgba(self.color_background[0], self.color_background[1], self.color_background[2],0.2)	
 					ctx.save()
-					self.theme.draw_rounded_rectangle(ctx,10,50,50)
+					self.theme.draw_rounded_rectangle(ctx,0,0,10,50,50)
 					ctx.translate(5,5)
 					ctx.translate (0,40-a)
 					ctx.set_source_rgba(self.color_graph[0], self.color_graph[1], self.color_graph[2],self.color_graph[3])	
-					self.theme.draw_rectangle(ctx,40,a)
+					self.theme.draw_rectangle(ctx,0,0,40,a)
 					ctx.translate(75,-5-(40-a))
 					ctx.restore()
 					ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
@@ -398,12 +398,12 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 					ctx.translate(5,5)
 					ctx.translate (0,40-a)
 					ctx.set_source_rgba(self.color_graph[0], self.color_graph[1], self.color_graph[2],self.color_graph[3])
-					self.theme.draw_rectangle(ctx,40,a)
+					self.theme.draw_rectangle(ctx,0,0,40,a)
 					ctx.restore()
 					ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
 					self.theme.draw_text(ctx, 'CPU 4' , -65, 0, self.font, self.fontsize,  self.width,pango.ALIGN_CENTER)
 					self.theme.draw_text(ctx,str( a)+ '%' , -65, 30, self.font, self.fontsize - 2,  self.width,pango.ALIGN_CENTER)
-					self.theme.draw_rounded_rectangle(ctx,10,50,50)
+					self.theme.draw_rounded_rectangle(ctx,0,0,10,50,50)
 					ctx.restore()
 			m = m +60
 			ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
@@ -416,9 +416,9 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 			ctx.translate(0,m)
 			ctx.translate(20,15)
 			ctx.set_source_rgba(self.color_background[0], self.color_background[1], self.color_background[2],0.2)
-			self.theme.draw_rectangle(ctx,140,5)
+			self.theme.draw_rectangle(ctx,0,0,140,5)
 			ctx.set_source_rgba(self.color_graph[0], self.color_graph[1], self.color_graph[2],self.color_graph[3])
-			self.theme.draw_rectangle(ctx,(self.mem_used*100)/140,5)
+			self.theme.draw_rectangle(ctx,0,0,(self.mem_used*100)/140,5)
 			ctx.translate(-20,-15)
 			m = m +20
 			ctx.restore()
@@ -428,9 +428,9 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 			ctx.translate(0,m)
 			ctx.translate(20,15)
 			ctx.set_source_rgba(self.color_background[0], self.color_background[1], self.color_background[2],0.2)
-			self.theme.draw_rectangle(ctx,140,5)
+			self.theme.draw_rectangle(ctx,0,0,140,5)
 			ctx.set_source_rgba(self.color_graph[0], self.color_graph[1], self.color_graph[2],self.color_graph[3])
-			self.theme.draw_rectangle(ctx,(self.swap_used*100)/140,5)
+			self.theme.draw_rectangle(ctx,0,0,(self.swap_used*100)/140,5)
 			ctx.translate(-20,-15)
 			ctx.restore()
 			ctx.save()
@@ -452,10 +452,10 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 				ctx.translate(0,m)
 				ctx.translate(20,15)
 				ctx.set_source_rgba(self.color_background[0], self.color_background[1], self.color_background[2],0.2)
-				self.theme.draw_rectangle(ctx,140,5)
+				self.theme.draw_rectangle(ctx,0,0,140,5)
 				ctx.set_source_rgba(self.color_graph[0], self.color_graph[1], self.color_graph[2],self.color_graph[3])
 
-				self.theme.draw_rectangle(ctx,(int(a[4].replace('%',''))*140)/100,5)
+				self.theme.draw_rectangle(ctx,0,0,(int(a[4].replace('%',''))*140)/100,5)
 				ctx.translate(-20,-15)
 				ctx.restore()
 				ctx.save()
@@ -472,12 +472,12 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 	
 				ctx.set_source_rgba(self.color_background[0], self.color_background[1], self.color_background[2],0.2)	
 				ctx.save()
-				self.theme.draw_rounded_rectangle(ctx,10,50,50)
+				self.theme.draw_rounded_rectangle(ctx,0,0,10,50,50)
 
 				ctx.translate(5,5)
 				ctx.translate (0,40-a)
 				ctx.set_source_rgba(self.color_graph[0], self.color_graph[1], self.color_graph[2],self.color_graph[3])		
-				self.theme.draw_rectangle(ctx,40,a)
+				self.theme.draw_rectangle(ctx,0,0,40,a)
 				ctx.translate(75,-5-(40-a))
 				ctx.restore()
 				ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
@@ -493,12 +493,12 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 
 				ctx.set_source_rgba(self.color_background[0], self.color_background[1], self.color_background[2],0.2)
 				ctx.save()
-				self.theme.draw_rounded_rectangle(ctx,10,50,50)
+				self.theme.draw_rounded_rectangle(ctx,0,0,10,50,50)
 
 				ctx.translate(5,5)
 				ctx.translate (0,40-a)
 				ctx.set_source_rgba(self.color_graph[0], self.color_graph[1], self.color_graph[2],self.color_graph[3])
-				self.theme.draw_rectangle(ctx,40,a)
+				self.theme.draw_rectangle(ctx,0,0,40,a)
 				ctx.restore()
 				ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
 				self.theme.draw_text(ctx, self.wire_list[0] , -65, 0, self.font, self.fontsize,  self.width,pango.ALIGN_CENTER)
@@ -522,7 +522,7 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 	def on_draw_shape (self, ctx):
 		if self.theme:
 			ctx.set_source_rgba(0, 0, 0,1)	
-			self.theme.draw_rectangle(ctx,self.width,self.height)
+			self.theme.draw_rectangle(ctx,0,0,self.width,self.height)
 	
 # If the program is run directly or passed as an argument to the python
 # interpreter then create a Screenlet instance and show it

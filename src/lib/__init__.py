@@ -197,27 +197,37 @@ class ScreenletTheme (dict):
 		ctx.restore()
 
 
-	def draw_circle(self,ctx,width,height,fill=True):
+	def draw_circle(self,ctx,x,y,width,height,fill=True):
 		"""Draws a circule"""
+		ctx.save()
+		ctx.translate(x, y)
        		ctx.arc(width/2,height/2,min(height,width)/2,0,2*math.pi)
 		if fill:ctx.fill()
 		else: ctx.stroke()
+		ctx.restore()
 
-	#def draw_line(self,ctx,x1,y1,x2,y2,fill=True):
-	#	"""Draws a line"""
-        #	ctx.move_to(x1, y1)
-        #	ctx.rel_line_to(x2, y2)
-	#	if fill:ctx.fill()
-	#	else: ctx.stroke()
+	def draw_line(self,ctx,start_x,start_y,end_x,end_y,line_width = 1):
+		"""Draws a line"""
+		ctx.save()
+		ctx.move_to(start_x, start_y)
+		ctx.set_line_width(line_width)
+        	ctx.rel_line_to(end_x, end_y)
+		ctx.stroke()
+		ctx.restore()
 
-	def draw_rectangle(self,ctx,width,height,fill=True):
+	def draw_rectangle(self,ctx,x,y,width,height,fill=True):
 		"""Draws a rectangle"""
+		ctx.save()
+		ctx.translate(x, y)
 		ctx.rectangle (0,0,width,height)
 		if fill:ctx.fill()
 		else: ctx.stroke()
+		ctx.restore()
 
-	def draw_rounded_rectangle(self,ctx,rounded_angle,width,height,fill=True):
+	def draw_rounded_rectangle(self,ctx,x,y,rounded_angle,width,height,fill=True):
 		"""Draws a rounded rectangle"""
+		ctx.save()
+		ctx.translate(x, y)
 		padding=0 # Padding from the edges of the window
         	rounded=rounded_angle # How round to make the edges 20 is ok
         	w = width
@@ -245,6 +255,7 @@ class ScreenletTheme (dict):
         	# Fill in the shape.
 		if fill:ctx.fill()
 		else: ctx.stroke()
+		ctx.restore()
 
 	def show_tooltip (self,text,tooltipx,tooltipy):
 	        """Show tooltip window at current mouse position."""

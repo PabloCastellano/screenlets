@@ -225,16 +225,15 @@ class ExampleScreenlet (screenlets.Screenlet):
 		if self.theme:
 			# set scale rel. to scale-attribute
 			ctx.scale(self.scale, self.scale)
-
+			ctx.set_source_rgba(self.color_example[2], self.color_example[1], self.color_example[0],0.4)	
 			if self.hover:
-				ctx.set_source_rgba(self.color_example[2], self.color_example[1], self.color_example[0],0.4)	
-				self.theme.draw_rounded_rectangle(ctx,20,self.width,self.height)
-
+				self.theme.draw_rounded_rectangle(ctx,0,0,20,self.width,self.height)
+			self.theme.draw_circle(ctx,0,0,self.width,self.height)
 			# TEST: render example-bg into context (either PNG or SVG)
 			self.theme.render(ctx, 'example-bg')
 			ctx.set_source_rgba( self.color_example[0], self.color_example[1], self.color_example[2],self.color_example[3])
 			self.theme.draw_text(ctx, self.test_text, 0, 0, self.font_example , 10,self.width,pango.ALIGN_LEFT)
-
+			self.theme.draw_line(ctx,0,40,self.width,0,1)
 			self.theme.draw_text(ctx, 'timer - ' + str(self.number), 0, 130, self.font_example , 10, self.width,pango.ALIGN_LEFT)
 
 			self.theme.draw_text(ctx, self.theme_name, 0, 50, self.font_example , 10, self.width,pango.ALIGN_LEFT)

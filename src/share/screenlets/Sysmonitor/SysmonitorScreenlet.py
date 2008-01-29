@@ -144,7 +144,6 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 				if self.cpu_load[i] > 99: self.cpu_load[i] = 99
 				elif self.cpu_load[i] < 0: self.cpu_load[i]=0
 			except : pass
-		self.top = sensors.top_process_get_list()
 		self.mem_used = sensors.mem_get_usage()
 		self.swap_used = sensors.mem_get_usedswap()
 		self.up = sensors.net_get_updown()[0]

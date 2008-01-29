@@ -606,6 +606,200 @@ def top_process_get_list():
 
 
 
+###########################################
+#                                         #
+#               Custom Sensors            # thanks Mathieu Villegas for you great watermark
+#                                         #
+###########################################
+
+
+def sensors_get_sensors_list():
+	res = commands.getstatusoutput('sensors')
+	output = ['Custom Sensors']	
+	if res[0]==0:
+		sol = res[1].replace(':\n ',': ').replace(':\n\t',': ').splitlines()
+		for i in sol:
+			i = i.strip()
+			if (i.find('\xb0')!= -1) or (i.find('\xc2')!= -1) or (i.find('temp')!= -1) or (i.find('Temp')!= -1) or (i.find(' V ')!= -1) or (i.find(' RPM ')!= -1):
+				output.append(i.lstrip())#.split(')')[0]+')')
+	#now look for nvidia sensors
+	res = commands.getstatusoutput(' nvidia-settings -q GPUAmbientTemp | grep :')
+	if res[0] == 0:
+		if res[1].strip().startswith('Attribute \'GPUAmbientTemp\''):
+			sol = res[1].splitlines()[0].split('):')[1].strip()
+			output.append('nvidia GPU ambiant: '+str(float(sol))+'°C')
+	res = commands.getstatusoutput(' nvidia-settings -q GPUCoreTemp | grep :')
+	if res[0] == 0:
+		if res[1].strip().startswith('Attribute \'GPUCoreTemp\''):
+			sol = res[1].splitlines()[0].split('):')[1].strip()
+			output.append('nvidia GPU core: '+str(float(sol))+'°C')	
+		
+		
+	#recherche des senseurs ACPI
+	try:
+		path = "/proc/acpi/thermal_zone/"
+		files = os.listdir(path)
+		for entry in files:
+			try:
+				f = open(path+entry+'/temperature', "r")
+				tmp = f.readlines(200)
+				f.close()
+				val = tmp[0].replace('temperature:','').replace('C','').strip()
+				output.append('acpi temp '+entry+': '+val+'°C')
+			except:
+				print("Can't open "+path+entry+'/temperature')
+	except:
+		print("Can't open folder /proc/acpi/thermal_zone/")
+
+	#recherche des senseurs IBM
+	path = "/proc/acpi/ibm/thermal"
+	try:
+		f = open(path, "r")
+		tmp = f.readlines(200)
+		f.close()
+		lst = tmp[0].split(' ')
+		pos = 0
+		for i in lst:
+			i = i.strip()
+			if i != '' and i != '-128':
+				output.append('ibm temp '+str(pos)+': '+i+'°C')
+			pos = pos+1
+	except:
+		print("Can't open "+path)
+	
+	path = "/proc/acpi/ibm/fan"
+	try:
+		f = open(path, "r")
+		tmp = f.readlines(200)
+		f.close()
+		for i in tmp:
+			if i.startswith('speed:'):
+				output.append('ibm fan: '+i.split(':')[1].strip()+' RPM')
+	except:
+		print("Can't open "+path)
+		
+		#recherche des temperatures de disque
+	res = commands.getstatusoutput("netcat 127.0.0.1 7634")
+	if res[0] != 0:
+		res = commands.getstatusoutput("nc 127.0.0.1 7634")
+	if res[0] == 0:
+		try:
+			hddtemp_data = res[1].lstrip('|').rstrip('|')
+			sol = hddtemp_data.split('||')
+			for i in sol:
+				if len(i)>1:
+					lst = i.split('|')
+					output.append("hddtemp sensor "+lst[0]+": "+lst[2]+" °"+lst[3])
+		except:
+			print('Error during hddtemp drives search')
+	else:
+		print('Hddtemp not installed')
+		return output
+
+
+def sensors_get_sensor_value(sensorName):
+
+	if sensorName.startswith('nvidia GPU ambiant'):
+		res = commands.getstatusoutput(' nvidia-settings -q GPUAmbientTemp | grep :')
+		if res[0] == 0:
+			if res[1].strip().startswith('Attribute \'GPUAmbientTemp\''):
+				#ici, je fais un str(float()) comme ca ca transforme 48. en 48.0
+				return str(float(res[1].splitlines()[0].split('):')[1].strip()))+'°C'
+	elif sensorName.startswith('nvidia GPU core'):
+		res = commands.getstatusoutput(' nvidia-settings -q GPUCoreTemp | grep :')
+		if res[0] == 0:
+			if res[1].strip().startswith('Attribute \'GPUCoreTemp\''):
+				#ici, je fais un str(float()) comme ca ca transforme 48. en 48.0
+				return str(float(res[1].splitlines()[0].split('):')[1].strip()))+'°C'
+
+	elif sensorName.startswith('acpi temperature'):
+		name = sensorName.split()[2].strip()
+		path = "/proc/acpi/thermal_zone/"+name+"/temperature"
+		try:
+			f = open(path, "r")
+			tmp = f.readlines(200)
+			f.close()
+			val = tmp[0].replace('temperature:','').replace('C','').strip()
+			
+			return val+'°C'
+		except:
+			print("can't read temperature in: "+path)
+			return 'Error'
+
+	elif sensorName.startswith('ibm temperature'):
+		path = "/proc/acpi/ibm/thermal"
+		try:
+			name = sensorName
+			f = open(path, "r")
+			tmp = f.readlines(200)
+			f.close()
+			lst = tmp[0].split(' ')
+			val = int(sensorName.split(' ')[2])
+			return lst[val]+'°C'
+		except:
+			print("Can't read value from "+path)
+			return 'None'
+		
+	elif sensorName.startswith('ibm fan'):
+		path = "/proc/acpi/ibm/fan"
+		try:
+			name = sensorName
+			f = open(path, "r")
+			tmp = f.readlines(200)
+			f.close()
+			for i in tmp:
+				if i.startswith('speed:'):
+		
+					return i.split(':')[1].strip()+' RPM'
+			return 'None'
+		except:
+			print("Can't read value from "+path)
+			return 'None'
+
+	elif sensorName.startswith('hddtemp sensor '):
+		res = commands.getstatusoutput("netcat 127.0.0.1 7634")
+		if res[0] != 0:
+			res = commands.getstatusoutput("nc 127.0.0.1 7634")
+		name = sensorName[15:]
+		if res[0] == 0:
+			hddtemp_data = res[1].lstrip('|').rstrip('|')
+			sol = hddtemp_data.split('||')
+			for i in sol:
+				if len(i)>1:
+					if i.startswith(name):
+						lst = i.split('|')
+						return lst[0]+": "+lst[2]+" °"+lst[3]
+		else:
+			print('Hddtemp not installed')
+			return ''
+
+	
+
+		#maintenant, je recherche dans lm-sensors
+	else:
+		res = commands.getstatusoutput('sensors')
+		if res[0] == 0:
+			sol = res[1].replace(':\n ',': ').replace(':\n\t',': ').splitlines()
+			for s in sol:
+				s.strip()
+				if s.startswith(sensorName):
+					try:
+						s = s.split(':')[1].strip(' ').strip('\t')
+						i = 0
+						while(((s[i]>='0') and (s[i]<='9')) or (s[i]=='.') or (s[i]=='+') or (s[i]=='-')):
+							i = i+1
+						return float(s[0:i])
+					except:
+						return 0
+
+
+
+
+
+
+
+
+
 # ------------------------------------------------------------------------------
 # CLASSES should not be used , calling classes from multiple screenlets instances causes erros due to goobject multiple instaces
 # ------------------------------------------------------------------------------

@@ -68,11 +68,13 @@ class SensorsScreenlet(screenlets.Screenlet):
 				self.sensor_list.append(str(sensors.bat_get_battery_list()[0]))
 			for i in sensors.disk_get_disk_list():
 				self.sensor_list.append(str(i))
-	
+			print sensors.sensors_get_sensors_list()
+			if sensors.sensors_get_sensors_list():
+				for i in sensors.sensors_get_sensors_list():
+					self.sensor_list.append(str(i))	
 		
 		self.theme_name = "default"
 		# add default menu items
-		self.add_default_menuitems()
 		# add settings
 		self.add_options_group('Sensors', 'CPU-Graph specific options')
 
@@ -100,6 +102,10 @@ class SensorsScreenlet(screenlets.Screenlet):
 
 		# init the timeout function
 		self.update_interval = self.update_interval
+
+
+	def on_init(self):
+		self.add_default_menuitems()
 
 	# attribute-"setter", handles setting of attributes
 	def __setattr__(self, name, value):
@@ -151,8 +157,15 @@ class SensorsScreenlet(screenlets.Screenlet):
 			try:
 				self.load = (bat_data[1]*100)/bat_data[2]
 			except: self.load = 0
+		elif self.sensor.endswith('C'):
+			self.load = 0
+		elif self.sensor.endswith('RPM'):
+			self.load = 0
+		elif self.sensor.endswith('V'):
+			self.load = 0				
+		elif self.sensor.endswith('Custom Sensors'):
+			pass			
 
-		
 
 		else:
 			self.load = int(sensors.disk_get_usage(self.sensor)[4].replace('%',''))
@@ -167,8 +180,6 @@ class SensorsScreenlet(screenlets.Screenlet):
 		self.redraw_canvas()
 		return True
 
-	def handle_sensor_updated (self, sensor):
-		self.redraw_canvas()
 
 	def on_draw(self, ctx):
 		# get load
@@ -213,7 +224,11 @@ class SensorsScreenlet(screenlets.Screenlet):
 			if len(str(self.load))==1:
 				self.load = "0" + str(self.load)
 			ctx.set_source_rgba(1, 1, 1, 0.9)
-			self.theme.draw_text(ctx,'<small><small><small><small>' +self.sensor +'</small></small></small></small>\n'+self.text_prefix + str(self.load) + self.text_suffix, 15, 20, 'Free Sans', 25,  self.width,pango.ALIGN_LEFT)
+			if self.sensor.endswith('RPM') or self.sensor.endswith('C') or self.sensor.endswith('V'):
+				text = '<small><small><small><small>' +self.sensor +'</small></small></small></small>\n'	
+			else:
+				text = '<small><small><small><small>' +self.sensor +'</small></small></small></small>\n'+self.text_prefix + str(self.load) + self.text_suffix
+			self.theme.draw_text(ctx,text, 15, 20, 'Free Sans', 25,  self.width,pango.ALIGN_LEFT)
 			
 			
 		# draw glass (if theme available)

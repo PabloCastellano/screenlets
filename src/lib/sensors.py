@@ -645,7 +645,7 @@ def sensors_get_sensors_list():
 				tmp = f.readlines(200)
 				f.close()
 				val = tmp[0].replace('temperature:','').replace('C','').strip()
-				output.append('acpi temp '+entry+': '+val+'°C')
+				output.append('acpi temperature '+entry+': '+val+'°C')
 			except:
 				print("Can't open "+path+entry+'/temperature')
 	except:
@@ -662,7 +662,7 @@ def sensors_get_sensors_list():
 		for i in lst:
 			i = i.strip()
 			if i != '' and i != '-128':
-				output.append('ibm temp '+str(pos)+': '+i+'°C')
+				output.append('ibm temperature '+str(pos)+': '+i+'°C')
 			pos = pos+1
 	except:
 		print("Can't open "+path)

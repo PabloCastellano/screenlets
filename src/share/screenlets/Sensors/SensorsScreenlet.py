@@ -72,7 +72,8 @@ class SensorsScreenlet(screenlets.Screenlet):
 			if sensors.sensors_get_sensors_list():
 				for i in sensors.sensors_get_sensors_list():
 					self.sensor_list.append(str(i))	
-		
+					#print i.split(':')[0]
+					
 		self.theme_name = "default"
 		# add default menu items
 		# add settings
@@ -143,7 +144,7 @@ class SensorsScreenlet(screenlets.Screenlet):
 		if self.sensor.startswith('CPU'):
 			self.new_cpu=sensors.cpu_get_load(int(self.sensor[3]))
 
-			self.load = self.new_cpu-self.old_cpu
+			self.load = int(self.new_cpu-self.old_cpu)
 			
 			self.old_cpu = self.new_cpu
 		elif self.sensor.startswith('RAM'):
@@ -158,17 +159,23 @@ class SensorsScreenlet(screenlets.Screenlet):
 				self.load = (bat_data[1]*100)/bat_data[2]
 			except: self.load = 0
 		elif self.sensor.endswith('C'):
+
+			self.sensor = str(self.sensor.split(':')[0]) + ':' + str(sensors.sensors_get_sensor_value(self.sensor.split(':')[0]))
 			self.load = 0
 		elif self.sensor.endswith('RPM'):
+			self.sensor = str(self.sensor.split(':')[0]) + ':' +str(sensors.sensors_get_sensor_value(self.sensor.split(':')[0]))
 			self.load = 0
 		elif self.sensor.endswith('V'):
-			self.load = 0				
+			self.sensor = str(self.sensor.split(':')[0]) + ':' +str(sensors.sensors_get_sensor_value(self.sensor.split(':')[0]))
+			self.load = 0
 		elif self.sensor.endswith('Custom Sensors'):
 			pass			
 
 
 		else:
-			self.load = int(sensors.disk_get_usage(self.sensor)[4].replace('%',''))
+
+			if self.sensor != None:
+				self.load = int(sensors.disk_get_usage(self.sensor)[4].replace('%',''))
 		
 
 
@@ -198,7 +205,8 @@ class SensorsScreenlet(screenlets.Screenlet):
 				ctx.move_to(10,80)
 				i=0
 				for l in self.loads:
-					ctx.line_to(i*(180./(self.nb_points-1))+10,80-l*.65)
+					try:ctx.line_to(i*(180./(self.nb_points-1))+10,80-l*.65)
+					except: pass
 					i+=1
 				ctx.line_to(self.width-10,self.height-20)
 				ctx.close_path()
@@ -219,13 +227,13 @@ class SensorsScreenlet(screenlets.Screenlet):
 				elif self.load > 66:
 					ctx.set_source_rgba(self.color_high[0],self.color_high[1],self.color_high[2],self.color_high[3])
 
-				self.theme.draw_rectangle(ctx,10,15,(self.load*180)/100,65)
+				self.theme.draw_rectangle(ctx,10,15,(int(self.load)*180)/100,65)
 		# draw text
 			if len(str(self.load))==1:
 				self.load = "0" + str(self.load)
 			ctx.set_source_rgba(1, 1, 1, 0.9)
 			if self.sensor.endswith('RPM') or self.sensor.endswith('C') or self.sensor.endswith('V'):
-				text = '<small><small><small><small>' +self.sensor +'</small></small></small></small>\n'	
+				text = '<small><small><small><small>' +str(self.sensor.split(':')[0]) +'</small></small></small></small>\n'+str(self.sensor.split(':')[1])	
 			else:
 				text = '<small><small><small><small>' +self.sensor +'</small></small></small></small>\n'+self.text_prefix + str(self.load) + self.text_suffix
 			self.theme.draw_text(ctx,text, 15, 20, 'Free Sans', 25,  self.width,pango.ALIGN_LEFT)

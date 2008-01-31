@@ -119,6 +119,39 @@ class ExampleScreenlet (screenlets.Screenlet):
 		self.add_options_from_file( mypath + '/' + \
 			self.__class__.__name__ + '.xml')	
 
+
+	def on_after_set_atribute(self,name, value):
+		"""Called after setting screenlet atributes"""
+		print name + ' is going to change from ' + str(value)
+		pass
+
+	def on_before_set_atribute(self,name, value):
+		"""Called before setting screenlet atributes"""
+		print name + ' has changed to ' + str(value)
+		pass
+
+
+	def on_create_drag_icon (self):
+		"""Called when the screenlet's drag-icon is created. You can supply
+		your own icon and mask by returning them as a 2-tuple."""
+		return (None, None)
+
+	def on_composite_changed(self):
+		"""Called when composite state has changed"""
+		pass
+
+	def on_drag_begin (self, drag_context):
+		"""Called when the Screenlet gets dragged."""
+		pass
+	
+	def on_drag_enter (self, drag_context, x, y, timestamp):
+		"""Called when something gets dragged into the Screenlets area."""
+		pass
+	
+	def on_drag_leave (self, drag_context, timestamp):
+		"""Called when something gets dragged out of the Screenlets area."""
+		pass
+
 	def on_drop (self, x, y, sel_data, timestamp):
 		"""Called when a selection is dropped on this Screenlet."""
 		return False

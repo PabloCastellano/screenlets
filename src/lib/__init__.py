@@ -619,6 +619,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 
 	def __setattr__ (self, name, value):
 		# set the value in GObject (ESSENTIAL!!!!)
+		self.on_before_set_atribute(name, value)
 		gobject.GObject.__setattr__(self, name, value)
 		# And do other actions
 		if name=="x" or name=="y":
@@ -677,6 +678,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 			if o != None:
 				self.session.backend.save_option(self.id, o.name, 
 					o.on_export(value))
+		self.on_after_set_atribute(name, value)
 		# /TEST
 	
 	#-----------------------------------------------------------------------
@@ -1131,12 +1133,26 @@ class Screenlet (gobject.GObject, EditableOptions):
 	
 	# TODO: on_drag
 	# TODO: on_drag_end
-	
+
+	def on_after_set_atribute(self,name, value):
+		"""Called after setting screenlet atributes"""
+		pass
+
+	def on_before_set_atribute(self,name, value):
+		"""Called before setting screenlet atributes"""
+		pass
+
+
 	def on_create_drag_icon (self):
 		"""Called when the screenlet's drag-icon is created. You can supply
 		your own icon and mask by returning them as a 2-tuple."""
 		return (None, None)
-	
+
+	def on_composite_changed(self):
+		"""Called when composite state has changed"""
+		pass
+
+
 	def on_drag_begin (self, drag_context):
 		"""Called when the Screenlet gets dragged."""
 		pass
@@ -1306,6 +1322,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 		self.redraw_canvas()
 		self.update_shape()
 		self.is_sticky = self.is_sticky #and again ...
+		self.on_composite_changed()
 
 	# NOTE: this should somehow handle the end of a move_drag-operation
 	def configure_event (self, widget, event):

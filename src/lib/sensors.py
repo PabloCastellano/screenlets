@@ -616,6 +616,7 @@ def top_process_get_list():
 def sensors_get_sensors_list():
 	res = commands.getstatusoutput('sensors')
 	output = ['Custom Sensors']	
+	output.remove ('Custom Sensors')
 	if res[0]==0:
 		sol = res[1].replace(':\n ',': ').replace(':\n\t',': ').splitlines()
 		for i in sol:

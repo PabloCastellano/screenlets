@@ -1,5 +1,11 @@
 #!/usr/bin/env python
 
+# This application is released under the GNU General Public License 
+# v3 (or, at your option, any later version). You can find the full 
+# text of the license under http://www.gnu.org/licenses/gpl.txt. 
+# By using, editing and/or distributing this software you agree to 
+# the terms and conditions of this license. 
+# Thank you for using free software!
 
 
 import screenlets
@@ -178,6 +184,7 @@ class SensorsScreenlet(screenlets.Screenlet):
 		elif self.sensor.startswith('Wifi'):
 			if self.wire_list != []:
 				self.wire_data = sensors.wir_get_stats(self.wire_list[0])
+				print self.wire_data
 				a = str(self.wire_data['essid']).find('off/any')
 				if a != -1:
 					self.sensor = 'Wifi ' + str(self.wire_list[0])

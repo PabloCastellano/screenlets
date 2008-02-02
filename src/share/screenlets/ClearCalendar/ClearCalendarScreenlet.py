@@ -1,10 +1,14 @@
 #!/usr/bin/env python
 
-#  CalculatorScreenlet (c) robgig1088, Vasek Potocek 2007
-#
-# INFO:
-# - a simple example for creating a Screenlet. I shamelessly use RYX's CPU meter as a template
-#
+# This application is released under the GNU General Public License 
+# v3 (or, at your option, any later version). You can find the full 
+# text of the license under http://www.gnu.org/licenses/gpl.txt. 
+# By using, editing and/or distributing this software you agree to 
+# the terms and conditions of this license. 
+# Thank you for using free software!
+
+#  ClearCalendarScreenlet (c) Whise aka Helder Fraga
+
 
 import screenlets
 from screenlets.options import StringOption, BoolOption

@@ -1,6 +1,13 @@
 #!/usr/bin/env python
 
-#
+# This application is released under the GNU General Public License 
+# v3 (or, at your option, any later version). You can find the full 
+# text of the license under http://www.gnu.org/licenses/gpl.txt. 
+# By using, editing and/or distributing this software you agree to 
+# the terms and conditions of this license. 
+# Thank you for using free software!
+
+
 # a very hackish, XML-based menu-system (c) RYX (Rico Pfaus) 2007
 #
 # NOTE: This thing is to be considered a quick hack and it lacks on all ends.

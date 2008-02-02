@@ -1,5 +1,12 @@
 #!/usr/bin/env python
 
+# This application is released under the GNU General Public License 
+# v3 (or, at your option, any later version). You can find the full 
+# text of the license under http://www.gnu.org/licenses/gpl.txt. 
+# By using, editing and/or distributing this software you agree to 
+# the terms and conditions of this license. 
+# Thank you for using free software!
+
 # ScreenletsDaemon - (c) RYX (Rico Pfaus) 2007
 #
 # + INFO:
@@ -233,12 +240,13 @@ class ScreenletsDaemon (dbus.service.Object):
 		dlg = gtk.AboutDialog()
 		gtk.about_dialog_set_url_hook(self.website_open, None)
 		# add baisc info
-		dlg.set_name('Screenlets')
-		dlg.set_comments(_('Screenlets Deamon system tray tool'))
-		dlg.set_version('')
-		dlg.set_copyright('(c) RYX (Rico Pfaus) and Whise (Helder Fraga) 2007')
-		dlg.set_website('http://www.screenlets.org')
-		dlg.set_website_label('http://www.screenlets.org')
+		dlg.set_name(screenlets.APP_NAME)
+		dlg.set_comments(_(screenlets.COMMENTS))
+		dlg.set_version(screenlets.VERSION)
+		dlg.set_copyright(screenlets.COPYRIGHT)
+		dlg.set_authors(screenlets.AUTHORS)
+		dlg.set_website(screenlets.WEBSITE)
+		dlg.set_website_label(screenlets.WEBSITE)
 		dlg.set_license(_('This application is released under the GNU General Public License v3 (or, at your option, any later version). You can find the full text of the license under http://www.gnu.org/licenses/gpl.txt. By using, editing and/or distributing this software you agree to the terms and conditions of this license. Thank you for using free software!'))
 		dlg.set_wrap_license(True)
 		# add logo

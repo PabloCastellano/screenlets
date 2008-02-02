@@ -1,5 +1,12 @@
 #!/usr/bin/env python
 
+# This application is released under the GNU General Public License 
+# v3 (or, at your option, any later version). You can find the full 
+# text of the license under http://www.gnu.org/licenses/gpl.txt. 
+# By using, editing and/or distributing this software you agree to 
+# the terms and conditions of this license. 
+# Thank you for using free software!
+
 # Screenlets Manager - (c) RYX (Rico Pfaus) 2007
 #
 # + INFO:
@@ -697,12 +704,18 @@ class ScreenletsManager:
 		# add about/close buttons to window
 		but_about = gtk.Button(stock=gtk.STOCK_ABOUT)
 		but_close = gtk.Button(stock=gtk.STOCK_CLOSE)
+		but_download = gtk.Button('Get more screenlets')
+		but_download.set_image(gtk.image_new_from_stock(gtk.STOCK_GO_DOWN, 
+			gtk.ICON_SIZE_BUTTON))
 		but_about.connect('clicked', self.button_clicked, 'about')
 		but_close.connect('clicked', self.button_clicked, 'close')
+		but_download.connect('clicked', self.button_clicked, 'download')
 		self.tips.set_tip(but_about, _('Show info about this dialog ...'))
+		self.tips.set_tip(but_download, _('Download more screenlets ...'))
 		self.tips.set_tip(but_close, _('Close this dialog ...'))
 		action_area.set_layout(gtk.BUTTONBOX_EDGE)
 		action_area.pack_start(but_about, False, False)
+		action_area.pack_start(but_download, False, False)
 		action_area.pack_end(but_close, False, False)
 		vbox.show_all()
 		# initially create lower infobox
@@ -802,12 +815,13 @@ class ScreenletsManager:
 		dlg = gtk.AboutDialog()
 		gtk.about_dialog_set_url_hook(self.website_open, None)
 		# add baisc info
-		dlg.set_name(APP_NAME)
-		dlg.set_comments(_('A graphical manager application that simplifies managing, starting and (un-)installing Screenlets.'))
-		dlg.set_version(APP_VERSION)
-		dlg.set_copyright('(c) RYX (Rico Pfaus) and Whise 2007')
-		dlg.set_website('http://www.screenlets.org')
-		dlg.set_website_label('http://www.screenlets.org')
+		dlg.set_name(screenlets.APP_NAME)
+		dlg.set_comments(_(screenlets.COMMENTS))
+		dlg.set_version(screenlets.VERSION)
+		dlg.set_copyright(screenlets.COPYRIGHT)
+		dlg.set_authors(screenlets.AUTHORS)
+		dlg.set_website(screenlets.WEBSITE)
+		dlg.set_website_label(screenlets.WEBSITE)
 		dlg.set_license(_('This application is released under the GNU General Public License v3 (or, at your option, any later version). You can find the full text of the license under http://www.gnu.org/licenses/gpl.txt. By using, editing and/or distributing this software you agree to the terms and conditions of this license. Thank you for using free software!'))
 		dlg.set_wrap_license(True)
 		# add logo
@@ -1069,7 +1083,10 @@ class ScreenletsManager:
 							pass
 		elif id == 'website':
 			print "TODO: open website"
-	
+
+		elif id == 'download':
+			subprocess.Popen(["firefox", screenlets.THIRD_PARTY_DOWNLOAD])
+
 	def handle_screenlet_registered (self, name):
 		"""Callback for dbus-signal, called when a new screenlet gets 
 		registered within the daemon."""

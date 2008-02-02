@@ -1,12 +1,14 @@
 #!/usr/bin/env python
 
-#  SysmonitorScreenlet (c) RYX 2007 <ryx@ryxperience.com>
-#
-# INFO:
-# - a simple example for creating a Screenlet
-# 
-# TODO:
-# - make a nice Screenlet from this example ;) ....
+# This application is released under the GNU General Public License 
+# v3 (or, at your option, any later version). You can find the full 
+# text of the license under http://www.gnu.org/licenses/gpl.txt. 
+# By using, editing and/or distributing this software you agree to 
+# the terms and conditions of this license. 
+# Thank you for using free software!
+
+#  SysmonitorScreenlet (c) Whise
+
 
 import screenlets
 from screenlets.options import StringOption , BoolOption , IntOption, ColorOption, FontOption

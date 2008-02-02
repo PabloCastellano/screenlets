@@ -1,5 +1,12 @@
 #!/usr/bin/env python
 
+# This application is released under the GNU General Public License 
+# v3 (or, at your option, any later version). You can find the full 
+# text of the license under http://www.gnu.org/licenses/gpl.txt. 
+# By using, editing and/or distributing this software you agree to 
+# the terms and conditions of this license. 
+# Thank you for using free software!
+
 # Screenlets main module (c) RYX (aka Rico Pfaus) 2007 <ryx@ryxperience.com>
 #
 ##@mainpage
@@ -48,8 +55,26 @@ import XmlMenu
 # CONSTANTS
 #-------------------------------------------------------------------------------
 
+# the application name
+APP_NAME = "Screenlets"
+
 # the version of the Screenlets-baseclass in use
 VERSION = "0.0.12"
+
+# the application copyright
+COPYRIGHT = "(c) RYX (Rico Pfaus) <ryx@ryxperience.com>"
+
+# the application authors
+AUTHORS = ["RYX (Rico Pfaus) <ryx@ryxperience.com>", "Whise (Helder Fraga)<helder.fraga@hotmail.com>","Hendrik Kaju (sorcerer)"]
+
+# the application comments
+COMMENTS = "Screenlets are small owner-drawn applications (written in Python, a very simple object-oriented programming-language) that can be described as 'the virtual representation of things lying/standing around on your desk'. Sticknotes, clocks, rulers, ... the possibilities are endless."
+
+# the application website
+WEBSITE = 'http://www.screenlets.org'
+
+# the third party screenlets download site
+THIRD_PARTY_DOWNLOAD = "http://screenlets.org/index.php/Category:UserScreenlets"
 
 # install prefix (/usr or /usr/local) DO NOT CHANGE YET, WILL CHANGE WITH v0.1.0
 INSTALL_PREFIX = '/usr'

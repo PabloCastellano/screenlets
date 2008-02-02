@@ -41,6 +41,8 @@ class SensorsScreenlet(screenlets.Screenlet):
 	load = 0
 	old_cpu = 0
 	new_cpu = 0
+	wire_list = []
+	wire_data = []
 	# constructor
 	def __init__(self,**keyword_args):
 		screenlets.Screenlet.__init__(self, width=200, height=100, 
@@ -73,7 +75,10 @@ class SensorsScreenlet(screenlets.Screenlet):
 				for i in sensors.sensors_get_sensors_list():
 					self.sensor_list.append(str(i))	
 					#print i.split(':')[0]
-					
+			self.wire_list = sensors.wir_get_interfaces()
+			if self.wire_list !=[]:
+				self.sensor_list.append('Wifi '+ self.wire_list[0])		
+
 		self.theme_name = "default"
 		# add default menu items
 		# add settings
@@ -170,8 +175,15 @@ class SensorsScreenlet(screenlets.Screenlet):
 			self.load = 0
 		elif self.sensor.endswith('Custom Sensors'):
 			pass			
-
-
+		elif self.sensor.startswith('Wifi'):
+			if self.wire_list != []:
+				self.wire_data = sensors.wir_get_stats(self.wire_list[0])
+				a = str(self.wire_data['essid']).find('off/any')
+				if a != -1:
+					self.sensor = 'Wifi ' + str(self.wire_list[0])
+				else:
+					self.sensor = 'Wifi '  + str(self.wire_data['essid'])
+				self.load = int(str(self.wire_data['percentage']).replace('%',''))
 		else:
 
 			if self.sensor != None:

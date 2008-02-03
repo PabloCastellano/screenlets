@@ -21,6 +21,7 @@ from screenlets.options import create_option_from_node
 from screenlets import DefaultMenuItem
 import pango
 import gobject
+import gtk
 
 class ExampleScreenlet (screenlets.Screenlet):
 	"""A simple example of how to create a Screenlet"""
@@ -106,6 +107,10 @@ class ExampleScreenlet (screenlets.Screenlet):
 
 	def update (self):
 		if self.number <= 100:
+			if self.number <= 30:
+			        self.theme.show_notification("this is a screenlet notification , pretty cool , hit Enter in the screnlet window to check out another cool thing")
+			else:
+			        self.theme.hide_notification()
 			self.number = self.number+1
 		else:
 			self.number = 0
@@ -184,9 +189,12 @@ class ExampleScreenlet (screenlets.Screenlet):
 		self.add_default_menuitems()
 
 
-	def on_key_down (self, keycode, keyvalue, event=None):
-		"""Called when a key is pressed within the screenlet's window."""
-		pass
+	def on_key_down(self, keycode, keyvalue, event):
+		"""Called when a keypress-event occured in Screenlet's window."""
+		key = gtk.gdk.keyval_name(event.keyval)
+		
+		if key == "Return" or key == "Tab":
+			screenlets.show_message(self, 'This is the ' + self.__name__ +'\n' + 'It is installed in ' + self.__path__)
 	
 	def on_load_theme (self):
 		"""Called when the theme is reloaded (after loading, before redraw)."""
@@ -203,6 +211,7 @@ class ExampleScreenlet (screenlets.Screenlet):
 	def on_mouse_down (self, event):
 		"""Called when a buttonpress-event occured in Screenlet's window. 
 		Returning True causes the event to be not further propagated."""
+	    
 		return False
 	
 	def on_mouse_enter (self, event):
@@ -213,7 +222,7 @@ class ExampleScreenlet (screenlets.Screenlet):
 		
 	def on_mouse_leave (self, event):
 		"""Called when the mouse leaves the Screenlet's window."""
-	        self.theme.hide_tooltip()
+		self.theme.hide_tooltip()
 		self.hover = False
 		print 'mouse leave'
 
@@ -229,7 +238,6 @@ class ExampleScreenlet (screenlets.Screenlet):
 	
 	def on_quit (self):
 		"""Callback for handling destroy-event. Perform your cleanup here!"""
-		screenlets.show_message(self, 'This is an example screenlet with all the events and maximum data on how to build you how screenlet')
 		screenlets.show_question(self, 'Do you like screenlets?')
 		return True
 		

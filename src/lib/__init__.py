@@ -142,6 +142,7 @@ class ScreenletTheme (dict):
 	p_fdesc = None
 	p_layout = None
 	tooltip = None
+	notify = None
 
 	def __init__ (self, path):
 		# set theme-path and load all files in path
@@ -281,19 +282,33 @@ class ScreenletTheme (dict):
 		if fill:ctx.fill()
 		else: ctx.stroke()
 		ctx.restore()
+	def show_notification (self,text):
+	        """Show tooltip window at current mouse position."""
+		if self.notify == None:
+	      		self.notify = Notify()
+	        	self.notify.text = text
+	        	self.notify.show()
+
+	def hide_notification (self):
+	        """hide tooltip window"""
+		if self.notify != None:
+			self.notify.hide()
+			self.notify = None
 
 	def show_tooltip (self,text,tooltipx,tooltipy):
 	        """Show tooltip window at current mouse position."""
-      		self.tooltip = Tooltip(300, 400)
-        	self.tooltip.text = text
-        	self.tooltip.x    = tooltipx
-        	self.tooltip.y    = tooltipy
-		self.tooltip.show()
+		if self.tooltip == None:
+      			self.tooltip = Tooltip(300, 400)
+        		self.tooltip.text = text
+        		self.tooltip.x    = tooltipx
+        		self.tooltip.y    = tooltipy
+			self.tooltip.show()
 
 	def hide_tooltip (self):
 	        """hide tooltip window"""
-		self.tooltip.hide()
-		self.tooltip = None		
+		if self.tooltip != None:
+			self.tooltip.hide()
+			self.tooltip = None		
 
 	def has_overrides (self):
 		"""Check if this theme contains overrides for options."""
@@ -1648,6 +1663,7 @@ class Tooltip:
 		self.window.set_app_paintable(True)
 		self.window.set_size_request(width, height)
 		self.window.set_decorated(False)
+		self.window.set_accept_focus(False)
 		self.window.set_skip_pager_hint(True)
 		self.window.set_skip_taskbar_hint(True)
 		self.window.set_keep_above(True)
@@ -1737,6 +1753,112 @@ class Tooltip:
 		ctx.set_source_rgba(0, 0, 0, 0.7)
 		ctx.stroke()
 
+class Notify:
+	"""A window that displays a text and serves as Notification (very basic yet)."""
+	
+	# internals
+	__timeout    = None
+    
+	# attribs
+	text        = ''
+	font_name    = 'FreeSans 9'
+	width        = 200
+	height        = 100
+	x             = 0
+	y             = 0
+	gradient = cairo.LinearGradient(0, 100,0, 0)
+    
+	def __init__ (self):
+		object.__init__(self)
+		# init
+		self.window = gtk.Window()
+		self.window.set_app_paintable(True)
+		self.window.set_size_request(self.width, self.height)
+		self.window.set_decorated(False)
+		self.window.set_accept_focus(False)
+		self.window.set_skip_pager_hint(True)
+		self.window.set_skip_taskbar_hint(True)
+		self.window.set_keep_above(True)
+		self.screen_changed(self.window)
+		self.window.connect("expose_event", self.expose)
+		self.window.connect("screen-changed", self.screen_changed)
+		#self.window.show()
+		self.p_context = self.window.get_pango_context()
+		self.p_layout = pango.Layout(self.p_context)
+		self.p_layout.set_font_description(\
+		pango.FontDescription(self.font_name))
+		#self.p_layout.set_width(-1)
+		self.p_layout.set_width(self.width * pango.SCALE - 6)
+    
+	def __setattr__ (self, name, value):
+		self.__dict__[name] = value
+		if name in ('text'):
+			if name == 'text':
+				self.p_layout.set_markup(value)
+				ink_rect, logical_rect = self.p_layout.get_pixel_extents()
+			self.window.queue_draw()
+
+	def show (self):
+		"""Show the Notify window."""
+		self.window.move(gtk.gdk.screen_width() - self.width, gtk.gdk.screen_height() - self.height)
+		self.cancel_show()
+		self.window.show()
+		self.window.set_keep_above(True)
+   
+	def show_delayed (self, delay):
+		"""Show the Notify window after a given delay."""
+		self.cancel_show()
+		self.__timeout = gobject.timeout_add(delay, self.__show_timeout)
+    
+	def hide (self):
+		"""Hide the Notify window."""
+		self.cancel_show()
+		self.window.destroy()
+    
+	def cancel_show (self):
+		"""Cancel showing of the Notify."""
+		if self.__timeout:
+			gobject.source_remove(self.__timeout)
+			self.p_context = None
+			self.p_layout = None
+    
+	def __show_timeout (self):
+		self.show()
+    
+	def screen_changed (self, window, screen=None):
+		if screen == None:
+			screen = window.get_screen()
+		map = screen.get_rgba_colormap()
+		if not map:
+			map = screen.get_rgb_colormap()
+		window.set_colormap(map)
+    
+	def expose (self, widget, event):
+		ctx = self.window.window.cairo_create()
+		ctx.set_antialias (cairo.ANTIALIAS_SUBPIXEL)    # ?
+		# set a clip region for the expose event
+		ctx.rectangle(event.area.x, event.area.y,event.area.width, event.area.height)
+		ctx.clip()
+		# clear context
+		ctx.set_source_rgba(1, 1, 1, 0)
+		ctx.set_operator (cairo.OPERATOR_SOURCE)
+		ctx.paint()
+		# draw rectangle
+		self.gradient.add_color_stop_rgba(1,0.3, 0.3, 0.3, 0.9)
+		self.gradient.add_color_stop_rgba(0.3, 0, 0, 0, 0.9)
+		ctx.set_source(self.gradient)
+		ctx.rectangle(0, 0, self.width, self.height)
+		ctx.fill()
+		# draw text
+		ctx.save()
+		ctx.translate(3, 3)
+		ctx.set_source_rgba(1, 1, 1, 1) 
+		ctx.show_layout(self.p_layout)
+		ctx.fill()
+		ctx.restore()
+		ctx.rectangle(0, 0, self.width, self.height)
+		ctx.set_source_rgba(0, 0, 0, 0.7)
+		ctx.stroke()
 
 # TEST (as the name implies)
 """class TestWidget(ShapedWidget):

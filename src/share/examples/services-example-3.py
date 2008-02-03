@@ -1,5 +1,14 @@
 #!/usr/bin/env python
 
+# This application is released under the GNU General Public License 
+# v3 (or, at your option, any later version). You can find the full 
+# text of the license under http://www.gnu.org/licenses/gpl.txt. 
+# By using, editing and/or distributing this software you agree to 
+# the terms and conditions of this license. 
+# Thank you for using free software!
+
+# (c) 2007 RYX (aka Rico Pfaus) <ryx@ryxperience.com>
+
 # This is an example of accessing the new ScreenletService. It can be used
 # to access signals and methods within a Screenlet from other applications or
 # other Screenlets.

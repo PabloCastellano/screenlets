@@ -7,7 +7,7 @@
 # the terms and conditions of this license. 
 # Thank you for using free software!
 
-#  ExampleScreenlet (c) RYX 2007 <ryx@ryxperience.com>
+#  CalcScreenlet (c) Cobra
 #
 # INFO:
 # - a simple example for creating a Screenlet

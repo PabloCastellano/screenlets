@@ -7,6 +7,8 @@
 # the terms and conditions of this license. 
 # Thank you for using free software!
 
+#ClearWeatherScreenlet (c) Whise <helder.fraga@hotmail.com>
+
 import re
 from urllib import urlopen
 import screenlets

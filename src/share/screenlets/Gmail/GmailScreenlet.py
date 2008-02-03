@@ -7,7 +7,7 @@
 # the terms and conditions of this license. 
 # Thank you for using free software!
 
-# GmailScreenlet by Helder Fraga aka Whise
+# GmailScreenlet (c) Whise <helder.fraga@hotmail.com>
 #
 # INFO:
 

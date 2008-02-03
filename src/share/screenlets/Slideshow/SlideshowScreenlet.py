@@ -7,7 +7,7 @@
 # the terms and conditions of this license. 
 # Thank you for using free software!
 
-#  SlideshowScreenlet by Whise aka Helder Fraga based (c) Pictureframe screenlet RYX (aka Rico Pfaus) 2007 <ryx@ryxperience.com>
+#  SlideshowScreenlet (c) Whise <helder.fraga@hotmail.com>
 
 
 import screenlets

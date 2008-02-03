@@ -6,7 +6,8 @@
 # By using, editing and/or distributing this software you agree to 
 # the terms and conditions of this license. 
 # Thank you for using free software!
-#
+
+#MyIpScreenlet (c) Whise <helder.fraga@hotmail.com>
 import screenlets
 from screenlets.options import FloatOption, BoolOption, StringOption, FontOption, ColorOption, IntOption
 from screenlets import DefaultMenuItem

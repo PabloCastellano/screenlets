@@ -8,7 +8,7 @@
 # Thank you for using free software!
 
 #
-#Copyright (C) 2007 Helder Fraga
+#RadioScreenlet (c) Whise <helder.fraga@hotmail.com>
 
 import screenlets
 from screenlets.options import BoolOption, StringOption, FontOption

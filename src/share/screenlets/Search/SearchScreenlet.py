@@ -7,7 +7,7 @@
 # the terms and conditions of this license. 
 # Thank you for using free software!
 
-# SearchScreenlet by Helder Fraga
+# SearchScreenlet (c) Whise <helder.fraga@hotmail.com>
 #
 # INFO:
 # - A screenlet that searches the most popular search engines sites

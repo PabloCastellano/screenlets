@@ -7,6 +7,8 @@
 # the terms and conditions of this license. 
 # Thank you for using free software!
 
+#DiskusageScreenlet (c) Whise <helder.fraga@hotmail.com>
+
 
 import screenlets
 from screenlets.options import FloatOption, BoolOption, StringOption

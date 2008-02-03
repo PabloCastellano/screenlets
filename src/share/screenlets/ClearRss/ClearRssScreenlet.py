@@ -6,6 +6,8 @@
 # By using, editing and/or distributing this software you agree to 
 # the terms and conditions of this license. 
 # Thank you for using free software!
+
+#  ClearRssScreenlet (c) Whise <helder.fraga@hotmail.com>
 #
 
 

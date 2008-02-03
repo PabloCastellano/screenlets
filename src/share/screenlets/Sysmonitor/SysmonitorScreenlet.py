@@ -7,7 +7,7 @@
 # the terms and conditions of this license. 
 # Thank you for using free software!
 
-#  SysmonitorScreenlet (c) Whise
+#  SysmonitorScreenlet (c) Whise <helder.fraga@hotmail.com>
 
 
 import screenlets

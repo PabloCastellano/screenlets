@@ -232,13 +232,15 @@ class ScreenletTheme (dict):
 		else: ctx.stroke()
 		ctx.restore()
 
-	def draw_line(self,ctx,start_x,start_y,end_x,end_y,line_width = 1):
+	def draw_line(self,ctx,start_x,start_y,end_x,end_y,line_width = 1,close=False,preserve=False):
 		"""Draws a line"""
 		ctx.save()
 		ctx.move_to(start_x, start_y)
 		ctx.set_line_width(line_width)
         	ctx.rel_line_to(end_x, end_y)
-		ctx.stroke()
+		if close : ctx.close_path()
+		if preserve: ctx.stroke_preserve()
+		else: ctx.stroke()
 		ctx.restore()
 
 	def draw_rectangle(self,ctx,x,y,width,height,fill=True):
@@ -282,15 +284,16 @@ class ScreenletTheme (dict):
 		if fill:ctx.fill()
 		else: ctx.stroke()
 		ctx.restore()
+
 	def show_notification (self,text):
-	        """Show tooltip window at current mouse position."""
+	        """Show notification window at current mouse position."""
 		if self.notify == None:
 	      		self.notify = Notify()
 	        	self.notify.text = text
 	        	self.notify.show()
 
 	def hide_notification (self):
-	        """hide tooltip window"""
+	        """hide notification window"""
 		if self.notify != None:
 			self.notify.hide()
 			self.notify = None

@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 import sys, os, fcntl, gobject, time
 
 STATUS_TIMEOUT = 1000

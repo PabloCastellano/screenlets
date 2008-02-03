@@ -28,8 +28,8 @@
 import pygtk
 pygtk.require('2.0')
 import os, sys
-import gtk, gobject
 import screenlets
+import gtk, gobject
 from screenlets import utils
 import dbus
 import gettext

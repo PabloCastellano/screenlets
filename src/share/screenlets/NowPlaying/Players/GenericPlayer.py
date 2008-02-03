@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 # A Generic API to a Music Player. 
 # All Players must extend this class
 

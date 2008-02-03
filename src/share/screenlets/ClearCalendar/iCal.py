@@ -1,4 +1,3 @@
-#!/usr/bin/python
 ############################################################################
 # Programmers: Jiva DeVoe <jiva@devoesquared.com>
 # Filename: iCal.py

@@ -35,7 +35,7 @@ import cairo
 import pango
 from datetime import datetime
 import gobject
-
+from os import environ
 
 # the service that implements the remote-actions for this screenlet
 class ClockService (ScreenletService):
@@ -99,6 +99,7 @@ class ClockScreenlet (Screenlet):
 	__alarm_count	= 0
 	
 	# editable options
+	timezone                = ""
 	time_offset		= 0
 	face_text		= 'Screenlets'
 	face_text_x		= 32
@@ -137,6 +138,8 @@ class ClockScreenlet (Screenlet):
 		self.add_options_group('Face', 
 			'Additional settings for the face-layout ...')
 		# add editable settings to this Screenlet
+		self.add_option(StringOption('Clock', 'timezone',
+		       "", 'Time Zone', 'The Time Zone to use for this screenlet'))
 		self.add_option(IntOption('Clock','time_offset', 
 			0, 'Time-Offset', 'The-time offset for this Clock instance. ' + 
 			'This can be used to create Clocks for different timezones ...',
@@ -315,6 +318,7 @@ class ClockScreenlet (Screenlet):
 				
 	def update (self):
 		"""Update the time and redraw the canvas"""
+		environ['TZ'] = self.timezone
 		self.__time = datetime.now()
 		if self.alarm_activated:
 			self.check_alarm()

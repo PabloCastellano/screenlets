@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 #  CopyStackScreenlet (c) RYX 2007 <ryx [at] ryxperience [dot] com>
 #
 # INFO:

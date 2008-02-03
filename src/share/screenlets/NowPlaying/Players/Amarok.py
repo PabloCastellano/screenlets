@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 # Amarok API 
 
 import os

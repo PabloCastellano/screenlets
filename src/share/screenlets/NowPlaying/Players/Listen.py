@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 # Listen API 
 
 import os

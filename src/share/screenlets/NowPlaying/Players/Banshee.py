@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 # Banshee API 
 
 import os

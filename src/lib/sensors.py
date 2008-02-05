@@ -231,6 +231,29 @@ def sys_get_full_info ():
 	"""Get cpu info from /proc/cpuinfo."""
 	return commands.getoutput("cat /proc/cpuinfo")
 
+def sys_get_window_manager():
+	root = gtk.gdk.get_default_root_window()
+	try:
+		ident = root.property_get("_NET_SUPPORTING_WM_CHECK", "WINDOW")[2]
+		_WM_NAME_WIN = gtk.gdk.window_foreign_new(long(ident[0]))
+	except TypeError, exc:
+		_WM_NAME_WIN = ""
+		log("Your window manager doesn't support "
+		"_NET_SUPPORTING_WM_CHECK! Switch to a compliant WM!"
+		"The following error occurred:\n%s" % (exc,))
+	name = ""
+	win = _WM_NAME_WIN
+	if (win != None):
+		try:
+			name = win.property_get("_NET_WM_NAME")[2]
+		except TypeError, exc:
+			log("Your window manager doesn't support _NET_WM_NAME!\n"
+			"Switch to a EWMH compliant WM.\n"
+			"The following error occurred:\n%s" % (exc,))
+			return name
+
+	return name
+
 ###########################################
 #                                         #
 #               Memory                    #

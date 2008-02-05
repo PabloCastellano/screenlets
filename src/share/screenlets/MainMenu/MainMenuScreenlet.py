@@ -48,6 +48,7 @@ class MainMenuScreenlet (screenlets.Screenlet):
 	green = 0
 	blue = 0
 	has_focus = True
+	is_hover = True
 	icon = None
 	transx = 0
 	transy = 0
@@ -191,6 +192,18 @@ class MainMenuScreenlet (screenlets.Screenlet):
 		if name == 'orientation' or name == 'use_theme' :
 			self.redraw_canvas()
 			self.update_shape()
+
+
+	def on_mouse_enter (self, event):
+		"""Called when the mouse enters the Screenlet's window."""
+	       
+		self.is_hover = True
+
+		
+	def on_mouse_leave (self, event):
+		"""Called when the mouse leaves the Screenlet's window."""
+
+		self.is_hover = False
 
 
 	def on_mouse_down (self, event):
@@ -355,7 +368,7 @@ class MainMenuScreenlet (screenlets.Screenlet):
 						ctx.paint()
 						ctx.restore()
 
-		else:
+		elif self.has_focus and self.is_hover:
 			if self.theme:		
 				if self.window.is_composited == False : a = 1
 				else : a = 0.4	

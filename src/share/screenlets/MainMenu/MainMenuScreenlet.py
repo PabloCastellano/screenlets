@@ -48,7 +48,7 @@ class MainMenuScreenlet (screenlets.Screenlet):
 	green = 0
 	blue = 0
 	has_focus = True
-	is_hover = True
+	is_hover = False
 	icon = None
 	transx = 0
 	transy = 0
@@ -196,8 +196,7 @@ class MainMenuScreenlet (screenlets.Screenlet):
 
 	def on_mouse_enter (self, event):
 		"""Called when the mouse enters the Screenlet's window."""
-	       
-		self.is_hover = True
+	
 
 		
 	def on_mouse_leave (self, event):
@@ -215,6 +214,7 @@ class MainMenuScreenlet (screenlets.Screenlet):
 	        if "placesmodel" in self.__dict__:pass
 	        else:self.placesmodel,self.objlist3 = menus.get_places(self.theme1)
 	        self.tree2.set_model(self.placesmodel)
+		self.is_hover = True
 		return False
 
 	def on_init (self):
@@ -244,7 +244,7 @@ class MainMenuScreenlet (screenlets.Screenlet):
 	                    command = obj[name][1]
 	                    if '%' in command:command = command[:command.index('%')]
 	                    os.system(command+' &')
-	                    self.dialog.hide()
+	
 	                if obj[name][0] == 2:
 	                    lst,self.objlist2 = menus.get_menus(obj[name][1])
 	                    model = menus.set_model(self.tree1,lst,self.theme1,
@@ -260,7 +260,7 @@ class MainMenuScreenlet (screenlets.Screenlet):
 	                if self.objlist3[name][0] == 0:
 	                    gobject.spawn_async(["nautilus", self.objlist3[name][1]], 
 	                                        flags=gobject.SPAWN_SEARCH_PATH)
-	                    self.dialog.hide()
+	  
 	            try:
 	                if obj[name][0] == 4:
 	                    if "placesmodel" in self.__dict__:pass
@@ -368,7 +368,7 @@ class MainMenuScreenlet (screenlets.Screenlet):
 						ctx.paint()
 						ctx.restore()
 
-		elif self.has_focus and self.is_hover:
+		elif self.has_focus :
 			if self.theme:		
 				if self.window.is_composited == False : a = 1
 				else : a = 0.4	

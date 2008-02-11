@@ -458,6 +458,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 	theme 			= None		# the assigned ScreenletTheme
 	uses_theme		= True		# flag indicating whether Screenlet uses themes
 	draw_buttons		= True		
+	show_buttons		= True
 	menu 			= None		# the right-click gtk.Menu
 	is_dragged 		= False		# TODO: make this work
 	quit_on_close 	= True		# if True, closing this instance quits gtk
@@ -667,6 +668,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 		# show window so it can realize , but hiding it so we can show it only when atributes have been set , this fixes some placement errors arround the screen egde
 		if show_window:
 			self.window.show()
+			self.window.set_property('accept-focus', False)
 			self.window.hide()	
 
 	def __setattr__ (self, name, value):
@@ -685,6 +687,8 @@ class Screenlet (gobject.GObject, EditableOptions):
 			self.on_scale()
 			self.redraw_canvas()
 			self.update_shape()
+
+
 		elif name == "theme_name":
 			#self.__dict__ ['theme_name'] = value
 			print _("LOAD NEW THEME: ") + value
@@ -985,6 +989,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 		self.on_init()
 		try: self.window.show()			
 		except:	print 'unable to show window'
+		self.window.set_property('accept-focus', False)
 		# the keep above and keep bellow must be reset after the window is shown this is absolutly necessary 
 		self.keep_above= self.keep_above
 		self.keep_below= self.keep_below
@@ -1110,7 +1115,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 			if self.window.window:
 				self.window.window.invalidate_rect(rect, True)
 				self.window.window.process_updates(True)
-				if self.has_focus and self.draw_buttons:
+				if self.has_focus and self.draw_buttons and self.show_buttons:
 					self.create_buttons()
 
 	
@@ -1157,7 +1162,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 		# create context and draw shape
 		ctx = self.__shape_bitmap.cairo_create()
 		self.clear_cairo_context(ctx)		#TEST
-		if self.has_focus and self.draw_buttons:
+		if self.has_focus and self.draw_buttons and self.show_buttons:
 			ctx.save()
 			theme1 = gtk.icon_theme_get_default()
 			#ctx.set_source_rgba(0.5,0.5,0.5,0.6)
@@ -1374,6 +1379,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 		window.set_colormap(map)		
 	
 	def button_press (self, widget, event):
+
 		#print "Button press"
 		# set flags for user-handler
 
@@ -1385,7 +1391,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 			return True
 		# unhandled? continue
 		
-		if self.mousex >= self.width - (32/self.scale) and self.mousey <= (16/self.scale) and self.draw_buttons:
+		if self.mousex >= self.width - (32/self.scale) and self.mousey <= (16/self.scale) and self.draw_buttons and self.show_buttons:
 			if self.mousex >=  self.width - (16/self.scale):
 				self.menuitem_callback(widget,'quit_instance')
 			elif self.mousex <=  self.width -(16/self.scale):
@@ -1426,8 +1432,12 @@ class Screenlet (gobject.GObject, EditableOptions):
 		self.is_sticky = self.is_sticky	 #changing from non composited to composited makes the screenlets loose sticky state , this fixes that
 		self.window.show()
 		print 'composite change to ' + str(self.window.is_composited())
-		self.redraw_canvas()
 		self.update_shape()
+		self.redraw_canvas()
+
+		if not self.window.is_composited () :
+			self.show_buttons = False
+			print 'Warning - Buttons will not be showng until screenlet restart'
 		self.is_sticky = self.is_sticky #and again ...
 		self.on_composite_changed()
 
@@ -1499,7 +1509,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 	
 	def enter_notify_event (self, widget, event):
 		#self.__mouse_inside = True
-
+		self.window.set_property('accept-focus', True)
 		self.on_mouse_enter(event)
 		
 		#self.redraw_canvas()
@@ -1528,11 +1538,15 @@ class Screenlet (gobject.GObject, EditableOptions):
 		self.redraw_canvas()
 
 
+
+
 	def focus_out_event (self, widget, event):
 		self.has_focus = False
 		self.on_unfocus(event)
 		self.update_shape()
 		self.redraw_canvas()
+
+
 	
 	def key_press (self, widget, event):
 		"""Handle keypress events, needed for in-place editing."""
@@ -1540,6 +1554,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 	
 	def leave_notify_event (self, widget, event):
 		#self.__mouse_inside = False
+		self.window.set_property('accept-focus', False)
 		self.on_mouse_leave(event)
 	
 		#self.redraw_canvas()

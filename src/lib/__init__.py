@@ -57,7 +57,7 @@ import XmlMenu
 APP_NAME = "Screenlets"
 
 # the version of the Screenlets-baseclass in use
-VERSION = "0.0.12"
+VERSION = "0.0.13"
 
 # the application copyright
 COPYRIGHT = "(c) RYX (Rico Pfaus) <ryx@ryxperience.com>"
@@ -200,7 +200,7 @@ class ScreenletTheme (dict):
 			#raise Exception
 			return False
 
-	def draw_text(self, ctx, text, x, y,  font, size, width, allignment):
+	def draw_text(self, ctx, text, x, y,  font, size, width, allignment,ellipsize = pango.ELLIPSIZE_NONE):
 		"""Draws text"""
 		ctx.save()
 		ctx.translate(x, y)
@@ -216,6 +216,7 @@ class ScreenletTheme (dict):
 		self.p_layout.set_font_description(self.p_fdesc)
 		self.p_layout.set_width(width * pango.SCALE)
 		self.p_layout.set_alignment(allignment)
+		self.p_layout.set_ellipsize(ellipsize)
 		self.p_layout.set_markup(text)
 		ctx.show_layout(self.p_layout)
 		ctx.restore()
@@ -456,6 +457,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 	window 			= None		# the gtk.Window behind the scenes
 	theme 			= None		# the assigned ScreenletTheme
 	uses_theme		= True		# flag indicating whether Screenlet uses themes
+	draw_buttons		= True		
 	menu 			= None		# the right-click gtk.Menu
 	is_dragged 		= False		# TODO: make this work
 	quit_on_close 	= True		# if True, closing this instance quits gtk
@@ -473,6 +475,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 	width	= 100
 	height	= 100
 	scale	= 1.0
+	opacity = 1.0
 	theme_name		= ""
 	is_sticky		= False
 	is_widget		= False
@@ -484,7 +487,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 	allow_option_override 	= True		# if False, overrides are ignored
 	ask_on_option_override	= True		# if True, overrides need confirmation
 	has_started = False
-	
+	has_focus = False
 	# internals (deprecated? we still don't get the end of a begin_move_drag)
 	__lastx = 0
 	__lasty = 0
@@ -502,7 +505,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 
 	def __init__ (self, id='', width=100, height=100, parent_window=None, 
 		show_window=True, is_widget=False, is_sticky=False, 
-		uses_theme=True, path=os.getcwd(), drag_drop=False, session=None, 
+		uses_theme=True, draw_buttons=True,path=os.getcwd(), drag_drop=False, session=None, 
 		enable_saving=True, service_class=services.ScreenletService,
 		uses_pango=False):
 		"""Constructor - should only be subclassed"""
@@ -542,6 +545,8 @@ class Screenlet (gobject.GObject, EditableOptions):
 		# if this Screenlet uses themes, add theme-specific options
 		# (NOTE: this option became hidden with 0.0.9 and doesn't use
 		# get_available_themes anymore for showing the choices)
+		if draw_buttons: self.draw_buttons = True
+		else: self.draw_buttons = False
 		if uses_theme:
 			self.uses_theme = True
 			self.add_option(StringOption('Screenlet', 'theme_name', 
@@ -562,6 +567,9 @@ class Screenlet (gobject.GObject, EditableOptions):
 		self.add_option(FloatOption('Screenlet', 'scale', 
 			self.scale, _('Scale'), _('The scale-factor of this Screenlet ...'), 
 			min=0.1, max=10.0, digits=2, increment=0.1))
+		self.add_option(FloatOption('Screenlet', 'opacity', 
+			self.opacity, _('Opacity'), _('The opacity of the Screenlet window ...'), 
+			min=0.1, max=1.0, digits=2, increment=0.1))
 		self.add_option(BoolOption('Screenlet', 'is_sticky', 
 			is_sticky, _('Stick to Desktop'), 
 			_('Show this Screenlet on all workspaces ...')))
@@ -577,6 +585,9 @@ class Screenlet (gobject.GObject, EditableOptions):
 		self.add_option(BoolOption('Screenlet', 'keep_below', 
 			self.keep_below, _('Keep below'), 
 			_('Keep this Screenlet below other windows ...')))
+		self.add_option(BoolOption('Screenlet', 'draw_buttons', 
+			self.draw_buttons, _('Draw button controls'), 
+			_('Draw buttons in top right corner')))
 		self.add_option(BoolOption('Screenlet', 'skip_pager', 
 			self.skip_pager, _('Skip Pager'), 
 			_('Set this Screenlet to show/hide in pagers ...')))
@@ -665,6 +676,8 @@ class Screenlet (gobject.GObject, EditableOptions):
 		# And do other actions
 		if name=="x" or name=="y":
 			self.window.move(self.x, self.y)
+		elif name == 'opacity':
+			self.window.set_opacity(value)
 		elif name == 'scale':
 			self.window.resize(int(self.width * self.scale), 
 				int(self.height * self.scale))
@@ -853,7 +866,30 @@ class Screenlet (gobject.GObject, EditableOptions):
 		self.menu.append(menu_item)
 		menu_item.show()
 		return menu_item
-	
+
+	def create_buttons(self):
+
+		ctx = self.window.window.cairo_create()
+		ctx.save()
+		theme1 = gtk.icon_theme_get_default()
+		#ctx.set_source_rgba(0.5,0.5,0.5,0.6)
+		#self.theme.draw_rounded_rectangle(ctx,(self.width*self.scale)-36,0,5,36,16)
+		close = theme1.load_icon ("gtk-close", 16, 0)
+		prop = theme1.load_icon ("gtk-properties", 16, 0)
+					#zoom1 = theme1.load_icon ("gtk-zoom-in", 16, 0)
+					#zoom2 = theme1.load_icon ("gtk-zoom-out", 16, 0)
+					#close = gtk.image_new_from_stock(gtk.STOCK_CLOSE, 
+					#	16)
+		ctx.translate((self.width*self.scale)-16,0)
+		ctx.set_source_pixbuf(close, 0, 0)
+		ctx.paint()
+		ctx.restore()
+		ctx.save()	
+		ctx.translate((self.width*self.scale)-32,0)
+		ctx.set_source_pixbuf(prop, 0, 0)
+		ctx.paint()
+		ctx.restore()
+
 	def clear_cairo_context (self, ctx):
 		"""Fills the given cairo.Context with fully transparent white."""
 		ctx.save()
@@ -954,6 +990,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 		self.keep_below= self.keep_below
 		if self.is_widget:
 			self.set_is_widget(True)
+		self.has_focus = False
 	def hide (self):
 		"""Hides this Screenlet's underlying gtk.Window"""
 		self.window.hide()
@@ -1073,6 +1110,9 @@ class Screenlet (gobject.GObject, EditableOptions):
 			if self.window.window:
 				self.window.window.invalidate_rect(rect, True)
 				self.window.window.process_updates(True)
+				if self.has_focus and self.draw_buttons:
+					self.create_buttons()
+
 	
 	def redraw_canvas_area (self, x, y, width, height):
 		"""Redraw the given Rectangle (x, y, width, height) within the 
@@ -1117,11 +1157,30 @@ class Screenlet (gobject.GObject, EditableOptions):
 		# create context and draw shape
 		ctx = self.__shape_bitmap.cairo_create()
 		self.clear_cairo_context(ctx)		#TEST
-
+		if self.has_focus and self.draw_buttons:
+			ctx.save()
+			theme1 = gtk.icon_theme_get_default()
+			#ctx.set_source_rgba(0.5,0.5,0.5,0.6)
+			#self.theme.draw_rounded_rectangle(ctx,(self.width*self.scale)-36,0,5,36,16)
+			close = theme1.load_icon ("gtk-close", 16, 0)
+			prop = theme1.load_icon ("gtk-properties", 16, 0)
+					#zoom1 = theme1.load_icon ("gtk-zoom-in", 16, 0)
+					#zoom2 = theme1.load_icon ("gtk-zoom-out", 16, 0)
+					#close = gtk.image_new_from_stock(gtk.STOCK_CLOSE, 
+					#	16)
+			ctx.translate((self.width*self.scale)-16,0)
+			ctx.set_source_pixbuf(close, 0, 0)
+			ctx.paint()
+			ctx.restore()
+			ctx.save()	
+			ctx.translate((self.width*self.scale)-32,0)
+			ctx.set_source_pixbuf(prop, 0, 0)
+			ctx.paint()
+			ctx.restore()
 		# shape the window acording if the window is composited  or not
 
 		if self.window.is_composited():
-			
+
 			self.on_draw_shape(ctx)
 			# and cut window with mask 	
 			self.window.input_shape_combine_mask(self.__shape_bitmap, 0, 0)
@@ -1317,6 +1376,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 	def button_press (self, widget, event):
 		#print "Button press"
 		# set flags for user-handler
+
 		if self.lock_position == False:
 			if event.button == 1:
 				self.is_dragged = True
@@ -1324,7 +1384,13 @@ class Screenlet (gobject.GObject, EditableOptions):
 		if self.on_mouse_down(event) == True:
 			return True
 		# unhandled? continue
-		if self.lock_position == False:
+		
+		if self.mousex >= self.width - (32/self.scale) and self.mousey <= (16/self.scale) and self.draw_buttons:
+			if self.mousex >=  self.width - (16/self.scale):
+				self.menuitem_callback(widget,'quit_instance')
+			elif self.mousex <=  self.width -(16/self.scale):
+				self.menuitem_callback(widget,'info')
+		elif self.lock_position == False:
 			if event.button == 1:
 				widget.begin_move_drag(event.button, int(event.x_root), 
 					int(event.y_root), event.time)
@@ -1433,7 +1499,9 @@ class Screenlet (gobject.GObject, EditableOptions):
 	
 	def enter_notify_event (self, widget, event):
 		#self.__mouse_inside = True
+
 		self.on_mouse_enter(event)
+		
 		#self.redraw_canvas()
 	
 	def expose (self, widget, event):
@@ -1444,6 +1512,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 		ctx.rectangle(event.area.x, event.area.y,
 			event.area.width, event.area.height)
 		ctx.clip()
+		
 		# scale context
 		#ctx.scale(self.scale, self.scale)
 		# call drawing method
@@ -1453,10 +1522,17 @@ class Screenlet (gobject.GObject, EditableOptions):
 		return False
 	
 	def focus_in_event (self, widget, event):
+		self.has_focus = True
 		self.on_focus(event)
-	
+		self.update_shape()
+		self.redraw_canvas()
+
+
 	def focus_out_event (self, widget, event):
+		self.has_focus = False
 		self.on_unfocus(event)
+		self.update_shape()
+		self.redraw_canvas()
 	
 	def key_press (self, widget, event):
 		"""Handle keypress events, needed for in-place editing."""
@@ -1465,6 +1541,8 @@ class Screenlet (gobject.GObject, EditableOptions):
 	def leave_notify_event (self, widget, event):
 		#self.__mouse_inside = False
 		self.on_mouse_leave(event)
+	
+		#self.redraw_canvas()
 	
 	def menuitem_callback (self, widget, id):
 		if id == "delete":

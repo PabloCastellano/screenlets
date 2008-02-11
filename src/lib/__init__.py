@@ -668,7 +668,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 		# show window so it can realize , but hiding it so we can show it only when atributes have been set , this fixes some placement errors arround the screen egde
 		if show_window:
 			self.window.show()
-			self.window.set_property('accept-focus', False)
+			
 			self.window.hide()	
 
 	def __setattr__ (self, name, value):
@@ -989,7 +989,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 		self.on_init()
 		try: self.window.show()			
 		except:	print 'unable to show window'
-		self.window.set_property('accept-focus', False)
+		
 		# the keep above and keep bellow must be reset after the window is shown this is absolutly necessary 
 		self.keep_above= self.keep_above
 		self.keep_below= self.keep_below
@@ -1509,7 +1509,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 	
 	def enter_notify_event (self, widget, event):
 		#self.__mouse_inside = True
-		self.window.set_property('accept-focus', True)
+		
 		self.on_mouse_enter(event)
 		
 		#self.redraw_canvas()
@@ -1554,7 +1554,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 	
 	def leave_notify_event (self, widget, event):
 		#self.__mouse_inside = False
-		self.window.set_property('accept-focus', False)
+		
 		self.on_mouse_leave(event)
 	
 		#self.redraw_canvas()

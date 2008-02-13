@@ -260,7 +260,7 @@ class ScreenletsDaemon (dbus.service.Object):
 		
 		name = str(screenlet)
 		if not screenlets.launch_screenlet(name):
-			screenlets.show_error(self, 'Failed to add %sScreenlet.' % name)
+			screenlets.show_error(self, _('Failed to add %sScreenlet.') % name)
 
 	
 	def installit (self, widget):
@@ -284,7 +284,7 @@ class ScreenletsDaemon (dbus.service.Object):
 		dlg = gtk.FileChooserDialog(buttons=(gtk.STOCK_CANCEL, 
 			gtk.RESPONSE_CANCEL, gtk.STOCK_OPEN, gtk.RESPONSE_OK))
 		dlg.set_current_folder(os.environ['HOME'])
-		dlg.set_title(('Install a Screenlet'))
+		dlg.set_title((_('Install a Screenlet')))
 		dlg.set_filter(flt)
 		# run
 		resp		= dlg.run()
@@ -339,21 +339,21 @@ class ScreenletsDaemon (dbus.service.Object):
 		try:
 			print name
 		except:
-			screenlets.show_message (None,"Archive damaged or unsuported, only tar , bz2 or gz.")
+			screenlets.show_message (None, _("Archive damaged or unsuported, only tar , bz2 or gz."))
 		if not os.path.isdir('%s/%s' % (tmpdir, name)):
 			# dir missing
-			screenlets.show_message (None,"Invalid archive. Archive must contain a directory with the screenlet's name.")
+			screenlets.show_message (None, _("Invalid archive. Archive must contain a directory with the screenlet's name."))
 		elif not os.path.isfile('%s/%s/%sScreenlet.py' % (tmpdir, name, name)):
 			# Screenlet.py missing
-			screenlets.show_message (None,"Invalid archive. Archive does not contain a screenlet.")
+			screenlets.show_message (None, _("Invalid archive. Archive does not contain a screenlet."))
 		else:
 			# check for package-info
 
 			if not os.path.isfile('%s/%s/Screenlet.package' % (tmpdir, name)):
-				if screenlets.show_question(None,("%s was not packaged with the screenlet packager. Do you wish to continue and try to install it?" % (name)),('Install %s'% (name))):
+				if screenlets.show_question(None,(_("%s was not packaged with the screenlet packager. Do you wish to continue and try to install it?") % (name)),(_('Install %s') % (name))):
 					pass
 				else:
-					screenlets.show_message (None,"This package was not packaged with the screenlet packager.")
+					screenlets.show_message (None, _("This package was not packaged with the screenlet packager."))
 					return False	
 			
 			# copy archive to user dir (and create if not exists)
@@ -362,7 +362,7 @@ class ScreenletsDaemon (dbus.service.Object):
 			# delete package info from target dir
 			os.system('rm %s/%s/Screenlet.package' % (DIR_USER, name))
 			# set msg/result
-			screenlets.show_message (None,"The %sScreenlet has been succesfully installed." % name)
+			screenlets.show_message (None, _("The %sScreenlet has been succesfully installed.") % name)
 			result = True
 		# remove temp contents
 		os.system('rm -rf %s/install-temp' % DIR_TMP)

@@ -295,6 +295,23 @@ def mem_get_usage():
 		print("Can't parse /proc/meminfo")
 		return 0
 
+def mem_get_total():
+	try:
+		meminfo_file = open('/proc/meminfo')
+		meminfo = {}
+		for x in meminfo_file:
+		    	try:
+				(key,value,junk) = x.split(None, 2)
+				key = key[:-1] 
+				meminfo[key] = int(value)
+			except:
+				pass
+		meminfo_file.close()
+		return int(meminfo['MemTotal'])/1024
+	except:
+		print("Can't parse /proc/meminfo")
+		return 0
+
 def mem_get_usedswap():
 	try:
 		meminfo_file = open('/proc/meminfo')
@@ -310,6 +327,25 @@ def mem_get_usedswap():
 		if(meminfo['SwapTotal']==0):
 			return 0
 		return int((100*(int(meminfo['SwapTotal'])-int(meminfo['SwapCached']) - int(meminfo['SwapFree'])))/int(meminfo['SwapTotal']))
+	except:
+		print("Can't parse /proc/meminfo")
+		return 0
+
+def mem_get_totalswap():
+	try:
+		meminfo_file = open('/proc/meminfo')
+		meminfo = {}
+		for x in meminfo_file:
+			try:
+				(key,value,junk) = x.split(None, 2)
+				key = key[:-1]
+				meminfo[key] = int(value)
+			except:
+				pass
+		meminfo_file.close()
+		if(meminfo['SwapTotal']==0):
+			return 0
+		return int(meminfo['SwapTotal'])/1024
 	except:
 		print("Can't parse /proc/meminfo")
 		return 0
@@ -514,11 +550,11 @@ def cal_get_year ():
 
 def cal_get_month ():
 	"""returns the month"""	
-	return str(datetime.now().strftime("%B"))
+	return str(datetime.now().strftime("%m"))
 
 def cal_get_month_name ():
 	"""returns the month name"""	
-	return str(datetime.now().strftime("%m"))
+	return str(datetime.now().strftime("%B"))
 
 def cal_get_day ():
 	"""returns the day"""	

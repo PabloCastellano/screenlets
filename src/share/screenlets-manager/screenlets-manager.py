@@ -681,7 +681,7 @@ class ScreenletsManager:
 		self.btnsearch.set_image(gtk.image_new_from_stock(gtk.STOCK_FIND, 
 			gtk.ICON_SIZE_BUTTON))
     		self.btnsearch.connect("clicked",self.redraw_screenlets, 'enter')
-    		self.txtsearch.connect("activate",self.redraw_screenlets, 'enter')
+    		self.txtsearch.connect("changed",self.redraw_screenlets, 'enter')
     		self.txtsearch.connect("backspace",self.redraw_screenlets, 'backspace')
 
     		self.searchbox.pack_start(self.txtsearch, False)

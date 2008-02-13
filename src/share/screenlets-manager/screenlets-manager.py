@@ -86,7 +86,7 @@ else:
             except (OSError, RuntimeError):
                 pass
 
-        print 'It looks like you are running '+ desktop_environment
+        print _('It looks like you are running %s') % desktop_environment
 
 	if desktop_environment == 'kde':
 		DIR_AUTOSTART	= os.environ['HOME'] + '/.kde/Autostart/'
@@ -156,7 +156,7 @@ class ScreenletInstaller:
 		try:
 			print name
 		except:
-			screenlets.show_message(None,"Archive damaged or unsuported, only tar , bz2 or gz.")
+			screenlets.show_message(None, _("Archive is damaged or unsupported, use only tar, bz2 or gz."))
 		return (name, ext)
 	
 	def get_result_message (self):
@@ -172,7 +172,7 @@ class ScreenletInstaller:
 	def install (self, filename):
 		"""Install a screenlet from a given archive-file. Extracts the
 		contents of the archive to the user's screenlet dir."""
-		print 'Installing %s' % filename
+		print _('Installing %s') % filename
 		result = False
 		# get name of screenlet
 		#basename	= os.path.basename(filename)
@@ -192,10 +192,10 @@ class ScreenletInstaller:
 		# check if screenlet is already installed
 		#found_path = screenlets.utils.find_first_screenlet_path(name)
 		if self.is_installed(name):#found_path != None:
-			if screenlets.show_question(None,("The %sScreenlet is already installed in '%s'.\nDo you wish to continue?" % (name, DIR_USER)),('Install %s'% (name))):
+			if screenlets.show_question(None,(_("The %sScreenlet is already installed in '%s'.\nDo you wish to continue?") % (name, DIR_USER)),(_('Install %s') % (name))):
 				pass
 			else:
-				self._message= '%sScreenlet is already installed'% (name)
+				self._message= _('%sScreenlet is already installed') % (name)
 				return False
 		# check extension and create appropriate args for tar
 		tmpdir = DIR_TMP + '/install-temp'
@@ -210,7 +210,7 @@ class ScreenletInstaller:
 			# check for package-info
 
 			if not os.path.isfile('%s/%s/Screenlet.package' % (tmpdir, name)):
-				if screenlets.show_question(None,("%s was not packaged with the screenlet packager. Do you wish to continue and try to install it?" % (name)),('Install %s'% (name))):
+				if screenlets.show_question(None,(_("%s was not packaged with the screenlet packager. Do you wish to continue and try to install it?") % (name)),(_('Install %s') % (name))):
 					pass
 				else:
 					self._message = _("This package was not packaged with the screenlet packager.")
@@ -222,7 +222,7 @@ class ScreenletInstaller:
 			# delete package info from target dir
 			os.system('rm %s/%s/Screenlet.package' % (DIR_USER, name))
 			# set msg/result
-			self._message = _("The %sScreenlet has been succesfully installed." % name)
+			self._message = _("The %sScreenlet has been succesfully installed.") % name
 			result = True
 		# remove temp contents
 		os.system('rm -rf %s/install-temp' % DIR_TMP)
@@ -271,8 +271,8 @@ class ScreenletsManager:
 		"""Adds Screenlets-daemon to autostart if not already"""
 		if not os.path.isdir(DIR_AUTOSTART):
 		# create autostart directory, if not existent
-			if screenlets.show_question(None, "There is no existing autostart directory for your user account yet. Do you want me to automatically create it for you?",'Error'):
-				print "Auto-create autostart dir ..."
+			if screenlets.show_question(None, _("There is no existing autostart directory for your user account yet. Do you want me to automatically create it for you?"), _('Error')):
+				print _("Auto-create autostart dir ...")
 				os.system('mkdir %s' % DIR_AUTOSTART)
 				if not os.path.isdir(DIR_AUTOSTART):
 					screenlets.show_error(None, _("Automatic creation failed. Please manually create the directory:\n%s") % DIR_AUTOSTART, _('Error'))
@@ -285,7 +285,7 @@ class ScreenletsManager:
 		print '%sscreenlets-daemon.desktop' % (DIR_AUTOSTART)
 		print os.path.isfile('%s/screenlets-daemon.desktop' % (DIR_AUTOSTART))
 		if not os.path.isfile(starter) and os.path.isfile('%sscreenlets-daemon.desktop' % (DIR_AUTOSTART)) == False:
-			print "Create autostarter for: Screenlets Daemon"
+			print _("Create autostarter for: Screenlets Daemon")
 			code = ['[Desktop Entry]']
 			code.append('Encoding=UTF-8')
 			code.append('Version=1.0')
@@ -299,10 +299,10 @@ class ScreenletsManager:
 					f.write(l + '\n')
 				f.close()
 				return True
-			print 'Failed to create autostarter for %s.' % name
+			print _('Failed to create autostarter for %s.') % name
 			return False
 		else:
-			print "Starter already exists."
+			print _("Starter already exists.")
 			return True
 	
 
@@ -314,17 +314,17 @@ class ScreenletsManager:
 		# if daemon is not available, 
 		if self.daemon_iface == None:
 			# try to launch it 
-			print "Trying to launching screenlets-daemon ..."
+			print _("Trying to launching screenlets-daemon ...")
 			os.system(screenlets.INSTALL_PREFIX + \
 				'/share/screenlets-manager/screenlets-daemon.py &')
 			def daemon_check ():
-				print "checking for running daemon again ..."
+				print _("checking for running daemon again ...")
 				self.daemon_iface = self.get_daemon_iface()
 				if self.daemon_iface:
-					print "DAEMON FOUND - Ending timeout"
+					print _("DAEMON FOUND - Ending timeout")
 					self.connect_daemon()
 				else:
-					print "Error: Unable to connect/launch daemon."
+					print _("Error: Unable to connect/launch daemon.")
 					screenlets.show_error(None, _("Unable to connect or launch daemon. Some values may be displayed incorrectly."), _('Error'))
 			import gobject
 			gobject.timeout_add(2000, daemon_check)
@@ -355,7 +355,7 @@ class ScreenletsManager:
 				if proxy_obj:
 					return dbus.Interface(proxy_obj, iface)
 			except Exception, ex:
-				print "Error in ScreenletsManager.connect_daemon: %s" % ex
+				print _("Error in ScreenletsManager.connect_daemon: %s") % ex
 		return None
 	
 	def create_autostarter (self, name):
@@ -366,7 +366,7 @@ class ScreenletsManager:
 			if screenlets.show_question(None, 
 				_("There is no existing autostart directory for your user account yet. Do you want me to automatically create it for you?"), 
 				_('Error')):
-				print "Auto-create autostart dir ..."
+				print _("Auto-create autostart dir ...")
 				os.system('mkdir %s' % DIR_AUTOSTART)
 				if not os.path.isdir(DIR_AUTOSTART):
 					screenlets.show_error(None, _("Automatic creation failed. Please manually create the directory:\n%s") % DIR_AUTOSTART, _('Error'))
@@ -384,11 +384,11 @@ class ScreenletsManager:
 			if a != -1:
 				print str(f) + ' duplicate entry'
 				os.system('rm %s%s' % (chr(34)+DIR_AUTOSTART,f+chr(34)))
-				print 'Removed duplicate entry'
-		if not os.path.isfile(starter) and not os.path.exists('/home/helder/.config/autostart/CalendarScreenlet'):
+				print _('Removed duplicate entry')
+		if not os.path.isfile(starter) and not os.path.exists(os.environ['HOME'] + '/.config/autostart/CalendarScreenlet'):
 			path = utils.find_first_screenlet_path(name)
 			if path:
-				print "Create autostarter for: %s/%sScreenlet.py" % (path, name)
+				print _("Create autostarter for: %s/%sScreenlet.py") % (path, name)
 				code = ['[Desktop Entry]']
 				code.append('Name=%sScreenlet' % name)
 				code.append('Encoding=UTF-8')
@@ -403,24 +403,24 @@ class ScreenletsManager:
 						f.write(l + '\n')
 					f.close()
 					return True
-				print 'Failed to create autostarter for %s.' % name
+				print _('Failed to create autostarter for %s.') % name
 				return False
 		else:
-			print "Starter already exists."
+			print _("Starter already exists.")
 			return True
 	
 	def delete_autostarter (self, name):
 		"""Delete the autostart for the given screenlet."""
 		if name.endswith('Screenlet'):
 			name = name[:-9]
-		print 'Delete autostarter for %s.' % name
+		print _('Delete autostarter for %s.') % name
 		os.system('rm %s%sScreenlet.desktop' % (DIR_AUTOSTART, name))
 		for f in os.listdir(DIR_AUTOSTART):
 			a = f.find(name + 'Screenlet')
 			if a != -1:
 				print str(f) + ' duplicate entry'
 				os.system('rm %s%s' % (chr(34)+DIR_AUTOSTART,f+chr(34)))
-				print 'Removed duplicate entry'
+				print _('Removed duplicate entry')
 	
 	def delete_selected_screenlet (self):
 		"""Delete the selected screenlet from the user's screenlet dir."""
@@ -437,7 +437,7 @@ class ScreenletsManager:
 						# remove entry from model
 						self.model.remove(it)
 				else:
-					screenlets.show_error(None, 'Can\'t delete system-wide screenlets.')
+					screenlets.show_error(None, _('Can\'t delete system-wide screenlets.'))
 		return False
 	
 	def load_screenlets (self):
@@ -837,7 +837,7 @@ class ScreenletsManager:
 
 	def drag_data_received (self, widget, dc, x, y, sel_data, info, timestamp):
 			
-		print "Data dropped ..."
+		print _("Data dropped ...")
 		filename = ''
 		# get text-elements in selection data
 		txt = sel_data.get_text()
@@ -849,7 +849,7 @@ class ScreenletsManager:
 			if txt.startswith('file://'):
 				filename = txt[7:]
 			else:
-				screenlets.show_error(self, 'Invalid string: %s.' % txt)
+				screenlets.show_error(self, _('Invalid string: %s.') % txt)
 		else:
 			# else get uri-part of selection
 			uris = sel_data.get_uris()
@@ -870,7 +870,7 @@ class ScreenletsManager:
 					screenlets.show_error(None, installer.get_result_message())
 			else:
 				self.show_install_dialog()
-				print 'Please install screenlets from folders without strange characters'
+				print _('Please install screenlets from folders without strange characters')
 	def containsAll(self,str, set):
 		for c in set:
 			if c not in str: return 0;
@@ -928,7 +928,7 @@ class ScreenletsManager:
 		dlg = gtk.FileChooserDialog(buttons=(gtk.STOCK_CANCEL, 
 			gtk.RESPONSE_CANCEL, gtk.STOCK_OPEN, gtk.RESPONSE_OK))
 		dlg.set_current_folder(os.environ['HOME'])
-		dlg.set_title(('Install a new theme for the selected Screenlet'))
+		dlg.set_title((_('Install a new theme for the selected Screenlet')))
 		dlg.set_filter(flt)
 		# run
 		resp		= dlg.run()
@@ -939,7 +939,7 @@ class ScreenletsManager:
 			
 			# try installing and show result dialog
 			self.window.window.set_cursor(gtk.gdk.Cursor(gtk.gdk.WATCH))
-			print 'Installing %s' % filename
+			print _('Installing %s') % filename
 			result = False
 			info = self.get_selection()
 			basename	= os.path.basename(filename)
@@ -956,7 +956,7 @@ class ScreenletsManager:
 				themes_dir = DIR_USER + '/' + info.name + '/themes/'
 				install_prefix = ''
 			else:
-				if not screenlets.show_question(None,"You are about to install a theme in root mode. Continue only if you have gksudo installed, do you wish to continue?"):
+				if not screenlets.show_question(None, _("You are about to install a theme in root mode. Continue only if you have gksudo installed, do you wish to continue?")):
 					self.window.window.set_cursor(gtk.gdk.Cursor(gtk.gdk.LEFT_PTR))	
 					result = False
 				themes_dir = screenlets.INSTALL_PREFIX + '/share/screenlets' + '/'  + info.name + '/themes/'
@@ -973,23 +973,23 @@ class ScreenletsManager:
 			try:
 				print os.listdir(tmpdir)[0]
 			except:				
-				screenlets.show_message(None,"Error Found")				
+				screenlets.show_message(None, _("Error Found"))				
 				self.window.window.set_cursor(gtk.gdk.Cursor(gtk.gdk.LEFT_PTR))	
 				result = False #is it a valid folder?
 				
 			if not os.path.exists(tmpdir + os.listdir(tmpdir)[0]):	
-				screenlets.show_message(None,"Theme install error 1 found - Theme not installed , maybe a package error ")				
+				screenlets.show_message(None, _("Theme install error 1 found - Theme not installed , maybe a package error "))				
 				self.window.window.set_cursor(gtk.gdk.Cursor(gtk.gdk.LEFT_PTR))	
 				result = False #is it a valid folder?
 
 			if os.listdir(tmpdir)[0] == 'themes': 
 				install_dir = install_dir + info.name
-				print "list contains themes folder"
+				print _("list contains themes folder")
 			elif os.listdir(tmpdir)[0] == info.name:
-				print "list contains the screenlet name folder"
+				print _("list contains the screenlet name folder")
 				install_dir = install_dir
 				if os.path.exists(tmpdir + os.listdir(tmpdir)[0] + '/'+ info.name + 'Screenlet.py') and os.path.isfile(tmpdir + os.listdir(tmpdir)[0] + '/'+ info.name + 'Screenlet.py'):
-					screenlets.show_message(None,"This package seams to contain a full Screenlet and not just a theme, please use the screenlet install instead")
+					screenlets.show_message(None, _("This package seams to contain a full Screenlet and not just a theme, please use the screenlet install instead"))
 					self.window.window.set_cursor(gtk.gdk.Cursor(gtk.gdk.LEFT_PTR))			
 					return False
 			else:
@@ -1001,11 +1001,11 @@ class ScreenletsManager:
 						if not f.startswith('icon'):
 							z=z+1
 				if z == 0:
-					screenlets.show_message(None,"This package doesnt seem to contain a theme")
+					screenlets.show_message(None, _("This package doesnt seem to contain a theme"))
 					self.window.window.set_cursor(gtk.gdk.Cursor(gtk.gdk.LEFT_PTR))	
 					return False
 				install_dir = install_dir + info.name + '/themes/'
-				print "only contains the themes folders"
+				print _("only contains the themes folders")
 			print install_dir
 			print install_prefix						
 			os.system('rm -rf %s/install-temp' % DIR_TMP)
@@ -1023,12 +1023,12 @@ class ScreenletsManager:
 
 			if y > x:
 				
-				screenlets.show_message(None,"Theme installed , please restart " + info.name )
+				screenlets.show_message(None, _("Theme installed , please restart %s") % info.name )
 				self.window.window.set_cursor(gtk.gdk.Cursor(gtk.gdk.LEFT_PTR))	
 				result = True
 
 			else:
-				screenlets.show_message(None,"Theme install error 2 found - Theme not installed or already installed")
+				screenlets.show_message(None, _("Theme install error 2 found - Theme not installed or already installed"))
 				self.window.window.set_cursor(gtk.gdk.Cursor(gtk.gdk.LEFT_PTR))	
 				result = False
 		else:
@@ -1058,7 +1058,7 @@ class ScreenletsManager:
 			a = utils.list_running_screenlets()
 			if a != None:
 				for s in a:
-					print 'closing' + str(s)
+					print _('closing %s') % str(s)
 					if s.endswith('Screenlet'):
 						s = s[:-9]
 						try:
@@ -1148,12 +1148,12 @@ class ScreenletsManager:
 			info.active = not info.active
 			if info.active:
 				# launch screenlet
-				print "Launch %s" % info.name
+				print _("Launch %s") % info.name
 				screenlets.launch_screenlet(info.name, debug=DEBUG_MODE)
 			else:
 				# quit screenlet
 				self.quit_screenlet_by_name(info.name)
-				print "Quit %s" % info.name
+				print _("Quit %s") % info.name
 	
 	def toggle_autostart (self, widget):
 		"""Callback for handling changes to the Autostart-CheckButton."""
@@ -1187,7 +1187,7 @@ class ScreenletsManager:
 				
 	def delete_event (self, widget, event):
 		gtk.main_quit()
-		print "Quit!"
+		print _("Quit!")
 	
 	# start the app
 	

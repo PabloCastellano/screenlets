@@ -65,12 +65,12 @@ class ScreenletService (dbus.service.Object):
 		
 	@action(IFACE)
 	def test (self):
-		print "TEST: %s" % str(self.screenlet)
+		print _("TEST: %s") % str(self.screenlet)
 
 	@action(IFACE)
 	def debug (self, string):
 		"""Dump a string to the console."""
-		print "DEBUG: " + string
+		print _("DEBUG: %s") % string
 	
 	@action(IFACE)
 	def add (self, id):

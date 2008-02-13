@@ -67,7 +67,7 @@ def cpu_get_cpu_name():
 		tmp = f.readlines(500)
 		f.close()
 	except:
-		print "Failed to open /proc/cpuinfo"
+		print _("Failed to open /proc/cpuinfo")
 		sys.exit(1)
 		list = []
 	for line in tmp:
@@ -81,7 +81,7 @@ def cpu_get_cpu_list ():
 		tmp = f.readlines(2000)
 		f.close()
 	except:
-		print "Failed to open /proc/stat"
+		print _("Failed to open /proc/stat")
 		sys.exit(1)
 	list = []
 	for line in tmp:
@@ -96,7 +96,7 @@ def cpu_get_nb_cpu ():
 		tmp = f.readlines(2000)
 		f.close()
 	except:
-		print "Failed to open /proc/stat"
+		print _("Failed to open /proc/stat")
 		sys.exit(1)
 	nb = 0
 	for line in tmp:
@@ -121,7 +121,8 @@ def sys_get_uptime_long ():
 	hours = int( uptime / 60 / 60 )
 	uptime = uptime - hours * 60 * 60
 	minutes = int( uptime / 60 )
-	return str(days) + " days, " + str(hours) + " hours and " + str(minutes) + " minutes"
+	return _("%s days, %s hours and %s minutes") % (str(days), str(hours), str(minutes))
+	#return str(days) + " days, " + str(hours) + " hours and " + str(minutes) + " minutes"
 
 def sys_get_uptime():
 	try:
@@ -136,7 +137,7 @@ def sys_get_uptime():
 		else:
 			return str(h)+':'+str(m)
 	except:
-		print "Failed to open /proc/uptime"
+		print _("Failed to open /proc/uptime")
 	return 'Error'
 
 
@@ -171,7 +172,7 @@ def sys_get_distrib_name():
 		f.close()
 		return tmp[0].replace('\\n','').replace('\l','').replace('\r','').strip()
 	except:
-		print "Failed to open /etc/issue"
+		print _("Failed to open /etc/issue")
 	return 'Error'
 
 
@@ -200,7 +201,7 @@ def sys_get_kernel_version():
 	res = commands.getstatusoutput('uname -r')
 	if res[0]==0:
 		return res[1].strip()
-	return "Can't get kernel version"
+	return _("Can't get kernel version")
 
 def sys_get_kde_version():
 	res = commands.getstatusoutput('kde-config --version')
@@ -209,7 +210,7 @@ def sys_get_kde_version():
 		for i in lst:
 			if i.startswith('KDE:'):
 				return i[4:].strip()
-	return "Can't get KDE version"
+	return _("Can't get KDE version")
 
 def sys_get_gnome_version():
 	res = commands.getstatusoutput('gnome-about --gnome-version')
@@ -218,7 +219,7 @@ def sys_get_gnome_version():
 		for i in lst:
 			if i.startswith('Version:'):
 				return i[8:].strip()
-	return "Can't get Gnome version"
+	return _("Can't get Gnome version")
 
 # by whise
 def sys_get_linux_version ():
@@ -238,18 +239,18 @@ def sys_get_window_manager():
 		_WM_NAME_WIN = gtk.gdk.window_foreign_new(long(ident[0]))
 	except TypeError, exc:
 		_WM_NAME_WIN = ""
-		log("Your window manager doesn't support "
-		"_NET_SUPPORTING_WM_CHECK! Switch to a compliant WM!"
-		"The following error occurred:\n%s" % (exc,))
+		log(_("Your window manager doesn't support ")
+		_("_NET_SUPPORTING_WM_CHECK! Switch to a compliant WM!")
+		_("The following error occurred:\n%s") % (exc,))
 	name = ""
 	win = _WM_NAME_WIN
 	if (win != None):
 		try:
 			name = win.property_get("_NET_WM_NAME")[2]
 		except TypeError, exc:
-			log("Your window manager doesn't support _NET_WM_NAME!\n"
-			"Switch to a EWMH compliant WM.\n"
-			"The following error occurred:\n%s" % (exc,))
+			log(_("Your window manager doesn't support _NET_WM_NAME!\n")
+			_("Switch to a EWMH compliant WM.\n")
+			_("The following error occurred:\n%s") % (exc,))
 			return name
 
 	return name
@@ -292,7 +293,7 @@ def mem_get_usage():
 		meminfo_file.close()
 		return int((100*(int(meminfo['MemTotal'])-int(meminfo['Cached']) - int(meminfo['Buffers']) - int(meminfo['MemFree'])))/int(meminfo['MemTotal']))
 	except:
-		print("Can't parse /proc/meminfo")
+		print(_("Can't parse /proc/meminfo"))
 		return 0
 
 def mem_get_usedswap():
@@ -390,7 +391,7 @@ def net_get_ip(): # by Whise
 			return ipc
 			
 
-	return 'Cannot get ip'
+	return _('Cannot get ip')
 
 
 def net_get_updown():
@@ -409,7 +410,7 @@ def net_get_updown():
 	
 		return (newNetUp/1024), (newNetDown/1024)
 	except:
-		print("Can't open /proc/net/dev")
+		print(_("Can't open /proc/net/dev"))
 		return 0,0
 
 
@@ -439,7 +440,7 @@ def wir_get_interfaces():
 				interfaces.append(line[:colon].strip())
 		return interfaces
 	except:
-		print("Can't open /proc/net/wireless")
+		print(_("Can't open /proc/net/wireless"))
 		return []
 
 def wir_get_stats (interface):
@@ -451,7 +452,7 @@ def wir_get_stats (interface):
 	essid = iwconfig[iwconfig.find('ESSID:"')+7:]
 	stats['essid'] = essid[:essid.find('"')]
 	if stats['essid'].strip()[:stats['essid'].strip().find("  ")] == "unassociated":
-		return {"essid": "Not connected", "percentage": 0}
+		return {"essid": _("Not connected"), "percentage": 0}
 	else:
 		bitrate = iwconfig[iwconfig.find("Bit Rate:")+9:]
 		stats['bitrate'] = bitrate[:bitrate.find(" ")]
@@ -464,7 +465,7 @@ def wir_get_stats (interface):
 		try:
 			stats['percentage'] = int(float(stats['quality'])/float(stats['quality_max'])*100)
 		except:
-			return {"essid": "Not connected", "percentage": 0}
+			return {"essid": _("Not connected"), "percentage": 0}
 		signal = iwconfig[iwconfig.find("Signal level=")+13:]
 		stats['signal'] = signal[:signal.find("  ")]
 		noise = iwconfig[iwconfig.find("Noise level=")+12:]
@@ -651,19 +652,20 @@ def sensors_get_sensors_list():
 		sol = res[1].replace(':\n ',': ').replace(':\n\t',': ').splitlines()
 		for i in sol:
 			i = i.strip()
-			if (i.find('\xb0')!= -1) or (i.find('\xc2')!= -1) or (i.find('temp')!= -1) or (i.find('Temp')!= -1) or (i.find(' V ')!= -1) or (i.find(' RPM ')!= -1):
+			# (i.find('\xb0')!= -1) or (i.find('\xc2')!= -1) or
+			if (i.find('temp')!= -1) or (i.find('Temp')!= -1) or (i.find(' V ')!= -1) or (i.find(' RPM ')!= -1):
 				output.append(i.lstrip())#.split(')')[0]+')')
 	#now look for nvidia sensors
 	res = commands.getstatusoutput(' nvidia-settings -q GPUAmbientTemp | grep :')
 	if res[0] == 0:
 		if res[1].strip().startswith('Attribute \'GPUAmbientTemp\''):
 			sol = res[1].splitlines()[0].split('):')[1].strip()
-			output.append('nvidia GPU ambiant: '+str(float(sol))+'°C')
+			output.append('nvidia GPU ambiant: '+str(float(sol))+' C')
 	res = commands.getstatusoutput(' nvidia-settings -q GPUCoreTemp | grep :')
 	if res[0] == 0:
 		if res[1].strip().startswith('Attribute \'GPUCoreTemp\''):
 			sol = res[1].splitlines()[0].split('):')[1].strip()
-			output.append('nvidia GPU core: '+str(float(sol))+'°C')	
+			output.append('nvidia GPU core: '+str(float(sol))+'C')	
 		
 		
 	#recherche des senseurs ACPI
@@ -676,11 +678,11 @@ def sensors_get_sensors_list():
 				tmp = f.readlines(200)
 				f.close()
 				val = tmp[0].replace('temperature:','').replace('C','').strip()
-				output.append('acpi temperature '+entry+': '+val+'°C')
+				output.append('acpi temperature '+entry+': '+val+'C')
 			except:
-				print("Can't open "+path+entry+'/temperature')
+				print(_("Can't open %s/temperature") % path+entry)
 	except:
-		print("Can't open folder /proc/acpi/thermal_zone/")
+		print(_("Can't open folder /proc/acpi/thermal_zone/"))
 
 	#recherche des senseurs IBM
 	path = "/proc/acpi/ibm/thermal"
@@ -693,10 +695,10 @@ def sensors_get_sensors_list():
 		for i in lst:
 			i = i.strip()
 			if i != '' and i != '-128':
-				output.append('ibm temperature '+str(pos)+': '+i+'°C')
+				output.append('ibm temperature '+str(pos)+': '+i+'C')
 			pos = pos+1
 	except:
-		print("Can't open "+path)
+		print(_("Can't open %s") % path)
 	
 	path = "/proc/acpi/ibm/fan"
 	try:
@@ -707,7 +709,7 @@ def sensors_get_sensors_list():
 			if i.startswith('speed:'):
 				output.append('ibm fan: '+i.split(':')[1].strip()+' RPM')
 	except:
-		print("Can't open "+path)
+		print(_("Can't open %s") % path)
 		
 		#recherche des temperatures de disque
 	res = commands.getstatusoutput("netcat 127.0.0.1 7634")
@@ -720,11 +722,11 @@ def sensors_get_sensors_list():
 			for i in sol:
 				if len(i)>1:
 					lst = i.split('|')
-					output.append("hddtemp sensor "+lst[0]+": "+lst[2]+" °"+lst[3])
+					output.append("hddtemp sensor "+lst[0]+": "+lst[2]+" "+lst[3])
 		except:
-			print('Error during hddtemp drives search')
+			print(_('Error during hddtemp drives search'))
 	else:
-		print('Hddtemp not installed')
+		print(_('Hddtemp not installed'))
 		return output
 
 
@@ -735,13 +737,13 @@ def sensors_get_sensor_value(sensorName):
 		if res[0] == 0:
 			if res[1].strip().startswith('Attribute \'GPUAmbientTemp\''):
 				#ici, je fais un str(float()) comme ca ca transforme 48. en 48.0
-				return str(float(res[1].splitlines()[0].split('):')[1].strip()))+'°C'
+				return str(float(res[1].splitlines()[0].split('):')[1].strip()))+'C'
 	elif sensorName.startswith('nvidia GPU core'):
 		res = commands.getstatusoutput(' nvidia-settings -q GPUCoreTemp | grep :')
 		if res[0] == 0:
 			if res[1].strip().startswith('Attribute \'GPUCoreTemp\''):
 				#ici, je fais un str(float()) comme ca ca transforme 48. en 48.0
-				return str(float(res[1].splitlines()[0].split('):')[1].strip()))+'°C'
+				return str(float(res[1].splitlines()[0].split('):')[1].strip()))+'C'
 
 	elif sensorName.startswith('acpi temperature'):
 		name = sensorName.split()[2].strip()
@@ -752,9 +754,9 @@ def sensors_get_sensor_value(sensorName):
 			f.close()
 			val = tmp[0].replace('temperature:','').replace('C','').strip()
 			
-			return val+'°C'
+			return val+'C'
 		except:
-			print("can't read temperature in: "+path)
+			print(_("can't read temperature in: %s") % path)
 			return 'Error'
 
 	elif sensorName.startswith('ibm temperature'):
@@ -766,9 +768,9 @@ def sensors_get_sensor_value(sensorName):
 			f.close()
 			lst = tmp[0].split(' ')
 			val = int(sensorName.split(' ')[2])
-			return lst[val]+'°C'
+			return lst[val]+'C'
 		except:
-			print("Can't read value from "+path)
+			print(_("Can't read value from %s") % path)
 			return 'None'
 		
 	elif sensorName.startswith('ibm fan'):
@@ -784,7 +786,7 @@ def sensors_get_sensor_value(sensorName):
 					return i.split(':')[1].strip()+' RPM'
 			return 'None'
 		except:
-			print("Can't read value from "+path)
+			print(_("Can't read value from %s") % path)
 			return 'None'
 
 	elif sensorName.startswith('hddtemp sensor '):
@@ -799,9 +801,9 @@ def sensors_get_sensor_value(sensorName):
 				if len(i)>1:
 					if i.startswith(name):
 						lst = i.split('|')
-						return lst[0]+": "+lst[2]+" °"+lst[3]
+						return lst[0]+": "+lst[2]+" "+lst[3]
 		else:
-			print('Hddtemp not installed')
+			print(_('Hddtemp not installed'))
 			return ''
 
 	

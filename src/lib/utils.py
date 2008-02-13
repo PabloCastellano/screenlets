@@ -196,7 +196,7 @@ class IniReader:
 		try:
 			f = open (filename, "r")
 		except:
-			print "File " + str(filename) + " not found"
+			print _("File %s not found") % str(filename)
 		if f:
 			section_name = ''
 			for line in f.readlines():

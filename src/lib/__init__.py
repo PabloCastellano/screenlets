@@ -1024,8 +1024,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 				if self.theme.has_overrides():
 					if self.ask_on_option_override==True and \
 						show_question(self, 
-						_('This theme wants to override your settings for ')+\
-						_('this Screenlet. Do you want to allow that?')) == False:
+						_('This theme wants to override your settings for this Screenlet. Do you want to allow that?')) == False:
 						return
 					self.theme.apply_option_overrides(self)
 	# /EXPERIMENTAL
@@ -1093,7 +1092,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 		except:
 			img.set_from_stock(gtk.STOCK_PROPERTIES, 5)
 		se.set_title(self.__name__)
-		se.set_info(self.__name__, self.__desc__, '(c) by ' + self.__author__, 
+		se.set_info(self.__name__, self.__desc__, '(c) ' + self.__author__, 
 			version='v' + self.__version__, icon=img)
 		se.show_options_for_object(self)
 		resp = se.run()
@@ -1431,13 +1430,13 @@ class Screenlet (gobject.GObject, EditableOptions):
 		self.window.hide() # hiding the window and showing it again so the window can convert to the right composited state
 		self.is_sticky = self.is_sticky	 #changing from non composited to composited makes the screenlets loose sticky state , this fixes that
 		self.window.show()
-		print 'composite change to ' + str(self.window.is_composited())
+		print _('Compositing method changed to %s') % str(self.window.is_composited())
 		self.update_shape()
 		self.redraw_canvas()
 
 		if not self.window.is_composited () :
 			self.show_buttons = False
-			print 'Warning - Buttons will not be showng until screenlet restart'
+			print _('Warning - Buttons will not be shown until screenlet is restarted')
 		self.is_sticky = self.is_sticky #and again ...
 		self.on_composite_changed()
 
@@ -1567,7 +1566,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 				# notify about being rmeoved (does this get send???)
 				self.service.instance_removed(self.id)
 		elif id == "quit_instance":
-			print 'quiting this one only'
+			print _('Quitting current screenlet instance')
 			self.session.quit_instance (self.id)
 			self.service.instance_removed(self.id)
 		elif id == "quit":
@@ -1584,7 +1583,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 			self.height = int(id[5:])
 			self.update_shape()
 		elif id[:6]=="theme:":
-			print "Screenlet: Set theme " + id[6:]
+			print _("Screenlet: Set theme %s") % id[6:]
 			# set theme
 			self.theme_name = id[6:]
 		elif id[:8] == "setting:":

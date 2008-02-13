@@ -173,7 +173,7 @@ class CachingBackend (ScreenletsBackend):
 	def __load_cache (self):
 		"""Load all cached files from path."""
 		# perform saving
-		print "CachingBackend: Loading instances from cache"
+		print _("CachingBackend: Loading instances from cache")
 		# get dir content of self.path
 		dirname = self.path
 		dirlst = glob.glob(dirname + '*')

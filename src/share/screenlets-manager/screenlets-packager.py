@@ -142,4 +142,4 @@ os.system('rm %s/%s' % (path, PACKAGE_INFO_FILE))
 msg(_('Cleaned up and finished.'))
 
 # OK
-print 'OK.'
+print _('OK.')

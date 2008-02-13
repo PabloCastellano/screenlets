@@ -61,7 +61,7 @@ def read_desktop_file (filename):
 	try:
 		f = open (filename, "r")
 	except:
-		print "Error: file %s not found." % filename
+		print _("Error: file %s not found.") % filename
 	if f:
 		lines = f.readlines()
 		for line in lines:

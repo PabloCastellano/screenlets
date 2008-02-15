@@ -17,6 +17,7 @@ import commands
 import time
 import os
 import subprocess
+# translation stuff
 gettext.textdomain('screenlets')
 gettext.bindtextdomain('screenlets', '/usr/share/locale')
 
@@ -239,18 +240,14 @@ def sys_get_window_manager():
 		_WM_NAME_WIN = gtk.gdk.window_foreign_new(long(ident[0]))
 	except TypeError, exc:
 		_WM_NAME_WIN = ""
-		log(_("Your window manager doesn't support ")
-		_("_NET_SUPPORTING_WM_CHECK! Switch to a compliant WM!")
-		_("The following error occurred:\n%s") % (exc,))
+
 	name = ""
 	win = _WM_NAME_WIN
 	if (win != None):
 		try:
 			name = win.property_get("_NET_WM_NAME")[2]
 		except TypeError, exc:
-			log(_("Your window manager doesn't support _NET_WM_NAME!\n")
-			_("Switch to a EWMH compliant WM.\n")
-			_("The following error occurred:\n%s") % (exc,))
+
 			return name
 
 	return name

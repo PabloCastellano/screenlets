@@ -505,7 +505,10 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 				self.theme.draw_text(ctx, self.wire_list[0] , -65, 0, self.font, self.fontsize,  self.width,pango.ALIGN_CENTER)
 
 				self.theme.draw_text(ctx,str( int(self.wire_data['percentage']))+ '%' , -65, 30, self.font, self.fontsize - 2,  self.width,pango.ALIGN_CENTER)
+				ctx.restore()
 
+			m = m +60
+			self.theme.draw_text(ctx,str( sensors.process_get_top()) , 0, m, self.font, self.fontsize - 3,  self.width -10,pango.ALIGN_CENTER)
 			m = m +60
 			if self.height != m and self.expand == False:
 				self.height = m

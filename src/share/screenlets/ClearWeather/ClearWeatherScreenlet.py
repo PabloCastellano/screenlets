@@ -76,7 +76,7 @@ class ClearWeatherScreenlet(screenlets.Screenlet):
 			bool(self.show_error_message), 'Show error messages', 
 			'Show an error message on invalid location code'))
 		self.add_option(BoolOption('Weather', 'use_metric', 
-			bool(self.use_metric), 'Use metric over imperial units', 
+			bool(self.use_metric), 'Use celsius temperature ', 
 			'Use the metric system for measuring values'))
 		self.add_option(BoolOption('Weather', 'mini',
 			bool(self.mini), 'Use mini-mode',

@@ -34,6 +34,13 @@ import gtk, gobject
 import xml.dom.minidom
 from xml.dom.minidom import Node
 
+# translation stuff
+import gettext
+gettext.textdomain('screenlets')
+gettext.bindtextdomain('screenlets', '/usr/share/locale')
+
+def _(s):
+	return gettext.gettext(s)
 
 # -----------------------------------------------------------------------
 # Option-classes and subclasses

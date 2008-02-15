@@ -458,6 +458,12 @@ def net_get_activity (device):
 	return (float(data.split()[0]), float(data.split()[8]))
 
 
+def net_get_connections ():
+	"""This will return the number of connections."""
+	data = commands.getoutput("netstat -n | grep -c tcp")
+	
+	return data
+
 ###########################################
 #                                         #
 #                 Wireless                #
@@ -658,6 +664,10 @@ def bat_get_value(line):
 	return line.split(':')[1].strip().split(' ')[0]
 
 
+def bat_get_ac():
+	data = commands.getoutput("acpi -V | grep AC | sed 's/.*: //'")
+	return data
+
 ###########################################
 #                                         #
 #                 Processes               #
@@ -665,12 +675,15 @@ def bat_get_value(line):
 ###########################################
 
 
-def top_process_get_list():
+def process_get_list():
 	res = commands.getoutput('ps -eo pcpu,pmem,comm --sort pcpu').splitlines()
 	l = res.__len__()
 	return res,l
 
-
+def process_get_top():
+	res = commands.getoutput('ps axo comm,user,pcpu --sort=-pcpu | head -n 10')
+	
+	return res
 
 
 ###########################################

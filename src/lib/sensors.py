@@ -56,8 +56,10 @@ def cpu_get_load (processor_number=0):
 		cuse = float( line.split()[1] )
 		cn = float( line.split()[2] )
 		csys = float( line.split()[3])
-		load = cuse + csys + cn
-
+		if sufix == '':
+			load = cuse + cn
+		else:
+			load = cuse + csys + cn
 		#load = int(load / .update_interval)
 		return load
 	return None

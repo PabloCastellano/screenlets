@@ -58,6 +58,7 @@
 			<item label="The Voice"  id="http://dix.media.webpartner.dk/voice128 The Voice" />
 			<item label="Caz"  id="http://www.garnierstreamingmedia.com/asx/caz.pls Caz" />
 			<item label="Capital 95.8"  id="http://mediaweb.musicradio.com/Playlist.asx?StreamID=1 Capital 95.8" />
+			<item label="Play Top 40 UK"  id="http://audio4.playradiouk.com:8150/listen.pls Play Top 40 UK" />
 
 		</item>
 		<item label="US">

@@ -36,7 +36,7 @@ class SlideshowScreenlet (screenlets.Screenlet):
 	# --------------------------------------------------------------------------
 	
 	__name__		= 'SlideshowScreenlet'
-	__version__		= '0.8'
+	__version__		= '1.0'
 	__author__		= 'Helder Fraga aka Whise'
 	__desc__		= __doc__
 	
@@ -66,6 +66,7 @@ class SlideshowScreenlet (screenlets.Screenlet):
 	img_name = ''
 	factor = 1
 	preserve_aspect = 0
+	recursive = False
 	# --------------------------------------------------------------------------
 	# constructor and internals
 	# --------------------------------------------------------------------------
@@ -93,21 +94,22 @@ class SlideshowScreenlet (screenlets.Screenlet):
 			'The interval for updating info (in seconds ,3660 = 1 day, 25620 = 1 week)', min=1, max=25620))
 		self.add_option(StringOption('SlideShow', 'engine', self.engine,'Select Engine', '',choices = self.engine_sel),realtime=False)
 		self.add_option(StringOption('SlideShow', 'folders', self.folders,'Select Folders', 'The folder where pictures are',))
+		self.add_option(BoolOption('SlideShow', 'recursive',bool(self.recursive), 'Recursive folders','Show images on sub folders'))
 		self.add_option(BoolOption('SlideShow', 'showbuttons',bool(self.showbuttons), 'Show Buttons on focus','Show Buttons on focus'))
 		self.add_option(StringOption('SlideShow', 'resizes', self.resizes,'Select resize quality', 'Select resize quality - Best uses alot of cpu , ',choices = self.resizes_sel),realtime=False)
 		self.add_option(StringOption('SlideShow', 'frame', self.frame,'Select frame type', 'Select frame type',choices = self.frame_sel),)
 		#	'Filename of image to be shown in this Slideshow ...')) 
 		self.add_option(FloatOption('SlideShow', 'image_scale', self.image_scale, 
 			'Image Scale', 'Scale of image within this Picframe ...', 
-			min=0.01, max=10.0, digits=2, increment=0.01))
+			min=0.01, max=10.0, digits=2, increment=0.01,hidden=True))
 		self.add_option(IntOption('SlideShow', 'image_offset_x', 
 			self.image_offset_x, 'Image Offset X', 'X-offset of upper left '+\
 			'corner of the image within this Picframe ...', 
-			min=0, max=self.width))
+			min=0, max=self.width,hidden=True))
 		self.add_option(IntOption('SlideShow', 'image_offset_y', 
 			self.image_offset_y, 'Image Offset Y', 'Y-offset of upper left '+\
 			'corner of the image within this Picframe ...', 
-			min=0, max=self.height))
+			min=0, max=self.height,hidden=True))
 		self.add_option(BoolOption('SlideShow', 'preserve_aspect', bool(self.preserve_aspect),'Preserve aspect ratio', 'Preserve the aspect ratio when resizing images ,thanks to Mike Peters'))
 		self.update_interval = self.update_interval
 		self.engine = self.engine
@@ -231,11 +233,11 @@ class SlideshowScreenlet (screenlets.Screenlet):
 				image = image.resize ((width, height), Image.NEAREST)
 			else:
 				image = image.resize ((width, height), Image.BICUBIC)
-			home = commands.getoutput("echo $HOME")
+		
 
-	
-			image.save (home + '/slide' + '.png')
-			img = cairo.ImageSurface.create_from_png(home + '/slide' + '.png')
+
+			image.save (self.home + '/slide' + '.png')
+			img = cairo.ImageSurface.create_from_png(self.home + '/slide' + '.png')
 			if img:
 				self.__image = img
 
@@ -251,60 +253,60 @@ class SlideshowScreenlet (screenlets.Screenlet):
 	 #if self.slide == True:	
 	 if self.engine1 == 'Flickr':
 	 
-		zodiacfd = urlopen('http://www.flickr.com/explore/interesting/7days/')
-		#print zodiacfd
-		#zodiacfd = urlopen('http://art.gnome.org/backgrounds/gnome/' + str(random.randrange(2400)) + '/')
-		#print ('http://art.gnome.org/backgrounds/gnome/' + str(random.randrange(2400)))<td colspan="2">zodiachtml[zodiachtml
-		zodiachtml = zodiacfd.read()
-		forecast = zodiachtml[zodiachtml.find("Photo" + chr(34)+ "><a href=" + chr(34))+16:]
-		#forecast = forecast[forecast.find("<a href=" + chr(34))+9:]
-		forecast1 = forecast
-		forecast = forecast[:forecast.find(chr(34)) ].strip()
-		#forecast1 = forecast1[:forecast1.find(chr(34) + ' width') ].strip()
-		forecast1 = forecast1[forecast1.find("img src=" + chr(34))+9:]
-		forecast1 = forecast1[:forecast1.find(chr(34)) ].strip()
-		#forecast = forecast[:forecast.find(chr(34)) ].strip()		
-		#print forecast
-		forecast2 = 'http://www.flickr.com' + forecast
-		#print forecast2
-		#print forecast1
-		self.url = forecast2
-		#" width
-		#forecast = forecast[:forecast.find(chr(34) +'><img') ].strip()
-		#zodiacfd = urlopen(forecast)
-		#zodiachtml = zodiacfd.read()
+		source = urlopen('http://www.flickr.com/explore/interesting/7days/')
+		sourcetxt = source.read()
+		image = sourcetxt[sourcetxt.find("Photo" + chr(34)+ "><span cl")+15:]
 		
-		zodiacfd = urlopen(forecast1)
-		zodiachtml = zodiacfd.read()
-		home = commands.getoutput("echo $HOME")
 		
-		fileObj = open( home + "/slide.jpg","w") #// open for for write
-		fileObj.write(zodiachtml)
+		sourceimage = image[image.find("a href=" + chr(34))+8:]
+		sourceimage = sourceimage[:sourceimage.find(chr(34)) ].strip()
+
+		realimage = image[image.find("mg src=" + chr(34))+8:]
+		realimage = realimage[:realimage.find(chr(34)) ].strip()
+
+		
+		
+		imageurl = 'http://www.flickr.com' + sourceimage
+		
+		self.url = imageurl
+
+		
+		imageget = urlopen(realimage)
+		imagefile = imageget.read()
+		
+		fileObj = open( self.home + "/slide.jpg","w") #// open for for write
+		fileObj.write(imagefile)
 
 		fileObj.close()
-		#print self.image_scale
-		self.image_filename =  home + "/slide.jpg"
-		#os.system("gconftool-2 -t string -s /desktop/gnome/background/picture_filename " + self.image_filename)
+		
+		self.image_filename =  self.home + "/slide.jpg"
+		
 		forecast = self.image_filename
 		self.img_name = forecast
 	 if self.engine1 == 'directory':
 		imgs = []
-		#print self.folders
-		if os.path.exists(self.folders) and os.path.isdir(self.folders): #is it a valid folder?
-			for f in os.listdir(self.folders):                #get all files in that folder
+		
+		if self.recursive:
+			for root, dirs, files in os.walk(self.folders): 
+				for file in files:
+					try:
+						if os.path.splitext(file)[1].lower() in self.use_types:
+							imgs.append(os.path.join(root,file))
+				   	except: pass
+		else:
+			if os.path.exists(self.folders) and os.path.isdir(self.folders): 
+				for f in os.listdir(self.folders):                
 					
-		      		try:  #splitext[1] may fail
-					if os.path.splitext(f)[1].lower() in self.use_types: #is that file of proper type?
-			                 	imgs.append(self.folders + os.sep + f)         #if so, add it to our list
+			      		try:  #splitext[1] may fail
+						if os.path.splitext(f)[1].lower() in self.use_types: 
+				                 	imgs.append(self.folders + os.sep + f)         #if so, add it to our list
 							#print f
-			   	except:
-			              	pass
-		#print imgs
+				   	except: pass
+
 		try:
 			forecast = random.choice(imgs)  #get a random entry from our list
 			self.img_name = forecast
-			#os.system("gconftool-2 -t string -s /desktop/gnome/background/picture_filename " + chr(34) + forecast + chr(34))
-			#print forecast
+			
 		except:
 			              		pass
 
@@ -371,7 +373,7 @@ class SlideshowScreenlet (screenlets.Screenlet):
 		# create dialog
 		dlg = gtk.FileChooserDialog(action=gtk.FILE_CHOOSER_ACTION_SELECT_FOLDER,buttons=(gtk.STOCK_CANCEL, 
 			gtk.RESPONSE_CANCEL, gtk.STOCK_OPEN, gtk.RESPONSE_OK))
-		dlg.set_current_folder(os.environ['HOME'])
+		dlg.set_current_folder(os.environ['home'])
 		dlg.set_title(('Select a folder'))
 		dlg.set_filter(flt)
 		# run
@@ -409,15 +411,8 @@ class SlideshowScreenlet (screenlets.Screenlet):
 				ctx.restore()
 			ctx.translate(60,158)
 			if self.paint_menu == True and  self.showbuttons == True: self.theme.render(ctx, 'menu')				
-			#ctx.rectangle(20, 15+(70-h), 60, h)
-			
-			# render frame
-			#self.theme['Slideshow-frame.svg'].render_cairo(ctx)
-			#self.theme.render(ctx, 'Slideshow-frame')
-			# render glass
-			#self.theme['Slideshow-glass.svg'].render_cairo(ctx)
-			#self.theme.render(ctx, 'Slideshow-glass')
-			home = commands.getoutput("echo $HOME")
+
+	
 	def on_focus(self, event):
 	
 		self.paint_menu = True

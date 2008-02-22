@@ -32,7 +32,7 @@ class ClearWeatherScreenlet(screenlets.Screenlet):
 	
 	# default meta-info for Screenlets
 	__name__ = 'ClearWeatherScreenlet'
-	__version__ = '0.3'
+	__version__ = '0.4'
 	__author__ = 'by Helder Fraga aka Whise based on Weather Screenlet by robgig1088'
 	__desc__ = 'A Weather Screenlet modified from the original to look more clear and to enable the use of icon pack , you can use any icon pack compatible with weather.com , you can find many packs on deviantart.com or http://liquidweather.net/icons.php#iconsets.'
 
@@ -334,6 +334,7 @@ class ClearWeatherScreenlet(screenlets.Screenlet):
 				ctx.save()
 				ctx.translate(-2, 0)
 				ctx.scale(.6,.6)
+				if weather[0]["icon"]=="-": weather[0]["icon"]="48"
 				icon = str(self.get_icon(int(weather[0]["icon"])) )
 				self.theme.render(ctx,icon)
 				ctx.restore()

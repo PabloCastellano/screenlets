@@ -334,7 +334,8 @@ class ScreenletTheme (dict):
 		if pix.lower().endswith('svg'):
 			image = rsvg.Handle(pix)
 			size=image.get_dimension_data()
-			ctx.scale( w/size[0], h/size[1])
+			try:ctx.scale( w/size[0], h/size[1])
+			except:pass
 			image.render_cairo(ctx)
 		elif pix.lower().endswith('png'):
 

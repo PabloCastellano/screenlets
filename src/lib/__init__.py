@@ -141,6 +141,7 @@ class ScreenletTheme (dict):
 	p_layout = None
 	tooltip = None
 	notify = None
+	
 
 	def __init__ (self, path):
 		# set theme-path and load all files in path
@@ -199,6 +200,30 @@ class ScreenletTheme (dict):
 		except:
 			#raise Exception
 			return False
+
+	def get_text_width(self, ctx, text, font):
+		"""Returns the pixel width of a given text"""
+		ctx.save()
+		ctx.move_to(0,0)
+		p_layout = ctx.create_layout()
+		p_fdesc = pango.FontDescription(font)
+		p_layout.set_font_description(p_fdesc)
+		p_layout.set_text(text)
+		extents, lextents = p_layout.get_pixel_extents()
+		ctx.restore()
+		return extents[2]
+
+	def get_text_extents(self, ctx, text, font):
+		"""Returns the pixel extents of a given text"""
+		ctx.save()
+		ctx.move_to(0,0)
+		p_layout = ctx.create_layout()
+		p_fdesc = pango.FontDescription(font)
+		p_layout.set_font_description(p_fdesc)
+		p_layout.set_text(text)
+		extents, lextents = p_layout.get_pixel_extents()
+		ctx.restore()
+		return extents
 
 	def draw_text(self, ctx, text, x, y,  font, size, width, allignment,ellipsize = pango.ELLIPSIZE_NONE):
 		"""Draws text"""
@@ -282,6 +307,44 @@ class ScreenletTheme (dict):
         	# Fill in the shape.
 		if fill:ctx.fill()
 		else: ctx.stroke()
+		ctx.restore()
+
+
+	def draw_image(self,ctx, pix):
+		"""Draws a png or svg from specified path"""
+
+		ctx.save()
+
+		if pix.lower().endswith('svg'):
+			image = rsvg.Handle(pix)
+			image.render_cairo(ctx)
+		elif pix.lower().endswith('png'):
+
+			image = cairo.ImageSurface.create_from_png(pix)
+			ctx.set_source_surface(image, 0, 0)
+			ctx.paint()
+		image = None
+		ctx.restore()
+
+	def draw_scaled_image(self,ctx, pix, w, h):
+		"""Draws a png or svg from specified path with a certain width and height"""
+
+		ctx.save()
+		
+		if pix.lower().endswith('svg'):
+			image = rsvg.Handle(pix)
+			size=image.get_dimension_data()
+			ctx.scale( w/size[0], h/size[1])
+			image.render_cairo(ctx)
+		elif pix.lower().endswith('png'):
+
+			image = cairo.ImageSurface.create_from_png(pix)
+			iw = float(image.get_width())
+			ih = float(image.get_height())
+			ctx.scale( w/iw, h/ih)
+			ctx.set_source_surface(image, 0, 0)
+			ctx.paint()
+		image = None
 		ctx.restore()
 
 	def show_notification (self,text):

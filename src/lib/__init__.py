@@ -309,42 +309,56 @@ class ScreenletTheme (dict):
 		else: ctx.stroke()
 		ctx.restore()
 
+	def get_image_size(self,pix):
+		"""Gets a picture width and height"""
 
-	def draw_image(self,ctx, pix):
-		"""Draws a png or svg from specified path"""
+		pixbuf = gtk.gdk.pixbuf_new_from_file(pix)
+		iw = pixbuf.get_width()
+		ih = pixbuf.get_height()
+		puxbuf = None
+		return iw,ih
+
+	def draw_image(self,ctx,x,y, pix):
+		"""Draws a picture from specified path"""
 
 		ctx.save()
+		ctx.translate(x, y)	
+		pixbuf = gtk.gdk.pixbuf_new_from_file(pix)
+		format = cairo.FORMAT_RGB24
+		if pixbuf.get_has_alpha():
+			format = cairo.FORMAT_ARGB32
 
-		if pix.lower().endswith('svg'):
-			image = rsvg.Handle(pix)
-			image.render_cairo(ctx)
-		elif pix.lower().endswith('png'):
-
-			image = cairo.ImageSurface.create_from_png(pix)
-			ctx.set_source_surface(image, 0, 0)
-			ctx.paint()
+		iw = pixbuf.get_width()
+		ih = pixbuf.get_height()
+		image = cairo.ImageSurface(format, iw, ih)
+		image = ctx.set_source_pixbuf(pixbuf, 0, 0)
+		
+		ctx.paint()
+		puxbuf = None
 		image = None
 		ctx.restore()
 
-	def draw_scaled_image(self,ctx, pix, w, h):
-		"""Draws a png or svg from specified path with a certain width and height"""
+
+
+	def draw_scaled_image(self,ctx,x,y, pix, w, h):
+		"""Draws a picture from specified path with a certain width and height"""
 
 		ctx.save()
-		
-		if pix.lower().endswith('svg'):
-			image = rsvg.Handle(pix)
-			size=image.get_dimension_data()
-			try:ctx.scale( w/size[0], h/size[1])
-			except:pass
-			image.render_cairo(ctx)
-		elif pix.lower().endswith('png'):
+		ctx.translate(x, y)	
+		pixbuf = gtk.gdk.pixbuf_new_from_file(pix).scale_simple(w,h,gtk.gdk.INTERP_HYPER)
+		format = cairo.FORMAT_RGB24
+		if pixbuf.get_has_alpha():
+			format = cairo.FORMAT_ARGB32
 
-			image = cairo.ImageSurface.create_from_png(pix)
-			iw = float(image.get_width())
-			ih = float(image.get_height())
-			ctx.scale( w/iw, h/ih)
-			ctx.set_source_surface(image, 0, 0)
-			ctx.paint()
+		iw = pixbuf.get_width()
+		ih = pixbuf.get_height()
+		image = cairo.ImageSurface(format, iw, ih)
+
+		matrix = cairo.Matrix(xx=iw/w, yy=ih/h)
+		image = ctx.set_source_pixbuf(pixbuf, 0, 0)
+		if image != None :image.set_matrix(matrix)
+		ctx.paint()
+		puxbuf = None
 		image = None
 		ctx.restore()
 

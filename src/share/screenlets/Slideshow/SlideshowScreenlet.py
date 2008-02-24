@@ -18,10 +18,6 @@ import gtk
 import pango
 from urllib2 import urlopen
 import gobject
-try:
-	import Image
-except:
-	print 'Error - Please install python image module'
 import os
 import commands
 import random
@@ -59,8 +55,6 @@ class SlideshowScreenlet (screenlets.Screenlet):
 	engine_sel = ['directory', 'Flickr']
 	frame = 'normal'
 	frame_sel = ['normal', 'wide']
-	resizes = 'Good'
-	resizes_sel = ['Best', 'Good', 'Normal','Bad']
 	paint_menu = False
 	showbuttons = True
 	img_name = ''
@@ -96,7 +90,6 @@ class SlideshowScreenlet (screenlets.Screenlet):
 		self.add_option(StringOption('SlideShow', 'folders', self.folders,'Select Folders', 'The folder where pictures are',))
 		self.add_option(BoolOption('SlideShow', 'recursive',bool(self.recursive), 'Recursive folders','Show images on sub folders'))
 		self.add_option(BoolOption('SlideShow', 'showbuttons',bool(self.showbuttons), 'Show Buttons on focus','Show Buttons on focus'))
-		self.add_option(StringOption('SlideShow', 'resizes', self.resizes,'Select resize quality', 'Select resize quality - Best uses alot of cpu , ',choices = self.resizes_sel),realtime=False)
 		self.add_option(StringOption('SlideShow', 'frame', self.frame,'Select frame type', 'Select frame type',choices = self.frame_sel),)
 		#	'Filename of image to be shown in this Slideshow ...')) 
 		self.add_option(FloatOption('SlideShow', 'image_scale', self.image_scale, 
@@ -162,14 +155,7 @@ class SlideshowScreenlet (screenlets.Screenlet):
 		#	self.update()
 
 		if name == "image_filename":
-			#print "SET IMAGEFILENAME"
-			# set self.__image to new image, if value is set and != current
-			ret = True
-			if value != '' and value != self.image_filename:	# ok?
-				ret = self.set_image(value)
-			# call super (if image has been successfully applied)
-			if ret != False:
-				screenlets.Screenlet.__setattr__(self, name, value)
+			screenlets.Screenlet.__setattr__(self, name, value)
 			# update view
 			self.redraw_canvas()
 			#self.update_shape()
@@ -194,58 +180,9 @@ class SlideshowScreenlet (screenlets.Screenlet):
 
 
 	def set_image(self, filename):
-		"""Set new image for this pictureframe (does NOT call redraw).
-		TODO: support for more image-types (currently only png supported)"""
-		# delete old image first
-		#print "Setting new image for SlideshowScreenlet: %s" % filename
-		if self.__image:
-			self.__image.finish()
-			del self.__image
-		# and recreate image
-	
-		try:
-			image = Image.open(filename)
-      # Get sizes for image
-			if self.preserve_aspect == 1:
-        			width, height = image.size
-	      			h_offset = 0
-			        w_offset = 0
-			        if width >= height:
-					ratio = float(200) / width
-					height = int(height * ratio)
-					width = 200
-					h_offset = int((200-height)/2)
-				else:
-					ratio = float(200) / height
-					width = int(width * ratio)
-					height = 200
-					w_offset = int((200-width)/2)
-			else:
-				width, height = (200, 200)
-
-			if self.resizes == 'Best':
-				image = image.resize ((width, height), Image.ANTIALIAS)
-			elif self.resizes == 'Good':
-				image = image.resize ((width, height), Image.BICUBIC)
-			elif self.resizes == 'Normal':
-				image = image.resize ((width, height), Image.BILINEAR)
-			elif self.resizes == 'Bad':
-				image = image.resize ((width, height), Image.NEAREST)
-			else:
-				image = image.resize ((width, height), Image.BICUBIC)
 		
+		self.image_filename = filename
 
-
-			image.save (self.home + '/slide' + '.png')
-			img = cairo.ImageSurface.create_from_png(self.home + '/slide' + '.png')
-			if img:
-				self.__image = img
-
-			#self.redraw_canvas()
-			return True
-		except Exception, ex:
-			print 'Failed to load image '
-		return False
 	
 
 	def fetch_image(self):
@@ -400,15 +337,29 @@ class SlideshowScreenlet (screenlets.Screenlet):
 			# render bg
 			#self.theme['Slideshow-bg.svg'].render_cairo(ctx)
 			self.theme.render(ctx, 'frame')
-			
+			if self.preserve_aspect == 1:
+        			w, h = self.theme.get_image_size(self.image_filename)
+	      			h_offset = 0
+			        w_offset = 0
+			        if w >= h:
+					ratio = float(200) / w
+					h = int(h * ratio)
+					w = 200
+					h_offset = int((200-h)/2)
+				else:
+					ratio = float(200) / h
+					w = int(w * ratio)
+					h = 200
+					w_offset = int((200-w)/2)
+			else:
+				w, h = (200, 200)
 			# render image if set
-			if self.__image != None:
-				ctx.save()
-				ctx.translate(self.image_offset_x, self.image_offset_y)
-				ctx.scale(0.875,self.image_scale)
-				ctx.set_source_surface(self.__image, 0, 0)
-				ctx.paint()
-				ctx.restore()
+			
+			ctx.save()
+			ctx.translate(self.image_offset_x, self.image_offset_y)
+			ctx.scale(0.875,self.image_scale)
+			self.theme.draw_scaled_image(ctx,0,0,self.image_filename,w,h)
+			ctx.restore()
 			ctx.translate(60,158)
 			if self.paint_menu == True and  self.showbuttons == True: self.theme.render(ctx, 'menu')				
 

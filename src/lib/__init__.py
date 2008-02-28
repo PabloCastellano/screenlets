@@ -701,7 +701,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 				self.p_layout.set_font_description(\
 					pango.FontDescription("Sans 12"))
 		# set type hint
-		#self.window.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_DOCK)
+		self.window.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_TOOLBAR)
 		self.window.set_keep_above(True)
 		self.window.set_skip_taskbar_hint(True)
 		self.window.set_skip_pager_hint(True)
@@ -755,7 +755,8 @@ class Screenlet (gobject.GObject, EditableOptions):
 		gobject.GObject.__setattr__(self, name, value)
 		# And do other actions
 		if name=="x" or name=="y":
-			self.window.move(self.x, self.y)
+			if self.has_started:
+				self.window.move(self.x, self.y)
 		elif name == 'opacity':
 			self.window.set_opacity(value)
 		elif name == 'scale':
@@ -796,10 +797,12 @@ class Screenlet (gobject.GObject, EditableOptions):
 			#if self.__mi_sticky:
 			#	self.__mi_sticky.set_active(value)
 		elif name == "keep_above":
-			self.window.set_keep_above(bool(value))
+			if self.has_started == True:
+				self.window.set_keep_above(bool(value))
 			#self.__mi_keep_above.set_active(value)
 		elif name == "keep_below":
-			self.window.set_keep_below(bool(value))
+			if self.has_started == True:
+				self.window.set_keep_below(bool(value))
 			#self.__mi_keep_below.set_active(value)
 		elif name == "skip_pager":
 			if self.window.window:
@@ -1063,14 +1066,21 @@ class Screenlet (gobject.GObject, EditableOptions):
 
 	def finish_loading(self):
 		"""Called when screenlet finishes loading"""
-		self.has_started = True
-		self.on_init()
-		try: self.window.show()			
-		except:	print 'unable to show window'
+
+
+		self.window.present()			
+		
 		
 		# the keep above and keep bellow must be reset after the window is shown this is absolutly necessary 
+		self.window.hide()
+		self.window.move(self.x, self.y)
+		self.window.present()	
+		self.has_started = True	
 		self.keep_above= self.keep_above
 		self.keep_below= self.keep_below
+		self.window.set_keep_above(self.keep_above)
+		self.window.set_keep_below(self.keep_below)
+		self.on_init()
 		if self.is_widget:
 			self.set_is_widget(True)
 		self.has_focus = False

@@ -93,7 +93,7 @@ else:
 	elif desktop_environment == 'gnome':
 		DIR_AUTOSTART	= os.environ['HOME'] + '/.config/autostart/'
 	elif desktop_environment == 'xfce':
-		DIR_AUTOSTART	= os.environ['HOME'] + '/Desktop/Autostart/'
+		DIR_AUTOSTART	= os.environ['HOME'] + '/.config/autostart/'
 
 DIR_CONFIG = os.environ['HOME'] + '/.config/Screenlets'
 

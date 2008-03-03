@@ -1517,6 +1517,8 @@ class Screenlet (gobject.GObject, EditableOptions):
 		self.remove_shape() # removing previous set shape , this is absolutly necessary
 		self.window.hide() # hiding the window and showing it again so the window can convert to the right composited state
 		self.is_sticky = self.is_sticky	 #changing from non composited to composited makes the screenlets loose sticky state , this fixes that
+		self.keep_above= self.keep_above
+		self.keep_below= self.keep_below
 		self.window.show()
 		print _('Compositing method changed to %s') % str(self.window.is_composited())
 		self.update_shape()
@@ -1526,6 +1528,10 @@ class Screenlet (gobject.GObject, EditableOptions):
 			self.show_buttons = False
 			print _('Warning - Buttons will not be shown until screenlet is restarted')
 		self.is_sticky = self.is_sticky #and again ...
+		self.keep_above= self.keep_above
+		self.keep_below= self.keep_below
+		self.window.set_keep_above(self.keep_above)
+		self.window.set_keep_below(self.keep_below)
 		self.on_composite_changed()
 
 	# NOTE: this should somehow handle the end of a move_drag-operation

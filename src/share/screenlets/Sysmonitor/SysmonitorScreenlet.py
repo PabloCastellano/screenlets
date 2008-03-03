@@ -509,7 +509,9 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 
 			m = m +60
 			self.theme.draw_text(ctx,str( sensors.process_get_top()) , 0, m, self.font, self.fontsize - 3,  self.width -10,pango.ALIGN_CENTER)
-			m = m +60
+			m = m +140
+			self.theme.draw_text(ctx,'Uptime: ' + str( sensors.sys_get_uptime()) , 0, m, self.font, self.fontsize - 3,  self.width -10,pango.ALIGN_CENTER)
+			m = m +40
 			if self.height != m and self.expand == False:
 				self.height = m
 #							ctx.translate(-20,-15)self.theme.draw_text(ctx, self.theme_name, 0, 50, self.font, self.fontsize,  self.width,pango.ALIGN_LEFT)

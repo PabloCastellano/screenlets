@@ -571,7 +571,11 @@ class ScreenletsManager:
 	def create_ui (self):
 		"""Create UI."""
 		# window
-		self.window = w = gtk.Window()
+  		self.window = w = gtk.Window()
+  		self.gtk_screen = w.get_screen()
+  		colormap = self.gtk_screen.get_rgba_colormap()
+  		if colormap:
+      			gtk.widget_set_default_colormap(colormap)
 		if USER == 0:	# add note about "root-mode"
 			w.set_title(APP_NAME + ' (root mode)')
 		else:
@@ -1186,6 +1190,8 @@ class ScreenletsManager:
 		self.delete_event(self.window, None)		
 				
 	def delete_event (self, widget, event):
+
+		gtk.widget_pop_colormap()
 		gtk.main_quit()
 		print _("Quit!")
 	

@@ -41,11 +41,11 @@ class VolumeControlScreenlet(screenlets.Screenlet):
 	       'click on the bar to set the volume level.'
 
     # internal
-    __currentVol = 1
+    __currentVol = []
     __maxVol = 1
-    __cmdSet = 'amixer sset %s %s'
-    __cmdGet = 'amixer sget %s | '+\
-	    'awk \'$0~/Front Left:/{gsub(/[%%\[\]]/,"");print $5}\''
+    __cmdSet = 'amixer sset %s %s on'
+    __cmdMute = 'amixer sset %s 0 off'
+    __cmdGet = 'amixer sget %s | grep dB'
 
     # per theme options
     bar_x = 59
@@ -74,8 +74,7 @@ class VolumeControlScreenlet(screenlets.Screenlet):
 	# add option group
 	self.add_options_group('Device',
 	    'Settings for specifying which device and control to use')
-	ctlList = commands.getoutput(
-	    "amixer scontrols | awk \"{gsub(/'/,\\\" \\\");print \\$4}\"").split()
+	ctlList = [ ' '.join(l.split()[3:]) for l in commands.getoutput("amixer scontrols").splitlines() ]
 	self.add_option(StringOption('Device',	    # group name
 	    'control',				    # attribute-name
 	    self.control,			    # default-value
@@ -98,39 +97,34 @@ class VolumeControlScreenlet(screenlets.Screenlet):
 	    'Mixer Command',
 	    'The command to be run when mixer is launched'
 	    ))
-	self.on_control_update(self.control, self.control)
 
     def on_control_update(self, option, option2):
 	# find the maximum volume and update
 	self.__maxVol = int(commands.getoutput(
 	    "amixer sget %s | awk '/^  Limits/{print $5}'" % (self.control)))
-	print "Max vol: " + str(self.__maxVol)
+	print "Max vol: " + str(self.__maxVol) + "; "+self.control
 	self.updateBar()
 
     def on_init(self):
 	# add default menu items
 	self.add_default_menuitems()
+	self.on_control_update(self.control, self.control)
 
     def on_mouse_down(self, event):
 	if event.button == 2:
-	    # mute/unmute on middle click
-	    commands.getoutput(self.__cmdSet % (self.control, "0"))
+	    # mute on middle click
+	    # KjellBraden: I've no real idea about unmuting, but that can be done with
+	    #              the scrollwheel anyway
+	    commands.getoutput(self.__cmdMute % (self.control))
 	    self.updateBar()
 	elif event.button == 1 and \
 		event.x > self.scale*self.bar_x and \
 		event.x < self.scale*(self.bar_x+self.bar_width) and \
 		event.y > self.scale*self.bar_y and \
 		event.y < self.scale*(self.bar_y+self.bar_height):
-	    self.__currentVol = (self.bar_height*self.scale +
-		    self.bar_y*self.scale - event.y)/(self.bar_height*self.scale)
-	    if self.__currentVol <= 0:
-		# ctx.scale fails if a parameter is 0
-		self.__currentVol = 0.001
-	    elif self.__currentVol > 1:
-		self.__currentVol = 1
-	    commands.getoutput(self.__cmdSet % (self.control,
-		str(self.__currentVol*self.__maxVol)))
-	    self.redraw_canvas()
+	    new_vol = (self.bar_height*self.scale + self.bar_y*self.scale - event.y)/(self.bar_height*self.scale) * self.__maxVol
+	    commands.getoutput(self.__cmdSet % (self.control, str(new_vol)))
+	    self.updateBar()
 	return False
 
     # catch scroll events
@@ -153,13 +147,16 @@ class VolumeControlScreenlet(screenlets.Screenlet):
     # read volume value and redraw bar
     def updateBar(self):
 	# get current volume value
-	self.__currentVol = float(commands.getoutput(
-		self.__cmdGet % (self.control)))/100
-	if self.__currentVol <= 0:
-	    # ctx.scale fails if a parameter is 0
-	    self.__currentVol = 0.001
-	elif self.__currentVol > 1:
-	    self.__currentVol = 1
+	mixer_info = commands.getoutput(self.__cmdGet % (self.control)).splitlines()
+	assert(len(mixer_info) > 0)
+	self.__currentVol = []
+	for line in mixer_info:
+	    info = ':'.join(line.split(':')[1:]).split()
+	    vol_percent = float(info[2][1:-2])/100 # truncate surrounding [ and %]
+
+	    # append the volume to __curentVol list, with 1 as maximum and 0.001 as minimum:
+	    self.__currentVol.append(vol_percent > 1 and 1 or (vol_percent <= 0 and 0.001 or vol_percent))
+		
 	self.redraw_canvas()
 
     def on_draw(self, ctx):
@@ -170,10 +167,10 @@ class VolumeControlScreenlet(screenlets.Screenlet):
 	    self.theme['vol_base.svg'].render_cairo(ctx)
 	    # save old state and mask bar
 	    ctx.save()
-	    ctx.rectangle(self.bar_x,
-			  (self.bar_height*(1-self.__currentVol))+self.bar_y,
-			  self.bar_width,
-			  self.bar_height)
+	    s_width = self.bar_width / (len(self.__currentVol) or 1)
+	    for i in range(len(self.__currentVol)):
+	        v = self.__currentVol[i]
+	        ctx.rectangle(self.bar_x + i*s_width, (self.bar_height*(1-v))+self.bar_y,s_width, self.bar_height)
 	    ctx.clip()
 	    # draw bar
 	    self.theme['vol_bar.svg'].render_cairo(ctx)

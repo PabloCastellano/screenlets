@@ -29,6 +29,7 @@ import pygtk
 pygtk.require('2.0')
 import os, sys
 import screenlets
+from screenlets import utils
 import gtk, gobject
 from screenlets import utils
 import dbus
@@ -281,9 +282,7 @@ class ScreenletsManager:
 				screenlets.show_message(None, _("Please manually create the directory:\n%s") % DIR_AUTOSTART)
 				return False
 		starter = '%sScreenlets Daemon.desktop' % (DIR_AUTOSTART)
-		print starter
-		print '%sscreenlets-daemon.desktop' % (DIR_AUTOSTART)
-		print os.path.isfile('%s/screenlets-daemon.desktop' % (DIR_AUTOSTART))
+
 		if not os.path.isfile(starter) and os.path.isfile('%sscreenlets-daemon.desktop' % (DIR_AUTOSTART)) == False:
 			print _("Create autostarter for: Screenlets Daemon")
 			code = ['[Desktop Entry]']
@@ -377,8 +376,7 @@ class ScreenletsManager:
 		if name.endswith('Screenlet'):
 			name = name[:-9]
 		starter = '%s%sScreenlet.desktop' % (DIR_AUTOSTART, name)
-		print DIR_AUTOSTART
-		print starter
+
 		for f in os.listdir(DIR_AUTOSTART):
 			a = f.find(name + 'Screenlet')
 			if a != -1:
@@ -615,7 +613,7 @@ class ScreenletsManager:
 		iv.connect("drag_data_received", self.drag_data_received)
 		# wrap iconview in scrollwin
 		sw = self.slwindow = gtk.ScrolledWindow()
-		sw.set_size_request(560, 300)
+		sw.set_size_request(560, 350)
 		sw.set_shadow_type(gtk.SHADOW_IN)
 		sw.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
 		sw.add(iv)
@@ -659,6 +657,10 @@ class ScreenletsManager:
 		but7.set_sensitive(True)
 		but7.set_image(gtk.image_new_from_stock(gtk.STOCK_REMOVE, 
 			gtk.ICON_SIZE_BUTTON))
+		self.button_prop = but8 = gtk.Button(_('Options'))
+		but8.set_sensitive(True)
+		but8.set_image(gtk.image_new_from_stock(gtk.STOCK_PROPERTIES, 
+			gtk.ICON_SIZE_BUTTON))
 		#self.sep = gtk.Separator()	
 		but1.connect('clicked', self.button_clicked, 'add')
 		but2.connect('clicked', self.button_clicked, 'install')
@@ -667,13 +669,15 @@ class ScreenletsManager:
 		but5.connect('clicked', self.button_clicked, 'theme')
 		but6.connect('clicked', self.button_clicked, 'restartall')
 		but7.connect('clicked', self.button_clicked, 'closeall')
+		but8.connect('clicked', self.button_clicked, 'prop')
 		self.tips.set_tip(but1, _('Launch/add a new instance of the selected Screenlet ...'))
 		self.tips.set_tip(but2, _('Install a new Screenlet from a zipped archive (tar.gz, tar.bz2 or zip) ...'))
 		self.tips.set_tip(but3, _('Permanently uninstall/delete the currently selected Screenlet ...'))
 		self.tips.set_tip(but4, _('Reset this Screenlet configuration (will only work if screenlet isnt running)'))
 		self.tips.set_tip(but5, _('Install new theme for this screenlet'))
 		self.tips.set_tip(but6, _('Restart all screenlets that have auto start at login'))
-		self.tips.set_tip(but7, _('Close all screenlets running'))			
+		self.tips.set_tip(but7, _('Close all screenlets running'))
+		self.tips.set_tip(but8, _('Screenlets Options/Properties'))						
 		self.label = gtk.Label('')
 		self.label.set_line_wrap(1)
 		self.label.set_width_chars(70)
@@ -698,7 +702,7 @@ class ScreenletsManager:
 		butbox.pack_start(but5, False)
 		butbox.pack_start(but6, False)
 		butbox.pack_start(but7, False)
-
+		butbox.pack_start(but8, False)
 		#butbox.pack_start(self.label, False)
 		butbox.show_all()
 		hbox.pack_end(butbox, False, False, 10)
@@ -749,10 +753,15 @@ class ScreenletsManager:
 		self.cb_autostart = cb2 = gtk.CheckButton(_('Auto start on login'))
 		self.cb_tray = cb3 = gtk.CheckButton(_('Show daemon in tray'))
 		ini = utils.IniReader()
+		
+		if ini.load (DIR_USER + '/config.ini'):
+		
+			print ini.get_option('show_in_tray')
 		if not os.path.isfile(DIR_USER + '/config.ini'):
 			f = open(DIR_USER + '/config.ini', 'w')
 			f.write("[Options]\n")
 			f.write("show_in_tray=True\n")
+			f.write("Keep_above=True\n")
 			f.close()
 		try:
 			if ini.load(DIR_USER + '/config.ini'):
@@ -766,6 +775,7 @@ class ScreenletsManager:
 			f = open(DIR_USER + '/config.ini', 'w')
 			f.write("[Options]\n")
 			f.write("show_in_tray=True\n")
+			f.write("Keep_above=True\n")
 			f.close()
 			if ini.load(DIR_USER + '/config.ini'):
 				show_in_tray = ini.get_option('show_in_tray', section='Options')
@@ -1000,7 +1010,7 @@ class ScreenletsManager:
 				z =0 
 				for f in os.listdir(tmpdir + os.listdir(tmpdir)[0]):
 					f = str(f).lower()
-					print f
+					
 					if f.endswith('png') or f.endswith('svg'):
 						if not f.startswith('icon'):
 							z=z+1
@@ -1010,8 +1020,7 @@ class ScreenletsManager:
 					return False
 				install_dir = install_dir + info.name + '/themes/'
 				print _("only contains the themes folders")
-			print install_dir
-			print install_prefix						
+						
 			os.system('rm -rf %s/install-temp' % DIR_TMP)
 
 			for f in os.listdir(themes_dir):
@@ -1058,6 +1067,72 @@ class ScreenletsManager:
 			self.reset_selected_screenlet()
 		elif id == 'theme':
 			self.show_install_theme_dialog()
+		elif id == 'prop':
+			label = gtk.Label('New screenlets atributes..')
+			cb1 = gtk.CheckButton(_('Lock'))
+			cb2 = gtk.CheckButton(_('Sticky'))
+			cb3 = gtk.CheckButton(_('Widget'))
+			cb4 = gtk.CheckButton(_('Keep above'))
+			cb4.set_active(True)
+			cb5 = gtk.CheckButton(_('Keep below'))
+			ini = utils.IniReader()
+			if ini.load (DIR_USER + '/config.ini'):
+				
+				if ini.get_option('Lock', section='Options') == 'True':
+					cb1.set_active(True)
+				elif ini.get_option('Lock', section='Options') == 'False':
+					cb1.set_active(False)
+				if ini.get_option('Sticky', section='Options') == 'True':
+					cb2.set_active(True)
+				elif ini.get_option('Sticky', section='Options') == 'False':
+					cb2.set_active(False)
+				if ini.get_option('Widget', section='Options') == 'True':
+					cb3.set_active(True)
+				elif ini.get_option('Widget', section='Options') == 'False':
+					cb3.set_active(False)
+				if ini.get_option('Keep_above', section='Options') == 'True':
+					cb4.set_active(True)
+				elif ini.get_option('Keep_above', section='Options') == 'False':
+					cb4.set_active(False)
+				if ini.get_option('Keep_below', section='Options') == 'True':
+					cb5.set_active(True)
+				elif ini.get_option('Keep_below', section='Options') == 'False':
+					cb5.set_active(False)
+
+			dialog = gtk.Dialog("New Screenlets atributes",
+                     self.window,
+                     gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
+                     (gtk.STOCK_CANCEL, gtk.RESPONSE_REJECT,
+                      gtk.STOCK_OK, gtk.RESPONSE_ACCEPT))
+			label.show()
+			cb1.show()
+			cb2.show()
+			cb3.show()
+			cb4.show()
+			cb5.show()
+			dialog.vbox.add(label)
+			dialog.vbox.add(cb1)
+			dialog.vbox.add(cb2)
+			dialog.vbox.add(cb3)
+			dialog.vbox.add(cb4)
+			dialog.vbox.add(cb5)
+				
+			
+			resp = dialog.run()
+			ret = None
+			if resp == gtk.RESPONSE_ACCEPT:
+				
+				ret = 'show_in_tray=' + str(self.cb_tray.get_active()) + '\n'
+				ret = ret + 'Lock=' + str(cb1.get_active()) + '\n'
+				ret = ret + 'Sticky=' + str(cb2.get_active()) + '\n'
+				ret = ret + 'Widget=' + str(cb3.get_active()) + '\n'
+				ret = ret + 'Keep_above=' + str(cb4.get_active()) + '\n'
+				ret = ret + 'Keep_below=' + str(cb5.get_active()) + '\n'	
+				f = open(DIR_USER + '/config.ini', 'w')
+				f.write("[Options]\n")
+				f.write(ret)
+				f.close()
+			dialog.destroy()
 		elif id == 'restartall':
 			a = utils.list_running_screenlets()
 			if a != None:
@@ -1108,7 +1183,7 @@ class ScreenletsManager:
 		self.slwindow.set_size_request(560, 300)
 		info = self.get_selection()
 		if info:
-			print info.name
+			
 			self.set_info(info)
 			self.label.set_line_wrap(1)
 			a = info.name + ' ' + info.version+' by ' + info.author + '\n' + info.info
@@ -1173,11 +1248,29 @@ class ScreenletsManager:
 
 	def toggle_tray (self, widget):
 		"""Callback for handling changes to the tray-CheckButton."""
+		ini = utils.IniReader()
+		if ini.load (DIR_USER + '/config.ini'):
+			r = ''
+			if ini.get_option('Lock', section='Options') != None:
+				r = r +  'Lock=' + str(ini.get_option('Lock', section='Options')) + '\n'
+				
+			if ini.get_option('Sticky', section='Options') != None:
+				r = r +  'Sticky=' + str(ini.get_option('Sticky', section='Options')) + '\n'
+				
+			if ini.get_option('Widget', section='Options') != None:
+				r = r +  'Sticky=' + str(ini.get_option('Sticky', section='Options')) + '\n'
+				
+			if ini.get_option('Keep_above', section='Options') != None:
+				r = r +  'Keep_above=' + str(ini.get_option('Keep_above', section='Options')) + '\n'
 		
+			if ini.get_option('Keep_below', section='Options') != None:
+				r = r +  'Keep_below=' + str(ini.get_option('Keep_below', section='Options')) + '\n'
+
 		f = open(DIR_USER + '/config.ini', 'w')
 		DIR_USER + '/config.ini'
 		f.write("[Options]\n")
 		f.write("show_in_tray="+str(widget.get_active())+"\n")
+		f.write(r)
 		f.close()
 		os.system('pkill -f screenlets-daemon.py') #restart the daemon
 		os.system(screenlets.INSTALL_PREFIX + \

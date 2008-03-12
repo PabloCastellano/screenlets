@@ -561,6 +561,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 	keep_above		= True
 	keep_below		= False
 	skip_pager		= True
+	first_run		= False
 	skip_taskbar	= True
 	lock_position	= False
 	allow_option_override 	= True		# if False, overrides are ignored
@@ -632,7 +633,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 				'default', '', '', hidden=True))
 		# create/add options
 		self.add_option(IntOption('Screenlet', 'x', 
-			0, _('X-Position'), _('The X-position of this Screenlet ...'), 
+			0, _('X-Position'), _('The X-position of this Screenlet .os.path.exists(d)..'), 
 			min=0, max=gtk.gdk.screen_width()))
 		self.add_option(IntOption('Screenlet', 'y', 
 			0, _('Y-Position'), _('The Y-position of this Screenlet ...'), 
@@ -744,9 +745,13 @@ class Screenlet (gobject.GObject, EditableOptions):
 		# create menu
 		self.menu = gtk.Menu()
 		# show window so it can realize , but hiding it so we can show it only when atributes have been set , this fixes some placement errors arround the screen egde
+
+			
 		if show_window:
 			self.window.show()
-			
+			print os.environ['HOME'] + '/.config/Screenlets/' + self.__name__[:-9] + '/default/'+ self.id
+			if not os.path.exists(os.environ['HOME'] + '/.config/Screenlets/' + self.__name__[:-9] + '/default/'+ self.id + '.ini'):
+				self.first_run = True
 			self.window.hide()	
 
 	def __setattr__ (self, name, value):
@@ -1066,7 +1071,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 
 	def finish_loading(self):
 		"""Called when screenlet finishes loading"""
-
+		
 
 		self.window.present()			
 		
@@ -1084,6 +1089,24 @@ class Screenlet (gobject.GObject, EditableOptions):
 		if self.is_widget:
 			self.set_is_widget(True)
 		self.has_focus = False
+		ini = utils.IniReader()
+		if ini.load (os.environ['HOME'] + '/.screenlets' + '/config.ini') and self.first_run:
+				
+			if ini.get_option('Lock', section='Options') == 'True':
+				self.lock_position = True
+		
+			if ini.get_option('Sticky', section='Options') == 'True':
+				self.is_sticky = True
+		
+			if ini.get_option('Widget', section='Options') == 'True':
+				self.is_widget = True
+		
+			if ini.get_option('Keep_above', section='Options') == 'True':
+				self.keep_above = True
+			
+			if ini.get_option('Keep_below', section='Options') == 'True':
+				self.keep_below = True
+			
 	def hide (self):
 		"""Hides this Screenlet's underlying gtk.Window"""
 		self.window.hide()

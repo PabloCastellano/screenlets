@@ -503,12 +503,40 @@ class ScreenletsManager:
 				print _('Error while loading screenlets metadata for "%s".' % s)
 				slinfo = ScreenletInfo(s, '', '', '', '', img)
 			# add to model
-			sss = str(self.txtsearch.get_text()).lower()
-			slname = str(s).lower()
-			a = slname.find(sss)
-			if sss == None or a != -1:
-				self.model.append(['<span size="9000">%s</span>' % s, img, slinfo])	
-				#self.txtsearch.get_text('')
+			ccc = self.combo.get_active()
+			if ccc == 0:
+				
+				sss = str(self.txtsearch.get_text()).lower()
+				slname = str(s).lower()
+				a = slname.find(sss)
+				if sss == None or a != -1:
+					self.model.append(['<span size="9000">%s</span>' % s, img, slinfo])	
+					#self.txtsearch.get_text('')
+			elif ccc == 1:
+				
+				sss = str(self.txtsearch.get_text()).lower()
+				slname = str(s).lower()
+				a = slname.find(sss)
+				
+
+				if sss == None or a != -1:
+					a = utils.list_running_screenlets()
+					b = s + 'Screenlet'
+
+					if b in a :self.model.append(['<span size="9000">%s</span>' % s, img, slinfo])	
+			elif ccc == 2:
+				
+				sss = str(self.txtsearch.get_text()).lower()
+				slname = str(s).lower()
+				a = slname.find(sss)
+				
+
+				if sss == None or a != -1:
+					a = utils.list_running_screenlets()
+					b = s + 'Screenlet'
+
+					if slinfo.autostart == True :self.model.append(['<span size="9000">%s</span>' % s, img, slinfo])	
+					#self.txtsearch.get_text('')info.autostart
 	def quit_screenlet_by_name (self, name):
 		"""Quit all instances of the given screenlet type."""
 		# get service for instance and call quit method
@@ -622,43 +650,43 @@ class ScreenletsManager:
 		# wrap scrollwin and infobox in a paned
 		self.paned = paned = gtk.VPaned()
 		paned.pack1(sw, True, True)
-		w.set_border_width(10)
+		w.set_border_width(5)
 		# add HBox to dialog's vbox
 		#w.vbox.add(hbox)
 		#vbox.add(hbox)
 		# create right area with buttons
 		butbox = self.bbox = gtk.VBox()
 		self.button_add = but1 = gtk.Button(_('Launch/Add'))
-		but1.set_image(gtk.image_new_from_stock(gtk.STOCK_EXECUTE, 
-			gtk.ICON_SIZE_BUTTON))
+		#but1.set_image(gtk.image_new_from_stock(gtk.STOCK_EXECUTE, 
+		#	gtk.ICON_SIZE_BUTTON))
 		but1.set_sensitive(False)
 		but2 = gtk.Button(_('Install Screenlet'))
-		but2.set_image(gtk.image_new_from_stock(gtk.STOCK_ADD, 
-			gtk.ICON_SIZE_BUTTON))
+		#but2.set_image(gtk.image_new_from_stock(gtk.STOCK_ADD, 
+		#	gtk.ICON_SIZE_BUTTON))
 		self.button_delete = but3 = gtk.Button(_('Uninstall Screenlet'))
 		but3.set_sensitive(False)
-		but3.set_image(gtk.image_new_from_stock(gtk.STOCK_DELETE, 
-			gtk.ICON_SIZE_BUTTON))
+		#but3.set_image(gtk.image_new_from_stock(gtk.STOCK_DELETE, 
+		#	gtk.ICON_SIZE_BUTTON))
 		self.button_reset = but4 = gtk.Button(_('Reset Screenlet Config'))
 		but4.set_sensitive(False)
-		but4.set_image(gtk.image_new_from_stock(gtk.STOCK_CLEAR, 
-			gtk.ICON_SIZE_BUTTON))
+		#but4.set_image(gtk.image_new_from_stock(gtk.STOCK_CLEAR, 
+		#	gtk.ICON_SIZE_BUTTON))
 		self.button_theme = but5 = gtk.Button(_('Install Screenlet Theme'))
 		but5.set_sensitive(False)
-		but5.set_image(gtk.image_new_from_stock(gtk.STOCK_ADD, 
-			gtk.ICON_SIZE_BUTTON))
+		#but5.set_image(gtk.image_new_from_stock(gtk.STOCK_ADD, 
+		#	gtk.ICON_SIZE_BUTTON))
 		self.button_restartall = but6 = gtk.Button(_('Re-Start all Screenlets'))
 		but6.set_sensitive(True)
-		but6.set_image(gtk.image_new_from_stock(gtk.STOCK_REFRESH, 
-			gtk.ICON_SIZE_BUTTON))
+		#but6.set_image(gtk.image_new_from_stock(gtk.STOCK_REFRESH, 
+		#	gtk.ICON_SIZE_BUTTON))
 		self.button_closeall = but7 = gtk.Button(_('Close all Screenlets'))
 		but7.set_sensitive(True)
-		but7.set_image(gtk.image_new_from_stock(gtk.STOCK_REMOVE, 
-			gtk.ICON_SIZE_BUTTON))
+		#but7.set_image(gtk.image_new_from_stock(gtk.STOCK_REMOVE, 
+		#	gtk.ICON_SIZE_BUTTON))
 		self.button_prop = but8 = gtk.Button(_('Options'))
 		but8.set_sensitive(True)
-		but8.set_image(gtk.image_new_from_stock(gtk.STOCK_PROPERTIES, 
-			gtk.ICON_SIZE_BUTTON))
+		#but8.set_image(gtk.image_new_from_stock(gtk.STOCK_PROPERTIES, 
+		#	gtk.ICON_SIZE_BUTTON))
 		#self.sep = gtk.Separator()	
 		but1.connect('clicked', self.button_clicked, 'add')
 		but2.connect('clicked', self.button_clicked, 'install')
@@ -709,6 +737,13 @@ class ScreenletsManager:
     		self.searchbox.pack_start(self.txtsearch, True,True)
     		self.searchbox.pack_start(self.btnsearch, False)
 		butbox.pack_start(self.searchbox, False,0,3)
+		self.combo = gtk.combo_box_new_text()
+		self.combo.append_text('All Screenlets')
+		self.combo.append_text('Running Screenlets')
+		self.combo.append_text('Autostart Screenlets')
+		self.combo.set_active(0)
+    		self.combo.connect("changed",self.redraw_screenlets, 'enter')
+		self.combo.show()
 		butbox.pack_start(but1, False)
 		butbox.pack_start(but2, False)
 		butbox.pack_start(but3, False)
@@ -716,9 +751,10 @@ class ScreenletsManager:
 		butbox.pack_start(but5, False)
 		butbox.pack_start(but6, False)
 		butbox.pack_start(but7, False)
-		sep2 =   gtk.HSeparator()
-		butbox.pack_start(sep2, False,False,5)
+		#sep2 =   gtk.HSeparator()
+		#butbox.pack_start(sep2, False,False,5)
 		butbox.pack_start(but8, False)
+		butbox.pack_start(self.combo, False)
 		#butbox.pack_start(self.label, False)
 		butbox.show_all()
 		hbox.pack_start(butbox, False, False, 10)
@@ -829,7 +865,7 @@ class ScreenletsManager:
 		self.paned.pack2(self.label,False,False)
 		#self.bbox.set_spacing(2)
 		sep1 =   gtk.HSeparator()
-		self.bbox.pack_start(sep1, False,False,5)
+		#self.bbox.pack_start(sep1, False,False,5)
 		self.bbox.pack_start(ibox, False,False)
 
 	def redraw_screenlets(self,widget,id):

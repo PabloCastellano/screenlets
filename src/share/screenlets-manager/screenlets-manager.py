@@ -205,8 +205,47 @@ class ScreenletInstaller:
 			# dir missing
 			self._message = _("Invalid archive. Archive must contain a directory with the screenlet's name.")
 		elif not os.path.isfile('%s/%s/%sScreenlet.py' % (tmpdir, name, name)):
-			# Screenlet.py missing
-			self._message = _("Invalid archive. Archive does not contain a screenlet.")
+			# Not a screenlet , lets check for karamba theme
+			themename = ''
+			for findtheme in os.listdir('%s/%s/' % (tmpdir, name)):
+				if str(findtheme).lower().endswith('.theme'):
+					print findtheme
+					if themename == '':
+						print tmpdir + '/'+ name + '/' + themename[:-6] + '.py'
+						if not os.path.isfile(tmpdir + '/'+ name + '/' + findtheme[:-6] + '.py'):
+							themename = findtheme[:-6]
+						else:
+							self._message = _("Compatibility for this karamba theme is not yet implemented")
+							return False
+			if themename != '':
+				os.system('tar %s %s -C %s' % (tar_opts, chr(34)+filename+chr(34), DIR_USER))
+				os.system('mkdir %s/%s/themes' % (DIR_USER,name))
+				os.system('mkdir %s/%s/themes/default' % (DIR_USER,name))
+				os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/karamba.png ' + DIR_USER + '/' + name + '/themes/default/')
+				if os.path.isfile(DIR_USER + '/' + name + '/icon.png') == False or os.path.isfile(DIR_USER + '/' + name + '/icon.svg') == False:
+					os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/karamba.png ' + DIR_USER + '/' + name + '/icon.png')
+				widgetengine = open(screenlets.INSTALL_PREFIX + '/share/screenlets-manager/KarambaScreenlet.py', 'r')
+				enginecopy = widgetengine.read()
+				widgetengine.close()
+				widgetengine = None
+				enginecopy = enginecopy.replace('KarambaScreenlet',name + 'Screenlet')
+
+				enginesave = open(DIR_USER + '/' + name + '/' + name + 'Screenlet.py','w')
+				enginesave.write(enginecopy)
+				enginesave.close()
+				self._message = _("Karamba theme was successfully installed")
+				result = True	
+			else:self._message = _("Invalid archive. Archive does not contain a screenlet.")
+
+
+			
+
+
+
+
+
+
+
 		else:
 			# check for package-info
 

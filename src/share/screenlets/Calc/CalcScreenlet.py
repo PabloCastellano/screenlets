@@ -183,27 +183,7 @@ class CalcScreenlet(screenlets.Screenlet):
 		ctx.restore()
 
 
-	def button_press(self, widget, event):
-		#print "Button press"+str(event.button)
-		if event.type != gtk.gdk.BUTTON_PRESS:
-			return False
 
-		if event.button == 1:
-			if not self.detect_button_action(event.x_root-self.x, event.y_root-self.y):
-				self.is_dragged = True
-				widget.begin_move_drag (event.button, 
-					int(event.x_root), int(event.y_root), event.time)
-		elif event.button == 3:
-			self.menu.popup(None, None, None, event.button, 
-				event.time)
-		
-		return False
-
-	def button_release(self, widget, event):
-		if event.button==1 and self.button_value is not '':
-			self.button_value = ''
-			self.redraw_canvas()
-		return False
 
 	def draw_shape(self, ctx):
 		self.draw(ctx)

@@ -840,11 +840,12 @@ class ScreenletsManager:
 		self.vbox_info = None
 		self.recreate_infobox(None)
 		# show window
+		#self.gtk_screen = w.get_screen()
+  		#colormap = self.gtk_screen.get_rgba_colormap()
+  		#if colormap:
+      		#	self.window.set_colormap(colormap)
 		w.show_all()
-		self.gtk_screen = w.get_screen()
-  		colormap = self.gtk_screen.get_rgba_colormap()
-  		if colormap:
-      			gtk.widget_set_default_colormap(colormap)
+
 	
 	def recreate_infobox (self, info_obj):
 		"""Recerate the infobox at the bottom and fill data accoring to the

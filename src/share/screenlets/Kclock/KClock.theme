@@ -1,0 +1,9 @@
+KARAMBA  X=0 Y=0 W=200 H=200 INTERVAL=1000 LOCKED=true
+
+image x=0 y=0 path="image/Clock.png"
+image x=0 y=0 path="image/Second.png" rotation=program program="date +%S" full=60 
+image x=0 y=0 path="image/Minute.png" rotation=program program="date +%M" full=60
+image x=0 y=0 path="image/Hour.png" rotation=program program="date +%H" full=12
+image x=0 y=0 path="image/clock.png"
+image x=0 y=0 path="image/clock.png"
+

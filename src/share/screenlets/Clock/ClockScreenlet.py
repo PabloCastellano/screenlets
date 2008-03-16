@@ -23,7 +23,7 @@
 
 import screenlets
 from screenlets import Screenlet
-from screenlets.options import IntOption, BoolOption, TimeOption
+from screenlets.options import IntOption, BoolOption, TimeOption, FloatOption
 from screenlets.options import StringOption, FontOption, ColorOption
 from screenlets.services import ScreenletService
 
@@ -140,10 +140,10 @@ class ClockScreenlet (Screenlet):
 		# add editable settings to this Screenlet
 		self.add_option(StringOption('Clock', 'timezone',
 		       "", 'Time Zone', 'The Time Zone to use for this screenlet'))
-		self.add_option(IntOption('Clock','time_offset', 
+		self.add_option(FloatOption('Clock','time_offset', 
 			0, 'Time-Offset', 'The-time offset for this Clock instance. ' + 
 			'This can be used to create Clocks for different timezones ...',
-			min=-12, max=12))
+			min=-12, max=12,increment=0.5))
 		self.add_option(StringOption('Clock','hour_format', 
 			self.hour_format, 'Hour-Format', 
 			'The hour-format (12/24) ...', choices=['12', '24']))
@@ -211,6 +211,7 @@ class ClockScreenlet (Screenlet):
 	
 	def get_date (self):
 		"""Only needed for the service."""
+		self.__time = datetime.now()
 		return self.__time.strftime(self.date_format)
 
 	def get_time (self):

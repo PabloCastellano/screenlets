@@ -150,7 +150,16 @@ class ScreenletInstaller:
 		os.system('mkdir %s' % tmpdir)
 		
 		
+
 		os.system('tar %s %s -C %s' % (tar_opts, chr(34)+filename+chr(34), tmpdir))
+		for dd in os.listdir(tmpdir):
+			if str(dd).endswith('.theme'):
+				os.system('mv ' + tmpdir + ' ' + '/tmp/screenlets/' + dd[:-6])
+				os.system('mkdir %s' % tmpdir)
+				os.system('mv ' + '/tmp/screenlets/' + dd[:-6] + ' '+ tmpdir)
+				name = dd[:-6]
+				return (name, ext)
+
 		for d in tmpdir : #for each item in folders
   			if os.path.exists(d) and os.path.isdir(d): #is it a valid folder?
 				for f in os.listdir(tmpdir): 
@@ -648,11 +657,7 @@ class ScreenletsManager:
 		"""Create UI."""
 		# window
   		self.window = w = gtk.Window()
-  		self.gtk_screen = w.get_screen()
-  		colormap = self.gtk_screen.get_rgba_colormap()
-  		if colormap:
-      			gtk.widget_set_default_colormap(colormap)
-		if USER == 0:	# add note about "root-mode"
+  		if USER == 0:	# add note about "root-mode"
 			w.set_title(APP_NAME + ' (root mode)')
 		else:
 			w.set_title(APP_NAME)
@@ -700,6 +705,8 @@ class ScreenletsManager:
 		# wrap scrollwin and infobox in a paned
 		self.paned = paned = gtk.VPaned()
 		paned.pack1(sw, True, True)
+		# add paned to hbox
+		hbox.pack_end(paned, True, True)
 		w.set_border_width(5)
 		# add HBox to dialog's vbox
 		#w.vbox.add(hbox)
@@ -726,7 +733,7 @@ class ScreenletsManager:
 		#but5.set_image(gtk.image_new_from_stock(gtk.STOCK_ADD, 
 		#	gtk.ICON_SIZE_BUTTON))
 		self.button_restartall = but6 = gtk.Button(_('Re-Start all Screenlets'))
-		but6.set_sensitive(True)
+		but6.set_sensitive(True)		
 		#but6.set_image(gtk.image_new_from_stock(gtk.STOCK_REFRESH, 
 		#	gtk.ICON_SIZE_BUTTON))
 		self.button_closeall = but7 = gtk.Button(_('Close all Screenlets'))
@@ -784,7 +791,7 @@ class ScreenletsManager:
     		self.txtsearch.connect("changed",self.redraw_screenlets, 'enter')
     		self.txtsearch.connect("backspace",self.redraw_screenlets, 'backspace')
 
-    		self.searchbox.pack_start(self.txtsearch, True,True)
+    		self.searchbox.pack_start(self.txtsearch, False)
     		self.searchbox.pack_start(self.btnsearch, False)
 		butbox.pack_start(self.searchbox, False,0,3)
 		self.combo = gtk.combo_box_new_text()
@@ -808,8 +815,7 @@ class ScreenletsManager:
 		#butbox.pack_start(self.label, False)
 		butbox.show_all()
 		hbox.pack_start(butbox, False, False, 10)
-		# add paned to hbox
-		hbox.pack_end(paned, True, True)
+
 		# create lower buttonbox
 		action_area = gtk.HButtonBox()
 		vbox.pack_start(action_area, False, False)
@@ -835,6 +841,10 @@ class ScreenletsManager:
 		self.recreate_infobox(None)
 		# show window
 		w.show_all()
+		self.gtk_screen = w.get_screen()
+  		colormap = self.gtk_screen.get_rgba_colormap()
+  		if colormap:
+      			gtk.widget_set_default_colormap(colormap)
 	
 	def recreate_infobox (self, info_obj):
 		"""Recerate the infobox at the bottom and fill data accoring to the

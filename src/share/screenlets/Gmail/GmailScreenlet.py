@@ -23,7 +23,7 @@ from urllib import quote
 import gobject
 from screenlets import DefaultMenuItem
 import pyDes
-from screenlets import sensors
+import sensors
 
 import libgmail
 

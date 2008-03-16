@@ -218,19 +218,28 @@ class ScreenletInstaller:
 							self._message = _("Compatibility for this karamba theme is not yet implemented")
 							return False
 			if themename != '':
-				os.system('tar %s %s -C %s' % (tar_opts, chr(34)+filename+chr(34), DIR_USER))
-				os.system('mkdir %s/%s/themes' % (DIR_USER,name))
-				os.system('mkdir %s/%s/themes/default' % (DIR_USER,name))
-				os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/karamba.png ' + DIR_USER + '/' + name + '/themes/default/')
-				if os.path.isfile(DIR_USER + '/' + name + '/icon.png') == False or os.path.isfile(DIR_USER + '/' + name + '/icon.svg') == False:
-					os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/karamba.png ' + DIR_USER + '/' + name + '/icon.png')
+				name1 = name.replace(' ','')
+				name1 = name1.replace('-','')
+				name1 = name1.replace('.','')
+				name1 = name1.replace('_','')
+				print name1
+				#os.system('tar %s %s -C %s' % (tar_opts, chr(34)+filename+chr(34), DIR_USER))
+				#os.system('mkdir %s/%s' % (DIR_USER,name1))
+				if self.is_installed(name1):os.system('rm -rf %s/%s' % (DIR_USER, name1))
+				
+				os.system('mv %s/%s %s/%s ' % (chr(34) + tmpdir, name + chr(34),DIR_USER,name1))#tar %s %s -C %s' % (tar_opts, chr(34)+filename+chr(34), DIR_USER))
+				os.system('mkdir %s/%s/themes' % (DIR_USER,name1))
+				os.system('mkdir %s/%s/themes/default' % (DIR_USER,name1))
+				os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/karamba.png ' + DIR_USER + '/' + name1 + '/themes/default/')
+				if os.path.isfile(DIR_USER + '/' + name1 + '/icon.png') == False or os.path.isfile(DIR_USER + '/' + name1 + '/icon.svg') == False:
+					os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/karamba.png ' + DIR_USER + '/' + name1 + '/icon.png')
 				widgetengine = open(screenlets.INSTALL_PREFIX + '/share/screenlets-manager/KarambaScreenlet.py', 'r')
 				enginecopy = widgetengine.read()
 				widgetengine.close()
 				widgetengine = None
-				enginecopy = enginecopy.replace('KarambaScreenlet',name + 'Screenlet')
+				enginecopy = enginecopy.replace('KarambaScreenlet',name1 + 'Screenlet')
 
-				enginesave = open(DIR_USER + '/' + name + '/' + name + 'Screenlet.py','w')
+				enginesave = open(DIR_USER + '/' + name1 + '/' + name1 + 'Screenlet.py','w')
 				enginesave.write(enginecopy)
 				enginesave.close()
 				self._message = _("Karamba theme was successfully installed")

@@ -26,7 +26,7 @@ class KarambaScreenlet (screenlets.Screenlet):
 	
 	# default meta-info for Screenlets (should be removed and put into metainfo)
 	__name__	= 'KarambaScreenlet'
-	__version__	= '0.31'
+	__version__	= '0.32'
 	__author__	= 'Whise'
 	__desc__	= __doc__	# set description to docstring of class
 	
@@ -803,6 +803,7 @@ class KarambaScreenlet (screenlets.Screenlet):
 							
 								if value['sensor'] == 'cpu': output = self.cpu[int(option)]	
 								elif value['sensor'] == 'memory' :
+									if not 'format' in value : value['format'] = '%umb'
 									if value['format'] == '%umb' or value['format'] == '%um' or value['format'] == '': 
 										output = self.ram	
 									if value['format'] == '%usb' or value['format'] == '%us': 

@@ -23,6 +23,7 @@ from urllib import quote
 import gobject
 from screenlets import DefaultMenuItem
 import pyDes
+from screenlets import sensors
 
 import libgmail
 
@@ -119,17 +120,17 @@ class GmailScreenlet(screenlets.Screenlet):
 	# I don't want to call this on_key_press, I consider such a name reserved 
 	# for future versions of screenlets.
 	def check(self):
-
+		
 		self.msa = self.k.decrypt(self.pas, "*")
 	
-		self.ga = libgmail.GmailAccount(self.nam, self.msa)
-		try:
-			self.ga.login()
-		except:
-			screenlets.show_message(self,'Wrong Username or Password')
+		self.ga = sensors.getGMailNum(self.nam, self.msa)
+#		try:
+#			self.ga.login()
+#		except:
+#			screenlets.show_message(self,'Wrong Username or Password')
 
 		#folder = ga.getMessagesByFolder('inbox')
-		self.ms = self.ga.getunreadInfo()
+		self.ms = self.ga
 
 		if self.ms != None :
 			self.msgs = str(self.ms)

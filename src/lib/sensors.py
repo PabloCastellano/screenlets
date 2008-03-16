@@ -706,8 +706,8 @@ def getGMailNum(login, password):
 
 
 
-def getMailNum():
-    global server, login, passwd
+def getMailNum(server, login, passwd):
+
     m = poplib.POP3(server)
     m.user(login)
     m.pass_(passwd)

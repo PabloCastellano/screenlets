@@ -137,7 +137,9 @@ class ScreenletInstaller:
 		tar_opts = 'xfz'
 		if ext == 'bz2':
 			tar_opts = 'xfj'
-
+		if ext == 'skz': 
+			screenlets.show_error(None,'This type of karamba theme is not supported yet\n Only older versions can be used')
+			return False
 		# extract archive to temporary dir
 
 		if not os.path.isdir('/tmp/screenlets/'):
@@ -244,7 +246,7 @@ class ScreenletInstaller:
 				enginesave.close()
 				self._message = _("Karamba theme was successfully installed")
 				result = True	
-			else:self._message = _("Invalid archive. Archive does not contain a screenlet.")
+			else:self._message = _("Invalid archive. Archive does not contain a screenlet or a valid karamba theme.")
 
 
 			
@@ -1000,6 +1002,7 @@ class ScreenletsManager:
 		# create filter
 		flt = gtk.FileFilter()
 		flt.add_pattern('*.tar.bz2')
+		flt.add_pattern('*.skz')
 		flt.add_pattern('*.tar.gz')
 		flt.add_pattern('*.zip')
 		# create dialog
@@ -1161,6 +1164,12 @@ class ScreenletsManager:
 			info = self.get_selection()
 			if info:
 				screenlets.launch_screenlet(info.name, debug=DEBUG_MODE)
+				self.model.clear()
+				self.load_screenlets()
+				is_running = utils.list_running_screenlets()
+				if not info.name + 'Screenlet' in is_running:
+					screenlets.show_message(None,'There was a problem starting this screenlet\nTry reinstalling it, if the problem continues please report the bug to the screenlet author')
+					self.cb_enable_disable.set_active(False)
 		elif id == 'install':
 			self.show_install_dialog()
 		elif id == 'uninstall':
@@ -1331,11 +1340,20 @@ class ScreenletsManager:
 				# launch screenlet
 				print _("Launch %s") % info.name
 				screenlets.launch_screenlet(info.name, debug=DEBUG_MODE)
+
+				self.model.clear()
+				self.load_screenlets()
+				is_running = utils.list_running_screenlets()
+				if not info.name + 'Screenlet' in is_running:
+					screenlets.show_message(None,'There was a problem starting this screenlet\nTry reinstalling it, if the problem continues please report the bug to the screenlet author')
+					self.cb_enable_disable.set_active(False)
 			else:
 				# quit screenlet
 				self.quit_screenlet_by_name(info.name)
 				print _("Quit %s") % info.name
-	
+				self.model.clear()
+				self.load_screenlets()
+
 	def toggle_autostart (self, widget):
 		"""Callback for handling changes to the Autostart-CheckButton."""
 		info = self.get_selection()

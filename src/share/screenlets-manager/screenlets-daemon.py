@@ -171,9 +171,9 @@ class ScreenletsDaemon (dbus.service.Object):
 #		item = gtk.MenuItem("Restart all Screenlets")
 #		item.connect("activate", self.restartit)
 #		menu.append(item)
-#		item = gtk.MenuItem("Close all Screenlets")
-#		item.connect("activate", self.closeit)
-#		menu.append(item)		
+		item = gtk.MenuItem("Close all Screenlets")
+		item.connect("activate", self.closeit)
+		menu.append(item)		
 		sep = gtk.SeparatorMenuItem()
 		menu1.append(sep)		
 		itema = gtk.ImageMenuItem(stock_id=gtk.STOCK_ABOUT)
@@ -182,12 +182,12 @@ class ScreenletsDaemon (dbus.service.Object):
 		menu.show_all()
 		menu.popup(None, None, None, button, activate_time)
 
-#	def quit_screenlet_by_name (self, name):
-#		"""Quit all instances of the given screenlet type."""
-#		# get service for instance and call quit method
-#		service = screenlets.services.get_service_by_name(name)
-#		if service:
-#			service.quit()
+	def quit_screenlet_by_name (self, name):
+		"""Quit all instances of the given screenlet type."""
+		# get service for instance and call quit method
+		service = screenlets.services.get_service_by_name(name)
+		if service:
+			service.quit()
 
 #	def restartit(self, widget):
 #		a = utils.list_running_screenlets()
@@ -210,15 +210,15 @@ class ScreenletsDaemon (dbus.service.Object):
 #				except:
 #					pass
 #
-#	def closeit(self, widget):
-#		a = utils.list_running_screenlets()
-#		if a != None:
-#			for s in a:
-#				print 'closing' + str(s)
-#				if s.endswith('Screenlet'):
-#					s = s[:-9]
-#				self.unregister_screenlet(s)
-#				self.quit_screenlet_by_name(s)
+	def closeit(self, widget):
+		a = utils.list_running_screenlets()
+		if a != None:
+			for s in a:
+				print 'closing' + str(s)
+				if s.endswith('Screenlet'):
+					s = s[:-9]
+				self.unregister_screenlet(s)
+				self.quit_screenlet_by_name(s)
 				
 	def openit(self, widget):
 		try:

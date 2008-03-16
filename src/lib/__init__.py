@@ -60,10 +60,10 @@ APP_NAME = "Screenlets"
 VERSION = "0.0.13"
 
 # the application copyright
-COPYRIGHT = "(c) RYX (Rico Pfaus) <ryx@ryxperience.com>"
+COPYRIGHT = "(c) RYX (Rico Pfaus) <ryx@ryxperience.com>\nWhise (Helder Fraga) <helder.fraga@hotmail.com>"
 
 # the application authors
-AUTHORS = ["RYX (Rico Pfaus) <ryx@ryxperience.com>", "Whise (Helder Fraga)<helder.fraga@hotmail.com>","Hendrik Kaju (sorcerer)"]
+AUTHORS = ["RYX (Rico Pfaus) <ryx@ryxperience.com>", "Whise (Helder Fraga)<helder.fraga@hotmail.com>","Sorcerer (Hendrik Kaju)"]
 
 # the application comments
 COMMENTS = "Screenlets are small owner-drawn applications (written in Python, a very simple object-oriented programming-language) that can be described as 'the virtual representation of things lying/standing around on your desk'. Sticknotes, clocks, rulers, ... the possibilities are endless."

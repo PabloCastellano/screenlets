@@ -742,6 +742,8 @@ class ScreenletsManager:
 		#	gtk.ICON_SIZE_BUTTON))
 		self.button_prop = but8 = gtk.Button(_('Options'))
 		but8.set_sensitive(True)
+		self.button_widget = but9 = gtk.Button(_('Convert widget'))
+		but8.set_sensitive(True)
 		#but8.set_image(gtk.image_new_from_stock(gtk.STOCK_PROPERTIES, 
 		#	gtk.ICON_SIZE_BUTTON))
 		#self.sep = gtk.Separator()	
@@ -753,6 +755,7 @@ class ScreenletsManager:
 		but6.connect('clicked', self.button_clicked, 'restartall')
 		but7.connect('clicked', self.button_clicked, 'closeall')
 		but8.connect('clicked', self.button_clicked, 'prop')
+		but9.connect('clicked', self.button_clicked, 'widget')
 		but1.set_relief(gtk.RELIEF_NONE)
 		but2.set_relief(gtk.RELIEF_NONE)
 		but3.set_relief(gtk.RELIEF_NONE)
@@ -761,6 +764,7 @@ class ScreenletsManager:
 		but6.set_relief(gtk.RELIEF_NONE)
 		but7.set_relief(gtk.RELIEF_NONE)
 		but8.set_relief(gtk.RELIEF_NONE)
+		but9.set_relief(gtk.RELIEF_NONE)
 		but1.set_alignment(0,0.5)
 		but2.set_alignment(0,0.5)
 		but3.set_alignment(0,0.5)
@@ -769,6 +773,7 @@ class ScreenletsManager:
 		but6.set_alignment(0,0.5)
 		but7.set_alignment(0,0.5)
 		but8.set_alignment(0,0.5)
+		but9.set_alignment(0,0.5)
 		self.tips.set_tip(but1, _('Launch/add a new instance of the selected Screenlet ...'))
 		self.tips.set_tip(but2, _('Install a new Screenlet from a zipped archive (tar.gz, tar.bz2 or zip) ...'))
 		self.tips.set_tip(but3, _('Permanently uninstall/delete the currently selected Screenlet ...'))
@@ -777,6 +782,7 @@ class ScreenletsManager:
 		self.tips.set_tip(but6, _('Restart all screenlets that have auto start at login'))
 		self.tips.set_tip(but7, _('Close all screenlets running'))
 		self.tips.set_tip(but8, _('Screenlets Options/Properties'))						
+		self.tips.set_tip(but9, _('Convert widgets into Screenlets'))
 		self.label = gtk.Label('')
 		self.label.set_line_wrap(1)
 		self.label.set_width_chars(70)
@@ -808,6 +814,7 @@ class ScreenletsManager:
 		butbox.pack_start(but5, False)
 		butbox.pack_start(but6, False)
 		butbox.pack_start(but7, False)
+		butbox.pack_start(but9, False)
 		#sep2 =   gtk.HSeparator()
 		#butbox.pack_start(sep2, False,False,5)
 		butbox.pack_start(but8, False)
@@ -1169,6 +1176,14 @@ class ScreenletsManager:
 		"""Called when one of the buttons is clicked."""
 		if id == 'close':
 			self.delete_event(self.window, None)
+		elif id == 'widgetsite':
+			a = self.combo1.get_active()
+			if a == 0:
+				os.system("firefox http://www.google.com/ig/directory?synd=open &")
+			elif a == 1:
+				os.system("firefox http://www.yourminis.com/minis &")
+			elif a == 2:
+				os.system("firefox http://www.springwidgets.com/widgets/ &")
 		elif id == 'about':
 			self.show_about_dialog()
 		elif id == 'add':
@@ -1254,6 +1269,81 @@ class ScreenletsManager:
 				f.write("[Options]\n")
 				f.write(ret)
 				f.close()
+			dialog.destroy()
+		elif id == 'widget':
+			label1 = gtk.Label('Convert any webpage widget into a Screenlet.')
+			label2 = gtk.Label('Step 1 : Find the widget you want to convert')
+			label3 = gtk.Label('Step 2 : Copy and Paste the HTML from the widget in the box bellow')
+			label4 = gtk.Label('Step 3 : Give it a name in the box bellow and click on Ok to convert')
+			label5 = gtk.Label('The name of the widget')
+			code = gtk.Entry()
+			name = gtk.Entry()
+			h = gtk.HBox()
+			h1 = gtk.HBox()
+			self.combo1 = combo = gtk.combo_box_new_text()
+			combo.append_text('Google Gadgets')
+			combo.append_text('Yourminis Widgets')
+			combo.append_text('SpringWidgets')
+			combo.set_active(0)
+			web = gtk.Button('Go to web page')
+			web.connect('clicked', self.button_clicked, 'widgetsite')
+    			label1.show()
+    			label2.show()
+    			label3.show()
+    			label4.show()
+    			label5.show()
+			combo.show()
+			name.show()
+			web.show()
+			h.show()
+			h1.show()
+			code.show()
+			dialog = gtk.Dialog("Widget converter",
+                     self.window,
+                     gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
+                     (gtk.STOCK_CANCEL, gtk.RESPONSE_REJECT,
+                      gtk.STOCK_OK, gtk.RESPONSE_ACCEPT))
+			#dialog.set_size_request(300, 500)
+			dialog.vbox.pack_start(label1,False,False,20)
+			dialog.vbox.pack_start(label2,True,False,5)
+			h.pack_start(combo,True,True,5)
+			h.pack_start(web,False,False,5)
+			dialog.vbox.pack_start(h,False,False,5)
+			dialog.vbox.pack_start(label3,False,False,10)
+			dialog.vbox.pack_start(code,False,False,5)
+			dialog.vbox.pack_start(label4,False,False,5)
+			h1.pack_start(label5,False,False,5)			
+			h1.pack_start(name,True,True,5)
+			dialog.vbox.pack_start(h1,False,False,5)
+			resp = dialog.run()
+			ret = None
+			if resp == gtk.RESPONSE_ACCEPT:
+				if code.get_text() != '':
+					if name.get_text() != '':
+						try:
+							a = name.get_text()
+							a = a.replace(' ','')
+							os.system('mkdir ' +DIR_USER + '/' + a)
+							os.system('mkdir ' +DIR_USER + '/' + a + '/themes')
+							os.system('mkdir ' +DIR_USER + '/' + a + '/themes/default')
+							f = open(DIR_USER + '/' + a  + '/' + 'index.html' , 'w')
+							f.write(code.get_text())
+							f.close()
+							os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/widget.png ' +DIR_USER + '/' + a + '/icon.png')				
+							os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/widget.png ' +DIR_USER + '/' + a + '/themes/default')
+							widgetengine = open(screenlets.INSTALL_PREFIX + '/share/screenlets-manager/WidgetScreenlet.py', 'r')
+							enginecopy = widgetengine.read()
+							widgetengine.close()
+							widgetengine = None
+							enginecopy = enginecopy.replace('WidgetScreenlet',a + 'Screenlet')
+			
+							enginesave = open(DIR_USER + '/' + a + '/' + a + 'Screenlet.py','w')
+							enginesave.write(enginecopy)
+							enginesave.close()
+							screenlets.show_message (None,"Widget was successfully converted")			
+						except:	screenlets.show_error(None,"Error converting!!!")			
+					else:	screenlets.show_error(None,"Please specify a name for the widget")			
+				else:	screenlets.show_error(None,"No HTML code found")			
 			dialog.destroy()
 		elif id == 'restartall':
 			a = utils.list_running_screenlets()

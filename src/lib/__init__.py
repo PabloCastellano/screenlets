@@ -57,7 +57,7 @@ import XmlMenu
 APP_NAME = "Screenlets"
 
 # the version of the Screenlets-baseclass in use
-VERSION = "0.0.14"
+VERSION = "0.0.15"
 
 # the application copyright
 COPYRIGHT = "(c) RYX (Rico Pfaus) <ryx@ryxperience.com>\nWhise (Helder Fraga) <helder.fraga@hotmail.com>"

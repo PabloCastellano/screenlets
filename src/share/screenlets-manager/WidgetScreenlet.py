@@ -6,7 +6,7 @@
 
 import screenlets
 from screenlets import DefaultMenuItem
-from screenlets.options import BoolOption, StringOption, IntOption, ColorOption
+from screenlets.options import BoolOption, IntOption, ColorOption
 import cairo
 import gtk
 import gobject
@@ -63,11 +63,11 @@ if sys.argv[0].endswith(myfile):# Makes Shure its not the manager running...
 	os.system('rm /tmp/index.html')
 
 class WidgetScreenlet (screenlets.Screenlet):
-	"""Puts any Web Widget in your desktop , just go on www.springwidgets.com or www.yourminis.com ,and copy the embedded html code into a html in the widgets directory"""
+	"""Converted widgets to screenlets engine"""
 	
 	# default meta-info for Screenlets
 	__name__		= 'WidgetScreenlet'
-	__version__		= '0.2'
+	__version__		= '0.3'
 	__author__		= 'Helder Fraga aka Whise'
 	__desc__		= __doc__
 
@@ -78,7 +78,8 @@ class WidgetScreenlet (screenlets.Screenlet):
 	url = mypath + 'index.html'
 	color_back = 0.3,0.3,0.3,0.7
 	rgba_color = (1,1,1,0.2)
-
+	border_width = 8
+	show_frame = True
 	widget_width = 300
 	widget_height = 330
 	engine = ''
@@ -91,14 +92,21 @@ class WidgetScreenlet (screenlets.Screenlet):
 			is_widget=False, is_sticky=True, **keyword_args)
 
 
-
-		
+		self.add_options_group('Options', 'CPU-Graph specific options')
+		self.add_option(BoolOption('Options', 'show_frame',
+			self.show_frame, 'Show frame border', 'Show frame border arround the widget ...'))	
+		self.add_option(ColorOption('Options','rgba_color', 
+			self.rgba_color , 'Frame color', 'The color of the frame border'))
+        	#self.add_option(IntOption('Options', 'border_width', self.border_width, 'Frame border width', 'The width of the frame border', min=1, max=8))
 		self.disable_option('scale')
 		self.theme_name = 'default'
 		self.box = gtk.VBox(False, 0)
 		self.moz = gtkmozembed.MozEmbed()
     		self.box.pack_start(self.moz, False, False, 0)
-		
+		if hasattr(gtkmozembed, 'set_profile_path'):
+			gtkmozembed.set_profile_path(self.mypath,'mozilla')
+		else:
+			gtkmozembed.gtk_moz_embed_set_profile_path(self.mypath ,'mozilla')
 		self.window.add(self.box)		
 			
 		self.window.show_all()
@@ -108,7 +116,7 @@ class WidgetScreenlet (screenlets.Screenlet):
 	def __setattr__(self, name, value):
 		# call Screenlet.__setattr__ in baseclass (ESSENTIAL!!!!)
 		screenlets.Screenlet.__setattr__(self, name, value)
-		if name == 'border':
+		if name == 'border_width' or name == 'rgba_color' or name == 'show_frame':
 			self.redraw_canvas()
 			
 
@@ -143,7 +151,7 @@ class WidgetScreenlet (screenlets.Screenlet):
 			ctx.set_source_rgba(self.rgba_color[0], self.rgba_color[1], self.rgba_color[2], self.rgba_color[3])	
 		
 			
-			self.theme.draw_rounded_rectangle(ctx,0,0,5,self.width,self.height)
+			if self.show_frame:self.theme.draw_rounded_rectangle(ctx,0,0,5,self.width,self.height)
 	
 			if self.engine == 'google':		
 				self.bgpb = gtk.gdk.pixbuf_new_from_file(self.mypath + 'icon.png').scale_simple(int(self.width),int(self.widget_height),gtk.gdk.INTERP_HYPER)
@@ -209,8 +217,8 @@ class WidgetScreenlet (screenlets.Screenlet):
 			self.widget_height = self.widget_height[2:]
 			self.widget_height = self.widget_height[:self.widget_height.find('&') ].strip()
 		
-		self.widget_width = self.widget_width.replace('px','') 
-		self.widget_height = self.widget_height.replace('px','') 
+		self.widget_width = str(self.widget_width).replace('px','') 
+		self.widget_height = str(self.widget_height).replace('px','') 
 
 		self.widget.close()
 

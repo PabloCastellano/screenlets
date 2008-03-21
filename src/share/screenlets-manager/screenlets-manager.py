@@ -1184,6 +1184,9 @@ class ScreenletsManager:
 				os.system("firefox http://www.yourminis.com/minis &")
 			elif a == 2:
 				os.system("firefox http://www.springwidgets.com/widgets/ &")
+			elif a == 3:
+				os.system("firefox http://www.widgetbox.com/galleryhome/ &")
+
 		elif id == 'about':
 			self.show_about_dialog()
 		elif id == 'add':
@@ -1284,6 +1287,7 @@ class ScreenletsManager:
 			combo.append_text('Google Gadgets')
 			combo.append_text('Yourminis Widgets')
 			combo.append_text('SpringWidgets')
+			combo.append_text('Widgetbox')
 			combo.set_active(0)
 			web = gtk.Button('Go to web page')
 			web.connect('clicked', self.button_clicked, 'widgetsite')
@@ -1326,12 +1330,14 @@ class ScreenletsManager:
 							os.system('mkdir ' +DIR_USER + '/' + a)
 							os.system('mkdir ' +DIR_USER + '/' + a + '/themes')
 							os.system('mkdir ' +DIR_USER + '/' + a + '/themes/default')
+							os.system('mkdir ' +DIR_USER + '/' + a + '/mozilla')
 							f = open(DIR_USER + '/' + a  + '/' + 'index.html' , 'w')
 							f.write(code.get_text())
 							f.close()
 							os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/widget.png ' +DIR_USER + '/' + a + '/icon.png')				
 							os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/widget.png ' +DIR_USER + '/' + a + '/themes/default')
 							widgetengine = open(screenlets.INSTALL_PREFIX + '/share/screenlets-manager/WidgetScreenlet.py', 'r')
+							os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/prefs.js ' +DIR_USER + '/' + a + '/mozilla')			
 							enginecopy = widgetengine.read()
 							widgetengine.close()
 							widgetengine = None

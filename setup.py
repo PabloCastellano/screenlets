@@ -95,8 +95,10 @@ files_list.insert(0, (INSTALL_PATH + '-manager',
 	'src/share/screenlets-manager/KarambaScreenlet.py',
 	'src/share/screenlets-manager/widget.png',
 	'src/share/screenlets-manager/WidgetScreenlet.py',
+	'src/share/screenlets-manager/prefs.js',
 	'src/share/screenlets-manager/karamba.png']))
 	
+
 #Desktop file and icon for screenlets-manager
 files_list.insert(0, ('/usr/share/applications', ['desktop-menu/screenlets-manager.desktop']))
 files_list.insert(0, ('/usr/share/icons', ['desktop-menu/screenlets.svg']))

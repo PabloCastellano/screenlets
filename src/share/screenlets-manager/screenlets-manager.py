@@ -717,10 +717,10 @@ class ScreenletsManager:
 		#but1.set_image(gtk.image_new_from_stock(gtk.STOCK_EXECUTE, 
 		#	gtk.ICON_SIZE_BUTTON))
 		but1.set_sensitive(False)
-		but2 = gtk.Button(_('Install Screenlet'))
+		but2 = gtk.Button(_('Install'))
 		#but2.set_image(gtk.image_new_from_stock(gtk.STOCK_ADD, 
 		#	gtk.ICON_SIZE_BUTTON))
-		self.button_delete = but3 = gtk.Button(_('Uninstall Screenlet'))
+		self.button_delete = but3 = gtk.Button(_('Uninstall'))
 		but3.set_sensitive(False)
 		#but3.set_image(gtk.image_new_from_stock(gtk.STOCK_DELETE, 
 		#	gtk.ICON_SIZE_BUTTON))
@@ -728,21 +728,21 @@ class ScreenletsManager:
 		but4.set_sensitive(False)
 		#but4.set_image(gtk.image_new_from_stock(gtk.STOCK_CLEAR, 
 		#	gtk.ICON_SIZE_BUTTON))
-		self.button_theme = but5 = gtk.Button(_('Install Screenlet Theme'))
+		self.button_theme = but5 = gtk.Button(_('Install New Theme'))
 		but5.set_sensitive(False)
 		#but5.set_image(gtk.image_new_from_stock(gtk.STOCK_ADD, 
 		#	gtk.ICON_SIZE_BUTTON))
-		self.button_restartall = but6 = gtk.Button(_('Re-Start all Screenlets'))
+		self.button_restartall = but6 = gtk.Button(_('Re-Start All'))
 		but6.set_sensitive(True)		
 		#but6.set_image(gtk.image_new_from_stock(gtk.STOCK_REFRESH, 
 		#	gtk.ICON_SIZE_BUTTON))
-		self.button_closeall = but7 = gtk.Button(_('Close all Screenlets'))
+		self.button_closeall = but7 = gtk.Button(_('Close All'))
 		but7.set_sensitive(True)
 		#but7.set_image(gtk.image_new_from_stock(gtk.STOCK_REMOVE, 
 		#	gtk.ICON_SIZE_BUTTON))
 		self.button_prop = but8 = gtk.Button(_('Options'))
 		but8.set_sensitive(True)
-		self.button_widget = but9 = gtk.Button(_('Convert widget'))
+		self.button_widget = but9 = gtk.Button(_('Convert Widget'))
 		but8.set_sensitive(True)
 		#but8.set_image(gtk.image_new_from_stock(gtk.STOCK_PROPERTIES, 
 		#	gtk.ICON_SIZE_BUTTON))
@@ -775,13 +775,13 @@ class ScreenletsManager:
 		but8.set_alignment(0,0.5)
 		but9.set_alignment(0,0.5)
 		self.tips.set_tip(but1, _('Launch/add a new instance of the selected Screenlet ...'))
-		self.tips.set_tip(but2, _('Install a new Screenlet from a zipped archive (tar.gz, tar.bz2 or zip) ...'))
+		self.tips.set_tip(but2, _('Install a new Screenlet or SuperKaramba theme from an archive  ...'))
 		self.tips.set_tip(but3, _('Permanently uninstall/delete the currently selected Screenlet ...'))
 		self.tips.set_tip(but4, _('Reset this Screenlet configuration (will only work if screenlet isnt running)'))
 		self.tips.set_tip(but5, _('Install new theme for this screenlet'))
 		self.tips.set_tip(but6, _('Restart all screenlets that have auto start at login'))
-		self.tips.set_tip(but7, _('Close all screenlets running'))
-		self.tips.set_tip(but8, _('Screenlets Options/Properties'))						
+		self.tips.set_tip(but7, _('Close all Screenlets running'))
+		self.tips.set_tip(but8, _('New Screenlets Options/Properties'))						
 		self.tips.set_tip(but9, _('Convert widgets into Screenlets'))
 		self.label = gtk.Label('')
 		self.label.set_line_wrap(1)

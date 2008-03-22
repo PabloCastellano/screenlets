@@ -38,7 +38,7 @@ if sys.argv[0].endswith(myfile): # Makes Shure its not the manager running...
 			os.system("rm -f " + "/tmp/"+ myfile+"running")
 		
 		else:
-			os.system ("export LD_LIBRARY_PATH=/usr/lib/iceweasel \n export MOZILLA_FIVE_HOME=/usr/lib/iceweasel \n python + sys.argv[0] + " &")
+			os.system ("export LD_LIBRARY_PATH=/usr/lib/iceweasel \n export MOZILLA_FIVE_HOME=/usr/lib/iceweasel \n python " + sys.argv[0] + " &")
 			fileObj = open("/tmp/"+ myfile+"running","w") #// open for for write
 			fileObj.write('gtkmozembed bug workarround')
 		
@@ -114,12 +114,13 @@ class WidgetScreenlet (screenlets.Screenlet):
 		self.disable_option('scale')
 		self.theme_name = 'default'
 		self.box = gtk.VBox(False, 0)
-		self.moz = gtkmozembed.MozEmbed()
-    		self.box.pack_start(self.moz, False, False, 0)
 		if hasattr(gtkmozembed, 'set_profile_path'):
 			gtkmozembed.set_profile_path(self.mypath,'mozilla')
 		else:
 			gtkmozembed.gtk_moz_embed_set_profile_path(self.mypath ,'mozilla')
+		self.moz = gtkmozembed.MozEmbed()
+    		self.box.pack_start(self.moz, False, False, 0)
+
 		self.window.add(self.box)		
 			
 		self.window.show_all()
@@ -160,7 +161,9 @@ class WidgetScreenlet (screenlets.Screenlet):
 	
 		if self.theme and self.window:
 			ctx.set_source_rgba(self.color_back[0],self.color_back[1],self.color_back[2],self.color_back[3])
-			if self.has_focus == True:self.theme.draw_rounded_rectangle(ctx,int((self.width - 64)),0,5,int(64)-10,12)
+			if self.has_focus == True:
+				if not self.show_frame:
+					self.theme.draw_rounded_rectangle(ctx,int((self.width - 64)),0,5,64,12)
 			ctx.set_source_rgba(self.rgba_color[0], self.rgba_color[1], self.rgba_color[2], self.rgba_color[3])	
 		
 			

@@ -633,7 +633,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 				'default', '', '', hidden=True))
 		# create/add options
 		self.add_option(IntOption('Screenlet', 'x', 
-			0, _('X-Position'), _('The X-position of this Screenlet .os.path.exists(d)..'), 
+			0, _('X-Position'), _('The X-position of this Screenlet ...'), 
 			min=0, max=gtk.gdk.screen_width()))
 		self.add_option(IntOption('Screenlet', 'y', 
 			0, _('Y-Position'), _('The Y-position of this Screenlet ...'), 

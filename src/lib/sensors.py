@@ -173,12 +173,36 @@ def sys_get_average_load ():
 	
 def sys_get_distrib_name():
 	try:
-		f = open("/etc/issue", "r")
-		tmp = f.readlines(100)
-		f.close()
-		return tmp[0].replace('\\n','').replace('\l','').replace('\r','').strip()
+		if os.path.exists('/etc/lsb-release') and str(commands.getoutput('cat /etc/lsb-release')).lower().find('ubuntu') != -1:
+			return str(commands.getoutput('cat /etc/issue')).replace('\\n','').replace('\l','').replace('\r','').strip()
+
+		elif os.path.exists('/etc/lsb-release'):
+			return 'Debian ' + str(commands.getoutput('cat /etc/debian_version'))
+		elif os.path.exists('/etc/mandriva-release'):
+			return 'Mandriva ' + str(commands.getoutput("cat /etc/mandriva-release | sed -e 's/[A-Za-z ]* release //'"))
+		elif os.path.exists('/etc/fedora-release'):
+			return 'Fedora ' + str(commands.getoutput("cat /etc/fedora-release | sed -e 's/[A-Za-z ]* release //'"))
+		elif os.path.exists('/etc/SuSE-release'):
+
+			if str(commands.getoutput('cat /etc/SuSE-release')).lower().find('openSUSE') != -1:
+				return 'openSUSE ' + str(commands.getoutput("""cat /etc/SuSE-release | grep "VERSION" | sed -e 's/VERSION = //'"""))
+			else:
+				return 'SUSE ' + str(commands.getoutput("""cat /etc/SuSE-release | grep "VERSION" | sed -e 's/VERSION = //'"""))
+		elif os.path.exists('/etc/gentoo-release'):
+			return 'Gentoo ' + str(commands.getoutput("cat /etc/gentoo-release | sed -e 's/[A-Za-z ]* release //'"))
+		elif os.path.exists('/etc/slackware-version'):
+			return 'Slackware ' + str(commands.getoutput("cat /etc/slackware-version | sed -e 's/Slackware //'"))
+		elif os.path.exists('/etc/arch-release'):
+			return 'Arch Linux'
+		elif os.path.exists('/etc/redhat-release'):
+			return 'Redhat ' + str(commands.getoutput("cat /etc/redhat-release | sed -e 's/[A-Za-z ]* release //'"))
+		else:
+			f = open("/etc/issue", "r")
+			tmp = f.readlines(100)
+			f.close()
+			return tmp[0].replace('\\n','').replace('\l','').replace('\r','').strip()
 	except:
-		print _("Failed to open /etc/issue")
+		print _("Error getting distro name")
 	return 'Error'
 
 

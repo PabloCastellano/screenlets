@@ -31,6 +31,19 @@ if sys.argv[0].endswith(myfile): # Makes Shure its not the manager running...
 		
 			fileObj.close()
 			exit()
+
+	elif str(commands.getoutput("cat /etc/issue")).lower().find('debian') != -1:
+		mypath = sys.argv[0][:sys.argv[0].find(myfile)].strip()
+		if os.path.isfile("/tmp/"+ myfile+"running"):
+			os.system("rm -f " + "/tmp/"+ myfile+"running")
+		
+		else:
+			os.system ("export LD_LIBRARY_PATH=/usr/lib/iceweasel \n export MOZILLA_FIVE_HOME=/usr/lib/iceweasel \n python + sys.argv[0] + " &")
+			fileObj = open("/tmp/"+ myfile+"running","w") #// open for for write
+			fileObj.write('gtkmozembed bug workarround')
+		
+			fileObj.close()
+			exit()
 	elif str(commands.getoutput("cat /etc/issue")).lower().find('suse') != -1:
 		mypath = sys.argv[0][:sys.argv[0].find(myfile)].strip()
 		if os.path.isfile("/tmp/"+ myfile+"running"):

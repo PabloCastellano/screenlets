@@ -8,7 +8,6 @@ Comment=A themeable screen ruler for your measuring needs.
 Comment[de]=Ein Bildschirm-Lineal mit wechselbaren Stilen. Zum Abmessen von Entfernungen am Bildschirm.
 Comment[et]=Teemadega kohandatav joonlaud mõõtmistöödeks ekraanil.
 MimeType=application/x-screenlet
-Encoding=UTF-8
 Icon=/usr/share/screenlets/Ruler/icon.svg
 Exec=python -u /usr/share/screenlets/Ruler/RulerScreenlet.py > /dev/null
 StartupNotify=true

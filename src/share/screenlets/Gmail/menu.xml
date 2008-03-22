@@ -21,6 +21,6 @@
 	<!-- Uncomment to add Hide/show option to menu -->
 	<!--<item label="Hide/Show" id="hide_show" />-->
 	<!-- user definable actions here: -->
-	<imageitem label="Update"  id="update" />
+	<item label="Update"  id="update" />
 
 </menu>

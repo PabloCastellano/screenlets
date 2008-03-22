@@ -8,7 +8,6 @@ Comment=A themeable CPU-meter that displays your cpu's usage.
 Comment[de]=Ein CPU-Meter mit wechselbaren Stilen, das die aktuelle CPU-Auslastung anzeigt.
 Comment[et]=CPU-näidik, mis kuvab protsessori koormust.
 MimeType=application/x-screenlet
-Encoding=UTF-8
 Icon=/usr/share/screenlets/CPUMeter/icon.svg
-Exec=/usr/share/screenlets/CPUMeter/CPUMeterScreenlet.py > /dev/null
+Exec=python -u /usr/share/screenlets/CPUMeter/CPUMeterScreenlet.py > /dev/null
 

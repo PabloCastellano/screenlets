@@ -8,7 +8,6 @@ Comment=A simple control-button for adding screenlets and launching applications
 Comment[de]=Ein einfacher Kontroll-Button zum Starten von Screenlets und anderen Anwendungen.
 Comment[et]=Lihtne kontrollnupp uute Screenlet vidinate lisamiseks ning muude programmide käivitamiseks.
 MimeType=application/x-screenlet
-Encoding=UTF-8
 Icon=/usr/share/screenlets/Control/icon.svg
-Exec=/usr/share/screenlets/Control/ControlScreenlet.py > /dev/null
+Exec=python -u /usr/share/screenlets/Control/ControlScreenlet.py > /dev/null
 

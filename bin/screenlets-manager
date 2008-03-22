@@ -1,3 +1,2 @@
-#!/bin/bash
-python -u /usr/share/screenlets-manager/screenlets-manager.py
-
+#!/bin/sh
+exec python -u /usr/share/screenlets-manager/screenlets-manager.py

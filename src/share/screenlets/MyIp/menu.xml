@@ -22,6 +22,6 @@
 	<!--<item label="Hide/Show" id="hide_show" />-->
 	<!-- user definable actions here: -->
 	<!-- <imageitem label="radio name"  id="radio address SPACE radio name" />-->
-	<imageitem label="Update now"  id="update" />
+	<item label="Update now"  id="update" />
 	
 </menu>

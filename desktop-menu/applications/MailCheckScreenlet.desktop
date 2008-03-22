@@ -8,7 +8,6 @@ Comment=A screenlet that searches a server/directory for new e-mail after a cert
 Comment[de]=Ein Screenlet, das in bestimmten Zeitabständen einen Ort/Server nach neuen E-Mails durchsucht.
 Comment[et]=Screenlet vidin, mis kindla ajavahemiku järel kontrollib sinu e-posti kontot.  
 MimeType=application/x-screenlet
-Encoding=UTF-8
 Icon=/usr/share/screenlets/MailCheck/icon.svg
-Exec=/usr/share/screenlets/MailCheck/MailCheckScreenlet.py > /dev/null
+Exec=python -u /usr/share/screenlets/MailCheck/MailCheckScreenlet.py > /dev/null
 

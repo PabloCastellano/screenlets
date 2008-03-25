@@ -44,7 +44,7 @@ import utils
 import dbus	# TEMPORARY!! only needed for workaround
 
 import gettext
-
+import screenlets
 gettext.textdomain('screenlets')
 gettext.bindtextdomain('screenlets', '/usr/share/locale')
 
@@ -261,6 +261,13 @@ class ScreenletSession (object):
 	
 	def __register_screenlet (self):
 		"""Create new entry for this session in the global TMP_FILE."""
+		#check for daemon
+		proc = os.popen("""ps axo "%p,%a" | grep "screenlets-daemon.py" | grep -v grep|cut -d',' -f1""").read()
+	
+		procs = proc.split('\n')
+		if not len(procs) > 2:
+			os.system('python -u ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/screenlets-daemon.py &')
+		
 		# if tempfile not exists, create it
 		if not os.path.isfile(self.tempfile) and not self.__create_tempfile():
 			print _('Error: Unable to create temp entry - screenlets-manager will not work properly.')

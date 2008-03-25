@@ -33,6 +33,7 @@ import gettext
 gettext.textdomain('screenlets-manager')
 gettext.bindtextdomain('screenlets-manager', '/usr/share/locale')
 
+
 def _(s):
 	return gettext.gettext(s)
 
@@ -373,16 +374,19 @@ class ScreenletsDaemon (dbus.service.Object):
 
 if __name__ == '__main__':
 	# check for running daemon
-	"""import os
-	proc = os.popen("ps axo \"%p,%a\" | grep \"screenlets-daemon.py\" | grep -v grep|cut -d',' -f1").read()
+	import os
+	proc = os.popen("""ps axo "%p,%a" | grep "screenlets-daemon.py" | grep -v grep|cut -d',' -f1""").read()
+	print proc
 	procs = proc.split('\n')
 	if len(procs) > 2:
-		pid = int(procs[0].strip())
-		os.kill(pid, 0)
+		print "daemon already started"
+		import sys
+		sys.exit(1)
 	else:
-		print "no daemon"
-	import sys
-	sys.exit(1)"""
+		print "no daemon yet"
+
+
+	
 	# create new daemon
 	daemon = ScreenletsDaemon()
 	print _('ScreenletsDaemon running ...')

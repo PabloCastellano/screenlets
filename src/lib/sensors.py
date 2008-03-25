@@ -19,7 +19,7 @@ import os
 import subprocess
 try:import poplib
 except:pass
-
+import gtk
 # translation stuff
 gettext.textdomain('screenlets')
 gettext.bindtextdomain('screenlets', '/usr/share/locale')

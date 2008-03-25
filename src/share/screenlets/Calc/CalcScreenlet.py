@@ -188,7 +188,16 @@ class CalcScreenlet(screenlets.Screenlet):
 	def draw_shape(self, ctx):
 		self.draw(ctx)
 	
-		
+	def on_mouse_down(self,event):
+		if event.type != gtk.gdk.BUTTON_PRESS:
+			return False
+
+		if event.button == 1:
+			if not self.detect_button_action(event.x_root-self.x, event.y_root-self.y):
+				self.is_dragged = True
+		elif event.button == 3:
+			self.menu.popup(None, None, None, event.button, 
+				event.time)
 	
 	def detect_button_action(self, x, y):
 		scale = int(self.width/100)

@@ -43,7 +43,7 @@ import math
 from options import *
 import services
 import utils
-
+import sensors
 # TEST
 import XmlMenu
 # /TEST
@@ -589,6 +589,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 		enable_saving=True, service_class=services.ScreenletService,
 		uses_pango=False):
 		"""Constructor - should only be subclassed"""
+		
 		# call gobject and EditableOptions superclasses
 		super(Screenlet, self).__init__()
 		EditableOptions.__init__(self)
@@ -702,7 +703,11 @@ class Screenlet (gobject.GObject, EditableOptions):
 				self.p_layout.set_font_description(\
 					pango.FontDescription("Sans 12"))
 		# set type hint
-		self.window.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_TOOLBAR)
+		if str(sensors.sys_get_window_manager()).lower() == 'kwin':
+			print "WARNING - You are using kwin window manager , screenlets doesnt have full compatibility with this window manager"
+			#self.window.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_DOCK)
+		else:
+			self.window.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_TOOLBAR)
 		self.window.set_keep_above(True)
 		self.window.set_skip_taskbar_hint(True)
 		self.window.set_skip_pager_hint(True)
@@ -1550,6 +1555,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 		if not self.window.is_composited () :
 			self.show_buttons = False
 			print _('Warning - Buttons will not be shown until screenlet is restarted')
+
 		self.is_sticky = self.is_sticky #and again ...
 		self.keep_above= self.keep_above
 		self.keep_below= self.keep_below

@@ -1027,7 +1027,7 @@ class ScreenletsManager:
 		dlg = gtk.FileChooserDialog(buttons=(gtk.STOCK_CANCEL, 
 			gtk.RESPONSE_CANCEL, gtk.STOCK_OPEN, gtk.RESPONSE_OK))
 		dlg.set_current_folder(os.environ['HOME'])
-		dlg.set_title(_('Install a Screenlet'))
+		dlg.set_title(_('Install a Screenlet or SuperKaramba theme'))
 		dlg.set_filter(flt)
 		# run
 		resp		= dlg.run()

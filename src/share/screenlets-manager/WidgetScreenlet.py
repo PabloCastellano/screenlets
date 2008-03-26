@@ -27,7 +27,7 @@ if sys.argv[0].endswith(myfile): # Makes Shure its not the manager running...
 		for b in a:
 			if os.path.isfile(b + '/run-mozilla.sh'):
 				c = b + '/run-mozilla.sh'
-
+				workarround = c + " " + sys.argv[0] + " &"
 
 
 		if c == None:
@@ -49,7 +49,7 @@ if sys.argv[0].endswith(myfile): # Makes Shure its not the manager running...
 			os.system("rm -f " + "/tmp/"+ myfile+"running")
 		
 		else:
-			workarround = c + " " + sys.argv[0] + " &"
+
 			os.system (workarround)
 			fileObj = open("/tmp/"+ myfile+"running","w") #// open for for write
 			fileObj.write('gtkmozembed bug workarround')

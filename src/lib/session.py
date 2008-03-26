@@ -203,7 +203,7 @@ class ScreenletSession (object):
 			self.backend.flush()
 			sl.close()
 			self.instances.remove(sl)
-			print sl
+			
 			# remove session file
 			return True
 		return False

@@ -1334,18 +1334,19 @@ class ScreenletsManager:
 							f = open(DIR_USER + '/' + a  + '/' + 'index.html' , 'w')
 							f.write(code.get_text())
 							f.close()
+							os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/WidgetScreenlet.py ' +DIR_USER + '/' + a + '/' + a + 'Screenlet.py')
 							os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/widget.png ' +DIR_USER + '/' + a + '/icon.png')				
 							os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/widget.png ' +DIR_USER + '/' + a + '/themes/default')
-							widgetengine = open(screenlets.INSTALL_PREFIX + '/share/screenlets-manager/WidgetScreenlet.py', 'r')
 							os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/prefs.js ' +DIR_USER + '/' + a + '/mozilla')			
-							enginecopy = widgetengine.read()
-							widgetengine.close()
-							widgetengine = None
-							enginecopy = enginecopy.replace('WidgetScreenlet',a + 'Screenlet')
-			
-							enginesave = open(DIR_USER + '/' + a + '/' + a + 'Screenlet.py','w')
-							enginesave.write(enginecopy)
-							enginesave.close()
+
+		
+							enginecopy = open(DIR_USER + '/' + a + '/' + a + 'Screenlet.py','r')
+							enginesave = enginecopy.read()
+							enginesave = enginesave.replace('WidgetScreenlet',a + 'Screenlet')
+							enginecopy.close()
+							enginecopy = open(DIR_USER + '/' + a + '/' + a + 'Screenlet.py','w')
+							enginecopy.write(enginesave)
+							enginecopy.close()
 							screenlets.show_message (None,"Widget was successfully converted")
 							self.model.clear()
 							self.load_screenlets()			

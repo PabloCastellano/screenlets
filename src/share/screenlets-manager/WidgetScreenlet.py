@@ -15,14 +15,24 @@ import sys
 import os
 from screenlets import sensors
 
+from screenlets import sensors
+
 #########WORKARROUND FOR GTKOZEMBED BUG BY WHISE################
 myfile = 'WidgetScreenlet.py'
+mypath = sys.argv[0][:sys.argv[0].find(myfile)].strip()
+
 if sys.argv[0].endswith(myfile): # Makes Shure its not the manager running...
-		mypath = sys.argv[0][:sys.argv[0].find(myfile)].strip()
-		if os.path.isfile("/tmp/"+ myfile+"running"):
-			os.system("rm -f " + "/tmp/"+ myfile+"running")
-		
-		else:
+		# First workarround
+		a = str(commands.getoutput('whereis firefox')).replace('firefox: ','').split(' ')
+		for b in a:
+			if os.path.isfile(b + '/run-mozilla.sh'):
+				c = b + '/run-mozilla.sh'
+
+
+
+		if c == None:
+			# Second workarround
+			print 'First workarround didnt work let run a second manual workarround'
 			if str(sensors.sys_get_distrib_name()).lower().find('ubuntu') != -1: # Works for ubuntu 32
 				workarround = "export LD_LIBRARY_PATH=/usr/lib/firefox \n export MOZILLA_FIVE_HOME=/usr/lib/firefox \n python "+ sys.argv[0] + " &"
 			elif str(sensors.sys_get_distrib_name()).lower().find('debian') != -1: # Works for debian 32 with iceweasel installed
@@ -33,6 +43,13 @@ if sys.argv[0].endswith(myfile): # Makes Shure its not the manager running...
 			elif str(sensors.sys_get_distrib_name()).lower().find('fedora') != -1: # Works for fedora 32 with seamonkey installed
 				workarround = "export LD_LIBRARY_PATH=/usr/lib/seamonkey \n export MOZILLA_FIVE_HOME=/usr/lib/seamonkey \n python "+ sys.argv[0] + " &"
 				print 'Your running fedora , make shure you have seamonkey installed'
+
+
+		if os.path.isfile("/tmp/"+ myfile+"running"):
+			os.system("rm -f " + "/tmp/"+ myfile+"running")
+		
+		else:
+			workarround = c + " " + sys.argv[0] + " &"
 			os.system (workarround)
 			fileObj = open("/tmp/"+ myfile+"running","w") #// open for for write
 			fileObj.write('gtkmozembed bug workarround')
@@ -40,9 +57,9 @@ if sys.argv[0].endswith(myfile): # Makes Shure its not the manager running...
 			fileObj.close()
 			exit()
 
+
 else:
 	pass
-
 try:
 	import gtkmozembed
 except:

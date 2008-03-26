@@ -13,52 +13,36 @@ import gobject
 import commands
 import sys
 import os
-
+from screenlets import sensors
 
 #########WORKARROUND FOR GTKOZEMBED BUG BY WHISE################
 myfile = 'WidgetScreenlet.py'
 if sys.argv[0].endswith(myfile): # Makes Shure its not the manager running...
-	
-	if str(commands.getoutput("cat /etc/issue")).lower().find('ubuntu') != -1:
 		mypath = sys.argv[0][:sys.argv[0].find(myfile)].strip()
 		if os.path.isfile("/tmp/"+ myfile+"running"):
 			os.system("rm -f " + "/tmp/"+ myfile+"running")
 		
 		else:
-			os.system ("export LD_LIBRARY_PATH=/usr/lib/firefox \n export MOZILLA_FIVE_HOME=/usr/lib/firefox \n python "+ sys.argv[0] + " &")
+			if str(sensors.sys_get_distrib_name()).lower().find('ubuntu') != -1: # Works for ubuntu 32
+				workarround = "export LD_LIBRARY_PATH=/usr/lib/firefox \n export MOZILLA_FIVE_HOME=/usr/lib/firefox \n python "+ sys.argv[0] + " &"
+			elif str(sensors.sys_get_distrib_name()).lower().find('debian') != -1: # Works for debian 32 with iceweasel installed
+				workarround = "export LD_LIBRARY_PATH=/usr/lib/iceweasel \n export MOZILLA_FIVE_HOME=/usr/lib/iceweasel \n python " + sys.argv[0] + " &"
+			elif str(sensors.sys_get_distrib_name()).lower().find('suse') != -1: # Works for suse 32 with seamonkey installed
+				workarround = "export LD_LIBRARY_PATH=/usr/lib/seamonkey \n export MOZILLA_FIVE_HOME=/usr/lib/seamonkey \n python "+ sys.argv[0] + " &"
+				print 'Your running suse , make shure you have seamonkey installed'
+			elif str(sensors.sys_get_distrib_name()).lower().find('fedora') != -1: # Works for fedora 32 with seamonkey installed
+				workarround = "export LD_LIBRARY_PATH=/usr/lib/seamonkey \n export MOZILLA_FIVE_HOME=/usr/lib/seamonkey \n python "+ sys.argv[0] + " &"
+				print 'Your running fedora , make shure you have seamonkey installed'
+			os.system (workarround)
 			fileObj = open("/tmp/"+ myfile+"running","w") #// open for for write
 			fileObj.write('gtkmozembed bug workarround')
 		
 			fileObj.close()
 			exit()
 
-	elif str(commands.getoutput("cat /etc/issue")).lower().find('debian') != -1:
-		mypath = sys.argv[0][:sys.argv[0].find(myfile)].strip()
-		if os.path.isfile("/tmp/"+ myfile+"running"):
-			os.system("rm -f " + "/tmp/"+ myfile+"running")
-		
-		else:
-			os.system ("export LD_LIBRARY_PATH=/usr/lib/iceweasel \n export MOZILLA_FIVE_HOME=/usr/lib/iceweasel \n python " + sys.argv[0] + " &")
-			fileObj = open("/tmp/"+ myfile+"running","w") #// open for for write
-			fileObj.write('gtkmozembed bug workarround')
-		
-			fileObj.close()
-			exit()
-	elif str(commands.getoutput("cat /etc/issue")).lower().find('suse') != -1:
-		mypath = sys.argv[0][:sys.argv[0].find(myfile)].strip()
-		if os.path.isfile("/tmp/"+ myfile+"running"):
-			os.system("rm -f " + "/tmp/"+ myfile+"running")
-		
-		else:
-			print 'Your running suse , make shure you have seamonkey installed'
-			os.system ("export LD_LIBRARY_PATH=/usr/lib/seamonkey \n python "+ sys.argv[0] + " &")
-			fileObj = open("/tmp/"+ myfile+"running","w") #// open for for write
-			fileObj.write('gtkmozembed bug workarround')
-		
-			fileObj.close()
-			exit()
 else:
 	pass
+
 try:
 	import gtkmozembed
 except:
@@ -174,8 +158,8 @@ class WidgetScreenlet (screenlets.Screenlet):
 				self.bgpbim, self.bgpbms = self.bgpb.render_pixmap_and_mask(alpha_threshold=128)
 			
 				if not self.window.is_composited():
-					ctx.translate(0,10)
-					self.theme.draw_image(ctx,0,0,self.mypath + 'icon.png')
+					#ctx.translate(0,10)
+					self.theme.draw_scaled_image(ctx,0,0,self.width,self.height,self.mypath + 'icon.png')
 
 				self.moz.shape_combine_mask(self.bgpbms,0,0)	
 			else:

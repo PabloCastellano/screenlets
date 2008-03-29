@@ -611,6 +611,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 		self.__dict__['theme_name'] = ""
 		self.__dict__['is_widget'] 	= is_widget
 		self.__dict__['is_sticky'] 	= is_sticky
+		self.__dict__['draw_buttons'] 	= draw_buttons
 		self.__dict__['x'] = 0
 		self.__dict__['y'] = 0
 		# TEST: set scale relative to theme size (NOT WORKING)
@@ -1309,6 +1310,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 			except:	self.on_draw_shape(ctx) # if error on on_draw use standard shape method
 			# and cut window with mask 
 			self.window.shape_combine_mask(self.__shape_bitmap,0,0)
+		self.on_update_shape()
 
 	def update_shape_non_composited (self):
 		"""TEST: This function is intended to shape the window whenever no
@@ -1477,7 +1479,10 @@ class Screenlet (gobject.GObject, EditableOptions):
 	def on_unfocus (self, event):
 		"""Called when the Screenlet's window loses focus."""
 		pass
-	
+
+	def on_update_shape(self):
+		"""Called when the Screenlet's window is updating shape"""
+		pass
 	# ----------------------------------------------------------------------
 	# Screenlet's event-handlers for GTK-events
 	# ----------------------------------------------------------------------

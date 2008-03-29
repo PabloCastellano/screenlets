@@ -96,6 +96,8 @@ files_list.insert(0, (INSTALL_PATH + '-manager',
 	'src/share/screenlets-manager/widget.png',
 	'src/share/screenlets-manager/WidgetScreenlet.py',
 	'src/share/screenlets-manager/prefs.js',
+	'src/share/screenlets-manager/webapp.png',
+	'src/share/screenlets-manager/WebappScreenlet.py',
 	'src/share/screenlets-manager/karamba.png']))
 	
 

@@ -1,4 +1,4 @@
-import sys, os, fcntl, gobject, time
+import sys, os, fcntl, gobject, time, re
 
 STATUS_TIMEOUT = 1000
 
@@ -8,8 +8,10 @@ STATUS_TIMEOUT = 1000
 class Mplayer:
 	
 	pymp, mplayerIn, mplayerOut = None, None, None
-	eofHandler, statusQuery = 0, 0
+	inputHandler, eofHandler, statusQuery = 0, 0, 0
 	paused = False
+	streamTitle = ""
+	streamTitleChangeListeners = []
 	
 	#
 	#  Initializes this Mplayer with the specified Pymp.
@@ -26,7 +28,8 @@ class Mplayer:
 		
 		self.mplayerIn, self.mplayerOut = os.popen2(mpc)  #open pipe
 		fcntl.fcntl(self.mplayerOut, fcntl.F_SETFL, os.O_NONBLOCK)
-		
+
+		self.startInputHandler()
 		self.startEofHandler()
 		self.startStatusQuery()
 		
@@ -48,7 +51,6 @@ class Mplayer:
 	#  Toggles pausing of the current mplayer job and status query.
 	#
 	def pause(self):
-		
 		if not self.mplayerIn:
 			return
 			
@@ -72,12 +74,12 @@ class Mplayer:
 	#  Cleanly closes any IPC resources to mplayer.
 	#
 	def close(self):
-		
-		if self.paused:  #untoggle pause to cleanly quit
-			self.pause()
-		
 		self.stopStatusQuery()  #cancel query
 		self.stopEofHandler()  #cancel eof monitor
+		self.stopInputHandler() #cancel input monitor
+				
+		if self.paused:  #untoggle pause to cleanly quit
+			self.pause()
 		
 		self.cmd("quit")  #ask mplayer to quit
 		
@@ -105,7 +107,29 @@ class Mplayer:
 	#		self.pymp.control.setProgress(-1)
 			
 		return False
-		
+	
+	#
+	#  Triggered when mplayer's stdout reaches EOF.
+	#
+	def handleInput(self, source, condition):
+		try:
+		    for line in self.mplayerOut:
+		        self.lookForStreamTitle(line)
+		finally:
+			return True
+	
+	#
+	#  Triggered when mplayer prints something stdout.
+	#
+	def lookForStreamTitle(self, line):
+		matches = re.search("(?<=StreamTitle=\')(.*)(\';StreamUrl=)", line)
+		if matches:
+			self.streamTitle = matches.group(1)
+			for listener in self.streamTitleChangeListeners:
+				keepListener = listener(self, self.streamTitle)
+				if not keepListener:
+					self.streamTitleChangeListeners.remove(listener)
+	
 	#
 	#  Queries mplayer's playback status and upates the progress bar.
 	#
@@ -121,7 +145,7 @@ class Mplayer:
 		while True:
 			try:  #attempt to fetch last line of output
 				line = self.mplayerOut.readline()
-			except StandardError:
+			except StandardError, detail:
 				break
 				
 			if not line: break
@@ -135,6 +159,20 @@ class Mplayer:
 		#self.pymp.control.setProgress(percent, seconds)
 		return True
 		
+	#
+	#  Add a listener that will be called every time a change in stream title is detected.
+	#  The signature of the callback should be:
+	#	def callback(source, newStreamTitle)
+	#
+	def addStreamTitleChangeListener(self, callback):
+		self.streamTitleChangeListeners.append(callback)
+	
+	#
+	#  Removes a stream title change listener.
+	#
+	def removeStreamTitleChangeListener(self, callback):
+		self.streamTitleChangeListeners.remove(callback)
+	
 	#
 	#  Inserts the status query monitor.
 	#
@@ -162,5 +200,19 @@ class Mplayer:
 		if self.eofHandler:
 			gobject.source_remove(self.eofHandler)
 		self.eofHandler = 0
+	
+	#
+	#  Inserts the input monitoy.
+	#
+	def startInputHandler(self):
+		self.inputHandler = gobject.io_add_watch(self.mplayerOut, gobject.IO_IN, self.handleInput)
+	
+	#
+	#  Removes the EOF monitor.
+	#
+	def stopInputHandler(self):
+		if self.inputHandler:
+			gobject.source_remove(self.inputHandler)
+		self.inputHandler = 0
 		
 #End of file

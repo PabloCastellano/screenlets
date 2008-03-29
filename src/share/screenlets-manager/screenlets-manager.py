@@ -415,7 +415,23 @@ class ScreenletsManager:
 			except Exception, ex:
 				print _("Error in ScreenletsManager.connect_daemon: %s") % ex
 		return None
-	
+
+	def __get_user_dir(self, key, default):
+		"""http://www.freedesktop.org/wiki/Software/xdg-user-dirs"""
+
+		user_dirs_dirs = os.path.expanduser("~/.config/user-dirs.dirs")
+		if os.path.exists(user_dirs_dirs):
+			f = open(user_dirs_dirs, "r")
+			for line in f.readlines():
+				if line.startswith(key):
+					return os.path.expandvars(line[len(key)+2:-2])
+ 		return default	
+
+	def get_desktop_dir(self):
+		"""Returns desktop dir"""
+		self.__desktop_dir =  self.__get_user_dir("XDG_DESKTOP_DIR", os.path.expanduser("~/Desktop"))
+		return self.__desktop_dir
+
 	def create_autostarter (self, name):
 		"""Create a .desktop-file for the screenlet with the given name in 
 		$HOME/.config/autostart."""
@@ -742,8 +758,8 @@ class ScreenletsManager:
 		#	gtk.ICON_SIZE_BUTTON))
 		self.button_prop = but8 = gtk.Button(_('Options'))
 		but8.set_sensitive(True)
-		self.button_widget = but9 = gtk.Button(_('Convert Widget'))
-		but8.set_sensitive(True)
+		self.button_shortcut = but9 = gtk.Button(_('Create Desktop Shortcut'))
+		but9.set_sensitive(False)
 		#but8.set_image(gtk.image_new_from_stock(gtk.STOCK_PROPERTIES, 
 		#	gtk.ICON_SIZE_BUTTON))
 		#self.sep = gtk.Separator()	
@@ -755,7 +771,7 @@ class ScreenletsManager:
 		but6.connect('clicked', self.button_clicked, 'restartall')
 		but7.connect('clicked', self.button_clicked, 'closeall')
 		but8.connect('clicked', self.button_clicked, 'prop')
-		but9.connect('clicked', self.button_clicked, 'widget')
+		but9.connect('clicked', self.button_clicked, 'desktop_shortcut')
 		but1.set_relief(gtk.RELIEF_NONE)
 		but2.set_relief(gtk.RELIEF_NONE)
 		but3.set_relief(gtk.RELIEF_NONE)
@@ -782,7 +798,7 @@ class ScreenletsManager:
 		self.tips.set_tip(but6, _('Restart all screenlets that have auto start at login'))
 		self.tips.set_tip(but7, _('Close all Screenlets running'))
 		self.tips.set_tip(but8, _('New Screenlets Options/Properties'))						
-		self.tips.set_tip(but9, _('Convert widgets into Screenlets'))
+		self.tips.set_tip(but9, _('Create a Desktop shortcut for this Screenlet'))
 		self.label = gtk.Label('')
 		self.label.set_line_wrap(1)
 		self.label.set_width_chars(70)
@@ -1200,7 +1216,33 @@ class ScreenletsManager:
 					screenlets.show_message(None,'There was a problem starting this screenlet\nTry reinstalling it, if the problem continues please report the bug to the screenlet author')
 					self.cb_enable_disable.set_active(False)
 		elif id == 'install':
-			self.show_install_dialog()
+			install_combo = gtk.combo_box_new_text()
+
+			#go_button = gtk.Button('Install')
+			install_combo.append_text('Install Screenlet')
+			install_combo.append_text('Install SuperKaramba Theme')
+			install_combo.append_text('Convert Web Widget')
+			install_combo.append_text('Install Web Application')
+			install_combo.set_active(0)
+       			dialog = gtk.Dialog("Install",self.window,
+                     gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
+                     (gtk.STOCK_CANCEL, gtk.RESPONSE_REJECT,
+                      gtk.STOCK_OK, gtk.RESPONSE_ACCEPT))
+			install_combo.show()
+
+			dialog.vbox.add(install_combo)
+				
+			
+			resp = dialog.run()
+			ret = None
+			if resp == gtk.RESPONSE_ACCEPT:
+				if install_combo.get_active() == 0 or install_combo.get_active() == 1:
+					self.show_install_dialog()
+				elif install_combo.get_active() == 2:
+					self.show_widget_converter()
+				elif install_combo.get_active() == 3:
+					self.show_webapp()						
+			dialog.destroy()
 		elif id == 'uninstall':
 			self.delete_selected_screenlet()
 		elif id == 'reset':
@@ -1273,7 +1315,132 @@ class ScreenletsManager:
 				f.write(ret)
 				f.close()
 			dialog.destroy()
-		elif id == 'widget':
+		elif id == 'desktop_shortcut':
+			info = self.get_selection()
+			name = info.name
+			path = utils.find_first_screenlet_path(name)
+			desk = self.get_desktop_dir()
+			if name.endswith('Screenlet'):
+				name = name[:-9]
+			starter = '%s/%sScreenlet.desktop' % (desk, name)
+			if path:
+				print _("Create desktop shortcut for: %s/%sScreenlet.py") % (path, name)
+				code = ['[Desktop Entry]']
+				code.append('Name=%sScreenlet' % name)
+				code.append('Encoding=UTF-8')
+				code.append('Version=1.0')
+				if os.path.exists('%s/icon.svg' % path):
+					code.append('Icon=%s/icon.svg' % path)
+				elif os.path.exists('%s/icon.png' % path):
+					code.append('Icon=%s/icon.png' % path)
+				code.append('Type=Application')
+				code.append('Exec= python -u %s/%sScreenlet.py' % (path, name))
+				code.append('X-GNOME-Autostart-enabled=true')
+				#print code
+				f = open(starter, 'w')
+				if f:
+					for l in code:
+						f.write(l + '\n')
+					f.close()
+					
+					return True
+				print _('Failed to create autostarter for %s.') % name
+				return False
+		elif id == 'restartall':
+			a = utils.list_running_screenlets()
+			if a != None:
+				for s in a:
+					print _('closing %s') % str(s)
+					if s.endswith('Screenlet'):
+						s = s[:-9]
+						try:
+							self.quit_screenlet_by_name(s)
+						except:
+							pass
+			for s in os.listdir(DIR_AUTOSTART):
+		
+				if s.lower().endswith('screenlet.desktop'):
+					#s = s[:-17]
+					os.system('sh '+ DIR_AUTOSTART + s + ' &')	
+		elif id == 'closeall':
+			a = utils.list_running_screenlets()
+			if a != None:
+				for s in a:
+					print 'closing' + str(s)
+					if s.endswith('Screenlet'):
+						s = s[:-9]
+						try:
+							self.quit_screenlet_by_name(s)
+						except:
+							pass
+		elif id == 'website':
+			print "TODO: open website"
+
+		elif id == 'download':
+			subprocess.Popen(["firefox", screenlets.THIRD_PARTY_DOWNLOAD])
+	def show_webapp(self):
+		label1 = gtk.Label('Web Application Url')
+		label2 = gtk.Label('Web Application Name')
+		code = gtk.Entry()
+		name = gtk.Entry()
+		h = gtk.HBox()
+		h1 = gtk.HBox()	
+		h.pack_start(label1,False,False)
+		h.pack_start(code,True,True)
+		h1.pack_start(label2,False,False)
+		h1.pack_start(name,True,True)
+      		dialog = gtk.Dialog("Install Web Application",self.window,
+                     gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
+                     (gtk.STOCK_CANCEL, gtk.RESPONSE_REJECT,
+                      gtk.STOCK_OK, gtk.RESPONSE_ACCEPT))
+    		label1.show()
+    		label2.show()
+		code.show()
+		name.show()
+		h.show()
+		h1.show()
+		dialog.vbox.pack_start(h,False,False,5)
+		dialog.vbox.pack_start(h1,False,False,5)
+				
+			
+		resp = dialog.run()
+		ret = None
+		if resp == gtk.RESPONSE_ACCEPT:
+			if code.get_text() != '':
+				if name.get_text() != '':
+					try:
+						a = name.get_text()
+						a = a.replace(' ','')
+						if os.path.isdir(DIR_USER + '/' + a):#found_path != None:
+							if screenlets.show_question(None,(_("The is already a screenlet with that name installed\nDo you wish to continue?") )):
+								pass
+							else: 
+								return False
+						os.system('mkdir ' +DIR_USER + '/' + a)
+						os.system('mkdir ' +DIR_USER + '/' + a + '/themes')
+						os.system('mkdir ' +DIR_USER + '/' + a + '/themes/default')
+						os.system('mkdir ' +DIR_USER + '/' + a + '/mozilla')
+						os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/WebappScreenlet.py ' +DIR_USER + '/' + a + '/' + a + 'Screenlet.py')
+						os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/webapp.png ' +DIR_USER + '/' + a + '/icon.png')				
+						os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/webapp.png ' +DIR_USER + '/' + a + '/themes/default')
+						os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/prefs.js ' +DIR_USER + '/' + a + '/mozilla')			
+		
+						enginecopy = open(DIR_USER + '/' + a + '/' + a + 'Screenlet.py','r')
+						enginesave = enginecopy.read()
+						enginesave = enginesave.replace('WebappScreenlet',a + 'Screenlet')
+						enginesave = enginesave.replace("url = 'myurl'","url = " + chr(34) + code.get_text() + chr(34))
+						enginecopy.close()
+						enginecopy = open(DIR_USER + '/' + a + '/' + a + 'Screenlet.py','w')
+						enginecopy.write(enginesave)
+						enginecopy.close()
+						screenlets.show_message (None,"Web Application was successfully installed")
+						self.model.clear()
+						self.load_screenlets()			
+					except:	screenlets.show_error(None,"Error installing!!!")			
+				else:	screenlets.show_error(None,"Please specify a name for the widget")			
+			else:	screenlets.show_error(None,"No HTML code found")	
+		dialog.destroy()
+	def show_widget_converter(self):
 			label1 = gtk.Label('Convert any webpage widget into a Screenlet.')
 			label2 = gtk.Label('Step 1 : Find the widget you want to convert')
 			label3 = gtk.Label('Step 2 : Copy and Paste the HTML from the widget in the box bellow')
@@ -1327,6 +1494,11 @@ class ScreenletsManager:
 						try:
 							a = name.get_text()
 							a = a.replace(' ','')
+							if os.path.isdir(DIR_USER + '/' + a):#found_path != None:
+								if screenlets.show_question(None,(_("The is already a screenlet with that name installed\nDo you wish to continue?") )):
+									pass
+								else: 
+									return False
 							os.system('mkdir ' +DIR_USER + '/' + a)
 							os.system('mkdir ' +DIR_USER + '/' + a + '/themes')
 							os.system('mkdir ' +DIR_USER + '/' + a + '/themes/default')
@@ -1354,39 +1526,6 @@ class ScreenletsManager:
 					else:	screenlets.show_error(None,"Please specify a name for the widget")			
 				else:	screenlets.show_error(None,"No HTML code found")			
 			dialog.destroy()
-		elif id == 'restartall':
-			a = utils.list_running_screenlets()
-			if a != None:
-				for s in a:
-					print _('closing %s') % str(s)
-					if s.endswith('Screenlet'):
-						s = s[:-9]
-						try:
-							self.quit_screenlet_by_name(s)
-						except:
-							pass
-			for s in os.listdir(DIR_AUTOSTART):
-		
-				if s.lower().endswith('screenlet.desktop'):
-					#s = s[:-17]
-					os.system('sh '+ DIR_AUTOSTART + s + ' &')	
-		elif id == 'closeall':
-			a = utils.list_running_screenlets()
-			if a != None:
-				for s in a:
-					print 'closing' + str(s)
-					if s.endswith('Screenlet'):
-						s = s[:-9]
-						try:
-							self.quit_screenlet_by_name(s)
-						except:
-							pass
-		elif id == 'website':
-			print "TODO: open website"
-
-		elif id == 'download':
-			subprocess.Popen(["firefox", screenlets.THIRD_PARTY_DOWNLOAD])
-
 	def handle_screenlet_registered (self, name):
 		"""Callback for dbus-signal, called when a new screenlet gets 
 		registered within the daemon."""
@@ -1420,6 +1559,7 @@ class ScreenletsManager:
 				self.button_delete.set_sensitive(True)
 			else:
 				self.button_delete.set_sensitive(False)
+			self.button_shortcut.set_sensitive(True)
 		else:
 			# nothing selected? 
 			self.label.set_label('')
@@ -1429,6 +1569,7 @@ class ScreenletsManager:
 			self.button_delete.set_sensitive(False)
 			self.button_reset.set_sensitive(False)
 			self.button_theme.set_sensitive(False)	
+			self.button_shortcut.set_sensitive(False)
 #			self.button_restartall.set_sensitive(False)
 #			self.button_closeall.set_sensitive(False)
 			self.label_info.set_text('')

@@ -418,7 +418,7 @@ class ScreenletSession (object):
 		instance. Handles sigkill (?) and keyboard interrupts."""
 		# add sigkill-handler
 		import signal
-		def on_kill():
+		def on_kill(*args):
 			print _("Screenlet has been killed. TODO: make this an event")
 		signal.signal(signal.SIGTERM, on_kill)
 		# set name of tempfile for later (else its missing after kill)

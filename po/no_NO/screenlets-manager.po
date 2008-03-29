@@ -1,0 +1,252 @@
+# Screenlets-manager translation template
+# Copyright (C) 2007 Rico Pfaus
+# This file is distributed under the same license as the screenlets package.
+# Ketil Wendelbo Aanensen <ketil.w.aanensen@gmail.com>, 2007.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.0.11\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-12-19 20:48+0200\n"
+"PO-Revision-Date: 2008-01-20 13:56+0100\n"
+"Last-Translator: Ketil Wendelbo Aanensen <ketil.w.aanensen@gmail.com>\n"
+"Language-Team: Ketil Wendelbo Aanensen <ketil.w.aanensen@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: screenlets-daemon.py:62
+#, python-format
+msgid "ScreenletsDaemon: registered %s"
+msgstr "ScreenletsNisse (daemon): registrerte %s"
+
+#: screenlets-daemon.py:70
+#, python-format
+msgid "screenletsDaemon: unregistered %s"
+msgstr "ScreenletsNisse (daemon): avregistrerte %s"
+
+#: screenlets-daemon.py:97
+msgid "ScreenletsDaemon running ..."
+msgstr "ScreenletsNisse (daemon) kjører ..."
+
+#: screenlets-daemon.py:106
+msgid "ScreenletsDaemon has been shut down ..."
+msgstr "ScreenletsNisse (daemon) har blitt avsluttet ..."
+
+#: screenlets-daemon.py:108
+#, python-format
+msgid "Exception in ScreenletsDaemon: %s"
+msgstr "Unntak i ScreenletsNisse (daemon): %s"
+
+#: screenlets-manager.py:41
+msgid "Screenlets Manager"
+msgstr "Screenlets håndterer"
+
+#: screenlets-manager.py:135
+msgid "Invalid archive name. Name must be like 'SomeScreenlet-0.1.2.tar.gz', alternatively with a 'zip' or 'tar.bz2' extension."
+msgstr "Ugyldig arkivnavn. Navn må være som \"EnellerannenScreenlet-0.1.2.tar.gz\", alterantivt med en \"zip\"- eller \"tar.bz2\"-endelse."
+
+#: screenlets-manager.py:142
+#, python-format
+msgid "The %sScreenlet is already installed in '%s'. Please remove it first!"
+msgstr "%sScreenlet er allerede installert i \"%s\". Vennligst fjern den først!"
+
+#: screenlets-manager.py:157
+msgid "Invalid archive. Archive must contain a directory with the screenlet's name."
+msgstr "Ugyldig arkiv. Arkiv må inneholde en katalog med navn på Screenlet."
+
+#: screenlets-manager.py:160
+msgid "Invalid archive. Archive does not contain a screenlet."
+msgstr "Ugyldig arkiv- Arkivet inneholder ikke en Screenlet."
+
+#: screenlets-manager.py:164
+msgid "Invalid archive. Archive does not contain a package info, screenlet seems to be outdated."
+msgstr "Ugyldig arkiv. Arkivet inneholder ikke pakkeinformasjon, denne Screenlet-en ser ut til å være utdatert."
+
+#: screenlets-manager.py:172
+#, python-format
+msgid "The %sScreenlet has been succesfully installed."
+msgstr "%sScreenlet har blitt installert"
+
+#: screenlets-manager.py:202
+msgid "Important! You are running this application as root user, almost all functionality is disabled. You can use this to install screenlets into the system-wide path."
+msgstr "Viktig! Du kjører denne applikasjonen som superbruker (root), nesten all funksjonalitet er slått av. Du kan bruke dette for å installere Screenlet-er for alle brukere."
+
+#: screenlets-manager.py:203
+msgid "Warning!"
+msgstr "Advarsel!"
+
+#: screenlets-manager.py:229
+msgid "Unable to connect or launch daemon. Some values may be displayed incorrectly."
+msgstr "Ikke i stand til å kontakte eller kjøre nissen (daemon). Noen verdier kan bli vist feil."
+
+#: screenlets-manager.py:229
+#: screenlets-manager.py:269
+#: screenlets-manager.py:273
+msgid "Error"
+msgstr "Feil"
+
+#: screenlets-manager.py:268
+msgid "There is no existing autostart directory for your user account yet. Do you want me to automatically create it for you?"
+msgstr "Det finnes foreløpig ikke noen eksisterende katalog for din brukerkonto. Vil du lage en automatisk?"
+
+#: screenlets-manager.py:273
+#, python-format
+msgid ""
+"Automatic creation failed. Please manually create the directory:\n"
+"%s"
+msgstr ""
+"Automatisk laging feilet. Vennligst lag katalogen:\n"
+"%s \n"
+"manuelt"
+
+#: screenlets-manager.py:276
+#, python-format
+msgid ""
+"Please manually create the directory:\n"
+"%s"
+msgstr ""
+"Vennligst lag katalogen:\n"
+"%s \n"
+"manuelt"
+
+#: screenlets-manager.py:321
+#, python-format
+msgid "Do you really want to permanently uninstall/delete the %sScreenlet from your system?"
+msgstr "Er du sikker på at du vil avinstallere/ slette %sScreenlet permanent fra ditt system?"
+
+#: screenlets-manager.py:321
+msgid "Delete Screenlet"
+msgstr "Slett Screenlet"
+
+#: screenlets-manager.py:392
+#, python-format
+msgid "Error while loading screenlets metadata for \"%s\"."
+msgstr "Feil ved lasting av screenlets-metadata for \"%s\"."
+
+#: screenlets-manager.py:499
+msgid "Launch/Add ..."
+msgstr "Start/ legg til ..."
+
+#: screenlets-manager.py:503
+msgid "Install Screenlet ..."
+msgstr "Installer Screenlet ..."
+
+#: screenlets-manager.py:506
+msgid "Uninstall Screenlet ..."
+msgstr "Avinstaller Screenlet ..."
+
+#: screenlets-manager.py:513
+msgid "Launch/add a new instance of the selected Screenlet ..."
+msgstr "Start/ legg til et nytt tilfelle av valgt Screenlet"
+
+#: screenlets-manager.py:514
+msgid "Install a new Screenlet from a zipped archive (tar.gz, tar.bz2 or zip) ..."
+msgstr "Installer en ny Screenlet fra et pakket arkiv (tar.gz, tar.bz2 eller zip) ..."
+
+#: screenlets-manager.py:515
+msgid "Permanently uninstall/delete the currently selected Screenlet ..."
+msgstr "Avinstaller/ slett valgt Screenlet permanent ..."
+
+#: screenlets-manager.py:529
+msgid "Show info about this dialog ..."
+msgstr "Vis info om denne dialogen ..."
+
+#: screenlets-manager.py:530
+msgid "Close this dialog ..."
+msgstr "Lukk denne dialogen ..."
+
+#: screenlets-manager.py:558
+msgid "Enable/Disable"
+msgstr "Slå på/av"
+
+#: screenlets-manager.py:559
+msgid "Automatically start on login"
+msgstr "Start automatisk ved innlogging"
+
+#: screenlets-manager.py:588
+msgid "A graphical manager application that simplifies managing, starting and (un-)installing Screenlets."
+msgstr "En grafisk håndterer-applikasjon som forenkler håndtering, start og (av)installering av Screenlets."
+
+#: screenlets-manager.py:593
+msgid "This application is released under the GNU General Public License v3 (or, at your option, any later version). You can find the full text of the license under http://www.gnu.org/licenses/gpl.txt. By using, editing and/or distributing this software you agree to the terms and conditions of this license. Thank you for using free software!"
+msgstr "Denne applikasjonen er sluppet under GNU General Public License v3 (eller, om du ønsker, enhver senere versjon). Du kan finne lisensens fulle tekst på http://www.gnu.org/licenses/gpl.txt. Ved å bruke, redigere og/eller distribuere denne programvaren godkjenner du lisensens vilkår. Takk for at du bruker fri programvare!"
+
+#: screenlets-manager.py:617
+msgid "Install a Screenlet"
+msgstr "Installer en Screenlet"
+
+#: screenlets-packager.py:22
+#, python-format
+msgid ""
+"Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
+"Usage: %s <path> [options]"
+msgstr ""
+"Screenlets-packager - (c) RYX (Rico Pfaus) 2007\n"
+"Bruk: %s <sti> [valg]"
+
+#: screenlets-packager.py:61
+#, python-format
+msgid "The specified path \"%s\" does not exist."
+msgstr "Den spesifiserte stien \"%s\" eksisterer ikke."
+
+#: screenlets-packager.py:62
+#, python-format
+msgid "Found path \"%s\"."
+msgstr "fant sti \"%s\"."
+
+#: screenlets-packager.py:68
+msgid "Failed to extract screenlet name from path."
+msgstr "Kunne ikke trekke ut navn på Screenlet fra sti."
+
+#: screenlets-packager.py:69
+#, python-format
+msgid "Screenlet name is %s."
+msgstr "Navn på Screenlet er %s."
+
+#: screenlets-packager.py:73
+#, python-format
+msgid "No screenlet-file \"%sScreenlet.py\" found in the given path."
+msgstr "Ingen Screenlet-fil \"%sScreenlet.py\" funnet i gitt sti."
+
+#: screenlets-packager.py:74
+#, python-format
+msgid "Found %sScreenlet.py in path."
+msgstr "Fant \"%sScreenlet.py\" i sti."
+
+#: screenlets-packager.py:83
+#, python-format
+msgid "Unable to import module '%s' from %s. (%s)"
+msgstr "Ikke i stand til å importere modul \"%s\" fra %s. (%s)"
+
+#: screenlets-packager.py:84
+#, python-format
+msgid "Successfully imported module: %s"
+msgstr "Importerte modul: %s"
+
+#: screenlets-packager.py:90
+msgid "Unable to import class from module."
+msgstr "Ikke i stand til å importere klasse fra modul."
+
+#: screenlets-packager.py:92
+msgid "The class inside the module is no subclass of screenlets.Screenlet."
+msgstr "Klassen inne i modulen er ikke noen underklasse av screenlets.Screenlet."
+
+#: screenlets-packager.py:93
+#, python-format
+msgid "Successfully got class from module: %s"
+msgstr "Fikk klasse fra modul: %s"
+
+#: screenlets-packager.py:117
+#, python-format
+msgid "Failed to create package info in \"%s\" (no permission?)."
+msgstr "Feilet i å lage pakkeinfo i \"%s\" (ingen tilgang?)."
+
+#: screenlets-packager.py:118
+msgid "Created package info file."
+msgstr "Lagde fil med pakkeinfo"
+
+#: screenlets-packager.py:134
+msgid "Cleaned up and finished."
+msgstr "Renset opp og fullført."
+

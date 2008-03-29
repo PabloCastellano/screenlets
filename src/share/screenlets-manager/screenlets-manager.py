@@ -42,8 +42,8 @@ import commands
 #	print b
 #	exit()
 
-gettext.textdomain('screenlets-manager')
-gettext.bindtextdomain('screenlets-manager', '/usr/share/locale')
+gettext.install("screenlets-manager", unicode = True)
+
 
 # stub for gettext
 def _(s):

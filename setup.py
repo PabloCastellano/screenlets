@@ -23,7 +23,7 @@ INSTALL_PREFIX	= '/usr'
 # global install-path for daemon and screenlets-packages
 INSTALL_PATH	= INSTALL_PREFIX + '/share/screenlets'
 # current version of package
-VERSION			= '0.0.13'
+VERSION			= '0.0.15'
 
 #----------------------------------------------------------------------------
 # FUNCTIONS
@@ -104,6 +104,30 @@ files_list.insert(0, (INSTALL_PATH + '-manager',
 #Desktop file and icon for screenlets-manager
 files_list.insert(0, ('/usr/share/applications', ['desktop-menu/screenlets-manager.desktop']))
 files_list.insert(0, ('/usr/share/icons', ['desktop-menu/screenlets.svg']))
+
+podir = os.path.join (os.path.realpath ("."), "po")
+if os.path.isdir (podir):
+	buildcmd = "msgfmt "
+
+	for dname in os.listdir (podir):
+		
+		if os.path.isdir(podir + '/'+ dname):
+			
+			for fname in os.listdir (podir + '/' + dname):
+				if fname.endswith('.po'):
+					print dname
+						
+					filename = fname.replace('.po','.mo')
+					if not os.path.exists(INSTALL_PREFIX + "/share/locale/%s" % dname):
+						os.system('mkdir ' + INSTALL_PREFIX + "/share/locale/" + dname)
+					if not os.path.exists(INSTALL_PREFIX + "/share/locale/" + dname  + "/LC_MESSAGES"):
+						os.system('mkdir ' + INSTALL_PREFIX + "/share/locale/"+ dname + "/LC_MESSAGES" )
+					destpath = INSTALL_PREFIX + "/share/locale/%s/LC_MESSAGES/%s" % (dname,filename)
+					os.system (buildcmd + podir + '/'+ dname + '/' + fname + ' -o ' + destpath)
+
+			
+
+
 	
 # + Call setup function (installs screenlets into python's root)
 setup(name = 'screenlets',

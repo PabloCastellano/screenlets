@@ -80,12 +80,15 @@ class ICalReader:
 		Put rutine to fetch and convert a resource into lines and feed it to readEvents()
 		'''
 		dataLines = None
-		try:
-			import urllib2
+		if str(url).lower().startswith('http') or str(url).lower().startswith('www'):
+			try:
+				import urllib2
+			except: print 'Please install urllib2'
 			tempFile = urllib2.urlopen(url)
 			dataLines = tempFile.readlines()
 			tempFile.close()
-		except:
+		else:
+			
 			tempFile = open(url,'r')
 			dataLines = tempFile.readlines()
 			tempFile.close()

@@ -985,7 +985,7 @@ class ScreenletsManager:
 		dlg.destroy()
 		
 	def website_open(self, d, link, data):
-		subprocess.Popen(["firefox", "http://www.screenlets.org"])
+		subprocess.Popen(["xdg-open", "http://www.screenlets.org"])
 
 	def drag_data_received (self, widget, dc, x, y, sel_data, info, timestamp):
 			
@@ -1195,13 +1195,13 @@ class ScreenletsManager:
 		elif id == 'widgetsite':
 			a = self.combo1.get_active()
 			if a == 0:
-				os.system("firefox http://www.google.com/ig/directory?synd=open &")
+				os.system("xdg-open http://www.google.com/ig/directory?synd=open &")
 			elif a == 1:
-				os.system("firefox http://www.yourminis.com/minis &")
+				os.system("xdg-open http://www.yourminis.com/minis &")
 			elif a == 2:
-				os.system("firefox http://www.springwidgets.com/widgets/ &")
+				os.system("xdg-open http://www.springwidgets.com/widgets/ &")
 			elif a == 3:
-				os.system("firefox http://www.widgetbox.com/galleryhome/ &")
+				os.system("xdg-open http://www.widgetbox.com/galleryhome/ &")
 
 		elif id == 'about':
 			self.show_about_dialog()
@@ -1377,7 +1377,7 @@ class ScreenletsManager:
 			print "TODO: open website"
 
 		elif id == 'download':
-			subprocess.Popen(["firefox", screenlets.THIRD_PARTY_DOWNLOAD])
+			subprocess.Popen(["xdg-open", screenlets.THIRD_PARTY_DOWNLOAD])
 	def show_webapp(self):
 		label1 = gtk.Label('Web Application Url')
 		label2 = gtk.Label('Web Application Name')

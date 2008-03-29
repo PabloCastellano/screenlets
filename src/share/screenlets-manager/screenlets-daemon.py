@@ -229,11 +229,11 @@ class ScreenletsDaemon (dbus.service.Object):
 	
 	def getit(self, widget):
 		try:
-			os.system('firefox http://screenlets.org/index.php/Category:UserScreenlets &')	
+			os.system('xdg-open http://screenlets.org/index.php/Category:UserScreenlets &')	
 		except:
 			pass
 	def website_open(self, d, link, data):
-		os.system('firefox http://screenlets.org &')
+		os.system('xdg-open http://screenlets.org &')
 
 	def about(self, widget):
 		

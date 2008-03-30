@@ -39,7 +39,8 @@ import commands
 #	print b
 #	exit()
 
-gettext.install("screenlets-manager", unicode = True)
+gettext.textdomain('screenlets-manager')
+gettext.bindtextdomain('screenlets-manager', '/usr/share/locale')
 
 
 # stub for gettext

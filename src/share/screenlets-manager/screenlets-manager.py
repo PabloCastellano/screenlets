@@ -1409,7 +1409,7 @@ class ScreenletsManager:
 						a = name.get_text()
 						a = a.replace(' ','')
 						if os.path.isdir(DIR_USER + '/' + a):#found_path != None:
-							if screenlets.show_question(None,(_("The is already a screenlet with that name installed\nDo you wish to continue?") )):
+							if screenlets.show_question(None,(_("There is already a screenlet with that name installed\nDo you wish to continue?") )):
 								pass
 							else: 
 								return False
@@ -1440,8 +1440,8 @@ class ScreenletsManager:
 	def show_widget_converter(self):
 			label1 = gtk.Label(_('Convert any webpage widget into a Screenlet.'))
 			label2 = gtk.Label(_('Step 1 : Find the widget you want to convert'))
-			label3 = gtk.Label(_('Step 2 : Copy and Paste the HTML from the widget in the box bellow'))
-			label4 = gtk.Label(_('Step 3 : Give it a name in the box bellow and click on Ok to convert'))
+			label3 = gtk.Label(_('Step 2 : Copy and Paste the HTML from the widget in the box below'))
+			label4 = gtk.Label(_('Step 3 : Give it a name in the box below and click on Ok to convert'))
 			label5 = gtk.Label(_('The name of the widget'))
 			code = gtk.Entry()
 			name = gtk.Entry()
@@ -1492,7 +1492,7 @@ class ScreenletsManager:
 							a = name.get_text()
 							a = a.replace(' ','')
 							if os.path.isdir(DIR_USER + '/' + a):#found_path != None:
-								if screenlets.show_question(None,(_("The is already a screenlet with that name installed\nDo you wish to continue?") )):
+								if screenlets.show_question(None,(_("There is already a screenlet with that name installed\nDo you wish to continue?") )):
 									pass
 								else: 
 									return False

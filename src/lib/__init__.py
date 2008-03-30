@@ -290,7 +290,7 @@ class ScreenletTheme (dict):
         	
         	# Top right corner and round the edge
         	ctx.line_to(w-padding-rounded, 0+padding)
-        	ctx.arc(w-padding-rounded, 0+padding+rounded, rounded, math.pi/2, 0)
+        	ctx.arc(w-padding-rounded, 0+padding+rounded, rounded, (math.pi/2 )+(math.pi) , 0)
 	
         	# Bottom right corner and round the edge
         	ctx.line_to(w-padding, h-padding-rounded)
@@ -298,11 +298,11 @@ class ScreenletTheme (dict):
        	
         	# Bottom left corner and round the edge.
         	ctx.line_to(0+padding+rounded, h-padding)
-        	ctx.arc(0+padding+rounded, h-padding-rounded, rounded, math.pi+math.pi/2, math.pi)
+        	ctx.arc(0+padding+rounded, h-padding-rounded, rounded,math.pi/2, math.pi)
 	
         	# Top left corner and round the edge
         	ctx.line_to(0+padding, 0+padding+rounded)
-        	ctx.arc(0+padding+rounded, 0+padding+rounded, rounded, math.pi/2, 0)
+        	ctx.arc(0+padding+rounded, 0+padding+rounded, rounded, math.pi, (math.pi/2 )+(math.pi))
         	
         	# Fill in the shape.
 		if fill:ctx.fill()

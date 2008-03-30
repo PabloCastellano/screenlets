@@ -175,7 +175,10 @@ class WidgetScreenlet (screenlets.Screenlet):
 			ctx.set_source_rgba(self.rgba_color[0], self.rgba_color[1], self.rgba_color[2], self.rgba_color[3])	
 		
 			
-			if self.show_frame:self.theme.draw_rounded_rectangle(ctx,0,0,5,self.width,self.height)
+			if self.show_frame:
+				self.theme.draw_rounded_rectangle(ctx,0,0,5,self.width,self.height)
+				ctx.set_source_rgba(1-self.rgba_color[0], 1-self.rgba_color[1], 1- self.rgba_color[2], 0.15)
+				self.theme.draw_rounded_rectangle(ctx,0,0,5,self.width,self.height,fill=False)
 	
 			if self.engine == 'google':		
 				self.bgpb = gtk.gdk.pixbuf_new_from_file(self.mypath + 'icon.png').scale_simple(int(self.width),int(self.widget_height),gtk.gdk.INTERP_HYPER)

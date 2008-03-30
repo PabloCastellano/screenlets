@@ -57,7 +57,7 @@ import XmlMenu
 APP_NAME = "Screenlets"
 
 # the version of the Screenlets-baseclass in use
-VERSION = "0.0.15"
+VERSION = "0.1"
 
 # the application copyright
 COPYRIGHT = "(c) RYX (Rico Pfaus) <ryx@ryxperience.com>\nWhise (Helder Fraga) <helder.fraga@hotmail.com>"
@@ -66,7 +66,7 @@ COPYRIGHT = "(c) RYX (Rico Pfaus) <ryx@ryxperience.com>\nWhise (Helder Fraga) <h
 AUTHORS = ["RYX (Rico Pfaus) <ryx@ryxperience.com>", "Whise (Helder Fraga)<helder.fraga@hotmail.com>","Sorcerer (Hendrik Kaju)"]
 
 # the application comments
-COMMENTS = "Screenlets are small owner-drawn applications (written in Python, a very simple object-oriented programming-language) that can be described as 'the virtual representation of things lying/standing around on your desk'. Sticknotes, clocks, rulers, ... the possibilities are endless."
+COMMENTS = "Screenlets is a widget framework that consists of small owner-drawn applications (written in Python, a very simple object-oriented programming-language) that can be described as 'the virtual representation of things lying/standing around on your desk'. Sticknotes, clocks, rulers, ... the possibilities are endless. Screenlet also tries to include some compatibility with other widget frameworks,like web widgets and super karamba themes"
 
 # the application website
 WEBSITE = 'http://www.screenlets.org'

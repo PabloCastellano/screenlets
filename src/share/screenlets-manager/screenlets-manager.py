@@ -7,7 +7,7 @@
 # the terms and conditions of this license. 
 # Thank you for using free software!
 
-# Screenlets Manager - (c) RYX (Rico Pfaus) 2007
+# Screenlets Manager - (c) RYX (Rico Pfaus) 2007  / Whise (Helder Fraga) <helder.fraga@hotmail.com>
 #
 # + INFO:
 # This is a graphical manager application that simplifies managing and
@@ -17,11 +17,8 @@
 # + TODO:
 # - support for using sessions (via commandline), (NOTE: if a session is selected
 #   all autostart-files need to be removed and created new)
-# - if daemon can't be found, try again in periodic intervals
 # - Help-button
 # - menu
-#    - function to reset all screenlets and clear the default session
-#    - function to easily package a screenlet from within the gui (?)
 #    - different View-modes (icons/details)
 #
 
@@ -138,7 +135,7 @@ class ScreenletInstaller:
 		if ext == 'bz2':
 			tar_opts = 'xfj'
 		if ext == 'skz': 
-			screenlets.show_error(None,'This type of karamba theme is not supported yet\n Only older versions can be used')
+			screenlets.show_error(None,_('This type of karamba theme is not supported yet\n Only older versions can be used'))
 			return False
 		# extract archive to temporary dir
 
@@ -791,7 +788,7 @@ class ScreenletsManager:
 		but8.set_alignment(0,0.5)
 		but9.set_alignment(0,0.5)
 		self.tips.set_tip(but1, _('Launch/add a new instance of the selected Screenlet ...'))
-		self.tips.set_tip(but2, _('Install a new Screenlet or SuperKaramba theme from an archive  ...'))
+		self.tips.set_tip(but2, _('Install a new Screenlet, SuperKaramba or Web Widget or Web Application  ...'))
 		self.tips.set_tip(but3, _('Permanently uninstall/delete the currently selected Screenlet ...'))
 		self.tips.set_tip(but4, _('Reset this Screenlet configuration (will only work if screenlet isnt running)'))
 		self.tips.set_tip(but5, _('Install new theme for this screenlet'))
@@ -817,9 +814,9 @@ class ScreenletsManager:
     		self.searchbox.pack_start(self.btnsearch, False)
 		butbox.pack_start(self.searchbox, False,0,3)
 		self.combo = gtk.combo_box_new_text()
-		self.combo.append_text('All Screenlets')
-		self.combo.append_text('Running Screenlets')
-		self.combo.append_text('Autostart Screenlets')
+		self.combo.append_text(_('All Screenlets'))
+		self.combo.append_text(_('Running Screenlets'))
+		self.combo.append_text(_('Autostart Screenlets'))
 		self.combo.set_active(0)
     		self.combo.connect("changed",self.redraw_screenlets, 'enter')
 		self.combo.show()
@@ -1250,7 +1247,7 @@ class ScreenletsManager:
 		elif id == 'theme':
 			self.show_install_theme_dialog()
 		elif id == 'prop':
-			label = gtk.Label('New screenlets atributes..')
+			label = gtk.Label(_('New screenlets atributes..'))
 			cb1 = gtk.CheckButton(_('Lock'))
 			cb2 = gtk.CheckButton(_('Sticky'))
 			cb3 = gtk.CheckButton(_('Widget'))
@@ -1281,7 +1278,7 @@ class ScreenletsManager:
 				elif ini.get_option('Keep_below', section='Options') == 'False':
 					cb5.set_active(False)
 
-			dialog = gtk.Dialog("New Screenlets atributes",
+			dialog = gtk.Dialog(_("New Screenlets atributes"),
                      self.window,
                      gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
                      (gtk.STOCK_CANCEL, gtk.RESPONSE_REJECT,
@@ -1379,8 +1376,8 @@ class ScreenletsManager:
 		elif id == 'download':
 			subprocess.Popen(["xdg-open", screenlets.THIRD_PARTY_DOWNLOAD])
 	def show_webapp(self):
-		label1 = gtk.Label('Web Application Url')
-		label2 = gtk.Label('Web Application Name')
+		label1 = gtk.Label(_('Web Application Url'))
+		label2 = gtk.Label(_('Web Application Name'))
 		code = gtk.Entry()
 		name = gtk.Entry()
 		h = gtk.HBox()
@@ -1389,7 +1386,7 @@ class ScreenletsManager:
 		h.pack_start(code,True,True)
 		h1.pack_start(label2,False,False)
 		h1.pack_start(name,True,True)
-      		dialog = gtk.Dialog("Install Web Application",self.window,
+      		dialog = gtk.Dialog(_("Install Web Application"),self.window,
                      gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
                      (gtk.STOCK_CANCEL, gtk.RESPONSE_REJECT,
                       gtk.STOCK_OK, gtk.RESPONSE_ACCEPT))
@@ -1433,19 +1430,19 @@ class ScreenletsManager:
 						enginecopy = open(DIR_USER + '/' + a + '/' + a + 'Screenlet.py','w')
 						enginecopy.write(enginesave)
 						enginecopy.close()
-						screenlets.show_message (None,"Web Application was successfully installed")
+						screenlets.show_message (None,_("Web Application was successfully installed"))
 						self.model.clear()
 						self.load_screenlets()			
-					except:	screenlets.show_error(None,"Error installing!!!")			
-				else:	screenlets.show_error(None,"Please specify a name for the widget")			
-			else:	screenlets.show_error(None,"No HTML code found")	
+					except:	screenlets.show_error(None,_("Error installing!!!"))
+				else:	screenlets.show_error(None,_("Please specify a name for the widget"))
+			else:	screenlets.show_error(None,_("No HTML code found"))
 		dialog.destroy()
 	def show_widget_converter(self):
-			label1 = gtk.Label('Convert any webpage widget into a Screenlet.')
-			label2 = gtk.Label('Step 1 : Find the widget you want to convert')
-			label3 = gtk.Label('Step 2 : Copy and Paste the HTML from the widget in the box bellow')
-			label4 = gtk.Label('Step 3 : Give it a name in the box bellow and click on Ok to convert')
-			label5 = gtk.Label('The name of the widget')
+			label1 = gtk.Label(_('Convert any webpage widget into a Screenlet.'))
+			label2 = gtk.Label(_('Step 1 : Find the widget you want to convert'))
+			label3 = gtk.Label(_('Step 2 : Copy and Paste the HTML from the widget in the box bellow'))
+			label4 = gtk.Label(_('Step 3 : Give it a name in the box bellow and click on Ok to convert'))
+			label5 = gtk.Label(_('The name of the widget'))
 			code = gtk.Entry()
 			name = gtk.Entry()
 			h = gtk.HBox()
@@ -1469,7 +1466,7 @@ class ScreenletsManager:
 			h.show()
 			h1.show()
 			code.show()
-			dialog = gtk.Dialog("Widget converter",
+			dialog = gtk.Dialog(_("Widget converter"),
                      self.window,
                      gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
                      (gtk.STOCK_CANCEL, gtk.RESPONSE_REJECT,
@@ -1519,12 +1516,12 @@ class ScreenletsManager:
 							enginecopy = open(DIR_USER + '/' + a + '/' + a + 'Screenlet.py','w')
 							enginecopy.write(enginesave)
 							enginecopy.close()
-							screenlets.show_message (None,"Widget was successfully converted")
+							screenlets.show_message (None,_("Widget was successfully converted"))
 							self.model.clear()
 							self.load_screenlets()			
-						except:	screenlets.show_error(None,"Error converting!!!")			
-					else:	screenlets.show_error(None,"Please specify a name for the widget")			
-				else:	screenlets.show_error(None,"No HTML code found")			
+						except:	screenlets.show_error(None,_("Error converting!!!"))
+					else:	screenlets.show_error(None,_("Please specify a name for the widget"))		
+				else:	screenlets.show_error(None,_("No HTML code found"))			
 			dialog.destroy()
 	def handle_screenlet_registered (self, name):
 		"""Callback for dbus-signal, called when a new screenlet gets 
@@ -1652,7 +1649,7 @@ class ScreenletsManager:
 		os.system('pkill -f screenlets-daemon.py') #restart the daemon
 		os.system(screenlets.INSTALL_PREFIX + \
 				'/share/screenlets-manager/screenlets-daemon.py &')
-		screenlets.show_message(None, 'Screenlets-Manager must now be restarted')
+		screenlets.show_message(None, _('Screenlets-Manager must now be restarted'))
 		try:
 			os.system('screenlets-manager &')	
 		except:

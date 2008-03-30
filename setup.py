@@ -23,7 +23,7 @@ INSTALL_PREFIX	= '/usr'
 # global install-path for daemon and screenlets-packages
 INSTALL_PATH	= INSTALL_PREFIX + '/share/screenlets'
 # current version of package
-VERSION			= '0.0.15'
+VERSION			= '0.1'
 
 #----------------------------------------------------------------------------
 # FUNCTIONS

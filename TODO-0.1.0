@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
-  Screenlets >0.1.0 - thoughts about the future of the screenlets (by RYX)
+  Screenlets >0.2.0 - thoughts about the future of the screenlets (by RYX)
 --------------------------------------------------------------------------------
 
 Plans/thoughts for the framework:
@@ -11,15 +11,6 @@ Plans/thoughts for the framework:
 - more "crazy connectivity", e.g. make the PlantScreenlet depend on the 
   WeatherScreenlet's data ... when it rains, the plant is growing and gets a
   blossom and when it is too hot the plant drys out
-- remove all UI-related stuff (i.e. dialog-windows) from the screenlet-code,
-  instead add xml-metadata and let external apps generate a UI from it
-  (e.g. screenlets-manager, screenlets-settings, screenlets-menu, ...)
-- separate the gnome-specific code from the base-class and create two
-  subclasses "GtkScreenlet" and "QtScreenlet" which then use the appropriate
-  backend for either Gnome or KDE (would maybe allow windowing-backends for 
-  Win32 or other platforms)
-- include some of the third-party screenlets by default (Rss, Comic, Weather,
-  Calc, Calendar ...)
 - allow using additional rendering backends like libclutter or even OpenGL to
   fully take advantage of the accelerated desktop (maybe even make the 
   screenlets completely 3d and embed them into one C-host?)

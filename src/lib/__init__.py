@@ -202,31 +202,41 @@ class ScreenletTheme (dict):
 			return False
 
 	def get_text_width(self, ctx, text, font):
-		"""Returns the pixel width of a given text"""
+		"""@DEPRECATED Moved to Screenlets class: Returns the pixel width of a given text"""
 		ctx.save()
 		ctx.move_to(0,0)
-		p_layout = ctx.create_layout()
-		p_fdesc = pango.FontDescription(font)
-		p_layout.set_font_description(p_fdesc)
-		p_layout.set_text(text)
-		extents, lextents = p_layout.get_pixel_extents()
+		if self.p_layout == None :
+	
+			self.p_layout = ctx.create_layout()
+		else:
+			
+			ctx.update_layout(self.p_layout)
+		self.p_fdesc = pango.FontDescription(font)
+		self.p_layout.set_font_description(self.p_fdesc)
+		self.p_layout.set_text(text)
+		extents, lextents = self.p_layout.get_pixel_extents()
 		ctx.restore()
 		return extents[2]
 
 	def get_text_extents(self, ctx, text, font):
-		"""Returns the pixel extents of a given text"""
+		"""@DEPRECATED Moved to Screenlets class: Returns the pixel extents of a given text"""
 		ctx.save()
 		ctx.move_to(0,0)
-		p_layout = ctx.create_layout()
-		p_fdesc = pango.FontDescription(font)
-		p_layout.set_font_description(p_fdesc)
-		p_layout.set_text(text)
-		extents, lextents = p_layout.get_pixel_extents()
+		if self.p_layout == None :
+	
+			self.p_layout = ctx.create_layout()
+		else:
+			
+			ctx.update_layout(self.p_layout)
+		self.p_fdesc = pango.FontDescription(font)
+		self.p_layout.set_font_description(self.p_fdesc)
+		self.p_layout.set_text(text)
+		extents, lextents = self.p_layout.get_pixel_extents()
 		ctx.restore()
 		return extents
 
 	def draw_text(self, ctx, text, x, y,  font, size, width, allignment,ellipsize = pango.ELLIPSIZE_NONE):
-		"""Draws text"""
+		"""@DEPRECATED Moved to Screenlets class: Draws text"""
 		ctx.save()
 		ctx.translate(x, y)
 		if self.p_layout == None :
@@ -248,7 +258,7 @@ class ScreenletTheme (dict):
 
 
 	def draw_circle(self,ctx,x,y,width,height,fill=True):
-		"""Draws a circule"""
+		"""@DEPRECATED Moved to Screenlets class: Draws a circule"""
 		ctx.save()
 		ctx.translate(x, y)
        		ctx.arc(width/2,height/2,min(height,width)/2,0,2*math.pi)
@@ -257,7 +267,7 @@ class ScreenletTheme (dict):
 		ctx.restore()
 
 	def draw_line(self,ctx,start_x,start_y,end_x,end_y,line_width = 1,close=False,preserve=False):
-		"""Draws a line"""
+		"""@DEPRECATED Moved to Screenlets class: Draws a line"""
 		ctx.save()
 		ctx.move_to(start_x, start_y)
 		ctx.set_line_width(line_width)
@@ -268,7 +278,7 @@ class ScreenletTheme (dict):
 		ctx.restore()
 
 	def draw_rectangle(self,ctx,x,y,width,height,fill=True):
-		"""Draws a rectangle"""
+		"""@DEPRECATED Moved to Screenlets class: Draws a rectangle"""
 		ctx.save()
 		ctx.translate(x, y)
 		ctx.rectangle (0,0,width,height)
@@ -277,7 +287,7 @@ class ScreenletTheme (dict):
 		ctx.restore()
 
 	def draw_rounded_rectangle(self,ctx,x,y,rounded_angle,width,height,fill=True):
-		"""Draws a rounded rectangle"""
+		"""@DEPRECATED Moved to Screenlets class: Draws a rounded rectangle"""
 		ctx.save()
 		ctx.translate(x, y)
 		padding=0 # Padding from the edges of the window
@@ -310,7 +320,7 @@ class ScreenletTheme (dict):
 		ctx.restore()
 
 	def get_image_size(self,pix):
-		"""Gets a picture width and height"""
+		"""@DEPRECATED Moved to Screenlets class: Gets a picture width and height"""
 
 		pixbuf = gtk.gdk.pixbuf_new_from_file(pix)
 		iw = pixbuf.get_width()
@@ -319,7 +329,7 @@ class ScreenletTheme (dict):
 		return iw,ih
 
 	def draw_image(self,ctx,x,y, pix):
-		"""Draws a picture from specified path"""
+		"""@DEPRECATED Moved to Screenlets class: Draws a picture from specified path"""
 
 		ctx.save()
 		ctx.translate(x, y)	
@@ -341,7 +351,7 @@ class ScreenletTheme (dict):
 
 
 	def draw_scaled_image(self,ctx,x,y, pix, w, h):
-		"""Draws a picture from specified path with a certain width and height"""
+		"""@DEPRECATED Moved to Screenlets class: Draws a picture from specified path with a certain width and height"""
 
 		ctx.save()
 		ctx.translate(x, y)	
@@ -363,20 +373,20 @@ class ScreenletTheme (dict):
 		ctx.restore()
 
 	def show_notification (self,text):
-	        """Show notification window at current mouse position."""
+	        """@DEPRECATED Moved to Screenlets class: Show notification window at current mouse position."""
 		if self.notify == None:
 	      		self.notify = Notify()
 	        	self.notify.text = text
 	        	self.notify.show()
 
 	def hide_notification (self):
-	        """hide notification window"""
+	        """@DEPRECATED Moved to Screenlets class: hide notification window"""
 		if self.notify != None:
 			self.notify.hide()
 			self.notify = None
 
 	def show_tooltip (self,text,tooltipx,tooltipy):
-	        """Show tooltip window at current mouse position."""
+	        """@DEPRECATED: Moved to Screenlets class: Show tooltip window at current mouse position."""
 		if self.tooltip == None:
       			self.tooltip = Tooltip(300, 400)
         		self.tooltip.text = text
@@ -385,7 +395,7 @@ class ScreenletTheme (dict):
 			self.tooltip.show()
 
 	def hide_tooltip (self):
-	        """hide tooltip window"""
+	        """@DEPRECATED Moved to Screenlets class: hide tooltip window"""
 		if self.tooltip != None:
 			self.tooltip.hide()
 			self.tooltip = None		
@@ -571,7 +581,10 @@ class Screenlet (gobject.GObject, EditableOptions):
 	# internals (deprecated? we still don't get the end of a begin_move_drag)
 	__lastx = 0
 	__lasty = 0
-	
+	p_fdesc = None
+	p_layout = None
+	tooltip = None
+	notify = None
 	# some menuitems (needed for checking/unchecking)
 	# DEPRECATED: remove - don't really work anyway ... (or fix the menu?)
 	__mi_keep_above = None
@@ -1043,7 +1056,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 		return self.__class__.__name__[:-9]
 		
 	def get_screenlet_dir (self):
-		"""@DEPRECATED: Return the name of this screenlet's personal directory."""
+		"""Return the name of this screenlet's personal directory."""
 		p = utils.find_first_screenlet_path(self.get_short_name())
 		if p:
 			return p
@@ -1054,7 +1067,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 				return os.getcwd()
 	
 	def get_theme_dir (self):
-		"""@DEPRECATED: Return the name of this screenlet's personal theme-dir.
+		"""Return the name of this screenlet's personal theme-dir.
 		(Only returns the dir under the screenlet's location"""
 		return self.get_screenlet_dir() + "/themes/"
 	
@@ -1100,19 +1113,29 @@ class Screenlet (gobject.GObject, EditableOptions):
 				
 			if ini.get_option('Lock', section='Options') == 'True':
 				self.lock_position = True
-		
+			elif ini.get_option('Lock', section='Options') == 'False':		
+				self.lock_position = False
 			if ini.get_option('Sticky', section='Options') == 'True':
 				self.is_sticky = True
-		
+			elif ini.get_option('Sticky', section='Options') == 'False':		
+				self.is_sticky = False
 			if ini.get_option('Widget', section='Options') == 'True':
 				self.is_widget = True
-		
+			elif ini.get_option('Widget', section='Options') == 'False':		
+				self.is_widget = False
 			if ini.get_option('Keep_above', section='Options') == 'True':
 				self.keep_above = True
-			
+			elif ini.get_option('Keep_above', section='Options') == 'False':			
+				self.keep_above =  False
 			if ini.get_option('Keep_below', section='Options') == 'True':
 				self.keep_below = True
-			
+			elif ini.get_option('Keep_below', section='Options') == 'False':
+				self.keep_below = False
+			if ini.get_option('show_buttons', section='Options') == 'True':
+				self.show_buttons = True			
+			elif ini.get_option('show_buttons', section='Options') == 'False':
+				self.show_buttons = False
+				print 'aaaaaaaaaaaaaaaaaaaaaaaa'
 	def hide (self):
 		"""Hides this Screenlet's underlying gtk.Window"""
 		self.window.hide()
@@ -1777,6 +1800,210 @@ class Screenlet (gobject.GObject, EditableOptions):
 		return False
 
 
+
+	# ----------------------------------------------------------------------
+	# Screenlet's Drawing functions
+	# ----------------------------------------------------------------------
+
+
+	def get_text_width(self, ctx, text, font):
+		"""Returns the pixel width of a given text"""
+		ctx.save()
+		ctx.move_to(0,0)
+		if self.p_layout == None :
+	
+			self.p_layout = ctx.create_layout()
+		else:
+			
+			ctx.update_layout(self.p_layout)
+		self.p_fdesc = pango.FontDescription(font)
+		self.p_layout.set_font_description(self.p_fdesc)
+		self.p_layout.set_text(text)
+		extents, lextents = self.p_layout.get_pixel_extents()
+		ctx.restore()
+		return extents[2]
+
+	def get_text_extents(self, ctx, text, font):
+		"""Returns the pixel extents of a given text"""
+		ctx.save()
+		ctx.move_to(0,0)
+		if self.p_layout == None :
+	
+			self.p_layout = ctx.create_layout()
+		else:
+			
+			ctx.update_layout(self.p_layout)
+		self.p_fdesc = pango.FontDescription(font)
+		self.p_layout.set_font_description(self.p_fdesc)
+		self.p_layout.set_text(text)
+		extents, lextents = self.p_layout.get_pixel_extents()
+		ctx.restore()
+		return extents
+
+	def draw_text(self, ctx, text, x, y,  font, size, width, allignment,ellipsize = pango.ELLIPSIZE_NONE):
+		"""Draws text"""
+		ctx.save()
+		ctx.translate(x, y)
+		if self.p_layout == None :
+	
+			self.p_layout = ctx.create_layout()
+		else:
+			
+			ctx.update_layout(self.p_layout)
+		self.p_fdesc = pango.FontDescription()
+		self.p_fdesc.set_family_static(font)
+		self.p_fdesc.set_size(size * pango.SCALE)
+		self.p_layout.set_font_description(self.p_fdesc)
+		self.p_layout.set_width(width * pango.SCALE)
+		self.p_layout.set_alignment(allignment)
+		self.p_layout.set_ellipsize(ellipsize)
+		self.p_layout.set_markup(text)
+		ctx.show_layout(self.p_layout)
+		ctx.restore()
+
+
+	def draw_circle(self,ctx,x,y,width,height,fill=True):
+		"""Draws a circule"""
+		ctx.save()
+		ctx.translate(x, y)
+       		ctx.arc(width/2,height/2,min(height,width)/2,0,2*math.pi)
+		if fill:ctx.fill()
+		else: ctx.stroke()
+		ctx.restore()
+
+	def draw_line(self,ctx,start_x,start_y,end_x,end_y,line_width = 1,close=False,preserve=False):
+		"""Draws a line"""
+		ctx.save()
+		ctx.move_to(start_x, start_y)
+		ctx.set_line_width(line_width)
+        	ctx.rel_line_to(end_x, end_y)
+		if close : ctx.close_path()
+		if preserve: ctx.stroke_preserve()
+		else: ctx.stroke()
+		ctx.restore()
+
+	def draw_rectangle(self,ctx,x,y,width,height,fill=True):
+		"""Draws a rectangle"""
+		ctx.save()
+		ctx.translate(x, y)
+		ctx.rectangle (0,0,width,height)
+		if fill:ctx.fill()
+		else: ctx.stroke()
+		ctx.restore()
+
+	def draw_rounded_rectangle(self,ctx,x,y,rounded_angle,width,height,fill=True):
+		"""Draws a rounded rectangle"""
+		ctx.save()
+		ctx.translate(x, y)
+		padding=0 # Padding from the edges of the window
+        	rounded=rounded_angle # How round to make the edges 20 is ok
+        	w = width
+		h = height
+
+        	# Move to top corner
+        	ctx.move_to(0+padding+rounded, 0+padding)
+        	
+        	# Top right corner and round the edge
+        	ctx.line_to(w-padding-rounded, 0+padding)
+        	ctx.arc(w-padding-rounded, 0+padding+rounded, rounded, (math.pi/2 )+(math.pi) , 0)
+	
+        	# Bottom right corner and round the edge
+        	ctx.line_to(w-padding, h-padding-rounded)
+        	ctx.arc(w-padding-rounded, h-padding-rounded, rounded, 0, math.pi/2)
+       	
+        	# Bottom left corner and round the edge.
+        	ctx.line_to(0+padding+rounded, h-padding)
+        	ctx.arc(0+padding+rounded, h-padding-rounded, rounded,math.pi/2, math.pi)
+	
+        	# Top left corner and round the edge
+        	ctx.line_to(0+padding, 0+padding+rounded)
+        	ctx.arc(0+padding+rounded, 0+padding+rounded, rounded, math.pi, (math.pi/2 )+(math.pi))
+        	
+        	# Fill in the shape.
+		if fill:ctx.fill()
+		else: ctx.stroke()
+		ctx.restore()
+
+	def get_image_size(self,pix):
+		"""Gets a picture width and height"""
+
+		pixbuf = gtk.gdk.pixbuf_new_from_file(pix)
+		iw = pixbuf.get_width()
+		ih = pixbuf.get_height()
+		puxbuf = None
+		return iw,ih
+
+	def draw_image(self,ctx,x,y, pix):
+		"""Draws a picture from specified path"""
+
+		ctx.save()
+		ctx.translate(x, y)	
+		pixbuf = gtk.gdk.pixbuf_new_from_file(pix)
+		format = cairo.FORMAT_RGB24
+		if pixbuf.get_has_alpha():
+			format = cairo.FORMAT_ARGB32
+
+		iw = pixbuf.get_width()
+		ih = pixbuf.get_height()
+		image = cairo.ImageSurface(format, iw, ih)
+		image = ctx.set_source_pixbuf(pixbuf, 0, 0)
+		
+		ctx.paint()
+		puxbuf = None
+		image = None
+		ctx.restore()
+
+
+
+	def draw_scaled_image(self,ctx,x,y, pix, w, h):
+		"""Draws a picture from specified path with a certain width and height"""
+
+		ctx.save()
+		ctx.translate(x, y)	
+		pixbuf = gtk.gdk.pixbuf_new_from_file(pix).scale_simple(w,h,gtk.gdk.INTERP_HYPER)
+		format = cairo.FORMAT_RGB24
+		if pixbuf.get_has_alpha():
+			format = cairo.FORMAT_ARGB32
+
+		iw = pixbuf.get_width()
+		ih = pixbuf.get_height()
+		image = cairo.ImageSurface(format, iw, ih)
+
+		matrix = cairo.Matrix(xx=iw/w, yy=ih/h)
+		image = ctx.set_source_pixbuf(pixbuf, 0, 0)
+		if image != None :image.set_matrix(matrix)
+		ctx.paint()
+		puxbuf = None
+		image = None
+		ctx.restore()
+
+	def show_notification (self,text):
+	        """Show notification window at current mouse position."""
+		if self.notify == None:
+	      		self.notify = Notify()
+	        	self.notify.text = text
+	        	self.notify.show()
+
+	def hide_notification (self):
+	        """hide notification window"""
+		if self.notify != None:
+			self.notify.hide()
+			self.notify = None
+
+	def show_tooltip (self,text,tooltipx,tooltipy):
+	        """Show tooltip window at current mouse position."""
+		if self.tooltip == None:
+      			self.tooltip = Tooltip(300, 400)
+        		self.tooltip.text = text
+        		self.tooltip.x    = tooltipx
+        		self.tooltip.y    = tooltipy
+			self.tooltip.show()
+
+	def hide_tooltip (self):
+	        """hide tooltip window"""
+		if self.tooltip != None:
+			self.tooltip.hide()
+			self.tooltip = None		
 
 # TEST!!!
 class ShapedWidget (gtk.DrawingArea):

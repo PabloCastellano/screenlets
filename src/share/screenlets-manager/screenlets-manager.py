@@ -1281,9 +1281,9 @@ class ScreenletsManager:
 					cb5.set_active(True)
 				elif ini.get_option('Keep_below', section='Options') == 'False':
 					cb5.set_active(False)
-				if ini.get_option('show_buttons', section='Options') == 'True':
+				if ini.get_option('draw_buttons', section='Options') == 'True':
 					cb6.set_active(True)
-				elif ini.get_option('show_buttons', section='Options') == 'False':
+				elif ini.get_option('draw_buttons', section='Options') == 'False':
 					cb6.set_active(False)
 				else:
 					cb6.set_active(True)					
@@ -1317,7 +1317,7 @@ class ScreenletsManager:
 				ret = ret + 'Widget=' + str(cb3.get_active()) + '\n'
 				ret = ret + 'Keep_above=' + str(cb4.get_active()) + '\n'
 				ret = ret + 'Keep_below=' + str(cb5.get_active()) + '\n'
-				ret = ret + 'show_buttons=' + str(cb6.get_active()) + '\n'	
+				ret = ret + 'draw_buttons=' + str(cb6.get_active()) + '\n'	
 				f = open(DIR_USER + '/config.ini', 'w')
 				f.write("[Options]\n")
 				f.write(ret)
@@ -1651,8 +1651,8 @@ class ScreenletsManager:
 			if ini.get_option('Keep_below', section='Options') != None:
 				r = r +  'Keep_below=' + str(ini.get_option('Keep_below', section='Options')) + '\n'
 
-			if ini.get_option('show_buttons', section='Options') != None:
-				r = r +  'show_buttons=' + str(ini.get_option('show_buttons', section='Options')) + '\n'
+			if ini.get_option('draw_buttons', section='Options') != None:
+				r = r +  'draw_buttons=' + str(ini.get_option('draw_buttons', section='Options')) + '\n'
 
 		f = open(DIR_USER + '/config.ini', 'w')
 		DIR_USER + '/config.ini'

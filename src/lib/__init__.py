@@ -1131,11 +1131,11 @@ class Screenlet (gobject.GObject, EditableOptions):
 				self.keep_below = True
 			elif ini.get_option('Keep_below', section='Options') == 'False':
 				self.keep_below = False
-			if ini.get_option('show_buttons', section='Options') == 'True':
-				self.show_buttons = True			
-			elif ini.get_option('show_buttons', section='Options') == 'False':
-				self.show_buttons = False
-				print 'aaaaaaaaaaaaaaaaaaaaaaaa'
+			if ini.get_option('draw_buttons', section='Options') == 'True':
+				self.draw_buttons = True			
+			elif ini.get_option('draw_buttons', section='Options') == 'False':
+				self.draw_buttons = False
+	
 	def hide (self):
 		"""Hides this Screenlet's underlying gtk.Window"""
 		self.window.hide()

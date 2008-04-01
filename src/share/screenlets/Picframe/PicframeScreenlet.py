@@ -68,6 +68,9 @@ class PicframeScreenlet (screenlets.Screenlet):
 		#	self.color_back, 'Frame color', ''))
 		self.add_option(IntOption('Picframe','s_width', self.s_width,'Width','',min=20, max=2000,increment=10))
 		self.add_option(IntOption('Picframe','s_height', self.s_height,'Height','',min=20, max=2000,increment=10)) 
+		self.add_option(IntOption('Picframe','curve', 
+			self.curve, 'Rounded corners angle', 
+			'curve', min=0, max=45))
 		self.add_option(BoolOption('Picframe','show_frame', 
 			self.show_frame, 'Show Theme Frame ', 
 			''))
@@ -160,7 +163,7 @@ class PicframeScreenlet (screenlets.Screenlet):
 			self.draw_rounded_rectangle(ctx,0,0,self.curve,self.s_width,self.s_height)	
 			ctx.translate(1,1)
 			ctx.set_source_rgba(0,0,0,0.8)
-			self.draw_rounded_rectangle(ctx,1,1,self.curve,self.s_width-3,self.s_height-3)
+			self.draw_rounded_rectangle(ctx,1,1,self.curve,self.s_width-4,self.s_height-4)
 			ctx.translate(2,2)
 			padding=0 # Padding from the edges of the window
 	        	rounded=self.curve # How round to make the edges 20 is ok

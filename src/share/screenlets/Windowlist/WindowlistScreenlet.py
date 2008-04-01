@@ -89,8 +89,8 @@ class WindowlistScreenlet (screenlets.Screenlet):
 		# screen.connect("window_stacking_changed", 
 		#	self.window_stacking_changed)
 		# TEST: place in lower left (TODO: make this an option)
-		self.__dict__['x'] = 20
-		self.y = screen.get_height() - 50
+		#self.__dict__['x'] = 20
+		#self.y = screen.get_height() - 50
 		# disable width/height/scale (dynamic)
 		#self.disable_option('width')
 		#self.disable_option('height')
@@ -266,7 +266,7 @@ class WindowlistScreenlet (screenlets.Screenlet):
 				self.width = len(self.__open_tasks) * (self.icon_size + 
 					self.icon_spacing)
 				self.height = 40
-				if self.left :
+				if self.left and self.has_started and self.window.window.is_visible():
 					self.x = self.x - (self.icon_size + 
 					self.icon_spacing)
 			self.update_shape()
@@ -280,18 +280,22 @@ class WindowlistScreenlet (screenlets.Screenlet):
 				self.height = len(self.__open_tasks) * (self.icon_size + 
 					self.icon_spacing)
 				self.width = 40
-				if self.left :
+				if self.left and self.has_started and self.window.window.is_visible():
 					self.y = self.y + (self.icon_size + 
 					self.icon_spacing)
 			else:
 				self.width = len(self.__open_tasks) * (self.icon_size + 
 					self.icon_spacing)
 				self.height = 40
-				if self.left :
+				if self.left and self.has_started and self.window.window.is_visible():
 					self.x = self.x + (self.icon_size + 
 					self.icon_spacing)
 			self.update_shape()
-	
+	def on_quit(self):
+		if self.left:
+			if not self.vertical : self.x = self.x + self.width
+			else:self.y = self.y + self.height 
+		print 'quiting'
 	# a window's state changed
 	def window_state_changed (self, wnckwin, changed, new_state):
 		#print "state_changed: "+str(new_state)
@@ -330,8 +334,10 @@ class WindowlistScreenlet (screenlets.Screenlet):
 		ctx.set_source_rgba(1, 1, 1, 1)
 		ctx.fill()
 
-	def on_after_set_atribute(self,name, value):
-		"""Called after setting screenlet atributes"""
+
+	def __setattr__ (self, name, value):
+		# call Screenlet.__setattr__ in baseclass (ESSENTIAL!!!!)
+		screenlets.Screenlet.__setattr__(self, name, value)
 		if name == 'vertical' or name == 'left':
 			self.redraw_canvas()
 	

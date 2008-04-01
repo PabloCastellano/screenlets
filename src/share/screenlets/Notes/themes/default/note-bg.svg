@@ -648,7 +648,7 @@
     <linearGradient
        id="linearGradient3337">
       <stop
-         style="stop-color:#ffffbf;stop-opacity:1"
+         style="stop-color:#f8f88c;stop-opacity:1;"
          offset="0"
          id="stop3339" />
       <stop
@@ -768,7 +768,7 @@
        fx="-134"
        fy="129.47549"
        r="92.545036"
-       gradientTransform="matrix(1,0,0,0.935577,237,-3.6588)"
+       gradientTransform="matrix(1,0,0,0.935577,168,68.3412)"
        gradientUnits="userSpaceOnUse" />
   </defs>
   <sodipodi:namedview
@@ -780,13 +780,13 @@
      inkscape:pageshadow="2"
      inkscape:zoom="1"
      inkscape:cx="49.259161"
-     inkscape:cy="78.455913"
+     inkscape:cy="79.785714"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      inkscape:window-width="989"
      inkscape:window-height="626"
-     inkscape:window-x="-16"
-     inkscape:window-y="58"
+     inkscape:window-x="45"
+     inkscape:window-y="23"
      height="200px"
      width="200px" />
   <metadata
@@ -887,7 +887,7 @@
     <path
        sodipodi:nodetypes="ccccccc"
        id="path8334"
-       d="M 10.45497,204.05851 L 195.54504,204.05851 L 195.54504,74.574014 C 195.54504,60.933322 194.75063,49.902033 192.16054,36.323982 C 179.97956,32.017733 164.70243,30.892497 149.27252,30.892497 L 10.45497,30.892497 L 10.45497,204.05851 z "
+       d="M 12.45497,203.05851 L 125.54504,201.05851 L 126.54504,146.57401 C 126.54504,132.93332 125.75063,121.90203 123.16054,108.32398 C 110.97956,104.01773 95.70243,102.8925 80.27252,102.8925 L 14.45497,106.8925 L 12.45497,203.05851 z "
        style="fill:url(#radialGradient9311);fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1" />
   </g>
 </svg>

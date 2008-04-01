@@ -63,7 +63,7 @@ class NotesScreenlet (screenlets.Screenlet):
 	text_x		= 19
 	text_y		= 35
 	font_name	= 'Sans Bold 12'
-	rgba_color	= (0.0, 0.0, 1.0, 1.0)
+	rgba_color	= (0.0, 0.0, 0.0, 1.0)
 	text_prefix	= ''
 	text_suffix	= ''
 	note_text	= ""	# hidden option because val has its own editing-dialog

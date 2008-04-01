@@ -112,10 +112,10 @@ if os.path.isdir (podir):
 	for dname in os.listdir (podir):
 		
 		if os.path.isdir(podir + '/'+ dname):
-			
+			print 'Installing language : ' + dname
 			for fname in os.listdir (podir + '/' + dname):
 				if fname.endswith('.po'):
-					print dname
+					
 						
 					filename = fname.replace('.po','.mo')
 					if not os.path.exists(INSTALL_PREFIX + "/share/locale/%s" % dname):

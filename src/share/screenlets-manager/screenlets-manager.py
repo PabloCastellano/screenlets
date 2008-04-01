@@ -507,6 +507,9 @@ class ScreenletsManager:
 						os.system('rm -rf %s/%s' % (DIR_USER, info.name))
 						# remove entry from model
 						self.model.remove(it)
+						if screenlets.show_question(None, _('Do you also want to remove the Screenlet configuration files?')):
+							os.system('rm -rf %s/%s' % (DIR_CONFIG, info.name))
+							os.system('rm -rf %s/%sScreenlet.log' % (DIR_CONFIG, info.name))
 				else:
 					screenlets.show_error(None, _('Can\'t delete system-wide screenlets.'))
 		return False

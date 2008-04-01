@@ -7,29 +7,18 @@
 # the terms and conditions of this license. 
 # Thank you for using free software!
 
-#  PicframeScreenlet (c) RYX (aka Rico Pfaus) 2007 <ryx@ryxperience.com>
-#
-# INFO:
-# - a picture frame screenlet
-# 
-# TODO:
-# - rotate-function for vertical images
-# - implement "drag-out" functionality for dragging images out of the screenlet
-# - support more image types (use gtk.Image or gtk.Pixmap??)
-# - add history-list and maybe keys to switch fore/back
-# - ??use four corners and four edges instead of one frame-image to have
-#   a dynamically sizeable border (this one would be much nicer in html :) ..)
-# - ...
+#  PicframeScreenlet (c) Whise aka Helder Fraga
+
 
 import screenlets
-from screenlets.options import ImageOption, IntOption, FloatOption
-
+from screenlets.options import ImageOption, IntOption, FloatOption, ColorOption,BoolOption
+import gtk
 import cairo
-
+import math
+import urllib
 
 class PicframeScreenlet (screenlets.Screenlet):
-	"""A Screenlet that displays an image within a themeable frame. Currently
-	this only displays PNG-images. You can add new images by drag&amp;drop them
+	"""A Screenlet that displays an image within a themeable frame. You can add new images by drag&amp;drop them
 	into the screenlet's window area."""
 	
 	# --------------------------------------------------------------------------
@@ -37,8 +26,8 @@ class PicframeScreenlet (screenlets.Screenlet):
 	# --------------------------------------------------------------------------
 	
 	__name__		= 'PicframeScreenlet'
-	__version__		= '0.5'
-	__author__		= 'RYX (Rico Pfaus) 2007'
+	__version__		= '0.1'
+	__author__		= 'Whise aka Helder Fraga'
 	__desc__		= __doc__
 	
 	# attributes
@@ -49,14 +38,21 @@ class PicframeScreenlet (screenlets.Screenlet):
 	image_scale		= 0.18
 	image_offset_x	= 16
 	image_offset_y	= 24
-	
+	curve = 15
+	show_frame = False
+	screen_width = gtk.gdk.screen_width() /10
+	screen_height = gtk.gdk.screen_height()/10
+	rotate = 0
+	s_width = 300
+	s_height = 200
+	color_back = (0.5,0.5,0.5,0.7)
 	# --------------------------------------------------------------------------
 	# constructor and internals
 	# --------------------------------------------------------------------------
 	
 	def __init__ (self, **keyword_args):
 		# call super (and enable drag/drop)
-		screenlets.Screenlet.__init__(self, width=100, height=100,
+		screenlets.Screenlet.__init__(self, width=500, height=400,
 			uses_theme=True, drag_drop=True, **keyword_args)
 		# set theme
 		self.theme_name = "default"
@@ -68,39 +64,39 @@ class PicframeScreenlet (screenlets.Screenlet):
 		self.add_option(ImageOption('Picframe', 'image_filename', 
 			self.image_filename, 'Filename',
 			'Filename of image to be shown in this Picframe ...')) 
-		self.add_option(FloatOption('Picframe', 'image_scale', self.image_scale, 
-			'Image Scale', 'Scale of image within this Picframe ...', 
-			min=0.01, max=10.0, digits=2, increment=0.01))
-		self.add_option(IntOption('Picframe', 'image_offset_x', 
-			self.image_offset_x, 'Image Offset X', 'X-offset of upper left '+\
-			'corner of the image within this Picframe ...', 
-			min=0, max=self.width))
-		self.add_option(IntOption('Picframe', 'image_offset_y', 
-			self.image_offset_y, 'Image Offset Y', 'Y-offset of upper left '+\
-			'corner of the image within this Picframe ...', 
-			min=0, max=self.height))
+		#self.add_option(ColorOption('Picframe','color_back', 
+		#	self.color_back, 'Frame color', ''))
+		self.add_option(IntOption('Picframe','s_width', self.s_width,'Width','',min=20, max=2000,increment=10))
+		self.add_option(IntOption('Picframe','s_height', self.s_height,'Height','',min=20, max=2000,increment=10)) 
+		self.add_option(BoolOption('Picframe','show_frame', 
+			self.show_frame, 'Show Theme Frame ', 
+			''))
+		
 	def on_init (self):
 		print "Screenlet has been initialized."
 		# add default menuitems
 		self.add_default_menuitems()
-
+		self.width = self.s_width
+		self.height = self.s_height
 	def __setattr__ (self, name, value):
 		if name == "image_filename":
 			#print "SET IMAGEFILENAME"
 			# set self.__image to new image, if value is set and != current
 			ret = True
 			if value != '' and value != self.image_filename:	# ok?
-				ret = self.set_image(value)
-			# call super (if image has been successfully applied)
-			if ret != False:
+	
 				screenlets.Screenlet.__setattr__(self, name, value)
 			# update view
-			self.redraw_canvas()
-			#self.update_shape()
-		elif name in ('image_scale', 'image_offset_x', 'image_offset_y'):
-			# update view
+
+				self.redraw_canvas()
+
+
+		elif name == 's_width':
 			screenlets.Screenlet.__setattr__(self, name, value)
-			self.redraw_canvas()
+			self.width = value 
+		elif name == 's_height':
+			screenlets.Screenlet.__setattr__(self, name, value)
+			self.height = value 
 		else:
 			# else, just call super
 			screenlets.Screenlet.__setattr__(self, name, value)
@@ -109,21 +105,12 @@ class PicframeScreenlet (screenlets.Screenlet):
 		"""Set new image for this pictureframe (does NOT call redraw).
 		TODO: support for more image-types (currently only png supported)"""
 		# delete old image first
-		print "Setting new image for PicframeScreenlet: %s" % filename
-		if self.__image:
-			self.__image.finish()
-			del self.__image
-		# and recreate image
-		try:
-			img = cairo.ImageSurface.create_from_png(filename)
-			if img:
-				self.__image = img
+		
+		self.image_filename = urllib.unquote(filename)
+			
 			#self.redraw_canvas()
-			return True
-		except Exception, ex:
-			screenlets.show_error(self, 
-				'Failed to load image "%s": %s (only PNG images supported yet)' % (filename, ex))
-		return False
+		return True
+		
 		
 	# --------------------------------------------------------------------------
 	# Screenlet handlers
@@ -157,7 +144,9 @@ class PicframeScreenlet (screenlets.Screenlet):
 				filename = uris[0][7:]
 		if filename != '':
 			#self.set_image(filename)
-			self.image_filename = filename
+			print filename
+			
+			self.image_filename = urllib.unquote(filename)
 	
 	def on_draw (self, ctx):
 		ctx.set_operator(cairo.OPERATOR_OVER)
@@ -166,23 +155,104 @@ class PicframeScreenlet (screenlets.Screenlet):
 			# if something is dragged over, lighten up the whole thing
 			if self.dragging_over:
 				ctx.set_operator(cairo.OPERATOR_XOR)
-			# render bg
-			#self.theme['picframe-bg.svg'].render_cairo(ctx)
-			self.theme.render(ctx, 'picframe-bg')
-			# render image if set
-			if self.__image != None:
-				ctx.save()
-				ctx.translate(self.image_offset_x, self.image_offset_y)
-				ctx.scale(self.image_scale, self.image_scale)
-				ctx.set_source_surface(self.__image, 0, 0)
-				ctx.paint()
-				ctx.restore()
-			# render frame
-			#self.theme['picframe-frame.svg'].render_cairo(ctx)
-			self.theme.render(ctx, 'picframe-frame')
+
+			ctx.set_source_rgba(0,0,0,0.2)
+			self.draw_rounded_rectangle(ctx,0,0,self.curve,self.s_width,self.s_height)	
+			ctx.translate(1,1)
+			ctx.set_source_rgba(0,0,0,0.8)
+			self.draw_rounded_rectangle(ctx,1,1,self.curve,self.s_width-3,self.s_height-3)
+			ctx.translate(2,2)
+			padding=0 # Padding from the edges of the window
+	        	rounded=self.curve # How round to make the edges 20 is ok
+	        	w = self.s_width-6
+			h = self.s_height-6
+
+	        	# Move to top corner
+	        	ctx.move_to(0+padding+rounded, 0+padding)
+	        	
+	        	# Top right corner and round the edge
+	        	ctx.line_to(w-padding-rounded, 0+padding)
+	        	ctx.arc(w-padding-rounded, 0+padding+rounded, rounded, math.pi/2, 0)
+	
+	        	# Bottom right corner and round the edge
+	        	ctx.line_to(w-padding, h-padding-rounded)
+	        	ctx.arc(w-padding-rounded, h-padding-rounded, rounded, 0, math.pi/2)
+	       	
+	        	# Bottom left corner and round the edge.
+	        	ctx.line_to(0+padding+rounded, h-padding)
+	        	ctx.arc(0+padding+rounded, h-padding-rounded, rounded, math.pi+math.pi/2, math.pi)
+		
+	        	# Top left corner and round the edge
+	        	ctx.line_to(0+padding, 0+padding+rounded)
+	        	ctx.arc(0+padding+rounded, 0+padding+rounded, rounded, math.pi/2, 0)
+        		
+				#self.draw_scaled_image(ctx,self.image_filename,self.width,self.height)
+			if self.image_filename != '': 
+				
+				self.image_filename = urllib.unquote(self.image_filename)
+				pixbuf = gtk.gdk.pixbuf_new_from_file(self.image_filename).scale_simple(w,h,gtk.gdk.INTERP_HYPER)
+				format = cairo.FORMAT_RGB24
+				if pixbuf.get_has_alpha():
+					format = cairo.FORMAT_ARGB32
+
+				iw = pixbuf.get_width()
+				ih = pixbuf.get_height()
+				image = cairo.ImageSurface(format, iw, ih)
+
+				
+
+				#iw = float(image.get_width()) 
+				#ih = float(image.get_height()) 
+
+				matrix = cairo.Matrix(xx=iw/w, yy=ih/h)
+				image = ctx.set_source_pixbuf(pixbuf, 0, 0)
+				if image != None :image.set_matrix(matrix)
+				
+				#ctx.scale( min(((self.width-8)/iw),, ((self.height-8)/ih))
+				
+				#image = ctx.set_source_pixbuf(pixbuf, 0, 0)
+			#except:pass
+	        	# Fill in the shape.
+			
+
+			ctx.fill()
+			#ctx.paint()
+
+			image = None
+			puxbuf = None
+			if self.show_frame:
+				ctx.translate(-2,-2)
+				s = self.get_screenlet_dir() +  '/themes/' + self.theme_name + '/' + 'picframe-frame.svg'
+
+			
+				a = self.get_image_size(s)
+				ctx.scale(float(self.width)/float(a[0]),float(self.height)/float(a[1]))
+				self.theme.render(ctx, 'picframe-frame')
 			# render glass
 			#self.theme['picframe-glass.svg'].render_cairo(ctx)
-			self.theme.render(ctx, 'picframe-glass')
+			#self.theme.render(ctx, 'picframe-glass')
+
+	def draw_scaled_image(self,ctx, pix, w, h):
+		"""Draws a png or svg from specified path with a certain width and height"""
+
+		ctx.save()
+		
+		if pix.lower().endswith('svg'):
+			image = rsvg.Handle(pix)
+			size=image.get_dimension_data()
+			try:ctx.scale( w/size[0], h/size[1])
+			except:pass
+			image.render_cairo(ctx)
+		elif pix.lower().endswith('png'):
+
+			image = cairo.ImageSurface.create_from_png(pix)
+			iw = float(image.get_width())
+			ih = float(image.get_height())
+			ctx.scale( w/iw, h/ih)
+			ctx.set_source_surface(image, 0, 0)
+			
+		image = None
+		ctx.restore()
 	
 	def on_draw_shape (self, ctx):
 		self.on_draw(ctx)

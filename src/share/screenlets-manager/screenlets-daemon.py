@@ -250,6 +250,9 @@ class ScreenletsDaemon (dbus.service.Object):
 		dlg.set_website_label(screenlets.WEBSITE)
 		dlg.set_license(_('This application is released under the GNU General Public License v3 (or, at your option, any later version). You can find the full text of the license under http://www.gnu.org/licenses/gpl.txt. By using, editing and/or distributing this software you agree to the terms and conditions of this license. Thank you for using free software!'))
 		dlg.set_wrap_license(True)
+		dlg.set_documenters(screenlets.DOCUMENTERS)
+		dlg.set_artists(screenlets.ARTISTS)
+		dlg.set_translator_credits(screenlets.TRANSLATORS)
 		# add logo
 		logo = gtk.gdk.pixbuf_new_from_file('/usr/share/icons/screenlets.svg')
 		if logo:

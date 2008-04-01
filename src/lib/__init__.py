@@ -68,6 +68,12 @@ AUTHORS = ["RYX (Rico Pfaus) <ryx@ryxperience.com>", "Whise (Helder Fraga)<helde
 # the application comments
 COMMENTS = "Screenlets is a widget framework that consists of small owner-drawn applications (written in Python, a very simple object-oriented programming-language) that can be described as 'the virtual representation of things lying/standing around on your desk'. Sticknotes, clocks, rulers, ... the possibilities are endless. Screenlet also tries to include some compatibility with other widget frameworks,like web widgets and super karamba themes"
 
+DOCUMENTERS = ["Documentation genereated by epydoc"]
+
+ARTISTS = ["More to come..."]
+
+TRANSLATORS = "Mahdee Jameel\nIgor\nTomáš Pikálek\nHendrik Kaju\nWhise\nRYX\nPierre Slamich\nLunks\nGiulio Rossetti\nKetil Wendelbo Aanensen\nExcentrik\nVadim Peretokin\noscrp\nSerhey Kusyumoff\nplun\nMahdee Jameel\nVinzenz Vietzke\nSnirD\nAndrea Corbellini\nYuri Namestnikov"
+
 # the application website
 WEBSITE = 'http://www.screenlets.org'
 
@@ -442,6 +448,7 @@ class ScreenletTheme (dict):
 			return True
 		else:
 			return False
+		self[filename] = None
 	
 	def load_png (self, filename):
 		"""Load a PNG-file into this theme and reference it as ref_name."""
@@ -454,6 +461,7 @@ class ScreenletTheme (dict):
 			return True
 		else:
 			return False
+		self[filename] = None
 	
 	def __load_all (self):
 		"""Load all files in the theme's path. Currently only loads SVGs and

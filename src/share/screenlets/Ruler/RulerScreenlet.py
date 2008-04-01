@@ -20,7 +20,7 @@
 
 import screenlets
 import cairo
-
+from screenlets.options import BoolOption
 #import os
 #print "PWD: "+os.getcwd()
 
@@ -33,6 +33,9 @@ class RulerScreenlet (screenlets.Screenlet):
 	__author__	= 'RYX (Rico Pfaus) 2007'
 	__desc__	= __doc__
 	
+
+	show_vertical	= False
+
 	def __init__ (self, **keyword_args):
 		#call super (and not show window yet)
 		screenlets.Screenlet.__init__(self, show_window=False, 
@@ -51,6 +54,22 @@ class RulerScreenlet (screenlets.Screenlet):
 		# finally, show window
 		self.window.show()
 
+		self.add_options_group('options', 'options')
+
+		self.add_option(BoolOption('options', 'show_vertical',
+			self.show_vertical, 'Vertical Ruler', 'Show vertical instead of horizontal ...'))
+
+	def __setattr__(self, name, value):
+		# call Screenlet.__setattr__ in baseclass (ESSENTIAL!!!!)
+		screenlets.Screenlet.__setattr__(self, name, value)
+		if name == 'show_vertical':
+			if value == True:
+				self.width = 100
+				self.height = 800
+			else:
+				self.width = 800
+				self.height = 100
+
 	def on_init (self):
 		print "Screenlet has been initialized."
 		# add default menuitems
@@ -61,6 +80,12 @@ class RulerScreenlet (screenlets.Screenlet):
 		ctx.scale(self.scale, self.scale)
 		if self.theme:
 			#self.theme['ruler-bg.svg'].render_cairo(ctx)
+			if self.show_vertical:
+				ctx.translate (100,0)
+				#ctx.translate(self.width/2,self.height/2)
+				ctx.rotate(1.57)
+				#ctx.translate(-self.width/2,-self.height/2)
+
 			self.theme.render(ctx, 'ruler-bg')
 	
 	def on_draw_shape (self,ctx):

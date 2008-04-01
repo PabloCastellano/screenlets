@@ -27,7 +27,7 @@
 
 import screenlets
 from screenlets import DefaultMenuItem
-
+from screenlets.options import  BoolOption
 import cairo
 import gtk
 import wnck
@@ -49,7 +49,8 @@ class WindowlistScreenlet (screenlets.Screenlet):
 	__open_tasks	= []
 	__tooltips		= None		# tooltips object
 	__box 			= None		# content gtk.Box (HBox/Vbox)
-	
+	vertical = False
+	left = False
 	# TODO: make user-definable settings of these
 	#direction = 1		# 1=right, 2=bottom (TODO)
 	icon_size 		= 32
@@ -67,14 +68,16 @@ class WindowlistScreenlet (screenlets.Screenlet):
 		screenlets.Screenlet.__init__(self, width=40, height=40, 
 			is_widget=False, is_sticky=True, **keyword_args)
 		# add HBox for children (TODO: optional: vbox)
-		self.__box = gtk.HBox()
-		self.__box.show()
-		self.__box.spacing = self.icon_spacing	# doesn't work!
-		self.window.add(self.__box)
+
 		# create tooltips
 		self.__tooltips = gtk.Tooltips()
-
-
+		self.add_options_group('Options', 'Options ...')
+		self.add_option(BoolOption('Options','vertical', 
+			self.vertical, 'Expand Verticaly (restart req) ', 
+			'Expand window list verticaly'))
+		self.add_option(BoolOption('Options','left', 
+			self.left, 'Expand left (restart req)', 
+			'Expand window list left'))
 		# connect screen-signal handlers
 		screen = wnck.screen_get_default()
 		self.__active_win = screen.get_active_window()
@@ -102,7 +105,13 @@ class WindowlistScreenlet (screenlets.Screenlet):
 	# TODO: don't use only window names for this check
 	def on_init (self):
 		print "Screenlet has been initialized."
-
+		if self.vertical == False:
+			self.__box = gtk.HBox()
+		else:
+			self.__box = gtk.VBox()
+		self.__box.show()
+		self.__box.spacing = self.icon_spacing	# doesn't work!
+		self.window.add(self.__box)
 		self.add_default_menuitems(
 			DefaultMenuItem.WINDOW_MENU | 
 			DefaultMenuItem.PROPERTIES | 
@@ -246,8 +255,20 @@ class WindowlistScreenlet (screenlets.Screenlet):
 			# add new taskicon for the window
 			self.add_task(wnckwin)
 			# set size to correctly draw shape mask
-			self.width = len(self.__open_tasks) * (self.icon_size + 
-				self.icon_spacing)
+			if self.vertical:
+				self.height = len(self.__open_tasks) * (self.icon_size + 
+					self.icon_spacing)
+				self.width = 40
+				if self.left :
+					self.y = self.y - (self.icon_size + 
+					self.icon_spacing)
+			else:
+				self.width = len(self.__open_tasks) * (self.icon_size + 
+					self.icon_spacing)
+				self.height = 40
+				if self.left :
+					self.x = self.x - (self.icon_size + 
+					self.icon_spacing)
 			self.update_shape()
 	
 	# called when a wnckwin is closed
@@ -255,8 +276,20 @@ class WindowlistScreenlet (screenlets.Screenlet):
 		#print "window_closed: "+str(window)
 		if self.remove_task(wnckwin):
 			# set size to correctly draw shape mask
-			self.width = len(self.__open_tasks) * (self.icon_size + 
-				self.icon_spacing)
+			if self.vertical:
+				self.height = len(self.__open_tasks) * (self.icon_size + 
+					self.icon_spacing)
+				self.width = 40
+				if self.left :
+					self.y = self.y + (self.icon_size + 
+					self.icon_spacing)
+			else:
+				self.width = len(self.__open_tasks) * (self.icon_size + 
+					self.icon_spacing)
+				self.height = 40
+				if self.left :
+					self.x = self.x + (self.icon_size + 
+					self.icon_spacing)
 			self.update_shape()
 	
 	# a window's state changed
@@ -297,6 +330,10 @@ class WindowlistScreenlet (screenlets.Screenlet):
 		ctx.set_source_rgba(1, 1, 1, 1)
 		ctx.fill()
 
+	def on_after_set_atribute(self,name, value):
+		"""Called after setting screenlet atributes"""
+		if name == 'vertical' or name == 'left':
+			self.redraw_canvas()
 	
 class TaskIconWidget (screenlets.ShapedWidget):
 	"""The TaskIconWidget is a button, displaying an icon with alpha-shadow.
@@ -440,6 +477,8 @@ class TaskIconWidget (screenlets.ShapedWidget):
 			ctx.set_source_rgba(1,1,1, 0.9)
 			ctx.move_to (30, 33)
 			ctx.show_text ("88")"""
+		#size = self.window.window.size_request()
+
 
 
 # If the program is run directly or passed as an argument to the python

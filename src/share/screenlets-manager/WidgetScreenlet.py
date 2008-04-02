@@ -63,7 +63,7 @@ if sys.argv[0].endswith(myfile): # Makes Shure its not the manager running...
 			fileObj.write('gtkmozembed bug workarround')
 		
 			fileObj.close()
-			exit()
+			sys.exit()
 
 
 else:
@@ -81,7 +81,7 @@ if sys.argv[0].endswith(myfile):# Makes Shure its not the manager running...
 	if a.find('text/html') == -1:
 		screenlets.show_error(None,"Internet connection is required to use this Screenlet")
 		os.system('rm /tmp/index.html')
-		exit()
+		sys.exit()
 	os.system('rm /tmp/index.html')
 
 class WidgetScreenlet (screenlets.Screenlet):

@@ -60,7 +60,7 @@ if sys.argv[0].endswith(myfile): # Makes Shure its not the manager running...
 			fileObj.write('gtkmozembed bug workarround')
 		
 			fileObj.close()
-			exit()
+			sys.exit()
 
 
 else:

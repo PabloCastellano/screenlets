@@ -151,7 +151,7 @@ class RadioScreenlet(screenlets.Screenlet):
 			self.mplayer.close()
 		except Exception, ex:
 			print 'sdfsdf'
-		finally:
+		else:
 			self.stopScrollLoop()
 			
 		ta = self.password
@@ -194,7 +194,7 @@ class RadioScreenlet(screenlets.Screenlet):
 			self.mplayer.close()
 		except Exception, ex:
 			print 'sdfsdf'
-		finally:
+		else:
 			self.stopScrollLoop()
 		
 							

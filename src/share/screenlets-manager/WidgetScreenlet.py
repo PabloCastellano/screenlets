@@ -30,6 +30,7 @@ mypath = sys.argv[0][:sys.argv[0].find(myfile)].strip()
 
 if sys.argv[0].endswith(myfile): # Makes Shure its not the manager running...
 		# First workarround
+		c = None
 		a = str(commands.getoutput('whereis firefox')).replace('firefox: ','').split(' ')
 		for b in a:
 			if os.path.isfile(b + '/run-mozilla.sh'):

@@ -1,4 +1,4 @@
-# Spanish translation for screenlets
+# Croatian translation for screenlets
 # Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
 # This file is distributed under the same license as the screenlets package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
@@ -8,58 +8,58 @@ msgstr ""
 "Project-Id-Version: screenlets\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2008-02-13 19:35+0200\n"
-"PO-Revision-Date: 2008-03-29 15:24+0000\n"
-"Last-Translator: oscrp <mazonovo@gmail.com>\n"
-"Language-Team: Spanish <es@li.org>\n"
+"PO-Revision-Date: 2008-04-01 15:56+0000\n"
+"Last-Translator: Igor <Unknown>\n"
+"Language-Team: Croatian <hr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-01 01:20+0000\n"
+"X-Launchpad-Export-Date: 2008-04-02 04:40+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: XmlMenu.py:48
 msgid "Error while creating image from file: %s"
-msgstr "Error al crear imagen desde archivo: %s"
+msgstr "Greška prilikom stvaranja slike iz datoteke: %s"
 
 #: XmlMenu.py:64
 msgid "Error: file %s not found."
-msgstr "Error: archivo %s no encontrado."
+msgstr "Greška: datoteka %s nije pronađena."
 
 #: XmlMenu.py:185
 msgid "XML-Error: %s"
-msgstr "XML-Error: %s"
+msgstr "XML-Greška: %s"
 
 #: XmlMenu.py:231
 msgid "Exception: %s"
-msgstr "Excepción: %s"
+msgstr "Iznimka: %s"
 
 #: XmlMenu.py:232
 msgid "An error occured with desktop-file: %s"
-msgstr "Un error ha ocurrido con el archivo del escritorio: %s"
+msgstr "Dogodila se greška s desktop-datotekom: %s"
 
 #: XmlMenu.py:338
 msgid "Error while creating menu."
-msgstr "Error al crear menu."
+msgstr "Greška prilikom stvaranja izbornika."
 
 #: __init__.py:154
 msgid "Error while loading ScreenletTheme in: "
-msgstr "Error al cargar ScreenletTheme en: "
+msgstr ""
 
 #: __init__.py:175
 msgid "Override: "
-msgstr "Sobrescribir: "
+msgstr "Zaobilaženje: "
 
 #: __init__.py:186
 msgid "WARNING: Option '%s' not found or protected."
-msgstr "ADVERTENCIA: Opción '%s' no encontrada o protegida."
+msgstr ""
 
 #: __init__.py:411
 msgid "theme.conf loaded: "
-msgstr "theme.conf cargado: "
+msgstr "theme.conf učitan: "
 
 #: __init__.py:412
 msgid "Name: "
-msgstr "Nombre: "
+msgstr "Ime: "
 
 #: __init__.py:413
 msgid "Author: "
@@ -67,7 +67,7 @@ msgstr "Autor: "
 
 #: __init__.py:414
 msgid "Version: "
-msgstr "Versión: "
+msgstr "Inačica: "
 
 #: __init__.py:415
 msgid "Info: "
@@ -75,178 +75,175 @@ msgstr "Info: "
 
 #: __init__.py:417
 msgid "Failed to load theme.conf"
-msgstr "Error al cargar theme.conf"
+msgstr "Neuspjelo učitavanje theme.conf"
 
 #: __init__.py:469
 msgid "theme.conf found! Loading option-overrides."
-msgstr "theme.conf encontrando! Sobrescribiendo opciones por defecto."
+msgstr "theme.conf pronađen! Učitavanje postavki-zaobilaženja."
 
 #: __init__.py:524
 msgid "No name set for this Screenlet"
-msgstr "Este Screenlet no tiene nombre"
+msgstr "Nije postavljeno ime za ovaj Screenlet"
 
 #: __init__.py:526
 msgid "No author defined for this Screenlet"
-msgstr "No hay ningun autor definido para este Screenlet"
+msgstr "Nije definiran autor ovog Screenleta"
 
 #: __init__.py:527
 msgid "No info set for this Screenlet"
-msgstr "Este Screenlet no posee informacion"
+msgstr "Nije postavljen info ovog Screenleta"
 
 #: __init__.py:626
 msgid "The basic settings for this Screenlet-instance."
-msgstr "Configuración básica de esta instancia del Screenlet"
+msgstr "Nema osnovnih postavki za ovu instancu Screenleta."
 
 #: __init__.py:638
 msgid "The X-position of this Screenlet ..."
-msgstr "La posición en el eje X de este Screenlet..."
+msgstr "X pozicija ovog Screenleta ..."
 
 #: __init__.py:638
 msgid "X-Position"
-msgstr "Posición-X"
+msgstr "X pozicija"
 
 #: __init__.py:641
 msgid "The Y-position of this Screenlet ..."
-msgstr "La posición en el eje Y de este Screenlet..."
+msgstr "Y pozicija ovog Screenleta ..."
 
 #: __init__.py:641
 msgid "Y-Position"
-msgstr "Posición-Y"
+msgstr "Y pozicija"
 
 #: __init__.py:644
 msgid "The width of this Screenlet ..."
-msgstr "El ancho de este Screenlet..."
+msgstr "Širina ovog Screenleta ..."
 
 #: __init__.py:644
 msgid "Width"
-msgstr "Ancho"
+msgstr "Širina"
 
 #: __init__.py:647
 msgid "Height"
-msgstr "Altura"
+msgstr "Visina"
 
 #: __init__.py:647
 msgid "The height of this Screenlet ..."
-msgstr "El alto de este Screenlet..."
+msgstr "Visina ovog Screenleta ..."
 
 #: __init__.py:650
 msgid "Scale"
-msgstr "Escala"
+msgstr "Razmjer"
 
 #: __init__.py:650
 msgid "The scale-factor of this Screenlet ..."
-msgstr "El factor de escala de este Screenlet..."
+msgstr "Razmjer ovog Screenleta ..."
 
 #: __init__.py:653
 msgid "Opacity"
-msgstr "Opacidad"
+msgstr "Neprozirnost"
 
 #: __init__.py:653
 msgid "The opacity of the Screenlet window ..."
-msgstr "La opacidad de la ventana de este Screenlet..."
+msgstr "Neprozirnost screenlet prozora ..."
 
 #: __init__.py:656
 msgid "Stick to Desktop"
-msgstr "Pegar al escritorio"
+msgstr "Zalijepi za radnu površinu"
 
 #: __init__.py:657
 msgid "Show this Screenlet on all workspaces ..."
-msgstr "Mostrar el Screenlet en todos los espacios de trabajo"
+msgstr "Prikaži ovaj Screenlet na svim radnim površinama ..."
 
 #: __init__.py:659
 msgid "Treat as Widget"
-msgstr "Tratar como Widget"
+msgstr "Treatiraj kao Widget"
 
 #: __init__.py:660
 msgid "Treat this Screenlet as a \"Widget\" ..."
-msgstr "Tratar este Screenlet como un \"Widget\""
+msgstr "Tretiraj ovaj screenlet kao \"Widget\" ..."
 
 #: __init__.py:662
 msgid "Lock position"
-msgstr "Bloquear la posición"
+msgstr "Zaključavanje pozicije"
 
 #: __init__.py:663
 msgid "Stop the screenlet from being moved..."
-msgstr "Parar el proceso de borrado"
+msgstr "Spriječi pomicanje ovog screenleta..."
 
 #: __init__.py:665
 #: __init__.py:920
 msgid "Keep above"
-msgstr "Mantener por encima"
+msgstr "Drži iznad"
 
 #: __init__.py:666
 msgid "Keep this Screenlet above other windows ..."
-msgstr "Mantener este Screenlet por encima de otras ventanas"
+msgstr "Drži ovaj screenlet iznad ostalih prozora ..."
 
 #: __init__.py:668
 #: __init__.py:927
 msgid "Keep below"
-msgstr "Mantener por debajo"
+msgstr "Drži ispod"
 
 #: __init__.py:669
 msgid "Keep this Screenlet below other windows ..."
-msgstr "Mantener este Screenlet por debajo de otras ventanas"
+msgstr "Drži ovaj screenlet ispod ostalih prozora ..."
 
 #: __init__.py:671
 msgid "Draw button controls"
-msgstr "Dibujar botones de control en el screenlet"
+msgstr "Iscrtaj kontrole"
 
 #: __init__.py:672
 msgid "Draw buttons in top right corner"
-msgstr "Dibujar los botones de control en la esquina superior derecha"
+msgstr "Iscrtaj kontrole u gornjem desnom kutu"
 
 #: __init__.py:674
 msgid "Skip Pager"
-msgstr "Saltarse el paginador"
+msgstr ""
 
 #: __init__.py:675
 msgid "Set this Screenlet to show/hide in pagers ..."
-msgstr "Define si el screenlet debe aparecer en el paginador de tareas..."
+msgstr ""
 
 #: __init__.py:677
 msgid "Skip Taskbar"
-msgstr "Aparecer en la barra de tareas."
+msgstr "Ne prikazuj u popisu prozora"
 
 #: __init__.py:678
 msgid "Set this Screenlet to show/hide in taskbars ..."
 msgstr ""
-"Define si el screenlet debe aparecer en la barra de tareas, como si se "
-"tratase de otra aplicación cualquiera .."
+"Postavite da li će se screenlet prikazivati u popisu prozora na programskoj "
+"traci"
 
 #: __init__.py:681
 msgid "Allow overriding Options"
-msgstr "Sobrescribir opciones"
+msgstr "Dopusti zaobilaženje postavki"
 
 #: __init__.py:682
 msgid "Allow themes to override options in this screenlet ..."
-msgstr ""
-"Define si se pueden sobrescribir las opciones de tema en el screenlet."
+msgstr "Dopustite temama da zaobiđu postavke ovog screenleta ..."
 
 #: __init__.py:684
 msgid "Ask on Override"
-msgstr "Preguntar al sobrescribir"
+msgstr "Pitaj prije zaobilaženja"
 
 #: __init__.py:685
 msgid "Show a confirmation-dialog when a theme wants to override "
-msgstr ""
-"Muestra un dialogo de confirmación cuando un tema quiere sobrescribir la "
-"configuración "
+msgstr "Zatraži potvrdu kada tema želi zaobići "
 
 #: __init__.py:686
 msgid "the current options of this Screenlet ..."
-msgstr "Opciones actuales del Screenlet .."
+msgstr "trenutne postavke ovog screenleta ..."
 
 #: __init__.py:784
 msgid "LOAD NEW THEME: "
-msgstr "NUEVO TEMA CARGADO: "
+msgstr "UČITAVANJE NOVE TEME: "
 
 #: __init__.py:785
 msgid "FOUND: "
-msgstr "ENCONTRADO: "
+msgstr "PRONAĐEN: "
 
 #: __init__.py:863
 msgid "Size"
-msgstr "Tamaño"
+msgstr "Veličina"
 
 #: __init__.py:878
 msgid "Theme"
@@ -254,15 +251,15 @@ msgstr "Tema"
 
 #: __init__.py:893
 msgid "Window"
-msgstr "Ventana"
+msgstr "Prozor"
 
 #: __init__.py:899
 msgid "Lock"
-msgstr "Bloquear"
+msgstr "Zaključano"
 
 #: __init__.py:906
 msgid "Sticky"
-msgstr "Adherido"
+msgstr "Ljepljivo"
 
 #: __init__.py:913
 msgid "Widget"
@@ -270,365 +267,357 @@ msgstr "Widget"
 
 #: __init__.py:936
 msgid "Properties..."
-msgstr "Propiedades..."
+msgstr "Postavke..."
 
 #: __init__.py:940
 msgid "Info..."
-msgstr "Informacion..."
+msgstr "Info..."
 
 #: __init__.py:944
 msgid "Delete Screenlet ..."
-msgstr "Eliminar Screenlet..."
+msgstr "Ukloni Screenlet ..."
 
 #: __init__.py:947
 msgid "Quit this %s ..."
-msgstr "Cerrar este %s"
+msgstr "Zatvori ovaj %s ..."
 
 #: __init__.py:950
 msgid "Quit all %ss ..."
-msgstr "Cerrar todos los %ss"
+msgstr "Zatvori sve %se ..."
 
 #: __init__.py:1134
 msgid "Error while loading theme: "
-msgstr "Error al cargar el tema: "
+msgstr "Greška prilikom učitavanja teme: "
 
 #: __init__.py:1144
 msgid ""
 "This theme wants to override your settings for this Screenlet. Do you want "
 "to allow that?"
 msgstr ""
-"Este tema necesita sobreescribir tu configuración del Screenlet. Deseas "
-"concenderle permiso para ello?"
+"Ova tema želi zaobići postavke ovog screenleta. Želite li to dopustiti?"
 
 #: __init__.py:1261
 msgid "UPDATING SHAPE"
-msgstr "ACTUALIZANDO MASCARA::"
+msgstr "AŽURIRAM OBLIK"
 
 #: __init__.py:1347
 msgid "To quit all %s's, use 'Quit' instead. "
-msgstr "Para cerrar todos los %s's, usa 'Cerrar'. "
+msgstr "Za zatvaranje svih %sa, koristite 'Zatvori'. "
 
 #: __init__.py:1348
 msgid "Really delete this %s and its settings?"
-msgstr ""
-"Estas seguro de que quieres borrar este %s y todas sus configuraciones?"
+msgstr "Želite li zaista ukloniti %s i njegove postavke?"
 
 #: __init__.py:1534
 #: __init__.py:1537
 msgid "MOUSEWHEEL"
-msgstr "Rueda del ratón"
+msgstr "KOTAČIĆ MIŠA"
 
 #: __init__.py:1556
 msgid "Compositing method changed to %s"
-msgstr "El método de composición ha cambiado a %s"
+msgstr ""
 
 #: __init__.py:1562
 msgid "Warning - Buttons will not be shown until screenlet is restarted"
-msgstr "Aviso - Los botones no se mostrarán hasta reiniciar el screenlet."
+msgstr ""
+"Upozorenje - Kontrole neće biti vidljive sve dok se screenlet ponovno ne "
+"pokrene"
 
 #: __init__.py:1592
 msgid "Cancel delete_event"
-msgstr "Cancelar delete_event"
+msgstr ""
 
 #: __init__.py:1612
 msgid "Start drag"
-msgstr "Inicio del arrastrado"
+msgstr "Početak povlačenja"
 
 #: __init__.py:1621
 msgid "End drag"
-msgstr "Arrastrado terminado"
+msgstr "Kraj povlačenja"
 
 #: __init__.py:1697
 msgid "Quitting current screenlet instance"
-msgstr "Cerrando esta instancia del screenlet."
+msgstr "Zatvaram trenutnu instancu screenleta"
 
 #: __init__.py:1714
 msgid "Screenlet: Set theme %s"
-msgstr "Screenlet: Cambio de tema a %s"
+msgstr "Screenlet: postavi temu %s"
 
 #: __init__.py:1723
 msgid "Error: Cannot set missing or non-boolean value '"
-msgstr "Error: No se puede aplicar el valor '"
+msgstr ""
 
 #: backend.py:33
 msgid "GConf python module not found. GConf settings backend is disabled."
 msgstr ""
-"No se ha encontrado el módulo GConf de Python. El soporte de GConf ha sido "
-"deshabilitado"
 
 #: backend.py:72
 msgid "GConfBackend: initializing"
-msgstr "GConfBackend: iniciando"
+msgstr ""
 
 #: backend.py:102
 msgid "Saved option %s%s/%s = %s"
-msgstr "Opción guardada %s%s/%s = %s"
+msgstr "Spremljena postavka %s%s/%s = %s"
 
 #: backend.py:135
 msgid "Temporary file didn't exist - nothing to remove."
-msgstr "El archivo temporal no existe - no se borrará nada."
+msgstr "Privremena datoteka ne postoji - ništa za ukloniti."
 
 #: backend.py:137
 msgid "CachingBackend: <#%s> removed!"
-msgstr "CachingBackend: <#%s> removido!"
+msgstr ""
 
 #: backend.py:176
 msgid "CachingBackend: Loading instances from cache"
-msgstr "CachingBackend: Cargando instancia desde el cache"
+msgstr ""
 
 #: backend.py:186
 msgid "CachingBackend: Loading <%s>"
-msgstr "CachingBackend: Cargando <%s>"
+msgstr ""
 
 #: backend.py:202
 msgid "Error while loading options: %s"
-msgstr "Error al cargar opciones: %s"
+msgstr "Greška prilikom učitavanja postavki: %s"
 
 #: backend.py:210
 msgid "Queue-element <%s> not found (already removed?)!"
-msgstr "Queue-element <%s> no encontrado (¿ya borrado?)!"
+msgstr ""
 
 #: backend.py:214
 msgid "CachingBackend: Saving <#%s> :) ..."
-msgstr "CachingBackend: Guardando <#%s> :) ..."
+msgstr ""
 
 #: backend.py:227
 msgid "error while saving config: %s%s"
-msgstr "error al guardar configuración: %s%s"
+msgstr "greška prilikom spremanja konfiguracije: %s%s"
 
 #: options.py:151
 msgid "Error during on_import - option: %s."
-msgstr "Error en on_import - opción: %s"
+msgstr ""
 
 #: options.py:233
 msgid "GnomeKeyring is not available!!"
-msgstr "¡El anillo de contraseñas de gnome no está disponible!"
+msgstr ""
 
 #: options.py:239
 msgid "No keyrings found. Please create one first!"
-msgstr "No existe ningun anillo de contraseñas. Por favor, crea uno primero"
+msgstr ""
 
 #: options.py:245
 msgid "Warning: No default keyring found, storage is not permanent!"
 msgstr ""
-"Aviso: No hay ningun anillo de contraseñas por defecto, los datos no se "
-"almacenaran permanentemente."
 
 #: options.py:261
 msgid "ERROR: Unable to read password from keyring: %s"
-msgstr "ERROR: No se ha podido leer las contraseñas del anillo: %s"
+msgstr ""
 
 #: options.py:266
 msgid "Illegal value in AccountOption.on_import."
-msgstr "Valor incorrectol en AccountOption.on_import."
+msgstr ""
 
 #: options.py:394
 msgid "Options: Error - group %s not defined."
-msgstr "Opciones: Error- grupo %s no definido."
+msgstr "Postavke: Greška - grupa %s nije definirana."
 
 #: options.py:452
 msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
-msgstr "Archivo XML en metadata incorrecto o no existe \"%s\"."
+msgstr "Nevaljali XML u metadata-datoteci (ili nedostaje datoteka): \"%s\"."
 
 #: options.py:456
 msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
-msgstr "No existe o es invalido el rootnode en metadata-file: \"%s\"."
+msgstr "Nedostaje ili nije valjan korijen u metadata-datoteci: \"%s\"."
 
 #: options.py:465
 msgid ""
 "Error in metadata-file \"%s\" - only <group>-tags allowed in first level. "
 "Groups must contain at least one <info>-element."
 msgstr ""
-"Error en metadata-file \"%s\" -  las etiquetas <group> solamente son "
-"permitidas en el primer nivel. Las agrupaciones deben contener al menos un "
-"elemento <info>."
 
 #: options.py:471
 msgid "No name for group defined in \"%s\"."
-msgstr "Ningun nombre o grupo definido en \"%s\""
+msgstr "Nema imena grupe definiranog u \"%s\"."
 
 #: options.py:487
 msgid "Invalid option-node found in \"%s\"."
-msgstr "Invalida option-node encontrada en \"%s\""
+msgstr ""
 
 #: options.py:603
 msgid "PRESS: %s"
-msgstr "PULSADO: %s"
+msgstr "PRITISNUT: %s"
 
 #: options.py:640
 msgid "Edit Options"
-msgstr "Editar opciones"
+msgstr "Postavke uređivanja"
 
 #: options.py:770
 msgid "Path %s not found."
-msgstr "Dirección %s no encontrada"
+msgstr "Putanja %s nije pronađena."
 
 #: options.py:806
 msgid "active theme is: %s"
-msgstr "el tema activo es: %s"
+msgstr "aktivna tema je: %s"
 
 #: options.py:836
 msgid "About "
-msgstr "Acerca de "
+msgstr "O... "
 
 #: options.py:848
 msgid "Options "
-msgstr "Opciones "
+msgstr "Postavke "
 
 #: options.py:855
 msgid ""
 "Themes allow you to easily switch the appearance of your Screenlets. On this "
 "page you find a list of all available themes for this Screenlet."
 msgstr ""
-"Los temas sirven para cambiar de manera facil la apariencia de tus "
-"Screenlet. En esta página podrás encontrar una lista de todos los temas "
-"disponibles para este Screenlet."
+"Teme vam dopuštaju da lako promijenite izgled screenleta. Na ovoj stranici "
+"ćete pronaći listu svih dostupnih tema za ovaj screenlet."
 
 #: options.py:884
 msgid "Themes "
-msgstr "Temas "
+msgstr "Teme "
 
 #: options.py:896
 msgid "no info available"
-msgstr "sin información disponible"
+msgstr "nema dostupnih informacija"
 
 #: options.py:983
 msgid "Choose File"
-msgstr "Elegir archivo"
+msgstr "Odaberite datoteku"
 
 #: options.py:992
 msgid "Choose Directory"
-msgstr "Escojer Directorio"
+msgstr "Odaberite mapu"
 
 #: options.py:1018
 msgid "Choose Image"
-msgstr "Escojer Imagen"
+msgstr "Odaberite sliku"
 
 #: options.py:1085
 msgid "Open List-Editor ..."
-msgstr "Abrir el editor de lista"
+msgstr ""
 
 #: options.py:1106
 msgid "Apply username/password ..."
-msgstr "Aplicar usuario/contraseña"
+msgstr "Primijeni korisničko ime/lozinku ..."
 
 #: options.py:1107
 msgid "Enter username here ..."
-msgstr "Pon aqui el usuario ..."
+msgstr "Ovdje upišite korisničko ime ..."
 
 #: options.py:1108
 msgid "Enter password here ..."
-msgstr "Pon  aquí la contraseña ..."
+msgstr "Ovdje upišite lozinku ..."
 
 #: options.py:1146
 msgid "unsupported type ''"
-msgstr "tipo no soportado \""
+msgstr "nepodržan tip ''"
 
 #: options.py:1163
 msgid "Apply"
-msgstr "Aplicar"
+msgstr "Primijeni"
 
 #: options.py:1224
 msgid "OptionsDialog: Unknown option type: %s"
-msgstr "OptionsDialog: Tipo de opcion desconocido: %s"
+msgstr ""
 
 #: options.py:1234
 msgid "Changed: %s"
-msgstr "Cambiado: %s"
+msgstr "Promijenjen: %s"
 
 #: sensors.py:52
 #: sensors.py:90
 #: sensors.py:105
 msgid "Failed to open /proc/stat"
-msgstr "Error al abrir /proc/stat"
+msgstr "Neuspjelo otvaranje /proc/stat"
 
 #: sensors.py:76
 msgid "Failed to open /proc/cpuinfo"
-msgstr "Error al abrir /proc/cpuinfo"
+msgstr "Neuspjelo otvaranje /proc/cpuinfo"
 
 #: sensors.py:130
 msgid "%s days, %s hours and %s minutes"
-msgstr "%s dias, %s horas y %s minutos"
+msgstr "%s dana, %s sati i %s minuta"
 
 #: sensors.py:146
 msgid "Failed to open /proc/uptime"
-msgstr "Error al abrir /proc/uptime"
+msgstr "Neuspjelo otvaranje /proc/uptime"
 
 #: sensors.py:205
 msgid "Error getting distro name"
-msgstr ""
+msgstr "Greška pri dobavljanju imena distribucije"
 
 #: sensors.py:234
 msgid "Can't get kernel version"
-msgstr "No es posible obtener la versión del kernel"
+msgstr "Nije moguće dobaviti verziju kernela"
 
 #: sensors.py:243
 msgid "Can't get KDE version"
-msgstr "No es posible obtener la versión de KDE"
+msgstr "Nije moguće dobaviti verziju KDE-a"
 
 #: sensors.py:252
 msgid "Can't get Gnome version"
-msgstr "No es posible obtener la versión de Gnome"
+msgstr "Nije moguće dobaviti verziju Gnome-a"
 
 #: sensors.py:322
 msgid "Can't parse /proc/meminfo"
-msgstr "No se puede leer /proc/meminfo"
+msgstr ""
 
 #: sensors.py:456
 msgid "Cannot get ip"
-msgstr "No se puede conseguir tu ip."
+msgstr "Nije moguće pročitati ip"
 
 #: sensors.py:475
 msgid "Can't open /proc/net/dev"
-msgstr "No es posible abrir /proc/net/dev"
+msgstr "Nije moguće otvoriti /proc/net/dev"
 
 #: sensors.py:511
 msgid "Can't open /proc/net/wireless"
-msgstr "No es posible abrir /proc/net/wireless"
+msgstr "Nije moguće otvoriti /proc/net/wireless"
 
 #: sensors.py:523
 #: sensors.py:536
 msgid "Not connected"
-msgstr "No conectado"
+msgstr "Nije povezano"
 
 #: sensors.py:786
 msgid "Can't open %s/temperature"
-msgstr "No se puede abrir %s/temperature"
+msgstr "Nije moguće otvoriti %s/temperature"
 
 #: sensors.py:788
 msgid "Can't open folder /proc/acpi/thermal_zone/"
-msgstr "No se puede abrir la carpeta /proc/acpi/thermal_zone/"
+msgstr "Nije moguće otvoriti mapu /proc/acpi/thermal_zone/"
 
 #: sensors.py:804
 #: sensors.py:815
 msgid "Can't open %s"
-msgstr "No se puede abrir %s"
+msgstr "Nije moguće otvoriti %s"
 
 #: sensors.py:830
 msgid "Error during hddtemp drives search"
-msgstr "Error al buscar discos duros con hddtemp."
+msgstr "Greška prilikom hddtemp pretrage diskova"
 
 #: sensors.py:832
 #: sensors.py:909
 msgid "Hddtemp not installed"
-msgstr "Hddtemp no está instalado"
+msgstr "Hddtemp nije instaliran"
 
 #: sensors.py:862
 msgid "can't read temperature in: %s"
-msgstr "no se puede leer la temperatura en: %s"
+msgstr "Nije moguće pročitati temperaturu: %s"
 
 #: sensors.py:876
 #: sensors.py:892
 msgid "Can't read value from %s"
-msgstr "No se puede leer el valor desde %s"
+msgstr "Nije moguće pročitati vrijednost %s"
 
 #: sensors.py:1030
 msgid "CPUSensor: Failed to open /proc/stat. Sensor stopped."
-msgstr "CPUSensor: Error al abrir /proc/stat. El sensor ha sido detenido."
+msgstr "CPUSensor: Neuspjelo otvaranje /proc/stat. Senzor zaustavljen."
 
 #: services.py:54
 msgid "No name set in ScreenletService.__init__!"
-msgstr "Ningun nombre configurado en ScreenletService.__init__!"
+msgstr "Nije postavljeno ime u ScreenletService.__init__!"
 
 #: services.py:68
 msgid "TEST: %s"
@@ -641,196 +630,182 @@ msgstr "DEBUG: %s"
 #: services.py:103
 #: services.py:143
 msgid "Cannot get/set protected options through service."
-msgstr "No se puede conseguir las opciones protegidas del servicio."
+msgstr ""
 
 #: services.py:135
 msgid "Trying to access invalid instance \"%s\"."
-msgstr "Probando a acceder. Iinstancia invalida \"%s\"."
+msgstr ""
 
 #: services.py:137
 msgid "Trying to access invalid option \"%s\"."
-msgstr "Probando a acceder. Opción invalida \"%s\""
+msgstr ""
 
 #: services.py:169
 msgid "Error in screenlets.services.get_service_by_name: %s"
-msgstr "Error en screenlets.services.get_service_by_name: %s"
+msgstr ""
 
 #: session.py:72
 msgid ""
 "ScreenletSession.__init__ has to be called with a\n"
 "\t\t\t valid Screenlet-classobject as first argument!"
 msgstr ""
-"ScreenletSession.__init__ debe ser llamado con un \n"
-"\t\t\t Screenlet-classobject valido como primer argumento!"
 
 #: session.py:94
 msgid "Unable to init backend - settings will not be saved!"
 msgstr ""
-"Error al iniciar el backend - las configuraciones no serán guardadas!"
 
 #: session.py:112
 msgid "Error in screenlets.session.connect_daemon: %s"
-msgstr "Error en screenlets.session.connect_daemon: %s"
+msgstr ""
 
 #: session.py:117
 msgid "Creating new instance: "
-msgstr "Creando una instancia nueva: "
+msgstr "Stvaranje nove instance: "
 
 #: session.py:120
 msgid "ID is unset or already in use - creating new one!"
-msgstr "ID no está configurado o ya está en uso - creando uno nuevo!"
+msgstr "ID nije postavljen ili se već koristi - stvaranje novog!"
 
 #: session.py:126
 #: session.py:376
 msgid "File: %s"
-msgstr "Archivo: %s"
+msgstr "Datoteka: %s"
 
 #: session.py:132
 #: session.py:382
 msgid "Set options in %s"
-msgstr "Aplicando opciones en %s"
+msgstr "Postavi postavke u %s"
 
 #: session.py:159
 msgid "Failed to remove INI-file for instance (not critical)."
-msgstr "Error al borrar INI-file de instancia (no crítico)."
+msgstr ""
 
 #: session.py:163
 msgid "Removing last instance from session"
-msgstr "Borrando la última instancia de la sesión"
+msgstr ""
 
 #: session.py:165
 msgid "TODO: remove self.path: %s"
-msgstr "TODO: borrar self.path: %s"
+msgstr ""
 
 #: session.py:169
 msgid "Failed to remove session dir '%s' - not empty?"
-msgstr "Error al borrar sesion '%s' - no esta vacio?"
+msgstr ""
 
 #: session.py:174
 #: session.py:201
 msgid "Removing instance from session but staying alive"
-msgstr "Borrando la instancia de la sesion, pero siguiendo viva."
+msgstr ""
 
 #: session.py:223
 msgid "Found a running session of %s, adding new instance by service."
 msgstr ""
-"Encontrada una sesión corriendo de %s, añadiendo una nueva instancia al "
-"servicio."
 
 #: session.py:226
 msgid "Adding new instance through: %s"
-msgstr "Añadiendo una nueva instancia: %s"
+msgstr ""
 
 #: session.py:232
 msgid "Loading instances in: %s"
-msgstr "Cargando instancias en: %s"
+msgstr ""
 
 #: session.py:235
 msgid "Restored instances from session '%s' ..."
-msgstr "Recargando instancias de la sesion '%s' ..."
+msgstr ""
 
 #: session.py:241
 msgid "No instance(s) found in session-path, creating new one."
 msgstr ""
-"Ninguna instancia se ha encontrado en el session-path, creando una nueva."
 
 #: session.py:255
 msgid "Failed creating instance of: %s"
-msgstr "Error al crear una nueva instancia de: %s"
+msgstr "Neuspjelo stvaranje instance: %s"
 
 #: session.py:273
 msgid ""
 "Error: Unable to create temp entry - screenlets-manager will not work "
 "properly."
 msgstr ""
-"Error: No se pude crear la entrada de  \"temp\" - screenlets-manager puede "
-"no funcionar apropiadamente."
 
 #: session.py:281
 msgid "Creating new entry for %s in %s"
-msgstr "Creando una nueva entrada de %s en %s"
+msgstr "Stvaranje novog unosa za %s u %s"
 
 #: session.py:294
 msgid "No global tempfile found, creating new one."
-msgstr "No existe ningun tempfile. Se creará uno nuevo."
+msgstr ""
 
 #: session.py:297
 msgid ""
 "Error: Unable to create temp directory %s - screenlets-manager will not work "
 "properly."
 msgstr ""
-"Error: Imposible crear el directorio temporal %s - screenlets-manager no "
-"funcionará bien."
 
 #: session.py:316
 msgid "Failed to unregister from daemon: %s"
-msgstr "Error la des-registrar desde el demonio: %s"
+msgstr ""
 
 #: session.py:321
 msgid "Removing entry for %s from global tempfile %s"
-msgstr "Borrando entrada de %s desde el tempfile global %s"
+msgstr ""
 
 #: session.py:326
 msgid "Entry not found. Will (obviously) not be removed."
-msgstr "Entrada no encontrada. Obviamente no será borrada."
+msgstr "Unos nije pronađen i bit će uklonjen."
 
 #: session.py:338
 msgid "Error global tempfile not found. Some error before?"
 msgstr ""
-"El tempfile global no ha sido encontrado. Algun error ha ocurrido antes?"
 
 #: session.py:341
 msgid "No more screenlets running."
-msgstr "No hay más screenlets en ejecución"
+msgstr "Niti jedan screenlet nije pokrenut."
 
 #: session.py:344
 msgid "No screenlets running?"
-msgstr "No hay screenlets en ejecución?"
+msgstr "Niti jedan screenlet nije pokrenut?"
 
 #: session.py:350
 msgid "Deleting global tempfile %s"
-msgstr "Borrando tempfile global %s"
+msgstr "Brisanje globalne temp datoteke %s"
 
 #: session.py:355
 msgid "Error: Failed to delete global tempfile"
-msgstr "Error: Fallo al borrar \"tempfile\""
+msgstr ""
 
 #: session.py:389
 msgid "Failed to create instance of '%s'!"
-msgstr "Fallo al crear la instancia de '%s'!"
+msgstr "Neuspjelo stvaranje instance od '%s'!"
 
 #: session.py:422
 msgid "Screenlet has been killed. TODO: make this an event"
-msgstr "Screenlet ha sido matado. TODO: make this an event"
+msgstr "Screenlet je ubijen."
 
 #: session.py:433
 msgid ""
 "Screenlet '%s' has been interrupted by keyboard. TODO: make this an event"
-msgstr ""
-"El Screenlet '%s' ha sido interrumpido por la pulsacion de una tecla. TODO: "
-"make this an event"
+msgstr "Screenlet '%s' je prekinut tipkovnicom."
 
 #: session.py:435
 msgid "Exception in ScreenletSession: "
-msgstr "Excepcion en ScreenletSession: "
+msgstr "Iznimka u ScreenletSession: "
 
 #: utils.py:81
 msgid "Unable to load '%s' from %s: %s "
-msgstr "Imposible cargar '%s' desde %s: %s "
+msgstr "Nije moguće učitati '%s' iz %s: %s "
 
 #: utils.py:100
 msgid "LISTED PATH NOT EXISTS: "
-msgstr "La direcion listada no existe: "
+msgstr "IZLISTANA PUTANJA NE POSTOJI: "
 
 #: utils.py:199
 msgid "File %s not found"
-msgstr "Archivo %s no encontrado"
+msgstr "Datoteka %s nije pronađena"
 
 #: utils.py:230
 msgid "Section %s not found!"
-msgstr "Sección %s no encontrada!"
+msgstr "Sekcija %s nije pronađena!"
 
 #: utils.py:264
 msgid "Notify: No DBus running or notifications-daemon unavailable."
-msgstr ""
-"Nota: No hay ningun demonio de notificaciones, o DBus no esta corriendo"
+msgstr "Obavjest: DBus nije pokrenut ili nije dostupan notifications-daemon."

@@ -1,0 +1,671 @@
+# Croatian translation for screenlets
+# Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
+# This file is distributed under the same license as the screenlets package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: screenlets\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2008-03-30 18:29+0000\n"
+"PO-Revision-Date: 2008-04-01 15:40+0000\n"
+"Last-Translator: Igor <Unknown>\n"
+"Language-Team: Croatian <hr@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2008-04-02 04:40+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
+
+#: screenlets-daemon.py:91
+msgid "ScreenletsDaemon: registered %s"
+msgstr "ScreenletsDaemon: registriran %s"
+
+#: screenlets-daemon.py:99
+msgid "screenletsDaemon: unregistered %s"
+msgstr "screenletsDaemon: neregistriran %s"
+
+#: screenlets-daemon.py:117
+#: screenlets-manager.py:52
+msgid "Screenlets Manager"
+msgstr "Upravljanje Screenletima"
+
+#: screenlets-daemon.py:122
+msgid "Get more Screenlets"
+msgstr "Nabavi više Screenleta"
+
+#: screenlets-daemon.py:125
+msgid "Install Screenlet"
+msgstr "Instaliraj Screenlet"
+
+#: screenlets-daemon.py:130
+msgid "Launch Screenlet"
+msgstr "Pokreni Screenlet"
+
+#: screenlets-daemon.py:175
+msgid "Close all Screenlets"
+msgstr "Zatvori sve Screenlete"
+
+#: screenlets-daemon.py:251
+#: screenlets-manager.py:974
+msgid ""
+"This application is released under the GNU General Public License v3 (or, at "
+"your option, any later version). You can find the full text of the license "
+"under http://www.gnu.org/licenses/gpl.txt. By using, editing and/or "
+"distributing this software you agree to the terms and conditions of this "
+"license. Thank you for using free software!"
+msgstr ""
+"Ovaj program je objavljen pod GNU Općom javnom licencom v3 (ili bilo kojom "
+"kasnijom verzijom). Puni tekst ove licence se može pronaći na stranici "
+"http://www.gnu.org/licenses/gpl.txt. Korištenjem, mijenjanjem i/ili "
+"distribucijom ovog softvera prihvaćate uvjete ove licence. Hvala vam što "
+"koristite slobodan softver!"
+
+#: screenlets-daemon.py:264
+msgid "Failed to add %sScreenlet."
+msgstr "Nije uspjelo dodavanje %s Screenleta."
+
+#: screenlets-daemon.py:288
+msgid "Install a Screenlet"
+msgstr "Instaliraj Screenlet"
+
+#: screenlets-daemon.py:343
+msgid "Archive damaged or unsuported, only tar , bz2 or gz."
+msgstr "Arhiva je oštećena ili nije podržana, samo .tar, .bz2 ili .gz."
+
+#: screenlets-daemon.py:346
+#: screenlets-manager.py:214
+msgid ""
+"Invalid archive. Archive must contain a directory with the screenlet's name."
+msgstr "Nevaljala arhiva. Arhiva mora sadržavati mapu s imenom screenleta."
+
+#: screenlets-daemon.py:349
+msgid "Invalid archive. Archive does not contain a screenlet."
+msgstr "Nevaljala arhiva. Arhiva ne sadrži screenlet."
+
+#: screenlets-daemon.py:354
+#: screenlets-manager.py:204
+#: screenlets-manager.py:270
+msgid "Install %s"
+msgstr "Instaliraj %s"
+
+#: screenlets-daemon.py:354
+#: screenlets-manager.py:270
+msgid ""
+"%s was not packaged with the screenlet packager. Do you wish to continue and "
+"try to install it?"
+msgstr ""
+"%s nije zapakiran sa screenlet stvaraocem paketa. Želite li nastaviti i "
+"pokušati ga instalirati?"
+
+#: screenlets-daemon.py:357
+#: screenlets-manager.py:273
+msgid "This package was not packaged with the screenlet packager."
+msgstr "Paket nije zapakiran sa screenlet stvaraocem paketa."
+
+#: screenlets-daemon.py:366
+#: screenlets-manager.py:282
+msgid "The %sScreenlet has been succesfully installed."
+msgstr "%sScreenlet je uspješno instaliran."
+
+#: screenlets-daemon.py:392
+msgid "ScreenletsDaemon running ..."
+msgstr "ScreenletsDaemon je pokrenut ..."
+
+#: screenlets-daemon.py:401
+msgid "ScreenletsDaemon has been shut down ..."
+msgstr "ScreenletsDaemon je ugašen ..."
+
+#: screenlets-daemon.py:403
+msgid "Exception in ScreenletsDaemon: %s"
+msgstr "Iznimka u ScreenletsDaemon: %s"
+
+#: screenlets-manager.py:87
+msgid "It looks like you are running %s"
+msgstr "Izgleda da je pokrenut %s"
+
+#: screenlets-manager.py:138
+msgid ""
+"This type of karamba theme is not supported yet\n"
+" Only older versions can be used"
+msgstr ""
+"Ova vrsta karamba teme još nije podržana\n"
+" Mogu se koristiti samo starije verzije"
+
+#: screenlets-manager.py:168
+msgid "Archive is damaged or unsupported, use only tar, bz2 or gz."
+msgstr ""
+"Arhiva je oštećena ili nije podržana, koristite samo tar, bz2 ili gz."
+
+#: screenlets-manager.py:184
+#: screenlets-manager.py:1092
+msgid "Installing %s"
+msgstr "Instaliram %s"
+
+#: screenlets-manager.py:204
+msgid ""
+"The %sScreenlet is already installed in '%s'.\n"
+"Do you wish to continue?"
+msgstr ""
+"%sScreenlet je već instaliran u '%s'.\n"
+"Želite li nastaviti?"
+
+#: screenlets-manager.py:207
+msgid "%sScreenlet is already installed"
+msgstr "%sScreenlet je već instaliran"
+
+#: screenlets-manager.py:226
+msgid "Compatibility for this karamba theme is not yet implemented"
+msgstr "Ova karamba tema trenutno nije podržana"
+
+#: screenlets-manager.py:253
+msgid "Karamba theme was successfully installed"
+msgstr "Karamba tema je uspješno instalirana"
+
+#: screenlets-manager.py:255
+msgid ""
+"Invalid archive. Archive does not contain a screenlet or a valid karamba "
+"theme."
+msgstr ""
+"Arhiva nije valjana. Arhiva ne sadrži screenlet ili valjanu karamba temu."
+
+#: screenlets-manager.py:317
+msgid ""
+"Important! You are running this application as root user, almost all "
+"functionality is disabled. You can use this to install screenlets into the "
+"system-wide path."
+msgstr ""
+"Važno! Program ste pokrenuli kao root korisnik, gotovo sva funkcionalnost je "
+"isključena. Ovo možete koristiti za instaliranje screenleta u sistemsku "
+"putanju."
+
+#: screenlets-manager.py:318
+msgid "Warning!"
+msgstr "Upozorenje!"
+
+#: screenlets-manager.py:331
+#: screenlets-manager.py:335
+#: screenlets-manager.py:383
+#: screenlets-manager.py:439
+#: screenlets-manager.py:443
+msgid "Error"
+msgstr "Greška"
+
+#: screenlets-manager.py:331
+#: screenlets-manager.py:438
+msgid ""
+"There is no existing autostart directory for your user account yet. Do you "
+"want me to automatically create it for you?"
+msgstr ""
+"Ne postoji autostart mapa za vaš korisnički račun. Želite li automatski "
+"stvoriti mapu?"
+
+#: screenlets-manager.py:332
+#: screenlets-manager.py:440
+msgid "Auto-create autostart dir ..."
+msgstr "Automatski stvori autostart mapu ..."
+
+#: screenlets-manager.py:335
+#: screenlets-manager.py:443
+msgid ""
+"Automatic creation failed. Please manually create the directory:\n"
+"%s"
+msgstr ""
+"Automatsko stvaranje nije uspjelo. Molim vas da ručno stvorite mapu:\n"
+"%s"
+
+#: screenlets-manager.py:338
+#: screenlets-manager.py:446
+msgid ""
+"Please manually create the directory:\n"
+"%s"
+msgstr ""
+"Molim vas da ručno stvorite mapu:\n"
+"%s"
+
+#: screenlets-manager.py:343
+msgid "Create autostarter for: Screenlets Daemon"
+msgstr "Stvori autostarter za: Screenlets Daemon"
+
+#: screenlets-manager.py:357
+#: screenlets-manager.py:476
+#: screenlets-manager.py:1344
+msgid "Failed to create autostarter for %s."
+msgstr "Neuspjelo stvaranje autostartera za %s."
+
+#: screenlets-manager.py:360
+#: screenlets-manager.py:479
+msgid "Starter already exists."
+msgstr "Starter već postoji."
+
+#: screenlets-manager.py:372
+msgid "Trying to launching screenlets-daemon ..."
+msgstr "Pokretanje screenlets-daemona ..."
+
+#: screenlets-manager.py:376
+msgid "checking for running daemon again ..."
+msgstr "provjeravanje pokrenutih daemona opet ..."
+
+#: screenlets-manager.py:379
+msgid "DAEMON FOUND - Ending timeout"
+msgstr "DAEMON PRONAĐEN - Završavanje timeouta"
+
+#: screenlets-manager.py:382
+msgid "Error: Unable to connect/launch daemon."
+msgstr "Greška: Nije moguće spojiti se/pokrenuti daemon."
+
+#: screenlets-manager.py:383
+msgid ""
+"Unable to connect or launch daemon. Some values may be displayed incorrectly."
+msgstr ""
+"Nije se moguće spojiti ili pokrenuti daemon. Neke vrijednosti mogu biti "
+"krivo prikazane."
+
+#: screenlets-manager.py:413
+msgid "Error in ScreenletsManager.connect_daemon: %s"
+msgstr "Greška u ScreenletsManager.connect_daemon: %s"
+
+#: screenlets-manager.py:457
+#: screenlets-manager.py:493
+msgid "Removed duplicate entry"
+msgstr "Izbrisan dupli unos"
+
+#: screenlets-manager.py:461
+msgid "Create autostarter for: %s/%sScreenlet.py"
+msgstr "Stvori autostarter za: %s/%sScreenlet.py"
+
+#: screenlets-manager.py:486
+msgid "Delete autostarter for %s."
+msgstr "Izbriši autostarter za %s."
+
+#: screenlets-manager.py:504
+msgid "Delete Screenlet"
+msgstr "Izbriši Screenlet"
+
+#: screenlets-manager.py:510
+msgid "Can't delete system-wide screenlets."
+msgstr "Nije moguće izbrisati screenlete u mapi sustava."
+
+#: screenlets-manager.py:644
+msgid "Reset Screenlet"
+msgstr "Vrati Screenlet u početno stanje"
+
+#: screenlets-manager.py:729
+msgid "Launch/Add"
+msgstr "Pokreni/Dodaj"
+
+#: screenlets-manager.py:733
+msgid "Install"
+msgstr "Instaliraj"
+
+#: screenlets-manager.py:736
+msgid "Uninstall"
+msgstr "Deinstaliraj"
+
+#: screenlets-manager.py:740
+msgid "Reset Screenlet Config"
+msgstr "Vrati Screenlet u početno stanje"
+
+#: screenlets-manager.py:744
+msgid "Install New Theme"
+msgstr "Instaliraj novu temu"
+
+#: screenlets-manager.py:748
+msgid "Re-Start All"
+msgstr "Ponovo pokreni sve"
+
+#: screenlets-manager.py:752
+msgid "Close All"
+msgstr "Zatvori sve"
+
+#: screenlets-manager.py:756
+msgid "Options"
+msgstr "Postavke"
+
+#: screenlets-manager.py:758
+msgid "Create Desktop Shortcut"
+msgstr "Stvori poveznicu na radnoj površini"
+
+#: screenlets-manager.py:790
+msgid "Launch/add a new instance of the selected Screenlet ..."
+msgstr "Pokreni/dodaj novu instancu odabranog Screenleta ..."
+
+#: screenlets-manager.py:791
+msgid ""
+"Install a new Screenlet, SuperKaramba or Web Widget or Web Application  ..."
+msgstr ""
+"Instaliraj novi Screenlet, SuperKaramba ili Web widget ili Web aplikaciju  "
+"..."
+
+#: screenlets-manager.py:792
+msgid "Permanently uninstall/delete the currently selected Screenlet ..."
+msgstr "Trajno deinstaliraj/izbriši odabrani Screenlet ..."
+
+#: screenlets-manager.py:793
+msgid ""
+"Reset this Screenlet configuration (will only work if screenlet isnt running)"
+msgstr ""
+"Vrati postavke ovog Screenleta u početno stanje (radit će samo ako screenlet "
+"nije pokrenut)"
+
+#: screenlets-manager.py:794
+msgid "Install new theme for this screenlet"
+msgstr "Instaliraj novu temu za ovaj screenlet"
+
+#: screenlets-manager.py:795
+msgid "Restart all screenlets that have auto start at login"
+msgstr "Ponovo pokreni sve screenlete koji se automatski pokreću kod prijave"
+
+#: screenlets-manager.py:796
+msgid "Close all Screenlets running"
+msgstr "Zatvori sve pokrenute Screenlete"
+
+#: screenlets-manager.py:797
+msgid "New Screenlets Options/Properties"
+msgstr "Postavke novih Screenleta"
+
+#: screenlets-manager.py:798
+msgid "Create a Desktop shortcut for this Screenlet"
+msgstr "Stvori poveznicu na radnoj površini za ovaj Screenlet"
+
+#: screenlets-manager.py:817
+msgid "All Screenlets"
+msgstr "Svi Screenleti"
+
+#: screenlets-manager.py:818
+msgid "Running Screenlets"
+msgstr "Pokrenuti Screenleti"
+
+#: screenlets-manager.py:819
+msgid "Autostart Screenlets"
+msgstr "Auto-pokrenuti Screenleti"
+
+#: screenlets-manager.py:851
+msgid "Show info about this dialog ..."
+msgstr "Prikaži informacije o ovom dijalog prozoru ..."
+
+#: screenlets-manager.py:852
+msgid "Download more screenlets ..."
+msgstr "Preuzmi više screenleta ..."
+
+#: screenlets-manager.py:853
+msgid "Close this dialog ..."
+msgstr "Zatvori ovaj dijalog prozor ..."
+
+#: screenlets-manager.py:887
+msgid "Start/Stop"
+msgstr "Pokreni/Zaustavi"
+
+#: screenlets-manager.py:888
+msgid "Auto start on login"
+msgstr "Automatsko pokretanje kod prijave"
+
+#: screenlets-manager.py:889
+msgid "Show daemon in tray"
+msgstr "Prikaži daemon u traci"
+
+#: screenlets-manager.py:989
+msgid "Data dropped ..."
+msgstr "Podaci odbačeni ..."
+
+#: screenlets-manager.py:1001
+msgid "Invalid string: %s."
+msgstr "Nevaljala tekstualna vrijednost: %s."
+
+#: screenlets-manager.py:1022
+msgid "Please install screenlets from folders without strange characters"
+msgstr "Molim vas instalirajte screenlete iz mape bez čudnih znakova"
+
+#: screenlets-manager.py:1043
+msgid "Install a Screenlet or SuperKaramba theme"
+msgstr "Instaliraj Screenlet ili SuperKaramba temu"
+
+#: screenlets-manager.py:1081
+msgid "Install a new theme for the selected Screenlet"
+msgstr "Instaliraj novu temu za odabrani Screenlet"
+
+#: screenlets-manager.py:1109
+msgid ""
+"You are about to install a theme in root mode. Continue only if you have "
+"gksudo installed, do you wish to continue?"
+msgstr ""
+"Instalirat ćete temu kao root korisnik. Nastavite samo ako imate instaliran "
+"gksudo, želite li nastaviti?"
+
+#: screenlets-manager.py:1126
+msgid "Error Found"
+msgstr "Pronađena je greška"
+
+#: screenlets-manager.py:1131
+msgid ""
+"Theme install error 1 found - Theme not installed , maybe a package error "
+msgstr ""
+"Pronađena je greška 1 prilikom instaliranja teme - Tema nije instalirana , "
+"možda je greška u paketu "
+
+#: screenlets-manager.py:1137
+msgid "list contains themes folder"
+msgstr "lista sadrži mapu tema"
+
+#: screenlets-manager.py:1139
+msgid "list contains the screenlet name folder"
+msgstr "lista sadrži mapu s imenom screenleta"
+
+#: screenlets-manager.py:1142
+msgid ""
+"This package seams to contain a full Screenlet and not just a theme, please "
+"use the screenlet install instead"
+msgstr ""
+"Izgleda da ovaj paket sadrži čitavi Screenlet, a ne samo temu, molim vas "
+"koristite instalaciju screenleta"
+
+#: screenlets-manager.py:1154
+msgid "This package doesnt seem to contain a theme"
+msgstr "Izgleda da ovaj paket ne sadrži temu"
+
+#: screenlets-manager.py:1158
+msgid "only contains the themes folders"
+msgstr "samo sadrži mapu tema"
+
+#: screenlets-manager.py:1175
+msgid "Theme installed , please restart %s"
+msgstr "Tema je instalirana , molim vas ponovno pokrenite %s"
+
+#: screenlets-manager.py:1180
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
+msgstr ""
+"Pronađena je greška 2 prilikom instaliranja teme - Tema nije instalirana ili "
+"je već ranije instalirana"
+
+#: screenlets-manager.py:1250
+msgid "New screenlets atributes.."
+msgstr "Postavke novih screenleta..."
+
+#: screenlets-manager.py:1251
+msgid "Lock"
+msgstr "Zaključano"
+
+#: screenlets-manager.py:1252
+msgid "Sticky"
+msgstr "Ljepljivo"
+
+#: screenlets-manager.py:1253
+msgid "Widget"
+msgstr "Widget"
+
+#: screenlets-manager.py:1254
+msgid "Keep above"
+msgstr "Drži iznad"
+
+#: screenlets-manager.py:1256
+msgid "Keep below"
+msgstr "Drži ispod"
+
+#: screenlets-manager.py:1281
+msgid "New Screenlets atributes"
+msgstr "Postavke novih screenleta"
+
+#: screenlets-manager.py:1324
+msgid "Create desktop shortcut for: %s/%sScreenlet.py"
+msgstr "Stvori prečac na radnoj površini za: %s/%sScreenlet.py"
+
+#: screenlets-manager.py:1350
+msgid "closing %s"
+msgstr "zatvaranje %s"
+
+#: screenlets-manager.py:1379
+msgid "Web Application Url"
+msgstr "Url web aplikacije"
+
+#: screenlets-manager.py:1380
+msgid "Web Application Name"
+msgstr "Ime web aplikacije"
+
+#: screenlets-manager.py:1389
+msgid "Install Web Application"
+msgstr "Instaliraj web aplikaciju"
+
+#: screenlets-manager.py:1412
+#: screenlets-manager.py:1495
+msgid ""
+"There is already a screenlet with that name installed\n"
+"Do you wish to continue?"
+msgstr ""
+"Već postoji instaliran screenlet s tim imenom\n"
+"Želite li nastaviti?"
+
+#: screenlets-manager.py:1433
+msgid "Web Application was successfully installed"
+msgstr "Web aplikacija je uspješno instalirana"
+
+#: screenlets-manager.py:1436
+msgid "Error installing!!!"
+msgstr "Greška prilikom instaliranja!"
+
+#: screenlets-manager.py:1437
+#: screenlets-manager.py:1523
+msgid "Please specify a name for the widget"
+msgstr "Molim vas odredite ime za widget"
+
+#: screenlets-manager.py:1438
+#: screenlets-manager.py:1524
+msgid "No HTML code found"
+msgstr "Nije pronađen HTML kod"
+
+#: screenlets-manager.py:1441
+msgid "Convert any webpage widget into a Screenlet."
+msgstr "Pretvori bilo koji widget za web stranice u Screenlet."
+
+#: screenlets-manager.py:1442
+msgid "Step 1 : Find the widget you want to convert"
+msgstr "Korak 1: Pronađite widget koji želite pretvoriti"
+
+#: screenlets-manager.py:1443
+msgid "Step 2 : Copy and Paste the HTML from the widget in the box below"
+msgstr "Korak 2: Kopirajte i Zalijepite HTML widgeta u donje polje"
+
+#: screenlets-manager.py:1444
+msgid "Step 3 : Give it a name in the box below and click on Ok to convert"
+msgstr "Korak 3: Dajte widgetu ime u polje ispod, te pritisnite U redu."
+
+#: screenlets-manager.py:1445
+msgid "The name of the widget"
+msgstr "Ime widgeta"
+
+#: screenlets-manager.py:1469
+msgid "Widget converter"
+msgstr "Pretvarač widgeta"
+
+#: screenlets-manager.py:1519
+msgid "Widget was successfully converted"
+msgstr "Widget je uspješno pretvoren"
+
+#: screenlets-manager.py:1522
+msgid "Error converting!!!"
+msgstr "Greška pri pretvaranju!"
+
+#: screenlets-manager.py:1595
+msgid "Launch %s"
+msgstr "Pokreni %s"
+
+#: screenlets-manager.py:1607
+msgid "Quit %s"
+msgstr "Završi %s"
+
+#: screenlets-manager.py:1652
+msgid "Screenlets-Manager must now be restarted"
+msgstr "Upravitelj screenleta se sada mora ponovno pokrenuti"
+
+#: screenlets-manager.py:1663
+msgid "Quit!"
+msgstr "Završi!"
+
+#: screenlets-packager.py:30
+msgid ""
+"Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
+"Usage: %s <path> [options]"
+msgstr ""
+"Stvaraoc screenlet paketa - (c) RYX (Rico Pfaus) 2007\n"
+"Korištenje: %s <path> [options]"
+
+#: screenlets-packager.py:69
+msgid "The specified path \"%s\" does not exist."
+msgstr "Odabrana putanja \"%s\" ne postoji."
+
+#: screenlets-packager.py:70
+msgid "Found path \"%s\"."
+msgstr "Ponađena putanja \"%s\"."
+
+#: screenlets-packager.py:76
+msgid "Failed to extract screenlet name from path."
+msgstr "Neuspjelo izvlačenje imena screenleta iz putanje."
+
+#: screenlets-packager.py:77
+msgid "Screenlet name is %s."
+msgstr "Ime screenleta je %s."
+
+#: screenlets-packager.py:81
+msgid "No screenlet-file \"%sScreenlet.py\" found in the given path."
+msgstr ""
+"Nije pronađena screenlet-datoteka \"%sScreenlet.py\" na odabranoj putanji."
+
+#: screenlets-packager.py:82
+msgid "Found %sScreenlet.py in path."
+msgstr "Pronađen %sScreenlet.py na putanji."
+
+#: screenlets-packager.py:91
+msgid "Unable to import module '%s' from %s. (%s)"
+msgstr "Nije moguće uvesti modul '%s' iz %s. (%s)"
+
+#: screenlets-packager.py:92
+msgid "Successfully imported module: %s"
+msgstr "Uspješno uvezen modul: %s"
+
+#: screenlets-packager.py:98
+msgid "Unable to import class from module."
+msgstr "Nije moguće uvesti klasu iz modula."
+
+#: screenlets-packager.py:100
+msgid "The class inside the module is no subclass of screenlets.Screenlet."
+msgstr "Klasa u modulu nije podklasa screenlets.Screenlet."
+
+#: screenlets-packager.py:101
+msgid "Successfully got class from module: %s"
+msgstr "Uspješno dobivena klasa iz modula: %s"
+
+#: screenlets-packager.py:125
+msgid "Failed to create package info in \"%s\" (no permission?)."
+msgstr "Neuspjelo stvaranje informacija o paketu u \"%s\" (nemate dozvole?)."
+
+#: screenlets-packager.py:126
+msgid "Created package info file."
+msgstr "Stvorena datoteka s informacijama o paketu."
+
+#: screenlets-packager.py:142
+msgid "Cleaned up and finished."
+msgstr "Počišćeno i završeno."
+
+#: screenlets-packager.py:145
+msgid "OK."
+msgstr "U redu."

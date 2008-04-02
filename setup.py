@@ -117,11 +117,12 @@ if os.path.isdir (podir):
 			dname = name.split('-')[1].split('.')[0]
 			name = name[:-3]
 			name = name.replace('screenletsmanager','screenlets-manager')
-			print 'Creating language Binary for : ' + name
-			if not os.path.isdir ("build/locale/%s/LC_MESSAGES" % dname):
-				os.makedirs ("build/locale/%s/LC_MESSAGES" % dname)
-			os.system (buildcmd % (dname,name.replace('-'+dname,''), name))
-			files_list.append ((destpath % dname, [mopath % (dname,name.replace('-'+dname,''))]))
+			if sys.argv[1] == "build" or sys.argv[1] == "install":
+				print 'Creating language Binary for : ' + name
+				if not os.path.isdir ("build/locale/%s/LC_MESSAGES" % dname):
+					os.makedirs ("build/locale/%s/LC_MESSAGES" % dname)
+				os.system (buildcmd % (dname,name.replace('-'+dname,''), name))
+				files_list.append ((destpath % dname, [mopath % (dname,name.replace('-'+dname,''))]))
 			#for fname in os.listdir (podir + '/' + dname):
 			#	if fname.endswith('.po'):
 					

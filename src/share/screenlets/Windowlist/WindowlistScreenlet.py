@@ -42,7 +42,7 @@ class WindowlistScreenlet (screenlets.Screenlet):
 	# default meta-info for Screenlets
 	__name__		= 'WindowlistScreenlet'
 	__version__		= '0.1'
-	__author__		= 'RYX (Rico Pfaus) 2007'
+	__author__		= 'RYX (Rico Pfaus) 2007 modified by Whise'
 	__desc__		= __doc__
 	
 	# list with open windows/tasks as tuples (WnckWindow, TaskIconWidget)

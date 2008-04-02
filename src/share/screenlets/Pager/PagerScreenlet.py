@@ -7,7 +7,7 @@
 # the terms and conditions of this license. 
 # Thank you for using free software!
 
-# PagerScreenlet (c) 2007 RYX (aka Rico Pfaus) <ryx@ryxperience.com>
+# PagerScreenlet (c) 2007 Whise
 #
 # INFO:
 # - an experiment for creating a pager-replacement
@@ -27,12 +27,12 @@ import wnck
 
 
 class PagerScreenlet (screenlets.Screenlet):
-	"""A very basic PagerScreenlet (UNFINISHED AND BUGGY YET)."""
+	"""PagerScreenlet click on the screenlet to change viewports"""
 	
 	# default meta-info for Screenlets
 	__name__	= 'PagerScreenlet'
 	__version__	= '0.2'
-	__author__	= 'RYX (aka Rico Pfaus)'
+	__author__	= 'Whise , original version by RYX'
 	__desc__	= __doc__
 	
 	# internals
@@ -78,16 +78,34 @@ class PagerScreenlet (screenlets.Screenlet):
 		print "Screenlet has been initialized."
 		# add default menuitems
 		self.add_default_menuitems()
+	def get_viewport_number_h(self):
+		scr = wnck.screen_get_default()
+		while gtk.events_pending():
+			gtk.main_iteration()
+		wrkspace = scr.get_active_workspace()
+		nviewp = wrkspace.get_width()/scr.get_width()
+		return nviewp
+
+	def get_viewport_number_v(self):
+		scr = wnck.screen_get_default()
+		while gtk.events_pending():
+			gtk.main_iteration()
+		wrkspace = scr.get_active_workspace()
+		nviewp = wrkspace.get_height()/scr.get_height()
+		return nviewp
+
 	def calculate_size (self):
 		"""Calculate/set size relative to screen coordinates and viewports"""
 		# get number of viewports
-		"""
-		ws = wnck.screen_get_default().get_active_workspace()
-		print "WS: "+str(ws)
-		if ws:
-			self.__viewports_h = ws.get_width() / self.__screen.get_width()
-			self.__viewports_v = ws.get_height() / self.__screen.get_height()
-			"""	
+		
+		
+		#print wrkspace.get_layout_row()
+		self.__viewports_h = self.get_viewport_number_h()
+		self.__viewports_v =  self.get_viewport_number_v()
+		#else:
+		#	self.__viewports_h = scr.get_width() / self.__screen.get_width()
+		#	self.__viewports_v =  scr.get_height() / self.__screen.get_height()
+
 		# get relation (like 8,6 for 800x600px)
 		self.__relx = self.__screen.get_width() / 100
 		self.__rely = self.__screen.get_height() / 100
@@ -96,7 +114,7 @@ class PagerScreenlet (screenlets.Screenlet):
 			(self.__border_size * 2)) #* self.__viewports_h
 		self.height = (self.__screen.get_height() / 10 + \
 			(self.__border_size * 2)) #* self.__viewports_v
-	
+
 	# Check, if a window is allowed to be displayed
 	# TODO: add a "blacklist"-property
 	# TODO: don't use only window names for this check
@@ -257,8 +275,10 @@ class PagerScreenlet (screenlets.Screenlet):
 			vp_y = 0
 			ws = self.__screen.get_active_workspace()
 			if ws:
+				if self.__viewports_h ==0: self.__viewports_h = 1
 				vp_x = ws.get_viewport_x() / 10 / self.__viewports_h
 				vp_y = ws.get_viewport_y() / 10 / self.__viewports_v
+
 			# get rect of curr. viewport and draw rect
 			vp_w = self.__screen.get_width() / 10 / self.__viewports_h
 			vp_h = self.__screen.get_height() / 10 / self.__viewports_v
@@ -291,7 +311,24 @@ class PagerScreenlet (screenlets.Screenlet):
 	
 	def on_draw_shape (self,ctx):
 		self.on_draw(ctx)
+	def on_mouse_down(self,event):
+		print self.mousex
+		print self.width
+		if self.mousex > self.__border_size and self.mousex < (self.width-self.__border_size) and self.mousey > self.__border_size and self.mousey < (self.height-self.__border_size):
+			for h in range(self.__viewports_h):
+				h = h +1
+				if self.mousex < ((self.width/self.__viewports_h) * h) and self.mousex > ((self.width/self.__viewports_h) * (h-1)):
+					vpx = h
 
+			for v in range(self.__viewports_v):
+				v = v +1
+				if self.mousey < ((self.height/self.__viewports_v) * v) and self.mousey > ((self.height/self.__viewports_v) * (v-1)):
+					vpy = v
+
+			print ' Click on viewport x : ' +str(vpx)
+			print ' Click on viewport y : ' +str(vpy)
+			scr = wnck.screen_get_default()
+			scr.move_viewport(scr.get_width()*(vpx-1),scr.get_height()*(vpy-1))
 	def on_quit (self):
 		# disconnect all handlers from open windows
 		#print "PagerScreenlet.on_quit: "

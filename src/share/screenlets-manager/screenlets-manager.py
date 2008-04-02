@@ -1213,12 +1213,7 @@ class ScreenletsManager:
 			info = self.get_selection()
 			if info:
 				screenlets.launch_screenlet(info.name, debug=DEBUG_MODE)
-				self.model.clear()
-				self.load_screenlets()
-				is_running = utils.list_running_screenlets()
-				if not info.name + 'Screenlet' in is_running:
-					screenlets.show_message(None,'There was a problem starting this screenlet\nTry reinstalling it, if the problem continues please report the bug to the screenlet author')
-					self.cb_enable_disable.set_active(False)
+				
 		elif id == 'install':
 			install_combo = gtk.combo_box_new_text()
 
@@ -1594,12 +1589,7 @@ class ScreenletsManager:
 		if info:
 			# launch/add screenlet
 			screenlets.launch_screenlet(info.name)
-			self.model.clear()
-			self.load_screenlets()
-			is_running = utils.list_running_screenlets()
-			if not info.name + 'Screenlet' in is_running:
-				screenlets.show_message(None,'There was a problem starting this screenlet\nTry reinstalling it, if the problem continues please report the bug to the screenlet author')
-				self.cb_enable_disable.set_active(False)
+			
 	
 	def toggle_enabled (self, widget):
 		"""Callback for handling changes to the Enable/Disable CheckButton."""
@@ -1611,13 +1601,7 @@ class ScreenletsManager:
 				# launch screenlet
 				print _("Launch %s") % info.name
 				screenlets.launch_screenlet(info.name, debug=DEBUG_MODE)
-
-				self.model.clear()
-				self.load_screenlets()
-				is_running = utils.list_running_screenlets()
-				if not info.name + 'Screenlet' in is_running:
-					screenlets.show_message(None,'There was a problem starting this screenlet\nTry reinstalling it, if the problem continues please report the bug to the screenlet author')
-					self.cb_enable_disable.set_active(False)
+				
 			else:
 				# quit screenlet
 				self.quit_screenlet_by_name(info.name)

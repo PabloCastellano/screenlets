@@ -71,6 +71,14 @@ class WindowlistScreenlet (screenlets.Screenlet):
 
 		# create tooltips
 		self.__tooltips = gtk.Tooltips()
+		# try to set wnck's client type to pager so that we correctly flag
+		# that we are a tasklist - only available in libwnck-python >= 2.22
+		try:
+			wnck.set_client_type(wnck.CLIENT_TYPE_APPLICATION)
+		except:
+			print "libwnck doesn't have set_client_type, window activation " \
+				   "may not work"
+		
 		self.add_options_group('Options', 'Options ...')
 		self.add_option(BoolOption('Options','vertical', 
 			self.vertical, 'Expand Verticaly (restart req) ', 

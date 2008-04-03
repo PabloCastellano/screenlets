@@ -72,7 +72,7 @@ DOCUMENTERS = ["Documentation genereated by epydoc"]
 
 ARTISTS = ["More to come..."]
 
-TRANSLATORS = "Mahdee Jameel\nIgor\nTomáš Pikálek\nHendrik Kaju\nWhise\nRYX\nPierre Slamich\nLunks\nGiulio Rossetti\nKetil Wendelbo Aanensen\nExcentrik\nVadim Peretokin\noscrp\nSerhey Kusyumoff\nplun\nMahdee Jameel\nVinzenz Vietzke\nSnirD\nAndrea Corbellini\nYuri Namestnikov"
+TRANSLATORS = "Mahdee Jameel\nIgor\nTomáš Pikálek\nHendrik Kaju\nWhise\nRYX\nPierre Slamich\nLunks\nGiulio Rossetti\nKetil Wendelbo Aanensen\nExcentrik\nVadim Peretokin\noscrp\nSerhey Kusyumoff\nplun\nMahdee Jameel\nVinzenz Vietzke\nSnirD\nAndrea Corbellini\nYuri Namestnikov\njiro kawada"
 
 # the application website
 WEBSITE = 'http://www.screenlets.org'
@@ -241,7 +241,7 @@ class ScreenletTheme (dict):
 		ctx.restore()
 		return extents
 
-	def draw_text(self, ctx, text, x, y,  font, size, width, allignment,ellipsize = pango.ELLIPSIZE_NONE):
+	def draw_text(self, ctx, text, x, y,  font, size, width, allignment, weight = 0, ellipsize = pango.ELLIPSIZE_NONE):
 		"""@DEPRECATED Moved to Screenlets class: Draws text"""
 		ctx.save()
 		ctx.translate(x, y)
@@ -254,6 +254,7 @@ class ScreenletTheme (dict):
 		self.p_fdesc = pango.FontDescription()
 		self.p_fdesc.set_family_static(font)
 		self.p_fdesc.set_size(size * pango.SCALE)
+		self.p_fdesc.set_weight(weight)
 		self.p_layout.set_font_description(self.p_fdesc)
 		self.p_layout.set_width(width * pango.SCALE)
 		self.p_layout.set_alignment(allignment)
@@ -1848,7 +1849,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 		ctx.restore()
 		return extents
 
-	def draw_text(self, ctx, text, x, y,  font, size, width, allignment,ellipsize = pango.ELLIPSIZE_NONE):
+	def draw_text(self, ctx, text, x, y,  font, size, width, allignment,weight = 0, ellipsize = pango.ELLIPSIZE_NONE):
 		"""Draws text"""
 		ctx.save()
 		ctx.translate(x, y)
@@ -1861,6 +1862,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 		self.p_fdesc = pango.FontDescription()
 		self.p_fdesc.set_family_static(font)
 		self.p_fdesc.set_size(size * pango.SCALE)
+		self.p_fdesc.set_weight(weight)
 		self.p_layout.set_font_description(self.p_fdesc)
 		self.p_layout.set_width(width * pango.SCALE)
 		self.p_layout.set_alignment(allignment)

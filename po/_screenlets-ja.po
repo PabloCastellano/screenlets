@@ -1,0 +1,794 @@
+# Japanese translation for screenlets
+# Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
+# This file is distributed under the same license as the screenlets package.
+# Jiro Kawada <jiro.kawada@gmail.com>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: screenlets\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2008-02-13 19:35+0200\n"
+"PO-Revision-Date: 2008-04-03 22:31+0900\n"
+"Last-Translator: jiro kawada <jiro.kawada@gmail.com>\n"
+"Language-Team: Japanese <ja@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2008-04-01 06:24+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
+
+#: XmlMenu.py:48
+msgid "Error while creating image from file: %s"
+msgstr "ファイルから画像作成中にエラー: %s"
+
+#: XmlMenu.py:64
+msgid "Error: file %s not found."
+msgstr "エラー: ファイル %s が見つかりません。"
+
+#: XmlMenu.py:185
+msgid "XML-Error: %s"
+msgstr "XML-エラー: %s"
+
+#: XmlMenu.py:231
+msgid "Exception: %s"
+msgstr "例外: %s"
+
+#: XmlMenu.py:232
+msgid "An error occured with desktop-file: %s"
+msgstr "デスクトップファイルにエラー発生: %s"
+
+#: XmlMenu.py:338
+msgid "Error while creating menu."
+msgstr "メニュー作成中にエラー。"
+
+#: __init__.py:154
+msgid "Error while loading ScreenletTheme in: "
+msgstr ""
+
+#: __init__.py:175
+msgid "Override: "
+msgstr "書き換え:"
+
+#: __init__.py:186
+msgid "WARNING: Option '%s' not found or protected."
+msgstr "警告: オプション '%s' が見つからないかまたは保護されています。"
+
+#: __init__.py:411
+msgid "theme.conf loaded: "
+msgstr "theme.conf 読み込み完了: "
+
+#: __init__.py:412
+msgid "Name: "
+msgstr "名前: "
+
+#: __init__.py:413
+msgid "Author: "
+msgstr "作者: "
+
+#: __init__.py:414
+msgid "Version: "
+msgstr "バージョン:"
+
+#: __init__.py:415
+msgid "Info: "
+msgstr "情報:"
+
+#: __init__.py:417
+msgid "Failed to load theme.conf"
+msgstr "theme.conf の読み込み失敗"
+
+#: __init__.py:469
+msgid "theme.conf found! Loading option-overrides."
+msgstr "theme.conf 発見！option-overrides 読み込み中。"
+
+#: __init__.py:524
+msgid "No name set for this Screenlet"
+msgstr "この Screenlet の名前は未記載"
+
+#: __init__.py:526
+msgid "No author defined for this Screenlet"
+msgstr "この Screenlet の作者は未記載"
+
+#: __init__.py:527
+msgid "No info set for this Screenlet"
+msgstr "この Screenlet の情報は未記載"
+
+#: __init__.py:626
+msgid "The basic settings for this Screenlet-instance."
+msgstr ""
+
+#: __init__.py:638
+msgid "The X-position of this Screenlet ..."
+msgstr "この Screenlet の X 位置..."
+
+#: __init__.py:638
+msgid "X-Position"
+msgstr "X 位置"
+
+#: __init__.py:641
+msgid "The Y-position of this Screenlet ..."
+msgstr "この Screenlet の Y 位置..."
+
+#: __init__.py:641
+msgid "Y-Position"
+msgstr "Y 位置"
+
+#: __init__.py:644
+msgid "The width of this Screenlet ..."
+msgstr "この Screenlet の幅..."
+
+#: __init__.py:644
+msgid "Width"
+msgstr "幅"
+
+#: __init__.py:647
+msgid "Height"
+msgstr "高さ"
+
+#: __init__.py:647
+msgid "The height of this Screenlet ..."
+msgstr "この Screenlet の高さ..."
+
+#: __init__.py:650
+msgid "Scale"
+msgstr "スケール"
+
+#: __init__.py:650
+msgid "The scale-factor of this Screenlet ..."
+msgstr "この Screenlet の拡縮率..."
+
+#: __init__.py:653
+msgid "Opacity"
+msgstr "不透明度"
+
+#: __init__.py:653
+msgid "The opacity of the Screenlet window ..."
+msgstr "この Screenlet ウィンドウの不透明度..."
+
+#: __init__.py:656
+msgid "Stick to Desktop"
+msgstr "デスクトップに付着"
+
+#: __init__.py:657
+msgid "Show this Screenlet on all workspaces ..."
+msgstr "この Screenlet を全てのワークスペースで表示..."
+
+#: __init__.py:659
+msgid "Treat as Widget"
+msgstr "ウィジェットとして扱う"
+
+#: __init__.py:660
+msgid "Treat this Screenlet as a \"Widget\" ..."
+msgstr "この Screenlet を\"ウィジェット\"として扱う..."
+
+#: __init__.py:662
+msgid "Lock position"
+msgstr "位置の固定"
+
+#: __init__.py:663
+msgid "Stop the screenlet from being moved..."
+msgstr "Screenlet が移動されるのを防止..."
+
+#: __init__.py:665
+#: __init__.py:920
+msgid "Keep above"
+msgstr "常に最前面"
+
+#: __init__.py:666
+msgid "Keep this Screenlet above other windows ..."
+msgstr "この Screenlet を常に他ウィンドウの手前に表示..."
+
+#: __init__.py:668
+#: __init__.py:927
+msgid "Keep below"
+msgstr "常に最後面"
+
+#: __init__.py:669
+msgid "Keep this Screenlet below other windows ..."
+msgstr "この Screenlet を常に他ウィンドウの背後に表示..."
+
+#: __init__.py:671
+msgid "Draw button controls"
+msgstr "操作ボタンの描画"
+
+#: __init__.py:672
+msgid "Draw buttons in top right corner"
+msgstr "右上隅にボタンを描画"
+
+#: __init__.py:674
+msgid "Skip Pager"
+msgstr "ページャー省略"
+
+#: __init__.py:675
+msgid "Set this Screenlet to show/hide in pagers ..."
+msgstr "この Screenlet をページャーに表示するか否かの設定..."
+
+#: __init__.py:677
+msgid "Skip Taskbar"
+msgstr "タスクバー省略"
+
+#: __init__.py:678
+msgid "Set this Screenlet to show/hide in taskbars ..."
+msgstr "この Screenlet をタスクバーに表示するか否かの設定..."
+
+#: __init__.py:681
+msgid "Allow overriding Options"
+msgstr "オプションの書き換え許可"
+
+#: __init__.py:682
+msgid "Allow themes to override options in this screenlet ..."
+msgstr "テーマによるこの Screenlet のオプション設定値の書き換えを許可..."
+
+#: __init__.py:684
+msgid "Ask on Override"
+msgstr "書き換え時に確認を求める"
+
+#: __init__.py:685
+msgid "Show a confirmation-dialog when a theme wants to override "
+msgstr "テーマが設定値の書き換えを要求するときは確認ダイアログを表示"
+
+#: __init__.py:686
+msgid "the current options of this Screenlet ..."
+msgstr "この Screenlet の現在のオプション..."
+
+#: __init__.py:784
+msgid "LOAD NEW THEME: "
+msgstr "新しいテーマの読み込み:"
+
+#: __init__.py:785
+msgid "FOUND: "
+msgstr "発見:"
+
+#: __init__.py:863
+msgid "Size"
+msgstr "サイズ"
+
+#: __init__.py:878
+msgid "Theme"
+msgstr "テーマ"
+
+#: __init__.py:893
+msgid "Window"
+msgstr "ウィンドウ"
+
+#: __init__.py:899
+msgid "Lock"
+msgstr "位置固定"
+
+#: __init__.py:906
+msgid "Sticky"
+msgstr "スティッキー"
+
+#: __init__.py:913
+msgid "Widget"
+msgstr "ウィジェット"
+
+#: __init__.py:936
+msgid "Properties..."
+msgstr "プロパティ..."
+
+#: __init__.py:940
+msgid "Info..."
+msgstr "情報..."
+
+#: __init__.py:944
+msgid "Delete Screenlet ..."
+msgstr "Screenlet の削除..."
+
+#: __init__.py:947
+msgid "Quit this %s ..."
+msgstr "この %s を終了..."
+
+#: __init__.py:950
+msgid "Quit all %ss ..."
+msgstr "全ての %s を終了..."
+
+#: __init__.py:1134
+msgid "Error while loading theme: "
+msgstr "テーマ読み込み中にエラー: "
+
+#: __init__.py:1144
+msgid "This theme wants to override your settings for this Screenlet. Do you want to allow that?"
+msgstr "このテーマはこの Sceenlet の設定値の書き換えを要求しています。書き換えを許可しますか？"
+
+#: __init__.py:1261
+msgid "UPDATING SHAPE"
+msgstr ""
+
+#: __init__.py:1347
+msgid "To quit all %s's, use 'Quit' instead. "
+msgstr "全ての %s を終了させるには、削除の代わりに '終了' を使用してください。 "
+
+#: __init__.py:1348
+msgid "Really delete this %s and its settings?"
+msgstr "この %s とその設定を本当に削除しますか？"
+
+#: __init__.py:1534
+#: __init__.py:1537
+msgid "MOUSEWHEEL"
+msgstr "マウスホイール"
+
+#: __init__.py:1556
+msgid "Compositing method changed to %s"
+msgstr "%s に合成方式が変更"
+
+#: __init__.py:1562
+msgid "Warning - Buttons will not be shown until screenlet is restarted"
+msgstr "警告 - Screenlet が再スタートされるまでボタンは表示されません"
+
+#: __init__.py:1592
+msgid "Cancel delete_event"
+msgstr ""
+
+#: __init__.py:1612
+msgid "Start drag"
+msgstr "ドラッグ開始"
+
+#: __init__.py:1621
+msgid "End drag"
+msgstr "ドラッグ終了"
+
+#: __init__.py:1697
+msgid "Quitting current screenlet instance"
+msgstr "現在の Screenlet インスタンスを終了中"
+
+#: __init__.py:1714
+msgid "Screenlet: Set theme %s"
+msgstr "Screenlet : テーマ %s を設定"
+
+#: __init__.py:1723
+msgid "Error: Cannot set missing or non-boolean value '"
+msgstr ""
+
+#: backend.py:33
+msgid "GConf python module not found. GConf settings backend is disabled."
+msgstr "GConf python モジュールが見つかりません。Gconf 設定バックエンドは無効にされます。"
+
+#: backend.py:72
+msgid "GConfBackend: initializing"
+msgstr "GConfバックエンド: 開始中"
+
+#: backend.py:102
+msgid "Saved option %s%s/%s = %s"
+msgstr "保存されたオプション %s%s/%s = %s"
+
+#: backend.py:135
+msgid "Temporary file didn't exist - nothing to remove."
+msgstr "既存の一時ファイルなし - 何も削除しません。"
+
+#: backend.py:137
+msgid "CachingBackend: <#%s> removed!"
+msgstr "キャッシングバックエンド: <#%s> 削除！"
+
+#: backend.py:176
+msgid "CachingBackend: Loading instances from cache"
+msgstr "キャッシングバックエンド: キャッシュからインスタンス読み込み中"
+
+#: backend.py:186
+msgid "CachingBackend: Loading <%s>"
+msgstr "キャッシングバックエンド: <%s> 読み込み中"
+
+#: backend.py:202
+msgid "Error while loading options: %s"
+msgstr "オプション読み込み中にエラー: %s"
+
+#: backend.py:210
+msgid "Queue-element <%s> not found (already removed?)!"
+msgstr "Queue-element <%s> が見つかりません（削除済み？）！"
+
+#: backend.py:214
+msgid "CachingBackend: Saving <#%s> :) ..."
+msgstr "キャッシングバックエンド: <#%s> 保存中 :) ..."
+
+#: backend.py:227
+msgid "error while saving config: %s%s"
+msgstr "設定保存中にエラー: %s%s"
+
+#: options.py:151
+msgid "Error during on_import - option: %s."
+msgstr ""
+
+#: options.py:233
+msgid "GnomeKeyring is not available!!"
+msgstr "GnomeKeyring が利用できません！！"
+
+#: options.py:239
+msgid "No keyrings found. Please create one first!"
+msgstr "keyring が1つも見つかりません。まず最初に作成してください！"
+
+#: options.py:245
+msgid "Warning: No default keyring found, storage is not permanent!"
+msgstr "警告: デフォルトの keyring が見つかりません。ストレージがパーマネントではありません！"
+
+#: options.py:261
+msgid "ERROR: Unable to read password from keyring: %s"
+msgstr "エラー: keyring からパスワードが読み取れません: %s"
+
+#: options.py:266
+msgid "Illegal value in AccountOption.on_import."
+msgstr ""
+
+#: options.py:394
+msgid "Options: Error - group %s not defined."
+msgstr "オプション: エラー - グループ %s 未定義。"
+
+#: options.py:452
+msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
+msgstr "メタデータファイルに不正な XML（またはファイル不存在）: \"%s\"."
+
+#: options.py:456
+msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
+msgstr ""
+
+#: options.py:465
+msgid "Error in metadata-file \"%s\" - only <group>-tags allowed in first level. Groups must contain at least one <info>-element."
+msgstr ""
+
+#: options.py:471
+msgid "No name for group defined in \"%s\"."
+msgstr ""
+
+#: options.py:487
+msgid "Invalid option-node found in \"%s\"."
+msgstr ""
+
+#: options.py:603
+msgid "PRESS: %s"
+msgstr "プレス: %s"
+
+#: options.py:640
+msgid "Edit Options"
+msgstr "オプション編集"
+
+#: options.py:770
+msgid "Path %s not found."
+msgstr "パス %s が見つかりません。"
+
+#: options.py:806
+msgid "active theme is: %s"
+msgstr "アクティブなテーマ: %s"
+
+#: options.py:836
+msgid "About "
+msgstr "詳細情報"
+
+#: options.py:848
+msgid "Options "
+msgstr "オプション"
+
+#: options.py:855
+msgid "Themes allow you to easily switch the appearance of your Screenlets. On this page you find a list of all available themes for this Screenlet."
+msgstr "Screenlet の外観はテーマによって簡単に切り替えられます。この Screenlet に使用可能な全テーマのリストがこのページに掲載されています。"
+
+#: options.py:884
+msgid "Themes "
+msgstr "テーマ"
+
+#: options.py:896
+msgid "no info available"
+msgstr "取得可能情報なし"
+
+#: options.py:983
+msgid "Choose File"
+msgstr "ファイル選択"
+
+#: options.py:992
+msgid "Choose Directory"
+msgstr "ディレクトリ選択"
+
+#: options.py:1018
+msgid "Choose Image"
+msgstr "画像選択"
+
+#: options.py:1085
+msgid "Open List-Editor ..."
+msgstr "リスト編集を開く..."
+
+#: options.py:1106
+msgid "Apply username/password ..."
+msgstr "ユーザー名/パスワードを適用..."
+
+#: options.py:1107
+msgid "Enter username here ..."
+msgstr "ここにユーザー名を入力..."
+
+#: options.py:1108
+msgid "Enter password here ..."
+msgstr "ここにパスワードを入力..."
+
+#: options.py:1146
+msgid "unsupported type ''"
+msgstr "未サポート形式 ''"
+
+#: options.py:1163
+msgid "Apply"
+msgstr "適用"
+
+#: options.py:1224
+msgid "OptionsDialog: Unknown option type: %s"
+msgstr "オプションダイアログ: 不明なオプション形式: %s"
+
+#: options.py:1234
+msgid "Changed: %s"
+msgstr "変更: %s"
+
+#: sensors.py:52
+#: sensors.py:90
+#: sensors.py:105
+msgid "Failed to open /proc/stat"
+msgstr "/proc/stat を開くのに失敗"
+
+#: sensors.py:76
+msgid "Failed to open /proc/cpuinfo"
+msgstr "/proc/cpuinfo を開くのに失敗"
+
+#: sensors.py:130
+msgid "%s days, %s hours and %s minutes"
+msgstr "%s 日 と %s 時間, %s 分"
+
+#: sensors.py:146
+msgid "Failed to open /proc/uptime"
+msgstr "/proc/uptime を開くのに失敗"
+
+#: sensors.py:205
+msgid "Error getting distro name"
+msgstr "ディストリ名の取得にエラー"
+
+#: sensors.py:234
+msgid "Can't get kernel version"
+msgstr "カーネルバージョン取得不可"
+
+#: sensors.py:243
+msgid "Can't get KDE version"
+msgstr "KDE バージョン取得不可"
+
+#: sensors.py:252
+msgid "Can't get Gnome version"
+msgstr "Gnome バージョン取得不可"
+
+#: sensors.py:322
+msgid "Can't parse /proc/meminfo"
+msgstr "/proc/meminfo のパース不可"
+
+#: sensors.py:456
+msgid "Cannot get ip"
+msgstr "IP 取得不可"
+
+#: sensors.py:475
+msgid "Can't open /proc/net/dev"
+msgstr "/proc/net/dev が開けません"
+
+#: sensors.py:511
+msgid "Can't open /proc/net/wireless"
+msgstr "/proc/net/wireless が開けません"
+
+#: sensors.py:523
+#: sensors.py:536
+msgid "Not connected"
+msgstr "未接続"
+
+#: sensors.py:786
+msgid "Can't open %s/temperature"
+msgstr "%s/temperature が開けません"
+
+#: sensors.py:788
+msgid "Can't open folder /proc/acpi/thermal_zone/"
+msgstr "フォルダ /proc/acpi/thermal_zone/ が開けません"
+
+#: sensors.py:804
+#: sensors.py:815
+msgid "Can't open %s"
+msgstr "%s が開けません"
+
+#: sensors.py:830
+msgid "Error during hddtemp drives search"
+msgstr "Hddtemp のドライブ検索中にエラー"
+
+#: sensors.py:832
+#: sensors.py:909
+msgid "Hddtemp not installed"
+msgstr "Hddtemp が未インストール"
+
+#: sensors.py:862
+msgid "can't read temperature in: %s"
+msgstr ""
+
+#: sensors.py:876
+#: sensors.py:892
+msgid "Can't read value from %s"
+msgstr "%s から値が読み取れません"
+
+#: sensors.py:1030
+msgid "CPUSensor: Failed to open /proc/stat. Sensor stopped."
+msgstr "CPUセンサー: /proc/stat を開くのに失敗。センサー停止。"
+
+#: services.py:54
+msgid "No name set in ScreenletService.__init__!"
+msgstr "ScreenletService.__init__ に名前が設定されていません！"
+
+#: services.py:68
+msgid "TEST: %s"
+msgstr "テスト: %s"
+
+#: services.py:73
+msgid "DEBUG: %s"
+msgstr "デバグ: %s"
+
+#: services.py:103
+#: services.py:143
+msgid "Cannot get/set protected options through service."
+msgstr "被保護オプションの読み取りや設定がサービスを通して出来ません。"
+
+#: services.py:135
+msgid "Trying to access invalid instance \"%s\"."
+msgstr "不正なインスタンス \"%s\" にアクセスを試みています。"
+
+#: services.py:137
+msgid "Trying to access invalid option \"%s\"."
+msgstr "不正なオプション \"%s\" にアクセスを試みています。"
+
+#: services.py:169
+msgid "Error in screenlets.services.get_service_by_name: %s"
+msgstr ""
+
+#: session.py:72
+msgid ""
+"ScreenletSession.__init__ has to be called with a\n"
+"\t\t\t valid Screenlet-classobject as first argument!"
+msgstr ""
+
+#: session.py:94
+msgid "Unable to init backend - settings will not be saved!"
+msgstr ""
+
+#: session.py:112
+msgid "Error in screenlets.session.connect_daemon: %s"
+msgstr "screenlets.session.connect_daemon にエラー: %s"
+
+#: session.py:117
+msgid "Creating new instance: "
+msgstr "新規インスタンス作成中: "
+
+#: session.py:120
+msgid "ID is unset or already in use - creating new one!"
+msgstr "ID 未設定またはすでに使用中 - 新たに作成中！"
+
+#: session.py:126
+#: session.py:376
+msgid "File: %s"
+msgstr "ファイル: %s"
+
+#: session.py:132
+#: session.py:382
+msgid "Set options in %s"
+msgstr ""
+
+#: session.py:159
+msgid "Failed to remove INI-file for instance (not critical)."
+msgstr ""
+
+#: session.py:163
+msgid "Removing last instance from session"
+msgstr ""
+
+#: session.py:165
+msgid "TODO: remove self.path: %s"
+msgstr "TODO: self.path 削除: %s"
+
+#: session.py:169
+msgid "Failed to remove session dir '%s' - not empty?"
+msgstr "セッションディレクトリ '%s' の削除に失敗 - 空ではない？"
+
+#: session.py:174
+#: session.py:201
+msgid "Removing instance from session but staying alive"
+msgstr ""
+
+#: session.py:223
+msgid "Found a running session of %s, adding new instance by service."
+msgstr ""
+
+#: session.py:226
+msgid "Adding new instance through: %s"
+msgstr ""
+
+#: session.py:232
+msgid "Loading instances in: %s"
+msgstr ""
+
+#: session.py:235
+msgid "Restored instances from session '%s' ..."
+msgstr ""
+
+#: session.py:241
+msgid "No instance(s) found in session-path, creating new one."
+msgstr "インスタンスが session-path で見つかりません。新規作成しています。"
+
+#: session.py:255
+msgid "Failed creating instance of: %s"
+msgstr "インスタンスの作成に失敗: %s"
+
+#: session.py:273
+msgid "Error: Unable to create temp entry - screenlets-manager will not work properly."
+msgstr "エラー: temp エントリーの作成不可 - screenlets-manager  は正常に働きません。"
+
+#: session.py:281
+msgid "Creating new entry for %s in %s"
+msgstr ""
+
+#: session.py:294
+msgid "No global tempfile found, creating new one."
+msgstr "グローバル一時ファイルが見つかりません。新規作成しています。"
+
+#: session.py:297
+msgid "Error: Unable to create temp directory %s - screenlets-manager will not work properly."
+msgstr "エラー: 一時ディレクトリ %s 作成不可 - この場合 Screenlets マネージャは正しく働きません。"
+
+#: session.py:316
+msgid "Failed to unregister from daemon: %s"
+msgstr ""
+
+#: session.py:321
+msgid "Removing entry for %s from global tempfile %s"
+msgstr ""
+
+#: session.py:326
+msgid "Entry not found. Will (obviously) not be removed."
+msgstr "エントリーが見つかりません。（当然ながら）削除されません。"
+
+#: session.py:338
+msgid "Error global tempfile not found. Some error before?"
+msgstr ""
+
+#: session.py:341
+msgid "No more screenlets running."
+msgstr ""
+
+#: session.py:344
+msgid "No screenlets running?"
+msgstr ""
+
+#: session.py:350
+msgid "Deleting global tempfile %s"
+msgstr "グローバルの一時ファイル %s 削除中"
+
+#: session.py:355
+msgid "Error: Failed to delete global tempfile"
+msgstr "エラー: グローバルの一時ファイルの削除に失敗"
+
+#: session.py:389
+msgid "Failed to create instance of '%s'!"
+msgstr "'%s' のインスタンスの作成に失敗!"
+
+#: session.py:422
+msgid "Screenlet has been killed. TODO: make this an event"
+msgstr "Screenlet が停止されました。TODO: これをイベントにします"
+
+#: session.py:433
+msgid "Screenlet '%s' has been interrupted by keyboard. TODO: make this an event"
+msgstr "Screenlet '%s' がキーボードに割り込まれました。TODO: これをイベントにします"
+
+#: session.py:435
+msgid "Exception in ScreenletSession: "
+msgstr "ScreenletSession に例外: "
+
+#: utils.py:81
+msgid "Unable to load '%s' from %s: %s "
+msgstr ""
+
+#: utils.py:100
+msgid "LISTED PATH NOT EXISTS: "
+msgstr "リストされたパスが不存在: "
+
+#: utils.py:199
+msgid "File %s not found"
+msgstr "ファイル %s が見つかりません"
+
+#: utils.py:230
+msgid "Section %s not found!"
+msgstr "セクション %s が見つかりません！"
+
+#: utils.py:264
+msgid "Notify: No DBus running or notifications-daemon unavailable."
+msgstr "通知: DBus 未稼働または notifications-daemon 利用不可。"
+

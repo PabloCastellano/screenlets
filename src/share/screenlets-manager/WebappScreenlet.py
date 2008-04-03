@@ -29,7 +29,7 @@ mypath = sys.argv[0][:sys.argv[0].find('myfile')].strip()
 if sys.argv[0].endswith(myfile): # Makes Shure its not the manager running...
 		# First workarround
 		c = None
-		workarround =  sys.argv[0] + " &"
+		workarround = "python "+ sys.argv[0] + " &"
 		a = str(commands.getoutput('whereis firefox')).replace('firefox: ','').split(' ')
 		for b in a:
 			if os.path.isfile(b + '/run-mozilla.sh'):
@@ -55,7 +55,7 @@ if sys.argv[0].endswith(myfile): # Makes Shure its not the manager running...
 			os.system("rm -f " + "/tmp/"+ myfile+"running")
 		
 		else:
-			if workarround == sys.argv[0] + " &":
+			if workarround == "python "+ sys.argv[0] + " &":
 				print 'No workarround will be applied to your sistem , this screenlet will probably not work properly'			
 			os.system (workarround)
 			fileObj = open("/tmp/"+ myfile+"running","w") #// open for for write

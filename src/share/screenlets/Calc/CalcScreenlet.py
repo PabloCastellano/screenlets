@@ -69,7 +69,7 @@ class CalcScreenlet(screenlets.Screenlet):
 	def on_draw(self, ctx):
 		# if theme is loaded
 		#ctx.scale(self.width/100.0, self.width/100.0)
-		ctx.scale(self.xscale, 2)
+		ctx.scale(self.scale*2, self.scale*2)
 		ctx.save()
 
 		if self.theme:

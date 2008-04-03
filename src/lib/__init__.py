@@ -1825,7 +1825,9 @@ class Screenlet (gobject.GObject, EditableOptions):
 		else:
 			
 			ctx.update_layout(self.p_layout)
-		self.p_fdesc = pango.FontDescription(font)
+		if self.p_fdesc == None:self.p_fdesc = pango.FontDescription()
+		else: pass
+		self.p_fdesc.set_family_static(font)
 		self.p_layout.set_font_description(self.p_fdesc)
 		self.p_layout.set_text(text)
 		extents, lextents = self.p_layout.get_pixel_extents()
@@ -1842,7 +1844,9 @@ class Screenlet (gobject.GObject, EditableOptions):
 		else:
 			
 			ctx.update_layout(self.p_layout)
-		self.p_fdesc = pango.FontDescription(font)
+		if self.p_fdesc == None:self.p_fdesc = pango.FontDescription()
+		else: pass
+		self.p_fdesc.set_family_static(font)
 		self.p_layout.set_font_description(self.p_fdesc)
 		self.p_layout.set_text(text)
 		extents, lextents = self.p_layout.get_pixel_extents()

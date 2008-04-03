@@ -1859,7 +1859,8 @@ class Screenlet (gobject.GObject, EditableOptions):
 		else:
 			
 			ctx.update_layout(self.p_layout)
-		self.p_fdesc = pango.FontDescription()
+		if self.p_fdesc == None:self.p_fdesc = pango.FontDescription()
+		else: pass
 		self.p_fdesc.set_family_static(font)
 		self.p_fdesc.set_size(size * pango.SCALE)
 		self.p_fdesc.set_weight(weight)

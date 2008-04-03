@@ -108,9 +108,9 @@ class ExampleScreenlet (screenlets.Screenlet):
 	def update (self):
 		if self.number <= 100:
 			if self.number <= 30:
-			        self.theme.show_notification("this is a screenlet notification , pretty cool , hit Enter in the screnlet window to check out another cool thing")
+			        self.show_notification("this is a screenlet notification , pretty cool , hit Enter in the screnlet window to check out another cool thing")
 			else:
-			        self.theme.hide_notification()
+			        self.hide_notification()
 			self.number = self.number+1
 		else:
 			self.number = 0
@@ -216,13 +216,13 @@ class ExampleScreenlet (screenlets.Screenlet):
 	
 	def on_mouse_enter (self, event):
 		"""Called when the mouse enters the Screenlet's window."""
-	        self.theme.show_tooltip("this is a tooltip , it is set to shows on mouse hover",self.x+self.mousex,self.y+self.mousey)
+	        self.show_tooltip("this is a tooltip , it is set to shows on mouse hover",self.x+self.mousex,self.y+self.mousey)
 		self.hover = True
 		print 'mouse is over me'
 		
 	def on_mouse_leave (self, event):
 		"""Called when the mouse leaves the Screenlet's window."""
-		self.theme.hide_tooltip()
+		self.hide_tooltip()
 		self.hover = False
 		print 'mouse leave'
 
@@ -275,18 +275,18 @@ class ExampleScreenlet (screenlets.Screenlet):
 			ctx.scale(self.scale, self.scale)
 			ctx.set_source_rgba(self.color_example[2], self.color_example[1], self.color_example[0],0.4)	
 			if self.hover:
-				self.theme.draw_rounded_rectangle(ctx,0,0,20,self.width,self.height)
-			self.theme.draw_circle(ctx,0,0,self.width,self.height)
+				self.draw_rounded_rectangle(ctx,0,0,20,self.width,self.height)
+			self.draw_circle(ctx,0,0,self.width,self.height)
 			# TEST: render example-bg into context (either PNG or SVG)
 			self.theme.render(ctx, 'example-bg')
 			ctx.set_source_rgba( self.color_example[0], self.color_example[1], self.color_example[2],self.color_example[3])
-			self.theme.draw_text(ctx, self.test_text, 0, 0, self.font_example , 10,self.width,pango.ALIGN_LEFT)
-			self.theme.draw_line(ctx,0,40,self.width,0,1)
-			self.theme.draw_text(ctx, 'timer - ' + str(self.number), 0, 130, self.font_example , 10, self.width,pango.ALIGN_LEFT)
+			self.draw_text(ctx, self.test_text, 0, 0, self.font_example , 10,self.width,pango.ALIGN_LEFT)
+			self.draw_line(ctx,0,40,self.width,0,1)
+			self.draw_text(ctx, 'timer - ' + str(self.number), 0, 130, self.font_example , 10, self.width,pango.ALIGN_LEFT)
 
-			self.theme.draw_text(ctx, self.theme_name, 0, 50, self.font_example , 10, self.width,pango.ALIGN_LEFT)
+			self.draw_text(ctx, self.theme_name, 0, 50, self.font_example , 10, self.width,pango.ALIGN_LEFT)
 
-			self.theme.draw_text(ctx, 'mouse x ' + str(self.mousex ) + ' \n mouse y ' + str(self.mousey ) , 0, 170, self.font_example , 10,self.width,pango.ALIGN_LEFT)
+			self.draw_text(ctx, 'mouse x ' + str(self.mousex ) + ' \n mouse y ' + str(self.mousey ) , 0, 170, self.font_example , 10,self.width,pango.ALIGN_LEFT)
 
 
 			# render svg-file

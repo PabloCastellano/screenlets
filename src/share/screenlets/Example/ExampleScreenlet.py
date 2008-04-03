@@ -287,7 +287,7 @@ class ExampleScreenlet (screenlets.Screenlet):
 			self.draw_text(ctx, self.theme_name, 0, 50, self.font_example , 10, self.width,pango.ALIGN_LEFT)
 
 			self.draw_text(ctx, 'mouse x ' + str(self.mousex ) + ' \n mouse y ' + str(self.mousey ) , 0, 170, self.font_example , 10,self.width,pango.ALIGN_LEFT)
-
+			print self.get_text_width(ctx, 'mouse x ' + str(self.mousex ) + ' \n mouse y ' + str(self.mousey ) , self.font_example)
 
 			# render svg-file
 			#self.theme['example-bg.svg'].render_cairo(ctx)

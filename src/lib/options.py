@@ -887,6 +887,7 @@ class OptionsDialog (gtk.Dialog):
 		"""Callback for rendering the cells in the theme-treeview."""
 		# get attributes-list from Treemodel
 		attrib = model.get_value(iter, 0)
+
 		# set colors depending on state
 		col = '555555'
 		name_uc = attrib[0][0].upper() + attrib[0][1:]
@@ -895,6 +896,10 @@ class OptionsDialog (gtk.Dialog):
 			mu = '<b><span weight="ultrabold" size="large">' + name_uc + \
 			'</span></b> (' + _('no info available') + ')'
 		else:
+			if attrib[1] == None : attrib[1] = '-'
+			if attrib[2] == None : attrib[2] = '-'
+			if attrib[3] == None : attrib[3] = '-'
+			if attrib[4] == None : attrib[4] = '-'
 			mu = '<b><span weight="ultrabold" size="large">' + name_uc + \
 				'</span></b> v' + attrib[4] + '\n<small><span color="#555555' +\
 				'">' + attrib[2].replace('\\n', '\n') + \

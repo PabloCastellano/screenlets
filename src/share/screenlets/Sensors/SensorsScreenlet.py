@@ -192,10 +192,8 @@ class SensorsScreenlet(screenlets.Screenlet):
 				else:
 					self.sensor = 'Wifi '  + str(self.wire_data['essid'])
 				self.load = int(str(self.wire_data['percentage']).replace('%',''))
-		else:
-
-			if self.sensor != None:
-				self.load = int(sensors.disk_get_usage(self.sensor)[4].replace('%',''))
+		elif self.sensor.startswith('/'):
+			self.load = int(sensors.disk_get_usage(self.sensor)[4].replace('%',''))
 		
 
 

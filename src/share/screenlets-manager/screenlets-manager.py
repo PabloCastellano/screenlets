@@ -165,9 +165,10 @@ class ScreenletInstaller:
 					name = f
 		try:
 			print name
+			return (name, ext)
 		except:
-			screenlets.show_message(None, _("Archive is damaged or unsupported, use only tar, bz2 or gz."))
-		return (name, ext)
+
+			return False
 	
 	def get_result_message (self):
 		"""Return a human-readable result message about the last operation."""
@@ -190,6 +191,9 @@ class ScreenletInstaller:
 		#name		= basename[:basename.find('.')]
 		#print name
 		info = self.get_info_from_package_name(filename)
+		if info == False:
+			self._message= _("Archive is damaged or unsupported, use only tar, bz2 or gz.")
+			return False
 		name	= info[0]
 		ext		= info[1]
 		

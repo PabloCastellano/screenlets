@@ -48,7 +48,7 @@ pydoc:
 
 # create API-documentation (using epydoc)
 epydoc:
-	epydoc --html --output=docs/epydoc --name="Screenlets 0.1" screenlets screenlets.backend screenlets.options screenlets.utils screenlets.session screenlets.services screenlets.sensors screenlets.XmlMenu
+	epydoc --html --output=docs/epydoc --name="Screenlets 0.1.1" screenlets screenlets.backend screenlets.options screenlets.utils screenlets.session screenlets.services screenlets.sensors screenlets.XmlMenu
 
 # create API-documentation
 menu:

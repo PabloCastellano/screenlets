@@ -94,6 +94,13 @@ class ScreenletSession (object):
 			print _("Unable to init backend - settings will not be saved!")
 		# WORKAROUND: connect to daemon (ideally the daemon should watch the 
 		#             tmpfile for changes!!)
+		#check for daemon
+		proc = os.popen("""ps axo "%p,%a" | grep "screenlets-daemon.py" | grep -v grep|cut -d',' -f1""").read()
+	
+		procs = proc.split('\n')
+		if len(procs) <= 1:
+			os.system('python -u ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/screenlets-daemon.py &')
+			print 'No Daemon, Launching Daemon'
 		self.connect_daemon()
 	
 	def connect_daemon (self):
@@ -261,26 +268,32 @@ class ScreenletSession (object):
 	
 	def __register_screenlet (self):
 		"""Create new entry for this session in the global TMP_FILE."""
-		#check for daemon
-		proc = os.popen("""ps axo "%p,%a" | grep "screenlets-daemon.py" | grep -v grep|cut -d',' -f1""").read()
-	
-		procs = proc.split('\n')
-		if not len(procs) > 2:
-			os.system('python -u ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/screenlets-daemon.py &')
-		
+
 		# if tempfile not exists, create it
-		if not os.path.isfile(self.tempfile) and not self.__create_tempfile():
-			print _('Error: Unable to create temp entry - screenlets-manager will not work properly.')
-			return False
-		# open temp file for appending data
-		f = open(self.tempfile, 'a')
-		if f:
+		if  not self.__create_tempfile():
+			if not os.path.isfile(self.tempfile) and not os.path.exists(self.tempfile):
+				print _('Error: Unable to create temp entry - screenlets-manager will not work properly.')
+				return False
 			# if screenlet not already added
-			running = utils.list_running_screenlets()
-			if running.count(self.screenlet.__name__) == 0:
+
+ 		running = utils.list_running_screenlets()
+		if running == None : running = []
+		if running.count(self.screenlet.__name__) == 0:
+		# open temp file for appending data
+			f = open(self.tempfile, 'a')
+			if f:
 				print _("Creating new entry for %s in %s") % (self.screenlet.__name__, self.tempfile)
 				f.write(self.screenlet.__name__ + '\n')
+			else: print _("Unable to open %s") % self.tempfile
 			f.close()
+			g = open(self.tempfile, 'r')
+			irunning = g.read()
+			g.close()
+			if irunning.find(self.screenlet.__name__) == -1:
+				f = open(self.tempfile, 'a')
+				f.write(self.screenlet.__name__ + '\n')
+				f.close()
+		else: print _("Screenlet has already been added to %s") % self.tempfile
 		# WORKAROUND: for now we manually add this to the daemon,
 		#             ideally the daemon should watch the tmpdir for changes
 		if self.daemon_iface:
@@ -290,17 +303,43 @@ class ScreenletSession (object):
 		"""Create the global temporary file for saving screenlets. The file is 
 		used for indicating which screnlets are currently running."""
 		# check for existence of TMP_DIR and create it if missing
-		if not os.path.isdir(TMP_DIR):
+		if not os.path.isdir(TMP_DIR) and not os.path.exists(TMP_DIR):
 			print _("No global tempfile found, creating new one.")
-			os.mkdir(TMP_DIR)
-			if not os.path.isdir(TMP_DIR):
+			try:
+				if not os.path.exists(TMP_DIR):os.mkdir (TMP_DIR)
+				print _('Temp directory %s created.') % TMP_DIR
+				try:
+					if os.path.exists(self.tempfile) or os.path.isfile(self.tempfile):
+						print _('temp file %s already exists.') % self.tempfile
+					else:
+						f = open(self.tempfile, 'w')
+						f.close()
+						print _('New temp file %s created.') % self.tempfile
+
+					return True
+				except:
+					print _('Error: Unable to create temp file %s - screenlets-manager will not work properly.') % self.tempfile
+					return False
+			except:
 				print _('Error: Unable to create temp directory %s - screenlets-manager will not work properly.') % TMP_DIR
 				return False
+
+
 		else:
 			# create entry in temp dir
-			f = open(self.tempfile, 'w')
-			f.close()
-			return True
+			try:
+				if os.path.exists(self.tempfile) or os.path.isfile(self.tempfile):
+					print _('temp file %s already exists.') % self.tempfile
+				else:	
+					f = open(self.tempfile, 'w')
+					f.close()
+					print _('New temp file %s created.') % self.tempfile
+				
+
+				return True
+			except:
+				print _('Error: Unable to create temp file %s - screenlets-manager will not work properly.') % self.tempfile
+				return False
 	
 	def __unregister_screenlet (self, name=None):
 		"""Delete this session's entry from the gloabl tempfile (and delete the
@@ -451,6 +490,7 @@ class ScreenletSession (object):
 
 def create_session (classobj, backend='caching', threading=False):
 	"""A very simple utility-function to easily create/start a new session."""
+
 	if threading:
 		import gtk
 		gtk.gdk.threads_init()

@@ -18,15 +18,15 @@
 # - use a filewatch on '/tmp/screenlets/screenlets.running' instead of 
 #   requring screenlets to register themselves with the daemon??
 #
-import gtk
+
 import os
 import dbus
 import dbus.service
 if getattr(dbus, 'version', (0,0,0)) >= (0,41,0):
 	import dbus.glib
 import gobject
-
 import screenlets
+import gtk
 from screenlets import utils
 import gettext
 

@@ -463,15 +463,7 @@ class NotesScreenlet (screenlets.Screenlet):
 	# other event handling
 	
 	# NOTE: self.is_dragged doesn't work properly .. this needs fixing
-	def configure_event (self, widget, event):
-		# if dragged before, redraw canvas
-		if self.is_dragged==True:
-			#print "Drag ended?"
-			self.is_dragged=False
-			self.redraw_canvas()
-		# call super
-		screenlets.Screenlet.configure_event(self, widget, event)
-		return False
+
 	
 
 # If the program is run directly or passed as an argument to the python

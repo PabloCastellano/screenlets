@@ -73,7 +73,8 @@ else:
 try:
 	import gtkmozembed
 except:
-	screenlets.show_error(None,"You need Gtkmozembed to run this Screenlet , please install it")
+	if sys.argv[0].endswith(myfile):screenlets.show_error(None,"You need Gtkmozembed to run this Screenlet , please install it")
+	else: print "You need Gtkmozembed to run this Screenlet , please install it"
 #########WORKARROUND FOR GTKOZEMBED BUG BY WHISE################
 #Check for internet connection required for web widgets
 
@@ -110,6 +111,8 @@ class YoutubeScreenlet (screenlets.Screenlet):
 
 	width = 325
 	height = 370
+	set_width = 0
+	set_height = 0
 	def __init__ (self, **keyword_args):
 		# init stuff
 		screenlets.Screenlet.__init__(self, width=325, height=370,uses_theme=True, 
@@ -121,6 +124,8 @@ class YoutubeScreenlet (screenlets.Screenlet):
 			self.show_frame, 'Show frame border', 'Show frame border arround the widget ...'))	
 		self.add_option(ColorOption('Options','rgba_color', 
 			self.rgba_color , 'Frame color', 'The color of the frame border'))
+        	self.add_option(IntOption('Options', 'set_width', self.set_width, 'Width',  'Custom width', min=10, max=gtk.gdk.screen_width()))
+        	self.add_option(IntOption('Options', 'setr_height', self.set_height, 'Height', 'Custom height', min=10, max=gtk.gdk.screen_height()))
         	#self.add_option(IntOption('Options', 'border_width', self.border_width, 'Frame border width', 'The width of the frame border', min=1, max=8))
 		self.disable_option('scale')
 		self.theme_name = 'default'
@@ -143,8 +148,14 @@ class YoutubeScreenlet (screenlets.Screenlet):
 		screenlets.Screenlet.__setattr__(self, name, value)
 		if name == 'border_width' or name == 'rgba_color' or name == 'show_frame':
 			self.redraw_canvas()
-			
-
+		if name == 'set_width' and value  != self.widget_width:
+			self.widget_width = value
+			self.width = int(value)+30
+			self.redraw_canvas()
+		if name == 'set_height' and value != self.widget_height:
+			self.widget_height = value
+			self.height = int(value)+30	
+			self.redraw_canvas()
 
 
 	def on_focus (self, event):
@@ -208,7 +219,15 @@ class YoutubeScreenlet (screenlets.Screenlet):
 		self.load_widget()
 		self.add_default_menuitems(DefaultMenuItem.WINDOW_MENU | DefaultMenuItem.PROPERTIES |
 			DefaultMenuItem.DELETE)
-
+		if self.set_width == 0: self.set_width = int(self.widget_width)
+		else:
+			self.width = self.set_width + 30
+			self.redraw_canvas()
+			
+		if self.set_height == 0: self.set_height = int(self.widget_height)
+		else:
+			self.height = self.set_height + 30
+			self.redraw_canvas()
 	def load_widget(self):
 
 		self.widget  = open(self.url,'r')

@@ -70,7 +70,8 @@ else:
 try:
 	import gtkmozembed
 except:
-	screenlets.show_error(None,"You need Gtkmozembed to run this Screenlet , please install it")
+	if sys.argv[0].endswith(myfile):screenlets.show_error(None,"You need Gtkmozembed to run this Screenlet , please install it")
+	else: print "You need Gtkmozembed to run this Screenlet , please install it"
 #########WORKARROUND FOR GTKOZEMBED BUG BY WHISE################
 
 

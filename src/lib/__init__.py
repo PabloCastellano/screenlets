@@ -680,6 +680,8 @@ class Screenlet (gobject.GObject, EditableOptions):
 		self.add_option(BoolOption('Screenlet', 'is_widget', 
 			is_widget, _('Treat as Widget'), 
 			_('Treat this Screenlet as a "Widget" ...')))
+		self.add_option(BoolOption('Screenlet', 'is_dragged', 
+			self.is_dragged, "","", hidden=True))
 		self.add_option(BoolOption('Screenlet', 'lock_position', 
 			self.lock_position, _('Lock position'), 
 			_('Stop the screenlet from being moved...')))
@@ -726,9 +728,12 @@ class Screenlet (gobject.GObject, EditableOptions):
 				self.p_layout.set_font_description(\
 					pango.FontDescription("Sans 12"))
 		# set type hint
+
 		if str(sensors.sys_get_window_manager()).lower() == 'kwin':
 			print "WARNING - You are using kwin window manager , screenlets doesnt have full compatibility with this window manager"
 			#self.window.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_DOCK)
+		elif str(sensors.sys_get_window_manager()).lower() == 'sawfish':
+			print "WARNING - You are using kwin window manager , screenlets doesnt have full compatibility with this window manager"
 		else:
 			self.window.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_TOOLBAR)
 		self.window.set_keep_above(True)
@@ -1109,8 +1114,10 @@ class Screenlet (gobject.GObject, EditableOptions):
 		self.window.move(self.x, self.y)
 		self.window.present()	
 		self.has_started = True	
+		self.is_dragged = False
 		self.keep_above= self.keep_above
 		self.keep_below= self.keep_below
+		self.window.set_skip_taskbar_hint(self.skip_taskbar)
 		self.window.set_keep_above(self.keep_above)
 		self.window.set_keep_below(self.keep_below)
 		self.on_init()
@@ -1535,10 +1542,8 @@ class Screenlet (gobject.GObject, EditableOptions):
 		#print "Button press"
 		# set flags for user-handler
 
-		if self.lock_position == False:
-			if event.button == 1:
-				self.is_dragged = True
-		# call user-handler for onmousedown
+
+		# call user-handler for onmousedownbegin_move_drag
 		if self.on_mouse_down(event) == True:
 			return True
 		# unhandled? continue
@@ -1550,6 +1555,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 				self.menuitem_callback(widget,'info')
 		elif self.lock_position == False:
 			if event.button == 1:
+				self.is_dragged = True
 				widget.begin_move_drag(event.button, int(event.x_root), 
 					int(event.y_root), event.time)
 		
@@ -1611,10 +1617,12 @@ class Screenlet (gobject.GObject, EditableOptions):
 			self.__dict__['x'] = event.x
 			if self.session:
 				self.session.backend.save_option(self.id, 'x', str(event.x))
+				self.is_dragged = False
 		if event.y != self.y:
 			self.__dict__['y'] = event.y
 			if self.session:
 				self.session.backend.save_option(self.id, 'y', str(event.y))
+				self.is_dragged = False
 		return False
 	
 	def delete_event (self, widget, event, data=None):
@@ -1713,7 +1721,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 	
 	def leave_notify_event (self, widget, event):
 		#self.__mouse_inside = False
-		
+		#self.is_dragged = False
 		self.on_mouse_leave(event)
 	
 		#self.redraw_canvas()
@@ -1792,6 +1800,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 	def motion_notify_event(self, widget, event):
 		self.mousex = event.x / self.scale
 		self.mousey = event.y / self.scale
+		
 		self.on_mouse_move(event)
 	
 	def realize_event (self, widget):

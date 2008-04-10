@@ -97,12 +97,15 @@ class ScreenletService (dbus.service.Object):
 			if not sl:
 				sl = self.screenlet
 			o = sl.get_option_by_name(attrib)
-			if not o.protected:
-				return getattr(sl, attrib)
-			else:
-				print _("Cannot get/set protected options through service.")
-				return None
-	
+			try:
+				if not o.protected:
+					return getattr(sl, attrib)
+				else:
+					print _("Cannot get/set protected options through service.")
+					return None
+			except AttributeError: 
+				print 'Error getting attribute'
+				return None	
 	@action(IFACE)
 	def get_first_instance (self):
 		"""Get the ID of the first existing instance of the assigned 
@@ -136,11 +139,13 @@ class ScreenletService (dbus.service.Object):
 		if sl.get_option_by_name(attrib) == None:
 			raise Exception(_('Trying to access invalid option "%s".') % attrib)
 		else:
-			o = sl.get_option_by_name(attrib)
-			if not o.protected:
-				setattr(sl, attrib, value)
-			else:
-				print _("Cannot get/set protected options through service.")
+			try:
+				o = sl.get_option_by_name(attrib)
+				if not o.protected:
+					setattr(sl, attrib, value)
+				else:
+					print _("Cannot get/set protected options through service.")
+			except: pass
 	
 	@signal(IFACE)
 	def instance_added (self, id):

@@ -200,7 +200,7 @@ class CalcScreenlet(screenlets.Screenlet):
 				event.time)
 	
 	def detect_button_action(self, x, y):
-		scale = int(self.width/100)
+		scale = self.scale*2
 		#print "Action:: "+str(x/scale)+" : "+str(y/scale)
 		# nx, ny : used for main buttons detection
 		tab_main = [ ['7', '4', '1', '0'], ['8', '5', '2', 'period'] , ['9', '6', '3', 'Delete'] ]

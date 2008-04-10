@@ -190,6 +190,7 @@ class ACPIBatteryScreenlet(screenlets.Screenlet):
 				last_full=1
 		else:
 			last_full=1
+		if present_rate == None : present_rate = '1000'
 		if int(present_rate)==0: present_rate='1000';
 		return (charge_status,present_rate,remaining,last_full)
 		

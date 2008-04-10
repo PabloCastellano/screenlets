@@ -23,7 +23,13 @@ import os
 import dbus
 import dbus.service
 if getattr(dbus, 'version', (0,0,0)) >= (0,41,0):
-	import dbus.glib
+	if getattr(dbus, 'version', (0,0,0)) <= (0,80,0):
+		
+		import dbus.glib
+	else:
+		
+		from dbus.mainloop.glib import DBusGMainLoop
+		DBusGMainLoop(set_as_default=True)
 import gobject
 import screenlets
 import gtk

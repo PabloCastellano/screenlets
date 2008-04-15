@@ -1977,7 +1977,18 @@ class Screenlet (gobject.GObject, EditableOptions):
 		image = None
 		ctx.restore()
 
+	def draw_icon(self,ctx,x,y, pix,size=32):
+		"""Draws a gtk icon """
 
+		ctx.save()
+		ctx.translate(x, y)	
+		icontheme = gtk.icon_theme_get_default()
+		image = icontheme.load_icon (pix,size,0)
+		ctx.set_source_pixbuf(image, 0, 0)
+		ctx.paint()
+		icontheme = None
+		image = None
+		ctx.restore()
 
 	def draw_scaled_image(self,ctx,x,y, pix, w, h):
 		"""Draws a picture from specified path with a certain width and height"""

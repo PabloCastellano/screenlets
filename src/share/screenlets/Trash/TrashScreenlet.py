@@ -39,7 +39,7 @@ class TrashScreenlet(screenlets.Screenlet):
 	trash_folder = os.environ['HOME'] + '/.Trash'
 	item_count = 0
 	def __init__(self, **keyword_args):
-		screenlets.Screenlet.__init__(self, width=128, height=160, **keyword_args) 
+		screenlets.Screenlet.__init__(self, width=128, height=160,drag_drop=True, **keyword_args) 
 
 		self.theme_name = "default"
 
@@ -59,6 +59,33 @@ class TrashScreenlet(screenlets.Screenlet):
 		
 		if name == 'style':
 			self.redraw_canvas()
+
+	def on_drop (self, x, y, sel_data, timestamp):
+		print "Data dropped ..."
+		filename = ''
+		# get text-elements in selection data
+		txt = sel_data.get_text()
+		if txt:
+			if txt[-1] == '\n':
+				txt = txt[:-1]
+			txt.replace('\n', '\\n')
+			# if it is a filename, use it
+			if txt.startswith('file://'):
+				filename = txt[7:]
+			else:
+				screenlets.show_error(self, 'Invalid string: %s.' % txt)
+		else:
+			# else get uri-part of selection
+			uris = sel_data.get_uris()
+			if uris and len(uris)>0:
+				#print "URIS: "+str(uris	)
+				filename = uris[0][7:]
+		if filename != '':
+			#self.set_image(filename)
+			import urllib
+			filename = urllib.unquote(filename)
+			#if screenlets.show_question(self,'Do you want to send '+ filename' in your Trash folder?'):
+			os.system('mv ' + filename + ' ' + self.trash_folder)
 		
 	def update(self):
 		self.trash_folder = os.environ['HOME'] + '/.Trash'

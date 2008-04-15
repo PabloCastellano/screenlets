@@ -62,9 +62,8 @@ class TrashScreenlet(screenlets.Screenlet):
 		
 	def update(self):
 		self.trash_folder = os.environ['HOME'] + '/.Trash'
-		self.item_count = 0
-		for f in os.listdir(self.trash_folder):
-			self.item_count = self.item_count + 1
+		self.item_count = len(os.listdir(self.trash_folder))
+			#self.item_count = self.item_count + 1
 		self.redraw_canvas()
 		return True
 

@@ -98,11 +98,28 @@ class TrashScreenlet(screenlets.Screenlet):
 			ctx.scale(self.scale, self.scale)
 			if self.item_count == 0:
 				ico = 'user-trash-empty'
+				try:
+					icontheme = gtk.icon_theme_get_default()
+					image = icontheme.load_icon (ico,width,height)
+				except:
+					ico = 'emptytrash'
 			else:
 				ico = 'user-trash-full'
+				try:
+					icontheme = gtk.icon_theme_get_default()
+					image = icontheme.load_icon (ico,width,height)
+				except:
+					ico = 'trashcan_full'
 			if self.style == True:	
-				self.draw_icon(ctx,0,0,ico,128)
+				try:
+					self.draw_icon(ctx,0,0,ico,128,128)
+				except:
+					self.draw_icon(ctx,0,0,ico,128,128)				
 			else:
+				if self.item_count == 0:
+					ico = 'user-trash-empty'
+				else:
+					ico = 'user-trash-full'
 				self.theme.render(ctx,ico)
 			if self.show_count:
 				ctx.set_source_rgba(1,1,1,0.65)

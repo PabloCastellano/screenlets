@@ -1896,6 +1896,19 @@ class Screenlet (gobject.GObject, EditableOptions):
 		else: ctx.stroke()
 		ctx.restore()
 
+
+	def draw_triangle(self,ctx,x,y,width,height,fill=True):
+		"""Draws a circule"""
+		ctx.save()
+		ctx.translate(x, y)
+		ctx.move_to(width-(width/3), height/3)
+		ctx.line_to(width,height)
+		ctx.rel_line_to(-(width-(width/3)), 0)
+		ctx.close_path()
+		if fill:ctx.fill()
+		else: ctx.stroke()
+		ctx.restore()
+
 	def draw_line(self,ctx,start_x,start_y,end_x,end_y,line_width = 1,close=False,preserve=False):
 		"""Draws a line"""
 		ctx.save()

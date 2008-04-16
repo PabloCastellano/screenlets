@@ -109,7 +109,8 @@ class MountScreenlet (screenlets.Screenlet):
 	def update (self):
 		self.fstab = utils.readMountFile('/etc/fstab')
 		self.mounts = utils.readMountFile('/proc/mounts')
-		self.height = 20 + (len(self.fstab)*20) +20		
+		if self.height != 20 + (len(self.fstab)*20) +20	:
+			self.height = 20 + (len(self.fstab)*20) +20		
 		self.redraw_canvas()
 		return True # keep running this event	
 	
@@ -275,6 +276,7 @@ class MountScreenlet (screenlets.Screenlet):
 		"""In here we draw"""
 		ctx.scale(self.scale, self.scale)
 		y = 0
+
 		if self.expanded:
 			if self.show_shadow:self.draw_shadow(ctx, 0, 0, self.width-12, self.height-5,6,[0,0,0,0.3])	
 		else:
@@ -283,8 +285,17 @@ class MountScreenlet (screenlets.Screenlet):
 		ctx.set_source_rgba(self.color_back[0],self.color_back[1],self.color_back[2],self.color_back[3])
 		self.draw_top_rounded_rectangle(ctx,0,y,5,self.width-20,20)
 		ctx.set_source_rgba(self.color_title[0],self.color_title[1],self.color_title[2],self.color_title[3])
-		self.draw_text(ctx, 'Mountpoints',5,y+2,self.font_title.split(' ')[0],10,self.width-20,pango.ALIGN_LEFT)
-		ctx.translate(0,20)
+		self.draw_text(ctx, 'Mountpoints',14,y+2,self.font_title.split(' ')[0],10,self.width-20,pango.ALIGN_LEFT)
+		if self.expanded:
+			ctx.rotate(3.14)
+			self.draw_triangle(ctx,-15,-(y+17),10,10)
+			ctx.rotate(-3.14)
+			
+		else:
+			ctx.rotate(3.14/2)
+			self.draw_triangle(ctx,3,-(y+15),10,10)
+			ctx.rotate(-3.14/2)
+		ctx.translate(0,20)			
 		if self.expanded :
 			for mount  in self.fstab:
 				if mount in self.mounts:

@@ -1915,6 +1915,136 @@ class Screenlet (gobject.GObject, EditableOptions):
 		else: ctx.stroke()
 		ctx.restore()
 
+	def draw_top_rounded_rectangle(self,ctx,x,y,rounded_angle,width,height,fill=True):
+		"""Draws a rounded rectangle"""
+		ctx.save()
+		ctx.translate(x, y)
+		padding=0 # Padding from the edges of the window
+        	rounded=rounded_angle # How round to make the edges 20 is ok
+        	w = width
+		h = height
+
+        	# Move to top corner
+        	ctx.move_to(0+padding+rounded, 0+padding)
+        	
+        	# Top right corner and round the edge
+        	ctx.line_to(w-padding-rounded, 0+padding)
+        	ctx.arc(w-padding-rounded, 0+padding+rounded, rounded, (math.pi/2 )+(math.pi) , 0)
+	
+        	# Bottom right corner and round the edge
+        	ctx.line_to(w-padding, h-padding)
+        	#ctx.arc(w-padding-rounded, h-padding-rounded, rounded, 0, math.pi/2)
+       	
+        	# Bottom left corner and round the edge.
+        	ctx.line_to(0+padding, h-padding)
+        	#ctx.arc(0+padding+rounded, h-padding-rounded, rounded,math.pi/2, math.pi)
+	
+        	# Top left corner and round the edge
+        	ctx.line_to(0+padding, 0+padding+rounded)
+        	ctx.arc(0+padding+rounded, 0+padding+rounded, rounded, math.pi, (math.pi/2 )+(math.pi))
+        	
+        	# Fill in the shape.
+		if fill:ctx.fill()
+		else: ctx.stroke()
+		ctx.restore()
+
+	def draw_bottom_rounded_rectangle(self,ctx,x,y,rounded_angle,width,height,fill=True):
+		"""Draws a rounded rectangle"""
+		ctx.save()
+		ctx.translate(x, y)
+		padding=0 # Padding from the edges of the window
+        	rounded=rounded_angle # How round to make the edges 20 is ok
+        	w = width
+		h = height
+
+        	# Move to top corner
+        	ctx.move_to(0+padding+rounded, 0+padding)
+        	
+        	# Top right corner and round the edge
+        	ctx.line_to(w-padding, 0+padding)
+        	#ctx.arc(w-padding-rounded, 0+padding+rounded, rounded, (math.pi/2 )+(math.pi) , 0)
+	
+        	# Bottom right corner and round the edge
+        	ctx.line_to(w-padding, h-padding-rounded)
+        	ctx.arc(w-padding-rounded, h-padding-rounded, rounded, 0, math.pi/2)
+       	
+        	# Bottom left corner and round the edge.
+        	ctx.line_to(0+padding+rounded, h-padding)
+        	ctx.arc(0+padding+rounded, h-padding-rounded, rounded,math.pi/2, math.pi)
+	
+        	# Top left corner and round the edge
+        	ctx.line_to(0+padding, 0+padding)
+        	#ctx.arc(0+padding+rounded, 0+padding+rounded, rounded, math.pi, (math.pi/2 )+(math.pi))
+        	
+        	# Fill in the shape.
+		if fill:ctx.fill()
+		else: ctx.stroke()
+		ctx.restore()
+
+	def draw_quadrant_shadow(self, ctx, x, y, from_r, to_r, quad, col):
+		gradient = cairo.RadialGradient(x,y,from_r,x,y,to_r)
+		gradient.add_color_stop_rgba(0,col[0],col[1],col[2],col[3])
+		gradient.add_color_stop_rgba(1,col[0],col[1],col[2],0)
+		ctx.set_source(gradient)
+		ctx.new_sub_path()
+		if quad==0: ctx.arc(x,y,to_r, -math.pi, -math.pi/2)
+		elif quad==1: ctx.arc(x,y,to_r, -math.pi/2, 0)
+		elif quad==2: ctx.arc(x,y,to_r, math.pi/2, math.pi)
+		elif quad==3: ctx.arc(x,y,to_r, 0, math.pi/2)
+		ctx.line_to(x,y)
+		ctx.close_path()
+		ctx.fill()
+
+	# side: 0 - left, 1 - right, 2 - top, 3 - bottom
+	def draw_side_shadow(self, ctx, x, y, w, h, side, col):
+		gradient = None
+		if side==0:
+			gradient = cairo.LinearGradient(x+w,y,x,y)
+		elif side==1:
+			gradient = cairo.LinearGradient(x,y,x+w,y)
+		elif side==2:
+			gradient = cairo.LinearGradient(x,y+h,x,y)
+		elif side==3:
+			gradient = cairo.LinearGradient(x,y,x,y+h)
+		if gradient:
+			gradient.add_color_stop_rgba(0,col[0],col[1],col[2],col[3])
+			gradient.add_color_stop_rgba(1,col[0],col[1],col[2],0)
+			ctx.set_source(gradient)
+		ctx.rectangle(x,y,w,h)
+		ctx.fill()
+
+	def draw_shadow(self, ctx, x, y, w, h, shadow_size, col):
+		s = shadow_size
+		#r = self.layout.window.radius
+		r = s
+		rr = r+s
+		h = h-r
+		if h < 2*r: h = 2*r
+
+		# TODO: Offsets [Will need to change all places doing 
+		#       x+=shadow_size/2 or such to use the offsets then
+		ctx.save()
+		ctx.translate(x,y)
+
+		# Top Left
+		self.draw_quadrant_shadow(ctx, rr, rr, 0, rr, 0, col)
+		# Left
+		self.draw_side_shadow(ctx, 0, rr, r+s, h-2*r, 0, col)
+		# Bottom Left
+		self.draw_quadrant_shadow(ctx, rr, h-r+s, 0, rr, 2, col)
+		# Bottom
+		self.draw_side_shadow(ctx, rr, h-r+s, w-2*r, s+r, 3, col)
+		# Bottom Right
+		self.draw_quadrant_shadow(ctx, w-r+s, h-r+s, 0, rr, 3, col)
+		# Right
+		self.draw_side_shadow(ctx, w-r+s, rr, s+r, h-2*r, 1, col)
+		# Top Right
+		self.draw_quadrant_shadow(ctx, w-r+s, rr, 0, rr, 1, col)
+		# Top
+		self.draw_side_shadow(ctx, rr, 0, w-2*r, s+r, 2, col)
+
+		ctx.restore()
+
 	def draw_rounded_rectangle(self,ctx,x,y,rounded_angle,width,height,fill=True):
 		"""Draws a rounded rectangle"""
 		ctx.save()

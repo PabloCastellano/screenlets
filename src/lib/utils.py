@@ -153,6 +153,33 @@ def get_screenlet_process (name):
 		return int(line[0].split(' ')[0])
 	return None
 
+def LoadPlaces():
+	"""Returns mount points in media"""
+	mountlist = os.popen('mount -l').read()
+	prog = re.compile("^/dev/.*?\son\s/media/(.*?) .*?(\[(.*?)\])?$", re.MULTILINE)
+	return prog.findall(mountlist)
+
+def LoadBookmarks():
+	"""Returns gtk bookmarks """
+	try:
+		bookmarks_file = open(os.path.join(os.path.expanduser("~"), ".gtk-bookmarks"), 'r')
+		bookmarks = bookmarks_file.read()
+		bookmarks_file.close()
+		prog = re.compile('^(.*?)\s(.*?)$', re.MULTILINE)
+		return prog.findall(bookmarks)
+	except IOError:
+		return {}
+
+def readMountFile( filename):
+	fstab = []
+	f = open(filename, 'r')
+	for line in f:
+		if (not line.isspace() and not line.startswith('#') and not line.lower().startswith('none')) :
+			fstabline = line.split()
+			if fstabline[1] != 'none' and fstabline[1] != '/proc': fstab.append(fstabline[1])
+	
+	fstab.sort()
+	return fstab
 
 # ------------------------------------------------------------------------------
 # CLASSES

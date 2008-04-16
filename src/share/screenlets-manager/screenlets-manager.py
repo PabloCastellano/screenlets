@@ -418,22 +418,6 @@ class ScreenletsManager:
 				print _("Error in ScreenletsManager.connect_daemon: %s") % ex
 		return None
 
-	def __get_user_dir(self, key, default):
-		"""http://www.freedesktop.org/wiki/Software/xdg-user-dirs"""
-
-		user_dirs_dirs = os.path.expanduser("~/.config/user-dirs.dirs")
-		if os.path.exists(user_dirs_dirs):
-			f = open(user_dirs_dirs, "r")
-			for line in f.readlines():
-				if line.startswith(key):
-					return os.path.expandvars(line[len(key)+2:-2])
- 		return default	
-
-	def get_desktop_dir(self):
-		"""Returns desktop dir"""
-		self.__desktop_dir =  self.__get_user_dir("XDG_DESKTOP_DIR", os.path.expanduser("~/Desktop"))
-		return self.__desktop_dir
-
 	def create_autostarter (self, name):
 		"""Create a .desktop-file for the screenlet with the given name in 
 		$HOME/.config/autostart."""
@@ -1332,7 +1316,7 @@ class ScreenletsManager:
 			info = self.get_selection()
 			name = info.name
 			path = utils.find_first_screenlet_path(name)
-			desk = self.get_desktop_dir()
+			desk = utils.get_desktop_dir()
 			if name.endswith('Screenlet'):
 				name = name[:-9]
 			starter = '%s/%sScreenlet.desktop' % (desk, name)

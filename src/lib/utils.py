@@ -22,7 +22,7 @@ import sys
 import stat
 import gettext
 import re
-
+import urllib
 gettext.textdomain('screenlets')
 gettext.bindtextdomain('screenlets', '/usr/share/locale')
 
@@ -153,6 +153,23 @@ def get_screenlet_process (name):
 		return int(line[0].split(' ')[0])
 	return None
 
+def get_user_dir(key, default):
+	"""http://www.freedesktop.org/wiki/Software/xdg-user-dirs"""
+
+	user_dirs_dirs = os.path.expanduser("~/.config/user-dirs.dirs")
+	if os.path.exists(user_dirs_dirs):
+		f = open(user_dirs_dirs, "r")
+		for line in f.readlines():
+			if line.startswith(key):
+				return os.path.expandvars(line[len(key)+2:-2])
+	return default	
+
+def get_desktop_dir():
+	"""Returns desktop dir"""
+	desktop_dir =  get_user_dir("XDG_DESKTOP_DIR", os.path.expanduser("~/Desktop"))
+	desktop_dir = urllib.unquote(desktop_dir)
+	return desktop_dir
+
 def LoadPlaces():
 	"""Returns mount points in media"""
 	mountlist = os.popen('mount -l').read()
@@ -161,14 +178,32 @@ def LoadPlaces():
 
 def LoadBookmarks():
 	"""Returns gtk bookmarks """
+	_bookmarks_path = os.path.expanduser("~/.gtk-bookmarks")
+	_places = []
 	try:
-		bookmarks_file = open(os.path.join(os.path.expanduser("~"), ".gtk-bookmarks"), 'r')
-		bookmarks = bookmarks_file.read()
-		bookmarks_file.close()
-		prog = re.compile('^(.*?)\s(.*?)$', re.MULTILINE)
-		return prog.findall(bookmarks)
-	except IOError:
-		return {}
+		for line in file(_bookmarks_path):
+			line = line.strip()
+
+			if " " in line:
+				uri, name = line.split(" ", 1)
+				
+			else:
+				uri = line
+				
+				path = urllib.splittype(uri)[1]
+				name = urllib.unquote(os.path.split(path)[1])
+
+			try:
+				if os.path.exists(uri):
+					continue
+                # Protect against a broken bookmarks file
+			except TypeError:
+				continue
+
+			_places.append((uri, name))
+		return _places
+        except IOError, err:
+            print "Error loading GTK bookmarks:", err
 
 def readMountFile( filename):
 	fstab = []

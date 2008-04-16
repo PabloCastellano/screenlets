@@ -609,7 +609,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 		show_window=True, is_widget=False, is_sticky=False, 
 		uses_theme=True, draw_buttons=True,path=os.getcwd(), drag_drop=False, session=None, 
 		enable_saving=True, service_class=services.ScreenletService,
-		uses_pango=False):
+		uses_pango=False,ask_on_option_override=True):
 		"""Constructor - should only be subclassed"""
 		
 		# call gobject and EditableOptions superclasses
@@ -701,6 +701,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 			self.skip_pager, _('Skip Taskbar'), 
 			_('Set this Screenlet to show/hide in taskbars ...')))
 		if uses_theme:
+			self.ask_on_option_override = ask_on_option_override
 			self.add_option(BoolOption('Screenlet', 'allow_option_override', 
 			self.allow_option_override, _('Allow overriding Options'), 
 				_('Allow themes to override options in this screenlet ...')))

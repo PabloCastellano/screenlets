@@ -15,7 +15,7 @@ from screenlets.options import StringOption , BoolOption , IntOption , FileOptio
 from screenlets import DefaultMenuItem
 import pango
 import gobject
-
+import gtk
 import os
 class MountScreenlet (screenlets.Screenlet):
 	"""A simple example of how to create a Screenlet"""
@@ -29,12 +29,16 @@ class MountScreenlet (screenlets.Screenlet):
 	# editable options (options that are editable through the UI)
 
 	
-	color_unmounted = (1, 0, 0, 0.65)
-	color_mounted = (0, 1, 0, 0.65)
-	color_text = (0.0, 0.0, 0.0, 1)
+	color_unmounted = (0, 0, 0, 0.55)
+	color_mounted = (0, 0, 0, 0.65)
+	color_title = (0.0, 0.0, 0.0, 1)
+	color_text = (1,1,1,1)
+	color_back = (1.0, 1.0, 1.0, 0.65)
 	color_hover = (0, 0, 1.0, 0.65)
 	font = "FreeSans"
-
+	font_title = "FreeSans"
+	show_shadow = True
+	expanded = True
 	hover = False
 	number = 0
 
@@ -47,7 +51,7 @@ class MountScreenlet (screenlets.Screenlet):
 	def __init__ (self, **keyword_args):
 		#call super (width/height MUST match the size of graphics in the theme)
 		screenlets.Screenlet.__init__(self, width=200, height=200, 
-			uses_theme=True, **keyword_args)
+			uses_theme=True,ask_on_option_override = False,  **keyword_args)
 		# set theme
 		self.theme_name = "default"
 		# add option group
@@ -55,10 +59,20 @@ class MountScreenlet (screenlets.Screenlet):
 		# add editable option to the group
 
 
+		self.add_option(FontOption('Options','font_title', 
+			self.font_title, 'Title Font', 
+			''))
 
+		self.add_option(ColorOption('Options','color_title', 
+			self.color_title, 'Title Color', 
+			''))
 
-		self.add_option(FontOption('Options','font_example', 
-			self.font, 'Font', 
+		self.add_option(ColorOption('Options','color_back', 
+			self.color_back, 'Title Background Color', 
+			''))
+
+		self.add_option(FontOption('Options','font', 
+			self.font, 'Text Font', 
 			''))
 
 		self.add_option(ColorOption('Options','color_text', 
@@ -77,11 +91,15 @@ class MountScreenlet (screenlets.Screenlet):
 			self.color_hover, 'Hover Color', 
 			''))
 
+		self.add_option(BoolOption('Options','show_shadow', 
+			self.show_shadow, 'Show Shadow', '',))
 
+		self.add_option(BoolOption('Options','expanded', 
+			self.expanded, 'Expanded', '',hidden=True))
 
 		# ADD a 1 second (1000) TIMER
 		self.timer = gobject.timeout_add( 1000, self.update)
-		
+		self.ask_on_option_override = False
 	
 		#fstab = self.readFile('/etc/fstab')
 		#mounts = self.readFile('/proc/mounts')
@@ -187,15 +205,19 @@ class MountScreenlet (screenlets.Screenlet):
 		Returning True causes the event to be not further propagated."""
 		x = event.x / self.scale
 		y = event.y / self.scale
-		if event.button == 1 and y > (30):
-			click = int((y -10 )/ (20)) -1
-			
-			if self.fstab[click] in self.mounts:
-				if screenlets.show_question(self,'Do you want to unmount ' + self.fstab[click]):
-					os.system('umount ' + self.fstab[click])
-			else:
-				if screenlets.show_question(self,'Do you want to mount ' + self.fstab[click]):
-					os.system('mount ' + self.fstab[click])
+		if event.button == 1:
+			if event.type == gtk.gdk._2BUTTON_PRESS and y < 30: 
+				self.expanded = not self.expanded
+			 
+			if y > (30):
+				click = int((y -10 )/ (20)) -1
+				
+				if self.fstab[click] in self.mounts:
+					if screenlets.show_question(self,'Do you want to unmount ' + self.fstab[click]):
+						os.system('umount ' + self.fstab[click])
+				else:
+					if screenlets.show_question(self,'Do you want to mount ' + self.fstab[click]):
+						os.system('mount ' + self.fstab[click])
 		return False
 	
 	def on_mouse_enter (self, event):
@@ -253,31 +275,42 @@ class MountScreenlet (screenlets.Screenlet):
 		"""In here we draw"""
 		ctx.scale(self.scale, self.scale)
 		y = 0
-		ctx.set_source_rgba(1,1,1,0.65)
-		
-		self.draw_shadow(ctx, 0, 0, self.width-12, self.height-5,6,[0,0,0,0.3])	
+		if self.expanded:
+			if self.show_shadow:self.draw_shadow(ctx, 0, 0, self.width-12, self.height-5,6,[0,0,0,0.3])	
+		else:
+			if self.show_shadow:self.draw_shadow(ctx, 0, 0, self.width-12,40-5,6,[0,0,0,0.3])	
 		ctx.translate(10,10)
+		ctx.set_source_rgba(self.color_back[0],self.color_back[1],self.color_back[2],self.color_back[3])
 		self.draw_top_rounded_rectangle(ctx,0,y,5,self.width-20,20)
+		ctx.set_source_rgba(self.color_title[0],self.color_title[1],self.color_title[2],self.color_title[3])
+		self.draw_text(ctx, 'Mountpoints',5,y+2,self.font_title.split(' ')[0],10,self.width-20,pango.ALIGN_LEFT)
 		ctx.translate(0,20)
+		if self.expanded :
+			for mount  in self.fstab:
+				if mount in self.mounts:
+					ctx.set_source_rgba(self.color_mounted[0],self.color_mounted[1],self.color_mounted[2],self.color_mounted[3])
+					#is_mounted = 'Mounted'
+					ico = gtk.STOCK_APPLY
+				else:
+					ctx.set_source_rgba(self.color_unmounted[0],self.color_unmounted[1],self.color_unmounted[2],self.color_unmounted[3])
+					#is_mounted = 'Not Mounted'
+					ico = gtk.STOCK_CANCEL
+
+
+				if self.mousey > (y+30) and self.mousey < (y +50) and self.mouse_is_hover:ctx.set_source_rgba(self.color_hover[0],self.color_hover[1],self.color_hover[2],self.color_hover[3])
+
+				if self.fstab[len(self.fstab)-1] == mount:
+					self.draw_bottom_rounded_rectangle(ctx,0,y,5,self.width-20,20)	
+				else:
+					self.draw_rectangle(ctx,0,y,self.width -20,20)
+
+				ctx.set_source_rgba(self.color_text[0],self.color_text[1],self.color_text[2],self.color_text[3])
+				self.draw_text(ctx,mount,5,y+2,self.font.split(' ')[0],10,self.width-20,pango.ALIGN_LEFT)
+				self.draw_icon(ctx,self.width-40,y+2,ico,16,16)
+
+				y = y +20
+			
 		
-		for mount  in self.fstab:
-			if mount in self.mounts:
-				ctx.set_source_rgba(self.color_mounted[0],self.color_mounted[1],self.color_mounted[2],self.color_mounted[3])
-				is_mounted = 'Mounted'
-			else:
-				ctx.set_source_rgba(self.color_unmounted[0],self.color_unmounted[1],self.color_unmounted[2],self.color_unmounted[3])
-				is_mounted = 'Not Mounted'
-			if self.mousey > (y+30) and self.mousey < (y +50) and self.mouse_is_hover:ctx.set_source_rgba(self.color_hover[0],self.color_hover[1],self.color_hover[2],self.color_hover[3])
-			if self.fstab[len(self.fstab)-1] == mount:
-				self.draw_bottom_rounded_rectangle(ctx,0,y,5,self.width-20,20)	
-			else:
-				self.draw_rectangle(ctx,0,y,self.width -20,20)
-			ctx.set_source_rgba(self.color_text[0],self.color_text[1],self.color_text[2],self.color_text[3])
-			self.draw_text(ctx,mount,5,y+2,self.font,10,self.width-20,pango.ALIGN_LEFT)
-			self.draw_text(ctx, is_mounted,-5,y+2,"FreeSans",10,self.width-20,pango.ALIGN_RIGHT)
-			y = y +20
-		
-		ctx.translate(-10,-30)
 			
 
 	def on_draw_shape (self, ctx):

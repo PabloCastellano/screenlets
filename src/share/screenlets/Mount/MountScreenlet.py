@@ -18,7 +18,7 @@ import gobject
 import gtk
 import os
 class MountScreenlet (screenlets.Screenlet):
-	"""A simple example of how to create a Screenlet"""
+	"""Displays mountpoints and allows interaction"""
 	
 	# default meta-info for Screenlets (should be removed and put into metainfo)
 	__name__	= 'MountScreenlet'

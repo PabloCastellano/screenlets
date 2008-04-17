@@ -1862,7 +1862,17 @@ class Screenlet (gobject.GObject, EditableOptions):
 		extents, lextents = self.p_layout.get_pixel_extents()
 		ctx.restore()
 		return extents
-
+	
+	def check_for_icon(self,icon):
+		try:
+			icontheme = gtk.icon_theme_get_default()
+			image = icontheme.load_icon (icon,32,32)
+			image = None
+			icontheme = None
+			return True
+		except:
+			return False
+	
 	def draw_text(self, ctx, text, x, y,  font, size, width, allignment,weight = 0, ellipsize = pango.ELLIPSIZE_NONE):
 		"""Draws text"""
 		ctx.save()

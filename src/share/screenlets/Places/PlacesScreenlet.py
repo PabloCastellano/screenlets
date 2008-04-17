@@ -18,7 +18,7 @@ import gobject
 import gtk
 import os
 class PlacesScreenlet (screenlets.Screenlet):
-	"""A simple example of how to create a Screenlet"""
+	"""Lists gtk Bookmarks"""
 	
 	# default meta-info for Screenlets (should be removed and put into metainfo)
 	__name__	= 'PlacesScreenlet'

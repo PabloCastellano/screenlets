@@ -43,10 +43,11 @@ class AppMenuScreenlet (screenlets.Screenlet):
 	number = 0
 
 	app_list = ['firefox','nautilus','gnome-terminal','gimp','gedit','gnome-system-monitor','gconf-editor','pidgin','gcalctool','screenlets-manager']
-	mouse_is_hover = False
+	mouse_is_over = False
 	places = []
 	old_places = []
 	selected = 0
+	mousesel = 0
 	# constructor
 	def __init__ (self, **keyword_args):
 		#call super (width/height MUST match the size of graphics in the theme)
@@ -102,7 +103,7 @@ class AppMenuScreenlet (screenlets.Screenlet):
 		# ADD a 1 second (1000) TIMER
 
 		self.ask_on_option_override = False
-	
+		
 		#fstab = self.readFile('/etc/fstab')
 		#mounts = self.readFile('/proc/mounts')
 
@@ -113,7 +114,7 @@ class AppMenuScreenlet (screenlets.Screenlet):
 			if self.height != 20 + (len(self.app_list)*20) +20:
 				self.height = 20 + (len(self.app_list)*20) +20		
 				self.redraw_canvas()
-		
+		print name
 	
 	# ONLY FOR TESTING!!!!!!!!!
 	def init_options_from_metadata (self):
@@ -222,12 +223,12 @@ class AppMenuScreenlet (screenlets.Screenlet):
 	
 	def on_mouse_enter (self, event):
 		"""Called when the mouse enters the Screenlet's window."""
-		self.mouse_is_hover = True
+	
 
 		
 	def on_mouse_leave (self, event):
 		"""Called when the mouse leaves the Screenlet's window."""
-		self.mouse_is_hover = False
+		
 		self.redraw_canvas()
 
 	def on_mouse_move(self, event):
@@ -235,8 +236,8 @@ class AppMenuScreenlet (screenlets.Screenlet):
 		x = event.x / self.scale
 		y = event.y / self.scale
 		if y > (30):
-			sel = int((y -10 )/ (20)) -1
-			if self.selected != sel or y > 20 + (len(self.app_list)*20) +20:				
+			self.__dict__['mousesel'] = int((y -10 )/ (20)) -1
+			if self.selected != self.mousesel or y > 20 + (len(self.app_list)*20) +20:				
 				self.redraw_canvas()
 				
 	def on_mouse_up (self, event):
@@ -314,9 +315,9 @@ class AppMenuScreenlet (screenlets.Screenlet):
 					ico = 'applications-system'
 
 
-				if self.mousey > (y+30) and self.mousey < (y +50) and self.mouse_is_hover:
+				if self.mousesel == x and self.mouse_is_over:
 					ctx.set_source_rgba(self.color_hover[0],self.color_hover[1],self.color_hover[2],self.color_hover[3])
-					self.selected = x
+					self.__dict__['selected'] = x
 
 				if self.app_list[len(self.app_list)-1] == app:
 					self.draw_bottom_rounded_rectangle(ctx,0,y,5,self.width-20,20)	

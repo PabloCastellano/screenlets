@@ -570,6 +570,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 	y = 0
 	mousex = 0
 	mousey = 0
+	mouse_is_over = False
 	width	= 100
 	height	= 100
 	scale	= 1.0
@@ -1677,7 +1678,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 	
 	def enter_notify_event (self, widget, event):
 		#self.__mouse_inside = True
-		
+		self.__dict__['mouse_is_over'] = True
 		self.on_mouse_enter(event)
 		
 		#self.redraw_canvas()
@@ -1723,6 +1724,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 	def leave_notify_event (self, widget, event):
 		#self.__mouse_inside = False
 		#self.is_dragged = False
+		self.__dict__['mouse_is_over'] = False
 		self.on_mouse_leave(event)
 	
 		#self.redraw_canvas()

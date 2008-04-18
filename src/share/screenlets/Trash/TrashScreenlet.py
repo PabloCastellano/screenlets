@@ -36,7 +36,10 @@ class TrashScreenlet(screenlets.Screenlet):
 	
 	style = False
 	show_count = True
-	trash_folder = os.environ['HOME'] + '/.Trash'
+	if os.path.exists(os.environ['HOME'] +'/.local/share/Trash/files') and os.path.isdir(os.environ['HOME'] +'/.local/share/Trash/files'):
+		trash_folder = os.environ['HOME'] +'/.local/share/Trash/files'
+	else:
+		trash_folder = os.environ['HOME'] + '/.Trash'
 	item_count = 0
 	def __init__(self, **keyword_args):
 		screenlets.Screenlet.__init__(self, width=128, height=160,drag_drop=True, **keyword_args) 

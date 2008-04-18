@@ -660,10 +660,6 @@ class OptionsDialog (gtk.Dialog):
 		self.main_notebook = gtk.Notebook()
 		self.main_notebook.show()
 		self.vbox.add(self.main_notebook)
-  		self.gtk_screen = self.main_notebook.get_screen()
-  		colormap = self.gtk_screen.get_rgba_colormap()
-  		if colormap:
-      			gtk.widget_set_default_colormap(colormap)
 		# create/init notebook pages
 		self.create_about_page()
 		self.create_themes_page()

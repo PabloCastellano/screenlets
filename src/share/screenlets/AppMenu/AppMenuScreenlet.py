@@ -114,7 +114,7 @@ class AppMenuScreenlet (screenlets.Screenlet):
 			if self.height != 20 + (len(self.app_list)*20) +20:
 				self.height = 20 + (len(self.app_list)*20) +20		
 				self.redraw_canvas()
-		print name
+		
 	
 	# ONLY FOR TESTING!!!!!!!!!
 	def init_options_from_metadata (self):

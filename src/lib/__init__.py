@@ -682,7 +682,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 			is_widget, _('Treat as Widget'), 
 			_('Treat this Screenlet as a "Widget" ...')))
 		self.add_option(BoolOption('Screenlet', 'is_dragged', 
-			self.is_dragged, "","", hidden=True))
+			self.is_dragged, "Is the screenlet dragged","Is the screenlet dragged", hidden=True))
 		self.add_option(BoolOption('Screenlet', 'lock_position', 
 			self.lock_position, _('Lock position'), 
 			_('Stop the screenlet from being moved...')))

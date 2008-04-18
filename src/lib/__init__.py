@@ -1799,8 +1799,8 @@ class Screenlet (gobject.GObject, EditableOptions):
 		return False
 
 	def motion_notify_event(self, widget, event):
-		self.mousex = event.x / self.scale
-		self.mousey = event.y / self.scale
+		self.__dict__['mousex'] = event.x / self.scale
+		self.__dict__['mousey'] = event.y / self.scale
 		
 		self.on_mouse_move(event)
 	

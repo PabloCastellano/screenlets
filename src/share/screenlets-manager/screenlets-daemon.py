@@ -270,7 +270,7 @@ class ScreenletsDaemon (dbus.service.Object):
 		
 		name = str(screenlet)
 		if not screenlets.launch_screenlet(name):
-			screenlets.show_error(self, _('Failed to add %sScreenlet.') % name)
+			screenlets.show_error(None, _('Failed to add %sScreenlet.') % name)
 
 	
 	def installit (self, widget):

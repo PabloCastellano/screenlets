@@ -35,6 +35,7 @@ import cairo
 import pango
 from datetime import datetime
 import gobject
+import os
 from os import environ
 
 # the service that implements the remote-actions for this screenlet
@@ -330,10 +331,17 @@ class ClockScreenlet (Screenlet):
 				self.redraw_background()
 		self.redraw_canvas()
 		return True # keep running this event
+
+	def menuitem_callback(self, widget, id):
+		screenlets.Screenlet.menuitem_callback(self, widget, id)
+		if id=="get_skins":
+			os.system('xdg-open http://gnome-look.org/index.php?xcontentmode=186')
+
 	
 	def on_init (self):
 		print "OK - Clock has been initialized."
 		# add default menuitems
+		self.add_menuitem("get_skins", "Get Clock Skins")
 		self.add_default_menuitems()
 	def on_draw (self, ctx):
 		# no theme? no drawing

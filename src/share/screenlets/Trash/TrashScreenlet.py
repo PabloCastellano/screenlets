@@ -88,7 +88,7 @@ class TrashScreenlet(screenlets.Screenlet):
 			import urllib
 			filename = urllib.unquote(filename)
 			#if screenlets.show_question(self,'Do you want to send '+ filename' in your Trash folder?'):
-			os.system('mv ' + filename + ' ' + self.trash_folder)
+			os.system('mv ' + chr(34)+ filename + chr(34) + ' ' + self.trash_folder)
 		
 	def update(self):
 		self.trash_folder = os.environ['HOME'] + '/.Trash'

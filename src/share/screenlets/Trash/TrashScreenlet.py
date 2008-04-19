@@ -24,6 +24,7 @@ import pango
 import os
 import gtk
 import gobject
+import urllib
 
 class TrashScreenlet(screenlets.Screenlet):
 	"""A shut down screenlet"""
@@ -67,29 +68,33 @@ class TrashScreenlet(screenlets.Screenlet):
 		print "Data dropped ..."
 		filename = ''
 		# get text-elements in selection data
-		txt = sel_data.get_text()
-		if txt:
-			if txt[-1] == '\n':
-				txt = txt[:-1]
-			txt.replace('\n', '\\n')
-			# if it is a filename, use it
-			if txt.startswith('file://'):
-				filename = txt[7:]
-			else:
-				screenlets.show_error(self, 'Invalid string: %s.' % txt)
-		else:
-			# else get uri-part of selection
-			uris = sel_data.get_uris()
-			if uris and len(uris)>0:
-				#print "URIS: "+str(uris	)
-				filename = uris[0][7:]
-		if filename != '':
-			#self.set_image(filename)
-			import urllib
-			filename = urllib.unquote(filename)
-			#if screenlets.show_question(self,'Do you want to send '+ filename' in your Trash folder?'):
-			os.system('mv ' + chr(34)+ filename + chr(34) + ' ' + self.trash_folder)
+		try:
+			txt = unicode.encode(sel_data.get_text(), 'utf-8')
+
+		except:
+			txt = sel_data.get_text()
+		txta = urllib.unquote(txt)
+		txta = str(txta).split('\n')
 		
+		for txt in txta:
+			if txt and txt != '':
+				# if it is a filename, use it
+				if txt.startswith('file://'):
+					filename = txt[7:]
+				else:
+					screenlets.show_error(self, 'Invalid string: %s.' % txt)
+			else:
+				# else get uri-part of selection
+				uris = sel_data.get_uris()
+				if uris and len(uris)>0:
+					#print "URIS: "+str(uris	)
+					filename = uris[0][7:]
+			if filename != '':
+				
+				#if screenlets.show_question(self,'Do you want to send '+ filename' in your Trash folder?'):
+				os.system('mv ' + chr(34)+ filename + chr(34) + ' ' + self.trash_folder)
+				filename  = ''			
+			
 	def update(self):
 		self.trash_folder = os.environ['HOME'] + '/.Trash'
 		self.item_count = len(os.listdir(self.trash_folder))

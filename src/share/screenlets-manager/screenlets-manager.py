@@ -33,6 +33,7 @@ import dbus
 import gettext
 import subprocess
 import commands
+import urllib
 #a = commands.getoutput("ps -ef | grep 'screenlets-manager.py'" )
 #b = a.find('/usr/share/screenlets-manager/screenlets-manager.py')
 #if b != -1:
@@ -984,7 +985,12 @@ class ScreenletsManager:
 		print _("Data dropped ...")
 		filename = ''
 		# get text-elements in selection data
-		txt = sel_data.get_text()
+		try:
+			txt = unicode.encode(sel_data.get_text(), 'utf-8')
+
+		except:
+			txt = sel_data.get_text()
+		txt = urllib.unquote(txt)
 		if txt:
 			if txt[-1] == '\n':
 				txt = txt[:-1]

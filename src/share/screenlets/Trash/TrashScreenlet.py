@@ -96,7 +96,10 @@ class TrashScreenlet(screenlets.Screenlet):
 				filename  = ''			
 			
 	def update(self):
-		self.trash_folder = os.environ['HOME'] + '/.Trash'
+		if os.path.exists(os.environ['HOME'] +'/.local/share/Trash/files') and os.path.isdir(os.environ['HOME'] +'/.local/share/Trash/files'):
+			trash_folder = os.environ['HOME'] +'/.local/share/Trash/files'
+		else:
+			trash_folder = os.environ['HOME'] + '/.Trash'
 		self.item_count = len(os.listdir(self.trash_folder))
 			#self.item_count = self.item_count + 1
 		self.redraw_canvas()
@@ -105,7 +108,7 @@ class TrashScreenlet(screenlets.Screenlet):
 	def on_mouse_down(self, event):
 		if event.type == gtk.gdk._2BUTTON_PRESS: 
 			if event.button == 1:
-				os.system('xdg-open ' + self.trash_folder + ' &')
+				os.system('xdg-open trash:/// &')
 		
 	def menuitem_callback(self, widget, id):
 		screenlets.Screenlet.menuitem_callback(self, widget, id)

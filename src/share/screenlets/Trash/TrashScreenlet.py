@@ -119,7 +119,7 @@ class TrashScreenlet(screenlets.Screenlet):
 				os.system('rm -rf ' + self.trash_folder + '/.*')
 				self.update()
 		elif id=="open":
-			os.system('xdg-open ' + self.trash_folder  + ' &')
+			os.system('xdg-open trash:/// &')
 
 	def on_init(self):	
 		self.add_menuitem("clean", "Empty Trash...")

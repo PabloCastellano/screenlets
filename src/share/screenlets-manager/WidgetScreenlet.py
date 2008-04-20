@@ -125,7 +125,7 @@ class WidgetScreenlet (screenlets.Screenlet):
 		self.add_option(ColorOption('Options','rgba_color', 
 			self.rgba_color , 'Frame color', 'The color of the frame border'))
         	self.add_option(IntOption('Options', 'set_width', self.set_width, 'Width',  'Custom width', min=10, max=gtk.gdk.screen_width()))
-        	self.add_option(IntOption('Options', 'setr_height', self.set_height, 'Height', 'Custom height', min=10, max=gtk.gdk.screen_height()))
+        	self.add_option(IntOption('Options', 'set_height', self.set_height, 'Height', 'Custom height', min=10, max=gtk.gdk.screen_height()))
         	#self.add_option(IntOption('Options', 'border_width', self.border_width, 'Frame border width', 'The width of the frame border', min=1, max=8))
 		self.disable_option('scale')
 		self.theme_name = 'default'

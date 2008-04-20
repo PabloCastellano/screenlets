@@ -184,7 +184,7 @@ class KarambaScreenlet (screenlets.Screenlet):
 		Screenlet do things on startup you should use this handler."""
 
 
-		self.find_first_karamba_theme()
+		if self.karambafile == '' :self.find_first_karamba_theme()
 		# add default menu items
 		self.add_default_menuitems()
 		gobject.threads_init()

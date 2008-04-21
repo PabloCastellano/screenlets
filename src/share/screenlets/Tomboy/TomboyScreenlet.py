@@ -11,7 +11,7 @@
 
 import screenlets
 from screenlets import utils
-from screenlets.options import StringOption , BoolOption , IntOption , FileOption , DirectoryOption , ListOption , AccountOption , TimeOption , FontOption, ColorOption , ImageOption
+from screenlets.options import StringOption , BoolOption , IntOption , FontOption, ColorOption
 from screenlets import DefaultMenuItem
 import pango
 import gobject
@@ -192,13 +192,20 @@ class TomboyScreenlet (screenlets.Screenlet):
 		if ev == gnomevfs.MONITOR_EVENT_CREATED:
 			notepath = os.path.join(self.note_path, filename)
 			self.notes[filename] = self.get_note(notepath)
-			self.redraw_canvas()
+			if self.height != 20 + (len(self.notes)*20) +20:
+				self.height = 20 + (len(self.notes)*20) +20		
+				self.redraw_canvas()
+
 		elif self.notes.has_key(filename):
 			if ev == gnomevfs.MONITOR_EVENT_DELETED:
 				del self.notes[filename]
-				self.redraw_canvas()
+				if self.height != 20 + (len(self.notes)*20) +20:
+					self.height = 20 + (len(self.notes)*20) +20		
+					self.redraw_canvas()
 			else:
-				self.redraw_canvas()
+				if self.height != 20 + (len(self.notes)*20) +20:
+					self.height = 20 + (len(self.notes)*20) +20		
+					self.redraw_canvas()
 
 
 	def menuitem_callback(self, widget, id):

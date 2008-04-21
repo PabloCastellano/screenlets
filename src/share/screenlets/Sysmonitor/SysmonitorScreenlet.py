@@ -70,6 +70,7 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 	show_frame = True
 	starty = 0
 	number = 0
+	update_interval = 2
 	# constructor
 	def __init__ (self, **keyword_args):
 		#call super (width/height MUST match the size of graphics in the theme)
@@ -93,6 +94,8 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 		self.add_option(BoolOption('Sysmonitor','show_frame', 
 			self.show_frame, 'Show frame', 
 			'Show frame window'))
+
+		self.add_option(IntOption('Sysmonitor', 'update_interval',self.update_interval, 'Update Interval','',min=1, max=60))
 
 		self.add_option(IntOption('Sysmonitor', 'starty',self.starty, 'Y position to start the text','',min=0, max=500))
 
@@ -131,37 +134,37 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 		self.wire_list = sensors.wir_get_interfaces()
 
 	def get_variables(self):
-		self.time = sensors.cal_get_local_time()
-		self.date = sensors.cal_get_day_name() + ' '+  sensors.cal_get_local_date()
-		self.avg_load = sensors.sys_get_average_load()
+		self.__dict__['time'] = sensors.cal_get_local_time()
+		self.__dict__['date'] = sensors.cal_get_day_name() + ' '+  sensors.cal_get_local_date()
+		self.__dict__['avg_load'] = sensors.sys_get_average_load()
 		for i in range (0,self.cpu_nb+1):
 
 		#	if not self.cpu_load[i]: self.cpu_load.append(0)
 			self.new_cpu[i]=sensors.cpu_get_load(i)
 
-			self.cpu_load[i] = self.new_cpu[i]-self.old_cpu[i]
+			self.cpu_load[i] = (self.new_cpu[i]-self.old_cpu[i])/self.update_interval
 			
 			self.old_cpu[i] = self.new_cpu[i]
 			try:
 				if self.cpu_load[i] > 99: self.cpu_load[i] = 99
 				elif self.cpu_load[i] < 0: self.cpu_load[i]=0
 			except : pass
-		self.mem_used = sensors.mem_get_usage()
-		self.swap_used = sensors.mem_get_usedswap()
-		self.up = sensors.net_get_updown()[0]
-		self.down = sensors.net_get_updown()[1]
-		self.upload = self.up - self.old_up
-		self.download = self.down - self.old_down
-		self.old_up = self.up
-		self.old_down = self.down
-		self.bat_list = sensors.bat_get_battery_list()
+		self.__dict__['mem_used'] = sensors.mem_get_usage()
+		self.__dict__['swap_used'] = sensors.mem_get_usedswap()
+		self.__dict__['up'] = sensors.net_get_updown()[0]
+		self.__dict__['down'] = sensors.net_get_updown()[1]
+		self.__dict__['upload'] = (self.up - self.old_up)/self.update_interval
+		self.__dict__['download'] = (self.down - self.old_down)/self.update_interval
+		self.__dict__['old_up'] = self.up
+		self.__dict__['old_down'] = self.down
+		self.__dict__['bat_list'] = sensors.bat_get_battery_list()
 		if self.bat_list:
-			self.bat_data = sensors.bat_get_data(self.bat_list[0])
+			self.__dict__['bat_data'] = sensors.bat_get_data(self.bat_list[0])
 			try:
-				self.bat_load = (self.bat_data[1]*100)/self.bat_data[2]
-			except: self.bat_load = 0
+				self.__dict__['bat_load'] = (self.bat_data[1]*100)/self.bat_data[2]
+			except: self.__dict__['bat_load'] = 0
 		if self.wire_list:
-			self.wire_data = sensors.wir_get_stats(self.wire_list[0])
+			self.__dict__['wire_data'] = sensors.wir_get_stats(self.wire_list[0])
 			
 
 	def update (self):
@@ -176,7 +179,7 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 
 	def on_map(self):
 		if not self.timer:
-			self.timer = gobject.timeout_add( 1000, self.update)
+			self.timer = gobject.timeout_add( self.update_interval*1000, self.update)
 		self.update()
 
 	def on_unmap(self):
@@ -195,6 +198,22 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 	def on_hide (self):
 		"""Called when the Screenlet gets hidden."""
 		pass
+
+
+	def __setattr__ (self, name, value):
+
+		screenlets.Screenlet.__setattr__(self, name, value)
+
+
+		if name == "update_interval":
+			if value > 0:
+				self.__dict__['update_interval'] = value
+				if self.timer:
+					gobject.source_remove(self.timer)
+				self.timer = gobject.timeout_add(int(value * 1000), self.update)
+			else:
+				self.__dict__['update_interval'] = 1
+				pass
 	
 	def on_init (self):
 		"""Called when the Screenlet's options have been applied and the 
@@ -241,7 +260,7 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 
 	def on_mouse_move(self, event):
 		"""Called when the mouse moves in the Screenlet's window."""
-		self.redraw_canvas()
+
 		pass
 
 	def on_mouse_up (self, event):

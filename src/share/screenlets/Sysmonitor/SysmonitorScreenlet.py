@@ -112,7 +112,7 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 
 
 		# ADD a 1 second (1000) TIMER
-		self.timer = gobject.timeout_add( 1000, self.update)
+		self.timer = None
 
 		#Also add options from xml file for example porpuse
 
@@ -174,6 +174,15 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 		self.redraw_canvas()
 		return True # keep running this event	
 
+	def on_map(self):
+		if not self.timer:
+			self.timer = gobject.timeout_add( 1000, self.update)
+		self.update()
+
+	def on_unmap(self):
+		if self.timer:
+			gobject.source_remove(self.timer)
+			self.timer = None
 
 	def on_drop (self, x, y, sel_data, timestamp):
 		"""Called when a selection is dropped on this Screenlet."""

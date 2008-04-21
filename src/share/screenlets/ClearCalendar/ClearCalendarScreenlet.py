@@ -109,6 +109,7 @@ class ClearCalendarScreenlet(screenlets.Screenlet):
 				= self.__day_names.index(self.first_weekday)
 			self.update()
 		elif name == 'enable_buttons':
+			self.__dict__['enable_buttons'] = value
 			if value == True and not self.__buttons_timeout:
 				self.__buttons_timeout = gobject.timeout_add(100, 
 						self.update_buttons)
@@ -163,7 +164,23 @@ class ClearCalendarScreenlet(screenlets.Screenlet):
 	
 		# return as array
 		return [day, year, month_name, days_in_month, start_day,month_num]
-	
+
+	def on_map(self):
+		if not self.__timeout:
+			self.__timeout = gobject.timeout_add(self.__dict__['update_interval']
+						* 1000, self.update)
+		if self.__dict__['enable_buttons'] == True and not self.__buttons_timeout:
+			self.__buttons_timeout = gobject.timeout_add(100, 
+					self.update_buttons)
+ 
+	def on_unmap(self):
+		if self.__timeout:
+			gobject.source_remove(self.__timeout)
+			self.__timeout = None
+		if self.__buttons_timeout:
+			gobject.source_remove(self.__buttons_timeout)
+			self.__buttons_timeout = None
+
 	# timeout-functions
 	def update(self):
 		self.icalpath = self.icalpath

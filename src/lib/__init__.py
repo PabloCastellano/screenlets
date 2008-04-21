@@ -762,6 +762,8 @@ class Screenlet (gobject.GObject, EditableOptions):
 		self.window.connect("focus-out-event", self.focus_out_event)
 		self.window.connect("scroll-event", self.scroll_event)
 		self.window.connect("motion-notify-event",self.motion_notify_event)
+		self.window.connect("map-event", self.map_event)
+		self.window.connect("unmap-event", self.unmap_event)
 		# add key-handlers (TODO: use keyword-attrib to activate?)
 		self.window.connect("key-press-event", self.key_press)
 		# drag/drop support (NOTE: still experimental and incomplete)
@@ -1411,6 +1413,14 @@ class Screenlet (gobject.GObject, EditableOptions):
 		your own icon and mask by returning them as a 2-tuple."""
 		return (None, None)
 
+	def on_map(self):
+		"""Called when screenlet was mapped"""
+		pass
+
+	def on_unmap(self):
+		"""Called when screenlet was unmapped"""
+		pass
+
 	def on_composite_changed(self):
 		"""Called when composite state has changed"""
 		pass
@@ -1799,6 +1809,12 @@ class Screenlet (gobject.GObject, EditableOptions):
 		# call user-handler
 		self.on_menuitem_select(id)
 		return False
+
+	def map_event(self, widget, event):
+		self.on_map()
+
+	def unmap_event(self, widget, event):
+		self.on_unmap()
 
 	def motion_notify_event(self, widget, event):
 		self.__dict__['mousex'] = event.x / self.scale

@@ -146,6 +146,61 @@ def list_running_screenlets2 ():
 	p.close()
 	return lst
 
+
+def get_GMail_Num(login, password):
+	"""This output the number of messages of gmail box"""
+	f = os.popen("wget -qO - https://" + login + ":" + password + "@mail.google.com/mail/feed/atom")
+	a = f.read()
+	f.close()
+	match = re.search("<fullcount>([0-9]+)</fullcount>", a)
+	return match.group(1)
+
+
+
+def get_Mail_Num(server, login, passwd):
+	"""This output the number of messages of mail box"""
+	try:
+		import poplib
+	except ImportError, err:
+		print " !!!Please install python poplib :", err
+	    	return None
+	m = poplib.POP3(server)
+	m.user(login)
+	m.pass_(passwd)
+	out = m.stat()
+	m.quit()
+	num = out[0]
+	return num
+
+def get_evolution_contacts():
+	"""Returns a list of evolution contacts"""
+	contacts = []
+
+	try:
+		import evolution
+	except ImportError, err:
+		print " !!!Please install python evolution bindings Unable to import evolution bindings:", err
+	    	return None
+
+	try:
+		if evolution:
+			for book_id in evolution.ebook.list_addressbooks():
+				book = evolution.ebook.open_addressbook(book_id[1])
+				if book:
+					for contact in book.get_all_contacts():
+					
+						contacts.append(contact)
+	except:
+		if evolution:
+			for book_id in evolution.list_addressbooks():
+				book = evolution.open_addressbook(book_id[1])
+				if book:
+					for contact in book.get_all_contacts():
+						
+						contacts.append(contact)
+                            
+        return contacts
+
 def get_screenlet_process (name):
 	"""Returns the PID of the given screenlet (if running) or None."""
 	p = os.popen("ps aux | awk '/[" + name[0] + "]" + name[1:] + \

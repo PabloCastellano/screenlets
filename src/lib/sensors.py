@@ -17,8 +17,6 @@ import commands
 import time
 import os
 import subprocess
-try:import poplib
-except:pass
 import gtk
 # translation stuff
 gettext.textdomain('screenlets')
@@ -711,34 +709,6 @@ def process_get_top():
 	
 	return res
 
-###########################################
-#                                         #
-#                Mail                     #
-#                                         #
-###########################################
-
-
-
-
-def getGMailNum(login, password):
-	"""This output the number of messages of mail box"""
-	f = os.popen("wget -qO - https://" + login + ":" + password + "@mail.google.com/mail/feed/atom")
-	a = f.read()
-	f.close()
-	match = re.search("<fullcount>([0-9]+)</fullcount>", a)
-	return match.group(1)
-
-
-
-def getMailNum(server, login, passwd):
-
-    m = poplib.POP3(server)
-    m.user(login)
-    m.pass_(passwd)
-    out = m.stat()
-    m.quit()
-    num = out[0]
-    return num
 
 ###########################################
 #                                         #

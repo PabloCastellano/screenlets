@@ -210,7 +210,7 @@ class ScreenletTheme (dict):
 	def get_text_width(self, ctx, text, font):
 		"""@DEPRECATED Moved to Screenlets class: Returns the pixel width of a given text"""
 		ctx.save()
-		ctx.move_to(0,0)
+		
 		if self.p_layout == None :
 	
 			self.p_layout = ctx.create_layout()
@@ -227,7 +227,7 @@ class ScreenletTheme (dict):
 	def get_text_extents(self, ctx, text, font):
 		"""@DEPRECATED Moved to Screenlets class: Returns the pixel extents of a given text"""
 		ctx.save()
-		ctx.move_to(0,0)
+		
 		if self.p_layout == None :
 	
 			self.p_layout = ctx.create_layout()
@@ -1846,7 +1846,6 @@ class Screenlet (gobject.GObject, EditableOptions):
 	def get_text_width(self, ctx, text, font):
 		"""Returns the pixel width of a given text"""
 		ctx.save()
-		ctx.move_to(0,0)
 		if self.p_layout == None :
 	
 			self.p_layout = ctx.create_layout()
@@ -1865,7 +1864,6 @@ class Screenlet (gobject.GObject, EditableOptions):
 	def get_text_extents(self, ctx, text, font):
 		"""Returns the pixel extents of a given text"""
 		ctx.save()
-		ctx.move_to(0,0)
 		if self.p_layout == None :
 	
 			self.p_layout = ctx.create_layout()

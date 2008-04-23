@@ -61,6 +61,7 @@ class SlideshowScreenlet (screenlets.Screenlet):
 	factor = 1
 	preserve_aspect = 0
 	recursive = False
+	flickrurl = 'http://www.flickr.com/explore/interesting/7days/'
 	# --------------------------------------------------------------------------
 	# constructor and internals
 	# --------------------------------------------------------------------------
@@ -87,6 +88,7 @@ class SlideshowScreenlet (screenlets.Screenlet):
 			self.update_interval, 'Update interval', 
 			'The interval for updating info (in seconds ,3660 = 1 day, 25620 = 1 week)', min=1, max=25620))
 		self.add_option(StringOption('SlideShow', 'engine', self.engine,'Select Engine', '',choices = self.engine_sel),realtime=False)
+		self.add_option(StringOption('SlideShow', 'flickrurl', self.flickrurl,'Flickr Url', 'flickr url'))
 		self.add_option(StringOption('SlideShow', 'folders', self.folders,'Select Folders', 'The folder where pictures are',))
 		self.add_option(BoolOption('SlideShow', 'recursive',bool(self.recursive), 'Recursive folders','Show images on sub folders'))
 		self.add_option(BoolOption('SlideShow', 'showbuttons',bool(self.showbuttons), 'Show Buttons on focus','Show Buttons on focus'))
@@ -190,9 +192,9 @@ class SlideshowScreenlet (screenlets.Screenlet):
 	 #if self.slide == True:	
 	 if self.engine1 == 'Flickr':
 	 
-		source = urlopen('http://www.flickr.com/explore/interesting/7days/')
+		source = urlopen(self.flickrurl)
 		sourcetxt = source.read()
-		image = sourcetxt[sourcetxt.find("Photo" + chr(34)+ "><span cl")+15:]
+		image = sourcetxt[sourcetxt.find("Photo" + chr(34))+7:]
 		
 		
 		sourceimage = image[image.find("a href=" + chr(34))+8:]

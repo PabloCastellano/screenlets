@@ -47,19 +47,15 @@ class EvolutionContactsScreenlet (screenlets.Screenlet):
 	expanded = True
 	hover = False
 	number = 0
-
+	__timeout = None
 
 	mouse_is_over = False
 	places = []
 	old_places = []
 	selected = 0
 	mousesel = 0
-	notes = None
-	if os.environ.has_key("TOMBOY_PATH"):
-		note_path = os.environ["TOMBOY_PATH"]
-	else:
-		note_path = "~/.tomboy"
-	note_path = os.path.expanduser(note_path)
+	contacts = None
+
 
 	# constructor
 	def __init__ (self, **keyword_args):
@@ -116,138 +112,38 @@ class EvolutionContactsScreenlet (screenlets.Screenlet):
 		
 		#fstab = self.readFile('/etc/fstab')
 		#mounts = self.readFile('/proc/mounts')
+		self.contacts = {}
+		self.__timeout = gobject.timeout_add(int(60000), self.update)
+		self.update()
 
+	def update(self):
+		self.contacts = utils.get_evolution_contacts()
 
-
-
-		self.notes = {}
-
-		self.note_path_monitor = utils.FileMonitor(self.note_path)
-		self.note_path_monitor.connect("event", self._file_event)
-		self.note_path_monitor.open()
-
-        # Load notes in an idle handler
-		gobject.idle_add(self._idle_load_notes().next, priority=gobject.PRIORITY_LOW)
-
-
-	def get_note(self,path):
-		try:
-			note_doc = parse(path)
-		except (IOError, ExpatError), err:
-			print " !!! Error parsing note '%s': %s" % (path, err)
-			return
-
-		try:
-			title_node = note_doc.getElementsByTagName("title")[0]
-			self.title = title_node.childNodes[0].data
-		except (ValueError, IndexError, AttributeError):
-			pass
-
-		try:
-		# Parse the ISO timestamp format .NET's XmlConvert class uses:
-		# yyyy-MM-ddTHH:mm:ss.fffffffzzzzzz, where f* is a 7-digit partial
-		# second, and z* is the timezone offset from UTC in the form -08:00.
-			changed_node = note_doc.getElementsByTagName("last-change-date")[0]
-			changed_str = changed_node.childNodes[0].data
-			changed_str = re.sub("\.[0-9]*", "", changed_str) # W3Date chokes on partial seconds
-			#self.timestamp = W3CDate.W3CDate(changed_str).getSeconds()
-		except (ValueError, IndexError, AttributeError):
-			pass
-
-		try:
-			content_node = note_doc.getElementsByTagName("note-content")[0]
-			self.content_text = self._get_text_from_node(content_node).lower()
-		except (ValueError, IndexError, AttributeError):
-			pass
-
-		return self.title
-
-		note_doc.unlink()
-
-	def _get_text_from_node(self, node):
-		if node.nodeType == node.TEXT_NODE:
-			return node.data
-		else:
-			return "".join([self._get_text_from_node(x) for x in node.childNodes])
-
-	def _idle_load_notes(self):
-		notes = {}
-
-		try: 
-			for filename in os.listdir(self.note_path):
-				if filename.endswith(".note"):
-					notepath = os.path.join(self.note_path, filename)
-					notes[filename] = self.get_note(notepath)
-					yield True
-		except (OSError, IOError), err:
-			print " !!! Error loading Tomboy notes:", err
-
-		self.notes = utils.get_evolution_contacts()
 		self.redraw_canvas()
-		yield False
+		return True
+		
 
-	def _file_event(self, monitor, info_uri, ev):
-		filename = os.path.basename(info_uri)
 
-		if ev == gnomevfs.MONITOR_EVENT_CREATED:
-			notepath = os.path.join(self.note_path, filename)
-			self.notes[filename] = self.get_note(notepath)
-			if self.height != 20 + (len(self.notes)*20) +20:
-				self.height = 20 + (len(self.notes)*20) +20		
-				self.redraw_canvas()
-
-		elif self.notes.has_key(filename):
-			if ev == gnomevfs.MONITOR_EVENT_DELETED:
-				del self.notes[filename]
-				if self.height != 20 + (len(self.notes)*20) +20:
-					self.height = 20 + (len(self.notes)*20) +20		
-					self.redraw_canvas()
-			else:
-				if self.height != 20 + (len(self.notes)*20) +20:
-					self.height = 20 + (len(self.notes)*20) +20		
-					self.redraw_canvas()
 
 
 	def menuitem_callback(self, widget, id):
 		screenlets.Screenlet.menuitem_callback(self, widget, id)
 		if id=="new":
-			os.system("tomboy --new-note")
-
-	def get_items_uncached(self):
-		return [self.new_note_item] + self.notes.values()
+			os.system("evolution &")
 
 
 
-	def get_items(self):
-        # Avoid ItemSource's caching
-		return self.get_items_uncached()
+
 
 	def __setattr__(self, name, value):
 		# call Screenlet.__setattr__ in baseclass (ESSENTIAL!!!!)
 		screenlets.Screenlet.__setattr__(self, name, value)
-		if name == 'notes':
-			if self.height != 20 + (len(self.notes)*20) +20:
-				self.height = 20 + (len(self.notes)*20) +20		
+		if name == 'contacts':
+			if self.height != 20 + (len(self.contacts)*20) +20:
+				self.height = 20 + (len(self.contacts)*20) +20		
 				self.redraw_canvas()
 		
 	
-	# ONLY FOR TESTING!!!!!!!!!
-	def init_options_from_metadata (self):
-		"""Try to load metadata-file with options. The file has to be named
-		like the Screenlet, with the extension ".xml" and needs to be placed
-		in the Screenlet's personal directory. 
-		NOTE: This function always uses the metadata-file relative to the 
-			  Screenlet's location, not the ones in SCREENLETS_PATH!!!"""
-		print __file__
-		p = __file__.rfind('/')
-		mypath = __file__[:p]
-		print mypath
-		self.add_options_from_file( mypath + '/' + \
-			self.__class__.__name__ + '.xml')
-
-
-
-
 
 	def on_after_set_atribute(self,name, value):
 		"""Called after setting screenlet atributes"""
@@ -297,12 +193,12 @@ class EvolutionContactsScreenlet (screenlets.Screenlet):
 		"""Called when the Screenlet's options have been applied and the 
 		screenlet finished its initialization. If you want to have your
 		Screenlet do things on startup you should use this handler."""
-		self.add_menuitem("new", "Make new note")		
+		self.add_menuitem("new", "Open Evolution")		
 		# add default menu items
 		self.add_default_menuitems()
-		if self.notes != None:
-			if self.height != 20 + (len(self.notes)*20) +20:
-				self.height = 20 + (len(self.notes)*20) +20		
+		if self.contacts != None:
+			if self.height != 20 + (len(self.contacts)*20) +20:
+				self.height = 20 + (len(self.contacts)*20) +20		
 				self.redraw_canvas()
 		#print utils.LoadBookmarks()
 		
@@ -331,13 +227,13 @@ class EvolutionContactsScreenlet (screenlets.Screenlet):
 			if event.type == gtk.gdk._2BUTTON_PRESS and y < 30: 
 				self.expanded = not self.expanded
 			 
-			if y > (30) and self.notes != None:
+			if y > (30) and self.contacts != None:
 				click = int((y -10 )/ (20)) -1
 				a = 0
-				for note in self.notes:
+				for note in self.contacts:
 					if click == a:
 						
-						os.system("evolution mailto:%s &" % self.notes[a].get_property('full-name'))
+						os.system("evolution mailto:%s &" % self.contacts[a].get_property('full-name'))
 					a = a+1
 
 				
@@ -359,7 +255,7 @@ class EvolutionContactsScreenlet (screenlets.Screenlet):
 		y = event.y / self.scale
 		if y > (30):
 			self.__dict__['mousesel'] = int((y -10 )/ (20)) -1
-			if self.selected != self.mousesel or y > 20 + (len(self.notes)*20) +20:				
+			if self.selected != self.mousesel or y > 20 + (len(self.contacts)*20) +20:				
 				self.redraw_canvas()
 				
 	def on_mouse_up (self, event):
@@ -423,11 +319,11 @@ class EvolutionContactsScreenlet (screenlets.Screenlet):
 			self.draw_triangle(ctx,3,-(y+15),10,10)
 			ctx.rotate(-3.14/2)
 		ctx.translate(0,20)			
-		if self.expanded and self.notes != None:
+		if self.expanded and self.contacts != None:
 			x = 0
 			
 			
-			for app  in self.notes:
+			for app  in self.contacts:
 				if x % 2:
 					ctx.set_source_rgba(self.color_even[0],self.color_even[1],self.color_even[2],self.color_even[3])
 					#is_mounted = 'Mounted'
@@ -450,7 +346,7 @@ class EvolutionContactsScreenlet (screenlets.Screenlet):
 
 				ctx.set_source_rgba(self.color_text[0],self.color_text[1],self.color_text[2],self.color_text[3])
 			
-				self.draw_text(ctx,self.notes[x].get_property('full-name'),5,y+2,self.font.split(' ')[0],10,self.width-20,pango.ALIGN_LEFT)
+				self.draw_text(ctx,self.contacts[x].get_property('full-name'),5,y+2,self.font.split(' ')[0],10,self.width-20,pango.ALIGN_LEFT)
 				a = self.get_screenlet_dir() + '/themes/' + self.theme_name + '/icon.png'
 				self.draw_scaled_image(ctx,self.width-40,y+2,a,16,16)
 				x = x+1

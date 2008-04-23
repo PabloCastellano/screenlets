@@ -21,10 +21,9 @@ import gtk
 from os import system
 from urllib import quote
 import gobject
-from screenlets import DefaultMenuItem
+from screenlets import DefaultMenuItem,utils
 import pyDes
 
-import libgmail
 
 class GmailScreenlet(screenlets.Screenlet):
 	"""A screenlet that shows your unread gmail message count , click on the mail icon to go to gmail.com"""
@@ -122,55 +121,13 @@ class GmailScreenlet(screenlets.Screenlet):
 
 		self.msa = self.k.decrypt(self.pas, "*")
 	
-		self.ga = libgmail.GmailAccount(self.nam, self.msa)
-		try:
-			self.ga.login()
-		except:
-			screenlets.show_message(self,'Wrong Username or Password')
+		n = self.nam.replace('@gmail.com','')
+		self.msgs = utils.get_GMail_Num(n, self.msa)
 
-		#folder = ga.getMessagesByFolder('inbox')
-		self.ms = self.ga.getunreadInfo()
 
-		if self.ms != None :
-			self.msgs = str(self.ms)
-			self.msgs = self.msgs.replace('[' , '')
-			self.msgs = self.msgs.replace(']' , '')
-			self.msgs = self.msgs.replace('inbox' , '')
-			self.msgs = self.msgs.replace(' ' , '')
-			self.msgs = self.msgs.replace(',' , '')
-			self.msgs = self.msgs.replace("'" , '')
 
-		else:	
-			self.msgs = 0
+
 		print str(self.msgs) + ' Unread Messages'
-
-
-	def on_key_down(self, keycode, keyvalue, event):
-		"""Called when a keypress-event occured in Screenlet's window."""
-		key = gtk.gdk.keyval_name(event.keyval)
-		if key == "Return" or key == "Tab":
-			# submit query
-			self.__query= self.__query.replace(' ','+')
-			print self.__query
-
-			self.check()
-
-			self.__query = ''
-			self.redraw_canvas()
-		elif key == "BackSpace":
-			self.__query = self.__query[:-1]
-			self.redraw_canvas()
-		elif key == "space":
-			self.__query += " "
-			self.redraw_canvas()
-
-
-			
-		else:
-			self.__query += keyvalue
-			self.redraw_canvas()
-		print keyvalue
-
 
 
 	def on_mouse_down(self, event):
@@ -191,19 +148,10 @@ class GmailScreenlet(screenlets.Screenlet):
 					self.redraw_canvas()
 					return True
 		if x >= 180 and y >= 180 :
-			system('firefox http://mail.google.com/mail/')
+			system('xdg-open http://mail.google.com/mail/')
 		return False
 
-	def on_focus(self, event):
-		self.__has_focus = True
-		#if self.__converter:
-		#	self.__converter.replace = True
-		self.redraw_canvas()
 
-	def on_unfocus(self, event):
-		self.__has_focus = False
-		self.redraw_canvas()
-	
 	def on_draw(self, ctx):
 		# if a converter or theme is not yet loaded, there's no way to continue
 		# set scale relative to scale-attribute

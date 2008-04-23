@@ -121,10 +121,6 @@ class ScreenletInstaller:
 	def __init__ (self):
 		self._message = ''
 	
-	def create_user_dir (self):
-		"""Create the userdir for the screenlets."""
-		if not os.path.isdir(DIR_USER):
-			os.mkdir(DIR_USER)
 	
 	def get_info_from_package_name (self, filename):
 		"""Return all info we can get from the package-name or return None
@@ -280,7 +276,7 @@ class ScreenletInstaller:
 					return False	
 			
 			# copy archive to user dir (and create if not exists)
-			self.create_user_dir()
+			utils.create_user_dir()
 			os.system('tar %s %s -C %s' % (tar_opts, chr(34)+filename+chr(34), DIR_USER))
 			# delete package info from target dir
 			os.system('rm %s/%s/Screenlet.package' % (DIR_USER, name))

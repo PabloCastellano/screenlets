@@ -38,6 +38,14 @@ def _(s):
 # FUNCTIONS
 # ------------------------------------------------------------------------------
 
+def create_user_dir ():
+	"""Create the userdir for the screenlets."""
+	if not os.path.isdir(os.environ['HOME'] + '/.screenlets'):
+		try:
+			os.mkdir(os.environ['HOME'] + '/.screenlets')
+		except:
+			print 'coulnt create user dir'
+
 def find_first_screenlet_path (screenlet_name):
 	"""Scan the SCREENLETS_PATH for the first occurence of screenlet "name" and 
 	return the full path to it. This function is used to get the theme/data 
@@ -149,11 +157,15 @@ def list_running_screenlets2 ():
 
 def get_GMail_Num(login, password):
 	"""This output the number of messages of gmail box"""
-	f = os.popen("wget -qO - https://" + login + ":" + password + "@mail.google.com/mail/feed/atom")
+
+	f = os.popen("wget --no-check-certificate -qO - https://" + login + ":" + password + "@mail.google.com/mail/feed/atom")
 	a = f.read()
 	f.close()
 	match = re.search("<fullcount>([0-9]+)</fullcount>", a)
-	return match.group(1)
+	if match == None:
+		return None
+	else:
+		return match.group(1)
 
 
 
@@ -274,6 +286,14 @@ def readMountFile( filename):
 	
 	fstab.sort()
 	return fstab
+
+def read_file( filename):
+
+	f = open(filename, 'r')
+	t = f.read()
+	f.close()
+	return t
+
 
 def strip_html(string):
     return re.sub(r"<.*?>|</.*?>","",string)

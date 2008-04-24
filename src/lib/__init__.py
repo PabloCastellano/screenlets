@@ -1955,7 +1955,142 @@ class Screenlet (gobject.GObject, EditableOptions):
 		else: ctx.stroke()
 		ctx.restore()
 
-	def draw_top_rounded_rectangle(self,ctx,x,y,rounded_angle,width,height,fill=True):
+
+	def draw_rectangle_advanced (self, ctx, x, y, width, height, rounded_angles=(0,0,0,0), fill=True, border_size=0, border_color=(0,0,0,1), shadow_size=0, shadow_color=(0,0,0,0.5)):
+		'''with this funktion you can create a rectangle in advanced mode'''
+		ctx.save()
+		s = shadow_size
+		w = width
+		h = height
+		rounded = rounded_angles
+		if shadow_size > 0:
+			#top shadow
+			gradient = cairo.LinearGradient(x,y+s,x,y)
+			gradient.add_color_stop_rgba(0,*shadow_color)
+			gradient.add_color_stop_rgba(1,shadow_color[0], shadow_color[1], shadow_color[2], 0)
+			ctx.set_source(gradient)
+			ctx.rectangle(s+rounded[0],y, w-rounded[0]-rounded[1], s)
+			ctx.fill()
+
+			#bottom
+			gradient = cairo.LinearGradient(x, shadow_size+h, x, h+(shadow_size*2))
+			gradient.add_color_stop_rgba(0,*shadow_color)
+			gradient.add_color_stop_rgba(1,shadow_color[0], shadow_color[1], shadow_color[2], 0)
+			ctx.set_source(gradient)
+			ctx.rectangle(s+rounded[2], s+h, w-rounded[2]-rounded[3], s)
+			ctx.fill()
+
+			#left
+			gradient = cairo.LinearGradient(s, y, x, y)
+			gradient.add_color_stop_rgba(0,*shadow_color)
+			gradient.add_color_stop_rgba(1,shadow_color[0], shadow_color[1], shadow_color[2], 0)
+			ctx.set_source(gradient)
+			ctx.rectangle(x, s+rounded[0], s, h-rounded[0]-rounded[2])
+			ctx.fill()
+
+			#right
+			gradient = cairo.LinearGradient(s+w, y, (s*2)+w, y)
+			gradient.add_color_stop_rgba(0,*shadow_color)
+			gradient.add_color_stop_rgba(1,shadow_color[0], shadow_color[1], shadow_color[2], 0)
+			ctx.set_source(gradient)
+			ctx.rectangle(s+w, s+rounded[1], s, h-rounded[1]-rounded[3])
+			ctx.fill()
+			ctx.restore
+
+			#top-left
+			gradient = cairo.RadialGradient(s+rounded[0], s+rounded[0], rounded[0], s+rounded[0], s+rounded[0], s+rounded[0])
+			gradient.add_color_stop_rgba(0,*shadow_color)
+			gradient.add_color_stop_rgba(1,shadow_color[0], shadow_color[1], shadow_color[2], 0)
+			ctx.set_source(gradient)
+			ctx.new_sub_path()
+			ctx.arc(s,s,s, -math.pi, -math.pi/2)
+			ctx.line_to(s+rounded[0],y)
+			ctx.line_to(s+rounded[0],s)
+			ctx.arc_negative(s+rounded[0],s+rounded[0],rounded[0], -math.pi/2, math.pi)
+			ctx.line_to(x, s+rounded[0])
+			ctx.close_path()
+			ctx.fill()
+
+			#top-right
+			gradient = cairo.RadialGradient(w+s-rounded[1], s+rounded[1], rounded[1], w+s-rounded[1], s+rounded[1], s+rounded[1])
+			gradient.add_color_stop_rgba(0,*shadow_color)
+			gradient.add_color_stop_rgba(1,shadow_color[0], shadow_color[1], shadow_color[2], 0)
+			ctx.set_source(gradient)
+			ctx.new_sub_path()
+			ctx.arc(w+s,s,s, -math.pi/2, 0)
+			ctx.line_to(w+(s*2), s+rounded[1])
+			ctx.line_to(w+s, s+rounded[1])
+			ctx.arc_negative(w+s-rounded[1], s+rounded[1], rounded[1], 0, -math.pi/2)
+			ctx.line_to(w+s-rounded[1], y)
+			ctx.close_path()
+			ctx.fill()
+
+			#bottom-left
+			gradient = cairo.RadialGradient(s+rounded[2], h+s-rounded[2], rounded[2], s+rounded[2], h+s-rounded[2], s+rounded[2])
+			gradient.add_color_stop_rgba(0,*shadow_color)
+			gradient.add_color_stop_rgba(1,shadow_color[0], shadow_color[1], shadow_color[2], 0)
+			ctx.set_source(gradient)
+			ctx.new_sub_path()
+			ctx.arc(s,h+s,s, math.pi/2, math.pi)
+			ctx.line_to(x, h+s-rounded[2])
+			ctx.line_to(s, h+s-rounded[2])
+			ctx.arc_negative(s+rounded[2], h+s-rounded[2], rounded[2], -math.pi, math.pi/2)
+			ctx.line_to(s+rounded[2], h+(s*2))
+			ctx.close_path()
+			ctx.fill()
+
+			#bottom-right
+			gradient = cairo.RadialGradient(w+s-rounded[3], h+s-rounded[3], rounded[3], w+s-rounded[3], h+s-rounded[3], s+rounded[3])
+			gradient.add_color_stop_rgba(0,*shadow_color)
+			gradient.add_color_stop_rgba(1,shadow_color[0], shadow_color[1], shadow_color[2], 0)
+			ctx.set_source(gradient)
+			ctx.new_sub_path()
+			ctx.arc(w+s,h+s,s, 0, math.pi/2)
+			ctx.line_to(w+s-rounded[3], h+(s*2))
+			ctx.line_to(w+s-rounded[3], h+s)
+			ctx.arc_negative(s+w-rounded[3], s+h-rounded[3], rounded[3], math.pi/2, 0)
+			ctx.line_to((s*2)+w, s+h-rounded[3])
+			ctx.close_path()
+			ctx.fill()
+
+			#the content starts here!
+			ctx.restore()
+			ctx.translate(s, s)
+		else:
+			ctx.translate(border_size, border_size)
+
+		#and now the rectangle
+		if fill:
+			ctx.save()
+			ctx.line_to(0, rounded[0])
+			ctx.arc(rounded[0], rounded[0], rounded[0], math.pi, -math.pi/2)
+			ctx.line_to(w-rounded[1], 0)
+			ctx.arc(w-rounded[1], rounded[1], rounded[1], -math.pi/2, 0)
+			ctx.line_to(w, h-rounded[3])
+			ctx.arc(w-rounded[3], h-rounded[3], rounded[3], 0, math.pi/2)
+			ctx.line_to(rounded[2], h)
+			ctx.arc(rounded[2], h-rounded[2], rounded[2], math.pi/2, -math.pi)
+			ctx.close_path()
+			ctx.fill()
+			ctx.restore()
+
+		if border_size > 0:
+			ctx.save()
+			ctx.line_to(0, rounded[0])
+			ctx.arc(rounded[0], rounded[0], rounded[0], math.pi, -math.pi/2)
+			ctx.line_to(w-rounded[1], 0)
+			ctx.arc(w-rounded[1], rounded[1], rounded[1], -math.pi/2, 0)
+			ctx.line_to(w, h-rounded[3])
+			ctx.arc(w-rounded[3], h-rounded[3], rounded[3], 0, math.pi/2)
+			ctx.line_to(rounded[2], h)
+			ctx.arc(rounded[2], h-rounded[2], rounded[2], math.pi/2, -math.pi)
+			ctx.close_path()
+			ctx.set_source_rgba(*border_color)
+			ctx.set_line_width(border_size)
+			ctx.stroke()
+			ctx.restore()
+
+	def draw_rounded_rectangle(self,ctx,x,y,rounded_angle,width,height,round_top_left = True ,round_top_right = True,round_bottom_left = True,round_bottom_right = True, fill=True):
 		"""Draws a rounded rectangle"""
 		ctx.save()
 		ctx.translate(x, y)
@@ -1968,54 +2103,30 @@ class Screenlet (gobject.GObject, EditableOptions):
         	ctx.move_to(0+padding+rounded, 0+padding)
         	
         	# Top right corner and round the edge
-        	ctx.line_to(w-padding-rounded, 0+padding)
-        	ctx.arc(w-padding-rounded, 0+padding+rounded, rounded, (math.pi/2 )+(math.pi) , 0)
-	
-        	# Bottom right corner and round the edge
-        	ctx.line_to(w-padding, h-padding)
-        	#ctx.arc(w-padding-rounded, h-padding-rounded, rounded, 0, math.pi/2)
-       	
-        	# Bottom left corner and round the edge.
-        	ctx.line_to(0+padding, h-padding)
-        	#ctx.arc(0+padding+rounded, h-padding-rounded, rounded,math.pi/2, math.pi)
-	
-        	# Top left corner and round the edge
-        	ctx.line_to(0+padding, 0+padding+rounded)
-        	ctx.arc(0+padding+rounded, 0+padding+rounded, rounded, math.pi, (math.pi/2 )+(math.pi))
-        	
-        	# Fill in the shape.
-		if fill:ctx.fill()
-		else: ctx.stroke()
-		ctx.restore()
+		if round_top_right:
+	        	ctx.line_to(w-padding-rounded, 0+padding)
+	        	ctx.arc(w-padding-rounded, 0+padding+rounded, rounded, (math.pi/2 )+(math.pi) , 0)
+		else:
+			ctx.line_to(w-padding, 0+padding)
 
-	def draw_bottom_rounded_rectangle(self,ctx,x,y,rounded_angle,width,height,fill=True):
-		"""Draws a rounded rectangle"""
-		ctx.save()
-		ctx.translate(x, y)
-		padding=0 # Padding from the edges of the window
-        	rounded=rounded_angle # How round to make the edges 20 is ok
-        	w = width
-		h = height
-
-        	# Move to top corner
-        	ctx.move_to(0+padding+rounded, 0+padding)
-        	
-        	# Top right corner and round the edge
-        	ctx.line_to(w-padding, 0+padding)
-        	#ctx.arc(w-padding-rounded, 0+padding+rounded, rounded, (math.pi/2 )+(math.pi) , 0)
-	
         	# Bottom right corner and round the edge
-        	ctx.line_to(w-padding, h-padding-rounded)
-        	ctx.arc(w-padding-rounded, h-padding-rounded, rounded, 0, math.pi/2)
-       	
+		if round_bottom_right:
+		       	ctx.line_to(w-padding, h-padding-rounded)
+	        	ctx.arc(w-padding-rounded, h-padding-rounded, rounded, 0, math.pi/2)
+		else:
+	        	ctx.line_to(w-padding, h-padding)       	
         	# Bottom left corner and round the edge.
-        	ctx.line_to(0+padding+rounded, h-padding)
-        	ctx.arc(0+padding+rounded, h-padding-rounded, rounded,math.pi/2, math.pi)
-	
+		if round_bottom_left:
+	        	ctx.line_to(0+padding+rounded, h-padding)
+	        	ctx.arc(0+padding+rounded, h-padding-rounded, rounded,math.pi/2, math.pi)
+		else:	
+	        	ctx.line_to(0+padding, h-padding)
         	# Top left corner and round the edge
-        	ctx.line_to(0+padding, 0+padding)
-        	#ctx.arc(0+padding+rounded, 0+padding+rounded, rounded, math.pi, (math.pi/2 )+(math.pi))
-        	
+		if round_top_left:
+	        	ctx.line_to(0+padding, 0+padding+rounded)
+	        	ctx.arc(0+padding+rounded, 0+padding+rounded, rounded, math.pi, (math.pi/2 )+(math.pi))
+		else:
+			ctx.line_to(0+padding, 0+padding)
         	# Fill in the shape.
 		if fill:ctx.fill()
 		else: ctx.stroke()
@@ -2085,38 +2196,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 
 		ctx.restore()
 
-	def draw_rounded_rectangle(self,ctx,x,y,rounded_angle,width,height,fill=True):
-		"""Draws a rounded rectangle"""
-		ctx.save()
-		ctx.translate(x, y)
-		padding=0 # Padding from the edges of the window
-        	rounded=rounded_angle # How round to make the edges 20 is ok
-        	w = width
-		h = height
 
-        	# Move to top corner
-        	ctx.move_to(0+padding+rounded, 0+padding)
-        	
-        	# Top right corner and round the edge
-        	ctx.line_to(w-padding-rounded, 0+padding)
-        	ctx.arc(w-padding-rounded, 0+padding+rounded, rounded, (math.pi/2 )+(math.pi) , 0)
-	
-        	# Bottom right corner and round the edge
-        	ctx.line_to(w-padding, h-padding-rounded)
-        	ctx.arc(w-padding-rounded, h-padding-rounded, rounded, 0, math.pi/2)
-       	
-        	# Bottom left corner and round the edge.
-        	ctx.line_to(0+padding+rounded, h-padding)
-        	ctx.arc(0+padding+rounded, h-padding-rounded, rounded,math.pi/2, math.pi)
-	
-        	# Top left corner and round the edge
-        	ctx.line_to(0+padding, 0+padding+rounded)
-        	ctx.arc(0+padding+rounded, 0+padding+rounded, rounded, math.pi, (math.pi/2 )+(math.pi))
-        	
-        	# Fill in the shape.
-		if fill:ctx.fill()
-		else: ctx.stroke()
-		ctx.restore()
 
 	def get_image_size(self,pix):
 		"""Gets a picture width and height"""

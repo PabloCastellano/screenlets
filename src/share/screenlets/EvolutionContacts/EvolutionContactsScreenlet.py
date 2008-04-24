@@ -306,7 +306,7 @@ class EvolutionContactsScreenlet (screenlets.Screenlet):
 			if self.show_shadow:self.draw_shadow(ctx, 0, 0, self.width-12,40-5,6,[0,0,0,0.3])	
 		ctx.translate(10,10)
 		ctx.set_source_rgba(self.color_back[0],self.color_back[1],self.color_back[2],self.color_back[3])
-		self.draw_top_rounded_rectangle(ctx,0,y,5,self.width-20,20)
+		self.draw_rounded_rectangle(ctx,0,y,5,self.width-20,20,round_bottom_right= False,round_bottom_left= False)
 		ctx.set_source_rgba(self.color_title[0],self.color_title[1],self.color_title[2],self.color_title[3])
 		self.draw_text(ctx, 'Contacts',14,y+2,self.font_title.split(' ')[0],10,self.width-20,pango.ALIGN_LEFT)
 		if self.expanded:
@@ -340,7 +340,7 @@ class EvolutionContactsScreenlet (screenlets.Screenlet):
 					self.__dict__['selected'] = x
 
 				if y +60== self.height:
-					self.draw_bottom_rounded_rectangle(ctx,0,y,5,self.width-20,20)	
+					self.draw_rounded_rectangle(ctx,0,y,5,self.width-20,20,round_top_right= False,round_top_left= False)	
 				else:
 					self.draw_rectangle(ctx,0,y,self.width -20,20)
 

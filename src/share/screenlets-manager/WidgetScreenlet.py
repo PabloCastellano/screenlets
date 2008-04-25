@@ -116,7 +116,7 @@ class WidgetScreenlet (screenlets.Screenlet):
 	def __init__ (self, **keyword_args):
 		# init stuff
 		screenlets.Screenlet.__init__(self, width=325, height=370,uses_theme=True, 
-			is_widget=False, is_sticky=True, **keyword_args)
+			is_widget=False, is_sticky=True,is_sizable=False, **keyword_args)
 
 
 		self.add_options_group('Options', 'CPU-Graph specific options')
@@ -185,14 +185,14 @@ class WidgetScreenlet (screenlets.Screenlet):
 			ctx.set_source_rgba(self.color_back[0],self.color_back[1],self.color_back[2],self.color_back[3])
 			if self.has_focus == True:
 				if not self.show_frame:
-					self.theme.draw_rounded_rectangle(ctx,int((self.width - 64)),0,5,64,12)
+					self.draw_rounded_rectangle(ctx,int((self.width - 64)),0,5,64,12)
 			ctx.set_source_rgba(self.rgba_color[0], self.rgba_color[1], self.rgba_color[2], self.rgba_color[3])	
 		
 			
 			if self.show_frame:
-				self.theme.draw_rounded_rectangle(ctx,0,0,5,self.width,self.height)
+				self.draw_rounded_rectangle(ctx,0,0,5,self.width,self.height)
 				ctx.set_source_rgba(1-self.rgba_color[0], 1-self.rgba_color[1], 1- self.rgba_color[2], 0.15)
-				self.theme.draw_rounded_rectangle(ctx,0,0,5,self.width,self.height,fill=False)
+				self.draw_rounded_rectangle(ctx,0,0,5,self.width,self.height,fill=False)
 	
 			if self.engine == 'google':		
 				self.bgpb = gtk.gdk.pixbuf_new_from_file(self.mypath + 'icon.png').scale_simple(int(self.width),int(self.widget_height),gtk.gdk.INTERP_HYPER)
@@ -200,7 +200,7 @@ class WidgetScreenlet (screenlets.Screenlet):
 			
 				if not self.window.is_composited():
 					#ctx.translate(0,10)
-					self.theme.draw_scaled_image(ctx,0,0,self.width,self.height,self.mypath + 'icon.png')
+					self.draw_scaled_image(ctx,0,0,self.width,self.height,self.mypath + 'icon.png')
 
 				self.moz.shape_combine_mask(self.bgpbms,0,0)	
 			else:
@@ -209,7 +209,7 @@ class WidgetScreenlet (screenlets.Screenlet):
 			
 				if not self.window.is_composited():
 					ctx.translate(0,10)
-					self.theme.draw_image(ctx,0,0,self.mypath + 'icon.png')
+					self.draw_image(ctx,0,0,self.mypath + 'icon.png')
 
 				self.moz.shape_combine_mask(self.bgpbms,8,8)	
  	

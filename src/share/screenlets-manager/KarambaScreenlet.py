@@ -628,7 +628,7 @@ class KarambaScreenlet (screenlets.Screenlet):
 							yyy = int(value['y']) # -((self.width-float(value['x']))/2)
 
 						if 'value' in value:
-							self.theme.draw_text(ctx, value['value'], xxx, yyy, self.font , self.font_size,self.width,self.align)
+							self.draw_text(ctx, value['value'], xxx, yyy, self.font , self.font_size,self.width,self.align)
 
 						elif 'sensor' in value:
 						
@@ -665,7 +665,7 @@ class KarambaScreenlet (screenlets.Screenlet):
 							if output is not None:
 								output = self.output_filter(output)
 
-							self.theme.draw_text(ctx, str(output), xxx, yyy, self.font , self.font_size,self.width,self.align)
+							self.draw_text(ctx, str(output), xxx, yyy, self.font , self.font_size,self.width,self.align)
 			#			if 'align' in atribute and atribute['align'] != '':
 			#					align1 = value['align'].upper()
 			#			

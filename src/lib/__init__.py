@@ -610,7 +610,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 		show_window=True, is_widget=False, is_sticky=False, 
 		uses_theme=True, draw_buttons=True,path=os.getcwd(), drag_drop=False, session=None, 
 		enable_saving=True, service_class=services.ScreenletService,
-		uses_pango=False,ask_on_option_override=True):
+		uses_pango=False, is_sizable=True, ask_on_option_override=True):
 		"""Constructor - should only be subclassed"""
 		
 		# call gobject and EditableOptions superclasses
@@ -683,6 +683,8 @@ class Screenlet (gobject.GObject, EditableOptions):
 			_('Treat this Screenlet as a "Widget" ...')))
 		self.add_option(BoolOption('Screenlet', 'is_dragged', 
 			self.is_dragged, "Is the screenlet dragged","Is the screenlet dragged", hidden=True))
+		self.add_option(BoolOption('Screenlet', 'is_sizable', 
+			is_sizable, "Can the screenlet be resized","is_sizable", hidden=True))
 		self.add_option(BoolOption('Screenlet', 'lock_position', 
 			self.lock_position, _('Lock position'), 
 			_('Stop the screenlet from being moved...')))
@@ -1956,16 +1958,18 @@ class Screenlet (gobject.GObject, EditableOptions):
 		ctx.restore()
 
 
-	def draw_rectangle_advanced (self, ctx, x, y, width, height, rounded_angles=(0,0,0,0), fill=True, border_size=0, border_color=(0,0,0,1), shadow_size=0, shadow_color=(0,0,0,0.5)):
+	def draw_rectangle_advanced (self, ctx, x, y, width, height, rounded_angles=(0,0,0,0), fill=True, rec_color=(1,1,1,0.5),border_size=0, border_color=(0,0,0,1), shadow_size=0, shadow_color=(0,0,0,0.5)):
 		'''with this funktion you can create a rectangle in advanced mode'''
 		ctx.save()
+		ctx.translate(x, y)
 		s = shadow_size
 		w = width
 		h = height
 		rounded = rounded_angles
 		if shadow_size > 0:
+			ctx.save()
 			#top shadow
-			gradient = cairo.LinearGradient(x,y+s,x,y)
+			gradient = cairo.LinearGradient(0,s,0,0)
 			gradient.add_color_stop_rgba(0,*shadow_color)
 			gradient.add_color_stop_rgba(1,shadow_color[0], shadow_color[1], shadow_color[2], 0)
 			ctx.set_source(gradient)
@@ -2071,6 +2075,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 			ctx.line_to(rounded[2], h)
 			ctx.arc(rounded[2], h-rounded[2], rounded[2], math.pi/2, -math.pi)
 			ctx.close_path()
+			ctx.set_source_rgba(*rec_color)	
 			ctx.fill()
 			ctx.restore()
 

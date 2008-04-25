@@ -241,6 +241,35 @@ def get_desktop_dir():
 	desktop_dir = urllib.unquote(desktop_dir)
 	return desktop_dir
 
+def get_filename_on_drop(sel_data):
+	filename = ''
+	filenames = []
+	# get text-elements in selection data
+	try:
+		txt = unicode.encode(sel_data.get_text(), 'utf-8')
+	except:
+		txt = sel_data.get_text()
+	txta = urllib.unquote(txt)
+	txta = str(txta).split('\n')
+		
+	for txt in txta:
+		if txt and txt != '':
+			# if it is a filename, use it
+			if txt.startswith('file://'):
+				filename = txt[7:]
+			else:
+				print 'Invalid string: %s.' % txt
+		else:
+			# else get uri-part of selection
+			uris = sel_data.get_uris()
+			if uris and len(uris)>0:
+				#print "URIS: "+str(uris	)
+				filename = uris[0][7:]
+		if filename != '':
+			filenames.append(chr(34) +filename + chr(34))
+
+	return filenames
+
 def LoadPlaces():
 	"""Returns mount points in media"""
 	mountlist = os.popen('mount -l').read()

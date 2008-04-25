@@ -116,7 +116,7 @@ class YoutubeScreenlet (screenlets.Screenlet):
 	def __init__ (self, **keyword_args):
 		# init stuff
 		screenlets.Screenlet.__init__(self, width=325, height=370,uses_theme=True, 
-			is_widget=False, is_sticky=True, **keyword_args)
+			is_widget=False, is_sticky=True,is_sizable=False, **keyword_args)
 
 
 		self.add_options_group('Options', 'CPU-Graph specific options')

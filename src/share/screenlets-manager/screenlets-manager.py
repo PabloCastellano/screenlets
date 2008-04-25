@@ -565,39 +565,22 @@ class ScreenletsManager:
 				slinfo = ScreenletInfo(s, '', '', '', '', img)
 			# add to model
 			ccc = self.combo.get_active()
+			sss = str(self.txtsearch.get_text()).lower()
+			slname = str(s).lower()
+			a = slname.find(sss)
 			if ccc == 0:
-				
-				sss = str(self.txtsearch.get_text()).lower()
-				slname = str(s).lower()
-				a = slname.find(sss)
 				if sss == None or a != -1:
 					self.model.append(['<span size="9000">%s</span>' % s, img, slinfo])	
-					#self.txtsearch.get_text('')
+				
 			elif ccc == 1:
 				
-				sss = str(self.txtsearch.get_text()).lower()
-				slname = str(s).lower()
-				a = slname.find(sss)
-				
-
 				if sss == None or a != -1:
-					a = utils.list_running_screenlets()
-					b = s + 'Screenlet'
-
-					if b in a :self.model.append(['<span size="9000">%s</span>' % s, img, slinfo])	
+					if slinfo.active :self.model.append(['<span size="9000">%s</span>' % s, img, slinfo])	
 			elif ccc == 2:
 				
-				sss = str(self.txtsearch.get_text()).lower()
-				slname = str(s).lower()
-				a = slname.find(sss)
-				
-
 				if sss == None or a != -1:
-					a = utils.list_running_screenlets()
-					b = s + 'Screenlet'
-
 					if slinfo.autostart == True :self.model.append(['<span size="9000">%s</span>' % s, img, slinfo])	
-					#self.txtsearch.get_text('')info.autostart
+				
 	def quit_screenlet_by_name (self, name):
 		"""Quit all instances of the given screenlet type."""
 		# get service for instance and call quit method
@@ -793,13 +776,13 @@ class ScreenletsManager:
     		self.btnsearch = gtk.Button("")
     		self.searchbox = gtk.HBox()
     		self.txtsearch = gtk.Entry()
-		self.btnsearch.set_image(gtk.image_new_from_stock(gtk.STOCK_FIND, 
+		self.btnsearch.set_image(gtk.image_new_from_stock(gtk.STOCK_CLOSE, 
 			gtk.ICON_SIZE_BUTTON))
-    		self.btnsearch.connect("clicked",self.redraw_screenlets, 'enter')
+    		self.btnsearch.connect("clicked",self.redraw_screenlets, 'clean')
     		self.txtsearch.connect("changed",self.redraw_screenlets, 'enter')
     		self.txtsearch.connect("backspace",self.redraw_screenlets, 'backspace')
 
-    		self.searchbox.pack_start(self.txtsearch, False)
+    		self.searchbox.pack_start(self.txtsearch, 1)
     		self.searchbox.pack_start(self.btnsearch, False)
 		butbox.pack_start(self.searchbox, False,0,3)
 		self.combo = gtk.combo_box_new_text()
@@ -944,6 +927,10 @@ class ScreenletsManager:
 				self.txtsearch.set_text('')
 				self.model.clear()
 				self.load_screenlets()
+		elif id == 'clean':
+			self.txtsearch.set_text('')
+			self.model.clear()
+			self.load_screenlets()
 		else:
 			self.model.clear()
 			self.load_screenlets()

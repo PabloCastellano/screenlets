@@ -1958,7 +1958,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 		ctx.restore()
 
 
-	def draw_rectangle_advanced (self, ctx, x, y, width, height, rounded_angles=(0,0,0,0), fill=True, rec_color=(1,1,1,0.5),border_size=0, border_color=(0,0,0,1), shadow_size=0, shadow_color=(0,0,0,0.5)):
+	def draw_rectangle_advanced (self, ctx, x, y, width, height, rounded_angles=(0,0,0,0), fill=True,border_size=0, border_color=(0,0,0,1), shadow_size=0, shadow_color=(0,0,0,0.5)):
 		'''with this funktion you can create a rectangle in advanced mode'''
 		ctx.save()
 		ctx.translate(x, y)
@@ -1989,11 +1989,11 @@ class Screenlet (gobject.GObject, EditableOptions):
 			gradient.add_color_stop_rgba(0,*shadow_color)
 			gradient.add_color_stop_rgba(1,shadow_color[0], shadow_color[1], shadow_color[2], 0)
 			ctx.set_source(gradient)
-			ctx.rectangle(x, s+rounded[0], s, h-rounded[0]-rounded[2])
+			ctx.rectangle(0, s+rounded[0], s, h-rounded[0]-rounded[2])
 			ctx.fill()
 
 			#right
-			gradient = cairo.LinearGradient(s+w, y, (s*2)+w, y)
+			gradient = cairo.LinearGradient(s+w, 0, (s*2)+w, 0)
 			gradient.add_color_stop_rgba(0,*shadow_color)
 			gradient.add_color_stop_rgba(1,shadow_color[0], shadow_color[1], shadow_color[2], 0)
 			ctx.set_source(gradient)
@@ -2008,10 +2008,10 @@ class Screenlet (gobject.GObject, EditableOptions):
 			ctx.set_source(gradient)
 			ctx.new_sub_path()
 			ctx.arc(s,s,s, -math.pi, -math.pi/2)
-			ctx.line_to(s+rounded[0],y)
+			ctx.line_to(s+rounded[0],0)
 			ctx.line_to(s+rounded[0],s)
 			ctx.arc_negative(s+rounded[0],s+rounded[0],rounded[0], -math.pi/2, math.pi)
-			ctx.line_to(x, s+rounded[0])
+			ctx.line_to(0, s+rounded[0])
 			ctx.close_path()
 			ctx.fill()
 
@@ -2025,7 +2025,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 			ctx.line_to(w+(s*2), s+rounded[1])
 			ctx.line_to(w+s, s+rounded[1])
 			ctx.arc_negative(w+s-rounded[1], s+rounded[1], rounded[1], 0, -math.pi/2)
-			ctx.line_to(w+s-rounded[1], y)
+			ctx.line_to(w+s-rounded[1], 0)
 			ctx.close_path()
 			ctx.fill()
 
@@ -2036,7 +2036,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 			ctx.set_source(gradient)
 			ctx.new_sub_path()
 			ctx.arc(s,h+s,s, math.pi/2, math.pi)
-			ctx.line_to(x, h+s-rounded[2])
+			ctx.line_to(0, h+s-rounded[2])
 			ctx.line_to(s, h+s-rounded[2])
 			ctx.arc_negative(s+rounded[2], h+s-rounded[2], rounded[2], -math.pi, math.pi/2)
 			ctx.line_to(s+rounded[2], h+(s*2))
@@ -2056,16 +2056,15 @@ class Screenlet (gobject.GObject, EditableOptions):
 			ctx.line_to((s*2)+w, s+h-rounded[3])
 			ctx.close_path()
 			ctx.fill()
+			ctx.restore()
 
 			#the content starts here!
-			ctx.restore()
 			ctx.translate(s, s)
 		else:
 			ctx.translate(border_size, border_size)
 
 		#and now the rectangle
 		if fill:
-			ctx.save()
 			ctx.line_to(0, rounded[0])
 			ctx.arc(rounded[0], rounded[0], rounded[0], math.pi, -math.pi/2)
 			ctx.line_to(w-rounded[1], 0)
@@ -2075,9 +2074,8 @@ class Screenlet (gobject.GObject, EditableOptions):
 			ctx.line_to(rounded[2], h)
 			ctx.arc(rounded[2], h-rounded[2], rounded[2], math.pi/2, -math.pi)
 			ctx.close_path()
-			ctx.set_source_rgba(*rec_color)	
 			ctx.fill()
-			ctx.restore()
+			
 
 		if border_size > 0:
 			ctx.save()
@@ -2094,6 +2092,8 @@ class Screenlet (gobject.GObject, EditableOptions):
 			ctx.set_line_width(border_size)
 			ctx.stroke()
 			ctx.restore()
+		ctx.restore()
+
 
 	def draw_rounded_rectangle(self,ctx,x,y,rounded_angle,width,height,round_top_left = True ,round_top_right = True,round_bottom_left = True,round_bottom_right = True, fill=True):
 		"""Draws a rounded rectangle"""

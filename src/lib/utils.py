@@ -38,6 +38,14 @@ def _(s):
 # FUNCTIONS
 # ------------------------------------------------------------------------------
 
+
+def is_manager_running_me():
+	"""checks if the one starting the screenlet is the screenlets manager"""
+	if str(sys.argv[0]).find('screenlets-manager') != -1:
+		return True
+	else:
+		return False
+
 def create_user_dir ():
 	"""Create the userdir for the screenlets."""
 	if not os.path.isdir(os.environ['HOME'] + '/.screenlets'):

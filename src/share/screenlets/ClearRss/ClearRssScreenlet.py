@@ -53,6 +53,7 @@ class ClearRssScreenlet(screenlets.Screenlet):
 	update_interval = 5
 	show_feed_name = True
 	a = ''
+	__button_pressed = 1
 	p_layout = None
 	def __init__(self, **keyword_args):
 		"""Create a RssScreenlet instance"""

@@ -1958,7 +1958,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 		ctx.restore()
 
 
-	def draw_rectangle_advanced (self, ctx, x, y, width, height, rounded_angles=(0,0,0,0), fill=True,border_size=0, border_color=(0,0,0,1), shadow_size=0, shadow_color=(0,0,0,0.5)):
+	def draw_rectangle_advanced (self, ctx, x, y, width, height, rounded_angles=(0,0,0,0), fill=True, border_size=0, border_color=(0,0,0,1), shadow_size=0, shadow_color=(0,0,0,0.5)):
 		'''with this funktion you can create a rectangle in advanced mode'''
 		ctx.save()
 		ctx.translate(x, y)
@@ -1973,11 +1973,11 @@ class Screenlet (gobject.GObject, EditableOptions):
 			gradient.add_color_stop_rgba(0,*shadow_color)
 			gradient.add_color_stop_rgba(1,shadow_color[0], shadow_color[1], shadow_color[2], 0)
 			ctx.set_source(gradient)
-			ctx.rectangle(s+rounded[0],y, w-rounded[0]-rounded[1], s)
+			ctx.rectangle(s+rounded[0],0, w-rounded[0]-rounded[1], s)
 			ctx.fill()
 
 			#bottom
-			gradient = cairo.LinearGradient(x, shadow_size+h, x, h+(shadow_size*2))
+			gradient = cairo.LinearGradient(0, s+h, 0, h+(s*2))
 			gradient.add_color_stop_rgba(0,*shadow_color)
 			gradient.add_color_stop_rgba(1,shadow_color[0], shadow_color[1], shadow_color[2], 0)
 			ctx.set_source(gradient)
@@ -1985,7 +1985,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 			ctx.fill()
 
 			#left
-			gradient = cairo.LinearGradient(s, y, x, y)
+			gradient = cairo.LinearGradient(s, 0, 0, 0)
 			gradient.add_color_stop_rgba(0,*shadow_color)
 			gradient.add_color_stop_rgba(1,shadow_color[0], shadow_color[1], shadow_color[2], 0)
 			ctx.set_source(gradient)
@@ -2075,7 +2075,6 @@ class Screenlet (gobject.GObject, EditableOptions):
 			ctx.arc(rounded[2], h-rounded[2], rounded[2], math.pi/2, -math.pi)
 			ctx.close_path()
 			ctx.fill()
-			
 
 		if border_size > 0:
 			ctx.save()
@@ -2093,7 +2092,6 @@ class Screenlet (gobject.GObject, EditableOptions):
 			ctx.stroke()
 			ctx.restore()
 		ctx.restore()
-
 
 	def draw_rounded_rectangle(self,ctx,x,y,rounded_angle,width,height,round_top_left = True ,round_top_right = True,round_bottom_left = True,round_bottom_right = True, fill=True):
 		"""Draws a rounded rectangle"""

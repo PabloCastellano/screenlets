@@ -1891,7 +1891,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 		except:
 			return False
 	
-	def draw_text(self, ctx, text, x, y,  font, size, width, allignment,weight = 0, ellipsize = pango.ELLIPSIZE_NONE):
+	def draw_text(self, ctx, text, x, y,  font, size, width, allignment=pango.ALIGN_LEFT,weight = 0, ellipsize = pango.ELLIPSIZE_NONE):
 		"""Draws text"""
 		ctx.save()
 		ctx.translate(x, y)

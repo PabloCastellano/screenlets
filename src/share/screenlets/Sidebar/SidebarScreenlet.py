@@ -580,7 +580,7 @@ class SidebarScreenlet (screenlets.Screenlet):
 			fileObj.close()	
 
 
-		self.add_default_menuitems(DefaultMenuItem.XML)
+		#self.add_default_menuitems(DefaultMenuItem.XML)
 		#self.add_default_menuitems(DefaultMenuItem.THEMES | DefaultMenuItem.PROPERTIES |
 		#	DefaultMenuItem.DELETE)
 

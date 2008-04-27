@@ -10,7 +10,7 @@
 #  CompositeTogglerScreenlet (c) Whise 2007 
 
 import screenlets
-from screenlets.options import StringOption , BoolOption , IntOption , FileOption , DirectoryOption , ListOption , AccountOption , TimeOption , FontOption, ColorOption , ImageOption
+from screenlets.options import ColorOption
 from screenlets import DefaultMenuItem
 import pango
 import gobject
@@ -37,7 +37,7 @@ class CompositeTogglerScreenlet (screenlets.Screenlet):
 	def __init__ (self, **keyword_args):
 		#call super (width/height MUST match the size of graphics in the theme)
 		screenlets.Screenlet.__init__(self, width=100, height=70, 
-			uses_theme=True, **keyword_args)
+			uses_theme=True,ask_on_option_override=False, **keyword_args)
 		# set theme
 		
 		#self.theme_name = "default"

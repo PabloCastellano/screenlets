@@ -1123,9 +1123,11 @@ class Screenlet (gobject.GObject, EditableOptions):
 		self.is_dragged = False
 		self.keep_above= self.keep_above
 		self.keep_below= self.keep_below
+		self.skip_taskbar = self.skip_taskbar
 		self.window.set_skip_taskbar_hint(self.skip_taskbar)
 		self.window.set_keep_above(self.keep_above)
 		self.window.set_keep_below(self.keep_below)
+
 		self.on_init()
 		if self.is_widget:
 			self.set_is_widget(True)

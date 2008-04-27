@@ -241,6 +241,11 @@ class ApplicationMenu:
 					applist.append(app)
 			except:
 				pass
+
+		# remove duplicates
+		for app in applist:
+			if applist.count(app) > 1: 
+				applist.remove(app)
 		# sort list
 		applist.sort()
 		# create menu from list

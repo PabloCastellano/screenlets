@@ -23,7 +23,7 @@
 	<!-- user definable actions here: -->
 	<item label="Applications">
 		<appdir path="/usr/share/applications/" 
-			cats="Utility,Office,Network,Graphics,Development,Game" />
+			cats="Utility,Office,Network,Graphics,AudioVideo,Development,Game" />
 	</item>
 	<imageitem label="Screenlet Manager" icon="screenlets" id="exec:screenlets-manager" />
 	<imageitem label="Visit Homepage" icon="firefox" id="exec:xdg-open http://gnome-look.org/content/show.php/Sidebar+Screenlet+%28Vista%27ish+look%29?content=63172" />

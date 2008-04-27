@@ -580,7 +580,14 @@ class ScreenletsManager:
 				
 				if sss == None or a != -1:
 					if slinfo.autostart == True :self.model.append(['<span size="9000">%s</span>' % s, img, slinfo])	
+			elif ccc == 3:
 				
+				if sss == None or a != -1:
+					if slinfo.system == True :self.model.append(['<span size="9000">%s</span>' % s, img, slinfo])	
+			elif ccc == 4:
+				
+				if sss == None or a != -1:
+					if slinfo.system == False:self.model.append(['<span size="9000">%s</span>' % s, img, slinfo])				
 	def quit_screenlet_by_name (self, name):
 		"""Quit all instances of the given screenlet type."""
 		# get service for instance and call quit method
@@ -789,6 +796,8 @@ class ScreenletsManager:
 		self.combo.append_text(_('All Screenlets'))
 		self.combo.append_text(_('Running Screenlets'))
 		self.combo.append_text(_('Autostart Screenlets'))
+		self.combo.append_text(_('Only natives'))
+		self.combo.append_text(_('Only third party'))
 		self.combo.set_active(0)
     		self.combo.connect("changed",self.redraw_screenlets, 'enter')
 		self.combo.show()

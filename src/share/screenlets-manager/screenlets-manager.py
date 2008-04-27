@@ -796,7 +796,7 @@ class ScreenletsManager:
 		self.combo.append_text(_('All Screenlets'))
 		self.combo.append_text(_('Running Screenlets'))
 		self.combo.append_text(_('Autostart Screenlets'))
-		self.combo.append_text(_('Only natives'))
+		self.combo.append_text(_('Only native Screenlets'))
 		self.combo.append_text(_('Only third party'))
 		self.combo.set_active(0)
     		self.combo.connect("changed",self.redraw_screenlets, 'enter')

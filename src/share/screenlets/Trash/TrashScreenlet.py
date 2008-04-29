@@ -18,7 +18,7 @@
 #Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #
 import screenlets
-from screenlets.options import  BoolOption
+from screenlets.options import  BoolOption,IntOption
 import cairo
 import pango
 import os
@@ -32,11 +32,13 @@ class TrashScreenlet(screenlets.Screenlet):
 	# default meta-info for Screenlets
 	__name__ = 'TrashScreenlet'
 	__version__ = '0.1'
-	__author__ = 'Helder Fraga aka Whise (c) 2007'
+	__author__ = 'Helder Fraga aka Whise'
 	__desc__ = 'A Screenlet that shows information about your trash folder'
 	
 	style = False
 	show_count = True
+	auto_empty = False
+	auto_empty_size = 1000
 	if os.path.exists(os.environ['HOME'] +'/.local/share/Trash/files') and os.path.isdir(os.environ['HOME'] +'/.local/share/Trash/files'):
 		trash_folder = os.environ['HOME'] +'/.local/share/Trash/files'
 	else:
@@ -52,6 +54,9 @@ class TrashScreenlet(screenlets.Screenlet):
 			'Use gtk style', 'Use gtk icon'))	
 		self.add_option(BoolOption('Options', 'show_count', self.show_count, 
 			'show item count', 'Show item count'))	
+		self.add_option(BoolOption('Options', 'auto_empty', self.auto_empty, 
+			'Auto empty Trash', 'Auto empty trash when limit exceded'))	
+        	self.add_option(IntOption('Options', 'auto_empty_size', self.auto_empty_size, 'Auto empty when item count',  'Auto empty when item count', min=1,max = 100000))
 		self.refresh_timeout = gobject.timeout_add(1000, self.update)
 
 
@@ -101,6 +106,11 @@ class TrashScreenlet(screenlets.Screenlet):
 		else:
 			trash_folder = os.environ['HOME'] + '/.Trash'
 		self.item_count = len(os.listdir(self.trash_folder))
+		if self.auto_empty and self.item_count >= self.auto_empty_size:
+			os.system('rm -rf ' + self.trash_folder + '/*')
+			os.system('rm -rf ' + self.trash_folder + '/*.*')
+			os.system('rm -rf ' + self.trash_folder + '/.*')
+			self.item_count = len(os.listdir(self.trash_folder))
 			#self.item_count = self.item_count + 1
 		self.redraw_canvas()
 		return True

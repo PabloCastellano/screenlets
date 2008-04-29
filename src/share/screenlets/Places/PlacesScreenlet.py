@@ -23,7 +23,7 @@ class PlacesScreenlet (screenlets.Screenlet):
 	# default meta-info for Screenlets (should be removed and put into metainfo)
 	__name__	= 'PlacesScreenlet'
 	__version__	= '0.1'
-	__author__	= 'Whise'
+	__author__	= 'Helder Fraga aka Whise'
 	__desc__	= __doc__	# set description to docstring of class
 
 	# editable options (options that are editable through the UI)

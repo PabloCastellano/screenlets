@@ -15,6 +15,7 @@ from screenlets import DefaultMenuItem
 import pango
 import dbus
 import cairo
+import gobject
 
 class BrightnessScreenlet (screenlets.Screenlet):
 	"""A Screenlet that allows you to change the brightness of the screen , use the mouse scroll"""
@@ -32,6 +33,7 @@ class BrightnessScreenlet (screenlets.Screenlet):
 	use_gradient = True
 	horizontal = False
 	brightness = 0
+	start = None
 	# constructor
 	def __init__ (self, **keyword_args):
 		#call super (width/height MUST match the size of graphics in the theme)
@@ -59,12 +61,7 @@ class BrightnessScreenlet (screenlets.Screenlet):
 		self.add_option(ColorOption('Options','toggle_color', 
 			self.toggle_color, 'Toggle color', 
 			'Toggle color'))
-		bus = dbus.Bus(dbus.Bus.TYPE_SESSION)
-		# ADD a 1 second (1000) TIMER
-		self.hal_object = bus.get_object('org.freedesktop.PowerManagement','/org/freedesktop/PowerManagement/Backlight')
-		self.hal_interface = dbus.Interface(self.hal_object,'org.freedesktop.PowerManagement.Backlight')
-		self.hal_interface.connect_to_signal('BrightnessChanged', lambda *args:self.update(*args))
-		self.brightness = self.hal_interface.GetBrightness()
+
 
 
 
@@ -157,7 +154,21 @@ class BrightnessScreenlet (screenlets.Screenlet):
 		
 		# add default menu items
 		self.add_default_menuitems()
+		self.start = gobject.timeout_add(1000, self.check_for_bus)
 
+
+
+	def check_for_bus(self):
+		try:
+			bus = dbus.Bus(dbus.Bus.TYPE_SESSION)
+			# ADD a 1 second (1000) TIMER
+			self.hal_object = bus.get_object('org.freedesktop.PowerManagement','/org/freedesktop/PowerManagement/Backlight')
+			self.hal_interface = dbus.Interface(self.hal_object,'org.freedesktop.PowerManagement.Backlight')
+			self.hal_interface.connect_to_signal('BrightnessChanged', lambda *args:self.update(*args))
+			self.brightness = self.hal_interface.GetBrightness()
+			return False
+		except:
+			return True
 
 	def on_key_down(self, keycode, keyvalue, event):
 		"""Called when a keypress-event occured in Screenlet's window."""

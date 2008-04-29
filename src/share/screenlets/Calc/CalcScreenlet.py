@@ -414,6 +414,7 @@ class CalcScreenlet(screenlets.Screenlet):
 		import re
 		
 		key = gtk.gdk.keyval_name (event.keyval)
+		if key == None : return False
 		KPCONVERT = {'KP_Add': 'plus', 'KP_Subtract': 'minus', 'KP_Multiply': 'asterisk',
 						'KP_Divide': 'slash', 'KP_Enter': 'Return'}
 		if KPCONVERT.has_key(key):

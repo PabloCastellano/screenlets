@@ -38,11 +38,11 @@ action = dbus.service.method
 
 
 class SidebarScreenlet (screenlets.Screenlet):
-	"""A themeable Sidebar Screenlet: Install , launch and manage screenlets through the sidebar menu ,  also allows you to install screenlet packages by drag drop the screenlet tar file into the sidebar , you can reserve screen space for the sidebar and also select the alignment"""
+	"""A themeable Sidebar that sits in any edge of the screen and allows you to dock and control all other screenlets , it also allows you to install new screenlets with drag and drop support. It can also act like a gnome menu."""
 	
 	# default meta-info for Screenlets (should be removed and put into metainfo)
 	__name__ = 'SidebarScreenlet'
-	__version__ = '2'
+	__version__ = '3'
 	__author__ = 'Helder Fraga aka Whise'
 
 	__desc__	= __doc__	# set description to docstring of class

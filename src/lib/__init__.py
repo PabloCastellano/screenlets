@@ -576,6 +576,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 	scale	= 1.0
 	opacity = 1.0
 	theme_name		= ""
+	is_visible		= True
 	is_sticky		= False
 	is_widget		= False
 	keep_above		= True
@@ -685,6 +686,8 @@ class Screenlet (gobject.GObject, EditableOptions):
 			self.is_dragged, "Is the screenlet dragged","Is the screenlet dragged", hidden=True))
 		self.add_option(BoolOption('Screenlet', 'is_sizable', 
 			is_sizable, "Can the screenlet be resized","is_sizable", hidden=True))
+		self.add_option(BoolOption('Screenlet', 'is_visible', 
+			self.is_visible, "Usefull to use screenlets as gnome panel applets","is_visible", hidden=True))
 		self.add_option(BoolOption('Screenlet', 'lock_position', 
 			self.lock_position, _('Lock position'), 
 			_('Stop the screenlet from being moved...')))
@@ -833,6 +836,12 @@ class Screenlet (gobject.GObject, EditableOptions):
 		elif name == "is_widget":
 			if self.has_started:
 				self.set_is_widget(value)
+		elif name == "is_visible":
+			if self.has_started:
+				if value == True:
+					self.reshow()
+				else:
+					self.window.hide()
 		elif name == "is_sticky":
 			if value == True:
 				self.window.stick()
@@ -1107,6 +1116,20 @@ class Screenlet (gobject.GObject, EditableOptions):
 					# TODO: check if it's a dir
 					lst.append(dname)
 		return lst
+
+	def reshow(self):
+		self.window.present()	
+		self.has_started = True	
+		self.is_dragged = False
+		self.keep_above= self.keep_above
+		self.keep_below= self.keep_below
+		self.skip_taskbar = self.skip_taskbar
+		self.window.set_skip_taskbar_hint(self.skip_taskbar)
+		self.window.set_keep_above(self.keep_above)
+		self.window.set_keep_below(self.keep_below)
+		if self.is_widget:
+			self.set_is_widget(True)
+		self.has_focus = False
 
 	def finish_loading(self):
 		"""Called when screenlet finishes loading"""

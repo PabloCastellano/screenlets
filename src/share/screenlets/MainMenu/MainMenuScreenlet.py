@@ -7,7 +7,7 @@
 # License as published by the Free Software Foundation; either
 # version 2 of the License, or (at your option) any later version.
 #
-# Copyright (c) 2007 Helder Fraga
+# MainMenuScreenlet Copyright (c) 2007 Helder Fraga
 
 
 
@@ -16,10 +16,11 @@
 
 import screenlets
 from screenlets import DefaultMenuItem
-from screenlets.options import StringOption, IntOption, BoolOption
+from screenlets import sensors
+from screenlets.options import StringOption, IntOption, BoolOption, ColorOption ,FontOption
 import cairo
 import gtk
-
+import pango
 import gobject
 import commands
 import sys
@@ -33,7 +34,7 @@ import pathfinder
 import keyboard
 
 class MainMenuScreenlet (screenlets.Screenlet):
-	"""A gnome main menu , ported from awn Mimenu applet from Randal Barlow"""
+	"""A main menu screenlet"""
 	
 	# default meta-info for Screenlets
 	__name__		= 'MainMenuScreenlet'
@@ -55,11 +56,30 @@ class MainMenuScreenlet (screenlets.Screenlet):
 	orientation = 'top_left'
 	icon_size = 32
 	use_theme = False
+	home = os.environ['HOME']
+	theme1 = None
+	distro = ''
+	user = ''
+	host = ''
+	font_title = 'FreeSans'
+	curve = 10
+	transp = 90
+	draw_shadow = True
+	draw_border = True
+	frame_color=(0,0,0,0.7)
+	border_color=(0,0,0,0.5)
+	shadow_color=(0,0,0,0.5)
+	use_gtk = True
+	draw_border = True
+	draw_shadow = True
+	
+	gnome_panel = False
 
+	
 	def __init__ (self, **keyword_args):   
 
-		screenlets.Screenlet.__init__(self, width=500, height=self.height,uses_theme=True, 
-			is_widget=False, is_sticky=True, **keyword_args)
+		screenlets.Screenlet.__init__(self, width=400, height=self.height,uses_theme=True, 
+			is_widget=False, is_sticky=True,is_sizable = False,ask_on_option_override = False, **keyword_args)
 	
 		self.theme_name = "gnome"
 	        screen_hieght = gtk.gdk.screen_height()
@@ -70,7 +90,10 @@ class MainMenuScreenlet (screenlets.Screenlet):
 		if screen_hieght <= 700:
 			self.screen_hieght = int(screen_hieght * 0.55)
 		#theme = gtk.IconTheme()
-		self.height = self.screen_hieght
+		self.height = self.screen_hieght +80
+		self.distro = sensors.sys_get_distrib_name()
+		self.user = sensors.sys_get_username()
+		self.host = sensors.sys_get_hostname()
 		print self.height
 		print self.width
 	        location =  __file__
@@ -85,12 +108,49 @@ class MainMenuScreenlet (screenlets.Screenlet):
 
 		self.add_option(IntOption('Main Menu Options','icon_size', 
 			self.icon_size, 'Main menu icon size', 
-			'icon_size', 
-			min=0, max=5000))
+			'icon_size', 	min=0, max=128))
+
+		self.add_option(FontOption('Main Menu Options','font_title', 
+			self.font_title, 'Title Font', 
+			''))
 
 		self.add_option(BoolOption('Main Menu Options','use_theme', 
-			self.use_theme, 'Use themes instead gnome', 
-			'Use themes instead gnome default icon theme'))
+			self.use_theme, 'Use costume icon theme', 'Use costume icon theme'))
+
+		self.add_option(BoolOption('Main Menu Options','use_gtk', 
+			self.use_gtk, 'Use gtk theme color for frame', 'Use gtk theme color in the frame'))
+
+		self.add_option(IntOption('Main Menu Options','transp', 
+			self.transp, 'Gtk theme transparency', 
+			'', min=0, max=100))
+
+		self.add_option(ColorOption('Main Menu Options','frame_color', 
+			self.frame_color, 'Frame color', 
+			'Frame color, only when gtk theme is off'))
+
+		self.add_option(BoolOption('Main Menu Options','draw_border', 
+			self.draw_border, 'Draw border arround menu', 'draw_shadow'))
+
+		self.add_option(ColorOption('Main Menu Options','border_color', 
+			self.border_color, 'Border color', 
+			'Frame color'))
+
+		self.add_option(BoolOption('Main Menu Options','draw_shadow', 
+			self.draw_shadow, 'Draw shadow arround menu', 'draw_shadow'))
+
+		self.add_option(ColorOption('Main Menu Options','shadow_color', 
+			self.shadow_color, 'Shadow color', 
+			'Frame color'))
+
+
+		self.add_option(IntOption('Main Menu Options','curve', 
+			self.curve, 'Rounded corners angule', 
+			'curve', min=0, max=45))
+
+		self.add_options_group('Gnome panel integration', 'Gnome panel integration')
+
+		self.add_option(BoolOption('Gnome panel integration','gnome_panel', 
+			self.gnome_panel, 'Integrate with gnome-panel', 'Always show menu'))
 
 	        self.theme1 = gtk.icon_theme_get_default()
 		try:self.icon = self.theme1.load_icon ("gnome-main-menu", self.icon_size, 0)
@@ -106,7 +166,7 @@ class MainMenuScreenlet (screenlets.Screenlet):
 	        column1.add_attribute(render, 'pixbuf', 0)
 	        column2 = gtk.TreeViewColumn("==2==", cell1,text=1)
 	        tree1 = gtk.TreeView()
-	        tree1.set_size_request(200, -1)
+	        tree1.set_size_request(160, -1)
 	        tree1.set_headers_visible (0)
 	        tree1.append_column(column1)
 	        tree1.append_column(column2)
@@ -125,7 +185,7 @@ class MainMenuScreenlet (screenlets.Screenlet):
 	        column1.add_attribute(render, 'pixbuf', 0)
 	        column2 = gtk.TreeViewColumn("==2==", cell1,text=1)
         	tree2 = gtk.TreeView()
-        	tree2.set_size_request(200, -1)
+        	tree2.set_size_request(150, -1)
         	tree2.set_headers_visible (0)
         	tree2.append_column(column1)
         	tree2.append_column(column2)
@@ -135,32 +195,70 @@ class MainMenuScreenlet (screenlets.Screenlet):
         	tree2.connect("button-press-event", keyboard.tree2faux,
                       self.treeclick,tree2,self.objlist2)
         #
+
+        	#entry.set_size_request(-1,20)
+        	search_button = gtk.Button("")
+		search_button.set_image(gtk.image_new_from_stock(gtk.STOCK_FIND, 
+			gtk.ICON_SIZE_BUTTON))
+		hbox3 = gtk.HBox()
         	entry = gtk.Entry()
-        	entry.set_size_request(-1,28)
-        	search_button = gtk.Button(stock="gtk-find")
+		
         	self.hbox = gtk.HBox()
         	hbox2 = gtk.HBox()
         	vbox = gtk.VBox()
         	swindow = gtk.ScrolledWindow()
         	swindow.set_policy(gtk.POLICY_NEVER, gtk.POLICY_AUTOMATIC)
         	swindow.set_size_request(-1, self.screen_hieght)
-        	hbox2.pack_start(entry,expand=False, fill=False, padding=0)
+        	hbox2.pack_start(entry, padding=0)
         	hbox2.pack_end(search_button,expand=False, fill=False, padding=0)
-        	vbox.pack_start(tree1)
-        	vbox.pack_end(hbox2,expand=False, fill=False, padding=0)
+        	swindow2 = gtk.ScrolledWindow()
+        	swindow2.set_policy(gtk.POLICY_NEVER, gtk.POLICY_AUTOMATIC)
+        	swindow2.set_size_request(-1, self.screen_hieght)
+        	swindow2.add(tree1)
+        	vbox.pack_start(swindow2,expand=True, fill=True)
+        	vbox.pack_end(hbox2,expand=False, fill=True, padding=0)
+        	quit_button = gtk.Button("")
+		quit_button.set_image(gtk.image_new_from_stock(gtk.STOCK_QUIT, 
+			gtk.ICON_SIZE_BUTTON))
+        	edit_button = gtk.Button("")
+		edit_button.set_image(gtk.image_new_from_stock(gtk.STOCK_EDIT, 
+			gtk.ICON_SIZE_BUTTON))
+        	help_button = gtk.Button("")
+		help_button.set_image(gtk.image_new_from_stock(gtk.STOCK_HELP, 
+			gtk.ICON_SIZE_BUTTON))
+        	control_button = gtk.Button("")
+		control_button.set_image(gtk.image_new_from_stock(gtk.STOCK_PREFERENCES, 
+			gtk.ICON_SIZE_BUTTON))
         	swindow.add(tree2)
+        	vbox3 = gtk.VBox()
+        	hbox3 = gtk.HBox()
+        	hbox3.pack_end(quit_button,expand=False, fill=False, padding=0)
+        	hbox3.pack_end(edit_button,expand=False, fill=False, padding=0)
+        	hbox3.pack_end(help_button,expand=False, fill=False, padding=0)
+        	hbox3.pack_end(control_button,expand=False, fill=False, padding=0)
+		vbox3.pack_start(swindow,expand=True, fill=True)
+		vbox3.pack_start(hbox3,expand=False, fill=False)
+
         	self.hbox.pack_start(vbox)
-        	self.hbox.add(swindow)
+        	self.hbox.add(vbox3)
 
 		self.vbox2 = gtk.VBox()
         	self.vbox2.pack_start(self.hbox,expand=False, fill=False, padding=0)
         	self.vbox2.show_all()
         	self.window.add(self.vbox2)
-		self.hbox.set_size_request(1,self.height - 20)
+		self.hbox.set_size_request(1,self.height - 100)
 		self.bgcolor = self.vbox2.get_style().bg[gtk.STATE_NORMAL]
-
+		self.tips = gtk.Tooltips()
+		self.tips.set_tip(control_button, ('Launch gnome control center...'))
+		self.tips.set_tip(quit_button, ('Quit , shutdown or restart dialog ...'))
+		self.tips.set_tip(help_button, ('Get help ...'))
+		self.tips.set_tip(edit_button, ('Edit this menu ...'))
 	        entry.connect("activate",self.search)
         	search_button.connect("clicked",self.search)
+        	quit_button.connect("clicked",self.but,'quit')
+        	help_button.connect("clicked",self.but,'help')
+        	edit_button.connect("clicked",self.but,'edit')
+        	control_button.connect("clicked",self.but,'control')
         	tree1.connect("key-press-event",keyboard.navigate,tree2,1)
         	tree2.connect("key-press-event",keyboard.navigate,tree1,2)
         	tree2.connect("row-activated",keyboard.tree2activated,
@@ -171,13 +269,24 @@ class MainMenuScreenlet (screenlets.Screenlet):
         	self.tree2 = tree2
 
         	self.tree1.set_cursor((self.objlist1.__len__()-1,0),None,False)
-		self.hbox.set_border_width(5)
-        	self.hbox.set_uposition(0,10)
+		self.hbox.set_border_width(7)
+        	self.hbox.set_uposition(0,80)
         	if "placesmodel" in self.__dict__:pass
         	else:self.placesmodel,self.objlist3 = menus.get_places(self.theme1)
         	self.tree2.set_model(self.placesmodel)
      #   self.tree1.grab_focus()
     #    self.window.show_all()
+
+
+	def but(self,widget,id):
+        	if id == 'quit':
+			os.system('gnome-session-save --kill --gui &')
+        	if id == 'edit':
+			os.system('alacarte &')
+        	if id == 'control':
+			os.system('gnome-control-center &')
+        	if id == 'help':
+			os.system('yelp &')
 
 	def search(self,widget):
         	test = pathfinder.exists(self.entry.get_text())
@@ -189,7 +298,7 @@ class MainMenuScreenlet (screenlets.Screenlet):
 
 	def on_after_set_atribute(self,name, value):
 		"""Called after setting screenlet atributes"""
-		if name == 'orientation' or name == 'use_theme' :
+		if name == 'orientation' or name == 'use_theme' or name == 'icon_size' or name == 'curve':
 			self.redraw_canvas()
 			self.update_shape()
 
@@ -214,6 +323,7 @@ class MainMenuScreenlet (screenlets.Screenlet):
 	        if "placesmodel" in self.__dict__:pass
 	        else:self.placesmodel,self.objlist3 = menus.get_places(self.theme1)
 	        self.tree2.set_model(self.placesmodel)
+
 		self.is_hover = True
 		return False
 
@@ -222,7 +332,7 @@ class MainMenuScreenlet (screenlets.Screenlet):
 		# add default menuitems
 		self.add_default_menuitems(DefaultMenuItem.WINDOW_MENU | DefaultMenuItem.THEMES | DefaultMenuItem.PROPERTIES |
 			DefaultMenuItem.DELETE)
-
+		self.is_visible = True
 
 	def treeclick(self,widget,tree,obj,toggle,t2act=False):
 		"""
@@ -288,20 +398,24 @@ class MainMenuScreenlet (screenlets.Screenlet):
 
 	def on_focus (self, event):
 		"""Called when the Screenlet's window receives focus."""
+		#if self.gnome_panel:self.is_visible = True
 		self.has_focus = True
 		self.redraw_canvas()
 		self.update_shape()
 
 	def on_unfocus (self, event):
 		"""Called when the Screenlet's window loses focus."""
+		if self.gnome_panel and self.has_started and self.window:
+			self.is_visible = False
 		self.has_focus = False
-		self.redraw_canvas()
-		self.update_shape()
+		if not self.gnome_panel:
+			self.redraw_canvas()
+			self.update_shape()
 
 	def on_draw (self, ctx):
-
+		
 		ctx.scale(self.scale, self.scale)
-		if not self.has_focus:
+		if self.has_focus is False and not self.gnome_panel:
 			try:self.vbox2.hide()
 			except : pass
 
@@ -368,28 +482,65 @@ class MainMenuScreenlet (screenlets.Screenlet):
 						ctx.paint()
 						ctx.restore()
 
-		elif self.has_focus :
+		elif self.has_focus or self.gnome_panel:
 			if self.theme:		
+				ctx.save()
 				if self.window.is_composited == False : a = 1
 				else : a = 0.4	
 				ctx.set_source_rgba(0.5, 0.5, 0.5, a)	
-				self.theme.draw_rounded_rectangle(ctx,0,0,10,self.width*self.scale,self.height*self.scale)	#self.box = None
+				self.theme.draw_rounded_rectangle(ctx,0,0,self.curve +5,self.width*self.scale,self.height*self.scale)	#self.box = None
+				co = float(self.transp) /100
+				if not self.window.is_composited and co<=69: co = 70
 				try:
 					self.bgcolor = self.vbox2.get_style().bg[gtk.STATE_NORMAL]
 			        	r = self.bgcolor.red/65535.0
 					g = self.bgcolor.green/65535.0
 					b = self.bgcolor.blue/65535.0
-					ctx.set_source_rgba(r, g, b, 1)		
+					ctx.set_source_rgba(r, g, b, co)
+					font_color = (1 - r, 1 - g,1-  b, 0.9)
+					
 			
-				except: 		ctx.set_source_rgba(0, 0, 0, 1)	
-				self.theme.draw_rounded_rectangle(ctx,5,5,5,(self.width-10)*self.scale,(self.height-10)*self.scale)	
+				except: 		ctx.set_source_rgba(0, 0, 0, co)
+				if self.draw_shadow:
+					shadow = 6
+				else:
+					shadow = 0
+				if self.draw_border:
+					border = 2
+				else:
+					border = 0
+				adjust =  (6 - shadow)
+				if not self.use_gtk:
+					font_color = (1 - self.frame_color[0], 1 - self.frame_color[1],1-  self.frame_color[2], 0.9)
+					ctx.set_source_rgba(*self.frame_color)
+				self.draw_rectangle_advanced (ctx, 0+adjust, 0+adjust, self.width-12, self.height-12, rounded_angles=(self.curve,self.curve,self.curve,self.curve), fill=True,border_size=border, border_color=(self.border_color[0],self.border_color[1],self.border_color[2],self.border_color[3]), shadow_size=shadow, shadow_color=(self.shadow_color[0],self.shadow_color[1],self.shadow_color[2],self.shadow_color[3]))	
+				ctx.restore()
+				#try:self.user_icon = gdk.pixbuf_new_from_file (self.home + 'themes/' +self.theme_name + '/icon.png')	
+				if (self.theme1 != None):
+
+					self.user_icon = self.theme1.load_icon ("computer", 64, 0)
+					ctx.translate(15,15)
+					ctx.save()
+
+					ctx.set_source_pixbuf(self.user_icon, 0, 0)
+					ctx.paint()
+					ctx.set_source_rgba(*font_color)
+					self.theme.draw_text(ctx, self.distro, 70, 10, self.font_title.split(' ')[0] , 15,self.width - 74 ,pango.ALIGN_LEFT)
+					self.theme.draw_text(ctx, self.user +'@' + self.host, 70, 30, self.font_title.split(' ')[0] , 10,self.width - 74 ,pango.ALIGN_LEFT)
+					ctx.restore()
+				
 				try:self.vbox2.show()
 				except : pass
 
 	def on_draw_shape (self, ctx):
+		if self.theme:
+			if self.has_focus is False and not self.gnome_panel:
+				ctx.translate(self.transx,self.transy)
+				self.theme.draw_rounded_rectangle(ctx,5,5,self.curve,self.icon_size,self.icon_size)
+			elif self.has_focus or self.gnome_panel:
+														
 
-		self.on_draw(ctx)
-
+				self.theme.draw_rounded_rectangle(ctx,5,5,self.curve,self.width,self.height)
 if __name__ == "__main__":
 	# create new session
 	import screenlets.session

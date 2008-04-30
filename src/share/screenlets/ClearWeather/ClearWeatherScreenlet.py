@@ -119,7 +119,7 @@ class ClearWeatherScreenlet(screenlets.Screenlet):
 		temp = self.parseWeatherData()
 		temp2 = self.parseWeatherDataHourly()
 		
-		if temp[0]["where"] == '':    ##did we get any data?  if not...
+		if len(temp) == 0 or temp[0]["where"]  == '':    ##did we get any data?  if not...
 			if self.show_error_message==1 and self.updated_recently == 1:
 				self.show_error()
 			self.updated_recently = 0
@@ -137,19 +137,23 @@ class ClearWeatherScreenlet(screenlets.Screenlet):
 			unit = 'm'
 		else:
 			unit = 's'
-		data = urlopen('http://xoap.weather.com/weather/local/'+self.ZIP+'?cc=*&dayf=10&prod=xoap&par=1003666583&key=4128909340a9b2fc&unit='+unit).read()
+
 		forecast = []
+		try:
+			data = urlopen('http://xoap.weather.com/weather/local/'+self.ZIP+'?cc=*&dayf=10&prod=xoap&par=1003666583&key=4128909340a9b2fc&unit='+unit).read()
 
-		dcstart = data.find('<loc ')
-		dcstop = data.find('</cc>')     ###### current conditions
-		data_current = data[dcstart:dcstop]
-		forecast.append(self.tokenizeCurrent(data_current))
+			dcstart = data.find('<loc ')
+			dcstop = data.find('</cc>')     ###### current conditions
+			data_current = data[dcstart:dcstop]
+			forecast.append(self.tokenizeCurrent(data_current))
 
-		for x in range(10):
-			dcstart = data.find('<day d=\"'+str(x))
-			dcstop = data.find('</day>',dcstart)   #####10-day forecast
-			day = data[dcstart:dcstop]
-			forecast.append(self.tokenizeForecast(day))
+			for x in range(10):
+				dcstart = data.find('<day d=\"'+str(x))
+				dcstop = data.find('</day>',dcstart)   #####10-day forecast
+				day = data[dcstart:dcstop]
+				forecast.append(self.tokenizeForecast(day))
+		except IOError, e:
+			print "Error retreiving Weather Data", e
 
 		return forecast
 
@@ -159,14 +163,17 @@ class ClearWeatherScreenlet(screenlets.Screenlet):
 			unit = 'm'
 		else:
 			unit = 's'
-		data = urlopen('http://xoap.weather.com/weather/local/'+self.ZIP+'?cc=*&dayf=10&prod=xoap&par=1003666583&key=4128909340a9b2fc&unit='+unit+'&hbhf=12').read()
-		hforecast = []
 
-		for x in range(8):
-			dcstart = data.find('<hour h=\"'+str(x))
-			dcstop = data.find('</hour>',dcstart)   ####hourly forecast
-			hour = data[dcstart:dcstop]
-			hforecast.append(self.tokenizeForecastHourly(hour))
+		hforecast = []
+		try:
+			data = urlopen('http://xoap.weather.com/weather/local/'+self.ZIP+'?cc=*&dayf=10&prod=xoap&par=1003666583&key=4128909340a9b2fc&unit='+unit+'&hbhf=12').read()
+			for x in range(8):
+				dcstart = data.find('<hour h=\"'+str(x))
+				dcstop = data.find('</hour>',dcstart)   ####hourly forecast
+				hour = data[dcstart:dcstop]
+				hforecast.append(self.tokenizeForecastHourly(hour))
+		except IOError, e:
+			print "Error retrieving weather data", e
 
 		return hforecast
 

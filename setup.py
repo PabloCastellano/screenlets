@@ -1,7 +1,7 @@
 #
 # INFO: The setup-script for the screenlets
 #
-# (c) RYX (Rico Pfaus) 2007 ...
+# (c) RYX (Rico Pfaus) , Whise (Helder Fraga) ...
 #
 
 from distutils.core import setup
@@ -123,19 +123,6 @@ if os.path.isdir (podir):
 					os.makedirs ("build/locale/%s/LC_MESSAGES" % dname)
 				os.system (buildcmd % (dname,name.replace('-'+dname,''), name))
 				files_list.append ((destpath % dname, [mopath % (dname,name.replace('-'+dname,''))]))
-			#for fname in os.listdir (podir + '/' + dname):
-			#	if fname.endswith('.po'):
-					
-						
-				#	filename = fname.replace('.po','.mo')
-				#	if not os.path.exists(INSTALL_PREFIX + "/share/locale/%s" % dname):
-				#		os.system('mkdir ' + INSTALL_PREFIX + "/share/locale/" + dname)
-				#	if not os.path.exists(INSTALL_PREFIX + "/share/locale/" + dname  + "/LC_MESSAGES"):
-				#		os.system('mkdir ' + INSTALL_PREFIX + "/share/locale/"+ dname + "/LC_MESSAGES" )
-				#	destpath = INSTALL_PREFIX + "/share/locale/%s/LC_MESSAGES/%s" % (dname,filename)
-				#	os.system (buildcmd + podir + '/'+ dname + '/' + fname + ' -o ' + destpath)
-			
-			
 
 
 	
@@ -143,8 +130,8 @@ if os.path.isdir (podir):
 setup(name = 'screenlets',
 	# metainfo for this package
 	version			= VERSION,
-	author			= 'RYX (Rico Pfaus)',
-	author_email	= 'ryx@ryxperience.com',
+	author			= 'RYX (Rico Pfaus), Whise (Helder Fraga)',
+	author_email	= 'helder.fraga@hotmail.com',
 	url				= 'http://www.screenlets.org',
 	license			= 'GPL v3',
 	description		= 'Screenlets - widget-like mini-applications combining '+\

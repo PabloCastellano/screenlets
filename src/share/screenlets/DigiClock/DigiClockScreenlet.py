@@ -20,7 +20,7 @@ import cairo
 import gconf
 
 class DigiClockScreenlet (screenlets.Screenlet):
-	"""A Screenlet that allows to instantly change metacity composite state"""
+	"""Digital clock"""
 	
 	# default meta-info for Screenlets (should be removed and put into metainfo)
 	__name__	= 'DigiClockScreenlet'

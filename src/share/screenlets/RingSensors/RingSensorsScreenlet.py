@@ -192,7 +192,7 @@ class RingSensorsScreenlet(screenlets.Screenlet):
 		elif self.sensor.startswith('Wifi'):
 			if self.wire_list != []:
 				self.wire_data = sensors.wir_get_stats(self.wire_list[0])
-				print self.wire_data
+				
 				a = str(self.wire_data['essid']).find('off/any')
 				if a != -1:
 					self.sensor = 'Wifi ' + str(self.wire_list[0])
@@ -257,7 +257,7 @@ class RingSensorsScreenlet(screenlets.Screenlet):
 		if len(str(self.load))==1:
 			self.load = "0" + str(self.load)
 		ctx.set_source_rgba(self.color_text[0],self.color_text[1],self.color_text[2],self.color_text[3])
-		if self.sensor.endswith('RPM') or self.sensor.endswith('C') or self.sensor.endswith('V')or self.sensor.find(':') != -1:
+		if self.sensor.endswith('RPM') or self.sensor.endswith('C') or self.sensor.endswith('V') or self.sensor.find(':') != -1:
 			text = '<small><small><small><small>' +str(self.sensor.split(':')[0]) +'</small></small></small></small>\n'+str(self.sensor.split(':')[1])	
 		else:
 			text = '<small><small><small><small>' +self.sensor +'</small></small></small></small>\n'+self.text_prefix + str(self.load) + self.text_suffix

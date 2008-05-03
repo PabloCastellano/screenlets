@@ -185,7 +185,7 @@ class SensorsScreenlet(screenlets.Screenlet):
 		elif self.sensor.startswith('Wifi'):
 			if self.wire_list != []:
 				self.wire_data = sensors.wir_get_stats(self.wire_list[0])
-				print self.wire_data
+				
 				a = str(self.wire_data['essid']).find('off/any')
 				if a != -1:
 					self.sensor = 'Wifi ' + str(self.wire_list[0])
@@ -196,6 +196,10 @@ class SensorsScreenlet(screenlets.Screenlet):
 			# only get here when requested sensor is in the list of available disks
  			self.load = int(sensors.disk_get_usage(self.sensor)[4].replace('%',''))
 		else:
+			try:
+				self.sensor = str(self.sensor.split(':')[0]) + ':' + str(sensors.sensors_get_sensor_value(self.sensor.split(':')[0]))
+			except:			
+				pass
 			self.load = 0
 		
 
@@ -253,8 +257,8 @@ class SensorsScreenlet(screenlets.Screenlet):
 			if len(str(self.load))==1:
 				self.load = "0" + str(self.load)
 			ctx.set_source_rgba(1, 1, 1, 0.9)
-			if self.sensor.endswith('RPM') or self.sensor.endswith('C') or self.sensor.endswith('V'):
-				text = '<small><small><small><small>' +str(self.sensor.split(':')[0]) +'</small></small></small></small>\n'+str(self.sensor.split(':')[1])	
+			if self.sensor.endswith('RPM') or self.sensor.endswith('C') or self.sensor.endswith('V')or self.sensor.find(':') != -1:
+				text = '<small><small><small><small>' +str(self.sensor.split(':')[0]) +'</small></small></small></small>\n'+str(self.sensor.split(':')[1])
 			else:
 				text = '<small><small><small><small>' +self.sensor +'</small></small></small></small>\n'+self.text_prefix + str(self.load) + self.text_suffix
 			self.theme.draw_text(ctx,text, 15, 20, 'Free Sans', 25,  self.width,pango.ALIGN_LEFT)

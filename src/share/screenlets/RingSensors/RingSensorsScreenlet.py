@@ -203,6 +203,10 @@ class RingSensorsScreenlet(screenlets.Screenlet):
 			# only get here when requested sensor is in the list of available disks
  			self.load = int(sensors.disk_get_usage(self.sensor)[4].replace('%',''))
 		else:
+			try:
+				self.sensor = str(self.sensor.split(':')[0]) + ':' + str(sensors.sensors_get_sensor_value(self.sensor.split(':')[0]))
+			except:			
+				pass
 			self.load = 0
 
 		if self.load > 100:
@@ -253,7 +257,7 @@ class RingSensorsScreenlet(screenlets.Screenlet):
 		if len(str(self.load))==1:
 			self.load = "0" + str(self.load)
 		ctx.set_source_rgba(self.color_text[0],self.color_text[1],self.color_text[2],self.color_text[3])
-		if self.sensor.endswith('RPM') or self.sensor.endswith('C') or self.sensor.endswith('V'):
+		if self.sensor.endswith('RPM') or self.sensor.endswith('C') or self.sensor.endswith('V')or self.sensor.find(':') != -1:
 			text = '<small><small><small><small>' +str(self.sensor.split(':')[0]) +'</small></small></small></small>\n'+str(self.sensor.split(':')[1])	
 		else:
 			text = '<small><small><small><small>' +self.sensor +'</small></small></small></small>\n'+self.text_prefix + str(self.load) + self.text_suffix

@@ -522,7 +522,7 @@ def wir_get_stats (interface):
 	else:
 		bitrate = iwconfig[iwconfig.find("Bit Rate:")+9:]
 		stats['bitrate'] = bitrate[:bitrate.find(" ")]
-		quality = iwconfig[iwconfig.find("Link Quality=")+13:]
+		quality = iwconfig[iwconfig.find("Link Quality")+13:]
 		quality = quality[:quality.find(" ")]
 		if quality.find("/") > 0:
 			stats['quality'], stats['quality_max'] = quality.split("/")
@@ -532,9 +532,9 @@ def wir_get_stats (interface):
 			stats['percentage'] = int(float(stats['quality'])/float(stats['quality_max'])*100)
 		except:
 			return {"essid": _("Not connected"), "percentage": 0}
-		signal = iwconfig[iwconfig.find("Signal level=")+13:]
+		signal = iwconfig[iwconfig.find("Signal level")+13:]
 		stats['signal'] = signal[:signal.find("  ")]
-		noise = iwconfig[iwconfig.find("Noise level=")+12:]
+		noise = iwconfig[iwconfig.find("Noise level")+12:]
 		stats['noise'] = noise[:noise.find('\n')]
 		return stats
 
@@ -725,8 +725,7 @@ def sensors_get_sensors_list():
 		sol = res[1].replace(':\n ',': ').replace(':\n\t',': ').splitlines()
 		for i in sol:
 			i = i.strip()
-			# (i.find('\xb0')!= -1) or (i.find('\xc2')!= -1) or
-			if (i.find('temp')!= -1) or (i.find('Temp')!= -1) or (i.find(' V ')!= -1) or (i.find(' RPM ')!= -1):
+			if (i.find('\xb0')!= -1) or (i.find('\xc2')!= -1) or (i.find('temp')!= -1) or (i.find('Temp')!= -1) or (i.find(' V ')!= -1) or (i.find(' RPM ')!= -1):
 				output.append(i.lstrip())#.split(')')[0]+')')
 	#now look for nvidia sensors
 	res = commands.getstatusoutput(' nvidia-settings -q GPUAmbientTemp | grep :')

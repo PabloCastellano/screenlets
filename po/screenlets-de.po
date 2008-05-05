@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: screenlets\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2008-02-13 19:35+0200\n"
-"PO-Revision-Date: 2008-03-18 18:58+0000\n"
-"Last-Translator: Vinzenz Vietzke <Unknown>\n"
+"PO-Revision-Date: 2008-04-02 13:26+0000\n"
+"Last-Translator: Lunks <launchpad@stonys-home.de>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-02 01:28+0000\n"
+"X-Launchpad-Export-Date: 2008-05-04 15:36+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: XmlMenu.py:48
@@ -42,12 +42,10 @@ msgid "Error while creating menu."
 msgstr "Fehler beim Erstellen des Menüs."
 
 #: __init__.py:154
-#, fuzzy
 msgid "Error while loading ScreenletTheme in: "
 msgstr "Fehler beim Laden von ScreenletTheme in: "
 
 #: __init__.py:175
-#, fuzzy
 msgid "Override: "
 msgstr "Überschreibe: "
 
@@ -191,9 +189,8 @@ msgid "Keep this Screenlet below other windows ..."
 msgstr "Dieses Screenlet unter allen anderen Fenstern anordnen ..."
 
 #: __init__.py:671
-#, fuzzy
 msgid "Draw button controls"
-msgstr "Zeichenbutton-Steuerung"
+msgstr "Zeige Steuerknöpfe"
 
 #: __init__.py:672
 msgid "Draw buttons in top right corner"
@@ -347,7 +344,6 @@ msgid "Screenlet: Set theme %s"
 msgstr "Screenlet: Setze Thema %s"
 
 #: __init__.py:1723
-#, fuzzy
 msgid "Error: Cannot set missing or non-boolean value '"
 msgstr "Fehler: Kann fehlenden oder nicht-booleschen Wert nicht setzen '"
 
@@ -558,7 +554,7 @@ msgstr "Kann /proc/uptime nicht öffnen"
 
 #: sensors.py:205
 msgid "Error getting distro name"
-msgstr ""
+msgstr "Fehler beim lesen des Distributions Namen"
 
 #: sensors.py:234
 msgid "Can't get kernel version"
@@ -738,7 +734,6 @@ msgid "No instance(s) found in session-path, creating new one."
 msgstr "Keine Instanz(en) im Sitzungspfad gefunden, erstelle eine Neue."
 
 #: session.py:255
-#, fuzzy
 msgid "Failed creating instance of: %s"
 msgstr "Erstellen der Instanz fehlgeschlagen: %s"
 
@@ -775,9 +770,8 @@ msgid "Removing entry for %s from global tempfile %s"
 msgstr "Entferne Eintrag für %s aus der globalen, temporären Datei %s"
 
 #: session.py:326
-#, fuzzy
 msgid "Entry not found. Will (obviously) not be removed."
-msgstr "Eintrag nicht gefunden. Wird nicht entfernt werden (nahe liegend)."
+msgstr "Eintrag nicht gefunden. Wird (offenstlicht) nicht entfernt."
 
 #: session.py:338
 msgid "Error global tempfile not found. Some error before?"

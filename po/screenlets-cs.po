@@ -1,4 +1,4 @@
-# Russian translation for screenlets
+# Czech translation for screenlets
 # Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
 # This file is distributed under the same license as the screenlets package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: screenlets\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2008-02-13 19:35+0200\n"
-"PO-Revision-Date: 2008-04-14 09:25+0000\n"
-"Last-Translator: Maxim Prokopyev <xjazz@yandex.ru>\n"
-"Language-Team: Russian <ru@li.org>\n"
+"PO-Revision-Date: 2008-04-05 23:38+0000\n"
+"Last-Translator: Petr Pulc <petrpulc@gmail.com>\n"
+"Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,792 +19,802 @@ msgstr ""
 
 #: XmlMenu.py:48
 msgid "Error while creating image from file: %s"
-msgstr "Ошибка во время создания изображения из файла: %s"
+msgstr "Chyba při vytváření obrázku ze souboru: %s"
 
 #: XmlMenu.py:64
 msgid "Error: file %s not found."
-msgstr "Ошибка: файл %s не найден."
+msgstr "Chyba: soubor %s nenalezen."
 
 #: XmlMenu.py:185
 msgid "XML-Error: %s"
-msgstr "Ошибка XML: %s"
+msgstr "Chyba XML: %s"
 
 #: XmlMenu.py:231
 msgid "Exception: %s"
-msgstr "Исключение: %s"
+msgstr "Výjimka: %s"
 
 #: XmlMenu.py:232
 msgid "An error occured with desktop-file: %s"
-msgstr "Произошла ошибка с desktop-файлом: %s"
+msgstr "Došlo k chybě se souborem desktop: %s"
 
 #: XmlMenu.py:338
 msgid "Error while creating menu."
-msgstr "Ошибка во время создания меню"
+msgstr "Chyba při vytváření menu."
 
 #: __init__.py:154
 msgid "Error while loading ScreenletTheme in: "
-msgstr "Ошибка во время загрузки темы в: "
+msgstr "Chyba při načítání ScreenletMotivu v: "
 
 #: __init__.py:175
 msgid "Override: "
-msgstr "Перезапись: "
+msgstr "Přepsání: "
 
 #: __init__.py:186
 msgid "WARNING: Option '%s' not found or protected."
-msgstr "Внимание: Параметр '%s' не найден или защищен."
+msgstr "VAROVÁNÍ: Vlastnost '%s' nebyla nelezena, nebo je chráněna."
 
 #: __init__.py:411
 msgid "theme.conf loaded: "
-msgstr "theme.conf загружен: "
+msgstr "theme.conf načten: "
 
 #: __init__.py:412
 msgid "Name: "
-msgstr "Имя: "
+msgstr "Název: "
 
 #: __init__.py:413
 msgid "Author: "
-msgstr "Автор: "
+msgstr "Autor: "
 
 #: __init__.py:414
 msgid "Version: "
-msgstr "Версия: "
+msgstr "Verze: "
 
 #: __init__.py:415
 msgid "Info: "
-msgstr "Сведения : "
+msgstr "Informace: "
 
 #: __init__.py:417
 msgid "Failed to load theme.conf"
-msgstr "Не удалось загрузить файл theme.conf"
+msgstr "Nepodařilo se načíst theme.conf"
 
 #: __init__.py:469
 msgid "theme.conf found! Loading option-overrides."
-msgstr "Найден theme.conf! Идет загрузка с перекрытием опций"
+msgstr "theme.conf nalezen! Načítám přepisy vlastností"
 
 #: __init__.py:524
 msgid "No name set for this Screenlet"
-msgstr "У этого Скринлета нет имени"
+msgstr "Tento Screenlet nemá nastavené jméno"
 
 #: __init__.py:526
 msgid "No author defined for this Screenlet"
-msgstr "Автор этого Скринлета не указан"
+msgstr "Tento Screenlet nemá nastaveného autora"
 
 #: __init__.py:527
 msgid "No info set for this Screenlet"
-msgstr "Информация об этом Скринлете не указана"
+msgstr "Tento Screenlet nemá nastaveny informace"
 
 #: __init__.py:626
 msgid "The basic settings for this Screenlet-instance."
-msgstr ""
+msgstr "Základní nastavení pro tento výskyt Screenletu,"
 
 #: __init__.py:638
 msgid "The X-position of this Screenlet ..."
-msgstr "X-координата для этого Скринлета ..."
+msgstr "Xová souřadnice Screenletu ..."
 
 #: __init__.py:638
 msgid "X-Position"
-msgstr "Х-координата"
+msgstr "Xová souřadnice"
 
 #: __init__.py:641
 msgid "The Y-position of this Screenlet ..."
-msgstr "Y-координата для этого Скринлета ..."
+msgstr "Yová souřadnice Screenletu ..."
 
 #: __init__.py:641
 msgid "Y-Position"
-msgstr "Y-координата"
+msgstr "Yová souřadnice"
 
 #: __init__.py:644
 msgid "The width of this Screenlet ..."
-msgstr "Ширина этого Скринлета ..."
+msgstr "Šířka tohoto Screenletu ..."
 
 #: __init__.py:644
 msgid "Width"
-msgstr "Ширина"
+msgstr "Šířka"
 
 #: __init__.py:647
 msgid "Height"
-msgstr "Высота"
+msgstr "Výška"
 
 #: __init__.py:647
 msgid "The height of this Screenlet ..."
-msgstr "Высота этого Скринлета ..."
+msgstr "Výška tohoto Screenletu ..."
 
 #: __init__.py:650
 msgid "Scale"
-msgstr "Масштаб"
+msgstr "Měřítko"
 
 #: __init__.py:650
 msgid "The scale-factor of this Screenlet ..."
-msgstr "Масштаб этого Скринлета ..."
+msgstr "Měřítko zobrazení tohoto Screenletu ..."
 
 #: __init__.py:653
 msgid "Opacity"
-msgstr "Прозрачность"
+msgstr "Průhlednost"
 
 #: __init__.py:653
 msgid "The opacity of the Screenlet window ..."
-msgstr "Прозрачность окна скринлета ..."
+msgstr "Průhlednost okna Screenletu ..."
 
 #: __init__.py:656
 msgid "Stick to Desktop"
-msgstr "Прикрепить к Рабочему Столу"
+msgstr "Přilepit k ploše"
 
 #: __init__.py:657
 msgid "Show this Screenlet on all workspaces ..."
-msgstr "Показывать этот скринлет на всех рабочих местах"
+msgstr "Zobrazit tento Screenlet na všech plochách"
 
 #: __init__.py:659
 msgid "Treat as Widget"
-msgstr ""
+msgstr "Pokládat za Widget"
 
 #: __init__.py:660
 msgid "Treat this Screenlet as a \"Widget\" ..."
-msgstr ""
+msgstr "Pokládat tento Screenlet za \"Widget\" ..."
 
 #: __init__.py:662
 msgid "Lock position"
-msgstr "Закрепить"
+msgstr "Zamknout pozici"
 
 #: __init__.py:663
 msgid "Stop the screenlet from being moved..."
-msgstr ""
+msgstr "Zakázat přesouvání tohoto Screenletu ..."
 
 #: __init__.py:665
 #: __init__.py:920
 msgid "Keep above"
-msgstr "Всегда наверху"
+msgstr "Stále v popředí"
 
 #: __init__.py:666
 msgid "Keep this Screenlet above other windows ..."
-msgstr "Закрепить Скринлет поверх остальных окон ..."
+msgstr "Držet tento Screenlet nad ostatními okny ..."
 
 #: __init__.py:668
 #: __init__.py:927
 msgid "Keep below"
-msgstr "Всегда снизу"
+msgstr "Stále v pozadí"
 
 #: __init__.py:669
 msgid "Keep this Screenlet below other windows ..."
-msgstr "ЗакрепитьСкринлет под остальными окнами ..."
+msgstr "Držet tento Screenlet pod ostatními okny ..."
 
 #: __init__.py:671
 msgid "Draw button controls"
-msgstr "Отображать управляющие кнопки"
+msgstr "Zobrazit ovládací tlačítka"
 
 #: __init__.py:672
 msgid "Draw buttons in top right corner"
-msgstr "Отображать кнопки в правом верхнем углу"
+msgstr "Zobrazí tlačítka v pravém horním rohu"
 
 #: __init__.py:674
 msgid "Skip Pager"
-msgstr "Не отображать в переключателе раб. мест"
+msgstr "Přeskočit přepínač"
 
 #: __init__.py:675
 msgid "Set this Screenlet to show/hide in pagers ..."
-msgstr ""
-"Включить/выключить отображение Скринлета на переключателе рабочих мест"
+msgstr "Zobrazit/skrýt tento Screenlet v přepínači ploch ..."
 
 #: __init__.py:677
 msgid "Skip Taskbar"
-msgstr "Не отображать в списке окон"
+msgstr "Přeskočit seznam oken"
 
 #: __init__.py:678
 msgid "Set this Screenlet to show/hide in taskbars ..."
-msgstr ""
-"Включить/выключить отображение Скринлета в списке окон (на панели задач)"
+msgstr "Zobrazit/skrýt tento Screenlet v seznamu oken ..."
 
 #: __init__.py:681
 msgid "Allow overriding Options"
-msgstr "Разрешить изменение настроек"
+msgstr "Povolit přepisování vlastností"
 
 #: __init__.py:682
 msgid "Allow themes to override options in this screenlet ..."
-msgstr "Разрешить темам изменять настройки этого Скринлета ..."
+msgstr "Povolit motivům přepisovat vlastnosti tohoto screenletu ..."
 
 #: __init__.py:684
 msgid "Ask on Override"
-msgstr "Спрашивать при изменении"
+msgstr "Zeptat se při přepisování"
 
 #: __init__.py:685
 msgid "Show a confirmation-dialog when a theme wants to override "
-msgstr ""
-"Показывать диалог подтверждения если тема хочет перезаписать настройки "
+msgstr "Zobrazí potvrzovací okno, když bude motiv žádat přepis vlastností "
 
 #: __init__.py:686
 msgid "the current options of this Screenlet ..."
-msgstr "текущие настройки этого Скринлета ..."
+msgstr "momentální vlastnosti tohoto Screelnetu ..."
 
 #: __init__.py:784
 msgid "LOAD NEW THEME: "
-msgstr "ЗАГРУЗИТЬ НОВУЮ ТЕМУ: "
+msgstr "NAĆÍST NOVÝ MOTIV: "
 
 #: __init__.py:785
 msgid "FOUND: "
-msgstr "НАЙДЕНО: "
+msgstr "NALEZENO: "
 
 #: __init__.py:863
 msgid "Size"
-msgstr "Размер"
+msgstr "Velikost"
 
 #: __init__.py:878
 msgid "Theme"
-msgstr "Тема"
+msgstr "Motiv"
 
 #: __init__.py:893
 msgid "Window"
-msgstr "Окно"
+msgstr "Okno"
 
 #: __init__.py:899
 msgid "Lock"
-msgstr "Блокировать"
+msgstr "Uzamknout"
 
 #: __init__.py:906
 msgid "Sticky"
-msgstr "Прилепить"
+msgstr "Lepivý"
 
 #: __init__.py:913
 msgid "Widget"
-msgstr "Виджет"
+msgstr "Widget"
 
 #: __init__.py:936
 msgid "Properties..."
-msgstr "Свойства..."
+msgstr "Vlastnosti..."
 
 #: __init__.py:940
 msgid "Info..."
-msgstr "Сведения..."
+msgstr "Info..."
 
 #: __init__.py:944
 msgid "Delete Screenlet ..."
-msgstr "Удалить Скринлет ..."
+msgstr "Smazat Screenlet ..."
 
 #: __init__.py:947
 msgid "Quit this %s ..."
-msgstr "Закрыть %s ..."
+msgstr "Zavřít tento %s ..."
 
 #: __init__.py:950
 msgid "Quit all %ss ..."
-msgstr "Закрыть все %ss ..."
+msgstr "Zavřít všechny %s ..."
 
 #: __init__.py:1134
 msgid "Error while loading theme: "
-msgstr "Ошибка во время загрузки темы: "
+msgstr "Chyba při načítání motivu: "
 
 #: __init__.py:1144
 msgid ""
 "This theme wants to override your settings for this Screenlet. Do you want "
 "to allow that?"
-msgstr "Данная Тема пытается изменить настройки Скринлета. Разрешить?"
+msgstr ""
+"Tento motiv chce přepsat některá nastavení vašeho Screenletu. Chcete to "
+"povolit?"
 
 #: __init__.py:1261
 msgid "UPDATING SHAPE"
-msgstr "ОБНОВЛЕНИЕ ФОРМЫ"
+msgstr "AKTUALIZACE TVARU"
 
 #: __init__.py:1347
 msgid "To quit all %s's, use 'Quit' instead. "
-msgstr "Чтобы закрыть все %s, используйте 'Закрыть'. "
+msgstr "Pro zavření všech %s použijte příkaz 'Zavřít'. "
 
 #: __init__.py:1348
 msgid "Really delete this %s and its settings?"
-msgstr "действительно удалить %s и все его настройки?"
+msgstr "Opravdu chcete smazat tento %s a jeho nastavení?"
 
 #: __init__.py:1534
 #: __init__.py:1537
 msgid "MOUSEWHEEL"
-msgstr ""
+msgstr "KOLEČKOMYŠI"
 
 #: __init__.py:1556
 msgid "Compositing method changed to %s"
-msgstr ""
+msgstr "Metoda skládání se změnila na %s"
 
 #: __init__.py:1562
 msgid "Warning - Buttons will not be shown until screenlet is restarted"
 msgstr ""
-"Внимание - Кнопки не будут отображаться, пока Скринлет не будет перезагружен"
+"Upozornění - Tlačítka se nezobrazí dokud nebude screenlet znovu spuštěn"
 
 #: __init__.py:1592
 msgid "Cancel delete_event"
-msgstr "Отменить delete_event"
+msgstr "Zrušena událost_mazání"
 
 #: __init__.py:1612
 msgid "Start drag"
-msgstr "Начать перетаскивание"
+msgstr "Začátek táhnutí"
 
 #: __init__.py:1621
 msgid "End drag"
-msgstr ""
+msgstr "Konec táhnutí"
 
 #: __init__.py:1697
 msgid "Quitting current screenlet instance"
-msgstr ""
+msgstr "Zavírání současného výskytu screenletu"
 
 #: __init__.py:1714
 msgid "Screenlet: Set theme %s"
-msgstr "Screenlet: Назначить тему %s"
+msgstr "Screenlet: Nastavit motiv %s"
 
 #: __init__.py:1723
 msgid "Error: Cannot set missing or non-boolean value '"
-msgstr ""
+msgstr "Chyba: Nemohu nastavit chybějící nebo neboolovskou hodnotu '"
 
 #: backend.py:33
 msgid "GConf python module not found. GConf settings backend is disabled."
-msgstr ""
-"Модуль GConf для Python не найден. GConf не будет использоваться в качестве "
-"хранилища настроек."
+msgstr "Modul GConf pythonu nenalezen. Nastavení pro GConf jsou vypnutá."
 
 #: backend.py:72
 msgid "GConfBackend: initializing"
-msgstr "GConfBackend: инициализация"
+msgstr "GConfBackend: načítání"
 
 #: backend.py:102
 msgid "Saved option %s%s/%s = %s"
-msgstr "Сохраненные параметры %s%s/%s = %s"
+msgstr "Uložená vlastnost %s%s/%s = %s"
 
 #: backend.py:135
 msgid "Temporary file didn't exist - nothing to remove."
-msgstr "Временный файл не существует - нечего удалять."
+msgstr "Dočasný soubur neexistuje - nic k mazání."
 
 #: backend.py:137
 msgid "CachingBackend: <#%s> removed!"
-msgstr "CachingBackend: <#%s> удален!"
+msgstr "Obsluha cache: <#%s> odstraněno!"
 
 #: backend.py:176
 msgid "CachingBackend: Loading instances from cache"
-msgstr "CachingBackend: Загрузка значений из кэша."
+msgstr "Obsluha cache: Načítání zápisů z cache"
 
 #: backend.py:186
 msgid "CachingBackend: Loading <%s>"
-msgstr "CachingBackend: Загрузка <%s>"
+msgstr "Obsluha cache: Načítání <%s>"
 
 #: backend.py:202
 msgid "Error while loading options: %s"
-msgstr "Ошибка во время загрузки параметров: %s"
+msgstr "Chyba při načítání vlastností: %s"
 
 #: backend.py:210
 msgid "Queue-element <%s> not found (already removed?)!"
-msgstr "Элемент очереди (Queue-element) <%s> не найден (удален?)!"
+msgstr "Část fronty <%s> nenalezena (už smazána?)!"
 
 #: backend.py:214
 msgid "CachingBackend: Saving <#%s> :) ..."
-msgstr "CachingBackend: Сохраняется <#%s> :) ..."
+msgstr "Obsluha cache: Ukládání <#%s> :) ..."
 
 #: backend.py:227
 msgid "error while saving config: %s%s"
-msgstr "ошибка во время сохранения настроек: %s%s"
+msgstr "chyba při ukládání nastavení: %s%s"
 
 #: options.py:151
 msgid "Error during on_import - option: %s."
-msgstr "Ошибка"
+msgstr "Chyba během importu - vlastnost: %s."
 
 #: options.py:233
 msgid "GnomeKeyring is not available!!"
-msgstr "GnomeKeyring не доступен"
+msgstr "Gnome klíčenka není dostupná!!"
 
 #: options.py:239
 msgid "No keyrings found. Please create one first!"
-msgstr ""
+msgstr "Nebyla nalezena žádná klíčenka, tak jednu vytvořte!"
 
 #: options.py:245
 msgid "Warning: No default keyring found, storage is not permanent!"
-msgstr ""
+msgstr "Varování: Nebyla nalezena žádná klíčenka, úložistě není trvalé!"
 
 #: options.py:261
 msgid "ERROR: Unable to read password from keyring: %s"
-msgstr ""
+msgstr "CHYBA: Nemohu přečíst heslo z klíčenky: %s"
 
 #: options.py:266
 msgid "Illegal value in AccountOption.on_import."
-msgstr "Некорректное значение в AccountOption.on_import."
+msgstr "Neplatná hodnota v AccountOption.on_import."
 
 #: options.py:394
 msgid "Options: Error - group %s not defined."
-msgstr "Настройки: Ошибка - группа %s  не определена."
+msgstr "Vlastnosti: Chyba - skupina %s není definovaná."
 
 #: options.py:452
 msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
-msgstr "Некорректный XML в файле метаданных (или файл отсутствует): \"%s\"."
+msgstr "Neplatné XML v meta souboru (nebo chybějící): \"%s\"."
 
 #: options.py:456
 msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
-msgstr ""
+msgstr "Chybějící nebo neplatný kořenový uzel v meta souboru: \"%s\"."
 
 #: options.py:465
 msgid ""
 "Error in metadata-file \"%s\" - only <group>-tags allowed in first level. "
 "Groups must contain at least one <info>-element."
 msgstr ""
+"Chyba v meta souboru \"%s\" - pouze tagy <group> jsou povolené v první "
+"úrovni. Skupiny musí obsahovat alespoň jeden prvek <info>."
 
 #: options.py:471
 msgid "No name for group defined in \"%s\"."
-msgstr ""
+msgstr "Žádné jméno skupiny nastavené v \"%s\"."
 
 #: options.py:487
 msgid "Invalid option-node found in \"%s\"."
-msgstr ""
+msgstr "Neplatný uzel vlastnosti nalezen v \"%s\"."
 
 #: options.py:603
 msgid "PRESS: %s"
-msgstr "НАЖМИТЕ: %s"
+msgstr "NALÉHAVÉ: %s"
 
 #: options.py:640
 msgid "Edit Options"
-msgstr "Изменить Настройки"
+msgstr "Upravit vlastnosti"
 
 #: options.py:770
 msgid "Path %s not found."
-msgstr "Путь %s не найден."
+msgstr "Cesta %s nenalezena."
 
 #: options.py:806
 msgid "active theme is: %s"
-msgstr "текущая тема: %s"
+msgstr "aktivní téma je? %s"
 
 #: options.py:836
 msgid "About "
-msgstr "О "
+msgstr "O aplikaci "
 
 #: options.py:848
 msgid "Options "
-msgstr "Настройки "
+msgstr "Vlastnosti "
 
 #: options.py:855
 msgid ""
 "Themes allow you to easily switch the appearance of your Screenlets. On this "
 "page you find a list of all available themes for this Screenlet."
 msgstr ""
+"Motivy vám umožňují jednoduše měnit vzhled vašich Screenletů. Na této "
+"stránce je seznam motivů dostupných pro tento Screenlet."
 
 #: options.py:884
 msgid "Themes "
-msgstr "Темы "
+msgstr "Motivy "
 
 #: options.py:896
 msgid "no info available"
-msgstr "информация недоступна"
+msgstr "žádné informace"
 
 #: options.py:983
 msgid "Choose File"
-msgstr "Выберите файл"
+msgstr "Vyberte soubor"
 
 #: options.py:992
 msgid "Choose Directory"
-msgstr "Выберите директорию"
+msgstr "Vyberte složku"
 
 #: options.py:1018
 msgid "Choose Image"
-msgstr "Выберите изображение"
+msgstr "Vyberte obrázek"
 
 #: options.py:1085
 msgid "Open List-Editor ..."
-msgstr "Открыть редактор списков ..."
+msgstr "Otevřít úpravu seznamu ..."
 
 #: options.py:1106
 msgid "Apply username/password ..."
-msgstr "Применить имя/пароль ..."
+msgstr "Použije uživatelské jméno a heslo ..."
 
 #: options.py:1107
 msgid "Enter username here ..."
-msgstr "Введите имя пользователя ..."
+msgstr "Vložte uživatelské jméno ..."
 
 #: options.py:1108
 msgid "Enter password here ..."
-msgstr "Введите пароль ..."
+msgstr "Vložte heslo ..."
 
 #: options.py:1146
 msgid "unsupported type ''"
-msgstr "не поддерживаемый тип ''"
+msgstr "nepodporovaný typ ''"
 
 #: options.py:1163
 msgid "Apply"
-msgstr "Применить"
+msgstr "Použít"
 
 #: options.py:1224
 msgid "OptionsDialog: Unknown option type: %s"
 msgstr ""
+"Copy text   \t\n"
+"OptionsDialog: Neznámý typ vlastnosti: %s"
 
 #: options.py:1234
 msgid "Changed: %s"
-msgstr "Изменено: %s"
+msgstr "Změněno: %s"
 
 #: sensors.py:52
 #: sensors.py:90
 #: sensors.py:105
 msgid "Failed to open /proc/stat"
-msgstr "Невозможно открыть /proc/stat"
+msgstr "Nepodařilo se otevřít /proc/stat"
 
 #: sensors.py:76
 msgid "Failed to open /proc/cpuinfo"
-msgstr "Невозможно открыть /proc/cpuinfo"
+msgstr "Nepodařilo se otevřít /proc/cpuinfo"
 
 #: sensors.py:130
 msgid "%s days, %s hours and %s minutes"
-msgstr "%s дней, %s часов и %s минут"
+msgstr "%s dní, %s hodin a %s minut"
 
 #: sensors.py:146
 msgid "Failed to open /proc/uptime"
-msgstr "Невозможно открыть /proc/uptime"
+msgstr "Nepodařilo se otevřít /proc/uptime"
 
 #: sensors.py:205
 msgid "Error getting distro name"
-msgstr "Ошибка в получении названия дистрибутива"
+msgstr "Chyba při získávání názvu distribuce"
 
 #: sensors.py:234
 msgid "Can't get kernel version"
-msgstr "Невозможно получить версию ядра"
+msgstr "Nemohu získat verzi jádra"
 
 #: sensors.py:243
 msgid "Can't get KDE version"
-msgstr "Невозможно получить версию KDE"
+msgstr "Nemohu získat verzi KDE"
 
 #: sensors.py:252
 msgid "Can't get Gnome version"
-msgstr "Невозможно получить версию Gnome"
+msgstr "Nemohu získat verzi Gnome"
 
 #: sensors.py:322
 msgid "Can't parse /proc/meminfo"
-msgstr "Не возможно проанализировать /proc/meminfo"
+msgstr "Nemohu zpracovat /proc/meminfo"
 
 #: sensors.py:456
 msgid "Cannot get ip"
-msgstr "Невозможно получить IP"
+msgstr "Nemohu získat ip"
 
 #: sensors.py:475
 msgid "Can't open /proc/net/dev"
-msgstr "Невозможно открыть /proc/net/dev"
+msgstr "Nemohu otevřít /proc/net/dev"
 
 #: sensors.py:511
 msgid "Can't open /proc/net/wireless"
-msgstr "Невозможно открыть /proc/net/wireless"
+msgstr "Nemohu otevřít /proc/net/wireless"
 
 #: sensors.py:523
 #: sensors.py:536
 msgid "Not connected"
-msgstr "Не подключено"
+msgstr "Nepřipojeno"
 
 #: sensors.py:786
 msgid "Can't open %s/temperature"
-msgstr "Невозможно открыть %s/temperature"
+msgstr "Nemohu otevřít %s/temperature"
 
 #: sensors.py:788
 msgid "Can't open folder /proc/acpi/thermal_zone/"
-msgstr "Невозможно открыть папку /proc/acpi/thermal_zone/"
+msgstr "Nemohu otevřít složku /proc/acpi/thermal_zone/"
 
 #: sensors.py:804
 #: sensors.py:815
 msgid "Can't open %s"
-msgstr "Невозможно открыть %s"
+msgstr "Nemohu otevřít %s"
 
 #: sensors.py:830
 msgid "Error during hddtemp drives search"
-msgstr ""
+msgstr "Chyba při hledání zařízení hddtemp"
 
 #: sensors.py:832
 #: sensors.py:909
 msgid "Hddtemp not installed"
-msgstr "Hddtemp не установлен"
+msgstr "Hddtemp není nainstalován"
 
 #: sensors.py:862
 msgid "can't read temperature in: %s"
-msgstr "невозможно прочесть температуру для: %s"
+msgstr "nemohu číst tepoltu v: %s"
 
 #: sensors.py:876
 #: sensors.py:892
 msgid "Can't read value from %s"
-msgstr "Невозможно получить значение из %s"
+msgstr "Nemohu číst hodnotu z %s"
 
 #: sensors.py:1030
 msgid "CPUSensor: Failed to open /proc/stat. Sensor stopped."
-msgstr "CPUSensor: Невозможно открыть /proc/stat. Сенсор остановлен."
+msgstr "CPUSensor: Nemohu otevřít /proc/stat. Snímač zastaven."
 
 #: services.py:54
 msgid "No name set in ScreenletService.__init__!"
-msgstr ""
+msgstr "Není nastaveno žádné jméno v ScreenletService.__init__!"
 
 #: services.py:68
 msgid "TEST: %s"
-msgstr "ТЕСТ: %s"
+msgstr "TEST: %s"
 
 #: services.py:73
 msgid "DEBUG: %s"
-msgstr "Отладка: %s"
+msgstr "DEBUG: %s"
 
 #: services.py:103
 #: services.py:143
 msgid "Cannot get/set protected options through service."
-msgstr ""
+msgstr "Nemohu získat/nastavit vlastnosti přes službu,"
 
 #: services.py:135
 msgid "Trying to access invalid instance \"%s\"."
-msgstr ""
+msgstr "Pokus o přístup k neplatnému výstyku \"%s\"."
 
 #: services.py:137
 msgid "Trying to access invalid option \"%s\"."
-msgstr ""
+msgstr "Pokus o přístup k neplatné vlastnosti \"%s\"."
 
 #: services.py:169
 msgid "Error in screenlets.services.get_service_by_name: %s"
-msgstr ""
+msgstr "Chyba v screenlets.services.get_service_by_name: %s"
 
 #: session.py:72
 msgid ""
 "ScreenletSession.__init__ has to be called with a\n"
 "\t\t\t valid Screenlet-classobject as first argument!"
 msgstr ""
+"ScreenletSession.__init__ musí být volán s\n"
+"\t\t\t platým objektem Screenletu jako prvním argumentem!"
 
 #: session.py:94
 msgid "Unable to init backend - settings will not be saved!"
-msgstr ""
+msgstr "Nepodařilo se spustit systém - nastavení nebudou uložena!"
 
 #: session.py:112
 msgid "Error in screenlets.session.connect_daemon: %s"
-msgstr "Ошибка в screenlets.session.connect_daemon: %s"
+msgstr "Chyba v screenlets.session.connect_daemon: %s"
 
 #: session.py:117
 msgid "Creating new instance: "
-msgstr ""
+msgstr "Vytváření nového výskytu: "
 
 #: session.py:120
 msgid "ID is unset or already in use - creating new one!"
-msgstr ""
+msgstr "ID není nastaveno nebo se právě používá - vytvářím nové!"
 
 #: session.py:126
 #: session.py:376
 msgid "File: %s"
-msgstr "Файл: %s"
+msgstr "Soubor: %s"
 
 #: session.py:132
 #: session.py:382
 msgid "Set options in %s"
-msgstr ""
+msgstr "Nastav vlastnosti v %s"
 
 #: session.py:159
 msgid "Failed to remove INI-file for instance (not critical)."
-msgstr ""
+msgstr "Nepodařilo se smazat ini soubor výskytu (není kritické)."
 
 #: session.py:163
 msgid "Removing last instance from session"
-msgstr ""
+msgstr "Odebírání posledního výskytu ze sezení"
 
 #: session.py:165
 msgid "TODO: remove self.path: %s"
-msgstr ""
+msgstr "TODO: odebrat self.path: %s"
 
 #: session.py:169
 msgid "Failed to remove session dir '%s' - not empty?"
-msgstr ""
+msgstr "Nepodařilo se smazat složku sezení '%s' - je prázdná?"
 
 #: session.py:174
 #: session.py:201
 msgid "Removing instance from session but staying alive"
-msgstr ""
+msgstr "Odebírám výskyt ze sezení, ale zůstávám naživu"
 
 #: session.py:223
 msgid "Found a running session of %s, adding new instance by service."
-msgstr ""
+msgstr "Našel jsem běžící sezení %s, přidávám nový výskyt podle služby."
 
 #: session.py:226
 msgid "Adding new instance through: %s"
-msgstr ""
+msgstr "Přidávání nového výskytu přes: %s"
 
 #: session.py:232
 msgid "Loading instances in: %s"
-msgstr ""
+msgstr "Načítám výskyty v: %s"
 
 #: session.py:235
 msgid "Restored instances from session '%s' ..."
-msgstr ""
+msgstr "Obnovené výskyty ze sezení '%s' ..."
 
 #: session.py:241
 msgid "No instance(s) found in session-path, creating new one."
-msgstr ""
+msgstr "Žádné výskyty nalezené v cestě sezení, vytvářím nové."
 
 #: session.py:255
 msgid "Failed creating instance of: %s"
-msgstr ""
+msgstr "Vytváření výskytu %s selhalo."
 
 #: session.py:273
 msgid ""
 "Error: Unable to create temp entry - screenlets-manager will not work "
 "properly."
 msgstr ""
+"Chyba: Nemohu vytvořit dočasný zápis - screenlets-manager nebude pracovat "
+"korektně."
 
 #: session.py:281
 msgid "Creating new entry for %s in %s"
-msgstr ""
+msgstr "Vytvářím nový záznam pro %s v %s"
 
 #: session.py:294
 msgid "No global tempfile found, creating new one."
-msgstr ""
+msgstr "Žádný globální dočasný soubor, vytvářím nový."
 
 #: session.py:297
 msgid ""
 "Error: Unable to create temp directory %s - screenlets-manager will not work "
 "properly."
 msgstr ""
+"Chyba: Nemohu vytvořit dočasnou složku %s - screenlets-manager nebude "
+"pracovat korektně."
 
 #: session.py:316
 msgid "Failed to unregister from daemon: %s"
-msgstr ""
+msgstr "Nemohu odmazat od ducha: %s"
 
 #: session.py:321
 msgid "Removing entry for %s from global tempfile %s"
-msgstr ""
+msgstr "Mazání záznamu pro %s v globálním dočasném souboru %s"
 
 #: session.py:326
 msgid "Entry not found. Will (obviously) not be removed."
-msgstr ""
+msgstr "Záznam nenalezen. Zřejmě nebude smazán."
 
 #: session.py:338
 msgid "Error global tempfile not found. Some error before?"
-msgstr ""
+msgstr "Chyba: Globální dočasný soubor nenalezen. Došlo i k jiné chybě?"
 
 #: session.py:341
 msgid "No more screenlets running."
-msgstr "Запущенных Скринлетов больше нет"
+msgstr "Neběží žádné další screenlety."
 
 #: session.py:344
 msgid "No screenlets running?"
-msgstr "Нет запущенных Скринлетов?"
+msgstr "Neběží nějaké screenlety?"
 
 #: session.py:350
 msgid "Deleting global tempfile %s"
-msgstr ""
+msgstr "Mazání globálního dočasného souboru %s"
 
 #: session.py:355
 msgid "Error: Failed to delete global tempfile"
-msgstr ""
+msgstr "Chyba: Nepodařilo se smazat globální dočasný soubor"
 
 #: session.py:389
 msgid "Failed to create instance of '%s'!"
-msgstr ""
+msgstr "Nepodařilo se vytvořit výskyt '%s'!"
 
 #: session.py:422
 msgid "Screenlet has been killed. TODO: make this an event"
-msgstr ""
+msgstr "Screenlet byl zabit. TODO: udělat událostí"
 
 #: session.py:433
 msgid ""
 "Screenlet '%s' has been interrupted by keyboard. TODO: make this an event"
-msgstr ""
+msgstr "Screenlet '%s' byl přerušen klávesnicí. TODO: udělat událostí"
 
 #: session.py:435
 msgid "Exception in ScreenletSession: "
-msgstr ""
+msgstr "Výjimka v ScreenletSession: "
 
 #: utils.py:81
 msgid "Unable to load '%s' from %s: %s "
-msgstr "Невозможно загрузить '%s' из %s: %s "
+msgstr "Nemohu načíst '%s' z %s: %s "
 
 #: utils.py:100
 msgid "LISTED PATH NOT EXISTS: "
-msgstr ""
+msgstr "VYPSANÁ CESTA NEEXISTUJE: "
 
 #: utils.py:199
 msgid "File %s not found"
-msgstr "Файл %s не найден"
+msgstr "Soubor %s nenalezen"
 
 #: utils.py:230
 msgid "Section %s not found!"
-msgstr "Секция %s не найдена!"
+msgstr "Sekce %s nenalezena!"
 
 #: utils.py:264
 msgid "Notify: No DBus running or notifications-daemon unavailable."
 msgstr ""
+"Připomínka: Něběží žádný DBus nebo je nedostupný notifications-daemon."

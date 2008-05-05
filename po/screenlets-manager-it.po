@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: screenlets\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2008-03-30 18:29+0000\n"
-"PO-Revision-Date: 2008-04-01 17:50+0000\n"
-"Last-Translator: Giulio Rossetti <Unknown>\n"
+"PO-Revision-Date: 2008-04-18 13:12+0000\n"
+"Last-Translator: Andrea Corbellini <andrea.corbellini@beeseek.org>\n"
 "Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-02 01:28+0000\n"
+"X-Launchpad-Export-Date: 2008-05-04 15:36+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: screenlets-daemon.py:91
@@ -22,9 +22,8 @@ msgid "ScreenletsDaemon: registered %s"
 msgstr "ScreenletsDaemon: registrato %s"
 
 #: screenlets-daemon.py:99
-#, fuzzy
 msgid "screenletsDaemon: unregistered %s"
-msgstr "ScreenletsDaemon: non registrato %s"
+msgstr "screenletsDaemon: %s cancellato"
 
 #: screenlets-daemon.py:117
 #: screenlets-manager.py:52
@@ -32,23 +31,20 @@ msgid "Screenlets Manager"
 msgstr "Screenlets Manager"
 
 #: screenlets-daemon.py:122
-#, fuzzy
 msgid "Get more Screenlets"
-msgstr "Scarica Screenlets"
+msgstr "Ottieni altre Screenlet"
 
 #: screenlets-daemon.py:125
 msgid "Install Screenlet"
 msgstr "Installa Screenlet"
 
 #: screenlets-daemon.py:130
-#, fuzzy
 msgid "Launch Screenlet"
 msgstr "Avvia Screenlet"
 
 #: screenlets-daemon.py:175
-#, fuzzy
 msgid "Close all Screenlets"
-msgstr "Chiudi tutte le Screenlets"
+msgstr "Chiudi tutte le Screenlet"
 
 #: screenlets-daemon.py:251
 #: screenlets-manager.py:974
@@ -67,20 +63,18 @@ msgstr ""
 
 #: screenlets-daemon.py:264
 msgid "Failed to add %sScreenlet."
-msgstr ""
+msgstr "Aggiunta della Screenlet %s fallita"
 
 #: screenlets-daemon.py:288
 msgid "Install a Screenlet"
 msgstr "Installa una Screenlet"
 
 #: screenlets-daemon.py:343
-#, fuzzy
 msgid "Archive damaged or unsuported, only tar , bz2 or gz."
-msgstr "Archivio danneggiato o non supportato, solo tar, bz2 o gz."
+msgstr "Archivio danneggiato o non supportato (solo tar, bz2 o gz)."
 
 #: screenlets-daemon.py:346
 #: screenlets-manager.py:214
-#, fuzzy
 msgid ""
 "Invalid archive. Archive must contain a directory with the screenlet's name."
 msgstr ""
@@ -99,34 +93,29 @@ msgstr "Installa %s"
 
 #: screenlets-daemon.py:354
 #: screenlets-manager.py:270
-#, fuzzy
 msgid ""
 "%s was not packaged with the screenlet packager. Do you wish to continue and "
 "try to install it?"
 msgstr ""
-"%s non è stato impacchettato con l'impacchettatore di screenlet. Vuoi "
-"continuare e provare a installarlo?"
+"%s non è stato impacchettato con lo screenlet packager. Continuare e provare "
+"ad installarlo?"
 
 #: screenlets-daemon.py:357
 #: screenlets-manager.py:273
-#, fuzzy
 msgid "This package was not packaged with the screenlet packager."
 msgstr ""
-"Questo pacchetto non è stato impacchettato con il screenlet packager."
+"Questo pacchetto non è stato impacchettato con lo screenlet packager."
 
 #: screenlets-daemon.py:366
 #: screenlets-manager.py:282
-#, fuzzy
 msgid "The %sScreenlet has been succesfully installed."
-msgstr "La Screenlet %sè stata installata con successo."
+msgstr "La Screenlet %s è stata installata con successo."
 
 #: screenlets-daemon.py:392
-#, fuzzy
 msgid "ScreenletsDaemon running ..."
 msgstr "ScreenletsDaemon in esecuzione..."
 
 #: screenlets-daemon.py:401
-#, fuzzy
 msgid "ScreenletsDaemon has been shut down ..."
 msgstr "ScreenletsDaemon è stato chiuso..."
 
@@ -136,16 +125,15 @@ msgstr "Eccezione in ScreenletsDaemon: %s"
 
 #: screenlets-manager.py:87
 msgid "It looks like you are running %s"
-msgstr ""
+msgstr "Sembra essere in esecuzione %s"
 
 #: screenlets-manager.py:138
-#, fuzzy
 msgid ""
 "This type of karamba theme is not supported yet\n"
 " Only older versions can be used"
 msgstr ""
-"Questo tipo di tema per karamba non è ancora supportato\n"
-"Solo le vecchie versioni possono essere usate."
+"Questo tipo di tema per karamba non è al momento supportato\n"
+" Solo le versioni più vecchie possono essere utilizzate"
 
 #: screenlets-manager.py:168
 msgid "Archive is damaged or unsupported, use only tar, bz2 or gz."
@@ -157,31 +145,27 @@ msgid "Installing %s"
 msgstr "Installazione di %s"
 
 #: screenlets-manager.py:204
-#, fuzzy
 msgid ""
 "The %sScreenlet is already installed in '%s'.\n"
 "Do you wish to continue?"
 msgstr ""
 "La Screenlet %s è già installata in '%s'.\n"
-"Vuoi continuare?"
+"Continuare?"
 
 #: screenlets-manager.py:207
 msgid "%sScreenlet is already installed"
 msgstr "La Screenlet %s è già installata"
 
 #: screenlets-manager.py:226
-#, fuzzy
 msgid "Compatibility for this karamba theme is not yet implemented"
 msgstr ""
 "La compatibilità per questo tema di karamba non è stata ancora implementata."
 
 #: screenlets-manager.py:253
-#, fuzzy
 msgid "Karamba theme was successfully installed"
 msgstr "Tema di karamba installato con successo"
 
 #: screenlets-manager.py:255
-#, fuzzy
 msgid ""
 "Invalid archive. Archive does not contain a screenlet or a valid karamba "
 "theme."
@@ -190,15 +174,14 @@ msgstr ""
 "karamba."
 
 #: screenlets-manager.py:317
-#, fuzzy
 msgid ""
 "Important! You are running this application as root user, almost all "
 "functionality is disabled. You can use this to install screenlets into the "
 "system-wide path."
 msgstr ""
-"Importante! Stai eseguento questa applicazione come amministratore, quasi "
-"tutte le funzionalità sono disabilitate. Puoi usare questo per installare "
-"screenlets a livello di sistema."
+"Importante! L'applicazione è eseguita con diritti di amministratore, quasi "
+"tutte le funzionalità sono disabilitate. Utilizzare questa modalità per "
+"installare screenlet a livello di sistema."
 
 #: screenlets-manager.py:318
 msgid "Warning!"
@@ -219,73 +202,68 @@ msgid ""
 "want me to automatically create it for you?"
 msgstr ""
 "Non è ancora presente nessuna directory di autostart per il tuo account "
-"utente. Vuoi che ne crei automaticamente una?"
+"utente. Crearne automaticamente una?"
 
 #: screenlets-manager.py:332
 #: screenlets-manager.py:440
 msgid "Auto-create autostart dir ..."
-msgstr ""
+msgstr "Creazione directory di avvio automatico ..."
 
 #: screenlets-manager.py:335
 #: screenlets-manager.py:443
-#, fuzzy
 msgid ""
 "Automatic creation failed. Please manually create the directory:\n"
 "%s"
 msgstr ""
-"Creazione automatica fallita. per favore crea manualmente la directory:\n"
+"Creazione automatica fallita. Creare manualmente la directory:\n"
 "%s"
 
 #: screenlets-manager.py:338
 #: screenlets-manager.py:446
-#, fuzzy
 msgid ""
 "Please manually create the directory:\n"
 "%s"
 msgstr ""
-"Per favore crea manualmente la directory:\n"
+"Crea manualmente la directory:\n"
 "%s"
 
 #: screenlets-manager.py:343
 msgid "Create autostarter for: Screenlets Daemon"
-msgstr ""
+msgstr "Crea avvio automatico per: Screenlets Daemon"
 
 #: screenlets-manager.py:357
 #: screenlets-manager.py:476
 #: screenlets-manager.py:1344
 msgid "Failed to create autostarter for %s."
-msgstr ""
+msgstr "Fallita creazione della cartella di avvio automatico per %s."
 
 #: screenlets-manager.py:360
 #: screenlets-manager.py:479
 msgid "Starter already exists."
-msgstr ""
+msgstr "Avvio automatico già esistente."
 
 #: screenlets-manager.py:372
-#, fuzzy
 msgid "Trying to launching screenlets-daemon ..."
 msgstr "Tentativo di avviare screenlets-daemon ..."
 
 #: screenlets-manager.py:376
 msgid "checking for running daemon again ..."
-msgstr "controllo ancora per demone in esecuzione ..."
+msgstr "Controllo ancora per demone in esecuzione ..."
 
 #: screenlets-manager.py:379
 msgid "DAEMON FOUND - Ending timeout"
-msgstr ""
+msgstr "DEMONE TROVATO - Fine del timeout"
 
 #: screenlets-manager.py:382
-#, fuzzy
 msgid "Error: Unable to connect/launch daemon."
-msgstr "Errore: non riesco a connette/avviare il demone."
+msgstr "Errore: Non è possibile connettere/avviare il demone."
 
 #: screenlets-manager.py:383
-#, fuzzy
 msgid ""
 "Unable to connect or launch daemon. Some values may be displayed incorrectly."
 msgstr ""
-"Non riesco a connettere o avviare il demone. Alcuni valori possono essere "
-"visualizzati scorrettamente."
+"Non riesco a connettere o avviare il demone. Alcuni valori possono non "
+"essere visualizzati correttamente."
 
 #: screenlets-manager.py:413
 msgid "Error in ScreenletsManager.connect_daemon: %s"
@@ -298,11 +276,11 @@ msgstr "Rimossa voce duplicata"
 
 #: screenlets-manager.py:461
 msgid "Create autostarter for: %s/%sScreenlet.py"
-msgstr ""
+msgstr "Crea avvio automatico per: %s/%sScreenlet.py"
 
 #: screenlets-manager.py:486
 msgid "Delete autostarter for %s."
-msgstr ""
+msgstr "Elimina avvio automatico per %s."
 
 #: screenlets-manager.py:504
 msgid "Delete Screenlet"
@@ -310,7 +288,7 @@ msgstr "Elimina Screenlet"
 
 #: screenlets-manager.py:510
 msgid "Can't delete system-wide screenlets."
-msgstr ""
+msgstr "Non è possibile eliminare screenlet installate a livello di sistema."
 
 #: screenlets-manager.py:644
 msgid "Reset Screenlet"
@@ -318,7 +296,7 @@ msgstr "Reimposta Screenlet"
 
 #: screenlets-manager.py:729
 msgid "Launch/Add"
-msgstr "Lancia/Aggiungi"
+msgstr "Avvia/Aggiungi"
 
 #: screenlets-manager.py:733
 msgid "Install"
@@ -329,36 +307,32 @@ msgid "Uninstall"
 msgstr "Rimuovi"
 
 #: screenlets-manager.py:740
-#, fuzzy
 msgid "Reset Screenlet Config"
-msgstr "Reimposta configurazione screenlet"
+msgstr "Azzera Configurazione Screenlet"
 
 #: screenlets-manager.py:744
-#, fuzzy
 msgid "Install New Theme"
 msgstr "Installa Nuovo Tema"
 
 #: screenlets-manager.py:748
-#, fuzzy
 msgid "Re-Start All"
-msgstr "Riavvia tutto"
+msgstr "Riavvia Tutte"
 
 #: screenlets-manager.py:752
 msgid "Close All"
-msgstr "Chiudi tutto"
+msgstr "Chiudi tutte"
 
 #: screenlets-manager.py:756
 msgid "Options"
 msgstr "Opzioni"
 
 #: screenlets-manager.py:758
-#, fuzzy
 msgid "Create Desktop Shortcut"
-msgstr "Crea collegamento sul desktop"
+msgstr "Crea collegamento sulla Scrivania"
 
 #: screenlets-manager.py:790
 msgid "Launch/add a new instance of the selected Screenlet ..."
-msgstr "Lancia/Aggiungi una nuova istanza della Screenlet selezionata ..."
+msgstr "Avvia/Aggiungi una nuova istanza della Screenlet selezionata ..."
 
 #: screenlets-manager.py:791
 msgid ""
@@ -375,6 +349,8 @@ msgstr ""
 msgid ""
 "Reset this Screenlet configuration (will only work if screenlet isnt running)"
 msgstr ""
+"Azzera le configurazioni per questa Screenlet (funziona solo se la la "
+"screenlet non è in esecuzione)"
 
 #: screenlets-manager.py:794
 msgid "Install new theme for this screenlet"
@@ -382,7 +358,7 @@ msgstr "Installa un nuovo tema per questa screenlet"
 
 #: screenlets-manager.py:795
 msgid "Restart all screenlets that have auto start at login"
-msgstr ""
+msgstr "Riavvia tutte le screenlet impostate per l'avvio automatico al login"
 
 #: screenlets-manager.py:796
 msgid "Close all Screenlets running"
@@ -390,15 +366,15 @@ msgstr "Chiudi tutte le Screenlets avviate"
 
 #: screenlets-manager.py:797
 msgid "New Screenlets Options/Properties"
-msgstr ""
+msgstr "Opzioni/Proprietà nuove Screenlet"
 
 #: screenlets-manager.py:798
 msgid "Create a Desktop shortcut for this Screenlet"
-msgstr ""
+msgstr "Crea un collegamento sulla Scrivania per questa Screenlet"
 
 #: screenlets-manager.py:817
 msgid "All Screenlets"
-msgstr ""
+msgstr "Tutte le Screenlets"
 
 #: screenlets-manager.py:818
 msgid "Running Screenlets"
@@ -406,10 +382,9 @@ msgstr "Screenlets in esecuzione"
 
 #: screenlets-manager.py:819
 msgid "Autostart Screenlets"
-msgstr ""
+msgstr "Screenlet avviate automaticamente"
 
 #: screenlets-manager.py:851
-#, fuzzy
 msgid "Show info about this dialog ..."
 msgstr "Visualizza info riguardo questa finestra ..."
 
@@ -419,25 +394,23 @@ msgstr "Scarica più screenlets ..."
 
 #: screenlets-manager.py:853
 msgid "Close this dialog ..."
-msgstr ""
+msgstr "Chiudi questo dialogo ..."
 
 #: screenlets-manager.py:887
 msgid "Start/Stop"
-msgstr ""
+msgstr "Avvia/Ferma"
 
 #: screenlets-manager.py:888
-#, fuzzy
 msgid "Auto start on login"
 msgstr "Avvia automaticamente al login"
 
 #: screenlets-manager.py:889
-#, fuzzy
 msgid "Show daemon in tray"
-msgstr "Visualizza demone nel vassoio"
+msgstr "Visualizza demone nel vassoio di sistema"
 
 #: screenlets-manager.py:989
 msgid "Data dropped ..."
-msgstr ""
+msgstr "Dati eliminati ..."
 
 #: screenlets-manager.py:1001
 msgid "Invalid string: %s."
@@ -445,21 +418,23 @@ msgstr "Stringa invalida: %s"
 
 #: screenlets-manager.py:1022
 msgid "Please install screenlets from folders without strange characters"
-msgstr ""
+msgstr "Per favore installa screenlet da cartelle senza caratteri strani"
 
 #: screenlets-manager.py:1043
 msgid "Install a Screenlet or SuperKaramba theme"
-msgstr ""
+msgstr "Installa una Screenlet o un tema di SuperKaramba"
 
 #: screenlets-manager.py:1081
 msgid "Install a new theme for the selected Screenlet"
-msgstr ""
+msgstr "Installa un nuovo tema per la Screenlet selezionata"
 
 #: screenlets-manager.py:1109
 msgid ""
 "You are about to install a theme in root mode. Continue only if you have "
 "gksudo installed, do you wish to continue?"
 msgstr ""
+"Sta per essere installato un tema in modalità amministratore. Ciò è "
+"possibile solo se gksudo è installato, continuare?"
 
 #: screenlets-manager.py:1126
 msgid "Error Found"
@@ -469,41 +444,46 @@ msgstr "Trovato errore"
 msgid ""
 "Theme install error 1 found - Theme not installed , maybe a package error "
 msgstr ""
+"Installazione Tema trovato errore 1 - Tema non installato, probabile errore "
+"nel pacchetto "
 
 #: screenlets-manager.py:1137
 msgid "list contains themes folder"
-msgstr ""
+msgstr "lista contenente le cartelle dei temi"
 
 #: screenlets-manager.py:1139
 msgid "list contains the screenlet name folder"
-msgstr ""
+msgstr "lista contenente il nome della cartella della screenlet"
 
 #: screenlets-manager.py:1142
 msgid ""
 "This package seams to contain a full Screenlet and not just a theme, please "
 "use the screenlet install instead"
 msgstr ""
+"Questo pacchetto sembra contenere una Screenlet completa e non solo un tema, "
+"usa l'installer di screenlet"
 
 #: screenlets-manager.py:1154
 msgid "This package doesnt seem to contain a theme"
-msgstr ""
+msgstr "Questo pacchetto non sembra contenere un tema"
 
 #: screenlets-manager.py:1158
 msgid "only contains the themes folders"
-msgstr ""
+msgstr "contiene solo le cartelle dei temi"
 
 #: screenlets-manager.py:1175
 msgid "Theme installed , please restart %s"
-msgstr ""
+msgstr "Tema installato , riavvia %s"
 
 #: screenlets-manager.py:1180
 msgid ""
 "Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
+"Installazione Tema trovato errore 2 - Tema non installato o già installato"
 
 #: screenlets-manager.py:1250
 msgid "New screenlets atributes.."
-msgstr ""
+msgstr "Attributi Nuove screenlet.."
 
 #: screenlets-manager.py:1251
 msgid "Lock"
@@ -511,11 +491,11 @@ msgstr "Blocca"
 
 #: screenlets-manager.py:1252
 msgid "Sticky"
-msgstr ""
+msgstr "Fisso"
 
 #: screenlets-manager.py:1253
 msgid "Widget"
-msgstr ""
+msgstr "Widget"
 
 #: screenlets-manager.py:1254
 msgid "Keep above"
@@ -527,27 +507,27 @@ msgstr "Mantieni sotto"
 
 #: screenlets-manager.py:1281
 msgid "New Screenlets atributes"
-msgstr ""
+msgstr "Attributi nuove Screenlet"
 
 #: screenlets-manager.py:1324
 msgid "Create desktop shortcut for: %s/%sScreenlet.py"
-msgstr ""
+msgstr "Crea un collegamento sulla scrivania per: %s/%sScreenlet.py"
 
 #: screenlets-manager.py:1350
 msgid "closing %s"
-msgstr ""
+msgstr "chiusura di %s"
 
 #: screenlets-manager.py:1379
 msgid "Web Application Url"
-msgstr ""
+msgstr "URL Applicazione Web"
 
 #: screenlets-manager.py:1380
 msgid "Web Application Name"
-msgstr ""
+msgstr "Nome Applicazione Web"
 
 #: screenlets-manager.py:1389
 msgid "Install Web Application"
-msgstr ""
+msgstr "Installa Applicazione Web"
 
 #: screenlets-manager.py:1412
 #: screenlets-manager.py:1495
@@ -555,19 +535,21 @@ msgid ""
 "There is already a screenlet with that name installed\n"
 "Do you wish to continue?"
 msgstr ""
+"E' già installata una screenlet con questo nome\n"
+"Continuare l'operazione?"
 
 #: screenlets-manager.py:1433
 msgid "Web Application was successfully installed"
-msgstr ""
+msgstr "Applicazione Web installata con successo"
 
 #: screenlets-manager.py:1436
 msgid "Error installing!!!"
-msgstr ""
+msgstr "Errore nell'installazione!!!"
 
 #: screenlets-manager.py:1437
 #: screenlets-manager.py:1523
 msgid "Please specify a name for the widget"
-msgstr ""
+msgstr "Specifica un nome per il widget"
 
 #: screenlets-manager.py:1438
 #: screenlets-manager.py:1524
@@ -576,44 +558,45 @@ msgstr "Codice HTML non trovato"
 
 #: screenlets-manager.py:1441
 msgid "Convert any webpage widget into a Screenlet."
-msgstr ""
+msgstr "Converti qualsiasi pagina web in una Screenlet"
 
 #: screenlets-manager.py:1442
 msgid "Step 1 : Find the widget you want to convert"
-msgstr ""
+msgstr "Passo 1 : Trova il widget che vuoi convertire"
 
 #: screenlets-manager.py:1443
 msgid "Step 2 : Copy and Paste the HTML from the widget in the box below"
 msgstr ""
+"Passo 2 : Copia e Incolla il codice HTML dal widget nella casella sottostante"
 
 #: screenlets-manager.py:1444
 msgid "Step 3 : Give it a name in the box below and click on Ok to convert"
 msgstr ""
+"Passo 3 : Dagli un nome nella casella sottostante e premi Ok per convertire"
 
 #: screenlets-manager.py:1445
 msgid "The name of the widget"
-msgstr ""
+msgstr "Nome del widget"
 
 #: screenlets-manager.py:1469
 msgid "Widget converter"
-msgstr ""
+msgstr "Convertitore Widget"
 
 #: screenlets-manager.py:1519
 msgid "Widget was successfully converted"
-msgstr ""
+msgstr "Widget convertito con successo"
 
 #: screenlets-manager.py:1522
 msgid "Error converting!!!"
-msgstr ""
+msgstr "Errore di conversione!!!"
 
 #: screenlets-manager.py:1595
-#, fuzzy
 msgid "Launch %s"
-msgstr "Avvia %s"
+msgstr "Avvio di %s"
 
 #: screenlets-manager.py:1607
 msgid "Quit %s"
-msgstr "Chiudi %s"
+msgstr "Terminato %s"
 
 #: screenlets-manager.py:1652
 msgid "Screenlets-Manager must now be restarted"
@@ -621,41 +604,45 @@ msgstr "Ora Screenlets-Manager deve essere riavviato"
 
 #: screenlets-manager.py:1663
 msgid "Quit!"
-msgstr "Chiudi!"
+msgstr "Terminato!"
 
 #: screenlets-packager.py:30
 msgid ""
 "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
 "Usage: %s <path> [options]"
 msgstr ""
+"Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
+"Utilizzo: %s <percorso> [opzioni]"
 
 #: screenlets-packager.py:69
 msgid "The specified path \"%s\" does not exist."
-msgstr ""
+msgstr "Il percorso specificato \"%s\" non esiste."
 
 #: screenlets-packager.py:70
 msgid "Found path \"%s\"."
-msgstr ""
+msgstr "Trovato percorso \"%s\"."
 
 #: screenlets-packager.py:76
 msgid "Failed to extract screenlet name from path."
 msgstr ""
+"Fallimento durante l'estrazione del nome della screenlet dal percorso."
 
 #: screenlets-packager.py:77
 msgid "Screenlet name is %s."
-msgstr ""
+msgstr "Il nome della Screenlet è %s."
 
 #: screenlets-packager.py:81
 msgid "No screenlet-file \"%sScreenlet.py\" found in the given path."
 msgstr ""
+"Nessun screenlet-file \"%sScreenlet.py\" trovato nel percorso specificato."
 
 #: screenlets-packager.py:82
 msgid "Found %sScreenlet.py in path."
-msgstr ""
+msgstr "Trovato %sScreenlet.py nel percorso."
 
 #: screenlets-packager.py:91
 msgid "Unable to import module '%s' from %s. (%s)"
-msgstr ""
+msgstr "Impossibile importare il modulo '%s' da %s. (%s)"
 
 #: screenlets-packager.py:92
 msgid "Successfully imported module: %s"
@@ -663,27 +650,30 @@ msgstr "Modulo importato con successo: %s"
 
 #: screenlets-packager.py:98
 msgid "Unable to import class from module."
-msgstr ""
+msgstr "Impossibile importare classe dal modulo."
 
 #: screenlets-packager.py:100
 msgid "The class inside the module is no subclass of screenlets.Screenlet."
 msgstr ""
+"La classe all'interno del modulo non è sottoclasse di screenlets.Screenlet."
 
 #: screenlets-packager.py:101
 msgid "Successfully got class from module: %s"
-msgstr ""
+msgstr "Ottenuta con successo la classe dal modulo: %s"
 
 #: screenlets-packager.py:125
 msgid "Failed to create package info in \"%s\" (no permission?)."
 msgstr ""
+"Fallimento durante la creazione del pacchetto info in \"%s\" (permessi "
+"insufficienti?)"
 
 #: screenlets-packager.py:126
 msgid "Created package info file."
-msgstr ""
+msgstr "Creato il pacchetto del file di informazioni."
 
 #: screenlets-packager.py:142
 msgid "Cleaned up and finished."
-msgstr ""
+msgstr "Fatta pulizia e terminato."
 
 #: screenlets-packager.py:145
 msgid "OK."

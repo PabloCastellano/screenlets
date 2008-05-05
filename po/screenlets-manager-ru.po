@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: screenlets\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2008-03-30 18:29+0000\n"
-"PO-Revision-Date: 2008-03-31 12:27+0000\n"
-"Last-Translator: Vadim Peretokin <Unknown>\n"
+"PO-Revision-Date: 2008-04-11 15:34+0000\n"
+"Last-Translator: Vladimir Sharshov <vsharshov@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-02 01:28+0000\n"
+"X-Launchpad-Export-Date: 2008-05-04 15:36+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: screenlets-daemon.py:91
@@ -159,17 +159,19 @@ msgstr "%s скринлет уже установлен"
 
 #: screenlets-manager.py:226
 msgid "Compatibility for this karamba theme is not yet implemented"
-msgstr ""
+msgstr "Совместимость с этой темой Karamba ещё не реализована"
 
 #: screenlets-manager.py:253
 msgid "Karamba theme was successfully installed"
-msgstr ""
+msgstr "Тема Karamba была установлена успешно"
 
 #: screenlets-manager.py:255
 msgid ""
 "Invalid archive. Archive does not contain a screenlet or a valid karamba "
 "theme."
 msgstr ""
+"Некорректный архив. Архив не содержит скринлет (screenlet) или "
+"поддерживаемую тему karamba"
 
 #: screenlets-manager.py:317
 msgid ""
@@ -289,7 +291,6 @@ msgid "Can't delete system-wide screenlets."
 msgstr "Не возможно удалить общедоступные скринлеты."
 
 #: screenlets-manager.py:644
-#, fuzzy
 msgid "Reset Screenlet"
 msgstr "Сбросить скринлет"
 
@@ -327,7 +328,7 @@ msgstr "Настройки"
 
 #: screenlets-manager.py:758
 msgid "Create Desktop Shortcut"
-msgstr ""
+msgstr "Создать ярлык на рабочем столе"
 
 #: screenlets-manager.py:790
 msgid "Launch/add a new instance of the selected Screenlet ..."
@@ -337,6 +338,8 @@ msgstr "Запустить/добавить новый экземпляр выб
 msgid ""
 "Install a new Screenlet, SuperKaramba or Web Widget or Web Application  ..."
 msgstr ""
+"Установить новый скринлет (Screenlet), SuperKaramba или сетевой виджет (Web "
+"Widget) или сетевое приложение(Web Application) ..."
 
 #: screenlets-manager.py:792
 msgid "Permanently uninstall/delete the currently selected Screenlet ..."
@@ -361,27 +364,28 @@ msgstr ""
 
 #: screenlets-manager.py:796
 msgid "Close all Screenlets running"
-msgstr ""
+msgstr "Закрыть все запущенные скринлеты (Screenlets)"
 
 #: screenlets-manager.py:797
+#, fuzzy
 msgid "New Screenlets Options/Properties"
-msgstr ""
+msgstr "Опции/Настройки новых скринлетов (screenlets)"
 
 #: screenlets-manager.py:798
 msgid "Create a Desktop shortcut for this Screenlet"
-msgstr ""
+msgstr "Создать ярлык на рабочем столе для этого скринлета (Screenlet)"
 
 #: screenlets-manager.py:817
 msgid "All Screenlets"
-msgstr ""
+msgstr "Все скринлеты (Screenlets)"
 
 #: screenlets-manager.py:818
 msgid "Running Screenlets"
-msgstr ""
+msgstr "Работающие скринлеты (Screenlets)"
 
 #: screenlets-manager.py:819
 msgid "Autostart Screenlets"
-msgstr ""
+msgstr "Автостарт Screenlets"
 
 #: screenlets-manager.py:851
 msgid "Show info about this dialog ..."
@@ -423,7 +427,7 @@ msgstr ""
 
 #: screenlets-manager.py:1043
 msgid "Install a Screenlet or SuperKaramba theme"
-msgstr ""
+msgstr "Установить скринлет (Screenlet ) или тему SuperKaramba"
 
 #: screenlets-manager.py:1081
 msgid "Install a new theme for the selected Screenlet"
@@ -482,8 +486,9 @@ msgid ""
 msgstr "Ошибка 2 при установке темы - Тема не установлена или уже сущетсвует"
 
 #: screenlets-manager.py:1250
+#, fuzzy
 msgid "New screenlets atributes.."
-msgstr ""
+msgstr "Свойства новых скринлетов (screenlets)"
 
 #: screenlets-manager.py:1251
 msgid "Lock"
@@ -506,12 +511,13 @@ msgid "Keep below"
 msgstr "Всегда снизу"
 
 #: screenlets-manager.py:1281
+#, fuzzy
 msgid "New Screenlets atributes"
-msgstr ""
+msgstr "Свойства новых скринлетов (screenlets)"
 
 #: screenlets-manager.py:1324
 msgid "Create desktop shortcut for: %s/%sScreenlet.py"
-msgstr ""
+msgstr "Создать ярлык на рабочем столе для: %s/%sScreenlet.py"
 
 #: screenlets-manager.py:1350
 msgid "closing %s"
@@ -519,15 +525,15 @@ msgstr "закрытие %s"
 
 #: screenlets-manager.py:1379
 msgid "Web Application Url"
-msgstr ""
+msgstr "Линк веб приложения (Web Application)"
 
 #: screenlets-manager.py:1380
 msgid "Web Application Name"
-msgstr ""
+msgstr "Имя веб приложения(Web Application)"
 
 #: screenlets-manager.py:1389
 msgid "Install Web Application"
-msgstr ""
+msgstr "Установить веб приложение (Web Application)"
 
 #: screenlets-manager.py:1412
 #: screenlets-manager.py:1495
@@ -535,40 +541,44 @@ msgid ""
 "There is already a screenlet with that name installed\n"
 "Do you wish to continue?"
 msgstr ""
+"Скринлет (screenlet) с таким именем уже установлен\n"
+"Вы хотите продолжить?"
 
 #: screenlets-manager.py:1433
 msgid "Web Application was successfully installed"
-msgstr ""
+msgstr "Веб приложение(Web Application) было успешно установлено"
 
 #: screenlets-manager.py:1436
 msgid "Error installing!!!"
-msgstr ""
+msgstr "Ошибка установки!!!"
 
 #: screenlets-manager.py:1437
 #: screenlets-manager.py:1523
 msgid "Please specify a name for the widget"
-msgstr ""
+msgstr "Пожалуйста, определите имя для этого виджета (widget)"
 
 #: screenlets-manager.py:1438
 #: screenlets-manager.py:1524
 msgid "No HTML code found"
-msgstr ""
+msgstr "Код HTML не найден"
 
 #: screenlets-manager.py:1441
 msgid "Convert any webpage widget into a Screenlet."
-msgstr ""
+msgstr "Преобразование любых веб виджетов (widget) в скринлеты (screenlet)."
 
 #: screenlets-manager.py:1442
 msgid "Step 1 : Find the widget you want to convert"
-msgstr ""
+msgstr "Шаг 1 : Найдите виджет (widget), который вы хотите преобразовать"
 
 #: screenlets-manager.py:1443
 msgid "Step 2 : Copy and Paste the HTML from the widget in the box below"
-msgstr ""
+msgstr "Шаг 2 : Скопируйте и вставьте HTML код виджета (widget) в поле ниже"
 
 #: screenlets-manager.py:1444
 msgid "Step 3 : Give it a name in the box below and click on Ok to convert"
 msgstr ""
+"Шаг 3 : Укажите имя виджета (widget) в поле ниже и нажмите кнопку Ок для "
+"преобразования"
 
 #: screenlets-manager.py:1445
 msgid "The name of the widget"
@@ -576,15 +586,15 @@ msgstr "Название виджета"
 
 #: screenlets-manager.py:1469
 msgid "Widget converter"
-msgstr ""
+msgstr "Преобразовани виджета (widget)"
 
 #: screenlets-manager.py:1519
 msgid "Widget was successfully converted"
-msgstr ""
+msgstr "Виджет (widget)  был успешно преобразован"
 
 #: screenlets-manager.py:1522
 msgid "Error converting!!!"
-msgstr ""
+msgstr "Ошибка преобразования!!!"
 
 #: screenlets-manager.py:1595
 msgid "Launch %s"
@@ -597,6 +607,7 @@ msgstr "Выйти из %s"
 #: screenlets-manager.py:1652
 msgid "Screenlets-Manager must now be restarted"
 msgstr ""
+"Менеджер скринлетов (Screenlets-Manager) сейчас должен быть перезапущен"
 
 #: screenlets-manager.py:1663
 msgid "Quit!"
@@ -657,12 +668,10 @@ msgid "Successfully got class from module: %s"
 msgstr "Удачно получен класс из модуля: %s"
 
 #: screenlets-packager.py:125
-#, fuzzy
 msgid "Failed to create package info in \"%s\" (no permission?)."
 msgstr "Не удалось создать файл информации для \"%s\". (нет прав?)."
 
 #: screenlets-packager.py:126
-#, fuzzy
 msgid "Created package info file."
 msgstr "Создан файл информации для пакета."
 

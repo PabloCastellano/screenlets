@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: screenlets\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2008-03-30 18:29+0000\n"
-"PO-Revision-Date: 2008-04-03 22:20+0900\n"
-"Last-Translator: jiro kawada <jiro.kawada@gmail.com>\n"
+"PO-Revision-Date: 2008-05-02 23:20+0000\n"
+"Last-Translator: kawaji <jiro.kawada@gmail.com>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-01 06:28+0000\n"
+"X-Launchpad-Export-Date: 2008-05-04 15:36+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: screenlets-daemon.py:91
@@ -48,7 +48,12 @@ msgstr "全ての Screenlet を閉じる"
 
 #: screenlets-daemon.py:251
 #: screenlets-manager.py:974
-msgid "This application is released under the GNU General Public License v3 (or, at your option, any later version). You can find the full text of the license under http://www.gnu.org/licenses/gpl.txt. By using, editing and/or distributing this software you agree to the terms and conditions of this license. Thank you for using free software!"
+msgid ""
+"This application is released under the GNU General Public License v3 (or, at "
+"your option, any later version). You can find the full text of the license "
+"under http://www.gnu.org/licenses/gpl.txt. By using, editing and/or "
+"distributing this software you agree to the terms and conditions of this "
+"license. Thank you for using free software!"
 msgstr ""
 
 #: screenlets-daemon.py:264
@@ -61,16 +66,17 @@ msgstr "Screenlet のインストール"
 
 #: screenlets-daemon.py:343
 msgid "Archive damaged or unsuported, only tar , bz2 or gz."
-msgstr "書庫は壊れているか未対応形式です。tar , bz2 または gz のみ対応。"
+msgstr "書庫は壊れているか未対応形式です。tar , bz2 または gz にのみ対応しています。"
 
 #: screenlets-daemon.py:346
 #: screenlets-manager.py:214
-msgid "Invalid archive. Archive must contain a directory with the screenlet's name."
-msgstr "不正な書庫。書庫には Screenlet の名前の付いたディレクトリが含まれている必要があります。"
+msgid ""
+"Invalid archive. Archive must contain a directory with the screenlet's name."
+msgstr "不正な書庫です。書庫には Screenlet の名前の付いたディレクトリが含まれている必要があります。"
 
 #: screenlets-daemon.py:349
 msgid "Invalid archive. Archive does not contain a screenlet."
-msgstr "不正な書庫。書庫に Screenlet が含まれていません。"
+msgstr "不正な書庫です。書庫に Screenlet が含まれていません。"
 
 #: screenlets-daemon.py:354
 #: screenlets-manager.py:204
@@ -80,8 +86,10 @@ msgstr "%s のインストール"
 
 #: screenlets-daemon.py:354
 #: screenlets-manager.py:270
-msgid "%s was not packaged with the screenlet packager. Do you wish to continue and try to install it?"
-msgstr "%s は Screenlet パッケージャによってパッケージされていません。このまま続行してインストールを試行しますか？"
+msgid ""
+"%s was not packaged with the screenlet packager. Do you wish to continue and "
+"try to install it?"
+msgstr "%s は Screenlet パッケージャによってパッケージされていません。このまま続けてインストールを試行しますか？"
 
 #: screenlets-daemon.py:357
 #: screenlets-manager.py:273
@@ -147,12 +155,19 @@ msgid "Karamba theme was successfully installed"
 msgstr "Karamba テーマのインストールに成功しました"
 
 #: screenlets-manager.py:255
-msgid "Invalid archive. Archive does not contain a screenlet or a valid karamba theme."
+msgid ""
+"Invalid archive. Archive does not contain a screenlet or a valid karamba "
+"theme."
 msgstr "不正な書庫。書庫には Screenlet または適正な Karemba テーマが含まれていません。"
 
 #: screenlets-manager.py:317
-msgid "Important! You are running this application as root user, almost all functionality is disabled. You can use this to install screenlets into the system-wide path."
-msgstr "重要！あなたはこのアプリケーションを root ユーザーとして実行していて、ほとんど全ての機能は無効になっています。各種 Screenlet をシステム全般のパスにインストールするためにこれを使用出来ます。"
+msgid ""
+"Important! You are running this application as root user, almost all "
+"functionality is disabled. You can use this to install screenlets into the "
+"system-wide path."
+msgstr ""
+"重要！あなたはこのアプリケーションを root ユーザーとして実行していて、ほとんど全ての機能は無効になっています。各種 Screenlet "
+"をシステム全般のパスにインストールするためにこれを使用出来ます。"
 
 #: screenlets-manager.py:318
 msgid "Warning!"
@@ -168,8 +183,10 @@ msgstr "エラー"
 
 #: screenlets-manager.py:331
 #: screenlets-manager.py:438
-msgid "There is no existing autostart directory for your user account yet. Do you want me to automatically create it for you?"
-msgstr "あなたのユーザーアカウントにはまだ autostart ディレクトリがありません。自動的に作成しますか？"
+msgid ""
+"There is no existing autostart directory for your user account yet. Do you "
+"want me to automatically create it for you?"
+msgstr "あなたのユーザーアカウント用の autostart ディレクトリがまだありません。自動的に作成しますか？"
 
 #: screenlets-manager.py:332
 #: screenlets-manager.py:440
@@ -226,7 +243,8 @@ msgid "Error: Unable to connect/launch daemon."
 msgstr "エラー: デーモンへの接続や起動が出来ません。"
 
 #: screenlets-manager.py:383
-msgid "Unable to connect or launch daemon. Some values may be displayed incorrectly."
+msgid ""
+"Unable to connect or launch daemon. Some values may be displayed incorrectly."
 msgstr "デーモンへの接続や起動が出来ません。正しく表示されていない値がいくつかあるかもしれません。"
 
 #: screenlets-manager.py:413
@@ -299,15 +317,17 @@ msgid "Launch/add a new instance of the selected Screenlet ..."
 msgstr "選択した Screenlet の新しいインスタンスを起動/追加..."
 
 #: screenlets-manager.py:791
-msgid "Install a new Screenlet, SuperKaramba or Web Widget or Web Application  ..."
-msgstr "新しい Screenlet や SuperKaramba または Web ウィジェットないしは Web アプリーションをインストール..."
+msgid ""
+"Install a new Screenlet, SuperKaramba or Web Widget or Web Application  ..."
+msgstr "新しい Screenlet や SuperKaramba または Web ウィジェットや Web アプリーションをインストール..."
 
 #: screenlets-manager.py:792
 msgid "Permanently uninstall/delete the currently selected Screenlet ..."
 msgstr "現在選択中の Screenlet を完全にアンインストール/削除..."
 
 #: screenlets-manager.py:793
-msgid "Reset this Screenlet configuration (will only work if screenlet isnt running)"
+msgid ""
+"Reset this Screenlet configuration (will only work if screenlet isnt running)"
 msgstr "この Screenlet の設定をリセット（Screenlet が未実行の場合のみ働きます）"
 
 #: screenlets-manager.py:794
@@ -387,7 +407,9 @@ msgid "Install a new theme for the selected Screenlet"
 msgstr "選択した Screenlet の新しいテーマのインストール"
 
 #: screenlets-manager.py:1109
-msgid "You are about to install a theme in root mode. Continue only if you have gksudo installed, do you wish to continue?"
+msgid ""
+"You are about to install a theme in root mode. Continue only if you have "
+"gksudo installed, do you wish to continue?"
 msgstr "root モードでテーマをインストールしようとしています。gksudo をインストール済みの場合にのみ続行してください。続行しますか？"
 
 #: screenlets-manager.py:1126
@@ -395,8 +417,9 @@ msgid "Error Found"
 msgstr "エラー発見"
 
 #: screenlets-manager.py:1131
-msgid "Theme install error 1 found - Theme not installed , maybe a package error "
-msgstr "テーマインストールエラー 1 発見 - テーマは未インストール、パッケージエラーの可能性"
+msgid ""
+"Theme install error 1 found - Theme not installed , maybe a package error "
+msgstr "テーマインストールエラー 1 発見 - テーマは未インストール、パッケージエラーの可能性 "
 
 #: screenlets-manager.py:1137
 msgid "list contains themes folder"
@@ -407,8 +430,11 @@ msgid "list contains the screenlet name folder"
 msgstr "リストには Screenlet 名のフォルダが含まれています"
 
 #: screenlets-manager.py:1142
-msgid "This package seams to contain a full Screenlet and not just a theme, please use the screenlet install instead"
-msgstr "このパッケージにはテーマだけではなく完全な Screenlet が含まれているようです。Screenlet のインストールを代わりに使用してください。"
+msgid ""
+"This package seams to contain a full Screenlet and not just a theme, please "
+"use the screenlet install instead"
+msgstr ""
+"このパッケージにはテーマだけではなく完全な Screenlet が含まれているようです。Screenlet のインストールを代わりに使用してください。"
 
 #: screenlets-manager.py:1154
 msgid "This package doesnt seem to contain a theme"
@@ -423,7 +449,8 @@ msgid "Theme installed , please restart %s"
 msgstr "テーマがインストールされました。%s を再スタートしてください。"
 
 #: screenlets-manager.py:1180
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr "テーマインストールエラー 2 発見 - テーマは未インストールまたはインストール済み"
 
 #: screenlets-manager.py:1250
@@ -511,7 +538,7 @@ msgstr "ステップ 1 : 変換したいウィジェットを見つける"
 
 #: screenlets-manager.py:1443
 msgid "Step 2 : Copy and Paste the HTML from the widget in the box below"
-msgstr "ステップ 2 : 下のボックスのウィジェットから HTML をコピー＆ペースト"
+msgstr "下のボックスにウィジェットから HTML をコピー＆ペースト"
 
 #: screenlets-manager.py:1444
 msgid "Step 3 : Give it a name in the box below and click on Ok to convert"
@@ -616,4 +643,3 @@ msgstr ""
 #: screenlets-packager.py:145
 msgid "OK."
 msgstr "OK."
-

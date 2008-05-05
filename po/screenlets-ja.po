@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: screenlets\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2008-02-13 19:35+0200\n"
-"PO-Revision-Date: 2008-04-03 22:31+0900\n"
-"Last-Translator: jiro kawada <jiro.kawada@gmail.com>\n"
+"PO-Revision-Date: 2008-04-07 09:23+0000\n"
+"Last-Translator: kawaji <jiro.kawada@gmail.com>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2008-04-01 06:24+0000\n"
+"X-Launchpad-Export-Date: 2008-05-04 15:36+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: XmlMenu.py:48
@@ -47,7 +47,7 @@ msgstr ""
 
 #: __init__.py:175
 msgid "Override: "
-msgstr "書き換え:"
+msgstr "書き換え: "
 
 #: __init__.py:186
 msgid "WARNING: Option '%s' not found or protected."
@@ -67,11 +67,11 @@ msgstr "作者: "
 
 #: __init__.py:414
 msgid "Version: "
-msgstr "バージョン:"
+msgstr "バージョン: "
 
 #: __init__.py:415
 msgid "Info: "
-msgstr "情報:"
+msgstr "情報: "
 
 #: __init__.py:417
 msgid "Failed to load theme.conf"
@@ -95,7 +95,7 @@ msgstr "この Screenlet の情報は未記載"
 
 #: __init__.py:626
 msgid "The basic settings for this Screenlet-instance."
-msgstr ""
+msgstr "この Screenlet インスタンスの基本設定"
 
 #: __init__.py:638
 msgid "The X-position of this Screenlet ..."
@@ -225,7 +225,7 @@ msgstr "書き換え時に確認を求める"
 
 #: __init__.py:685
 msgid "Show a confirmation-dialog when a theme wants to override "
-msgstr "テーマが設定値の書き換えを要求するときは確認ダイアログを表示"
+msgstr "テーマが設定値の書き換えを要求するときは確認ダイアログを表示 "
 
 #: __init__.py:686
 msgid "the current options of this Screenlet ..."
@@ -233,11 +233,11 @@ msgstr "この Screenlet の現在のオプション..."
 
 #: __init__.py:784
 msgid "LOAD NEW THEME: "
-msgstr "新しいテーマの読み込み:"
+msgstr "新しいテーマの読み込み: "
 
 #: __init__.py:785
 msgid "FOUND: "
-msgstr "発見:"
+msgstr "発見: "
 
 #: __init__.py:863
 msgid "Size"
@@ -288,7 +288,9 @@ msgid "Error while loading theme: "
 msgstr "テーマ読み込み中にエラー: "
 
 #: __init__.py:1144
-msgid "This theme wants to override your settings for this Screenlet. Do you want to allow that?"
+msgid ""
+"This theme wants to override your settings for this Screenlet. Do you want "
+"to allow that?"
 msgstr "このテーマはこの Sceenlet の設定値の書き換えを要求しています。書き換えを許可しますか？"
 
 #: __init__.py:1261
@@ -421,7 +423,9 @@ msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
 msgstr ""
 
 #: options.py:465
-msgid "Error in metadata-file \"%s\" - only <group>-tags allowed in first level. Groups must contain at least one <info>-element."
+msgid ""
+"Error in metadata-file \"%s\" - only <group>-tags allowed in first level. "
+"Groups must contain at least one <info>-element."
 msgstr ""
 
 #: options.py:471
@@ -450,19 +454,22 @@ msgstr "アクティブなテーマ: %s"
 
 #: options.py:836
 msgid "About "
-msgstr "詳細情報"
+msgstr "詳細情報 "
 
 #: options.py:848
 msgid "Options "
-msgstr "オプション"
+msgstr "オプション "
 
 #: options.py:855
-msgid "Themes allow you to easily switch the appearance of your Screenlets. On this page you find a list of all available themes for this Screenlet."
-msgstr "Screenlet の外観はテーマによって簡単に切り替えられます。この Screenlet に使用可能な全テーマのリストがこのページに掲載されています。"
+msgid ""
+"Themes allow you to easily switch the appearance of your Screenlets. On this "
+"page you find a list of all available themes for this Screenlet."
+msgstr ""
+"Screenlet の外観はテーマによって簡単に切り替えられます。この Screenlet に使用可能な全テーマのリストがこのページに掲載されています。"
 
 #: options.py:884
 msgid "Themes "
-msgstr "テーマ"
+msgstr "テーマ "
 
 #: options.py:896
 msgid "no info available"
@@ -709,7 +716,9 @@ msgid "Failed creating instance of: %s"
 msgstr "インスタンスの作成に失敗: %s"
 
 #: session.py:273
-msgid "Error: Unable to create temp entry - screenlets-manager will not work properly."
+msgid ""
+"Error: Unable to create temp entry - screenlets-manager will not work "
+"properly."
 msgstr "エラー: temp エントリーの作成不可 - screenlets-manager  は正常に働きません。"
 
 #: session.py:281
@@ -721,7 +730,9 @@ msgid "No global tempfile found, creating new one."
 msgstr "グローバル一時ファイルが見つかりません。新規作成しています。"
 
 #: session.py:297
-msgid "Error: Unable to create temp directory %s - screenlets-manager will not work properly."
+msgid ""
+"Error: Unable to create temp directory %s - screenlets-manager will not work "
+"properly."
 msgstr "エラー: 一時ディレクトリ %s 作成不可 - この場合 Screenlets マネージャは正しく働きません。"
 
 #: session.py:316
@@ -765,7 +776,8 @@ msgid "Screenlet has been killed. TODO: make this an event"
 msgstr "Screenlet が停止されました。TODO: これをイベントにします"
 
 #: session.py:433
-msgid "Screenlet '%s' has been interrupted by keyboard. TODO: make this an event"
+msgid ""
+"Screenlet '%s' has been interrupted by keyboard. TODO: make this an event"
 msgstr "Screenlet '%s' がキーボードに割り込まれました。TODO: これをイベントにします"
 
 #: session.py:435
@@ -791,4 +803,3 @@ msgstr "セクション %s が見つかりません！"
 #: utils.py:264
 msgid "Notify: No DBus running or notifications-daemon unavailable."
 msgstr "通知: DBus 未稼働または notifications-daemon 利用不可。"
-

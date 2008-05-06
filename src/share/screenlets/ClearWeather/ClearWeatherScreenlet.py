@@ -25,6 +25,7 @@ import datetime
 import math
 import gtk
 from gtk import gdk
+import os
 
 
 class ClearWeatherScreenlet(screenlets.Screenlet):
@@ -140,7 +141,7 @@ class ClearWeatherScreenlet(screenlets.Screenlet):
 
 		forecast = []
 		try:
-			data = urlopen('http://xoap.weather.com/weather/local/'+self.ZIP+'?cc=*&dayf=10&prod=xoap&par=1003666583&key=4128909340a9b2fc&unit='+unit).read()
+			data = urlopen('http://xoap.weather.com/weather/local/'+self.ZIP+'?cc=*&dayf=10&prod=xoap&par=1003666583&key=4128909340a9b2fc&unit='+unit + '&link=xoap').read()
 
 			dcstart = data.find('<loc ')
 			dcstop = data.find('</cc>')     ###### current conditions
@@ -166,7 +167,7 @@ class ClearWeatherScreenlet(screenlets.Screenlet):
 
 		hforecast = []
 		try:
-			data = urlopen('http://xoap.weather.com/weather/local/'+self.ZIP+'?cc=*&dayf=10&prod=xoap&par=1003666583&key=4128909340a9b2fc&unit='+unit+'&hbhf=12').read()
+			data = urlopen('http://xoap.weather.com/weather/local/'+self.ZIP+'?cc=*&dayf=10&prod=xoap&par=1003666583&key=4128909340a9b2fc&unit='+unit+'&hbhf=12&link=xoap').read()
 			for x in range(8):
 				dcstart = data.find('<hour h=\"'+str(x))
 				dcstop = data.find('</hour>',dcstart)   ####hourly forecast
@@ -502,7 +503,10 @@ class ClearWeatherScreenlet(screenlets.Screenlet):
 					ctx.translate(98,0)
 					self.theme.render(ctx,   self.get_icon(int(weather[5]["dayicon"]))  )	
 					ctx.translate(98,0)
-					self.theme.render(ctx,   self.get_icon(int(weather[6]["dayicon"]))  )	
+					ctx.save()
+					ctx.translate(0,25)					
+					self.theme.render(ctx,  'TWClogo' )	
+					ctx.restore()
 					ctx.restore()						
 					
 
@@ -556,13 +560,13 @@ class ClearWeatherScreenlet(screenlets.Screenlet):
 					
 						ctx.restore()
 
-						ctx.save()
-						ctx.set_source_rgba(0, 0, 0, 1)
-						ctx.translate(116, 76)
-						p_layout.set_markup('<b>' + weather[6]["high"]+degree+'</b>\n'+ weather[6]["low"]+degree)					
-						ctx.show_layout(p_layout)
+		#				ctx.save()
+		#				ctx.set_source_rgba(0, 0, 0, 1)
+		#				ctx.translate(116, 76)
+		#				p_layout.set_markup('<b>' + weather[6]["high"]+degree+'</b>\n'+ weather[6]["low"]+degree)					
+		#				ctx.show_layout(p_layout)
 
-						ctx.restore()
+		#				ctx.restore()
 						ctx.save()
 			
 
@@ -587,7 +591,14 @@ class ClearWeatherScreenlet(screenlets.Screenlet):
 		
 		
 					
+	def on_mouse_down(self,event):
+		if event.button == 1:
+			x = event.x / self.scale
+			y = event.y / self.scale
 
+		
+			if y >= 75 and x <= 132 and x >= 110:
+				os.system('xdg-open weather.com')
 
 	def on_draw_shape(self,ctx):
 		if self.theme:

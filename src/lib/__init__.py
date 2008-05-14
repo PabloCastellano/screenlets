@@ -587,6 +587,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 	lock_position	= False
 	allow_option_override 	= True		# if False, overrides are ignored
 	ask_on_option_override	= True		# if True, overrides need confirmation
+	resize_on_scroll = True
 	has_started = False
 	has_focus = False
 	# internals (deprecated? we still don't get the end of a begin_move_drag)
@@ -612,7 +613,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 		show_window=True, is_widget=False, is_sticky=False, 
 		uses_theme=True, draw_buttons=True,path=os.getcwd(), drag_drop=False, session=None, 
 		enable_saving=True, service_class=services.ScreenletService,
-		uses_pango=False, is_sizable=True, ask_on_option_override=True):
+		uses_pango=False, is_sizable=True,resize_on_scroll=True, ask_on_option_override=True):
 		"""Constructor - should only be subclassed"""
 		
 		# call gobject and EditableOptions superclasses
@@ -637,6 +638,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 		self.__dict__['is_widget'] 	= is_widget
 		self.__dict__['is_sticky'] 	= is_sticky
 		self.__dict__['draw_buttons'] 	= draw_buttons
+		self.resize_on_scroll = resize_on_scroll
 		self.__dict__['x'] = 0
 		self.__dict__['y'] = 0
 		# TEST: set scale relative to theme size (NOT WORKING)
@@ -690,6 +692,8 @@ class Screenlet (gobject.GObject, EditableOptions):
 			self.is_dragged, "Is the screenlet dragged","Is the screenlet dragged", hidden=True))
 		self.add_option(BoolOption('Screenlet', 'is_sizable', 
 			is_sizable, "Can the screenlet be resized","is_sizable", hidden=True))
+		self.add_option(BoolOption('Screenlet', 'resize_on_scroll', 
+			self.resize_on_scroll, _("Can the screenlet be resized on mouse scroll"),"resize_on_scroll"))
 		self.add_option(BoolOption('Screenlet', 'is_visible', 
 			self.is_visible, "Usefull to use screenlets as gnome panel applets","is_visible", hidden=True))
 		self.add_option(BoolOption('Screenlet', 'lock_position', 
@@ -1874,10 +1878,10 @@ class Screenlet (gobject.GObject, EditableOptions):
 	
 	def scroll_event (self, widget, event):
 		if event.direction == gtk.gdk.SCROLL_UP:
-			if self.has_focus: self.scale = self.scale +0.1
+			if self.has_focus and self.is_sizable and self.resize_on_scroll: self.scale = self.scale +0.1
 			self.on_scroll_up()
 		elif event.direction == gtk.gdk.SCROLL_DOWN:
-			if self.has_focus: self.scale = self.scale -0.1
+			if self.has_focus and self.is_sizable and self.resize_on_scroll: self.scale = self.scale -0.1
 			self.on_scroll_down()
 		return False
 

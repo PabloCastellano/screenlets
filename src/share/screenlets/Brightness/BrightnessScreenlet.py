@@ -38,7 +38,7 @@ class BrightnessScreenlet (screenlets.Screenlet):
 	def __init__ (self, **keyword_args):
 		#call super (width/height MUST match the size of graphics in the theme)
 		screenlets.Screenlet.__init__(self, width=50, height=140, 
-			uses_theme=True, **keyword_args)
+			uses_theme=True,resize_on_scroll= False, **keyword_args)
 		# set theme
 		#self.theme_name = "default"
 		# add option group

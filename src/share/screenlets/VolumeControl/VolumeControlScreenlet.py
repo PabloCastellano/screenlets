@@ -61,7 +61,7 @@ class VolumeControlScreenlet(screenlets.Screenlet):
     # constructor
     def __init__(self, **keyword_args):
 	# call super
-	screenlets.Screenlet.__init__(self, width=100, height=100, 
+	screenlets.Screenlet.__init__(self, width=100, height=100,resize_on_scroll= False, 
 		**keyword_args)
 	# connect mousewheel scroll event
 	self.window.connect("scroll-event", self.on_scroll)

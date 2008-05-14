@@ -36,7 +36,7 @@ class NetmonitorScreenlet(screenlets.Screenlet):
 	
 	# default meta-info for Screenlets
 	__name__ = 'NetmonitorScreenlet'
-	__version__ = '0.6'
+	__version__ = '0.7'
 	__author__ = 'Helder Fraga aka Whise'
 	__desc__ =__doc__
 
@@ -52,20 +52,23 @@ class NetmonitorScreenlet(screenlets.Screenlet):
 	u2 = 0
 	n2 = 0
 	xo = 0
-	mini = True
+	mini = False
 	download_total = 0
 	upload_total = 0
 	dlt = 0
 	dev_choices = []
 	ult = 0
 	dlt = 0
-
-
+	frame_color = (1, 1, 1, 1)
+	color_text = (0, 0, 0, 0.6)
+	font = 'FreeSans'
 	mypath = argv[0][:argv[0].find('NetmonitorScreenlet.py')].strip()
 	month = 0
+	show_frame = True
+	show_txt = True
 	
 	def __init__(self, **keyword_args):
-		screenlets.Screenlet.__init__(self, width=200, height=120, uses_theme=True, **keyword_args) 
+		screenlets.Screenlet.__init__(self, width=180, height=110, uses_theme=True,ask_on_option_override=False, **keyword_args) 
 		
 		self.theme_name = "default"
 		self.add_menuitem("toggle", "Toggle mini view")	
@@ -74,6 +77,16 @@ class NetmonitorScreenlet(screenlets.Screenlet):
 		#self.disable_updates = True
 		self.get_devices()
 		self.add_options_group('Options', '')
+		self.add_option(BoolOption('Options', 'show_frame',bool(self.show_frame), 'Show frame','Show frame'))
+		self.add_option(BoolOption('Options', 'show_txt',bool(self.show_txt), 'Show In Out text','Show Text'))
+		self.add_option(ColorOption('Options','frame_color', 
+			self.frame_color, 'Frame color', 
+			'Frame color'))
+		self.add_option(ColorOption('Options','color_text', 
+			self.color_text, 'Text color', ''))
+		self.add_option(FontOption('Options','font', 
+			self.font, 'Text Font', 
+			'Text font'))
 		self.add_option(StringOption('Options', 'dev', self.dev,'Select Device', '',choices = self.dev_choices))
 		self.add_option(StringOption('Options', 'download_total', self.download_total,'Download total this month', '',))		
 		self.add_option(StringOption('Options', 'upload_total', self.upload_total,'Upload total this month', '',))
@@ -96,8 +109,8 @@ class NetmonitorScreenlet(screenlets.Screenlet):
 		data = commands.getoutput("cat /proc/net/dev |grep :")
 		for f in data.split(' '):
 			if f != None and f.find(':') != -1 and not f.startswith('0'):  
-				self.dev_choices.append(str(f)[:-1])
-
+				self.dev_choices.append(str(f).split(':')[0])
+	
 
 
 	def __setattr__(self, name, value):
@@ -107,7 +120,11 @@ class NetmonitorScreenlet(screenlets.Screenlet):
 		if name != 'xo' or  name != 'download' or  name != 'upload' or  name != 'unit1' or name != 'unit2' or name != 'u2' or name != 'u1' or name != 'n2' or name != 'n1'  or  name != 'p_layout' or name != 'download_total' or name != 'upload_total':	
 		
 			screenlets.Screenlet.__setattr__(self, name, value)	
-
+		if name == 'mini':
+			if value == True:
+				self.height = 60
+			else:
+				self.height = 110
 
 
 		return True
@@ -223,54 +240,36 @@ class NetmonitorScreenlet(screenlets.Screenlet):
 
 		ctx.scale(self.scale, self.scale)
 		ctx.set_operator(cairo.OPERATOR_OVER)
-		if self.theme:
-			if self.mini == True:
-				self.theme['background-mini.svg'].render_cairo(ctx)
-				self.theme.render(ctx, 'Network')
-			else:
-				self.theme['background.svg'].render_cairo(ctx)
-				self.theme.render(ctx, 'Network')
+
 
 		ctx.set_source_rgba(1, 1, 1, 1)
-		ctx.translate(50, 8)
-		if self.p_layout == None :
-	
-			self.p_layout = ctx.create_layout()
-		else:
-			
-			ctx.update_layout(self.p_layout)
-		p_fdesc = pango.FontDescription()
-		p_fdesc.set_family_static("Free Sans")
-		p_fdesc.set_size(16 * pango.SCALE)
-		self.p_layout.set_font_description(p_fdesc)
 
 		
 		if len(self.session.instances) != 0:
 			self.get_load()
 
-#		self.download = '999'
-#		self.upload = '999'
-#		self.dlt = '9999'
-#		self.ult = '9999'
-		
-		
-			self.p_layout.set_markup('<b> In -    ' + str(self.download)  + '  KB'  + '\n Out - '  + str(self.upload) + '  KB' + '</b>')
+			if self.show_frame:
+				gradient = cairo.LinearGradient(0, self.height*2,0, 0)
+				gradient.add_color_stop_rgba(1,*self.frame_color)
+				gradient.add_color_stop_rgba(0.7,self.frame_color[0],self.frame_color[1],self.frame_color[2],1-self.frame_color[3]+0.5)
 
-
-
-
-			ctx.show_layout(self.p_layout)
-			if self.mini == False:
-				self.p_layout.alignment = pango.ALIGN_RIGHT
-				self.p_layout.set_markup('<small> <small><small>Totals this Month</small></small></small>\nIn -   ' + str(self.dlt) + ' '+ self.unit_d + '\nOut - ' + str(self.ult)+ ' '+ self.unit_u)
-				ctx.translate(-5,45)
-				ctx.show_layout(self.p_layout)		
-
-		
+				ctx.set_source(gradient)
 			
-	
-
-
+				self.draw_rectangle_advanced (ctx, 0, 0, self.width-12, self.height-12, rounded_angles=(5,5,5,5), fill=True, border_size=2, border_color=(0,0,0,0.5), shadow_size=6, shadow_color=(0,0,0,0.5))
+			self.draw_icon(ctx, 10, 12,gtk.STOCK_GO_DOWN,16,16)
+			self.draw_icon(ctx, 10, 32,gtk.STOCK_GO_UP,16,16)
+			ctx.set_source_rgba(*self.color_text)
+			self.draw_text(ctx,  str(self.download) + ' KB', -10, 12,  self.font.split(' ')[0], 14, self.width, allignment=pango.ALIGN_RIGHT,weight = 0, ellipsize = pango.ELLIPSIZE_NONE)
+			self.draw_text(ctx, str(self.upload) + ' KB', -10, 30,  self.font.split(' ')[0], 14, self.width, allignment=pango.ALIGN_RIGHT,weight = 0, ellipsize = pango.ELLIPSIZE_NONE)
+			if self.show_txt:self.draw_text(ctx, 'In -\nOut -', 30, 12,  self.font.split(' ')[0], 14, self.width, allignment=pango.ALIGN_LEFT,weight = 0, ellipsize = pango.ELLIPSIZE_NONE)
+			
+			if self.mini == False:
+				self.draw_icon(ctx, 10, 64,gtk.STOCK_GO_DOWN,16,16)
+				self.draw_icon(ctx, 10, 84,gtk.STOCK_GO_UP,16,16)
+				self.draw_text(ctx, '<small> <small><small>Totals this Month</small></small></small>', 0,45,  self.font.split(' ')[0], 14, self.width, allignment=pango.ALIGN_CENTER,weight = 0, ellipsize = pango.ELLIPSIZE_NONE)
+				if self.show_txt:self.draw_text(ctx, 'In -\nOut -' , 30, 64,  self.font.split(' ')[0], 14, self.width, allignment=pango.ALIGN_LEFT,weight = 0, ellipsize = pango.ELLIPSIZE_NONE)
+			
+				self.draw_text(ctx, str(self.dlt) + ' '+ self.unit_d + '\n' + str(self.ult)+ ' '+ self.unit_u, -10,64,  self.font.split(' ')[0], 14, self.width,allignment=pango.ALIGN_RIGHT,weight = 0, ellipsize = pango.ELLIPSIZE_NONE)
 	
 
 	def update (self):

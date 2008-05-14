@@ -182,7 +182,7 @@ class GmailScreenlet(screenlets.Screenlet):
 			ctx.update_layout(self.p_layouta)
 		p_fdesc = pango.FontDescription()
 		p_fdesc.set_family_static("Free Sans")
-
+		if self.msgs == None: self.msgs = 0
 		if int(self.msgs) >= 10 and int(self.msgs) <= 99:
 			p_fdesc.set_size(30 * pango.SCALE)
 			ctx.translate(180, 187)

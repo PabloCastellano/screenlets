@@ -692,8 +692,6 @@ class Screenlet (gobject.GObject, EditableOptions):
 			self.is_dragged, "Is the screenlet dragged","Is the screenlet dragged", hidden=True))
 		self.add_option(BoolOption('Screenlet', 'is_sizable', 
 			is_sizable, "Can the screenlet be resized","is_sizable", hidden=True))
-		self.add_option(BoolOption('Screenlet', 'resize_on_scroll', 
-			self.resize_on_scroll, _("Can the screenlet be resized on mouse scroll"),"resize_on_scroll"))
 		self.add_option(BoolOption('Screenlet', 'is_visible', 
 			self.is_visible, "Usefull to use screenlets as gnome panel applets","is_visible", hidden=True))
 		self.add_option(BoolOption('Screenlet', 'lock_position', 
@@ -714,6 +712,8 @@ class Screenlet (gobject.GObject, EditableOptions):
 		self.add_option(BoolOption('Screenlet', 'skip_taskbar', 
 			self.skip_pager, _('Skip Taskbar'), 
 			_('Set this Screenlet to show/hide in taskbars ...')))
+		self.add_option(BoolOption('Screenlet', 'resize_on_scroll', 
+			self.resize_on_scroll, _("Resize on mouse scroll"),"resize_on_scroll"))
 		if uses_theme:
 			self.ask_on_option_override = ask_on_option_override
 			self.add_option(BoolOption('Screenlet', 'allow_option_override', 

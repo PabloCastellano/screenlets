@@ -17,18 +17,19 @@ import pango
 import sys
 import gtk
 import gobject
-from screenlets import DefaultMenuItem
+from screenlets import DefaultMenuItem, utils
 from screenlets.options import IntOption, BoolOption, StringOption, FontOption, ColorOption, FloatOption
 import os
+
+is_manager = utils.is_manager_running_me()
 try:
 	import feedparser
-except ImportError:
-	dialog = gtk.MessageDialog(buttons=gtk.BUTTONS_CLOSE)
-	dialog.set_markup("You don't have Feedparser installed! \nInstall python-feedparser or copy feedparser.py from rss/ folder to your screenlets folder.")
-	dialog.run()
-	dialog.destroy()
-	print("You don't have Feedparser installed! \nInstall python-feedparser or copy feedparser.py from rss/ folder to your screenlets folder.")
-	sys.exit()
+except:
+	if not is_manager:
+		screenlets.show_message(None,'You don\'t have Feedparser installed! \nInstall python-feedparser or copy feedparser.py from rss/ folder to your screenlets folder.')
+		sys.exit()
+	else:
+		print 'You don\'t have Feedparser installed! \nInstall python-feedparser or copy feedparser.py from rss/ folder to your screenlets folder.'
 
 class ClearRssScreenlet(screenlets.Screenlet):
 	"""Screenlet for reading RSS and Atom feeds , with the ability to scroll through all of the rss txt , ability to visit the rss news site"""

@@ -590,6 +590,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 	has_started = False
 	has_focus = False
 	# internals (deprecated? we still don't get the end of a begin_move_drag)
+	gtk_icon_theme = None
 	__lastx = 0
 	__lasty = 0
 	p_fdesc = None
@@ -651,6 +652,9 @@ class Screenlet (gobject.GObject, EditableOptions):
 		# if this Screenlet uses themes, add theme-specific options
 		# (NOTE: this option became hidden with 0.0.9 and doesn't use
 		# get_available_themes anymore for showing the choices)
+		self.gtk_icon_theme = gtk.icon_theme_get_default()
+		self.load_buttons(None)
+		self.gtk_icon_theme.connect("changed", self.load_buttons)
 		if draw_buttons: self.draw_buttons = True
 		else: self.draw_buttons = False
 		if uses_theme:
@@ -1005,26 +1009,28 @@ class Screenlet (gobject.GObject, EditableOptions):
 		menu_item.show()
 		return menu_item
 
+	def load_buttons(self, event):
+		self.closeb = self.gtk_icon_theme.load_icon ("gtk-close", 16, 0)
+		self.prop = self.gtk_icon_theme.load_icon ("gtk-properties", 16, 0)
+ 
 	def create_buttons(self):
 
 		ctx = self.window.window.cairo_create()
 		ctx.save()
-		theme1 = gtk.icon_theme_get_default()
 		#ctx.set_source_rgba(0.5,0.5,0.5,0.6)
 		#self.theme.draw_rounded_rectangle(ctx,(self.width*self.scale)-36,0,5,36,16)
-		close = theme1.load_icon ("gtk-close", 16, 0)
-		prop = theme1.load_icon ("gtk-properties", 16, 0)
-					#zoom1 = theme1.load_icon ("gtk-zoom-in", 16, 0)
-					#zoom2 = theme1.load_icon ("gtk-zoom-out", 16, 0)
-					#close = gtk.image_new_from_stock(gtk.STOCK_CLOSE, 
-					#	16)
+		#close = theme1.load_icon ("gtk-close", 16, 0)
+		#prop = theme1.load_icon ("gtk-properties", 16, 0)
+		#zoom1 = theme1.load_icon ("gtk-zoom-in", 16, 0)
+		#zoom2 = theme1.load_icon ("gtk-zoom-out", 16, 0)
+		#close = gtk.image_new_from_stock(gtk.STOCK_CLOSE, 16)
 		ctx.translate((self.width*self.scale)-16,0)
-		ctx.set_source_pixbuf(close, 0, 0)
+		ctx.set_source_pixbuf(self.closeb, 0, 0)
 		ctx.paint()
 		ctx.restore()
 		ctx.save()	
 		ctx.translate((self.width*self.scale)-32,0)
-		ctx.set_source_pixbuf(prop, 0, 0)
+		ctx.set_source_pixbuf(self.prop, 0, 0)
 		ctx.paint()
 		ctx.restore()
 
@@ -1146,6 +1152,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 		self.is_dragged = False
 		self.keep_above= self.keep_above
 		self.keep_below= self.keep_below
+		self.is_sticky = self.is_sticky
 		self.skip_taskbar = self.skip_taskbar
 		self.window.set_skip_taskbar_hint(self.skip_taskbar)
 		self.window.set_keep_above(self.keep_above)
@@ -1301,8 +1308,8 @@ class Screenlet (gobject.GObject, EditableOptions):
 			if self.window.window:
 				self.window.window.invalidate_rect(rect, True)
 				self.window.window.process_updates(True)
-				if self.has_focus and self.draw_buttons and self.show_buttons:
-					self.create_buttons()
+	#			if self.has_focus and self.draw_buttons and self.show_buttons:
+	#				self.create_buttons()
 
 	
 	def redraw_canvas_area (self, x, y, width, height):
@@ -1350,22 +1357,21 @@ class Screenlet (gobject.GObject, EditableOptions):
 		self.clear_cairo_context(ctx)		#TEST
 		if self.has_focus and self.draw_buttons and self.show_buttons:
 			ctx.save()
-			theme1 = gtk.icon_theme_get_default()
+			#theme1 = gtk.icon_theme_get_default()
 			#ctx.set_source_rgba(0.5,0.5,0.5,0.6)
 			#self.theme.draw_rounded_rectangle(ctx,(self.width*self.scale)-36,0,5,36,16)
-			close = theme1.load_icon ("gtk-close", 16, 0)
-			prop = theme1.load_icon ("gtk-properties", 16, 0)
-					#zoom1 = theme1.load_icon ("gtk-zoom-in", 16, 0)
-					#zoom2 = theme1.load_icon ("gtk-zoom-out", 16, 0)
-					#close = gtk.image_new_from_stock(gtk.STOCK_CLOSE, 
-					#	16)
+			#close = theme1.load_icon ("gtk-close", 16, 0)
+			#prop = theme1.load_icon ("gtk-properties", 16, 0)
+			#zoom1 = theme1.load_icon ("gtk-zoom-in", 16, 0)
+			#zoom2 = theme1.load_icon ("gtk-zoom-out", 16, 0)
+			#close = gtk.image_new_from_stock(gtk.STOCK_CLOSE, 16)
 			ctx.translate((self.width*self.scale)-16,0)
-			ctx.set_source_pixbuf(close, 0, 0)
+			ctx.set_source_pixbuf(self.closeb, 0, 0)
 			ctx.paint()
 			ctx.restore()
 			ctx.save()	
 			ctx.translate((self.width*self.scale)-32,0)
-			ctx.set_source_pixbuf(prop, 0, 0)
+			ctx.set_source_pixbuf(self.prop, 0, 0)
 			ctx.paint()
 			ctx.restore()
 		# shape the window acording if the window is composited  or not
@@ -1587,7 +1593,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 			return True
 		# unhandled? continue
 		
-		if self.mousex >= self.width - (32/self.scale) and self.mousey <= (16/self.scale) and self.draw_buttons and self.show_buttons:
+		if self.mousex >= self.width - (32/self.scale) and self.mousey <= (16/self.scale) and self.draw_buttons and self.show_buttons and self.has_focus:
 			if self.mousex >=  self.width - (16/self.scale):
 				self.menuitem_callback(widget,'quit_instance')
 			elif self.mousex <=  self.width -(16/self.scale):
@@ -1607,16 +1613,18 @@ class Screenlet (gobject.GObject, EditableOptions):
 				self.__mi_keep_below.set_active(self.keep_below)
 			except : pass
 			self.menu.popup(None, None, None, event.button, event.time)
-		elif event.button == 4:
-			print _("MOUSEWHEEL")
-			self.scale -= 0.1
-		elif event.button == 5:
-			print _("MOUSEWHEEL")
-			self.scale += 0.1
+		#elif event.button == 4:
+		#	print _("MOUSEWHEEL")
+		#	self.scale -= 0.1
+		#elif event.button == 5:
+		#	print _("MOUSEWHEEL")
+		#	self.scale += 0.1
 		return False
 	
 	def button_release (self, widget, event):
 		print "Button release"
+		if event.button==1:
+			self.focus_in_event(self, None)
 		self.is_dragged = False	# doesn't work!!! we don't get an event when move_drag ends :( ...
 		if self.on_mouse_up(event):
 			return True
@@ -1630,13 +1638,13 @@ class Screenlet (gobject.GObject, EditableOptions):
 		self.keep_above= self.keep_above
 		self.keep_below= self.keep_below
 		self.window.show()
-		print _('Compositing method changed to %s') % str(self.window.is_composited())
+		#print _('Compositing method changed to %s') % str(self.window.is_composited())
 		self.update_shape()
 		self.redraw_canvas()
 
 		if not self.window.is_composited () :
 			self.show_buttons = False
-			print _('Warning - Buttons will not be shown until screenlet is restarted')
+		#	print _('Warning - Buttons will not be shown until screenlet is restarted')
 
 		self.is_sticky = self.is_sticky #and again ...
 		self.keep_above= self.keep_above
@@ -1656,12 +1664,12 @@ class Screenlet (gobject.GObject, EditableOptions):
 			self.__dict__['x'] = event.x
 			if self.session:
 				self.session.backend.save_option(self.id, 'x', str(event.x))
-				self.is_dragged = False
+			#	self.is_dragged = False
 		if event.y != self.y:
 			self.__dict__['y'] = event.y
 			if self.session:
 				self.session.backend.save_option(self.id, 'y', str(event.y))
-				self.is_dragged = False
+			#	self.is_dragged = False
 		return False
 	
 	def delete_event (self, widget, event, data=None):
@@ -1733,24 +1741,32 @@ class Screenlet (gobject.GObject, EditableOptions):
 		#ctx.scale(self.scale, self.scale)
 		# call drawing method
 		self.on_draw(ctx)
+		if self.show_buttons and self.draw_buttons and self.has_focus:
+			self.create_buttons()
 		# and delete context (needed?)
 		del ctx
 		return False
 	
 	def focus_in_event (self, widget, event):
-		self.has_focus = True
-		self.on_focus(event)
-		self.update_shape()
-		self.redraw_canvas()
+		if self.skip_taskbar==False or self.skip_pager==False or self.is_dragged==True or event is None:
+			#Screenlet always gets focus after being dragged so this is a good method
+			#to control the end of a move_drag operation!!!!!
+			#This code happens on the end of a move_drag
+			self.is_dragged=False
+			self.has_focus = True
+			self.on_focus(event)
+			self.update_shape()
+			self.redraw_canvas()
 
 
 
 
 	def focus_out_event (self, widget, event):
-		self.has_focus = False
-		self.on_unfocus(event)
-		self.update_shape()
-		self.redraw_canvas()
+		if self.is_dragged==False:
+			self.has_focus = False
+			self.on_unfocus(event)
+			self.update_shape()
+			self.redraw_canvas()
 
 
 	
@@ -1858,8 +1874,10 @@ class Screenlet (gobject.GObject, EditableOptions):
 	
 	def scroll_event (self, widget, event):
 		if event.direction == gtk.gdk.SCROLL_UP:
+			if self.has_focus: self.scale = self.scale +0.1
 			self.on_scroll_up()
 		elif event.direction == gtk.gdk.SCROLL_DOWN:
+			if self.has_focus: self.scale = self.scale -0.1
 			self.on_scroll_down()
 		return False
 

@@ -43,9 +43,9 @@ def _(s):
 def cpu_get_load (processor_number=0):
 	"""Calculates the system load."""
 	try:
-		data = commands.getoutput("cat /proc/stat")
-		tmp = data.split('\n')
-
+		f = open("/proc/stat", "r")
+		tmp = f.readlines(2000)
+		f.close()
 	except:
 		print _("Failed to open /proc/stat")
 		sys.exit(1)
@@ -117,23 +117,28 @@ def cpu_get_nb_cpu ():
 
 # written by Hendrik Kaju
 def sys_get_uptime_long ():
-	"""Get uptime using 'cat /proc/uptime'"""
-	data1 = commands.getoutput("cat /proc/uptime")
-	uptime = float( data1.split()[0] )
-	days = int( uptime / 60 / 60 / 24 )
-	uptime = uptime - days * 60 * 60 * 24
-	hours = int( uptime / 60 / 60 )
-	uptime = uptime - hours * 60 * 60
-	minutes = int( uptime / 60 )
-	return _("%s days, %s hours and %s minutes") % (str(days), str(hours), str(minutes))
-	#return str(days) + " days, " + str(hours) + " hours and " + str(minutes) + " minutes"
+	try:
+		f = open("/proc/uptime", "r")
+		data1 = f.readline(100)
+		f.close()
+		uptime = float( data1.split()[0] )
+		days = int( uptime / 60 / 60 / 24 )
+		uptime = uptime - days * 60 * 60 * 24
+		hours = int( uptime / 60 / 60 )
+		uptime = uptime - hours * 60 * 60
+		minutes = int( uptime / 60 )
+		return _("%s days, %s hours and %s minutes") % (str(days), str(hours), str(minutes))
+		#return str(days) + " days, " + str(hours) + " hours and " + str(minutes) + " minutes"
+	except:
+		print _("Failed to open /proc/uptime")
+	return 'Error'
 
 def sys_get_uptime():
 	try:
 		f = open("/proc/uptime", "r")
-		tmp = f.readlines(100)
+		tmp = f.readline(100)
 		f.close()
-		t = tmp[0].split()[0]
+		t = tmp.split()[0]
 		h = int(float(t)/3600)
 		m = int((float(t)-h*3600)/60)
 		if m < 10:
@@ -154,20 +159,30 @@ def sys_get_username():
 
 # written by Hendrik Kaju
 def sys_get_hostname ():
-	"""Get user- and hostname and return user@hostname."""
-	hostname = commands.getoutput("hostname")
-	return hostname
-
+	"""Get hostname"""
+	try:
+		f = open("/proc/sys/kernel/hostname", "r")
+		hostname = f.readline(100)
+		f.close()
+		return hostname
+	except:
+		print _("Failed to open /proc/sys/kernel/hostname")
+	return 'Error'
 
 # written by Hendrik Kaju
 def sys_get_average_load ():
 	"""Get average load (as 3-tuple with floats)."""
-	data = commands.getoutput("cat /proc/loadavg")
-	load1 = str(float( data.split()[0] ))[:4]
-	load2 = str(float( data.split()[1] ))[:4]
-	load3 = str(float( data.split()[2] ))[:4]
-	return load1+ ','+ load2 +','+ load3
-
+	try:
+		f = open("/proc/loadavg", "r")
+		data = f.readline(100)
+		f.close()
+		load1 = str(float( data.split()[0] ))[:4]
+		load2 = str(float( data.split()[1] ))[:4]
+		load3 = str(float( data.split()[2] ))[:4]
+		return load1+ ','+ load2 +','+ load3
+	except:
+		print _("Failed to open /proc/loadavg")
+	return 'Error'
 	
 def sys_get_distrib_name():
 	try:
@@ -252,7 +267,13 @@ def sys_get_gnome_version():
 # by whise
 def sys_get_linux_version ():
 	"""Get linux version string."""
-	return commands.getoutput("cat /proc/version")
+	try:
+		f = open("/proc/version", "r")
+		data = f.readline(200)[:-1]
+		f.close()
+		return data
+	except:
+		return _("Failed to open /proc/version")
 
 # by whise
 # TODO: return dict and parse the output of cpuinfo (function does not much yet)
@@ -404,14 +425,19 @@ def disk_get_drive_info (mount_point):
 
 def disk_get_swap ():
 	"""Get a list of swap partitions."""
-	swap = commands.getoutput("cat /proc/swaps")
-	swap = str(swap.split()[5:])
-	swap = swap.replace("'","")
-	swap = swap.replace("[","")
-	swap = swap.replace("]","")
-	swap = swap.replace(",","")
-	return str(swap)
-
+	try:
+		f = open("/proc/swaps", "r")
+		swap = f.read()
+		f.close()
+		swap = str(swap.split()[5:])
+		swap = swap.replace("'","")
+		swap = swap.replace("[","")
+		swap = swap.replace("]","")
+		swap = swap.replace(",","")
+		return str(swap)
+	except:
+		print _("Failed to open /proc/swaps")
+	return 'Error'
 
 def disk_get_usage(disk_disk):
 	res = commands.getoutput('df -h -a -P').splitlines()
@@ -647,39 +673,32 @@ def bat_get_battery_list():
 def bat_get_data(name):
 	path = "/proc/acpi/battery/"+name+"/info"
 	try:
-		f = commands.getoutput('cat ' +path)
-		lines = f.split('\n')
+		f = open(path)
+		data = f.readlines()
+		f.close()
 		total = 0
 		current = 0
 		full = 0
 		state = ''
 		present = True
-		for i in lines:
-			if i.startswith('present:') and i.find('yes')==-1:
+		for line in data:
+			if line.startswith('present:') and line.find('yes')==-1:
 				present = False
-			elif i.startswith('design capacity:'):
-				total = int(i.split(':')[1].strip().split(' ')[0])
-			elif i.startswith('last full capacity:'):
-				full = int(i.split(':')[1].strip().split(' ')[0])
-			elif i.startswith('remaining capacity:'):
-				current = int(i.split(':')[1].strip().split(' ')[0])
-			elif i.startswith('charging state:'):
-				state = i.split(':')[1].strip().split(' ')[0]
-			
+			elif line.startswith('design capacity:'):
+				total = int(line.split(':')[1].strip().split(' ')[0])
+			elif line.startswith('last full capacity:'):
+				full = int(line.split(':')[1].strip().split(' ')[0])
 		path = "/proc/acpi/battery/"+name+"/state"
-		f = commands.getoutput('cat ' +path)
-		lines = f.split('\n')
-		for i in lines:
-			if i.startswith('present:') and i.find('yes')==-1:
+		f = open(path)
+		data = f.readlines()
+		f.close()
+		for line in data:	
+			if line.startswith('present:') and line.find('yes')==-1:
 				present = False
-			elif i.startswith('design capacity:'):
-				total = int(i.split(':')[1].strip().split(' ')[0])
-			elif i.startswith('last full capacity:'):
-				full = int(i.split(':')[1].strip().split(' ')[0])
-			elif i.startswith('remaining capacity:'):
-				current = int(i.split(':')[1].strip().split(' ')[0])
-			elif i.startswith('charging state:'):
-				state = i.split(':')[1].strip().split(' ')[0]
+			elif line.startswith('remaining capacity:'):
+				current = int(line.split(':')[1].strip().split(' ')[0])
+			elif line.startswith('charging state:'):
+				state = line.split(':')[1].strip().split(' ')[0]
 		return total, current, full, state, present
 	except:
 		return 0, 0, 0, '', False

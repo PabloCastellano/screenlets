@@ -261,7 +261,7 @@ class RingSensorsScreenlet(screenlets.Screenlet):
 			text = '<small><small><small><small>' +str(self.sensor.split(':')[0]) +'</small></small></small></small>\n'+str(self.sensor.split(':')[1])	
 		else:
 			text = '<small><small><small><small>' +self.sensor +'</small></small></small></small>\n'+self.text_prefix + str(self.load) + self.text_suffix
-		if self.theme:self.theme.draw_text(ctx,text, 0, 70, 'Free Sans', 25,  self.width,pango.ALIGN_CENTER)
+		if self.show_text and self.theme:self.theme.draw_text(ctx,text, 0, 70, 'Free Sans', 25,  self.width,pango.ALIGN_CENTER)
 			
 			
 	

@@ -2,7 +2,7 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:cc="http://creativecommons.org/ns#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
@@ -13,13 +13,20 @@
    height="100"
    id="svg2"
    sodipodi:version="0.32"
-   inkscape:version="0.45.1"
+   inkscape:version="0.46"
    version="1.0"
    sodipodi:docbase="/usr/local/share/screenlets/ClearCalendar/themes/grey"
    sodipodi:docname="date-bg.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape">
   <defs
      id="defs4">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 50 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="132 : 50 : 1"
+       inkscape:persp3d-origin="66 : 33.333333 : 1"
+       id="perspective70" />
     <linearGradient
        id="linearGradient7153">
       <stop
@@ -281,7 +288,7 @@
        x1="64.5"
        y1="97"
        x2="65"
-       y2="-49" />
+       y2="-66.065086" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient6154"
@@ -300,7 +307,7 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="7.9999999"
+     inkscape:zoom="2"
      inkscape:cx="56.76757"
      inkscape:cy="66.085397"
      inkscape:document-units="px"
@@ -308,9 +315,10 @@
      width="132px"
      height="100px"
      inkscape:window-width="1280"
-     inkscape:window-height="926"
+     inkscape:window-height="744"
      inkscape:window-x="0"
-     inkscape:window-y="36" />
+     inkscape:window-y="0"
+     showgrid="false" />
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -349,7 +357,7 @@
          x="14.721626"
          y="9.8382416" /></text>
     <path
-       style="opacity:1;fill:url(#linearGradient5166);fill-opacity:1;fill-rule:nonzero;stroke:#090909;stroke-width:0.46114814;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="opacity:1;fill:url(#linearGradient5166);fill-opacity:1;fill-rule:nonzero;stroke:#090909;stroke-width:0.46114813999999998;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="M 7.0826437,0.73057582 C 3.2758169,0.73057582 0.23057408,4.2394448 0.23057408,8.5942076 L 0.23057408,74.905794 C 0.23057408,79.260556 3.2758169,82.769424 7.0826437,82.769426 L 92.917338,82.769426 C 96.724185,82.769426 99.769426,79.260559 99.769426,74.905794 L 99.769426,8.5942076 C 99.769426,4.5801607 97.175311,1.2968623 93.786404,0.80618796 C 93.649447,0.81895636 93.526673,0.843993 93.385295,0.843993 C 93.07558,0.843993 92.769041,0.78978623 92.482843,0.73057582 L 7.0826437,0.73057582 z "
        id="path5164" />
     <rect

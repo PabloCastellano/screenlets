@@ -70,7 +70,7 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 	show_frame = True
 	starty = 0
 	number = 0
-	update_interval = 2
+	_update_interval = 2
 	# constructor
 	def __init__ (self, **keyword_args):
 		#call super (width/height MUST match the size of graphics in the theme)
@@ -119,7 +119,20 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 
 		#Also add options from xml file for example porpuse
 
+	# getter and setter methods to be used by the update_interval property
+	def get_update_interval(self):
+		return self._update_interval
 
+	def set_update_interval(self, new_interval):
+		if new_interval < 1: new_interval = 1
+		if new_interval != self._update_interval:
+			if self.timer:
+				gobject.source_remove(self.timer)
+			self.timer = gobject.timeout_add(int(new_interval * 1000), self.update)
+			self._update_interval = new_interval
+
+	# create an update_interval property that controls restarting the update timer
+	update_interval = property(get_update_interval, set_update_interval)
 
 	def get_constants(self):
 		self.username = sensors.sys_get_username()
@@ -129,14 +142,11 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 		self.distroshort = sensors.sys_get_distroshort()
 		self.cpu_nb = sensors.cpu_get_nb_cpu()
 		self.cpu_name = sensors.cpu_get_cpu_name()
-		self.ip = sensors.net_get_ip()
-		self.disks = sensors.disk_get_disk_list()
-		self.wire_list = sensors.wir_get_interfaces()
 
 	def get_variables(self):
-		self.__dict__['time'] = sensors.cal_get_local_time()
-		self.__dict__['date'] = sensors.cal_get_day_name() + ' '+  sensors.cal_get_local_date()
-		self.__dict__['avg_load'] = sensors.sys_get_average_load()
+		self.time = sensors.cal_get_local_time()
+		self.date = sensors.cal_get_day_name() + ' '+  sensors.cal_get_local_date()
+		self.avg_load = sensors.sys_get_average_load()
 		for i in range (0,self.cpu_nb+1):
 
 		#	if not self.cpu_load[i]: self.cpu_load.append(0)
@@ -149,31 +159,29 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 				if self.cpu_load[i] > 99: self.cpu_load[i] = 99
 				elif self.cpu_load[i] < 0: self.cpu_load[i]=0
 			except : pass
-		self.__dict__['mem_used'] = sensors.mem_get_usage()
-		self.__dict__['swap_used'] = sensors.mem_get_usedswap()
-		self.__dict__['up'] = sensors.net_get_updown()[0]
-		self.__dict__['down'] = sensors.net_get_updown()[1]
-		self.__dict__['upload'] = (self.up - self.old_up)/self.update_interval
-		self.__dict__['download'] = (self.down - self.old_down)/self.update_interval
-		self.__dict__['old_up'] = self.up
-		self.__dict__['old_down'] = self.down
-		self.__dict__['bat_list'] = sensors.bat_get_battery_list()
+		self.mem_used = sensors.mem_get_usage()
+		self.swap_used = sensors.mem_get_usedswap()
+		self.ip = sensors.net_get_ip()
+		self.up = sensors.net_get_updown()[0]
+		self.down = sensors.net_get_updown()[1]
+		self.upload = (self.up - self.old_up)/self.update_interval
+		self.download = (self.down - self.old_down)/self.update_interval
+		self.old_up = self.up
+		self.old_down = self.down
+		self.disks = sensors.disk_get_disk_list()
+		self.bat_list = sensors.bat_get_battery_list()
 		if self.bat_list:
-			self.__dict__['bat_data'] = sensors.bat_get_data(self.bat_list[0])
+			self.bat_data = sensors.bat_get_data(self.bat_list[0])
 			try:
-				self.__dict__['bat_load'] = (self.bat_data[1]*100)/self.bat_data[2]
-			except: self.__dict__['bat_load'] = 0
+				self.bat_load = (self.bat_data[1]*100)/self.bat_data[2]
+			except: self.bat_load = 0
+		self.wire_list = sensors.wir_get_interfaces()
 		if self.wire_list:
-			self.__dict__['wire_data'] = sensors.wir_get_stats(self.wire_list[0])
+			self.wire_data = sensors.wir_get_stats(self.wire_list[0])
 			
 
 	def update (self):
 		self.get_variables()
-		if self.number <= 10000:
-			self.number = self.number+1
-			self.get_constants()
-		else:
-			self.number = 0
 		self.redraw_canvas()
 		return True # keep running this event	
 
@@ -199,22 +207,6 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 		"""Called when the Screenlet gets hidden."""
 		pass
 
-
-	def __setattr__ (self, name, value):
-
-		screenlets.Screenlet.__setattr__(self, name, value)
-
-
-		if name == "update_interval":
-			if value > 0:
-				self.__dict__['update_interval'] = value
-				if self.timer:
-					gobject.source_remove(self.timer)
-				self.timer = gobject.timeout_add(int(value * 1000), self.update)
-			else:
-				self.__dict__['update_interval'] = 1
-				pass
-	
 	def on_init (self):
 		"""Called when the Screenlet's options have been applied and the 
 		screenlet finished its initialization. If you want to have your

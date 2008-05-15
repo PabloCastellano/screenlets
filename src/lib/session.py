@@ -434,7 +434,8 @@ class ScreenletSession (object):
 		# add sigkill-handler
 		import signal
 		def on_kill(*args):
-			print _("Screenlet has been killed. TODO: make this an event")
+			#print _("Screenlet has been killed. TODO: make this an event")
+			pass
 		signal.signal(signal.SIGTERM, on_kill)
 		# set name of tempfile for later (else its missing after kill)
 		tempfile = self.screenlet.__name__

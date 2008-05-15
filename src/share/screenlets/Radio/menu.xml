@@ -74,6 +74,101 @@
 			<item label="Wild"  id="mms://mmslb.eonstreams.com/citadel_ok_oklahomacity_kkwd_fm.asf Wild" />
 			<item label="Alice"  id="mms://mmslb.eonstreams.com/citadel_ar_littlerock_klal_fm.asf Alice" />
 		</item>
+		<item label="Brazil">
+
+			<item label="89.1 FM SP"  id="http://www.89fm.com.br/aovivo/aovivo.asx 89.1 FM SP" />
+			<item label="93 FM RJ"  id="http://www.radio93.com.br/radio_online/audio.asx 93 FM RJ" />
+			<item label="98 FM Curitiba"  id="mms://wm.ondarpc.com.br/98fm 98 FM Curitiba" />
+			<item label="Alpha FM SP"  id="mms://201.76.41.139:8080/alphaaovivo Alpha FM SP" />
+			<item label="Antena 1 FM SP"  id="mms://media05.brturbo.com.br/antena1.wmv Antena 1 FM SP" />
+			<item label="Antena 1 FM Blumenal"  id="http://www.antena1fm965.com.br/antena1fmblumenau.asx Antena 1 FM Blumenal" />
+			<item label="Antena 1 FM Criciuma"  id="mms://189.28.176.241/RadioSmAntena1 Antena 1 FM Criciuma" />
+			<item label="CBN BH"  id="http://cbn.globoradio.globo.com/cbn/wma/radiobh/cbn.asx CBN BH" />
+			<item label="CBN Rio"  id="http://cbn.globoradio.globo.com/cbn/wma/radiorj/cbn.asx CBN Rio" />
+			<item label="CBN SP"  id="http://cbn.globoradio.globo.com/cbn/wma/radiosp/cbn.asx CBN SP" />
+			<item label="Cidade Web Rock"  id="mms://200.222.115.50/cidadewebrock_cidadewebrock128?000000585452-966206871 Cidade Web Rock" />
+			<item label="Cultura FM SP"  id="http://www.tvcultura.com.br/radiofm/radiofm.asx Cultura FM SP" />
+			<item label="Cultura FM Uberlândia"  id="http://radio.opinguim.net:8011 Cultura FM Uberlândia" />
+			<item label="Eldorado FM SP"  id="http://www.radioeldoradofm.com.br/aovivold.asx Eldorado FM SP" />
+			<item label="Energia 97 FM SP"  id="http://relay.corptv.com.br/97fm.asp Energia 97 FM SP" />
+			<item label="FM O Dia RJ"  id="http://stream-ptr.terra.com.br/MIBGetPointer.aspx?LIVE=596 FM O Dia RJ" />
+			<item label="AFM São Paulo"  id="http://www.radioimprensa.com.br/radio.asx Imprensa FM São Paulo" />
+			<item label="FM Florianopolis"  id="mms://200.226.189.241/itapemaSC Itapema FM Florianopolis" />
+			<item label="FM Porto Alegre"  id="mms://200.226.189.240/itapemaRS Itapema FM Porto Alegre" />
+			<item label="Itatiaia FM BH"  id="mms://media.itatiaia.com.br/Itatiaia Itatiaia FM BH" />
+			<item label="JB FM Rio de Janeiro"  id="mms://200.222.115.52/oifm_jbfm?000000008806-1642297901 JB FM Rio de Janeiro" />
+			<item label="Jovem Pan FM Goiânia"  id="mms://servidor-br4.apkomp.com.br/jpgoiania Jovem Pan FM Goiânia" />
+			<item label="Jovem Pan FM Maringa"  id="http://www.radios.com.br/cgi-bin/jump.cgi?ID=762 Jovem Pan FM Maringa" />
+			<item label="Jovem Pan FM Nagoya Japan"  id="http://64.72.117.220:8004 Jovem Pan FM Nagoya Japan" />
+			<item label="Jovem Pan FM Santos"  id="mms://wmedia.telium.com.br/JovemPan Jovem Pan FM Santos" />
+			<item label="Jovem Pan FM SP"  id="mms://server09.virgula.com.br/jovempanfm/ Jovem Pan FM SP" />
+			<item label="Kiss FM SP"  id="http://www.crosshost.com.br/cbs/kiss/radio.asx Kiss FM SP" />
+			<item label="Litoral FM ES"  id="mms://66.7.207.23/chat Litoral FM ES" />
+			<item label="Litoral FM PE"  id="http://69.80.224.163/7550/listen.asx Litoral FM PE" />
+			<item label="Metropolitana FM SP"  id="http://metropolitanafm.uol.com.br/live/64kbps.asx Metropolitana FM SP" />
+			<item label="Mix FM Fortaleza"  id="http://www.opovo.com.br/mixfm/aovivo.asx Mix FM Fortaleza" />
+			<item label="Mix FM Rio"  id="mms://p.mm.uol.com.br/mixriofm Mix FM Rio" />
+			<item label="Mix FM SP"  id="mms://mixstr.ig.com.br/mixfm/ Mix FM SP" />
+			<item label="MPB FM Rio"  id="http://www.mpbfm.com.br/radinho24.asx MPB FM Rio" />
+			<item label="Nativa FM RJ"  id="http://www.interrogacaodigital.com/stream/?cliente=nativafmrio Nativa FM RJ" />
+			<item label="Nova Brasil FM SP"  id="mms://357r.64k.audio.upx.com.br/357sp Nova Brasil FM SP" />
+			<item label="Radio Blast!"  id="http://ouvir.radioblast.com.br:9000 Radio Blast!" />
+			<item label="Radio Prata RS"  id="mms://streaming.adylnet.com.br/radioprata Radio Prata RS" />
+			<item label="Sul America Transito SP"  id="mms://200.222.115.52/radiotransito_radiotransito Sul America Transito SP" />
+			<item label="Transamerica Hits"  id="mms://wmedia.telium.com.br/transsphits Transamerica Hits" />
+			<item label="Transamerica Light"  id="mms://wmedia.telium.com.br/transsplight Transamerica Light" />
+			<item label="Transamerica Nagoya Japan"  id="mms://transastream.dyndns.org/transapop Transamerica Nagoya Japan" />
+			<item label="Transamerica POP"  id="mms://wmedia.telium.com.br/transsppop64 Transamerica POP" />
+			<item label="Tropical FM ES"  id="mms://servidor.mtbtec.pro.br/tropical Tropical FM ES" />
+			<item label="Tropical FM Dionisio MG"  id="http://srvbrm.no-ip.info:8004 Tropical FM Dionisio MG" />
+			<item label="Tupi FM SP"  id="http://www.crosshost.com.br/cbs/tupifm/radio.asx Tupi FM SP" />
+		</item>
+		<item label="SomaFM">
+			<item label="Groove Salad"	id="http://somafm.com/play/groovesalad Groove Salad" />
+			<item label="Digitalis"	id="http://somafm.com/play/digitalis Digitalis" />
+			<item label="Sonic Universe"	id="http://somafm.com/play/sonicuniverse Sonic Universe" />
+			<item label="Secret Agent"	id="http://somafm.com/play/secretagent Secret Agent" />
+			<item label="Drone Zone"	id="http://somafm.com/play/dronezone Drone Zone" />
+			<item label="Space Station"	id="http://somafm.com/play/spacestation Space Station" />
+			<item label="Indie Pop Rock"	id="http://somafm.com/play/indiepop Indie Pop Rock" />
+			<item label="Illinois Street Lounge"	id="http://somafm.com/play/illstreet Illinois Street Lounge" />
+			<item label="Beat Blender"	id="http://somafm.com/play/beatblender Beat Blender" />
+			<item label="Cliqhop idm"	id="http://somafm.com/play/cliqhop Cliqhop idm" />
+			<item label="Boot Liquor"	id="http://somafm.com/play/bootliquor Boot Liquor" />
+			<item label="Doomed"	id="http://somafm.com/play/doomed Doomed" />
+			<item label="Tagstrance"	id="http://somafm.com/play/tagstrance Tags Trance" />
+		</item>
+		<item label="Polish">
+			<item label="PR1"  id="mms://stream.polskieradio.pl/Program%201 PR1" />
+			<item label="PR2"  id="mms://stream.polskieradio.pl/Program%202 PR2" />
+			<item label="PR3"  id="mms://stream.polskieradio.pl/Program%203 PR3" />
+			<item label="BiS"  id="mms://stream.polskieradio.pl/Radio%20Bis BiS" />
+			<item label="RMF FM"  id="http://213.251.140.62:8002 RMF FM" />
+			<item label="TOK FM"  id="mms://ml2.gazeta.pl/tokfm TOK FM" />
+		</item>
+		<item label="Portugal">
+			<item label="Antena 1"  id="http://195.245.176.20/antena1 Antena 1" />
+			<item label="Antena 2"  id="mms://rdp.oninet.pt/antena2 Antena 2" />
+			<item label="Antena 3"  id="mms://rdp.oninet.pt/antena3 Antena 3" />
+			<item label="Best Rock FM"  id="http://bestrock.clix.pt/asx/tuner/bestrock.asx Best Rock FM" />
+			<item label="M80"  id="mms://212.113.174.196/m80cbr96 M80" />
+			<item label="MegaFM"  id="mms://espalhabrasas.sapo.pt/MegaFM MegaFM" />
+			<item label="Mix Fm"  id="http://mix.clix.pt/asx/tuner/mix.asx Mix Fm" />
+			<item label="Noite FM"  id="http://noite.ficheirospt.com/noite.asx Noite FM" />
+			<item label="Oxigenio"  id="mms://stream.radio.com.pt/ROLI-ENC-124 Oxigenio" />
+			<item label="Radio Cidade"  id="http://cidadefm.clix.pt/asx/tuner/cidadefm.asx Radio Cidade" />
+			<item label="Radio Comercial"  id="http://radiocomercial.clix.pt/asx/tuner/comercial.asx Radio Comercial" />
+			<item label="Radio Europa"  id="mms://stream.radio.com.pt/ROLI-ENC-069 Radio Europa" />
+			<item label="Radio Festival"  id="mms://stream.radio.com.pt/ROLI-ENC-133 Radio Festival" />
+			<item label="Radio Orbital"  id="http://www.orbital.pt/player/play.asx Radio Orbital" />
+			<item label="Radio Radar"  id="mms://stream.radio.com.pt/ROLI-ENC-201 Radio Radar" />
+			<item label="Radio Renascenca"  id="mms://espalhabrasas.sapo.pt/rr Radio Renascenca" />
+			<item label="RFM"  id="mms://espalhabrasas.sapo.pt/RFM RFM" />
+			<item label="Romantica FM"  id="mms://195.23.127.33/foxxcbr96 Romantica FM" />
+			<item label="ScallFM"  id="http://www.scallfm.pt/ficheiros/WMP.asx ScallFM" />
+			<item label="TSF"  id="http://www.tsf.pt/tsfdirecto.asx TSF" />
+			<item label="Virtual DJ"  id="http://radio.virtualdj.com/listen.asx Virtual DJ" />
+		</item>
 	</item>
 	<separator />
 	<item label="Start Radio"  id="startp" />

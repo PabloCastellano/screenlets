@@ -127,8 +127,10 @@ class DiskusageScreenlet(screenlets.Screenlet):
 		if len(str(load))==1:
 			load = "0" + str(load)
 		ctx.set_source_rgba(1, 1, 1, 1)
-		self.draw_text(ctx,"<b>" + info['mount']  + "</b>\n <b>" +   info['free'] + "</b> free of <b>" + info['size'] + " - " + info['quota']+"</b>", 60, 8, 'FreeSans', 10,  self.width,pango.ALIGN_LEFT)
-
+		try:
+			self.draw_text(ctx,"<b>" + info['mount']  + "</b>\n <b>" +   info['free'] + "</b> free of <b>" + info['size'] + " - " + info['quota']+"</b>", 60, 8, 'FreeSans', 10,  self.width,pango.ALIGN_LEFT)
+		except:
+			self.draw_text(ctx,self.mount_point + "\nNot Mounted", 60, 8, 'FreeSans', 10,  self.width,pango.ALIGN_LEFT)
 		# draw glass (if theme available)
 		if self.theme:
 			#self.theme['cpumeter-graph-bg.svg'].render_cairo(ctx)

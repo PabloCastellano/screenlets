@@ -19,6 +19,7 @@ import screenlets
 import gobject
 import sys
 import gtk
+import commands
 
 STREAM_TITLE_MAX_LENGTH = 32
 
@@ -37,7 +38,7 @@ class RadioScreenlet(screenlets.Screenlet):
 	but2 = ''
 	radio_station = 'http://80.65.234.120:8000/ Frequence 3'
 	
-	p_layout = None
+	mplayer_record = None
 	mplayer = None
 	
 	__titleScrollSpeedLabels = ["Slow", "Medium", "Fast"]
@@ -71,7 +72,9 @@ class RadioScreenlet(screenlets.Screenlet):
 	stop_button_y = 50
 	stop_button_width = 32
 	stop_button_height = 24
-
+	home = commands.getoutput("echo $HOME")
+	file_to_save = home + '/stream.mp3'	
+	
 	def __init__(self, **keyword_args):
 		screenlets.Screenlet.__init__(self, width=200, height=100, uses_theme=True,ask_on_option_override=False, **keyword_args) 
 		
@@ -149,6 +152,9 @@ class RadioScreenlet(screenlets.Screenlet):
 		self.add_option(StringOption('Radio', 'title_scroll_speed', "Medium",
 			'Title Scroll Speed', 'How fast the title will scroll',
 			choices = self.__titleScrollSpeedLabels), realtime=True)
+		self.add_option(StringOption('Radio', 'file_to_save', 
+			self.file_to_save, 'Record stream file', 
+			'Radio stream record to file'), realtime=False)
 			
 
 		self.radio_station = self.radio_station
@@ -208,7 +214,26 @@ class RadioScreenlet(screenlets.Screenlet):
 		if self.scrollLoopTimerHandle:
 			gobject.source_remove(self.scrollLoopTimerHandle)
 		self.scrollLoopTimerHandle = 0
-	
+
+	def record(self):
+		if self.mplayer_record == None:
+			self.mplayer_record = Mplayer.Mplayer(self)
+		self.close_record_stream()
+		ta = self.radio_station
+		
+		ta = ta[:ta.find(' ') ].strip()
+
+		if ta[len(ta)-3:] == 'ram' or ta[len(ta)-3:] == 'Ram' or ta[len(ta)-2:] == 'rm' or ta[len(ta)-3:] == 'RAM' or ta[len(ta)-2:] == 'RM' or ta[len(ta)-4:] == 'rmvb' or ta[len(ta)-3:] == 'm3u' or ta[len(ta)-3:] == 'pls' or ta[len(ta)-3:] == 'asx':
+			ta = ' -playlist ' + ta
+			print 'PLEASE WAIT , REAL MEDIA STREAMS TAKE A WHILE TO LOAD'
+
+		if ta[:len(' http://www.minist')] == 'http://www.ministr':
+			
+			ta = ' -playlist ' + ta
+			print 'PLEASE WAIT , REAL MEDIA STREAMS TAKE A WHILE TO LOAD'
+		self.mplayer_record.record(ta,self.file_to_save)
+
+
 
 	def start_stop(self):
 		if self.mplayer == None:
@@ -222,7 +247,7 @@ class RadioScreenlet(screenlets.Screenlet):
 		try:
 			self.mplayer.close()
 		except Exception, ex:
-			print 'sdfsdf'
+			print ' Error found , is mplayer installed?'
 		else:
 			self.stopScrollLoop()
 			
@@ -252,12 +277,20 @@ class RadioScreenlet(screenlets.Screenlet):
 		self.streamTitleScrollIndex = 0
 		self.streamTitleScrollForward = True
 		return True
-	
-	def send_command (self, command):
+
+	def close_record_stream (self):
+		try:
+			self.mplayer_record.close_record()
+		except:
+			print 'Error found when stoping recording stream'
+		#self.close_play_stream()
+		#self.start_stop()
+
+	def close_play_stream (self):
 		try:
 			self.mplayer.close()
 		except:
-			pass
+			print 'Error found when closing playing stream'
 
 		#retval = self.pipe.close()
 		
@@ -273,30 +306,34 @@ class RadioScreenlet(screenlets.Screenlet):
 
 	def on_quit(self):
 		"""Called when a keypress-event occured in Screenlet's window."""
-		self.send_command('quit')
-	
+		self.close_play_stream()
+		self.close_record_stream()	
 
 	def on_menuitem_select (self, id):
 		"""handle MenuItem-events in right-click menu"""
 		if id[:4] == "http":
 			self.radio_station = id
-			
 			self.start_stop()
-			# TODO: use DBus-call for this
-			#self.switch_hide_show()
 			self.redraw_canvas()
-		if id[:4] == "star":
-			#self.radio_station = id
+
+		if id[:6] == "startp":
+			print 'start playing'
 			self.start_stop()
-			# TODO: use DBus-call for this
-			#self.switch_hide_show()
 			self.redraw_canvas()
-		if id[:4] == "stop":
-			#self.radio_station = id
-			self.send_command('quit')
-			# TODO: use DBus-call for this
-			#self.switch_hide_show()
+
+		if id[:6] == "startr":
+			print 'start recording'
+			self.record()
+
+		if id[:5] == "stopr":
+			print 'stop recording'
+			self.close_record_stream()
+
+		if id[:5] == "stopp":
+			print 'stop playing'
+			self.close_play_stream()
 			self.redraw_canvas()
+
 		if id[:3] == "mms":
 			self.radio_station = id
 			
@@ -363,7 +400,7 @@ class RadioScreenlet(screenlets.Screenlet):
 
 			elif x <= self.stop_button_width +self.stop_button_x and x >= self.stop_button_x and y <= self.stop_button_height +self.stop_button_y and y >= self.stop_button_y:
 				self.but2 = '_press'
-				self.send_command('quit')
+				self.close_play_stream()
 				self.redraw_canvas()
 				return True
 		

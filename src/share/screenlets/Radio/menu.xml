@@ -80,6 +80,8 @@
 		</item>
 	</item>
 	<separator />
-	<item label="Start"  id="start" />
-	<item label="Stop"  id="stop" />
+	<item label="Start Radio"  id="startp" />
+	<item label="Stop Radio"  id="stopp" />
+	<item label="Start Recording"  id="startr" />
+	<item label="Stop Recording"  id="stopr" />
 </menu>

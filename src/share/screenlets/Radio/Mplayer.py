@@ -36,6 +36,19 @@ class Mplayer:
 	#
 	#  Issues command to mplayer.
 	#
+
+	def record(self, target, savefile):
+		
+		mpc = "mplayer -slave -quiet " + target + " -ao pcm:file=" + savefile
+		
+		self.mplayer_record_In, self.mplayer_record_Out = os.popen2(mpc)  #open pipe
+		fcntl.fcntl(self.mplayer_record_Out, fcntl.F_SETFL, os.O_NONBLOCK)
+
+		
+	#
+	#  Issues command to mplayer.
+	#
+
 	def cmd(self, command):
 		
 		if not self.mplayerIn:
@@ -91,7 +104,20 @@ class Mplayer:
 			
 		self.mplayerIn, self.mplayerOut = None, None
 		#self.pymp.control.setProgress(-1)  #reset bar
+	def close_record(self):
+
+				
+
+		#self.cmd("quit")  #ask mplayer to quit
 		
+		try:			
+
+			self.mplayer_record_In.close()	 #close pipes_record_
+			self.mplayer_record_Out.close()
+		except StandardError:
+			pass
+			
+		self.mplayer_record_In, self.mplayer_record_Out = None, None
 	#
 	#  Triggered when mplayer's stdout reaches EOF.
 	#

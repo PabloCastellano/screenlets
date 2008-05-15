@@ -106,7 +106,10 @@ class DiskusageScreenlet(screenlets.Screenlet):
 	def on_draw(self, ctx):
 		# get load
 		info= self.get_drive_info()
-		load= int(info['quota'].replace("%",""))
+		try:
+			load = int(info['quota'].replace("%",""))
+		except:
+			load = 0
 		print load
 		if load > 99:
 			load = 99

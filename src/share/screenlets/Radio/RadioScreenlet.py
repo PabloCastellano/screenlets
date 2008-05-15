@@ -74,15 +74,18 @@ class RadioScreenlet(screenlets.Screenlet):
 	stop_button_height = 24
 	home = commands.getoutput("echo $HOME")
 	file_to_save = home + '/stream.mp3'	
+	custom_radio_list = ['http://cidadefm.clix.pt/asx/outros/cidade20.asx Cidade Fm']
 	
 	def __init__(self, **keyword_args):
 		screenlets.Screenlet.__init__(self, width=200, height=100, uses_theme=True,ask_on_option_override=False, **keyword_args) 
 		
 		self.theme_name = "default"
-		self.add_default_menuitems(DefaultMenuItem.XML)
 
 		self.pipe = None
 		self.add_options_group('Radio', 'Settings')
+		self.add_option(ListOption('Radio', 'custom_radio_list',
+			self.custom_radio_list, 'Custom Radios',
+			'Custom radios: stream _space_ radio name'))
 		self.add_option(StringOption('Radio', 'password', 
 			self.radio_station, 'radio', 
 			'Radio stream address <space> radio name',hidden= True), realtime=False)
@@ -162,6 +165,8 @@ class RadioScreenlet(screenlets.Screenlet):
 	def on_init (self):
 		print "Screenlet has been initialized."
 		# add default menuitems
+		self.add_default_menuitems(DefaultMenuItem.XML)
+		self.add_submenuitem("Custom Radios", "Custom Radios",self.custom_radio_list)
 		self.add_default_menuitems()
 
 	def __setattr__(self, name, value):
@@ -311,6 +316,7 @@ class RadioScreenlet(screenlets.Screenlet):
 
 	def on_menuitem_select (self, id):
 		"""handle MenuItem-events in right-click menu"""
+		if id == 'b': print id
 		if id[:4] == "http":
 			self.radio_station = id
 			self.start_stop()
@@ -385,6 +391,11 @@ class RadioScreenlet(screenlets.Screenlet):
 					f.close()
 				dialog1.hide()
 			dialog.hide()
+
+
+		self.add_default_menuitems(DefaultMenuItem.XML)
+		self.add_submenuitem("Custom Radios", "Custom Radios",self.custom_radio_list)
+		self.add_default_menuitems()
 		
 	def on_mouse_down(self,event):
 		x = event.x / self.scale

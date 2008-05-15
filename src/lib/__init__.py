@@ -1013,6 +1013,26 @@ class Screenlet (gobject.GObject, EditableOptions):
 		menu_item.show()
 		return menu_item
 
+	def add_submenuitem (self, id, label, lst, callback=None):
+		"""Simple way to add submenuitems to the right-click menu through a list."""
+		if not self.has_started: print 'WARNING - add_default_menuitems and add_menuitems should be set in on_init ,menu values will be displayed incorrectly'
+
+		submenu = gtk.MenuItem(label)
+		submenu.show()
+		sub_menu = gtk.Menu()
+		self.menu.append(submenu)
+		submenu.set_submenu(sub_menu)
+			# create theme-list from theme-directory
+		
+		for tname in lst:
+			item = gtk.MenuItem(tname)
+			item.connect("activate", self.menuitem_callback, 
+				tname)
+			item.show()
+			sub_menu.append(item)
+
+		return submenu
+
 	def load_buttons(self, event):
 		self.closeb = self.gtk_icon_theme.load_icon ("gtk-close", 16, 0)
 		self.prop = self.gtk_icon_theme.load_icon ("gtk-properties", 16, 0)

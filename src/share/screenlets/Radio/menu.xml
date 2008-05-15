@@ -22,10 +22,6 @@
 	<!--<item label="Hide/Show" id="hide_show" />-->
 	<!-- user definable actions here: -->
 	<!-- <item label="radio name"  id="radio address SPACE radio name" />-->
-	<item label="Add Radio Stream"  id="add" />
-	<item label="Custom Radio List">
-	<!-- Custom radios here -->
-	</item>
 	<item label="Radio List">
 		<item label="Europe">
 			<item label="Antena 3"  id="mms://rdp.oninet.pt/antena3 Antena 3" />

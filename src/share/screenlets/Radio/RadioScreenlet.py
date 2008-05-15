@@ -11,7 +11,7 @@
 #RadioScreenlet (c) Whise <helder.fraga@hotmail.com>
 
 from screenlets import DefaultMenuItem
-from screenlets.options import BoolOption, StringOption, FontOption, ListOption, IntOption
+from screenlets.options import BoolOption, StringOption, FontOption, ListOption, IntOption,ColorOption
 import Mplayer
 import cairo
 import pango
@@ -35,7 +35,7 @@ class RadioScreenlet(screenlets.Screenlet):
 	pipe = None
 	but1 = ''
 	but2 = ''
-	password = 'http://80.65.234.120:8000/ Frequence 3'
+	radio_station = 'http://80.65.234.120:8000/ Frequence 3'
 	
 	p_layout = None
 	mplayer = None
@@ -51,9 +51,29 @@ class RadioScreenlet(screenlets.Screenlet):
 	streamTitleScrollForward = True
 	mypath = sys.argv[0][:sys.argv[0].find('RadioScreenlet.py')].strip()
 	stationList = ();
-	
+	radio_name_font = 'FreeSans'
+	radio_name_color = (1,1,1,0.6)
+	radio_name_x = 5
+	radio_name_y = 5
+	radio_name_fontsize = 25
+	radio_name_fontwidth = 200
+	song_name_font = 'FreeSans'
+	song_name_x = 5
+	song_name_y = 35
+	song_name_fontsize = 10
+	song_name_fontwidth = 200
+	song_name_color = (1,1,1,0.6)
+	play_button_x = 5
+	play_button_y = 50
+	play_button_width = 32
+	play_button_height = 24
+	stop_button_x = 40
+	stop_button_y = 50
+	stop_button_width = 32
+	stop_button_height = 24
+
 	def __init__(self, **keyword_args):
-		screenlets.Screenlet.__init__(self, width=200, height=100, uses_theme=True, **keyword_args) 
+		screenlets.Screenlet.__init__(self, width=200, height=100, uses_theme=True,ask_on_option_override=False, **keyword_args) 
 		
 		self.theme_name = "default"
 		self.add_default_menuitems(DefaultMenuItem.XML)
@@ -61,22 +81,77 @@ class RadioScreenlet(screenlets.Screenlet):
 		self.pipe = None
 		self.add_options_group('Radio', 'Settings')
 		self.add_option(StringOption('Radio', 'password', 
-			self.password, 'radio', 
-			'Radio stream address <space> radio name',), realtime=False)
+			self.radio_station, 'radio', 
+			'Radio stream address <space> radio name',hidden= True), realtime=False)
+		self.add_option(FontOption('Radio','radio_name_font', 
+			self.radio_name_font, 'Radio Name Font', 
+			'radio_name_font'))
+		self.add_option(ColorOption('Radio','radio_name_color', 
+			self.radio_name_color, 'Radio Name Text color', 'radio_name_color'))
+		self.add_option(IntOption('Screenlet', 'radio_name_x', 
+			self.radio_name_x, 'Radio Name x position', 'radio_name_x', 
+			min=0, max=self.width,hidden= True))
+		self.add_option(IntOption('Screenlet', 'radio_name_y', 
+			self.radio_name_y, 'Radio Name y position', 'radio_name_y', 
+			min=0, max=self.height,hidden= True))
+		self.add_option(IntOption('Screenlet', 'radio_name_fontsize', 
+			self.radio_name_fontsize, 'Radio Name fontsize', 'radio_name_fontsize', 
+			min=5, max=50,hidden= True))
+		self.add_option(IntOption('Screenlet', 'radio_name_fontwidth', 
+			self.radio_name_fontwidth, 'Radio Name fontwidth', 'radio_name_fontwidth', 
+			min=5, max=self.width,hidden= True))
+		self.add_option(FontOption('Radio','song_name_font', 
+			self.song_name_font, 'Song Title Font', 
+			'song_name_font'))
+		self.add_option(ColorOption('Radio','song_name_color', 
+			self.song_name_color, 'Radio Name Text color', 'song_name_color'))
+		self.add_option(IntOption('Screenlet', 'song_name_x', 
+			self.song_name_x, 'Radio Name x position', 'song_name_x', 
+			min=0, max=self.width,hidden= True))
+		self.add_option(IntOption('Screenlet', 'song_name_y', 
+			self.song_name_y, 'Radio Name y position', 'song_name_y', 
+			min=0, max=self.height,hidden= True))
+		self.add_option(IntOption('Screenlet', 'song_name_fontsize', 
+			self.song_name_fontsize, 'Radio Name fontsize', 'song_name_fontsize', 
+			min=5, max=50,hidden= True))
+		self.add_option(IntOption('Screenlet', 'song_name_fontwidth', 
+			self.song_name_fontwidth, 'Radio Name fontwidth', 'song_name_fontwidth', 
+			min=5, max=self.width,hidden= True))
+		self.add_option(IntOption('Screenlet', 'play_button_x', 
+			self.play_button_x, 'Play button x position', 'play_button_x', 
+			min=0, max=self.width,hidden= True))
+		self.add_option(IntOption('Screenlet', 'play_button_y', 
+			self.play_button_y, 'Play button y position', 'play_button_y', 
+			min=0, max=self.height,hidden= True))
+		self.add_option(IntOption('Screenlet', 'play_button_width', 
+			self.play_button_width, 'Play button width', 'play_button_width', 
+			min=0, max=self.width,hidden= True))
+		self.add_option(IntOption('Screenlet', 'play_button_height', 
+			self.play_button_height, 'Play button height', 'play_button_height', 
+			min=0, max=self.height,hidden= True))
+
+
+		self.add_option(IntOption('Screenlet', 'stop_button_x', 
+			self.stop_button_x, 'Play button x position', 'stop_button_x', 
+			min=0, max=self.width,hidden= True))
+		self.add_option(IntOption('Screenlet', 'stop_button_y', 
+			self.stop_button_y, 'Play button y position', 'stop_button_y', 
+			min=0, max=self.height,hidden= True))
+		self.add_option(IntOption('Screenlet', 'stop_button_width', 
+			self.stop_button_width, 'Play button width', 'stop_button_width', 
+			min=0, max=self.width,hidden= True))
+		self.add_option(IntOption('Screenlet', 'stop_button_height', 
+			self.stop_button_height, 'Play button height', 'stop_button_height', 
+			min=0, max=self.height,hidden= True))
 		self.add_option(BoolOption('Radio', 'enable_title_scroll', self.enableTitleScroll,
 			'Scroll title', 'Have song titles that are too long scroll across the display'), realtime=True)
+
 		self.add_option(StringOption('Radio', 'title_scroll_speed', "Medium",
 			'Title Scroll Speed', 'How fast the title will scroll',
 			choices = self.__titleScrollSpeedLabels), realtime=True)
-				
-		#self.player = gst.element_factory_make("playbin", "player")
-		#fakesink = gst.element_factory_make('fakesink', "my-fakesink")
-		#self.player.set_property("video-sink", fakesink)
-		#bus = self.player.get_bus()
-		#bus.add_signal_watch()
-		#bus.connect('message', self.on_message)
-		self.password = self.password
-		password = self.password
+			
+
+		self.radio_station = self.radio_station
 		
 	def on_init (self):
 		print "Screenlet has been initialized."
@@ -134,10 +209,7 @@ class RadioScreenlet(screenlets.Screenlet):
 			gobject.source_remove(self.scrollLoopTimerHandle)
 		self.scrollLoopTimerHandle = 0
 	
-	#def on_mouse_down(self, event):
-		# do the active button's action
-	#	if event.button == 1:
-	#		self.gen()
+
 	def start_stop(self):
 		if self.mplayer == None:
 			self.mplayer = Mplayer.Mplayer(self)
@@ -154,7 +226,7 @@ class RadioScreenlet(screenlets.Screenlet):
 		else:
 			self.stopScrollLoop()
 			
-		ta = self.password
+		ta = self.radio_station
 		
 		ta = ta[:ta.find(' ') ].strip()
 
@@ -207,26 +279,26 @@ class RadioScreenlet(screenlets.Screenlet):
 	def on_menuitem_select (self, id):
 		"""handle MenuItem-events in right-click menu"""
 		if id[:4] == "http":
-			self.password = id
+			self.radio_station = id
 			
 			self.start_stop()
 			# TODO: use DBus-call for this
 			#self.switch_hide_show()
 			self.redraw_canvas()
 		if id[:4] == "star":
-			#self.password = id
+			#self.radio_station = id
 			self.start_stop()
 			# TODO: use DBus-call for this
 			#self.switch_hide_show()
 			self.redraw_canvas()
 		if id[:4] == "stop":
-			#self.password = id
+			#self.radio_station = id
 			self.send_command('quit')
 			# TODO: use DBus-call for this
 			#self.switch_hide_show()
 			self.redraw_canvas()
 		if id[:3] == "mms":
-			self.password = id
+			self.radio_station = id
 			
 			self.start_stop()
 			# TODO: use DBus-call for this
@@ -234,7 +306,7 @@ class RadioScreenlet(screenlets.Screenlet):
 			self.redraw_canvas()
 
 		if id[:4] == "rtsp":
-			self.password = id
+			self.radio_station = id
 			
 			self.start_stop()
 			# TODO: use DBus-call for this
@@ -276,25 +348,20 @@ class RadioScreenlet(screenlets.Screenlet):
 					f.close()
 				dialog1.hide()
 			dialog.hide()
-	def on_mouse_enter (self, event):
-		print 'enter'
-        
-	def on_mouse_leave (self, event):
-		print 'leave'
 		
 	def on_mouse_down(self,event):
 		x = event.x / self.scale
 		y = event.y / self.scale
 
 		
-		if event.button == 1 and y >= 50:
-			if x <= 37 and x >= 5:
-				self.but1 = '_press'			
-				
+		if event.button == 1:
+			if x <= self.play_button_width +self.play_button_x and x >= self.play_button_x and y <= self.play_button_height +self.play_button_y and y >= self.play_button_y:
+				self.but1 = '_press'					
 				self.start_stop()
 				self.redraw_canvas()
 				return True
-			elif x >= 40 and x <72:
+
+			elif x <= self.stop_button_width +self.stop_button_x and x >= self.stop_button_x and y <= self.stop_button_height +self.stop_button_y and y >= self.stop_button_y:
 				self.but2 = '_press'
 				self.send_command('quit')
 				self.redraw_canvas()
@@ -306,64 +373,48 @@ class RadioScreenlet(screenlets.Screenlet):
 		self.but2 = ''
 		self.redraw_canvas()
 		return True
+
 	def on_draw(self, ctx):
 		
 		ctx.scale(self.scale, self.scale)
 		ctx.set_operator(cairo.OPERATOR_OVER)
 		if self.theme:
-			self.theme['background.svg'].render_cairo(ctx)
-			self.theme['disk-glow.svg'].render_cairo(ctx)
-			self.theme.render(ctx, 'radio')
-			
-			ctx.save()
-			ctx.translate(5, 5)
-			if self.p_layout == None :
-				self.p_layout = ctx.create_layout()
-			else:
-				ctx.update_layout(self.p_layout)
-				
-			p_fdesc = pango.FontDescription()
-			p_fdesc.set_family_static("Free Sans")
-			tb = self.password
+			self.theme.render(ctx,'background')
+			try:self.theme.render(ctx, 'logo')
+			except:pass
+			tb = self.radio_station
 			tb = tb[tb.find(" ")+1:]
 			tb = tb[:11]
-
-			p_fdesc.set_size(25 * pango.SCALE)
-			
-			self.p_layout.set_font_description(p_fdesc)
-			self.p_layout.set_width((200) * pango.SCALE)
-			self.p_layout.set_markup(tb)
-
-			ctx.set_source_rgba(1, 1, 1, 0.8)
-			ctx.show_layout(self.p_layout)
-			ctx.fill()
-			
-			p_fdesc = pango.FontDescription()
-			p_fdesc.set_family_static("Free Sans")
+			ctx.set_source_rgba(*self.radio_name_color)
+			self.draw_text(ctx,tb, self.radio_name_x, self.radio_name_y, self.radio_name_font.split(' ')[0], self.radio_name_fontsize,  self.radio_name_fontwidth,pango.ALIGN_LEFT)
 			tc = self.displayedStreamTitle
 			tc = tc[:STREAM_TITLE_MAX_LENGTH]
+			ctx.set_source_rgba(*self.song_name_color)
+			self.draw_text(ctx,tc, self.song_name_x, self.song_name_y, self.song_name_font.split(' ')[0], self.song_name_fontsize,  self.song_name_fontwidth,pango.ALIGN_LEFT)
 
-			p_fdesc.set_size(10 * pango.SCALE)
-			
-			self.p_layout.set_font_description(p_fdesc)
-			self.p_layout.set_width((200) * pango.SCALE)
-			self.p_layout.set_markup(tc)
-			
-			ctx.translate(0, 30)
-			ctx.set_source_rgba(1, 1, 1, 0.8)
-			ctx.show_layout(self.p_layout)
-			ctx.fill()
-			
-			ctx.restore()
 
-			ctx.translate(5,50)
-			self.theme.render(ctx, 'play'+ self.but1)
-			ctx.translate(35,0)
-			self.theme.render(ctx, 'stop'+ self.but2)
+			self.draw_play_button(ctx)
+			self.draw_stop_button(ctx)
+			try:self.theme.render(ctx,'glass')
+			except:pass
+
+
+	def draw_play_button(self,ctx):
+		ctx.save()
+		ctx.translate(self.play_button_x,self.play_button_y)
+		self.theme.render(ctx, 'play'+ self.but1)
+		ctx.restore()
+
+	
+	def draw_stop_button(self,ctx):
+		ctx.save()
+		ctx.translate(self.stop_button_x,self.stop_button_y)
+		self.theme.render(ctx, 'stop'+ self.but2)
+		ctx.restore()
+
+
 	def on_draw_shape(self,ctx):
-
 		if self.theme:
-			
 			self.on_draw(ctx)
 
 if __name__ == "__main__":

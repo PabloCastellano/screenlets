@@ -75,6 +75,7 @@ class RadioScreenlet(screenlets.Screenlet):
 	home = commands.getoutput("echo $HOME")
 	file_to_save = home + '/stream.mp3'	
 	custom_radio_list = ['http://cidadefm.clix.pt/asx/outros/cidade20.asx Cidade Fm']
+	is_recording = False
 	
 	def __init__(self, **keyword_args):
 		screenlets.Screenlet.__init__(self, width=200, height=100, uses_theme=True,ask_on_option_override=False, **keyword_args) 
@@ -237,7 +238,7 @@ class RadioScreenlet(screenlets.Screenlet):
 			ta = ' -playlist ' + ta
 			print 'PLEASE WAIT , REAL MEDIA STREAMS TAKE A WHILE TO LOAD'
 		self.mplayer_record.record(ta,self.file_to_save)
-
+		self.is_recording = True
 
 
 	def start_stop(self):
@@ -288,15 +289,16 @@ class RadioScreenlet(screenlets.Screenlet):
 			self.mplayer_record.close_record()
 		except:
 			print 'Error found when stoping recording stream'
-		#self.close_play_stream()
-		#self.start_stop()
+		self.is_recording = False
 
 	def close_play_stream (self):
 		try:
 			self.mplayer.close()
 		except:
 			print 'Error found when closing playing stream'
-
+		if self.is_recording:
+			if screenlets.show_question(self,'Still recording , do you wish to stop recording?'):
+				self.close_record_stream()
 		#retval = self.pipe.close()
 		
 	def stop(self):

@@ -106,7 +106,11 @@ class Mplayer:
 		#self.pymp.control.setProgress(-1)  #reset bar
 	def close_record(self):
 
-				
+		try:
+			self.mplayer_record_In.write("quit\n")
+			self.mplayer_record_In.flush()  #flush pipe
+		except StandardError:
+			return			
 
 		#self.cmd("quit")  #ask mplayer to quit
 		

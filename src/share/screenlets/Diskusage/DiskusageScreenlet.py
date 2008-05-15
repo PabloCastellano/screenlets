@@ -121,35 +121,10 @@ class DiskusageScreenlet(screenlets.Screenlet):
 		if self.theme:
 			self.theme['disk-bg.svg'].render_cairo(ctx)
 		
-		# draw cpu-graph
-
-		# draw text
-		
-		
-		ctx.save()
-
-		ctx.translate(60, 8)
-
-		if self.p_layout == None :
-	
-			self.p_layout = ctx.create_layout()
-		else:
-			
-			ctx.update_layout(self.p_layout)
-		p_fdesc = pango.FontDescription()
-		#p_fdesc = pango.FontDescription("Free Sans 8")
-		p_fdesc.set_family_static("Free Sans")
-		p_fdesc.set_size(10*pango.SCALE)
-		self.p_layout.set_font_description(p_fdesc)
-		#p_layout.set_width((self.width) * pango.SCALE)
 		if len(str(load))==1:
 			load = "0" + str(load)
-		self.p_layout.set_markup("<b>" + info['mount']  + "</b>\n <b>" +   info['free'] + "</b> free of <b>" + info['size'] + " - " + info['quota']+"</b>")
 		ctx.set_source_rgba(1, 1, 1, 1)
-		ctx.show_layout(self.p_layout)
-		ctx.fill()
-		ctx.restore()
-		ctx.save()
+		self.draw_text(ctx,"<b>" + info['mount']  + "</b>\n <b>" +   info['free'] + "</b> free of <b>" + info['size'] + " - " + info['quota']+"</b>", 60, 8, 'FreeSans', 10,  self.width,pango.ALIGN_LEFT)
 
 		# draw glass (if theme available)
 		if self.theme:

@@ -2,7 +2,7 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:cc="http://creativecommons.org/ns#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
@@ -13,7 +13,7 @@
    height="50"
    id="svg2"
    sodipodi:version="0.32"
-   inkscape:version="0.45.1"
+   inkscape:version="0.46"
    version="1.0"
    sodipodi:docname="disk-bg.svg"
    sodipodi:docbase="/usr/local/share/screenlets/Disk/themes/default"
@@ -26,7 +26,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="206.52116"
+     inkscape:cx="149.96934"
      inkscape:cy="138.86453"
      inkscape:document-units="px"
      inkscape:current-layer="layer2"
@@ -34,10 +34,18 @@
      height="50px"
      inkscape:window-width="896"
      inkscape:window-height="632"
-     inkscape:window-x="35"
-     inkscape:window-y="48" />
+     inkscape:window-x="34"
+     inkscape:window-y="24"
+     showgrid="false" />
   <defs
      id="defs4">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 25 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="220 : 25 : 1"
+       inkscape:persp3d-origin="110 : 16.666667 : 1"
+       id="perspective111" />
     <linearGradient
        id="linearGradient4262">
       <stop
@@ -674,6 +682,17 @@
          offset="1"
          style="stop-color:#0000ff;stop-opacity:0.60204083;" />
     </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4137-808-422"
+       id="radialGradient3261"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,0.4356876,0,55.222007)"
+       cx="65.933243"
+       cy="97.85714"
+       fx="65.933243"
+       fy="97.85714"
+       r="180.3712" />
   </defs>
   <metadata
      id="metadata7">
@@ -721,7 +740,7 @@
          id="rect4130" />
       <rect
          transform="matrix(0.5544122,0,0,0.6362498,9.8603257,64.181046)"
-         style="fill:url(#radialGradient2232);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.9718976px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline;filter:url(#filter3141)"
+         style="fill:url(#radialGradient3261);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.97189760000000003px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline;filter:url(#filter3141)"
          rx="19.575169"
          ry="19.301697"
          height="157.17097"

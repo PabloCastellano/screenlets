@@ -169,6 +169,18 @@
 			<item label="TSF"  id="http://www.tsf.pt/tsfdirecto.asx TSF" />
 			<item label="Virtual DJ"  id="http://radio.virtualdj.com/listen.asx Virtual DJ" />
 		</item>
+		<item label="Turkey">
+			<item label="Capital Radio"  id="rtsp://www.live365.com/play/capitalradioturkey Capital Radio" />
+			<item label="Power FM"  id="rtsp://xiphias.vargonen.net/PowerFm Power FM" />
+			<item label="Power XL"  id="rtsp://xiphias.vargonen.net/PowerXL Power XL" />
+			<item label="Power Turk"  id="rtsp://xiphias.vargonen.net/PowerTurk Power Turk" />
+			<item label="Radyo 5"  id="rtsp://84.16.235.95/r5 Radyo 5" />
+			<item label="Show Radyo"  id="rtsp://84.16.235.90/ShowRadyo Show Radyo" />
+			<item label="Radyo Viva"  id="rtsp://84.16.235.95/rv Radyo Viva" />
+			<item label="Radyo Nostalji"  id="rtsp://84.16.235.95/rn Radyo Nostalji" />
+			<item label="NTV Radyo"  id="rtsp://www.live365.com/play/radioeksen NTV Radyo" />
+			<item label="Radio N101"  id="rtsp://www.live365.com/play/radion101 Radio N101" />
+		</item>
 	</item>
 	<separator />
 	<item label="Start Radio"  id="startp" />

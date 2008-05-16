@@ -320,7 +320,8 @@ class ClockScreenlet (Screenlet):
 				
 	def update (self):
 		"""Update the time and redraw the canvas"""
-		environ['TZ'] = self.timezone
+		if self.timezone != '':
+			environ['TZ'] = self.timezone
 		self.__time = datetime.now()
 		if self.alarm_activated:
 			self.check_alarm()

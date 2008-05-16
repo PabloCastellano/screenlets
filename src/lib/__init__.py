@@ -1359,7 +1359,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 		# if updates are disabled, just exit
 		if self.disable_updates:
 			return
-		print _("UPDATING SHAPE")
+		#print _("UPDATING SHAPE")
 		# TODO:
 		#if not self.window.is_composited():
 		#	self.update_shape_non_composited()

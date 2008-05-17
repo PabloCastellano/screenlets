@@ -11,7 +11,7 @@
 
 
 import screenlets
-from screenlets.options import StringOption , BoolOption , IntOption, ColorOption, FontOption
+from screenlets.options import StringOption , BoolOption , IntOption, ColorOption, FontOption, ImageOption
 from screenlets import DefaultMenuItem
 from screenlets import sensors
 import pango
@@ -35,7 +35,7 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 	color_text =(1.0, 1.0, 1.0, 0.7)
 	color_background =(0.0, 0.0, 0.0, 0.7)
 	color_graph =(1.0, 1.0, 1.0, 0.2)
-	font= "Sans"
+	font= "FreeSans"
 	username = ''
 	hostname = ''
 	date = ''
@@ -71,11 +71,35 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 	starty = 0
 	number = 0
 	_update_interval = 2
+	font1 = 'FreeSans'
+	image_filename = ''
+	use_bg_image = False
+
+	#Sensors to display
+	show_time = True
+	show_date = True
+	show_username = True
+	show_distro = True
+	show_kernel = True
+	show_cpuname = True
+	show_cpus = True
+	show_load = True
+	show_mem = True
+	show_swap = True
+	show_ip = True
+	show_updown = True
+	show_disks = True
+	show_bat_wir = True
+	show_processes = True
+	show_uptime = True
+
+
+
 	# constructor
 	def __init__ (self, **keyword_args):
 		#call super (width/height MUST match the size of graphics in the theme)
 		screenlets.Screenlet.__init__(self, width=180, height=self.newheight, 
-			uses_theme=True, **keyword_args)
+			uses_theme=True,ask_on_option_override=False, **keyword_args)
 		# set theme
 		self.get_constants()
 		self.theme_name = "default"
@@ -112,8 +136,65 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 		self.add_option(ColorOption('Sysmonitor','color_graph', 
 			self.color_graph, 'Graphs Color', 
 			''))
+		self.add_options_group('Backgound', 'Options ...')
+		self.add_option(BoolOption('Backgound','use_bg_image', 
+			self.use_bg_image, 'Use Background image', 
+			'use_bg_image'))
+		self.add_option(ImageOption('Backgound', 'image_filename', 
+			self.image_filename, 'Background image',
+			'Background image')) 
 
+		self.add_options_group('Sensors', 'Options ...')
 
+		self.add_option(BoolOption('Sensors','show_time', 
+			self.show_time, 'Show time', 
+			'Show Sensor'))
+
+		self.add_option(BoolOption('Sensors','show_date', 
+			self.show_date, 'Show date', 
+			'Show Sensor'))
+		self.add_option(BoolOption('Sensors','show_username', 
+			self.show_username, 'Show username', 
+			'Show Sensor'))
+		self.add_option(BoolOption('Sensors','show_distro', 
+			self.show_distro, 'Show distro', 
+			'Show Sensor'))
+		self.add_option(BoolOption('Sensors','show_kernel', 
+			self.show_kernel, 'Show kernel', 
+			'Show Sensor'))
+		self.add_option(BoolOption('Sensors','show_cpuname', 
+			self.show_cpuname, 'Show Cpu name', 
+			'Show Sensor'))
+		self.add_option(BoolOption('Sensors','show_cpus', 
+			self.show_cpus, 'Show Cpus', 
+			'Show Sensor'))
+		self.add_option(BoolOption('Sensors','show_load', 
+			self.show_load, 'Show Load', 
+			'Show Sensor'))
+		self.add_option(BoolOption('Sensors','show_mem', 
+			self.show_mem, 'Show Memory', 
+			'Show Sensor'))
+		self.add_option(BoolOption('Sensors','show_swap', 
+			self.show_swap, 'Show Swap', 
+			'Show Sensor'))
+		self.add_option(BoolOption('Sensors','show_ip', 
+			self.show_ip, 'Show Ip', 
+			'Show Sensor'))
+		self.add_option(BoolOption('Sensors','show_updown', 
+			self.show_updown, 'Show Upload Download', 
+			'Show Sensor'))
+		self.add_option(BoolOption('Sensors','show_disks', 
+			self.show_disks, 'Show Disks', 
+			'Show Sensor'))
+		self.add_option(BoolOption('Sensors','show_bat_wir', 
+			self.show_bat_wir, 'Show battery and wifi', 
+			'Show Sensor'))
+		self.add_option(BoolOption('Sensors','show_processes', 
+			self.show_processes, 'Show Processes', 
+			'Show Sensor'))
+		self.add_option(BoolOption('Sensors','show_uptime', 
+			self.show_uptime, 'Show Uptime', 
+			'Show Sensor'))
 		# ADD a 1 second (1000) TIMER
 		self.timer = None
 
@@ -144,40 +225,43 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 		self.cpu_name = sensors.cpu_get_cpu_name()
 
 	def get_variables(self):
-		self.time = sensors.cal_get_local_time()
-		self.date = sensors.cal_get_day_name() + ' '+  sensors.cal_get_local_date()
-		self.avg_load = sensors.sys_get_average_load()
-		for i in range (0,self.cpu_nb+1):
+		if self.show_time: self.time = sensors.cal_get_local_time()
+		if self.show_date: self.date = sensors.cal_get_day_name() + ' '+  sensors.cal_get_local_date()
+		if self.show_load: self.avg_load = sensors.sys_get_average_load()
+		if self.show_cpus:
+			for i in range (0,self.cpu_nb+1):
 
-		#	if not self.cpu_load[i]: self.cpu_load.append(0)
-			self.new_cpu[i]=sensors.cpu_get_load(i)
+			#	if not self.cpu_load[i]: self.cpu_load.append(0)
+				self.new_cpu[i]=sensors.cpu_get_load(i)
 
-			self.cpu_load[i] = (self.new_cpu[i]-self.old_cpu[i])/self.update_interval
-			
-			self.old_cpu[i] = self.new_cpu[i]
-			try:
-				if self.cpu_load[i] > 99: self.cpu_load[i] = 99
-				elif self.cpu_load[i] < 0: self.cpu_load[i]=0
-			except : pass
-		self.mem_used = sensors.mem_get_usage()
-		self.swap_used = sensors.mem_get_usedswap()
-		self.ip = sensors.net_get_ip()
-		self.up = sensors.net_get_updown()[0]
-		self.down = sensors.net_get_updown()[1]
-		self.upload = (self.up - self.old_up)/self.update_interval
-		self.download = (self.down - self.old_down)/self.update_interval
-		self.old_up = self.up
-		self.old_down = self.down
-		self.disks = sensors.disk_get_disk_list()
-		self.bat_list = sensors.bat_get_battery_list()
-		if self.bat_list:
-			self.bat_data = sensors.bat_get_data(self.bat_list[0])
-			try:
-				self.bat_load = (self.bat_data[1]*100)/self.bat_data[2]
-			except: self.bat_load = 0
-		self.wire_list = sensors.wir_get_interfaces()
-		if self.wire_list:
-			self.wire_data = sensors.wir_get_stats(self.wire_list[0])
+				self.cpu_load[i] = (self.new_cpu[i]-self.old_cpu[i])/self.update_interval
+				
+				self.old_cpu[i] = self.new_cpu[i]
+				try:
+					if self.cpu_load[i] > 99: self.cpu_load[i] = 99
+					elif self.cpu_load[i] < 0: self.cpu_load[i]=0
+				except : pass
+		if self.show_mem: self.mem_used = sensors.mem_get_usage()
+		if self.show_swap: self.swap_used = sensors.mem_get_usedswap()
+		if self.show_ip: self.ip = sensors.net_get_ip()
+		if self.show_updown: 
+			self.up = sensors.net_get_updown()[0]
+			self.down = sensors.net_get_updown()[1]
+			self.upload = (self.up - self.old_up)/self.update_interval
+			self.download = (self.down - self.old_down)/self.update_interval
+			self.old_up = self.up
+			self.old_down = self.down
+		if self.show_disks:self.disks = sensors.disk_get_disk_list()
+		if self.show_bat_wir:
+			self.bat_list = sensors.bat_get_battery_list()
+			if self.bat_list:
+				self.bat_data = sensors.bat_get_data(self.bat_list[0])
+				try:
+					self.bat_load = (self.bat_data[1]*100)/self.bat_data[2]
+				except: self.bat_load = 0
+			self.wire_list = sensors.wir_get_interfaces()
+			if self.wire_list:
+				self.wire_data = sensors.wir_get_stats(self.wire_list[0])
 			
 
 	def update (self):
@@ -295,248 +379,269 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 	def on_draw (self, ctx):
 		# if theme is loaded
 		#self.font =  self.font.strip(' ')
-
-		try : self.fontsize = int(self.font.strip().split(' ')[2])
-		except:
-			try: self.fontsize = int(self.font.strip().split(' ')[1])
-			except : pass
-		self.font =  self.font.strip().split(' ')[0]
+		if self.font.find(' ') != -1:
+			self.font1 =  self.font.strip().split(' ')[0]
+			try : self.fontsize = int(self.font.strip().split(' ')[2])
+			except:
+				try: self.fontsize = int(self.font.strip().split(' ')[1])
+				except : self.fontsize = 10
 		if self.theme:
 			# set scale rel. to scale-attribute
 			ctx.scale(self.scale, self.scale)
 			if self.show_logo:
 				if os.path.exists (self.get_screenlet_dir() + '/themes/'+ self.theme_name + '/' + self.distroshort.lower() + '.svg') or os.path.exists (self.get_screenlet_dir() + '/themes/'+ self.theme_name + '/' +self.distroshort.lower() + '.png'):
 					ctx.translate(0,20)
-					self.theme.render(ctx,self.distroshort.lower())
+					try:
+						self.theme.render(ctx,self.distroshort.lower())
+					except:pass
 					ctx.translate(0,-20)
 			#DRAW BACKGROUND ALLWAYS
 			if self.show_frame:
 				ctx.set_source_rgba(0, 0, 0,0.7)	
-				self.theme.draw_rectangle(ctx,0,0,self.width,self.height,False)
+				self.draw_rectangle(ctx,0,0,self.width,self.height,False)
 				ctx.set_source_rgba(89/255, 89/255, 89/255,0.43)	
 				ctx.translate (1,1)
-				self.theme.draw_rectangle(ctx,0,0,self.width-2,self.height-2,False)
+				self.draw_rectangle(ctx,0,0,self.width-2,self.height-2,False)
 
 				ctx.set_source_rgba(229/255, 229/255, 229/255,76/255)	
 				ctx.translate (1,1)
-				self.theme.draw_rectangle(ctx,0,0,self.width-2,self.height-2)
+				self.draw_rectangle(ctx,0,0,self.width-2,self.height-2)
 				ctx.translate (-2,-2)
 			
 			#DRAW BACKGROUND USER SELECTED
+			if self.image_filename != '' and self.use_bg_image:self.draw_scaled_image(ctx,0,0,self.image_filename,self.width,self.height)
+
 			ctx.set_source_rgba(self.color_background[0], self.color_background[1], self.color_background[2],self.color_background[3])	
-			self.theme.draw_rectangle(ctx,0,0,self.width,self.height)
+			self.draw_rectangle(ctx,0,0,self.width,self.height)
 			ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
 			#DRAW TEXT
-			m = self.starty + 5
-			self.theme.draw_text(ctx, ' ' + self.time, 0, m, self.font, self.fontsize + 8,  self.width,pango.ALIGN_CENTER)
-			m = m + 25
-			self.theme.draw_text(ctx, self.date, 0, m, self.font, self.fontsize,  self.width,pango.ALIGN_CENTER)
-			m = m + 40
-			self.theme.draw_text(ctx, self.username + '@' + self.hostname, 0, m, self.font, self.fontsize + 1,  self.width,pango.ALIGN_CENTER)
-			m = m + 20
-			self.theme.draw_text(ctx, self.distro, 0, m, self.font, self.fontsize + 1,  self.width,pango.ALIGN_CENTER)
-			m = m + 20
-			self.theme.draw_text(ctx, 'kernel: ' + self.kernel, 0, m, self.font, self.fontsize,  self.width,pango.ALIGN_CENTER)
-			m = m + 40
-			self.theme.draw_text(ctx, self.cpu_name, 0, m, self.font, self.fontsize - 2,  self.width,pango.ALIGN_CENTER)
-			
-			m = m + 30
-			ctx.save()
+			m = self.starty
+			m = m + 5
+			if self.show_time:
+				self.draw_text(ctx, ' ' + self.time, 0, m, self.font1, self.fontsize + 8,  self.width,pango.ALIGN_CENTER)
+				m = m + 25
+			if self.show_date:
+				self.draw_text(ctx, self.date, 0, m, self.font1, self.fontsize,  self.width,pango.ALIGN_CENTER)
+				m = m + 40
+			if self.show_username:
+
+				self.draw_text(ctx, self.username + '@' + self.hostname, 0, m, self.font1, self.fontsize + 1,  self.width,pango.ALIGN_CENTER)
+				m = m + 20
+			if self.show_distro:
+				self.draw_text(ctx, self.distro, 0, m, self.font1, self.fontsize + 1,  self.width,pango.ALIGN_CENTER)
+				m = m + 20
+			if self.show_kernel:
+				self.draw_text(ctx, 'kernel: ' + self.kernel, 0, m, self.font1, self.fontsize,  self.width,pango.ALIGN_CENTER)
+				m = m + 40
+			if self.show_cpuname:
+				self.draw_text(ctx, self.cpu_name, 0, m, self.font1, self.fontsize - 2,  self.width,pango.ALIGN_CENTER)
+				m = m + 30
+			if self.show_cpus:			
+				ctx.save()
 			#d = 1
-			if self.cpu_nb == 1:
-				ctx.save()
-				ctx.translate(65,m)
-				ctx.set_source_rgba(self.color_background[0], self.color_background[1], self.color_background[2],0.2)	
-				a = (40* self.cpu_load[0])/100
-				self.theme.draw_rounded_rectangle(ctx,0,0,10,50,50)
-				ctx.translate(5,5)
-				ctx.translate (0,40-a)
-				ctx.set_source_rgba(self.color_graph[0], self.color_graph[1], self.color_graph[2],self.color_graph[3])	
-				self.theme.draw_rectangle(ctx,0,0,40,a)
-				ctx.translate(75,-5-(40-a))
-				ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
-				self.theme.draw_text(ctx, 'CPU' , -75-70, 0, self.font, self.fontsize,  self.width,pango.ALIGN_CENTER)
-				self.theme.draw_text(ctx,str(self.cpu_load[0])+ '%', -75-70, 30, self.font, self.fontsize - 2,  self.width,pango.ALIGN_CENTER)
-
-				ctx.restore()
-			if self.cpu_nb >= 2:
-				ctx.translate(25,m)
-				a = (40* self.cpu_load[1])/100
-				ctx.set_source_rgba(self.color_background[0], self.color_background[1], self.color_background[2],0.2)	
-				ctx.save()
-				self.theme.draw_rounded_rectangle(ctx,0,0,10,50,50)
-				ctx.translate(5,5)
-				ctx.translate (0,40-a)
-				ctx.set_source_rgba(self.color_graph[0], self.color_graph[1], self.color_graph[2],self.color_graph[3])	
-				self.theme.draw_rectangle(ctx,0,0,40,a)
-				ctx.translate(75,-5-(40-a))
-				ctx.restore()
-				ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
-				self.theme.draw_text(ctx, 'CPU 1' , -65, 0, self.font, self.fontsize,  self.width,pango.ALIGN_CENTER)
-				self.theme.draw_text(ctx,str(self.cpu_load[1])+ '%', -65, 30, self.font, self.fontsize - 2,  self.width,pango.ALIGN_CENTER)
-				ctx.translate(75,0)
-
-
-				a = (40* self.cpu_load[2])/100
-				ctx.set_source_rgba(self.color_background[0], self.color_background[1], self.color_background[2],0.2)
-				ctx.save()
-				self.theme.draw_rounded_rectangle(ctx,0,0,10,50,50)
-				ctx.translate(5,5)
-				ctx.translate (0,40-a)
-				ctx.set_source_rgba(self.color_graph[0], self.color_graph[1], self.color_graph[2],self.color_graph[3])
-				self.theme.draw_rectangle(ctx,0,0,40,a)
-				ctx.restore()
-				ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
-				self.theme.draw_text(ctx, 'CPU 2' , -65, 0, self.font, self.fontsize,  self.width,pango.ALIGN_CENTER)
-				self.theme.draw_text(ctx,str(self.cpu_load[2])+ '%' , -65, 30, self.font, self.fontsize - 2,  self.width,pango.ALIGN_CENTER)
-				ctx.restore()
-		
-				d = 4
-				if self.cpu_nb == 4:#self.cpu_nb
+				if self.cpu_nb == 1:
 					ctx.save()
-					m = m +60
-					ctx.translate (25,m)
-					a = (40* self.cpu_load[3])/100
+					ctx.translate(65,m)
 					ctx.set_source_rgba(self.color_background[0], self.color_background[1], self.color_background[2],0.2)	
-					ctx.save()
-					self.theme.draw_rounded_rectangle(ctx,0,0,10,50,50)
+					a = (40* self.cpu_load[0])/100
+					self.draw_rounded_rectangle(ctx,0,0,10,50,50)
 					ctx.translate(5,5)
 					ctx.translate (0,40-a)
 					ctx.set_source_rgba(self.color_graph[0], self.color_graph[1], self.color_graph[2],self.color_graph[3])	
-					self.theme.draw_rectangle(ctx,0,0,40,a)
+					self.draw_rectangle(ctx,0,0,40,a)
+					ctx.translate(75,-5-(40-a))
+					ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
+					self.draw_text(ctx, 'CPU' , -75-70, 0, self.font1, self.fontsize,  self.width,pango.ALIGN_CENTER)
+					self.draw_text(ctx,str(self.cpu_load[0])+ '%', -75-70, 30, self.font1, self.fontsize - 2,  self.width,pango.ALIGN_CENTER)
+
+					ctx.restore()
+					m = m + 40
+				if self.cpu_nb >= 2:
+					ctx.translate(25,m)
+					a = (40* self.cpu_load[1])/100
+					ctx.set_source_rgba(self.color_background[0], self.color_background[1], self.color_background[2],0.2)	
+					ctx.save()
+					self.draw_rounded_rectangle(ctx,0,0,10,50,50)
+					ctx.translate(5,5)
+					ctx.translate (0,40-a)
+					ctx.set_source_rgba(self.color_graph[0], self.color_graph[1], self.color_graph[2],self.color_graph[3])	
+					self.draw_rectangle(ctx,0,0,40,a)
 					ctx.translate(75,-5-(40-a))
 					ctx.restore()
 					ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
-					self.theme.draw_text(ctx, 'CPU 3' , -65, 0, self.font, self.fontsize,  self.width,pango.ALIGN_CENTER)
-					self.theme.draw_text(ctx,str(self.cpu_load[3])+ '%', -65, 30, self.font, self.fontsize - 2,  self.width,pango.ALIGN_CENTER)
+					self.draw_text(ctx, 'CPU 1' , -65, 0, self.font1, self.fontsize,  self.width,pango.ALIGN_CENTER)
+					self.draw_text(ctx,str(self.cpu_load[1])+ '%', -65, 30, self.font1, self.fontsize - 2,  self.width,pango.ALIGN_CENTER)
 					ctx.translate(75,0)
 
 
-					a = (40* self.cpu_load[4])/100
-					ctx.save()
+					a = (40* self.cpu_load[2])/100
 					ctx.set_source_rgba(self.color_background[0], self.color_background[1], self.color_background[2],0.2)
+					ctx.save()
+					self.draw_rounded_rectangle(ctx,0,0,10,50,50)
+					ctx.translate(5,5)
+					ctx.translate (0,40-a)
+					ctx.set_source_rgba(self.color_graph[0], self.color_graph[1], self.color_graph[2],self.color_graph[3])
+					self.draw_rectangle(ctx,0,0,40,a)
+					ctx.restore()
+					ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
+					self.draw_text(ctx, 'CPU 2' , -65, 0, self.font1, self.fontsize,  self.width,pango.ALIGN_CENTER)
+					self.draw_text(ctx,str(self.cpu_load[2])+ '%' , -65, 30, self.font1, self.fontsize - 2,  self.width,pango.ALIGN_CENTER)
+					#ctx.restore()
+					m = m + 40
+					d = 4
+					if self.cpu_nb == 4:#self.cpu_nb
+						ctx.save()
+						m = m +60
+						ctx.translate (25,m)
+						a = (40* self.cpu_load[3])/100
+						ctx.set_source_rgba(self.color_background[0], self.color_background[1], self.color_background[2],0.2)	
+						ctx.save()
+						self.draw_rounded_rectangle(ctx,0,0,10,50,50)
+						ctx.translate(5,5)
+						ctx.translate (0,40-a)
+						ctx.set_source_rgba(self.color_graph[0], self.color_graph[1], self.color_graph[2],self.color_graph[3])	
+						self.draw_rectangle(ctx,0,0,40,a)
+						ctx.translate(75,-5-(40-a))
+						ctx.restore()
+						ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
+						self.draw_text(ctx, 'CPU 3' , -65, 0, self.font1, self.fontsize,  self.width,pango.ALIGN_CENTER)
+						self.draw_text(ctx,str(self.cpu_load[3])+ '%', -65, 30, self.font1, self.fontsize - 2,  self.width,pango.ALIGN_CENTER)
+						ctx.translate(75,0)
+
+
+						a = (40* self.cpu_load[4])/100
+						ctx.save()
+						ctx.set_source_rgba(self.color_background[0], self.color_background[1], self.color_background[2],0.2)
+
+						ctx.translate(5,5)
+						ctx.translate (0,40-a)
+						ctx.set_source_rgba(self.color_graph[0], self.color_graph[1], self.color_graph[2],self.color_graph[3])
+						self.draw_rectangle(ctx,0,0,40,a)
+						ctx.restore()
+						ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
+						self.draw_text(ctx, 'CPU 4' , -65, 0, self.font1, self.fontsize,  self.width,pango.ALIGN_CENTER)
+						self.draw_text(ctx,str(self.cpu_load[4])+ '%' , -65, 30, self.font1, self.fontsize - 2,  self.width,pango.ALIGN_CENTER)
+						self.draw_rounded_rectangle(ctx,0,0,10,50,50)
+						ctx.restore()
+						m = m + 40
+				ctx.restore()
+				m = m +20
+			else: m= m +10
+			if self.show_load:
+				ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
+				self.draw_text(ctx, 'Load : ' + self.avg_load, 0, m, self.font1, self.fontsize,  self.width,pango.ALIGN_CENTER)
+				m = m +20
+			if self.show_mem:
+				ctx.save()
+				ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
+				self.draw_text(ctx, 'Ram ' + str(self.mem_used) + '%', 0, m, self.font1, self.fontsize,  self.width,pango.ALIGN_CENTER)
+				ctx.translate(0,m)
+				ctx.translate(20,15)
+				ctx.set_source_rgba(self.color_background[0], self.color_background[1], self.color_background[2],0.2)
+				self.draw_rectangle(ctx,0,0,140,5)
+				ctx.set_source_rgba(self.color_graph[0], self.color_graph[1], self.color_graph[2],self.color_graph[3])
+				self.draw_rectangle(ctx,0,0,(self.mem_used*100)/140,5)
+				ctx.translate(-20,-15)
+				ctx.restore()
+				m = m +20
+			if self.show_swap:
+				ctx.save()
+				ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
+				self.draw_text(ctx,'Swap ' + str(self.swap_used)+ "%", 0, m, self.font1, self.fontsize,  self.width,pango.ALIGN_CENTER)
+				ctx.translate(0,m)
+				ctx.translate(20,15)
+				ctx.set_source_rgba(self.color_background[0], self.color_background[1], self.color_background[2],0.2)
+				self.draw_rectangle(ctx,0,0,140,5)
+				ctx.set_source_rgba(self.color_graph[0], self.color_graph[1], self.color_graph[2],self.color_graph[3])
+				self.draw_rectangle(ctx,0,0,(self.swap_used*100)/140,5)
+				ctx.translate(-20,-15)
+				ctx.restore()
+				m = m +30
+			if self.show_ip:
+				ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
+				self.draw_text(ctx, 'IP : ' + self.ip, 0, m, self.font1, self.fontsize,  self.width,pango.ALIGN_CENTER)
+				m = m +25
+			if self.show_updown:
+				self.draw_text(ctx, 'Upload - ' + str(self.upload)[:3] + ' KB/sec', 0, m, self.font1, self.fontsize,  self.width,pango.ALIGN_CENTER)
+				m = m +20
+
+				self.draw_text(ctx, 'Download - ' + str(self.download)[:3] + ' KB/sec', 0, m, self.font1, self.fontsize,  self.width,pango.ALIGN_CENTER)
+				m = m +40
+
+			if self.show_disks:
+				ctx.save()
+				for i in self.disks:
+					a = sensors.disk_get_usage(i)
+					ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
+					self.draw_text(ctx,a[0]+  ' ' + a[4], 0, m, self.font1, self.fontsize,  self.width,pango.ALIGN_CENTER)
+					ctx.translate(0,m)
+					ctx.translate(20,15)
+					ctx.set_source_rgba(self.color_background[0], self.color_background[1], self.color_background[2],0.2)
+					self.draw_rectangle(ctx,0,0,140,5)
+					ctx.set_source_rgba(self.color_graph[0], self.color_graph[1], self.color_graph[2],self.color_graph[3])
+
+					self.draw_rectangle(ctx,0,0,(int(a[4].replace('%',''))*140)/100,5)
+					ctx.translate(-20,-15)
+					m = m +30
+					ctx.restore()
+					ctx.save()
+				m = m + 10
+				ctx.restore()
+
+			if self.show_bat_wir:
+				
+				if self.bat_list and self.bat_data !=[] and self.wire_list:
+					ctx.save()
+					ctx.translate(25,m)
+					a = (40*self.bat_load)/100
+	
+					ctx.set_source_rgba(self.color_background[0], self.color_background[1], self.color_background[2],0.2)	
+					ctx.save()
+					self.draw_rounded_rectangle(ctx,0,0,10,50,50)
+
+					ctx.translate(5,5)
+					ctx.translate (0,40-a)
+					ctx.set_source_rgba(self.color_graph[0], self.color_graph[1], self.color_graph[2],self.color_graph[3])		
+					self.draw_rectangle(ctx,0,0,40,a)
+					ctx.translate(75,-5-(40-a))
+					ctx.restore()
+					ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
+					self.draw_text(ctx, self.bat_list[0] , -65, 0, self.font1, self.fontsize,  self.width,pango.ALIGN_CENTER)
+
+					self.draw_text(ctx,str(self.bat_load) + '%', -65, 30, self.font1, self.fontsize - 2,  self.width,pango.ALIGN_CENTER)
+
+					ctx.translate(75,0)
+
+
+
+					a = (40* int(self.wire_data['percentage']))/100
+
+					ctx.set_source_rgba(self.color_background[0], self.color_background[1], self.color_background[2],0.2)
+					ctx.save()
+					self.draw_rounded_rectangle(ctx,0,0,10,50,50)
 
 					ctx.translate(5,5)
 					ctx.translate (0,40-a)
 					ctx.set_source_rgba(self.color_graph[0], self.color_graph[1], self.color_graph[2],self.color_graph[3])
-					self.theme.draw_rectangle(ctx,0,0,40,a)
+					self.draw_rectangle(ctx,0,0,40,a)
 					ctx.restore()
 					ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
-					self.theme.draw_text(ctx, 'CPU 4' , -65, 0, self.font, self.fontsize,  self.width,pango.ALIGN_CENTER)
-					self.theme.draw_text(ctx,str(self.cpu_load[4])+ '%' , -65, 30, self.font, self.fontsize - 2,  self.width,pango.ALIGN_CENTER)
-					self.theme.draw_rounded_rectangle(ctx,0,0,10,50,50)
+					self.draw_text(ctx, self.wire_list[0] , -65, 0, self.font1, self.fontsize,  self.width,pango.ALIGN_CENTER)
+
+					self.draw_text(ctx,str( int(self.wire_data['percentage']))+ '%' , -65, 30, self.font1, self.fontsize - 2,  self.width,pango.ALIGN_CENTER)
 					ctx.restore()
-			m = m +60
-			ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
-			self.theme.draw_text(ctx, 'Load : ' + self.avg_load, 0, m, self.font, self.fontsize,  self.width,pango.ALIGN_CENTER)
-
-			m = m +20
-			ctx.save()
-			ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
-			self.theme.draw_text(ctx, 'Ram ' + str(self.mem_used) + '%', 0, m, self.font, self.fontsize,  self.width,pango.ALIGN_CENTER)
-			ctx.translate(0,m)
-			ctx.translate(20,15)
-			ctx.set_source_rgba(self.color_background[0], self.color_background[1], self.color_background[2],0.2)
-			self.theme.draw_rectangle(ctx,0,0,140,5)
-			ctx.set_source_rgba(self.color_graph[0], self.color_graph[1], self.color_graph[2],self.color_graph[3])
-			self.theme.draw_rectangle(ctx,0,0,(self.mem_used*100)/140,5)
-			ctx.translate(-20,-15)
-			m = m +20
-			ctx.restore()
-			ctx.save()
-			ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
-			self.theme.draw_text(ctx,'Swap ' + str(self.swap_used)+ "%", 0, m, self.font, self.fontsize,  self.width,pango.ALIGN_CENTER)
-			ctx.translate(0,m)
-			ctx.translate(20,15)
-			ctx.set_source_rgba(self.color_background[0], self.color_background[1], self.color_background[2],0.2)
-			self.theme.draw_rectangle(ctx,0,0,140,5)
-			ctx.set_source_rgba(self.color_graph[0], self.color_graph[1], self.color_graph[2],self.color_graph[3])
-			self.theme.draw_rectangle(ctx,0,0,(self.swap_used*100)/140,5)
-			ctx.translate(-20,-15)
-			ctx.restore()
-			ctx.save()
-			m = m +30
-			ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
-			self.theme.draw_text(ctx, 'IP : ' + self.ip, 0, m, self.font, self.fontsize,  self.width,pango.ALIGN_CENTER)
-			m = m +25
-			self.theme.draw_text(ctx, 'Upload - ' + str(self.upload)[:3] + ' KB/sec', 0, m, self.font, self.fontsize,  self.width,pango.ALIGN_CENTER)
-			m = m +20
-
-			self.theme.draw_text(ctx, 'Download - ' + str(self.download)[:3] + ' KB/sec', 0, m, self.font, self.fontsize,  self.width,pango.ALIGN_CENTER)
-			m = m +40
-			ctx.restore()
-			ctx.save()
-			for i in self.disks:
-				a = sensors.disk_get_usage(i)
-				ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
-				self.theme.draw_text(ctx,a[0]+  ' ' + a[4], 0, m, self.font, self.fontsize,  self.width,pango.ALIGN_CENTER)
-				ctx.translate(0,m)
-				ctx.translate(20,15)
-				ctx.set_source_rgba(self.color_background[0], self.color_background[1], self.color_background[2],0.2)
-				self.theme.draw_rectangle(ctx,0,0,140,5)
-				ctx.set_source_rgba(self.color_graph[0], self.color_graph[1], self.color_graph[2],self.color_graph[3])
-
-				self.theme.draw_rectangle(ctx,0,0,(int(a[4].replace('%',''))*140)/100,5)
-				ctx.translate(-20,-15)
-				ctx.restore()
-				ctx.save()
-				m = m +30
-		
-
-
-
-
-
-			if self.bat_list and self.bat_data !=[] and self.wire_list:
-				ctx.translate(25,m)
-				a = (40*self.bat_load)/100
-	
-				ctx.set_source_rgba(self.color_background[0], self.color_background[1], self.color_background[2],0.2)	
-				ctx.save()
-				self.theme.draw_rounded_rectangle(ctx,0,0,10,50,50)
-
-				ctx.translate(5,5)
-				ctx.translate (0,40-a)
-				ctx.set_source_rgba(self.color_graph[0], self.color_graph[1], self.color_graph[2],self.color_graph[3])		
-				self.theme.draw_rectangle(ctx,0,0,40,a)
-				ctx.translate(75,-5-(40-a))
-				ctx.restore()
-				ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
-				self.theme.draw_text(ctx, self.bat_list[0] , -65, 0, self.font, self.fontsize,  self.width,pango.ALIGN_CENTER)
-
-				self.theme.draw_text(ctx,str(self.bat_load) + '%', -65, 30, self.font, self.fontsize - 2,  self.width,pango.ALIGN_CENTER)
-
-				ctx.translate(75,0)
-
-
-
-				a = (40* int(self.wire_data['percentage']))/100
-
-				ctx.set_source_rgba(self.color_background[0], self.color_background[1], self.color_background[2],0.2)
-				ctx.save()
-				self.theme.draw_rounded_rectangle(ctx,0,0,10,50,50)
-
-				ctx.translate(5,5)
-				ctx.translate (0,40-a)
-				ctx.set_source_rgba(self.color_graph[0], self.color_graph[1], self.color_graph[2],self.color_graph[3])
-				self.theme.draw_rectangle(ctx,0,0,40,a)
-				ctx.restore()
-				ctx.set_source_rgba(self.color_text[0], self.color_text[1], self.color_text[2],self.color_text[3])
-				self.theme.draw_text(ctx, self.wire_list[0] , -65, 0, self.font, self.fontsize,  self.width,pango.ALIGN_CENTER)
-
-				self.theme.draw_text(ctx,str( int(self.wire_data['percentage']))+ '%' , -65, 30, self.font, self.fontsize - 2,  self.width,pango.ALIGN_CENTER)
-				ctx.restore()
-
-			m = m +60
-			self.theme.draw_text(ctx,str( sensors.process_get_top()) , 0, m, self.font, self.fontsize - 3,  self.width -10,pango.ALIGN_CENTER)
-			m = m +140
-			self.theme.draw_text(ctx,'Uptime: ' + str( sensors.sys_get_uptime()) , 0, m, self.font, self.fontsize +3,  self.width -10,pango.ALIGN_CENTER)
+				m = m + 60
+			if self.show_processes:
+				self.draw_text(ctx,str( sensors.process_get_top().replace(' ','-')) , 0, m, self.font1, self.fontsize - 3,  self.width -10,pango.ALIGN_CENTER)
+				m = m + 110
+			if self.show_uptime:
+				self.draw_text(ctx,'Uptime: ' + str( sensors.sys_get_uptime()) , 0, m, self.font1, self.fontsize +3,  self.width -10,pango.ALIGN_CENTER)
 			m = m +40
 			if self.height != m and self.expand == False:
 				self.height = m
-#							ctx.translate(-20,-15)self.theme.draw_text(ctx, self.theme_name, 0, 50, self.font, self.fontsize,  self.width,pango.ALIGN_LEFT)
+#							ctx.translate(-20,-15)self.draw_text(ctx, self.theme_name, 0, 50, self.font1, self.fontsize,  self.width,pango.ALIGN_LEFT)
 
-#			self.theme.draw_text(ctx, 'mouse x ' + str(self.mousex ) + ' \n mouse y ' + str(self.mousey ) , 0, 170, self.font, self.fontsize,  self.width,pango.ALIGN_LEFT)
+#			self.draw_text(ctx, 'mouse x ' + str(self.mousex ) + ' \n mouse y ' + str(self.mousey ) , 0, 170, self.font1, self.fontsize,  self.width,pango.ALIGN_LEFT)
 
 
 			# render svg-file
@@ -548,7 +653,7 @@ class SysmonitorScreenlet (screenlets.Screenlet):
 	def on_draw_shape (self, ctx):
 		if self.theme:
 			ctx.set_source_rgba(0, 0, 0,1)	
-			self.theme.draw_rectangle(ctx,0,0,self.width,self.height)
+			self.draw_rectangle(ctx,0,0,self.width,self.height)
 	
 # If the program is run directly or passed as an argument to the python
 # interpreter then create a Screenlet instance and show it

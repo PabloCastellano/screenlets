@@ -330,9 +330,15 @@ class MainMenuScreenlet (screenlets.Screenlet):
 	def on_init (self):
 		print "Screenlet has been initialized."
 		# add default menuitems
+		self.add_menuitem("Menuapplet", "How to gnome panel")
 		self.add_default_menuitems(DefaultMenuItem.WINDOW_MENU | DefaultMenuItem.THEMES | DefaultMenuItem.PROPERTIES |
 			DefaultMenuItem.DELETE)
 		self.is_visible = True
+
+	def menuitem_callback(self, widget, id):
+		screenlets.Screenlet.menuitem_callback(self, widget, id)
+		if id=="Menuapplet":
+			screenlets.show_message(self,'1 - Create a launcher in the gnome main menu\n2 - Link the launcher to the gnomeApplet.py in the like this: python -u ' + self.get_screenlet_dir() + '/gnomeApplet.py\n3 - Select the integrate with gnome-panel in the screenlet options')
 
 	def treeclick(self,widget,tree,obj,toggle,t2act=False):
 		"""

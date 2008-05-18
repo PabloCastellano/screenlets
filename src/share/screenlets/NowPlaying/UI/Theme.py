@@ -436,7 +436,7 @@ class PlayerControls:
 	def add_prev(self, w, h):
 		self.add_prev_t(w, h)
 		self.dims[0]=w; self.dims[1]=h
-		self.window.show_all()
+		if screenlets.Screenlet.has_started:self.window.show_all()
 
 	def add_prev_t(self, w, h):
 		self.prev_button=PlayerButton(w,h)
@@ -446,7 +446,7 @@ class PlayerControls:
 	def add_play_pause(self, w, h):
 		self.add_play_pause_t(w, h)
 		self.dims[2]=w; self.dims[3]=h
-		self.window.show_all()
+		if screenlets.Screenlet.has_started:self.window.show_all()
 
 	def add_play_pause_t(self, w, h):
 		self.play_pause_button=PlayerButton(w,h)
@@ -458,7 +458,7 @@ class PlayerControls:
 	def add_next(self, w, h):
 		self.add_next_t(w, h)
 		self.dims[4]=w; self.dims[5]=h
-		self.window.show_all()
+		if screenlets.Screenlet.has_started:self.window.show_all()
 
 	def add_next_t(self, w, h):
 		self.next_button=PlayerButton(w,h)
@@ -493,9 +493,9 @@ class PlayerControls:
 			self.add_next_t(int(b[4]*scale), int(b[5]*scale))
 			self.next_button.set_callback_fn(fn)
 			tmp.destroy()
-		self.window.show_all()
+		if screenlets.Screenlet.has_started:self.window.show_all()
 
 	def draw(self, ctx):
-		self.window.show_all()
+		if screenlets.Screenlet.has_started:self.window.show_all()
 
 

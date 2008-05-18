@@ -54,14 +54,16 @@ class RhythmboxAPI(GenericAPI):
 	def get_cover_path(self):
 		# Return the Expected Path (will be ignored by NowPlaying if it doesn't
 		# exist
-		baseURL = urlparse( urllib.url2pathname( self.playerAPI.getPlayingUri() ) )
-		basePath = os.path.dirname( baseURL.path )
-		coverFile = basePath + "/cover.jpg"
-		if (os.path.isfile(coverFile) == False):
-			coverFile = basePath + "/cover.png"
+		coverFile = os.environ['HOME']+"/.gnome2/rhythmbox/covers/"+self.get_artist()+" - "+self.get_album()+".jpg"
+		if not os.path.isfile(coverfile):
+			baseURL = urlparse( urllib.url2pathname( self.playerAPI.getPlayingUri() ) )
+			basePath = os.path.dirname( baseURL.path )
+			coverFile = basePath + "/cover.jpg"
 			if (os.path.isfile(coverFile) == False):
-				coverFile = os.environ['HOME']+"/.gnome2/rhythmbox/covers/"+self.get_artist()+\
-				" - "+self.get_album()+".jpg"
+				coverFile = basePath + "/cover.png"
+				if (os.path.isfile(coverFile) == False):
+					coverFile = os.environ['HOME']+"/.gnome2/rhythmbox/covers/"+self.get_artist()+\
+					" - "+self.get_album()+".jpg"
 		return coverFile
 
 	def is_playing(self):

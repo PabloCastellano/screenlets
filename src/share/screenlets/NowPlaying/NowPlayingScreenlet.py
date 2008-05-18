@@ -32,6 +32,7 @@ import os.path
 import sys
 import re
 import traceback
+from screenlets import Plugins
 
 #from dbus.mainloop.glib import DBusGMainLoop
 import dbus.glib
@@ -40,7 +41,7 @@ import dbus.glib
 ScreenletPath = sys.path[0]
 
 # Add the Player Modules Path
-sys.path.append(ScreenletPath+'/Players')
+#sys.path.append(ScreenletPath+'/Players')
 
 # Add the Amazon Cover search Path
 sys.path.append(ScreenletPath+'/amazon')
@@ -116,11 +117,6 @@ class NowPlayingScreenlet(screenlets.Screenlet):
 		self.init_player_list()
 		# set theme
 		self.theme_name = "default"
-		# add zip code menu item
-		self.add_menuitem("playpause", "Play/Pause")
-		self.add_menuitem("next", "Next")
-		self.add_menuitem("previous", "Previous")
-
 
 		# Options
 		self.add_options_group('Scrolling', 'Scroll-specific settings.')
@@ -176,6 +172,8 @@ class NowPlayingScreenlet(screenlets.Screenlet):
 			if self.player: self.player.next()
 		elif id=="previous":
 			if self.player: self.player.previous()
+		elif id=="get_skins":
+			os.system('xdg-open http://gnome-look.org/content/show.php/Now+playing+Screenlet+theme+pack?content=74123')
 
 	def on_load_theme(self): 
 		
@@ -192,13 +190,15 @@ class NowPlayingScreenlet(screenlets.Screenlet):
 
 				
 			# Draw it all to a buffer
-			self.init_buffers()
-			self.redraw_background_items()
+			if self.has_started:
+				self.init_buffers()
+				self.redraw_background_items()
 			#self.scale = self.scale
-			self.fullupdate()
+				self.fullupdate()
 			#if self.scale >= 1.41:
 			#	self.scale = 1.40
 			#	self.redraw_canvas()
+			self.window.show_all()
 	def on_init(self):
 		#helps to load the buttons properly
 			if self.default_player == '' : self.default_player = 'rhythmbox'
@@ -206,7 +206,6 @@ class NowPlayingScreenlet(screenlets.Screenlet):
 			if self.default_player == 'amarok':
 				print 'you need python dcop module ,make shure you have it installed'
 			self.default_player_old = self.default_player
-			self.on_load_theme()
 			if self.default_player != '' and self.player_start == True:
 				print self.default_player
 				if self.default_player == 'amarok':
@@ -216,7 +215,12 @@ class NowPlayingScreenlet(screenlets.Screenlet):
 	
 			print "Screenlet has been initialized."
 			# add default menuitems
+			self.add_menuitem("playpause", "Play/Pause")
+			self.add_menuitem("next", "Next")
+			self.add_menuitem("previous", "Previous")
+			self.add_menuitem("get_skins", "Get More Skins")
 			self.add_default_menuitems()
+			self.on_load_theme()
 
 	def on_scale(self):
 		if self.window:
@@ -268,7 +272,8 @@ class NowPlayingScreenlet(screenlets.Screenlet):
 	def init_player_list(self):
 		for module,cls in PLAYER_LIST.iteritems():
 			try: 
-				mod = __import__(module)
+				
+				mod = Plugins.importAPI(module)
 				self.player_list.append(eval("mod."+cls+"(self.session_bus)"))
 			except:
 				print sys.exc_value

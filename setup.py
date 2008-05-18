@@ -138,7 +138,7 @@ setup(name = 'screenlets',
 		'usability and eye-candy on the modern, composited Linux-desktop.',
 	# packages (go into python-packages and become globally available)
 	packages		= ['screenlets'],
-	package_dir		= {'screenlets': 'src/lib'},
+	package_dir		= {'screenlets': 'src/lib','screenlets/Plugins': 'src/lib/Plugins'},
 	# additional files to be installed
 	data_files		= files_list
 	)

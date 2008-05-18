@@ -110,7 +110,6 @@ class DiskusageScreenlet(screenlets.Screenlet):
 			load = int(info['quota'].replace("%",""))
 		except:
 			load = 0
-		print load
 		if load > 99:
 			load = 99
 		elif load < 0:

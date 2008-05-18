@@ -48,7 +48,7 @@ def cpu_get_load (processor_number=0):
 		f.close()
 	except:
 		print _("Failed to open /proc/stat")
-		sys.exit(1)
+		return None
 	if processor_number == 0 : sufix = ''
 	else: sufix = str(processor_number -1)
 	line = tmp[processor_number]
@@ -72,7 +72,7 @@ def cpu_get_cpu_name():
 		f.close()
 	except:
 		print _("Failed to open /proc/cpuinfo")
-		sys.exit(1)
+		return None
 		list = []
 	for line in tmp:
 		if line.startswith("model name"):
@@ -86,7 +86,7 @@ def cpu_get_cpu_list ():
 		f.close()
 	except:
 		print _("Failed to open /proc/stat")
-		sys.exit(1)
+		return None
 	list = []
 	for line in tmp:
 		if line.startswith("cpu"):
@@ -101,13 +101,43 @@ def cpu_get_nb_cpu ():
 		f.close()
 	except:
 		print _("Failed to open /proc/stat")
-		sys.exit(1)
+		return None
 	nb = 0
 	for line in tmp:
 		if line.startswith("cpu"):
 			nb = nb+1
 	return nb -1
 
+def cpu_get_current_freq():
+	op = commands.getoutput('cat /proc/cpuinfo | grep "cpu MHz"')
+	try:
+		op = int(op.replace(" ","").split(':')[1].split('\n')[0].replace(".",""))
+		return op
+	except: return None
+
+def cpu_get_current_gov(self):
+	try:
+		op = commands.getoutput('cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor').strip()
+		return op
+	except: return None
+
+def get_available_freq(self):
+	try:
+		afreqsh = open("/sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies", "r")
+		op = afreqsh.readline().strip().split(' ')
+		afreqsh.close()
+		return op
+	except:
+		return None
+
+def get_available_gov(self):
+	try:
+		afreqsh = open("/sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors", "r")
+		op = afreqsh.readline().strip().split(' ')
+		afreqsh.close()
+		return op
+	except:
+		return None
 
 ###########################################
 #                                         #

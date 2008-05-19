@@ -19,7 +19,7 @@ import pango
 import datetime
 import locale
 from screenlets.options import ColorOption, StringOption
-
+import os
 import commands
 
 class CalendarScreenlet (screenlets.Screenlet):
@@ -61,9 +61,20 @@ class CalendarScreenlet (screenlets.Screenlet):
 			self.today_color, 'Today color', 'today_color'))
 
 
+
+	def menuitem_callback(self, widget, id):
+		screenlets.Screenlet.menuitem_callback(self, widget, id)
+		if id=="get_skins":
+			os.system('xdg-open http://gnome-look.org/content/show.php/8+Skins+for+today+calendar+Screenlet?content=67045')
+
+
+
+
 	def on_init (self):
 		print "Screenlet has been initialized."
 		# add default menuitems
+
+		self.add_menuitem("get_skins", "Get more Skins")
 		self.add_default_menuitems()	
 		
 	def get_date_info(self):
@@ -247,7 +258,7 @@ class CalendarScreenlet (screenlets.Screenlet):
 	def on_draw_shape(self,ctx):
 		ctx.scale(self.scale, self.scale)
 		if self.theme:
-			self.theme.render(ctx, 'calendar-bg')
+			self.theme.render(ctx, 'calendar')
 
 	
 # If the program is run directly or passed as an argument to the python

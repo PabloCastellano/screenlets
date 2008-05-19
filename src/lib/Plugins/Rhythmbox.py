@@ -55,7 +55,7 @@ class RhythmboxAPI(GenericAPI):
 		# Return the Expected Path (will be ignored by NowPlaying if it doesn't
 		# exist
 		coverFile = os.environ['HOME']+"/.gnome2/rhythmbox/covers/"+self.get_artist()+" - "+self.get_album()+".jpg"
-		if not os.path.isfile(coverfile):
+		if not os.path.isfile(coverFile):
 			baseURL = urlparse( urllib.url2pathname( self.playerAPI.getPlayingUri() ) )
 			basePath = os.path.dirname( baseURL.path )
 			coverFile = basePath + "/cover.jpg"

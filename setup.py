@@ -124,6 +124,7 @@ if os.path.isdir (podir):
 				os.system (buildcmd % (dname,name.replace('-'+dname,''), name))
 				files_list.append ((destpath % dname, [mopath % (dname,name.replace('-'+dname,''))]))
 
+os.listdir(os.path.join('src/lib', 'Plugins'))
 
 	
 # + Call setup function (installs screenlets into python's root)
@@ -138,7 +139,7 @@ setup(name = 'screenlets',
 		'usability and eye-candy on the modern, composited Linux-desktop.',
 	# packages (go into python-packages and become globally available)
 	packages		= ['screenlets'],
-	package_dir		= {'screenlets': 'src/lib','screenlets/Plugins': 'src/lib/Plugins'},
+	package_dir		= {'screenlets': 'src/lib','screenlets': 'src/lib/Plugins'},
 	# additional files to be installed
 	data_files		= files_list
 	)

@@ -44,8 +44,8 @@ ScreenletPath = sys.path[0]
 #sys.path.append(ScreenletPath+'/Players')
 
 # Add the Amazon Cover search Path
-sys.path.append(ScreenletPath+'/amazon')
-import CoverSearch
+#sys.path.append(ScreenletPath+'/amazon')
+CoverSearch = Plugins.importAPI('CoverSearch')
 
 # Add the UI Module
 sys.path.append(ScreenletPath+'/UI')
@@ -318,8 +318,10 @@ class NowPlayingScreenlet(screenlets.Screenlet):
 
 	def check_playing(self):
 		if self.player:
-			self.playing = self.player.is_playing()
-			return self.playing
+			try:
+				self.playing = self.player.is_playing()
+				return self.playing
+			except:pass
 		self.playing = False
 		return self.playing
 

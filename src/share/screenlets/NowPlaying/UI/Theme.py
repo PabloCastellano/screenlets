@@ -380,7 +380,9 @@ class PlayerButton(screenlets.ShapedWidget):
 		if event.button==1:
 			self.image = self.image_normal
 			self.queue_draw()
-			if(self.callbackfn != None): self.callbackfn()
+			try:
+				if(self.callbackfn != None): self.callbackfn()
+			except:pass
 		return False
 
 	def enter_notify(self, widget, event):

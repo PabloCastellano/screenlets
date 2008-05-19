@@ -69,7 +69,7 @@ class NowPlayingScreenlet(screenlets.Screenlet):
 	
 	# default meta-info for Screenlets
 	__name__ = 'NowPlayingScreenlet'
-	__version__ = '0.2'
+	__version__ = '0.3'
 	__author__ = 'magicrobotmonkey modified by Whise'
 	__desc__ = 'A screenlet to show what\'s currently playing '+\
 		'(and probably eventually control it) '
@@ -167,11 +167,17 @@ class NowPlayingScreenlet(screenlets.Screenlet):
 	def menuitem_callback(self, widget, id):
 		screenlets.Screenlet.menuitem_callback(self, widget, id)
 		if id=="playpause":
-			if self.player: self.play_pause_wrapped()
+			try:
+				if self.player: self.play_pause_wrapped()
+			except:pass
 		elif id=="next":
-			if self.player: self.player.next()
+			try:
+				if self.player: self.player.next()
+			except:pass
 		elif id=="previous":
-			if self.player: self.player.previous()
+			try:
+				if self.player: self.player.previous()
+			except:pass
 		elif id=="get_skins":
 			os.system('xdg-open http://gnome-look.org/content/show.php/Now+playing+Screenlet+theme+pack?content=74123')
 
@@ -228,6 +234,8 @@ class NowPlayingScreenlet(screenlets.Screenlet):
 			self.init_buffers()
 			self.redraw_background_items()
 		self.redraw_canvas()
+		if self.has_started:self.window.show_all()
+
 	def on_quit(self):
 		if self.default_player_old != '' and self.player_close == True:
 			if self.default_player_old == 'amarok':

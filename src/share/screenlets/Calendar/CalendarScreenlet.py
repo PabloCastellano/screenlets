@@ -230,7 +230,7 @@ class CalendarScreenlet (screenlets.Screenlet):
 		if self.theme:
 			# render bg
 
-			self.theme.render(ctx, 'calendar-bg')
+			self.theme.render(ctx, 'calendar')
 			# create layout
 			if self.show_options == 'Both':
 				if self.mouse_is_over:

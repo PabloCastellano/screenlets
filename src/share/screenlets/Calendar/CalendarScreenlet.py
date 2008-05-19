@@ -33,6 +33,7 @@ class CalendarScreenlet (screenlets.Screenlet):
 
 	p_layout1 = None
 	font_color = (1,1,1, 0.8)
+	today_color = (0.5,0.5,0.5, 0.8)
 	__day_names = None
 	f = "FreeSans 9"
 	# constructor
@@ -50,6 +51,9 @@ class CalendarScreenlet (screenlets.Screenlet):
 		self.add_options_group('Calendar', 'Calendar specific options')
 		self.add_option(ColorOption('Calendar','font_color', 
 			self.font_color, 'Text color', 'font_color'))
+		self.add_option(ColorOption('Calendar','today_color', 
+			self.today_color, 'Today color', 'today_color'))
+
 
 	def on_init (self):
 		print "Screenlet has been initialized."
@@ -100,7 +104,7 @@ class CalendarScreenlet (screenlets.Screenlet):
 		ctx.set_source_rgba(*self.font_color)
 		ctx.show_layout(pl)
 		# draw the year
-		ctx.translate(90 + self.text_shadow_offset, self.text_shadow_offset)
+		ctx.translate(91 + self.text_shadow_offset, self.text_shadow_offset)
 		pl.set_markup('<b>' + year + '</b>')
 		ctx.set_source_rgba(0, 0, 0, 0.3)
 		ctx.show_layout(pl)
@@ -112,16 +116,16 @@ class CalendarScreenlet (screenlets.Screenlet):
 	def draw_header (self, ctx, pl):
 		ctx.save()
 		tso = self.text_shadow_offset
-		ctx.translate(5,0)
+		ctx.translate(5,24)
 		for i in range(7):
 
 			ctx.set_source_rgba(0, 0, 0, 0.3)
 			ctx.translate(tso, tso)
-			self.draw_text(ctx, self.__day_names[i][:2] , 3, 24, 'FreeSans',9, self.width , pango.ALIGN_LEFT)
+			self.draw_text(ctx, self.__day_names[i][:2] , 0, 0, 'FreeSans',9, self.width , pango.ALIGN_LEFT)
 			ctx.translate(-tso, -tso)
 			ctx.set_source_rgba(*self.font_color)
-			self.draw_text(ctx, self.__day_names[i][:2] , 3, 24, 'FreeSans',9, self.width , pango.ALIGN_LEFT)
-			ctx.translate(16,0)
+			self.draw_text(ctx, self.__day_names[i][:2] , 0, 0, 'FreeSans',9, self.width , pango.ALIGN_LEFT)
+			ctx.translate(17.5,0)
 		ctx.restore()
 
 	
@@ -132,12 +136,14 @@ class CalendarScreenlet (screenlets.Screenlet):
 		tso = self.text_shadow_offset
 		for x in range(date[4] + 1):
 			ctx.save()
-			ctx.translate(6 + (day-1) * 16 + tso, 36 + 16 * (row - 1) + tso)
+			ctx.translate(2 + (day-1) * 17.5 + tso, 36 + 16.5 * (row - 1) + tso)
 			if str(int(x)+1) == str(date[0]) or \
 				"0" + str(int(x)+1) == str(date[0]):
 				ctx.save()
 				ctx.translate(0, -1)
-				self.theme.render(ctx, 'calendar-day-bg')
+				ctx.set_source_rgba(*self.today_color)
+				self.draw_rounded_rectangle(ctx,2,0,2,15,12)
+				#self.theme.render(ctx, 'calendar-day-bg')
 				ctx.restore()
 			if int(x)+1 < 10:
 				# draw the days
@@ -163,6 +169,7 @@ class CalendarScreenlet (screenlets.Screenlet):
 
 	def on_draw (self, ctx):
 		# get dates
+		tso = self.text_shadow_offset
 		date = self.get_date_info()
 		# set size
 		ctx.scale(self.scale, self.scale)
@@ -198,12 +205,28 @@ class CalendarScreenlet (screenlets.Screenlet):
 				ctx.scale(self.scale, self.scale)
 			else:
 
+
+				ctx.set_source_rgba(0, 0, 0, 0.3)
+				ctx.translate(tso, tso)
+				self.draw_text(ctx, date[0] , 0, 38, 'FreeSans', 60, self.width , pango.ALIGN_CENTER)
+				ctx.translate(-tso, -tso)
+				ctx.set_source_rgba(*self.font_color)
+				self.draw_text(ctx, date[0] , 0, 38, 'FreeSans', 60, self.width , pango.ALIGN_CENTER)
+
+				ctx.set_source_rgba(0, 0, 0, 0.3)
+				ctx.translate(tso, tso)
+				self.draw_text(ctx, str(date[3])+ ' ' + str(date[2]) , 0, 20, 'FreeSans', 10, self.width , pango.ALIGN_CENTER)
+				ctx.translate(-tso, -tso)
+				ctx.set_source_rgba(*self.font_color)
+				self.draw_text(ctx, str(date[3])+ ' ' + str(date[2]) , 0, 20, 'FreeSans', 10, self.width , pango.ALIGN_CENTER)
+
+				ctx.set_source_rgba(0, 0, 0, 0.3)
+				o = commands.getoutput('date +%A')
+				ctx.translate(tso, tso)
+				self.draw_text(ctx, o, 0, 118, 'FreeSans', 10, self.width , pango.ALIGN_CENTER)
+				ctx.translate(-tso, -tso)
 				ctx.set_source_rgba(*self.font_color)
 
-				#self.draw_text(ctx, str(date[3]) , 0, 5, 'FreeSans', 10, self.width , pango.ALIGN_CENTER)
-				self.draw_text(ctx, date[0] , 0, 38, 'FreeSans', 60, self.width , pango.ALIGN_CENTER)
-				self.draw_text(ctx, str(date[3])+ ' ' + str(date[2]) , 0, 20, 'FreeSans', 10, self.width , pango.ALIGN_CENTER)
-				o = commands.getoutput('date +%A')
 				self.draw_text(ctx, o, 0, 118, 'FreeSans', 10, self.width , pango.ALIGN_CENTER)
 		
 	def on_draw_shape(self,ctx):

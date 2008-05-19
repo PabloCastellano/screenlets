@@ -18,7 +18,7 @@ import cairo
 import pango
 import datetime
 import locale
-from screenlets.options import ColorOption
+from screenlets.options import ColorOption, StringOption
 
 import commands
 
@@ -36,6 +36,9 @@ class CalendarScreenlet (screenlets.Screenlet):
 	today_color = (0.5,0.5,0.5, 0.8)
 	__day_names = None
 	f = "FreeSans 9"
+	show_options = 'Both'
+	show_options_choices = ['Month view','Day view','Both']
+
 	# constructor
 	def __init__(self, **keyword_args):
 		# call super
@@ -49,6 +52,9 @@ class CalendarScreenlet (screenlets.Screenlet):
 
 		self.theme_name = "ryx"
 		self.add_options_group('Calendar', 'Calendar specific options')
+		self.add_option(StringOption('Calendar', 'show_options', 
+			self.show_options, 'View type', 
+			'show_options',choices = self.show_options_choices), realtime=False)
 		self.add_option(ColorOption('Calendar','font_color', 
 			self.font_color, 'Text color', 'font_color'))
 		self.add_option(ColorOption('Calendar','today_color', 
@@ -161,6 +167,46 @@ class CalendarScreenlet (screenlets.Screenlet):
 			day = day + 1
 			ctx.restore()
 
+
+	def draw_day_view(self,ctx):
+		date = self.get_date_info()
+		tso = self.text_shadow_offset
+		ctx.set_source_rgba(0, 0, 0, 0.3)
+		ctx.translate(tso, tso)
+		self.draw_text(ctx, date[0] , 0, 38, 'FreeSans', 60, self.width , pango.ALIGN_CENTER)
+		ctx.translate(-tso, -tso)
+		ctx.set_source_rgba(*self.font_color)
+		self.draw_text(ctx, date[0] , 0, 38, 'FreeSans', 60, self.width , pango.ALIGN_CENTER)
+	
+		ctx.set_source_rgba(0, 0, 0, 0.3)
+		ctx.translate(tso, tso)
+		self.draw_text(ctx, str(date[3])+ ' ' + str(date[2]) , 0, 20, 'FreeSans', 10, self.width , pango.ALIGN_CENTER)
+		ctx.translate(-tso, -tso)
+		ctx.set_source_rgba(*self.font_color)
+		self.draw_text(ctx, str(date[3])+ ' ' + str(date[2]) , 0, 20, 'FreeSans', 10, self.width , pango.ALIGN_CENTER)
+		ctx.set_source_rgba(0, 0, 0, 0.3)
+		o = commands.getoutput('date +%A')
+		ctx.translate(tso, tso)
+		self.draw_text(ctx, o, 0, 118, 'FreeSans', 10, self.width , pango.ALIGN_CENTER)
+		ctx.translate(-tso, -tso)
+		ctx.set_source_rgba(*self.font_color)
+		self.draw_text(ctx, o, 0, 118, 'FreeSans', 10, self.width , pango.ALIGN_CENTER)
+
+	def draw_month_view(self,ctx):
+		ctx.save()
+		date = self.get_date_info()
+		ctx.translate(0,7)
+		self.p_layout1 = ctx.create_layout()
+		p_fdesc = pango.FontDescription("FreeSans 9")
+		self.p_layout1.set_font_description(p_fdesc)
+		# draw year/month
+		self.draw_year_and_month(ctx, self.p_layout1, date[2], date[3])
+		# draw header
+		self.draw_header(ctx, self.p_layout1)
+		# draw days
+		self.draw_days(ctx, self.p_layout1, date)
+		ctx.restore()
+
 	def on_mouse_enter(self,event):
 		self.redraw_canvas()
 
@@ -169,8 +215,8 @@ class CalendarScreenlet (screenlets.Screenlet):
 
 	def on_draw (self, ctx):
 		# get dates
-		tso = self.text_shadow_offset
-		date = self.get_date_info()
+
+
 		# set size
 		ctx.scale(self.scale, self.scale)
 		# draw bg (if theme available)
@@ -186,49 +232,18 @@ class CalendarScreenlet (screenlets.Screenlet):
 
 			self.theme.render(ctx, 'calendar-bg')
 			# create layout
-			if self.mouse_is_over:
-				ctx.save()
+			if self.show_options == 'Both':
+				if self.mouse_is_over:
+					self.draw_month_view(ctx)
 
-				ctx.translate(0,7)
-
-				self.p_layout1 = ctx.create_layout()
-				p_fdesc = pango.FontDescription("FreeSans 9")
-				self.p_layout1.set_font_description(p_fdesc)
-
-				# draw year/month
-				self.draw_year_and_month(ctx, self.p_layout1, date[2], date[3])
-				# draw header
-				self.draw_header(ctx, self.p_layout1)
-				# draw days
-				self.draw_days(ctx, self.p_layout1, date)
-				ctx.restore()
-				ctx.scale(self.scale, self.scale)
-			else:
+				else:
+					self.draw_day_view(ctx)
+			elif self.show_options == 'Day view':
+				self.draw_day_view(ctx)
+			elif self.show_options == 'Month view':
+				self.draw_month_view(ctx)
 
 
-				ctx.set_source_rgba(0, 0, 0, 0.3)
-				ctx.translate(tso, tso)
-				self.draw_text(ctx, date[0] , 0, 38, 'FreeSans', 60, self.width , pango.ALIGN_CENTER)
-				ctx.translate(-tso, -tso)
-				ctx.set_source_rgba(*self.font_color)
-				self.draw_text(ctx, date[0] , 0, 38, 'FreeSans', 60, self.width , pango.ALIGN_CENTER)
-
-				ctx.set_source_rgba(0, 0, 0, 0.3)
-				ctx.translate(tso, tso)
-				self.draw_text(ctx, str(date[3])+ ' ' + str(date[2]) , 0, 20, 'FreeSans', 10, self.width , pango.ALIGN_CENTER)
-				ctx.translate(-tso, -tso)
-				ctx.set_source_rgba(*self.font_color)
-				self.draw_text(ctx, str(date[3])+ ' ' + str(date[2]) , 0, 20, 'FreeSans', 10, self.width , pango.ALIGN_CENTER)
-
-				ctx.set_source_rgba(0, 0, 0, 0.3)
-				o = commands.getoutput('date +%A')
-				ctx.translate(tso, tso)
-				self.draw_text(ctx, o, 0, 118, 'FreeSans', 10, self.width , pango.ALIGN_CENTER)
-				ctx.translate(-tso, -tso)
-				ctx.set_source_rgba(*self.font_color)
-
-				self.draw_text(ctx, o, 0, 118, 'FreeSans', 10, self.width , pango.ALIGN_CENTER)
-		
 	def on_draw_shape(self,ctx):
 		ctx.scale(self.scale, self.scale)
 		if self.theme:

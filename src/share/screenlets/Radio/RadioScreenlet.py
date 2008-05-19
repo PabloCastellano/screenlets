@@ -10,16 +10,17 @@
 #
 #RadioScreenlet (c) Whise <helder.fraga@hotmail.com>
 
+import screenlets
 from screenlets import DefaultMenuItem
 from screenlets.options import BoolOption, StringOption, FontOption, ListOption, IntOption,ColorOption
-import Mplayer
+from screenlets import Plugins
 import cairo
 import pango
-import screenlets
 import gobject
 import sys
 import gtk
 import commands
+Mplayer = Plugins.importAPI('Mplayer')
 
 STREAM_TITLE_MAX_LENGTH = 32
 

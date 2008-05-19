@@ -60,9 +60,10 @@ PLAYER_LIST = {'Rhythmbox':'RhythmboxAPI',
                     'Banshee':'BansheeAPI',
                     'Amarok':'AmarokAPI',
                     'Exaile':'ExaileAPI',
-                    'Sonata':'SonataAPI'}
+                    'Sonata':'SonataAPI',
+                    'Quodlibet':'QuodlibetAPI',}
 
-PLAYER_LIST_LAUNCH = ['rhythmbox','listen','banshee','amarok','exaile','sonata']
+PLAYER_LIST_LAUNCH = ['rhythmbox','listen','banshee','amarok','exaile','sonata','quodlibet']
 # The Screenlet
 class NowPlayingScreenlet(screenlets.Screenlet):
 	"""Shows Song Info"""
@@ -320,9 +321,12 @@ class NowPlayingScreenlet(screenlets.Screenlet):
 				self.skin.set_player(self.player.__class__.__name__)
 				self.get_info()
 				print "Setting callbacks"
-				self.player.callback_fn = None
-				self.player.register_change_callback(self.get_info)
-				self.set_player_callbacks()
+				try:
+					self.player.callback_fn = None
+					self.player.register_change_callback(self.get_info)
+					self.set_player_callbacks()
+				except AttributeError:
+					pass
 
 	def check_playing(self):
 		if self.player:

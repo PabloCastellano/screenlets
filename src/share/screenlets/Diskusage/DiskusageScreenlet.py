@@ -151,7 +151,7 @@ class DiskusageScreenlet(screenlets.Screenlet):
 			
 				self.theme['disk-glow.svg'].render_cairo(ctx)
 			except Exception, ex:
-				print 'no glass '			
+				pass			
 			
 			self.theme.render(ctx, 'drive2')
 		

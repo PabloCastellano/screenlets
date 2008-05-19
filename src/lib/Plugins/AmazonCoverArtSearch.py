@@ -119,17 +119,19 @@ class AmazonCoverArtSearch (object):
 		self.search_next ();
 
 	def __build_url (self, keyword):
-		(lc_host, lc_name) = self.__get_locale ()
+		try:
+			(lc_host, lc_name) = self.__get_locale ()
+		
+			url = "http://" + lc_host + "/onca/xml3?f=xml"
+			url += "&t=%s" % ASSOCIATE
+			url += "&dev-t=%s" % LICENSE_KEY
+			url += "&type=%s" % 'lite'
+			url += "&locale=%s" % lc_name
+			url += "&mode=%s" % 'music'
+			url += "&%s=%s" % ('KeywordSearch', urllib.quote (keyword))
 
-		url = "http://" + lc_host + "/onca/xml3?f=xml"
-		url += "&t=%s" % ASSOCIATE
-		url += "&dev-t=%s" % LICENSE_KEY
-		url += "&type=%s" % 'lite'
-		url += "&locale=%s" % lc_name
-		url += "&mode=%s" % 'music'
-		url += "&%s=%s" % ('KeywordSearch', urllib.quote (keyword))
-
-		return url
+			return url
+		except:return None
 
 	def search_next (self):
 		self.searching = True
@@ -146,8 +148,11 @@ class AmazonCoverArtSearch (object):
 		else:
 			# Retrieve search for keyword
 			url = self.__build_url (keyword.strip ())
-			self.loader.get_url (url, self.on_search_response)
-			ret = True
+			if url != None:
+				self.loader.get_url (url, self.on_search_response)
+				ret = True
+			else:
+				ret = False
 
 		return ret
 

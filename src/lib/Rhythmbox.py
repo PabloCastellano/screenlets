@@ -59,20 +59,19 @@ class RhythmboxAPI(GenericAPI):
 		if coverFile != None:
 			if os.path.isfile(coverFile):
 				return coverFile
-		else:
-		
-				
-			coverFile = os.environ['HOME']+"/.gnome2/rhythmbox/covers/"+self.get_artist()+" - "+self.get_album()+".jpg"
-			if not os.path.isfile(coverFile):
-				baseURL = urlparse( urllib.url2pathname( self.playerAPI.getPlayingUri() ) )
-				basePath = os.path.dirname( baseURL.path )
-				coverFile = basePath + "/cover.jpg"
-				if (os.path.isfile(coverFile) == False):
-					coverFile = basePath + "/cover.png"
-					if (os.path.isfile(coverFile) == False):
-						coverFile = os.environ['HOME']+"/.gnome2/rhythmbox/covers/"+self.get_artist()+\
-						" - "+self.get_album()+".jpg"
-			return coverFile
+			
+		coverFile = os.environ['HOME']+"/.gnome2/rhythmbox/covers/"+self.get_artist()+" - "+self.get_album()+".jpg"
+		if not os.path.isfile(coverFile):
+			baseURL = urlparse( urllib.url2pathname( self.playerAPI.getPlayingUri() ) )
+			basePath = os.path.dirname( baseURL.path )
+			names = ['Album', 'Cover', 'Folde']
+			for x in os.listdir(basePath):
+				if os.path.splitext(x)[1] in [".jpg", ".png"] and (x.capitalize()[:5] in names):
+					coverFile = basePath + '/' + x
+					return coverFile
+ 		return coverFile
+ 
+
 
 	def is_playing(self):
 		if self.playerAPI.getPlaying() == 1: return True

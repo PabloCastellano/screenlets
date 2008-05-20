@@ -88,7 +88,7 @@ class FeedReaderScreenlet (screenlets.Screenlet):
 		self.add_option(IntOption('Options','feed_number', 
 			self.feed_number, 'Number of titles to display', 
 			'Number of titles to display', 
-			min=1, max=20))
+			min=1, max=50))
 
 		self.add_option(FontOption('Options','font_title', 
 			self.font_title, 'Title Font', 

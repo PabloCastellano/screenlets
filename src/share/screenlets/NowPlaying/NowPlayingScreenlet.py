@@ -473,7 +473,9 @@ class NowPlayingScreenlet(screenlets.Screenlet):
 		#print "---drawing regularly updated items---"
 		# Draw Items that need regular updates (like scrolling text)
 		playing = False
-		if self.player and self.player.is_playing(): playing = True 
+		try:
+			if self.player and self.player.is_playing(): playing = True 
+		except: playing = False
 		if self.theme and self.skin:
 			needUpdates = False
 			for item in self.skin.items:

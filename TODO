@@ -46,6 +46,15 @@
 - Improve the storage screenlet.
   Should be "collecting" everything that is put into it and offer
   some intelligent way to retrieve stuff from it. (Stacks?)
+- Fix the mail Screenlet
+- add missing states to Flower (state 7/8, dry 1, wet 1/2)
+- improve Flower's "AI" (it is more "artificial insanity" than intelligence :D)
+- add custom services to more screenlets (e.g. Notes, MailCheck, ...)
+- Ip Screenlet show local and external ip , also improve layout
+- Ring Sensors and Sensors show download upload
+- Slideshow allow to start with stoped slideshow
+- Tomboy display notes sorted by date
+- Trash , comply with new gnome defenitions
 - A Dock Screenlet , kinda like the dock in yahoo widgets
 - ColorManagerScreenlet that allows to pick colors from anywhere (and manage
   the colors in a fancy and intuitive way?). Should display in RGB, hex, int.
@@ -58,4 +67,5 @@
   should either popup a nice progress bar or use some ProgressbarScreenlet 
   (should launch paco through gksu to get a secure root-login)
 - Nowplaying - more player api
+- All - removed old code , change the some private funtions to public ones from the core
 

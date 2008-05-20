@@ -2,7 +2,7 @@
   Screenlets - POSSIBLE TODO LIST
 --------------------------------------------------------------------------------
 
-Plans/thoughts for the framework:
++ TODO: Core
 -----------------------------------
 - Implement gconf-backend
 - Implement gnome keyring
@@ -30,6 +30,7 @@ Plans/thoughts for the framework:
 - ??screenlets should get their own .service-files for dbus to launch the 
   main instance if none is running (causes very long delay on startup - why?)
 - [PermanentItem] code cleanup and bug-hunt
+- Take advantage of webkit when the python bindings become available
 
 + TODO: screenlets-manager
 
@@ -45,6 +46,7 @@ Plans/thoughts for the framework:
 - Improve the storage screenlet.
   Should be "collecting" everything that is put into it and offer
   some intelligent way to retrieve stuff from it. (Stacks?)
+- A Dock Screenlet , kinda like the dock in yahoo widgets
 - ColorManagerScreenlet that allows to pick colors from anywhere (and manage
   the colors in a fancy and intuitive way?). Should display in RGB, hex, int.
 - ProgressbarScreenlet which can be used by other apps to display progress of

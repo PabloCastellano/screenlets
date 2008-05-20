@@ -19,10 +19,7 @@
   and mass for certain window-types?) to be able to stack screenlets on top of
   another and put them on top of other windows and have them stay there and
   move when the other windows are moved, akamaru lib? aantn seems to be working on it
-- SQLite-backend for settings (would allow encrypted values)
-- maybe add a ScreenletRenderer-class and subclasses which can be used to
-  implement different types of abstraction within the drawing-related code
-- Remove rsvg rependecies?
+- Remove rsvg rependecies? its not used often can be replaced by gtk draw
 - Fix fileoption and directoryoption
 - find a way to get notified about end of a begin_move_drag-operation?
 - add/finish missing handlers:

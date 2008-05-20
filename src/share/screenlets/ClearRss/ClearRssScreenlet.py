@@ -23,7 +23,7 @@ import os
 
 is_manager = utils.is_manager_running_me()
 try:
-	from screenlets import feedparser
+	import feedparser
 except:
 	if not is_manager:
 		screenlets.show_message(None,'You don\'t have Feedparser installed! \nInstall python-feedparser or copy feedparser.py from rss/ folder to your screenlets folder.')

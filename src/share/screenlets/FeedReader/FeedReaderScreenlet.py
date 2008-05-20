@@ -17,7 +17,17 @@ import pango
 import gobject
 import gtk
 import os
-from screenlets import feedparser
+
+is_manager = utils.is_manager_running_me()
+try:
+	import feedparser
+except:
+	if not is_manager:
+		screenlets.show_message(None,'You don\'t have Feedparser installed! \nInstall python-feedparser or copy feedparser.py from rss/ folder to your screenlets folder.')
+		sys.exit()
+	else:
+		print 'You don\'t have Feedparser installed! \nInstall python-feedparser or copy feedparser.py from rss/ folder to your screenlets folder.'
+
 
 class FeedReaderScreenlet (screenlets.Screenlet):
 	"""Customizable Application Menu"""

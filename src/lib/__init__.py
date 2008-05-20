@@ -1930,8 +1930,8 @@ class Screenlet (gobject.GObject, EditableOptions):
 		ctx.restore()
 		return extents[2]
 
-	def get_text_extents(self, ctx, text, font):
-		"""Returns the pixel extents of a given text"""
+	def get_text_width(self, ctx, text, font):
+		"""Returns the pixel width of a given text"""
 		ctx.save()
 		if self.p_layout == None :
 	
@@ -1946,8 +1946,42 @@ class Screenlet (gobject.GObject, EditableOptions):
 		self.p_layout.set_text(text)
 		extents, lextents = self.p_layout.get_pixel_extents()
 		ctx.restore()
-		return extents
+		return extents[2]
+
+	def get_text_line_count(self, ctx, text, font):
+		"""Returns the line count of a given text"""
+		ctx.save()
+		if self.p_layout == None :
 	
+			self.p_layout = ctx.create_layout()
+		else:
+			
+			ctx.update_layout(self.p_layout)
+		if self.p_fdesc == None:self.p_fdesc = pango.FontDescription()
+		else: pass
+		self.p_fdesc.set_family_static(font)
+		self.p_layout.set_font_description(self.p_fdesc)
+		self.p_layout.set_text(text)
+		ctx.restore()
+		return self.p_layout.get_line_count()
+	
+	def get_text_line(self, ctx, text, font, line):
+		"""Returns a line of a given text"""
+		ctx.save()
+		if self.p_layout == None :
+	
+			self.p_layout = ctx.create_layout()
+		else:
+			
+			ctx.update_layout(self.p_layout)
+		if self.p_fdesc == None:self.p_fdesc = pango.FontDescription()
+		else: pass
+		self.p_fdesc.set_family_static(font)
+		self.p_layout.set_font_description(self.p_fdesc)
+		self.p_layout.set_text(text)
+		ctx.restore()
+		return self.p_layout.get_line(line)
+
 	def check_for_icon(self,icon):
 		try:
 			icontheme = gtk.icon_theme_get_default()
@@ -1958,7 +1992,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 		except:
 			return False
 	
-	def draw_text(self, ctx, text, x, y,  font, size, width, allignment=pango.ALIGN_LEFT,weight = 0, ellipsize = pango.ELLIPSIZE_NONE):
+	def draw_text(self, ctx, text, x, y,  font, size, width, allignment=pango.ALIGN_LEFT,justify = False,weight = 0, ellipsize = pango.ELLIPSIZE_NONE):
 		"""Draws text"""
 		ctx.save()
 		ctx.translate(x, y)
@@ -1976,6 +2010,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 		self.p_layout.set_font_description(self.p_fdesc)
 		self.p_layout.set_width(width * pango.SCALE)
 		self.p_layout.set_alignment(allignment)
+		self.p_layout.set_justify(justify)
 		self.p_layout.set_ellipsize(ellipsize)
 		self.p_layout.set_markup(text)
 		ctx.show_layout(self.p_layout)

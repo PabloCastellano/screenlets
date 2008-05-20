@@ -30,7 +30,7 @@ except:
 
 
 class FeedReaderScreenlet (screenlets.Screenlet):
-	"""Customizable Application Menu"""
+	"""Customizable RSS Feed Reader"""
 	
 	# default meta-info for Screenlets (should be removed and put into metainfo)
 	__name__	= 'FeedReaderScreenlet'

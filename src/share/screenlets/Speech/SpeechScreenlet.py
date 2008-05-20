@@ -38,7 +38,7 @@ except:
 
 
 class SpeechScreenlet(screenlets.Screenlet):
-	"""A screenlet performing various numerical conversions."""
+	"""A screenlet that speaks what you type , uses orca tts api"""
 	
 	# default meta-info for Screenlets
 	__name__ = 'SpeechScreenlet'

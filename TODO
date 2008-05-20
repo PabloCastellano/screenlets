@@ -31,6 +31,10 @@
   main instance if none is running (causes very long delay on startup - why?)
 - [PermanentItem] code cleanup and bug-hunt
 - Take advantage of webkit when the python bindings become available
+- Phisics , akamaru lib? aantn seems to be working on it
+- screenlets-interoperability-with other apps - aantn seems to be working on it in universal applets branch
+- Notification area - needs C module...
+
 
 + TODO: screenlets-manager
 

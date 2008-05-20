@@ -278,13 +278,7 @@ class NetmonitorScreenlet(screenlets.Screenlet):
 		return True
 
 	def on_draw_shape(self,ctx):
-		ctx.scale(self.scale, self.scale)
-		if self.theme:
-			#self.theme['control-bg.svg'].render_cairo(ctx)
-			ctx.set_source_rgba(1, 1, 1, 1)
-			ctx.rectangle (0,0,self.width,self.height)
-			ctx.fill()
-			
+		self.on_draw(ctx)
 
 if __name__ == "__main__":
 	import screenlets.session

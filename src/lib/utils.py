@@ -331,13 +331,24 @@ def read_file( filename):
 	f.close()
 	return t
 
+def send_mail(smtp_server,fromaddr,toaddrs, subject,msg):
+	import smtplib
+	server = smtplib.SMTP(smtp_server)
+	server.sendmail(fromaddr, toaddrs, subject + msg)
+	server.quit()
+
 
 def strip_html(string):
     return re.sub(r"<.*?>|</.*?>","",string)
 
+
+
 # ------------------------------------------------------------------------------
 # CLASSES
 # ------------------------------------------------------------------------------
+
+
+
 
 class FileMonitor(gobject.GObject):
 	'''
@@ -485,6 +496,118 @@ class IniReader:
 			return True
 		else:
 			return False
+
+class Mailer:
+    """
+    Class that retrieve the information from an Imap, Pop or mbox account
+
+    All the email-related operation lies in this few lines
+    """
+    import imaplib
+    import poplib
+    import mailbox
+    from sys import exc_info
+    from os import stat, utime, path, listdir
+    
+    
+    def __init__(self, config):
+        self.config=config
+        self.last_size=-1
+        self.size=-1
+        self.mbox_size = 0
+        self.mbox_mtime = 0
+
+    def __call__(self):
+        self.last_size=self.size
+
+        try:
+            # IMAP4
+            #
+            if self.config['method']=='imap4':
+                s = self.imaplib.__dict__['IMAP4'+['','_SSL']
+                                          [self.config['ssl']]]\
+                                          (self.config['host'])
+                s.login(self.config['user_name'],self.config['user_password'])
+                s.select()
+                size = len(s.search(None, 'UNSEEN')[1][0].split())
+                s.logout()
+                
+            # POP3
+            #
+            elif self.config['method']=='pop3':
+                s = self.poplib.__dict__['POP3'+['','_SSL']
+                                         [self.config['ssl']]]\
+                                         (self.config['host'])
+                s.user(self.config['user_name'])
+                s.pass_(self.config['user_password'])
+                size = len(s.list()[1])
+                
+            # Maildir
+            #
+            # This was reported to work with qmail, but it is untested with
+            # other mail servers -- for maximum portability, one could
+            # still rewrite next four lines using the mailbox Python module
+            # (in core libraries).
+            #
+            elif self.config['method'] == 'maildir':
+                mdir_path = getenv('MAILDIR', self.config['mailspool'])
+                mdir_new = self.path.join(self.path.expanduser(mdir_path), 'new')
+
+                size = len([f for f in self.listdir(mdir_new) if f[0] != '.'])
+
+            # Unix mbox
+            #
+            elif self.config['method'] == 'mbox':
+                mbox_path = getenv('MAIL',self.config['mailspool'])
+                # Get mbox inode properties
+                #
+                s = self.stat(mbox_path)
+                if (s.st_size == self.mbox_size and
+                    s.st_mtime == self.mbox_mtime):
+                    size = self.last_size	# mbox has not changed on disk
+                else:
+                    size = 0			# mbox has changed
+                    for m in self.mailbox.PortableUnixMailbox(file(mbox_path)):
+                        if m.get('status','N').find('N') != -1:
+                            size += 1
+                            
+                    # Trick the system into thinking the mbox inode was not
+                    # accessed since last modification. From 'manual.txt'
+                    # of mutt 1.5.8:
+                    #
+                    # [ ... new mail is detected by comparing the last
+                    # modification time to the last access time.
+                    # Utilities like biff or frm or any other program
+                    # which accesses the mailbox might cause Mutt to
+                    # never detect new mail for that mailbox if they
+                    # do not properly reset the access time.
+                    # Backup tools are another common reason for updated
+                    # access times. ]
+                    #
+                    self.utime(mbox_path, (s.st_atime, s.st_mtime))
+
+                    # Remember size and time
+                    #
+                    self.mbox_size = s.st_size
+                    self.mbox_mtime = s.st_mtime
+                    
+            # Uknown access method
+            #
+            else:
+                raise RuntimeError('unknown access method `%s\'' %
+                                   self.config['method'])
+        except:
+            # Exception handling: output a significant printout
+            #
+            size = -1
+            print '='*80
+            print traceback.print_exception(*self.exc_info())
+            print '='*80
+            print self.config
+            print '='*80
+            
+        self.size = size
+        return size
 
 class Notifier:
 	"""A simple and conveniet wrapper for the notification-service. Allows

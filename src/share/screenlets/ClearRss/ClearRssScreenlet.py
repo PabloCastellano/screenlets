@@ -23,7 +23,7 @@ import os
 
 is_manager = utils.is_manager_running_me()
 try:
-	import feedparser
+	from screenlets import feedparser
 except:
 	if not is_manager:
 		screenlets.show_message(None,'You don\'t have Feedparser installed! \nInstall python-feedparser or copy feedparser.py from rss/ folder to your screenlets folder.')
@@ -300,6 +300,7 @@ class ClearRssScreenlet(screenlets.Screenlet):
 		"""Get the summary and title of the selected feed"""
 		url = str(self.feed_url)
 		f = feedparser.parse(url)
+		print f
 		#Get the summary of the newest item (0)
 		#return  f['entries'][self.feed_number]['title'] + "\n\n" + f['entries'][self.feed_number]['summary']
 		print 

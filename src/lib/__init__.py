@@ -2353,6 +2353,12 @@ class Screenlet (gobject.GObject, EditableOptions):
         		self.tooltip.x    = tooltipx
         		self.tooltip.y    = tooltipy
 			self.tooltip.show()
+		else:
+     			#self.tooltip = Tooltip(300, 400)
+        		self.tooltip.text = text
+        		self.tooltip.x    = tooltipx
+        		self.tooltip.y    = tooltipy
+			#self.tooltip.show()
 
 	def hide_tooltip (self):
 	        """hide tooltip window"""

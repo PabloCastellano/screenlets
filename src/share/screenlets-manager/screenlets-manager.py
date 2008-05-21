@@ -823,7 +823,7 @@ class ScreenletsManager:
 		# add about/close buttons to window
 		but_about = gtk.Button(stock=gtk.STOCK_ABOUT)
 		but_close = gtk.Button(stock=gtk.STOCK_CLOSE)
-		but_download = gtk.Button('Get more screenlets')
+		but_download = gtk.Button(_('Get more screenlets'))
 		but_download.set_image(gtk.image_new_from_stock(gtk.STOCK_GO_DOWN, 
 			gtk.ICON_SIZE_BUTTON))
 		but_about.connect('clicked', self.button_clicked, 'about')

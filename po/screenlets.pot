@@ -1,794 +1,788 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR ORGANIZATION
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-13 19:35+0200\n"
+"POT-Creation-Date: 2008-05-21 17:12+WEST\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: utf-8\n"
+"Generated-By: pygettext.py 1.5\n"
 
 
-#: XmlMenu.py:48
+#: screenlets/src/lib/XmlMenu.py:48
 msgid "Error while creating image from file: %s"
 msgstr ""
 
-#: XmlMenu.py:64
+#: screenlets/src/lib/XmlMenu.py:64
 msgid "Error: file %s not found."
 msgstr ""
 
-#: XmlMenu.py:185
+#: screenlets/src/lib/XmlMenu.py:185
 msgid "XML-Error: %s"
 msgstr ""
 
-#: XmlMenu.py:231
+#: screenlets/src/lib/XmlMenu.py:231
 msgid "Exception: %s"
 msgstr ""
 
-#: XmlMenu.py:232
+#: screenlets/src/lib/XmlMenu.py:232
 msgid "An error occured with desktop-file: %s"
 msgstr ""
 
-#: XmlMenu.py:338
+#: screenlets/src/lib/XmlMenu.py:343
 msgid "Error while creating menu."
 msgstr ""
 
-#: __init__.py:154
+#: screenlets/src/lib/__init__.py:160
 msgid "Error while loading ScreenletTheme in: "
 msgstr ""
 
-#: __init__.py:175
+#: screenlets/src/lib/__init__.py:181
 msgid "Override: "
 msgstr ""
 
-#: __init__.py:186
+#: screenlets/src/lib/__init__.py:192
 msgid "WARNING: Option '%s' not found or protected."
 msgstr ""
 
-#: __init__.py:411
+#: screenlets/src/lib/__init__.py:428
 msgid "theme.conf loaded: "
 msgstr ""
 
-#: __init__.py:412
+#: screenlets/src/lib/__init__.py:429
 msgid "Name: "
 msgstr ""
 
-#: __init__.py:413
+#: screenlets/src/lib/__init__.py:430
 msgid "Author: "
 msgstr ""
 
-#: __init__.py:414
+#: screenlets/src/lib/__init__.py:431
 msgid "Version: "
 msgstr ""
 
-#: __init__.py:415
+#: screenlets/src/lib/__init__.py:432
 msgid "Info: "
 msgstr ""
 
-#: __init__.py:417
+#: screenlets/src/lib/__init__.py:434
 msgid "Failed to load theme.conf"
 msgstr ""
 
-#: __init__.py:469
+#: screenlets/src/lib/__init__.py:488
 msgid "theme.conf found! Loading option-overrides."
 msgstr ""
 
-#: __init__.py:524
+#: screenlets/src/lib/__init__.py:543
 msgid "No name set for this Screenlet"
 msgstr ""
 
-#: __init__.py:526
+#: screenlets/src/lib/__init__.py:545
 msgid "No author defined for this Screenlet"
 msgstr ""
 
-#: __init__.py:527
+#: screenlets/src/lib/__init__.py:546
 msgid "No info set for this Screenlet"
 msgstr ""
 
-#: __init__.py:626
+#: screenlets/src/lib/__init__.py:653
 msgid "The basic settings for this Screenlet-instance."
 msgstr ""
 
-#: __init__.py:638
+#: screenlets/src/lib/__init__.py:668
 msgid "The X-position of this Screenlet ..."
 msgstr ""
 
-#: __init__.py:638
+#: screenlets/src/lib/__init__.py:668
 msgid "X-Position"
 msgstr ""
 
-#: __init__.py:641
+#: screenlets/src/lib/__init__.py:671
 msgid "The Y-position of this Screenlet ..."
 msgstr ""
 
-#: __init__.py:641
+#: screenlets/src/lib/__init__.py:671
 msgid "Y-Position"
 msgstr ""
 
-#: __init__.py:644
+#: screenlets/src/lib/__init__.py:674
 msgid "The width of this Screenlet ..."
 msgstr ""
 
-#: __init__.py:644
+#: screenlets/src/lib/__init__.py:674
 msgid "Width"
 msgstr ""
 
-#: __init__.py:647
+#: screenlets/src/lib/__init__.py:677
 msgid "Height"
 msgstr ""
 
-#: __init__.py:647
+#: screenlets/src/lib/__init__.py:677
 msgid "The height of this Screenlet ..."
 msgstr ""
 
-#: __init__.py:650
+#: screenlets/src/lib/__init__.py:680
 msgid "Scale"
 msgstr ""
 
-#: __init__.py:650
+#: screenlets/src/lib/__init__.py:680
 msgid "The scale-factor of this Screenlet ..."
 msgstr ""
 
-#: __init__.py:653
+#: screenlets/src/lib/__init__.py:683
 msgid "Opacity"
 msgstr ""
 
-#: __init__.py:653
+#: screenlets/src/lib/__init__.py:683
 msgid "The opacity of the Screenlet window ..."
 msgstr ""
 
-#: __init__.py:656
+#: screenlets/src/lib/__init__.py:686
 msgid "Stick to Desktop"
 msgstr ""
 
-#: __init__.py:657
+#: screenlets/src/lib/__init__.py:687
 msgid "Show this Screenlet on all workspaces ..."
 msgstr ""
 
-#: __init__.py:659
+#: screenlets/src/lib/__init__.py:689
 msgid "Treat as Widget"
 msgstr ""
 
-#: __init__.py:660
+#: screenlets/src/lib/__init__.py:690
 msgid "Treat this Screenlet as a \"Widget\" ..."
 msgstr ""
 
-#: __init__.py:662
+#: screenlets/src/lib/__init__.py:698
 msgid "Lock position"
 msgstr ""
 
-#: __init__.py:663
+#: screenlets/src/lib/__init__.py:699
 msgid "Stop the screenlet from being moved..."
 msgstr ""
 
-#: __init__.py:665
-#: __init__.py:920
+#: screenlets/src/lib/__init__.py:701 screenlets/src/lib/__init__.py:970
 msgid "Keep above"
 msgstr ""
 
-#: __init__.py:666
+#: screenlets/src/lib/__init__.py:702
 msgid "Keep this Screenlet above other windows ..."
 msgstr ""
 
-#: __init__.py:668
-#: __init__.py:927
+#: screenlets/src/lib/__init__.py:704 screenlets/src/lib/__init__.py:977
 msgid "Keep below"
 msgstr ""
 
-#: __init__.py:669
+#: screenlets/src/lib/__init__.py:705
 msgid "Keep this Screenlet below other windows ..."
 msgstr ""
 
-#: __init__.py:671
+#: screenlets/src/lib/__init__.py:707
 msgid "Draw button controls"
 msgstr ""
 
-#: __init__.py:672
+#: screenlets/src/lib/__init__.py:708
 msgid "Draw buttons in top right corner"
 msgstr ""
 
-#: __init__.py:674
+#: screenlets/src/lib/__init__.py:710
 msgid "Skip Pager"
 msgstr ""
 
-#: __init__.py:675
+#: screenlets/src/lib/__init__.py:711
 msgid "Set this Screenlet to show/hide in pagers ..."
 msgstr ""
 
-#: __init__.py:677
+#: screenlets/src/lib/__init__.py:713
 msgid "Skip Taskbar"
 msgstr ""
 
-#: __init__.py:678
+#: screenlets/src/lib/__init__.py:714
 msgid "Set this Screenlet to show/hide in taskbars ..."
 msgstr ""
 
-#: __init__.py:681
+#: screenlets/src/lib/__init__.py:716
+msgid "Resize on mouse scroll"
+msgstr ""
+
+#: screenlets/src/lib/__init__.py:720
 msgid "Allow overriding Options"
 msgstr ""
 
-#: __init__.py:682
+#: screenlets/src/lib/__init__.py:721
 msgid "Allow themes to override options in this screenlet ..."
 msgstr ""
 
-#: __init__.py:684
+#: screenlets/src/lib/__init__.py:723
 msgid "Ask on Override"
 msgstr ""
 
-#: __init__.py:685
+#: screenlets/src/lib/__init__.py:724
 msgid "Show a confirmation-dialog when a theme wants to override "
 msgstr ""
 
-#: __init__.py:686
+#: screenlets/src/lib/__init__.py:725
 msgid "the current options of this Screenlet ..."
 msgstr ""
 
-#: __init__.py:784
+#: screenlets/src/lib/__init__.py:828
 msgid "LOAD NEW THEME: "
 msgstr ""
 
-#: __init__.py:785
+#: screenlets/src/lib/__init__.py:829
 msgid "FOUND: "
 msgstr ""
 
-#: __init__.py:863
+#: screenlets/src/lib/__init__.py:913
 msgid "Size"
 msgstr ""
 
-#: __init__.py:878
+#: screenlets/src/lib/__init__.py:928
 msgid "Theme"
 msgstr ""
 
-#: __init__.py:893
+#: screenlets/src/lib/__init__.py:943
 msgid "Window"
 msgstr ""
 
-#: __init__.py:899
+#: screenlets/src/lib/__init__.py:949
 msgid "Lock"
 msgstr ""
 
-#: __init__.py:906
+#: screenlets/src/lib/__init__.py:956
 msgid "Sticky"
 msgstr ""
 
-#: __init__.py:913
+#: screenlets/src/lib/__init__.py:963
 msgid "Widget"
 msgstr ""
 
-#: __init__.py:936
+#: screenlets/src/lib/__init__.py:986
 msgid "Properties..."
 msgstr ""
 
-#: __init__.py:940
+#: screenlets/src/lib/__init__.py:990
 msgid "Info..."
 msgstr ""
 
-#: __init__.py:944
+#: screenlets/src/lib/__init__.py:994
 msgid "Delete Screenlet ..."
 msgstr ""
 
-#: __init__.py:947
+#: screenlets/src/lib/__init__.py:997
 msgid "Quit this %s ..."
 msgstr ""
 
-#: __init__.py:950
+#: screenlets/src/lib/__init__.py:1000
 msgid "Quit all %ss ..."
 msgstr ""
 
-#: __init__.py:1134
+#: screenlets/src/lib/__init__.py:1235
 msgid "Error while loading theme: "
 msgstr ""
 
-#: __init__.py:1144
+#: screenlets/src/lib/__init__.py:1245
 msgid "This theme wants to override your settings for this Screenlet. Do you want to allow that?"
 msgstr ""
 
-#: __init__.py:1261
-msgid "UPDATING SHAPE"
-msgstr ""
-
-#: __init__.py:1347
+#: screenlets/src/lib/__init__.py:1447
 msgid "To quit all %s's, use 'Quit' instead. "
 msgstr ""
 
-#: __init__.py:1348
+#: screenlets/src/lib/__init__.py:1448
 msgid "Really delete this %s and its settings?"
 msgstr ""
 
-#: __init__.py:1534
-#: __init__.py:1537
-msgid "MOUSEWHEEL"
-msgstr ""
-
-#: __init__.py:1556
-msgid "Compositing method changed to %s"
-msgstr ""
-
-#: __init__.py:1562
-msgid "Warning - Buttons will not be shown until screenlet is restarted"
-msgstr ""
-
-#: __init__.py:1592
+#: screenlets/src/lib/__init__.py:1703
 msgid "Cancel delete_event"
 msgstr ""
 
-#: __init__.py:1612
+#: screenlets/src/lib/__init__.py:1723
 msgid "Start drag"
 msgstr ""
 
-#: __init__.py:1621
+#: screenlets/src/lib/__init__.py:1732
 msgid "End drag"
 msgstr ""
 
-#: __init__.py:1697
+#: screenlets/src/lib/__init__.py:1817
 msgid "Quitting current screenlet instance"
 msgstr ""
 
-#: __init__.py:1714
+#: screenlets/src/lib/__init__.py:1834
 msgid "Screenlet: Set theme %s"
 msgstr ""
 
-#: __init__.py:1723
+#: screenlets/src/lib/__init__.py:1843
 msgid "Error: Cannot set missing or non-boolean value '"
 msgstr ""
 
-#: backend.py:33
+#: screenlets/src/lib/backend.py:33
 msgid "GConf python module not found. GConf settings backend is disabled."
 msgstr ""
 
-#: backend.py:72
+#: screenlets/src/lib/backend.py:72
 msgid "GConfBackend: initializing"
 msgstr ""
 
-#: backend.py:102
+#: screenlets/src/lib/backend.py:102
 msgid "Saved option %s%s/%s = %s"
 msgstr ""
 
-#: backend.py:135
+#: screenlets/src/lib/backend.py:135
 msgid "Temporary file didn't exist - nothing to remove."
 msgstr ""
 
-#: backend.py:137
+#: screenlets/src/lib/backend.py:137
 msgid "CachingBackend: <#%s> removed!"
 msgstr ""
 
-#: backend.py:176
+#: screenlets/src/lib/backend.py:176
 msgid "CachingBackend: Loading instances from cache"
 msgstr ""
 
-#: backend.py:186
+#: screenlets/src/lib/backend.py:186
 msgid "CachingBackend: Loading <%s>"
 msgstr ""
 
-#: backend.py:202
+#: screenlets/src/lib/backend.py:202
 msgid "Error while loading options: %s"
 msgstr ""
 
-#: backend.py:210
+#: screenlets/src/lib/backend.py:210
 msgid "Queue-element <%s> not found (already removed?)!"
 msgstr ""
 
-#: backend.py:214
+#: screenlets/src/lib/backend.py:214
 msgid "CachingBackend: Saving <#%s> :) ..."
 msgstr ""
 
-#: backend.py:227
+#: screenlets/src/lib/backend.py:227
 msgid "error while saving config: %s%s"
 msgstr ""
 
-#: options.py:151
+#: screenlets/src/lib/options.py:151
 msgid "Error during on_import - option: %s."
 msgstr ""
 
-#: options.py:233
+#: screenlets/src/lib/options.py:233
 msgid "GnomeKeyring is not available!!"
 msgstr ""
 
-#: options.py:239
+#: screenlets/src/lib/options.py:239
 msgid "No keyrings found. Please create one first!"
 msgstr ""
 
-#: options.py:245
+#: screenlets/src/lib/options.py:245
 msgid "Warning: No default keyring found, storage is not permanent!"
 msgstr ""
 
-#: options.py:261
+#: screenlets/src/lib/options.py:261
 msgid "ERROR: Unable to read password from keyring: %s"
 msgstr ""
 
-#: options.py:266
+#: screenlets/src/lib/options.py:266
 msgid "Illegal value in AccountOption.on_import."
 msgstr ""
 
-#: options.py:394
+#: screenlets/src/lib/options.py:394
 msgid "Options: Error - group %s not defined."
 msgstr ""
 
-#: options.py:452
+#: screenlets/src/lib/options.py:452
 msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
 msgstr ""
 
-#: options.py:456
+#: screenlets/src/lib/options.py:456
 msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
 msgstr ""
 
-#: options.py:465
+#: screenlets/src/lib/options.py:465
 msgid "Error in metadata-file \"%s\" - only <group>-tags allowed in first level. Groups must contain at least one <info>-element."
 msgstr ""
 
-#: options.py:471
+#: screenlets/src/lib/options.py:471
 msgid "No name for group defined in \"%s\"."
 msgstr ""
 
-#: options.py:487
+#: screenlets/src/lib/options.py:487
 msgid "Invalid option-node found in \"%s\"."
 msgstr ""
 
-#: options.py:603
+#: screenlets/src/lib/options.py:603
 msgid "PRESS: %s"
 msgstr ""
 
-#: options.py:640
+#: screenlets/src/lib/options.py:640
 msgid "Edit Options"
 msgstr ""
 
-#: options.py:770
+#: screenlets/src/lib/options.py:766
 msgid "Path %s not found."
 msgstr ""
 
-#: options.py:806
+#: screenlets/src/lib/options.py:802
 msgid "active theme is: %s"
 msgstr ""
 
-#: options.py:836
+#: screenlets/src/lib/options.py:832
 msgid "About "
 msgstr ""
 
-#: options.py:848
+#: screenlets/src/lib/options.py:844
 msgid "Options "
 msgstr ""
 
-#: options.py:855
+#: screenlets/src/lib/options.py:851
 msgid "Themes allow you to easily switch the appearance of your Screenlets. On this page you find a list of all available themes for this Screenlet."
 msgstr ""
 
-#: options.py:884
+#: screenlets/src/lib/options.py:880
 msgid "Themes "
 msgstr ""
 
-#: options.py:896
+#: screenlets/src/lib/options.py:893
 msgid "no info available"
 msgstr ""
 
-#: options.py:983
+#: screenlets/src/lib/options.py:984
 msgid "Choose File"
 msgstr ""
 
-#: options.py:992
+#: screenlets/src/lib/options.py:993
 msgid "Choose Directory"
 msgstr ""
 
-#: options.py:1018
+#: screenlets/src/lib/options.py:1019
 msgid "Choose Image"
 msgstr ""
 
-#: options.py:1085
+#: screenlets/src/lib/options.py:1086
 msgid "Open List-Editor ..."
 msgstr ""
 
-#: options.py:1106
+#: screenlets/src/lib/options.py:1107
 msgid "Apply username/password ..."
 msgstr ""
 
-#: options.py:1107
+#: screenlets/src/lib/options.py:1108
 msgid "Enter username here ..."
 msgstr ""
 
-#: options.py:1108
+#: screenlets/src/lib/options.py:1109
 msgid "Enter password here ..."
 msgstr ""
 
-#: options.py:1146
+#: screenlets/src/lib/options.py:1147
 msgid "unsupported type ''"
 msgstr ""
 
-#: options.py:1163
+#: screenlets/src/lib/options.py:1164
 msgid "Apply"
 msgstr ""
 
-#: options.py:1224
+#: screenlets/src/lib/options.py:1225
 msgid "OptionsDialog: Unknown option type: %s"
 msgstr ""
 
-#: options.py:1234
+#: screenlets/src/lib/options.py:1235
 msgid "Changed: %s"
 msgstr ""
 
-#: sensors.py:52
-#: sensors.py:90
-#: sensors.py:105
+#: screenlets/src/lib/sensors.py:50 screenlets/src/lib/sensors.py:88
+#: screenlets/src/lib/sensors.py:103
 msgid "Failed to open /proc/stat"
 msgstr ""
 
-#: sensors.py:76
+#: screenlets/src/lib/sensors.py:74
 msgid "Failed to open /proc/cpuinfo"
 msgstr ""
 
-#: sensors.py:130
+#: screenlets/src/lib/sensors.py:160
 msgid "%s days, %s hours and %s minutes"
 msgstr ""
 
-#: sensors.py:146
+#: screenlets/src/lib/sensors.py:163 screenlets/src/lib/sensors.py:179
 msgid "Failed to open /proc/uptime"
 msgstr ""
 
-#: sensors.py:205
+#: screenlets/src/lib/sensors.py:199
+msgid "Failed to open /proc/sys/kernel/hostname"
+msgstr ""
+
+#: screenlets/src/lib/sensors.py:214
+msgid "Failed to open /proc/loadavg"
+msgstr ""
+
+#: screenlets/src/lib/sensors.py:248
 msgid "Error getting distro name"
 msgstr ""
 
-#: sensors.py:234
+#: screenlets/src/lib/sensors.py:277
 msgid "Can't get kernel version"
 msgstr ""
 
-#: sensors.py:243
+#: screenlets/src/lib/sensors.py:286
 msgid "Can't get KDE version"
 msgstr ""
 
-#: sensors.py:252
+#: screenlets/src/lib/sensors.py:295
 msgid "Can't get Gnome version"
 msgstr ""
 
-#: sensors.py:322
+#: screenlets/src/lib/sensors.py:306
+msgid "Failed to open /proc/version"
+msgstr ""
+
+#: screenlets/src/lib/sensors.py:371
 msgid "Can't parse /proc/meminfo"
 msgstr ""
 
-#: sensors.py:456
+#: screenlets/src/lib/sensors.py:469
+msgid "Failed to open /proc/swaps"
+msgstr ""
+
+#: screenlets/src/lib/sensors.py:510
 msgid "Cannot get ip"
 msgstr ""
 
-#: sensors.py:475
+#: screenlets/src/lib/sensors.py:529
 msgid "Can't open /proc/net/dev"
 msgstr ""
 
-#: sensors.py:511
+#: screenlets/src/lib/sensors.py:565
 msgid "Can't open /proc/net/wireless"
 msgstr ""
 
-#: sensors.py:523
-#: sensors.py:536
+#: screenlets/src/lib/sensors.py:577 screenlets/src/lib/sensors.py:590
 msgid "Not connected"
 msgstr ""
 
-#: sensors.py:786
+#: screenlets/src/lib/sensors.py:804
 msgid "Can't open %s/temperature"
 msgstr ""
 
-#: sensors.py:788
+#: screenlets/src/lib/sensors.py:806
 msgid "Can't open folder /proc/acpi/thermal_zone/"
 msgstr ""
 
-#: sensors.py:804
-#: sensors.py:815
+#: screenlets/src/lib/sensors.py:822 screenlets/src/lib/sensors.py:833
 msgid "Can't open %s"
 msgstr ""
 
-#: sensors.py:830
+#: screenlets/src/lib/sensors.py:848
 msgid "Error during hddtemp drives search"
 msgstr ""
 
-#: sensors.py:832
-#: sensors.py:909
+#: screenlets/src/lib/sensors.py:850 screenlets/src/lib/sensors.py:927
 msgid "Hddtemp not installed"
 msgstr ""
 
-#: sensors.py:862
+#: screenlets/src/lib/sensors.py:880
 msgid "can't read temperature in: %s"
 msgstr ""
 
-#: sensors.py:876
-#: sensors.py:892
+#: screenlets/src/lib/sensors.py:894 screenlets/src/lib/sensors.py:910
 msgid "Can't read value from %s"
 msgstr ""
 
-#: sensors.py:1030
+#: screenlets/src/lib/sensors.py:1048
 msgid "CPUSensor: Failed to open /proc/stat. Sensor stopped."
 msgstr ""
 
-#: services.py:54
+#: screenlets/src/lib/services.py:60
 msgid "No name set in ScreenletService.__init__!"
 msgstr ""
 
-#: services.py:68
+#: screenlets/src/lib/services.py:74
 msgid "TEST: %s"
 msgstr ""
 
-#: services.py:73
+#: screenlets/src/lib/services.py:79
 msgid "DEBUG: %s"
 msgstr ""
 
-#: services.py:103
-#: services.py:143
+#: screenlets/src/lib/services.py:110 screenlets/src/lib/services.py:153
 msgid "Cannot get/set protected options through service."
 msgstr ""
 
-#: services.py:135
+#: screenlets/src/lib/services.py:144
 msgid "Trying to access invalid instance \"%s\"."
 msgstr ""
 
-#: services.py:137
+#: screenlets/src/lib/services.py:146
 msgid "Trying to access invalid option \"%s\"."
 msgstr ""
 
-#: services.py:169
+#: screenlets/src/lib/services.py:180
 msgid "Error in screenlets.services.get_service_by_name: %s"
 msgstr ""
 
-#: session.py:72
+#: screenlets/src/lib/session.py:72
 msgid ""
 "ScreenletSession.__init__ has to be called with a\n"
 "\t\t\t valid Screenlet-classobject as first argument!"
 msgstr ""
 
-#: session.py:94
+#: screenlets/src/lib/session.py:94
 msgid "Unable to init backend - settings will not be saved!"
 msgstr ""
 
-#: session.py:112
+#: screenlets/src/lib/session.py:119
 msgid "Error in screenlets.session.connect_daemon: %s"
 msgstr ""
 
-#: session.py:117
+#: screenlets/src/lib/session.py:124
 msgid "Creating new instance: "
 msgstr ""
 
-#: session.py:120
+#: screenlets/src/lib/session.py:127
 msgid "ID is unset or already in use - creating new one!"
 msgstr ""
 
-#: session.py:126
-#: session.py:376
+#: screenlets/src/lib/session.py:133 screenlets/src/lib/session.py:391
 msgid "File: %s"
 msgstr ""
 
-#: session.py:132
-#: session.py:382
+#: screenlets/src/lib/session.py:139 screenlets/src/lib/session.py:397
 msgid "Set options in %s"
 msgstr ""
 
-#: session.py:159
+#: screenlets/src/lib/session.py:166
 msgid "Failed to remove INI-file for instance (not critical)."
 msgstr ""
 
-#: session.py:163
+#: screenlets/src/lib/session.py:170
 msgid "Removing last instance from session"
 msgstr ""
 
-#: session.py:165
+#: screenlets/src/lib/session.py:172
 msgid "TODO: remove self.path: %s"
 msgstr ""
 
-#: session.py:169
+#: screenlets/src/lib/session.py:176
 msgid "Failed to remove session dir '%s' - not empty?"
 msgstr ""
 
-#: session.py:174
-#: session.py:201
+#: screenlets/src/lib/session.py:181 screenlets/src/lib/session.py:208
 msgid "Removing instance from session but staying alive"
 msgstr ""
 
-#: session.py:223
+#: screenlets/src/lib/session.py:230
 msgid "Found a running session of %s, adding new instance by service."
 msgstr ""
 
-#: session.py:226
+#: screenlets/src/lib/session.py:233
 msgid "Adding new instance through: %s"
 msgstr ""
 
-#: session.py:232
+#: screenlets/src/lib/session.py:239
 msgid "Loading instances in: %s"
 msgstr ""
 
-#: session.py:235
+#: screenlets/src/lib/session.py:242
 msgid "Restored instances from session '%s' ..."
 msgstr ""
 
-#: session.py:241
+#: screenlets/src/lib/session.py:248
 msgid "No instance(s) found in session-path, creating new one."
 msgstr ""
 
-#: session.py:255
+#: screenlets/src/lib/session.py:262
 msgid "Failed creating instance of: %s"
 msgstr ""
 
-#: session.py:273
-msgid "Error: Unable to create temp entry - screenlets-manager will not work properly."
+#: screenlets/src/lib/session.py:284
+msgid "Unable to open %s"
 msgstr ""
 
-#: session.py:281
+#: screenlets/src/lib/session.py:287
 msgid "Creating new entry for %s in %s"
 msgstr ""
 
-#: session.py:294
-msgid "No global tempfile found, creating new one."
+#: screenlets/src/lib/session.py:290
+msgid "Screenlet has already been added to %s"
 msgstr ""
 
-#: session.py:297
+#: screenlets/src/lib/session.py:307
+msgid "No global tempdir found, creating new one."
+msgstr ""
+
+#: screenlets/src/lib/session.py:312
+msgid "Temp directory %s created."
+msgstr ""
+
+#: screenlets/src/lib/session.py:314
 msgid "Error: Unable to create temp directory %s - screenlets-manager will not work properly."
 msgstr ""
 
-#: session.py:316
+#: screenlets/src/lib/session.py:331
 msgid "Failed to unregister from daemon: %s"
 msgstr ""
 
-#: session.py:321
+#: screenlets/src/lib/session.py:336
 msgid "Removing entry for %s from global tempfile %s"
 msgstr ""
 
-#: session.py:326
+#: screenlets/src/lib/session.py:341
 msgid "Entry not found. Will (obviously) not be removed."
 msgstr ""
 
-#: session.py:338
+#: screenlets/src/lib/session.py:353
 msgid "Error global tempfile not found. Some error before?"
 msgstr ""
 
-#: session.py:341
+#: screenlets/src/lib/session.py:356
 msgid "No more screenlets running."
 msgstr ""
 
-#: session.py:344
+#: screenlets/src/lib/session.py:359
 msgid "No screenlets running?"
 msgstr ""
 
-#: session.py:350
+#: screenlets/src/lib/session.py:365
 msgid "Deleting global tempfile %s"
 msgstr ""
 
-#: session.py:355
+#: screenlets/src/lib/session.py:370
 msgid "Error: Failed to delete global tempfile"
 msgstr ""
 
-#: session.py:389
+#: screenlets/src/lib/session.py:404
 msgid "Failed to create instance of '%s'!"
 msgstr ""
 
-#: session.py:422
-msgid "Screenlet has been killed. TODO: make this an event"
-msgstr ""
-
-#: session.py:433
+#: screenlets/src/lib/session.py:449
 msgid "Screenlet '%s' has been interrupted by keyboard. TODO: make this an event"
 msgstr ""
 
-#: session.py:435
+#: screenlets/src/lib/session.py:451
 msgid "Exception in ScreenletSession: "
 msgstr ""
 
-#: utils.py:81
+#: screenlets/src/lib/utils.py:101
 msgid "Unable to load '%s' from %s: %s "
 msgstr ""
 
-#: utils.py:100
+#: screenlets/src/lib/utils.py:120
 msgid "LISTED PATH NOT EXISTS: "
 msgstr ""
 
-#: utils.py:199
+#: screenlets/src/lib/utils.py:430
 msgid "File %s not found"
 msgstr ""
 
-#: utils.py:230
+#: screenlets/src/lib/utils.py:461
 msgid "Section %s not found!"
 msgstr ""
 
-#: utils.py:264
+#: screenlets/src/lib/utils.py:497
 msgid "Notify: No DBus running or notifications-daemon unavailable."
 msgstr ""
 

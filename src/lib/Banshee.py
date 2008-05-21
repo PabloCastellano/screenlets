@@ -15,7 +15,9 @@ class BansheeAPI(GenericAPI):
 	ns = "org.gnome.Banshee"
 	iroot = "/org/gnome/Banshee/Player"
 	iface = "org.gnome.Banshee.Core"
-
+#	ns = "org.bansheeproject.Banshee"
+#	iroot = "/org/bansheeproject/Banshee/PlayerEngine"
+#	iface = "org.bansheeproject.Banshee.PlayerEngine"
 	playerAPI = None
 
 	__timeout = None

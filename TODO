@@ -31,6 +31,15 @@
 - screenlets-interoperability-with other apps - aantn seems to be working on it 
   in universal applets branch
 - Notification area - needs C module...
+- Proxy usage on net dependent screenlets https://bugs.launchpad.net/screenlets/+bug/172801
+- Have a way to show the current scale of a screenlet 
+  https://bugs.launchpad.net/screenlets/+bug/205711
+- Drag drop launch of screenlets in the manager
+  https://bugs.launchpad.net/screenlets/+bug/208757
+- Use Python's Logging Module
+  https://bugs.launchpad.net/screenlets/+bug/232541
+  aantn seems to be working on it
+
 
 
 + TODO: screenlets-manager

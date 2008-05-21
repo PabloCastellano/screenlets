@@ -21,7 +21,7 @@ import gtk
 from os import system
 from urllib import quote
 import gobject
-from screenlets import DefaultMenuItem,utils
+from screenlets import DefaultMenuItem,mail
 import pyDes
 
 
@@ -122,7 +122,7 @@ class GmailScreenlet(screenlets.Screenlet):
 		self.msa = self.k.decrypt(self.pas, "*")
 	
 		n = self.nam.replace('@gmail.com','')
-		self.msgs = utils.get_GMail_Num(n, self.msa)
+		self.msgs = mail.get_GMail_Num(n, self.msa)
 
 
 

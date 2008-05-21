@@ -42,7 +42,7 @@ import math
 import poplib
 import os
 from gtk import Tooltips
-
+from screenlets import mail
 
 # error messages
 MSG_CONNECTION_FAILED	= "Error while connecting to server."
@@ -51,166 +51,12 @@ MSG_AUTH_FAILED = """Error on login - invalid login data given? Some hosts
 may block connections for a certain interval before allowing reconnects."""
 
 
-# the current operational status of the mailcheck
-class MailCheckStatus:
-	REFRESH		= 1
-	GOT_MAIL	= 2
-	ERROR		= 3
-	IDLE		= 100
 
 
 # superclass for new backends (could be improved, I guess - currently only
 # designed for retrieving the number of mails in the backend because some
 # backend do not support counting of new-mails)
-class MailCheckBackend (gobject.GObject):
-	"""The backend class which performs checking for mail and offers access
-	to the current mail-backend. By subclassing this class you can add multiple
-	mail-backends to the MailCheckScreenlet (e.g. pop3, maildir, imap, 
-	gmail, ...)."""
-	
-	__gsignals__ = dict(check_finished=(gobject.SIGNAL_RUN_FIRST,
-		gobject.TYPE_NONE, (gobject.TYPE_INT,)))
-	
-	def __init__ (self, name, screenlet):
-		gobject.GObject.__init__(self)
-		# properties
-		self.name		= name					# name of backend
-		self.screenlet	= screenlet				# assigned MailCheckScreenlet
-		self.refreshing	= False					# not refreshing yet
-		self.mailcount	= 0						# num of mails found on server
-		self.status		= MailCheckStatus.IDLE	# status of the backend
-		self.error		= ''					# human-readable error message
-		self.options	= []					# ???additonal Options for backend
-		self.thread	= None
-	
-	def check_mail (self):
-		"""This handler should be overridden by subclasses to add new types
-		of checking mails in a backend. This handler has to set self.mailcount 
-		to the number of mails found in the backend. The return value is
-		ignored, set self.error and self.status to return results."""
-	
-	def start (self):
-		"""Start receiving mails from the backend. Runs self.__execute as
-		a separate thread."""
-		self.thread = threading.Thread(target=self.__execute).start()
-		
-	def __execute (self):
-		"""Execute the thread and call the check-mail function."""
-		# set status to REFRESH and call check_mail-handler to fetch mails
-		self.refreshing	= True
-		self.status		= MailCheckStatus.REFRESH
-		self.check_mail()
-		# notify registered handlers that we are ready with checking
-		self.emit('check_finished', self.status)
-		# and set status back to idle
-		self.status		= MailCheckStatus.IDLE
-		# not refreshing anymore
-		self.refreshing	= False
 
-
-# IMAPBackend was contributed by Robert Gartler - thanks :)
-class IMAPBackend(MailCheckBackend):
-	"""A backend for retrieving the mailcount from an IMAP server."""
-
-	def __init__ (self, screenlet):
-		# call super
-		MailCheckBackend.__init__(self, 'IMAP', screenlet)
-
-	def check_mail(self):
-		# set default timeout for all socket connections to 30 secs
-		socket.setdefaulttimeout(30000)
-		print "POP3Backend: Connecting to IMAP-server ... please wait."
-		try:
-			server = IMAP4(self.screenlet.imap_server)
-		except:
-			self.error	= MSG_CONNECTION_FAILED
-			self.status	= MailCheckStatus.ERROR
-			return False
-		user, passwd=self.screenlet.imap_account
-		try:
-			server.login(user,passwd)
-		except:
-			self.error	= MSG_AUTH_FAILED
-			self.status	= MailCheckStatus.ERROR
-			server.logout()
-			return False
-
-		typ,data = server.select()
-		if typ == 'OK':
-			msgnum = int(data[0])
-			if msgnum > self.mailcount:
-				diff = msgnum - self.mailcount
-				self.mailcount	= msgnum
-				self.status		= MailCheckStatus.GOT_MAIL
-				print "GOT_MAIL"
-			elif msgnum <= self.mailcount:
-				self.mailcount	= msgnum
-				self.status		= MailCheckStatus.IDLE
-				print "IDLE"
-		else:
-			self.error	= MSG_FETCH_MAILS_FAILED
-			self.status	= MailCheckStatus.ERROR
-			server.logout()
-		return False
-
-
-class POP3Backend (MailCheckBackend):
-	"""A backend for retrieving the mailcount from a POP3 server."""
-	
-	def __init__ (self, screenlet):
-		# call super
-		MailCheckBackend.__init__(self, 'POP3', screenlet)
-		# init additional attributes for this backend-type
-		# TODO: add POP3-specific options to the backend instead of having them
-		# defined in the screenlet by default (ideally they should be only shown
-		# when the POP3-backend is active
-		
-	def check_mail (self):
-		# set default timeout for all socket connections to 30 secs
-		socket.setdefaulttimeout(30000)
-		print "POP3Backend: Connecting to POP3-server ... please wait."
-		#self.screenlet.redraw_canvas()
-		try:
-			server = poplib.POP3(self.screenlet.pop3_server)
-		except:
-			self.error	= MSG_CONNECTION_FAILED
-			self.status = MailCheckStatus.ERROR
-			return False
-		# authenticate
-		user, pw = self.screenlet.pop3_account
-		#print "ACCOUNT IS %s/%s!!" % (o[0], o[1])
-		try:
-			# TODO: remove print here once ready!!!!
-			print server.user(user)
-			print server.pass_(pw)
-		except:
-			self.error	= MSG_AUTH_FAILED
-			self.status = MailCheckStatus.ERROR
-			server.quit()
-			return False
-		# get list with mails (response, list-of-mails)
-		resp = server.list()
-		if resp[0].startswith('+OK'):
-			messages = resp[1]
-			#print messages
-			msgnum = len(messages)
-			if msgnum > self.mailcount:
-				diff = msgnum - self.mailcount
-				self.mailcount = msgnum
-				self.status = MailCheckStatus.GOT_MAIL
-				print "GOT_MAIL"
-			elif msgnum <= self.mailcount:
-				self.mailcount = msgnum
-				self.status = MailCheckStatus.IDLE
-				print "IDLE"
-		else:
-			self.error	= MSG_FETCH_MAILS_FAILED
-			self.status	= MailCheckStatus.ERROR
-			#server.quit()
-			#return False
-		# close connection
-		server.quit()
-		return False
 
 
 class MailCheckScreenlet (screenlets.Screenlet):
@@ -228,7 +74,7 @@ class MailCheckScreenlet (screenlets.Screenlet):
 	# internals
 	__timeout		= None
 	__mailbackend	= None
-	__status		= MailCheckStatus.IDLE
+	__status		= mail.MailCheckStatus.IDLE
 	__blinking		= False
 	__blink_phase	= 0
 	__blink_timeout	= None
@@ -239,7 +85,7 @@ class MailCheckScreenlet (screenlets.Screenlet):
 	mail_client		= 'evolution'
 	known_mailcount	= 0		# hidden option to remember number of known mails
 	unchecked_mails	= 0		# hidden option to remember unchecked mails
-	backend_type	= 'POP3'
+	backend_type	= 'IMAP'
 	
 	# POP3/IMAP-options (should be added by backend)
 	pop3_server		= ''
@@ -254,7 +100,7 @@ class MailCheckScreenlet (screenlets.Screenlet):
 		# set theme
 		self.theme_name = "default"
 		# init default backend
-		self.set_backend(POP3Backend)
+		#self.set_backend(mail.POP3Backend)
 		# add menuitems
 		self.add_menuitem('check_mail', 'Check now!')
 		self.add_menuitem('open_client', 'Open client ...')
@@ -312,10 +158,11 @@ class MailCheckScreenlet (screenlets.Screenlet):
 		elif name in ('known_mailcount', 'unchecked_mails'):
 			self.redraw_canvas()
 		elif name == 'backend_type':
+			if self.has_started:screenlets.show_message(self, 'Restart required')
 			if value == 'POP3':
-				self.set_backend(POP3Backend)
+				self.set_backend(mail.POP3Backend)
 			elif value == 'IMAP':
-				self.set_backend(IMAPBackend)
+				self.set_backend(mail.IMAPBackend)
 			else:
 				screenlets.show_error(self, 'Invalid backend type: %s' % value)
 	
@@ -348,7 +195,7 @@ class MailCheckScreenlet (screenlets.Screenlet):
 		if not self.__mailbackend.refreshing:
 			self.__mailbackend.start()
 			# workaround, cause backend shouldn't call redraw
-			self.__status = MailCheckStatus.REFRESH 
+			self.__status = mail.MailCheckStatus.REFRESH 
 			self.redraw_canvas()
 		return False	# in case we are run as a timeout
 	
@@ -363,7 +210,7 @@ class MailCheckScreenlet (screenlets.Screenlet):
 	def reset_to_idle (self):
 		"""Reset the status back to idle state. (REMOVE???)"""
 		self.stop_blinking()
-		self.__status == MailCheckStatus.IDLE
+		self.__status == mail.MailCheckStatus.IDLE
 		self.redraw_canvas()
 		self.unchecked_mails = 0
 		
@@ -445,7 +292,7 @@ class MailCheckScreenlet (screenlets.Screenlet):
 		the status of the backend and performs the needed actions.
 		Starts new timeout after getting called"""
 		#gtk.gdk.threads_enter()	# start critical section
-		if status == MailCheckStatus.GOT_MAIL:
+		if status == mail.MailCheckStatus.GOT_MAIL:
 			print "You got %i mail(s)." % backend.mailcount
 			# if we got mail, check if we got more mails than last time
 			if backend.mailcount > self.known_mailcount:
@@ -456,8 +303,8 @@ class MailCheckScreenlet (screenlets.Screenlet):
 				# start blinking
 				self.start_blinking()
 			else:
-				self.__status = MailCheckStatus.IDLE
-		elif status == MailCheckStatus.ERROR:
+				self.__status = mail.MailCheckStatus.IDLE
+		elif status == mail.MailCheckStatus.ERROR:
 			# if we had an error
 			self.__status = status
 			#screenlets.show_error(self, backend.error)	# threading-problem!!!
@@ -493,7 +340,7 @@ class MailCheckScreenlet (screenlets.Screenlet):
 	def on_draw (self, ctx):
 		ctx.scale(self.scale, self.scale)
 		if self.theme:
-			if self.__status == MailCheckStatus.GOT_MAIL or \
+			if self.__status == mail.MailCheckStatus.GOT_MAIL or \
 				self.unchecked_mails == True:
 				#self.theme['mailcheck-got-mail.svg'].render_cairo(ctx)
 				self.theme.render(ctx, 'mailcheck-got-mail')
@@ -503,9 +350,9 @@ class MailCheckScreenlet (screenlets.Screenlet):
 		if self.blinking():
 			self.draw_blinking(ctx)
 		# draw icon?
-		if self.__status == MailCheckStatus.REFRESH:
+		if self.__status == mail.MailCheckStatus.REFRESH:
 			self.draw_icon(ctx, 'refresh')
-		elif self.__status == MailCheckStatus.ERROR:
+		elif self.__status == mail.MailCheckStatus.ERROR:
 			self.draw_icon(ctx, 'error')
 		# draw text (TODO: make optional)
 		self.draw_text(ctx)

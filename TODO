@@ -83,3 +83,5 @@
   args to ./configure ... and maybe set some more options ... then the screenlet 
   should either popup a nice progress bar or use some ProgressbarScreenlet 
   (should launch paco through gksu to get a secure root-login)
+- Study Screenlet - a screenlet that retreives random frases from text files.
+

@@ -1,5 +1,6 @@
 #-------------------------------------------------------------------------------
-#  Screenlets - (c) 2007 by RYX (aka Rico Pfaus) <ryx@ryxperience.com>
+#  Screenlets - (c) 2008 by Whise (Helder Fraga) <helder.fraga@hotmail.com>
+#  Original author RYX (aka Rico Pfaus) <ryx@ryxperience.com> 
 #-------------------------------------------------------------------------------
 #
 # only a simple makefile to allow installing screenlets (and performing some
@@ -48,7 +49,7 @@ pydoc:
 
 # create API-documentation (using epydoc)
 epydoc:
-	epydoc --html --output=docs/epydoc --name="Screenlets 0.1.1" screenlets screenlets.backend screenlets.options screenlets.utils screenlets.session screenlets.services screenlets.sensors screenlets.XmlMenu
+	epydoc --html --output=docs/epydoc --name="Screenlets 0.1.2" screenlets screenlets.backend screenlets.options screenlets.utils screenlets.session screenlets.services screenlets.sensors screenlets.XmlMenu
 
 # create API-documentation
 menu:

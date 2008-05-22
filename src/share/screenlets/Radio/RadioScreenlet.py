@@ -88,7 +88,7 @@ class RadioScreenlet(screenlets.Screenlet):
 		self.add_option(ListOption('Radio', 'custom_radio_list',
 			self.custom_radio_list, 'Custom Radios',
 			'Custom radios: stream _space_ radio name'))
-		self.add_option(StringOption('Radio', 'password', 
+		self.add_option(StringOption('Radio', 'radio_station', 
 			self.radio_station, 'radio', 
 			'Radio stream address <space> radio name',hidden= True), realtime=False)
 		self.add_option(FontOption('Radio','radio_name_font', 
@@ -174,7 +174,7 @@ class RadioScreenlet(screenlets.Screenlet):
 	def __setattr__(self, name, value):
 		# call Screenlet.__setattr__ in baseclass (ESSENTIAL!!!!)
 		screenlets.Screenlet.__setattr__(self, name, value)
-		if name == 'password':
+		if name == 'radio_station':
 			screenlets.Screenlet.__setattr__(self, name, value)
 			self.redraw_canvas()
 		elif name == 'title_scroll_speed':

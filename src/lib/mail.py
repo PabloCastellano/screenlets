@@ -24,11 +24,6 @@ except ImportError, err:
 
 def get_KMail_num():
 	"""This gets the unread mail number of kmail"""
-	try:
-		import dcop
-	except ImportError, err:
-		print "Please install python dcop"
-		return None
 	kmail = commands.getoutput("dcop kmail default checkMail; sleep 5; echo ' ' | tr -d '\n'; dcop kmail KMailIface getFolder /Krealia/Inbox > /dev/null; dcop 'DCOPRef(kmail,FolderIface)' unreadMessages | tr -d '\n'; echo ' '")
 	if kmail.find("ERROR: Couldn't attach to DCOP server!") != -1:
 		return None

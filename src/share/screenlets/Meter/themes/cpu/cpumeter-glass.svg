@@ -2,7 +2,7 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:cc="http://creativecommons.org/ns#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
@@ -13,7 +13,7 @@
    height="100"
    id="svg2"
    sodipodi:version="0.32"
-   inkscape:version="0.45"
+   inkscape:version="0.46"
    version="1.0"
    sodipodi:docbase="/home/ryx/Documents/scripts/python/screenlets/screenlets-0.0.9/src/share/screenlets/CPUMeter/themes/cpu"
    sodipodi:docname="cpumeter-glass.svg"
@@ -21,6 +21,13 @@
    sodipodi:modified="true">
   <defs
      id="defs4">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 50 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="100 : 50 : 1"
+       inkscape:persp3d-origin="50 : 33.333333 : 1"
+       id="perspective34" />
     <linearGradient
        inkscape:collect="always"
        id="linearGradient3360">
@@ -155,8 +162,9 @@
      height="100px"
      inkscape:window-width="989"
      inkscape:window-height="728"
-     inkscape:window-x="156"
-     inkscape:window-y="219" />
+     inkscape:window-x="143"
+     inkscape:window-y="32"
+     showgrid="false" />
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -172,17 +180,6 @@
      inkscape:label="Ebene 1"
      inkscape:groupmode="layer"
      id="layer1">
-    <text
-       xml:space="preserve"
-       style="font-size:10.961586px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#e6e6e6;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Oliver"
-       x="18.414783"
-       y="26.205822"
-       id="text2831"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan2833"
-         x="18.414783"
-         y="26.205822">CPU</tspan></text>
     <path
        style="color:#000000;fill:#ffffff;fill-opacity:0.39215687;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;visibility:visible;display:inline;overflow:visible"
        d="M 9.90625,10.03125 L 13.90625,14.21875 L 86.15625,14.21875 L 90.15625,10.03125 L 9.90625,10.03125 z M 9.96875,10.1875 L 9.96875,90.28125 L 13.96875,86.28125 L 13.96875,14.53125 L 9.96875,10.1875 z "

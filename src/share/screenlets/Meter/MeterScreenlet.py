@@ -17,13 +17,13 @@ import pango
 import sys
 import gobject
 
-class SensorsScreenlet(screenlets.Screenlet):
-	"""Sensors Screenlet."""
+class MeterScreenlet(screenlets.Screenlet):
+	"""Meter Screenlet."""
 
 	# default meta-info for Screenlets
-	__name__ = 'SensorsScreenlet'
+	__name__ = 'MeterScreenlet'
 	__version__ = '0.1'
-	__author__ = 'Helder Fraga aka Whise'
+	__author__ = 'Helder Fraga aka Whise , theme by RYX'
 	__desc__ = 'Sensors Screenlet.'
 
 	# internals
@@ -52,7 +52,7 @@ class SensorsScreenlet(screenlets.Screenlet):
 	wire_data = []
 	# constructor
 	def __init__(self,**keyword_args):
-		screenlets.Screenlet.__init__(self, width=200, height=100, 
+		screenlets.Screenlet.__init__(self, width=100, height=100, 
 			uses_theme=True, **keyword_args)
 		self.loads=[]
 		#self.old_somme=0
@@ -94,24 +94,9 @@ class SensorsScreenlet(screenlets.Screenlet):
 		self.add_option(BoolOption('Sensors', 'show_text',
 			self.show_text, 'Show Text', 'Show the text on the CPU-Graph ...'))
 
-
-		self.add_option(StringOption('Sensors', 'graph_type',
-			self.graph_type, 'Graph type',
-			'Chart or bar',choices = ['Graph','Bar']))
-
 		self.add_option(StringOption('Sensors', 'sensor',
 			self.sensor, 'Sensor to Display',
 			'',choices=self.sensor_list))
-
-		self.add_option(ColorOption('Sensors','color_high', 
-			self.color_high, 'High color', ''))
-
-		self.add_option(ColorOption('Sensors','color_medium', 
-			self.color_medium, 'Medium Color', 
-			''))
-		self.add_option(ColorOption('Sensors','color_low', 
-			self.color_low, 'Low Color', 
-			''))
 
 		# init the timeout function
 		self.update_interval = self.update_interval
@@ -204,8 +189,8 @@ class SensorsScreenlet(screenlets.Screenlet):
 		
 
 
-		if self.load > 100:
-			self.load = 100
+		if self.load >= 100:
+			self.load = 99
 		elif self.load < 0:
 			self.load=0
 
@@ -223,46 +208,28 @@ class SensorsScreenlet(screenlets.Screenlet):
 		# draw bg (if theme available)
 		ctx.set_operator(cairo.OPERATOR_OVER)
 		if self.theme:
-			self.theme['cpumeter-bg.svg'].render_cairo(ctx)
-		# draw cpu-graph
-			if self.graph_type == 'Graph':
-				ctx.save()
-				ctx.move_to(10,80)
-				i=0
-				for l in self.loads:
-					try:ctx.line_to(i*(180./(self.nb_points-1))+10,80-l*.65)
-					except: pass
-					i+=1
-				ctx.line_to(self.width-10,self.height-20)
-				ctx.close_path()
-				ctx.stroke_preserve()
-				self.linear = cairo.LinearGradient(0, 100,0, 0)
-				self.linear.add_color_stop_rgba(0.22, self.color_low[0],self.color_low[1],self.color_low[2],self.color_low[3])
-				self.linear.add_color_stop_rgba(0.44, self.color_medium[0],self.color_medium[1],self.color_medium[2],self.color_medium[3])
-				self.linear.add_color_stop_rgba(0.66, self.color_high[0],self.color_high[1],self.color_high[2],self.color_high[3])
-				ctx.set_source(self.linear)
-				ctx.fill()
-		
-				ctx.restore()
-			elif self.graph_type == 'Bar':
-				if self.load <= 33:
-					ctx.set_source_rgba(self.color_low[0],self.color_low[1],self.color_low[2],self.color_low[3])
-				elif self.load > 33 and self.load <=  66:
-					ctx.set_source_rgba(self.color_medium[0],self.color_medium[1],self.color_medium[2],self.color_medium[3])
-				elif self.load > 66:
-					ctx.set_source_rgba(self.color_high[0],self.color_high[1],self.color_high[2],self.color_high[3])
-
-				self.draw_rectangle(ctx,10,15,(int(self.load)*180)/100,65)
+			self.theme.render(ctx, 'cpumeter-bg')
 		# draw text
 			if len(str(self.load))==1:
 				self.load = "0" + str(self.load)
 			ctx.set_source_rgba(1, 1, 1, 0.9)
 			if self.sensor.endswith('RPM') or self.sensor.endswith('C') or self.sensor.endswith('V')or self.sensor.find(':') != -1:
-				text = '<small><small><small><small>' +str(self.sensor.split(':')[0]) +'</small></small></small></small>\n'+str(self.sensor.split(':')[1])
+				text = '<small><small><small><small>' +str(self.sensor.split(':')[0])[:9] +'</small></small></small></small>\n'+str(self.sensor.split(':')[1])
 			else:
-				text = '<small><small><small><small>' +self.sensor +'</small></small></small></small>\n'+self.text_prefix + str(self.load) + self.text_suffix
-			if self.show_text:self.draw_text(ctx,text, 15, 20, 'Free Sans', 25,  self.width,pango.ALIGN_LEFT)
+				text = '<small><small><small><small>' +self.sensor[:9] +'</small></small></small></small>\n'+self.text_prefix + str(self.load) + self.text_suffix
+
 			
+			h = (float(self.load) / 100.0) * 70.0
+			ctx.save()
+			ctx.rectangle(20, 10+(70-h), 60, h)
+			ctx.clip()
+			ctx.new_path()
+			self.theme.render(ctx, 'cpumeter-graph')
+			ctx.restore()
+			# draw text
+			if self.show_text:
+				self.draw_text(ctx,text, 15, 20, 'FreeSans', 25,  self.width,pango.ALIGN_LEFT)
+			self.theme.render(ctx, 'cpumeter-glass')
 			
 		# draw glass (if theme available)
 	
@@ -278,4 +245,4 @@ class SensorsScreenlet(screenlets.Screenlet):
 # interpreter then create a Screenlet instance and show it
 if __name__ == "__main__":
 	import screenlets.session
-	screenlets.session.create_session(SensorsScreenlet)
+	screenlets.session.create_session(MeterScreenlet)

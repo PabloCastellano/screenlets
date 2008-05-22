@@ -2,7 +2,7 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:cc="http://creativecommons.org/ns#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
@@ -13,12 +13,20 @@
    height="100"
    id="svg2"
    sodipodi:version="0.32"
-   inkscape:version="0.44"
+   inkscape:version="0.46"
    version="1.0"
-   sodipodi:docbase="/home/ryx/Documents/scripts/python/screenlets/cpumeter/themes/default-blue"
-   sodipodi:docname="cpumeter-glass.svg">
+   sodipodi:docbase="/home/ryx/Documents/scripts/python/screenlets/cpumeter/themes/default"
+   sodipodi:docname="cpumeter-glass.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
   <defs
      id="defs4">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 50 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="100 : 50 : 1"
+       inkscape:persp3d-origin="50 : 33.333333 : 1"
+       id="perspective22" />
     <linearGradient
        id="linearGradient2805">
       <stop
@@ -61,7 +69,8 @@
        y1="9.5986519"
        x2="36.764706"
        y2="49.549633"
-       gradientUnits="userSpaceOnUse" />
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-10e-5,0)" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient2805"
@@ -81,7 +90,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.8284271"
-     inkscape:cx="90.315188"
+     inkscape:cx="1107.3991"
      inkscape:cy="44.839701"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -89,8 +98,9 @@
      height="100px"
      inkscape:window-width="989"
      inkscape:window-height="626"
-     inkscape:window-x="145"
-     inkscape:window-y="163" />
+     inkscape:window-x="143"
+     inkscape:window-y="134"
+     showgrid="false" />
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -106,20 +116,9 @@
      inkscape:label="Ebene 1"
      inkscape:groupmode="layer"
      id="layer1">
-    <text
-       xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:white;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Prototype"
-       x="16.263456"
-       y="26.460896"
-       id="text2831"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan2833"
-         x="16.263456"
-         y="26.460896">CPU</tspan></text>
     <path
        style="opacity:0.7;fill:url(#linearGradient2782);fill-opacity:1;stroke:none;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       d="M 16.630667,9.598652 C 12.371177,9.598652 8.9420568,13.027772 8.9420568,17.287262 L 8.9420568,45.909314 C 19.964801,32.18854 42.360281,22.783417 68.198414,22.783417 C 75.052159,22.783417 81.647256,23.447693 87.870443,24.675536 L 87.870443,17.287262 C 87.870443,13.027772 84.441321,9.598652 80.181833,9.598652 L 16.630667,9.598652 z "
+       d="M 16.6306,9.598652 C 12.3711,9.598652 8.942,13.027772 8.942,17.287262 L 8.942,45.909314 C 19.9647,32.18854 42.3602,22.783417 68.1984,22.783417 C 75.0521,22.783417 81.6472,23.447693 87.8704,24.675536 L 87.8704,17.287262 C 87.8704,13.027772 84.4413,9.598652 80.1818,9.598652 L 16.6306,9.598652 z"
        id="rect2770" />
     <path
        style="opacity:0.56849311;fill:url(#linearGradient2811);fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"

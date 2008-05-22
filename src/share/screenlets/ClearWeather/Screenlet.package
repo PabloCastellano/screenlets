@@ -1,7 +1,0 @@
-[Screenlet Package]
-Name=ClearWeatherScreenlet
-Author=Helder Fraga aka Whise
-Desc=A Weather Screenlet modified from the original to look more clear and to enable the use of icon pack , you can use any icon pack compatible with weather.com , you can find many packs on deviantart.com or http://liquidweather.net/icons.php#iconsets.
-Version=0.3
-ApiVersion=0.0.10
-Created=2007/10/08

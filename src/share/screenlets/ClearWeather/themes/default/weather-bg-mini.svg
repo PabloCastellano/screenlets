@@ -2,7 +2,7 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:cc="http://creativecommons.org/ns#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
@@ -13,13 +13,20 @@
    height="100"
    id="svg2"
    sodipodi:version="0.32"
-   inkscape:version="0.45.1"
+   inkscape:version="0.46"
    version="1.0"
    sodipodi:docbase="/home/helder/screenlets/src/share/screenlets/ClearWeather/themes/default"
    sodipodi:docname="weather-bg-mini.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape">
   <defs
      id="defs4">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 50 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="132 : 50 : 1"
+       inkscape:persp3d-origin="66 : 33.333333 : 1"
+       id="perspective68" />
     <linearGradient
        id="linearGradient7153">
       <stop
@@ -281,16 +288,17 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="5.6568542"
-     inkscape:cx="56.95453"
+     inkscape:cx="20.626919"
      inkscape:cy="51.535595"
      inkscape:document-units="px"
      inkscape:current-layer="layer3"
      width="132px"
      height="100px"
-     inkscape:window-width="1270"
-     inkscape:window-height="790"
-     inkscape:window-x="13"
-     inkscape:window-y="31" />
+     inkscape:window-width="1140"
+     inkscape:window-height="742"
+     inkscape:window-x="0"
+     inkscape:window-y="26"
+     showgrid="false" />
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -327,7 +335,7 @@
          x="27.384535"
          y="28.255527" /></text>
     <path
-       style="opacity:1;fill:url(#linearGradient7159);fill-opacity:1;fill-rule:nonzero;stroke:#090909;stroke-width:0.36229339;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="opacity:0.48220065;fill:url(#linearGradient7159);fill-opacity:1;fill-rule:nonzero;stroke:#090909;stroke-width:0.36229338999999999;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="M 19.701203,18.115146 C 15.106581,18.115146 11.607914,22.470374 11.607914,24.697361 L 11.431146,54.584368 C 11.431146,56.811355 15.106581,60.069086 19.701203,60.069087 L 123.29877,60.069087 C 127.89342,60.069087 131.56885,56.628441 131.56885,54.401453 L 131.56885,23.965697 C 131.56885,21.912949 128.43791,18.404741 124.34769,18.153814 C 124.18239,18.160343 124.0342,18.173148 123.86357,18.173148 C 123.48976,18.173148 123.11979,18.145427 122.77437,18.115146 L 19.701203,18.115146 z "
        id="rect2803"
        sodipodi:nodetypes="ccccccccscc" />

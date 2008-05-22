@@ -574,16 +574,16 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="5.6568542"
-     inkscape:cx="56.95453"
+     inkscape:cx="20.626919"
      inkscape:cy="40.306596"
      inkscape:document-units="px"
      inkscape:current-layer="layer3"
      width="132px"
      height="100px"
-     inkscape:window-width="1270"
-     inkscape:window-height="734"
-     inkscape:window-x="8"
-     inkscape:window-y="0"
+     inkscape:window-width="1140"
+     inkscape:window-height="742"
+     inkscape:window-x="0"
+     inkscape:window-y="26"
      showgrid="false" />
   <metadata
      id="metadata7">
@@ -621,7 +621,7 @@
          x="27.384535"
          y="28.255527" /></text>
     <path
-       style="opacity:1;fill:url(#linearGradient7159);fill-opacity:1;fill-rule:nonzero;stroke:#090909;stroke-width:0.50000000000000000;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="opacity:0.48220065;fill:url(#linearGradient7159);fill-opacity:1;fill-rule:nonzero;stroke:#090909;stroke-width:0.50000000000000000;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="M 19.760577,18.184 C 15.171221,18.184 11.5,21.605666 11.5,25.852203 L 11.5,90.515797 C 11.5,94.762333 15.171221,98.183998 19.760577,98.184 L 123.2394,98.184 C 127.82878,98.184 131.5,94.762336 131.5,90.515797 L 131.5,25.852203 C 131.5,21.937914 128.37264,18.736213 124.28711,18.257733 C 124.122,18.270184 123.97399,18.294599 123.80355,18.294599 C 123.43017,18.294599 123.06062,18.241739 122.71559,18.184 L 19.760577,18.184 z "
        id="rect2803" />
     <text

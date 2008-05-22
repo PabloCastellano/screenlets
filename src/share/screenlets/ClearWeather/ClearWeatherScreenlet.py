@@ -12,7 +12,7 @@
 import re
 from urllib import urlopen
 import screenlets
-from screenlets.options import StringOption, BoolOption
+from screenlets.options import StringOption, BoolOption, ColorOption, FontOption
 from Numeric import *
 import pygtk
 pygtk.require('2.0')
@@ -33,9 +33,9 @@ class ClearWeatherScreenlet(screenlets.Screenlet):
 	
 	# default meta-info for Screenlets
 	__name__ = 'ClearWeatherScreenlet'
-	__version__ = '0.4'
-	__author__ = 'by Helder Fraga aka Whise based on Weather Screenlet by robgig1088'
-	__desc__ = 'A Weather Screenlet modified from the original to look more clear and to enable the use of icon pack , you can use any icon pack compatible with weather.com , you can find many packs on deviantart.com or http://liquidweather.net/icons.php#iconsets.'
+	__version__ = '0.5'
+	__author__ = 'by Helder Fraga aka Whise'
+	__desc__ = 'A Weather Screenlet modified from the original to look more clear and to enable the use of icon pack , you can use any icon pack compatible with weather.com , you can find many packs on deviantart.com or http://liquidweather.net/icons.php#iconsets.Weather information provided by www.weather.com'
 
 	# internals
 	__timeout = None
@@ -47,11 +47,13 @@ class ClearWeatherScreenlet(screenlets.Screenlet):
 	lastx = 0   ## the cursor position inside the window (is there a better way to do this??)
 	over_button = 1
 
-	ZIP = "USNY0996"
+	ZIP = "POXX0079"
 	use_metric = True
 	show_daytemp = True
 	mini = False
-	
+	font = 'Sans'
+	font_color = (1,1,1, 0.8)
+	background_color = (0,0,0, 0.8)
 	latest = []          ## the most recent settings we could get...
 	latestHourly = []
 
@@ -85,7 +87,13 @@ class ClearWeatherScreenlet(screenlets.Screenlet):
 		self.add_option(BoolOption('Weather', 'show_daytemp',
 			bool(self.show_daytemp), 'Show 6 day temperature',
 			'Show 6 day temperature high/low'))
-
+		self.add_option(FontOption('Weather','font', 
+			self.font, 'Font', 
+			'font'))
+		self.add_option(ColorOption('Weather','font_color', 
+			self.font_color, 'Text color', 'font_color'))
+		self.add_option(ColorOption('Weather','background_color', 
+			self.background_color, 'Back color(only with default theme)', 'only works with default theme'))
 	
 	# attribute-"setter", handles setting of attributes
 	def __setattr__(self, name, value):
@@ -313,31 +321,24 @@ class ClearWeatherScreenlet(screenlets.Screenlet):
 		ctx.scale(self.scale, self.scale)
 		# draw bg (if theme available)
 		ctx.set_operator(cairo.OPERATOR_OVER)
+		ctx.set_source_rgba(*self.background_color)
 		if self.theme:
 			if (self.mini == False and weather != []):
-				self.theme['weather-bg.svg'].render_cairo(ctx)
+
+
+				if self.theme_name == 'default':self.draw_rounded_rectangle(ctx,11.5,18.5,8,120,80)
+				self.theme.render(ctx,  'weather-bg' )
+
 			else:
-				self.theme['weather-bg-mini.svg'].render_cairo(ctx)
+				if self.theme_name == 'default':self.draw_rounded_rectangle(ctx,11.5,18.5,8,120,41.8)
+				self.theme.render(ctx,  'weather-bg-mini' )
+		ctx.set_source_rgba(*self.font_color)
 		# draw memory-graph
 		if self.theme:
-			if (self.theme_name == "glassy"):
-				ctx.set_source_rgba(0, 0, 0, 0.8)
-			else:
-				ctx.set_source_rgba(1, 1, 1, 0.8)
-
 			if weather == []:
-				ctx.save()	
-				ctx.translate(15, 35)
-				p_layout = ctx.create_layout()
-				p_fdesc = pango.FontDescription()
-				p_fdesc.set_family_static("Sans")
-				p_fdesc.set_size(4 * pango.SCALE)
-				p_fdesc.set_weight(300)
-				p_fdesc.set_style(pango.STYLE_NORMAL)   ####render no info message
-				p_layout.set_font_description(p_fdesc)
-				p_layout.set_markup('<b>No weather information available</b>')						
-				ctx.show_layout(p_layout)
-				ctx.restore()
+				
+				self.draw_text(ctx,'<b>No weather information available</b>', 15, 35, self.font.split(' ')[0], 4,  self.width,pango.ALIGN_LEFT)
+
 			else:
 				ctx.save()
 				ctx.translate(-2, 0)
@@ -355,39 +356,13 @@ class ClearWeatherScreenlet(screenlets.Screenlet):
 			#		self.theme.render(ctx,icon)
 			#		ctx.restore()
 
-				ctx.save()
-				ctx.translate(90,25)
 				degree = unichr(176)
-				p_layout = ctx.create_layout()
-				p_fdesc = pango.FontDescription()
-				p_fdesc.set_family_static("Sans")
-				p_fdesc.set_size(14 * pango.SCALE)
-				p_fdesc.set_weight(300)
-				p_fdesc.set_style(pango.STYLE_NORMAL)
-				p_layout.set_font_description(p_fdesc)   ######render current temp
 				if len(str(weather[0]["temp"])) == 3:
 					ctx.translate(-7, 0)
-				p_layout.set_markup('<b>' + weather[0]["temp"] + degree +'</b>')							
-				ctx.show_layout(p_layout)
-				ctx.restore()
+				self.draw_text(ctx,'<b>' + weather[0]["temp"] + degree +'</b>', 90,25, self.font.split(' ')[0], 14,  self.width,pango.ALIGN_LEFT)
 
-				ctx.save()	
-				ctx.translate(25  , 50)
-				p_layout1 = ctx.create_layout()
-				p_fdesc = pango.FontDescription()
-				p_fdesc.set_family_static("Sans")
-				p_fdesc.set_size(6 * pango.SCALE)
-			
-			
+				self.draw_text(ctx,'<b>' + weather[0]["where"][:weather[0]["where"].find(',')][:10] +'</b>', -5,50, self.font.split(' ')[0], 6, self.width,pango.ALIGN_RIGHT)
 
-				p_layout1.set_font_description(p_fdesc)      ### draw location
-
-			
-				p_layout1.set_width(int((102* pango.SCALE )))
-				p_layout1.set_alignment(pango.ALIGN_RIGHT)
-				p_layout1.set_markup('<b>' + weather[0]["where"][:weather[0]["where"].find(',')][:10] +'</b>')
-
-				ctx.show_layout(p_layout1)
 			#	ctx.translate(0, 6)
 			#	p_layout = ctx.create_layout()
 			#	p_fdesc.set_size(3 * pango.SCALE)
@@ -405,7 +380,7 @@ class ClearWeatherScreenlet(screenlets.Screenlet):
 			#	p_layout.set_font_description(p_fdesc)
 			#	p_layout.set_markup('<b>' + "High: "+weather[1]["high"] + degree + "   Low: " +weather[1]["low"] + degree +'</b>')						
 			#	ctx.show_layout(p_layout)
-				ctx.restore()	
+					
 
 
 #other stuff text
@@ -429,38 +404,33 @@ class ClearWeatherScreenlet(screenlets.Screenlet):
 		#		ctx.translate(0, 5)
 		#		p_layout.set_markup("p:<b>"+weather[0]["pressure"]+"</b>  h:<b>"+weather[0]["humid"] + "%</b>  w:<b>" +weather[0]["windspeed"] + " m/s</b>")	
 		#		ctx.show_layout(p_layout)
-				ctx.save() 
-				ctx.restore()
-				
 
 				if (self.mini == False):
+					ctx.translate(7, 0)
 					ctx.save() 
-					ctx.translate(14, 65)
-					self.theme['day-bg.svg'].render_cairo(ctx)   ###render the days background
-					p_layout = ctx.create_layout()
-					p_fdesc = pango.FontDescription()
-					p_fdesc.set_family_static("Monospace")
-					p_fdesc.set_size(6 * pango.SCALE)
-					p_fdesc.set_weight(300)    ##### render the days of the week
-					p_fdesc.set_style(pango.STYLE_NORMAL)
-					p_layout.set_font_description(p_fdesc)
-					p_layout.set_markup('<b>' +weather[1]["day"][:3] + '</b>')						
-					ctx.show_layout(p_layout)
-					ctx.translate(20, 0)
-					p_layout.set_markup('<b>' +weather[2]["day"][:3] + '</b>')	
-					ctx.show_layout(p_layout)
-					ctx.translate(20, 0)
-					p_layout.set_markup('<b>' +weather[3]["day"][:3] + '</b>')	
-					ctx.show_layout(p_layout)
-					ctx.translate(20, 0)
-					p_layout.set_markup('<b>' +weather[4]["day"][:3] + '</b>')	
-					ctx.show_layout(p_layout)
-					ctx.translate(20, 0)
-					p_layout.set_markup('<b>' +weather[5]["day"][:3] + '</b>')
-					ctx.show_layout(p_layout)
-					ctx.translate(20, 0)
-					p_layout.set_markup('<b>' +weather[6]["day"][:3] + '</b>')	
-					ctx.show_layout(p_layout)
+					ctx.translate(14, 60)
+					self.theme.render(ctx,'day-bg')					
+					#self.theme['day-bg.svg'].render_cairo(ctx)   ###render the days background
+					#print self.theme.path
+					self.draw_text(ctx,'<b>' +weather[1]["day"][:3] + '</b>', 0,0, self.font.split(' ')[0], 6, self.width,pango.ALIGN_LEFT)
+
+				#	p_layout.set_markup('<b>' +weather[1]["day"][:3] + '</b>')						
+				#	ctx.show_layout(p_layout)
+					ctx.translate(24, 0)
+					self.draw_text(ctx,'<b>' +weather[2]["day"][:3] + '</b>', 0,0, self.font.split(' ')[0], 6, self.width,pango.ALIGN_LEFT)
+
+					ctx.translate(24, 0)
+					self.draw_text(ctx,'<b>' +weather[3]["day"][:3] + '</b>', 0,0, self.font.split(' ')[0], 6, self.width,pango.ALIGN_LEFT)
+
+					ctx.translate(24, 0)
+					self.draw_text(ctx,'<b>' +weather[4]["day"][:3] + '</b>', 0,0, self.font.split(' ')[0], 6, self.width,pango.ALIGN_LEFT)
+
+					ctx.translate(24, 0)
+					self.draw_text(ctx,'<b>' +weather[5]["day"][:3] + '</b>', 0,0, self.font.split(' ')[0], 6, self.width,pango.ALIGN_LEFT)
+
+					ctx.translate(24, 0)
+					self.draw_text(ctx,'<b>' +weather[6]["day"][:3] + '</b>', 0,0, self.font.split(' ')[0], 6, self.width,pango.ALIGN_LEFT)
+
 
 					ctx.restore()	
 
@@ -487,106 +457,45 @@ class ClearWeatherScreenlet(screenlets.Screenlet):
 		
 
 					ctx.save()
-					ctx.translate(10, 72)
-					ctx.scale(.2, .2)
-					self.theme.render(ctx,self.get_icon(int(weather[1]["nighticon"]))  )				
-					ctx.translate(98,0)
-					self.theme.render(ctx,   self.get_icon(int(weather[2]["dayicon"])) )	
-					ctx.translate(98,0)
-					self.theme.render(ctx,   self.get_icon(int(weather[3]["dayicon"]))  )	
-					
-
-				
-					ctx.translate(98, 0)
-			
-					self.theme.render(ctx,   self.get_icon(int(weather[4]["dayicon"]))  )				
-					ctx.translate(98,0)
-					self.theme.render(ctx,   self.get_icon(int(weather[5]["dayicon"]))  )	
-					ctx.translate(98,0)
-					ctx.save()
-					ctx.translate(0,25)					
-					self.theme.render(ctx,  'TWClogo' )	
-					ctx.restore()
+					ctx.translate(14, 68)
+					self.draw_scaled_image(ctx,0,0,self.theme.path + '/' +self.get_icon(int(weather[1]["nighticon"]))+ '.png',22,22)
+					ctx.translate(24,0)
+					self.draw_scaled_image(ctx,0,0,self.theme.path + '/' +self.get_icon(int(weather[2]["dayicon"]))+ '.png',22,22)
+					ctx.translate(24,0)
+					self.draw_scaled_image(ctx,0,0,self.theme.path + '/' +self.get_icon(int(weather[3]["dayicon"]))+ '.png',22,22)
+					ctx.translate(24, 0)
+					self.draw_scaled_image(ctx,0,0,self.theme.path + '/' +self.get_icon(int(weather[4]["dayicon"]))+ '.png',22,22)
+					ctx.translate(24,0)
+					self.draw_scaled_image(ctx,0,0,self.theme.path + '/' +self.get_icon(int(weather[5]["dayicon"]))+ '.png',22,22)
 					ctx.restore()						
-					
-
-					p_layout = ctx.create_layout()
-					p_fdesc = pango.FontDescription()
-					p_fdesc.set_family_static("Monospace")
-					p_fdesc.set_size(int(5 * pango.SCALE))
-					p_fdesc.set_weight(300)    ###note:: this font needs to be set only once for the next few 
-					p_fdesc.set_style(pango.STYLE_NORMAL)  #things we need to do, so I'll do it here.
-					p_layout.set_font_description(p_fdesc)	
-		
+	
 					if self.show_daytemp == True:
-						ctx.save()
-						ctx.set_source_rgba(0, 0, 0, 1)
-						ctx.translate(18,76)
-						p_layout.set_markup('<b>' + weather[1]["high"]+degree+'</b>\n'+ weather[1]["low"]+degree)					
-						ctx.show_layout(p_layout)   ##day1's temps
-					
+						ctx.save()	
+						
+						ctx.translate(16,90)
+						self.draw_text(ctx,'<b>' + weather[1]["high"]+degree+'</b>'+ weather[1]["low"]+degree, 0,0, self.font.split(' ')[0], 4, self.width,pango.ALIGN_LEFT)
+						ctx.translate(24, 0)
+						self.draw_text(ctx,'<b>' + weather[2]["high"]+degree+'</b>'+ weather[2]["low"]+degree, 0,0, self.font.split(' ')[0], 4, self.width,pango.ALIGN_LEFT)
+						ctx.translate(24,0)
+						self.draw_text(ctx,'<b>' + weather[3]["high"]+degree+'</b>'+ weather[3]["low"]+degree, 0,0, self.font.split(' ')[0], 4, self.width,pango.ALIGN_LEFT)
+						ctx.translate(24,0)
+						self.draw_text(ctx,'<b>' + weather[4]["high"]+degree+'</b>'+ weather[4]["low"]+degree, 0,0, self.font.split(' ')[0], 4, self.width,pango.ALIGN_LEFT)	
+						ctx.translate(24,0)
+						self.draw_text(ctx,'<b>' + weather[5]["high"]+degree+'</b>'+ weather[5]["low"]+degree, 0,0, self.font.split(' ')[0], 4, self.width,pango.ALIGN_LEFT)
+
 					
 						ctx.restore()
-		
-						ctx.save()
-						ctx.set_source_rgba(0, 0, 0, 1)
-						ctx.translate(37, 76)
-						p_layout.set_markup('<b>' + weather[2]["high"]+degree+'</b>\n'+ weather[2]["low"]+degree)					
-						ctx.show_layout(p_layout)
-					
-						ctx.restore()
-
-						ctx.save()
-						ctx.set_source_rgba(0, 0, 0, 1)
-						ctx.translate(57, 76)
-						p_layout.set_markup('<b>' + weather[3]["high"]+degree+'</b>\n'+ weather[3]["low"]+degree)					
-						ctx.show_layout(p_layout)
-					
-						ctx.restore()
-
-						ctx.save()
-						ctx.set_source_rgba(0, 0, 0, 1)
-						ctx.translate(76, 76)
-						p_layout.set_markup('<b>' + weather[4]["high"]+degree+'</b>\n'+ weather[4]["low"]+degree)					
-						ctx.show_layout(p_layout)
-					
-						ctx.restore()
-
-						ctx.save()
-						ctx.set_source_rgba(0, 0, 0, 1)
-						ctx.translate(96, 76)
-						p_layout.set_markup('<b>' + weather[5]["high"]+degree+'</b>\n'+ weather[5]["low"]+degree)					
-						ctx.show_layout(p_layout)
-					
-						ctx.restore()
-
-		#				ctx.save()
-		#				ctx.set_source_rgba(0, 0, 0, 1)
-		#				ctx.translate(116, 76)
-		#				p_layout.set_markup('<b>' + weather[6]["high"]+degree+'</b>\n'+ weather[6]["low"]+degree)					
-		#				ctx.show_layout(p_layout)
-
-		#				ctx.restore()
-						ctx.save()
+						ctx.translate(-7, 0)
+						
 			
+				self.draw_text(ctx,'<b>' + weather[1]["high"]+degree+'</b>', 68, 28, self.font.split(' ')[0], 5, self.width,pango.ALIGN_LEFT)
 
-				p_layout2 = ctx.create_layout()
-				p_fdesc = pango.FontDescription()
-				p_fdesc.set_family_static("Sans")
-				p_fdesc.set_size(5 * pango.SCALE)
-				p_fdesc.set_weight(300)    ###note:: this font needs to be set only once for the next few 
-				p_fdesc.set_style(pango.STYLE_NORMAL)  #things we need to do, so I'll do it here.
-				p_layout2.set_font_description(p_fdesc)	
-				ctx.translate(68, 28)
-				p_layout2.set_markup('<b>' + weather[1]["high"]+degree+'</b>')					
-				ctx.show_layout(p_layout2)   ##day1's temps
-				ctx.translate(0, 6)
-				p_layout2.set_markup('<b>' + weather[1]["low"]+degree+'</b>')
-				ctx.show_layout(p_layout2)
+
+				self.draw_text(ctx,'<b>' + weather[1]["low"]+degree+'</b>', 68, 34, self.font.split(' ')[0], 5, self.width,pango.ALIGN_LEFT)
+
 				if weather[1]["dayppcp"] <> '0':
-					ctx.translate(0, 6)
-					p_layout2.set_markup('<i>' + weather[1]["dayppcp"]+'%</i>')
-					ctx.show_layout(p_layout2)
+					self.draw_text(ctx,'<i>' + weather[1]["dayppcp"]+'%</i>', 68, 40, self.font.split(' ')[0], 5, self.width,pango.ALIGN_LEFT)
+					
 				
 		
 		

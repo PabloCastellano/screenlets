@@ -109,12 +109,9 @@ class ScreenletSession (object):
 		bus = dbus.SessionBus()
 		if bus:
 			try:
-				bus_name	= 'org.screenlets.ScreenletsDaemon'
-				path		= '/org/screenlets/ScreenletsDaemon'
-				iface		= 'org.screenlets.ScreenletsDaemon'
-				proxy_obj = bus.get_object(bus_name, path)
+				proxy_obj = bus.get_object(screenlets.DAEMON_BUS, screenlets.DAEMON_PATH) 
 				if proxy_obj:
-					self.daemon_iface = dbus.Interface(proxy_obj, iface)
+					self.daemon_iface = dbus.Interface(proxy_obj, screenlets.DAEMON_IFACE)
 			except Exception, ex:
 				print _("Error in screenlets.session.connect_daemon: %s") % ex
 	

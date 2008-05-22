@@ -96,6 +96,13 @@ SCREENLETS_PATH = [os.environ['HOME'] + '/.screenlets', PATH]
 gettext.textdomain('screenlets')
 gettext.bindtextdomain('screenlets', '/usr/share/locale')
 
+
+DAEMON_BUS = 'org.screenlets.ScreenletsDaemon'
+
+DAEMON_PATH = '/org/screenlets/ScreenletsDaemon'
+
+DAEMON_IFACE = 'org.screenlets.ScreenletsDaemon'
+
 def _(s):
 	return gettext.gettext(s)
 

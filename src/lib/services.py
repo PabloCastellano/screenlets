@@ -29,9 +29,10 @@ if getattr(dbus, 'version', (0,0,0)) >= (0,41,0):
 		from dbus.mainloop.glib import DBusGMainLoop
 		DBusGMainLoop(set_as_default=True)
 import gettext
+import screenlets
 
 gettext.textdomain('screenlets')
-gettext.bindtextdomain('screenlets', '/usr/share/locale')
+gettext.bindtextdomain('screenlets',screenlets.INSTALL_PREFIX +  '/share/locale')
 
 def _(s):
 	return gettext.gettext(s)

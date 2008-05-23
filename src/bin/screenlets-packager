@@ -1,0 +1,3 @@
+#!/bin/sh
+PREFIX=$(cat /etc/screenlets/prefix)
+exec python -u $PREFIX/share/screenlets-manager/screenlets-packager.py $@

@@ -1,3 +1,12 @@
+# This application is released under the GNU General Public License 
+# v3 (or, at your option, any later version). You can find the full 
+# text of the license under http://www.gnu.org/licenses/gpl.txt. 
+# By using, editing and/or distributing this software you agree to 
+# the terms and conditions of this license. 
+# Thank you for using free software!
+
+#  mail module (c) Whise (Helder Fraga) 2008 <helder.fraga@hotmail.com>
+
 import screenlets
 import dbus
 import os
@@ -7,7 +16,7 @@ import gettext
 import re
 import urllib
 gettext.textdomain('screenlets')
-gettext.bindtextdomain('screenlets', '/usr/share/locale')
+gettext.bindtextdomain('screenlets', screenlets.INSTALL_PREFIX +  '/share/locale')
 import gobject
 import socket
 import threading
@@ -55,6 +64,7 @@ def get_Mail_Num(server, login, passwd):
 
 
 def send_mail(smtp_server,fromaddr,toaddrs, subject,msg):
+	"""Send mail via SMTP"""
 	import smtplib
 	server = smtplib.SMTP(smtp_server)
 	server.sendmail(fromaddr, toaddrs, subject + msg)

@@ -406,7 +406,7 @@ class ClearWeatherScreenlet(screenlets.Screenlet):
 		#		ctx.show_layout(p_layout)
 
 				if (self.mini == False):
-					ctx.translate(7, 0)
+			
 					ctx.save() 
 					ctx.translate(14, 60)
 					self.theme.render(ctx,'day-bg')					
@@ -485,7 +485,7 @@ class ClearWeatherScreenlet(screenlets.Screenlet):
 
 					
 						ctx.restore()
-						ctx.translate(-7, 0)
+			
 						
 			
 				self.draw_text(ctx,'<b>' + weather[1]["high"]+degree+'</b>', 68, 28, self.font.split(' ')[0], 5, self.width,pango.ALIGN_LEFT)

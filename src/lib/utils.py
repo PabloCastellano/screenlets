@@ -5,12 +5,8 @@
 # the terms and conditions of this license. 
 # Thank you for using free software!
 
-#  screenlets.session (c) RYX (Rico Pfaus) 2007 <ryx@ryxperience.com>
-#
-# INFO:
-# The screenlets.utils module contains functions that are somehow needed
-# by the Screenlet-class or parts of the framework, but don't necessarily
-# have to be part of the Screenlet-class itself.
+#  screenlets.utils (c) Whise (Helder Fraga) 2008 <helder.fraga@hotmail.com>
+#  Originaly by RYX (Rico Pfaus) 2007 <ryx@ryxperience.com>
 #
 # TODO: move more functions here when possible
 #
@@ -24,7 +20,7 @@ import gettext
 import re
 import urllib
 gettext.textdomain('screenlets')
-gettext.bindtextdomain('screenlets', '/usr/share/locale')
+gettext.bindtextdomain('screenlets', screenlets.INSTALL_PREFIX +  '/share/locale')
 import gobject
 try:
 	import gnomevfs
@@ -33,10 +29,48 @@ except:
 def _(s):
 	return gettext.gettext(s)
 
-
 # ------------------------------------------------------------------------------
 # FUNCTIONS
 # ------------------------------------------------------------------------------
+
+
+def get_autostart_dir():
+	"""Returns the system autostart directory"""
+        desktop_environment = 'gnome'
+
+        if os.environ.get('KDE_FULL_SESSION') == 'true':
+            desktop_environment = 'kde'
+        elif os.environ.get('GNOME_DESKTOP_SESSION_ID'):
+            desktop_environment = 'gnome'
+        else:
+            try:
+		import commands
+                info = commands.getoutput('xprop -root _DT_SAVE_MODE')
+                if ' = "xfce4"' in info:
+                    desktop_environment = 'xfce'
+            except (OSError, RuntimeError):
+                pass
+
+
+
+	if desktop_environment == 'kde':
+		return os.environ['HOME'] + '/.kde/Autostart/'
+	elif desktop_environment == 'gnome':
+		return os.environ['HOME'] + '/.config/autostart/'
+	elif desktop_environment == 'xfce':
+		return os.environ['HOME'] + '/.config/autostart/'
+
+if os.geteuid()==0:
+	# we run as root, install system-wide
+	USER = 0
+	DIR_USER		= screenlets.INSTALL_PREFIX + '/share/screenlets'
+	DIR_AUTOSTART	= '/etc/xdg/autostart'			# TODO: use pyxdg here
+else:
+	# we run as normal user, install into $HOME
+	USER = 1
+	DIR_USER		= os.environ['HOME'] + '/.screenlets'
+	DIR_AUTOSTART = get_autostart_dir()
+
 
 
 def is_manager_running_me():
@@ -46,6 +80,65 @@ def is_manager_running_me():
 	else:
 		return False
 
+def containsAll(str, set):
+	"""Check whether 'str' contains ALL of the chars in 'set'"""
+	for c in set:
+		if c not in str: return 0;
+	return 1;
+def containsAny(str, set):
+	"""Check whether 'str' contains ANY of the chars in 'set'"""
+	return 1 in [c in str for c in set]
+
+def create_autostarter (name):
+	"""Create a .desktop-file for the screenlet with the given name in 
+	$HOME/.config/autostart."""
+	if not os.path.isdir(DIR_AUTOSTART):
+		# create autostart directory, if not existent
+		if screenlets.show_question(None, 
+			_("There is no existing autostart directory for your user account yet. Do you want me to automatically create it for you?"), 
+			_('Error')):
+			print _("Auto-create autostart dir ...")
+			os.system('mkdir %s' % DIR_AUTOSTART)
+			if not os.path.isdir(DIR_AUTOSTART):
+				screenlets.show_error(None, _("Automatic creation failed. Please manually create the directory:\n%s") % DIR_AUTOSTART, _('Error'))
+				return False
+		else:
+			screenlets.show_message(None, _("Please manually create the directory:\n%s") % DIR_AUTOSTART)
+			return False
+	if name.endswith('Screenlet'):
+		name = name[:-9]
+	starter = '%s%sScreenlet.desktop' % (DIR_AUTOSTART, name)
+
+	for f in os.listdir(DIR_AUTOSTART):
+		a = f.find(name + 'Screenlet')
+		if a != -1:
+			print str(f) + ' duplicate entry'
+			os.system('rm %s%s' % (chr(34)+DIR_AUTOSTART,f+chr(34)))
+			print _('Removed duplicate entry')
+	if not os.path.isfile(starter) and not os.path.exists(os.environ['HOME'] + '/.config/autostart/CalendarScreenlet'):
+		path = utils.find_first_screenlet_path(name)
+		if path:
+			print _("Create autostarter for: %s/%sScreenlet.py") % (path, name)
+			code = ['[Desktop Entry]']
+			code.append('Name=%sScreenlet' % name)
+			code.append('Encoding=UTF-8')
+			code.append('Version=1.0')
+			code.append('Type=Application')
+			code.append('Exec= python -u %s/%sScreenlet.py' % (path, name))
+			code.append('X-GNOME-Autostart-enabled=true')
+			#print code
+			f = open(starter, 'w')
+			if f:
+				for l in code:
+					f.write(l + '\n')
+				f.close()
+				return True
+			print _('Failed to create autostarter for %s.') % name
+			return False
+	else:
+		print _("Starter already exists.")
+		return True
+
 def create_user_dir ():
 	"""Create the userdir for the screenlets."""
 	if not os.path.isdir(os.environ['HOME'] + '/.screenlets'):
@@ -53,6 +146,7 @@ def create_user_dir ():
 			os.mkdir(os.environ['HOME'] + '/.screenlets')
 		except:
 			print 'coulnt create user dir'
+
 
 def find_first_screenlet_path (screenlet_name):
 	"""Scan the SCREENLETS_PATH for the first occurence of screenlet "name" and 
@@ -164,7 +258,6 @@ def list_running_screenlets2 ():
 
 
 
-
 def get_evolution_contacts():
 	"""Returns a list of evolution contacts"""
 	contacts = []
@@ -216,6 +309,19 @@ def get_user_dir(key, default):
 				return os.path.expandvars(line[len(key)+2:-2])
 	return default	
 
+def get_daemon_iface ():
+	"""Check if the daemon is already running and return its interface."""
+	bus = dbus.SessionBus()
+	if bus:
+		try:
+			proxy_obj = bus.get_object(screenlets.DAEMON_BUS, screenlets.DAEMON_PATH) 
+			if proxy_obj:
+				return dbus.Interface(proxy_obj, screenlets.DAEMON_IFACE)
+
+		except Exception, ex:
+			print _("Error in ScreenletsManager.connect_daemon: %s") % ex
+	return None
+
 def get_desktop_dir():
 	"""Returns desktop dir"""
 	desktop_dir =  get_user_dir("XDG_DESKTOP_DIR", os.path.expanduser("~/Desktop"))
@@ -223,6 +329,7 @@ def get_desktop_dir():
 	return desktop_dir
 
 def get_filename_on_drop(sel_data):
+	"""Returns filenames of window droped files"""
 	filename = ''
 	filenames = []
 	# get text-elements in selection data
@@ -286,7 +393,15 @@ def LoadBookmarks():
         except IOError, err:
             print "Error loading GTK bookmarks:", err
 
+def quit_screenlet_by_name ( name):
+	"""Quit all instances of the given screenlet type."""
+	# get service for instance and call quit method
+	service = screenlets.services.get_service_by_name(name)
+	if service:
+		service.quit()
+
 def readMountFile( filename):
+	"""Reads fstab file"""
 	fstab = []
 	f = open(filename, 'r')
 	for line in f:
@@ -298,7 +413,7 @@ def readMountFile( filename):
 	return fstab
 
 def read_file( filename):
-
+	"""Reads a file"""
 	f = open(filename, 'r')
 	t = f.read()
 	f.close()
@@ -306,14 +421,65 @@ def read_file( filename):
 
 
 def strip_html(string):
-    return re.sub(r"<.*?>|</.*?>","",string)
+	"""Strips HTML tags of a string"""
+	return re.sub(r"<.*?>|</.*?>","",string)
 
+
+
+def lookup_daemon_autostart ():
+	"""Adds Screenlets-daemon to autostart if not already"""
+	if not os.path.isdir(DIR_AUTOSTART):
+	# create autostart directory, if not existent
+		if screenlets.show_question(None, _("There is no existing autostart directory for your user account yet. Do you want me to automatically create it for you?"), _('Error')):
+			print _("Auto-create autostart dir ...")
+			os.system('mkdir %s' % DIR_AUTOSTART)
+			if not os.path.isdir(DIR_AUTOSTART):
+				screenlets.show_error(None, _("Automatic creation failed. Please manually create the directory:\n%s") % DIR_AUTOSTART, _('Error'))
+				return False
+		else:
+			screenlets.show_message(None, _("Please manually create the directory:\n%s") % DIR_AUTOSTART)
+			return False
+	starter = '%sScreenlets Daemon.desktop' % (DIR_AUTOSTART)
+
+	if not os.path.isfile(starter) and os.path.isfile('%sscreenlets-daemon.desktop' % (DIR_AUTOSTART)) == False:
+		print _("Create autostarter for: Screenlets Daemon")
+		code = ['[Desktop Entry]']
+		code.append('Encoding=UTF-8')
+		code.append('Version=1.0')
+		code.append('Name=Screenlets Daemon')
+		code.append('Type=Application')
+		code.append('Exec=%s/share/screenlets-manager/screenlets-daemon.py' % (screenlets.INSTALL_PREFIX))
+		code.append('X-GNOME-Autostart-enabled=true')
+		f = open(starter, 'w')
+		if f:
+			for l in code:
+				f.write(l + '\n')
+			f.close()
+			return True
+		print _('Failed to create autostarter for %s.') % name
+		return False
+	else:
+		print _("Starter already exists.")
+		return True
 
 
 # ------------------------------------------------------------------------------
 # CLASSES
 # ------------------------------------------------------------------------------
 
+class ScreenletInfo:
+	"""A container with info about a screenlet."""
+
+	def __init__ (self, name, lname, info, author, version, icon):
+		self.name		= name
+		self.lname		= lname
+		self.info		= info.replace("\n", '').replace('\t', ' ')
+		self.author		= author
+		self.version	= version
+		self.icon		= icon
+		self.active		= False
+		self.system		= not os.path.isfile('%s/%s/%sScreenlet.py' % (DIR_USER, name, name))
+		self.autostart	= os.path.isfile(DIR_AUTOSTART + '/' + name + 'Screenlet.desktop')
 
 
 

@@ -1,4 +1,12 @@
-# A Generic API to a Music Player. 
+# This application is released under the GNU General Public License 
+# v3 (or, at your option, any later version). You can find the full 
+# text of the license under http://www.gnu.org/licenses/gpl.txt. 
+# By using, editing and/or distributing this software you agree to 
+# the terms and conditions of this license. 
+# Thank you for using free software!
+
+
+# A Generic API to a Music Player by vrunner
 # All Players must extend this class
 
 class GenericAPI:

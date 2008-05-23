@@ -5,7 +5,8 @@
 # the terms and conditions of this license. 
 # Thank you for using free software!
 
-# Screenlets main module (c) RYX (aka Rico Pfaus) 2007 <ryx@ryxperience.com>
+# Screenlets main module (c) RYX (aka Rico Pfaus) 2007 <ryx@ryxperience.com> , 
+# Whise aka Helder Fraga <helder.fraga@hotmail.com>
 #
 ##@mainpage
 #
@@ -27,6 +28,11 @@
 #   python-libs or certain Screenlets)
 # -
 #
+
+try:
+	INSTALL_PREFIX = open("/etc/screenlets/prefix").read()[:-1] 
+except:
+	INSTALL_PREFIX = '/usr'
 
 import pygtk
 pygtk.require('2.0')
@@ -80,28 +86,38 @@ WEBSITE = 'http://www.screenlets.org'
 # the third party screenlets download site
 THIRD_PARTY_DOWNLOAD = "http://screenlets.org/index.php/Category:UserScreenlets"
 
-# install prefix (/usr or /usr/local) DO NOT CHANGE YET, WILL CHANGE WITH v0.1.0
-INSTALL_PREFIX = '/usr'
 
-# the global PATH where the screenlets are installed 
-PATH = INSTALL_PREFIX + '/share/screenlets'
+#-------------------------------------------------------------------------------
+# PATHS
+#-------------------------------------------------------------------------------
+DIR_TMP			= '/tmp/screenlets/'
 
-# A list containing all the paths to search for screenlet-"packages"
-# (these paths get searched when a new screenlet-instance shall be
-# loaded through the module-loader function or a screenlet needs data
-# from its personal dir)
-SCREENLETS_PATH = [os.environ['HOME'] + '/.screenlets', PATH]
+DIR_USER_ROOT = screenlets.INSTALL_PREFIX + '/share/screenlets'
 
-# translation stuff
-gettext.textdomain('screenlets')
-gettext.bindtextdomain('screenlets', '/usr/share/locale')
+DIR_USER = os.environ['HOME'] + '/.screenlets'
 
+DIR_CONFIG = os.environ['HOME'] + '/.config/Screenlets'
+
+SCREENLETS_PATH = [DIR_USER,DIR_USER_ROOT]
+
+
+#-------------------------------------------------------------------------------
+# DBUS
+#-------------------------------------------------------------------------------
 
 DAEMON_BUS = 'org.screenlets.ScreenletsDaemon'
 
 DAEMON_PATH = '/org/screenlets/ScreenletsDaemon'
 
 DAEMON_IFACE = 'org.screenlets.ScreenletsDaemon'
+
+#Other stuff
+
+DEBUG_MODE		= True
+
+# translation stuff
+gettext.textdomain('screenlets')
+gettext.bindtextdomain('screenlets', INSTALL_PREFIX +  '/share/locale')
 
 def _(s):
 	return gettext.gettext(s)

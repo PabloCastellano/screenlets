@@ -718,9 +718,9 @@ class SidebarScreenlet (screenlets.Screenlet):
 				self.ebox.set_uposition(999999,999999)
 			
 				if self.alignment.startswith('Left') or self.alignment.startswith('Right'):	
-					self.draw_scaled_image(ctx,0,0,self.mypath + 'themes/' + self.theme_name +'/sidebar.png',self.size,gtk.gdk.screen_height())
+					self.draw_scaled_image(ctx,0,0,self.theme.path + '/sidebar.png',self.size,gtk.gdk.screen_height())
 				elif self.alignment.startswith('Top') or self.alignment.startswith('Bottom'):	
-					self.draw_scaled_image(ctx,0,0,self.mypath + 'themes/' + self.theme_name +'/sidebar.png',self.size,gtk.gdk.screen_width())
+					self.draw_scaled_image(ctx,0,0,self.theme.path + '/sidebar.png',self.size,gtk.gdk.screen_width())
 						
 
 				

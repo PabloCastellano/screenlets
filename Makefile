@@ -1,43 +1,49 @@
-#-------------------------------------------------------------------------------
+#------------------------------------------------------------------------------------------------------------
 #  Screenlets - (c) 2008 by Whise (Helder Fraga) <helder.fraga@hotmail.com>
 #  Original author RYX (aka Rico Pfaus) <ryx@ryxperience.com> 
-#-------------------------------------------------------------------------------
+#------------------------------------------------------------------------------------------------------------
 #
-# only a simple makefile to allow installing screenlets (and performing some
-# other actions like creating a source-package or the documentation)
+# A simple makefile to allow installing/uninstalling screenlets and performing
+# other actions like creating a source-package or documentation.
 #
+
+PREFIX = /usr
+INSTALL_LOG = install.log
+
+.PHONY : docs
+.PHONY : uninstall
 
 all:
-	@echo "Makefile: Available actions: install, clean, docs, source_package"
+	@echo "Makefile: Available actions: install, uninstall, clean, docs, source_package"
 
-# install the Screenlets
+# install
 install:
-	python setup.py install
-	cp desktop-menu/screenlets.svg /usr/share/icons
-	cp desktop-menu/screenlets-manager.desktop /usr/share/applications
+	-mkdir /etc/screenlets
+	@echo $(PREFIX) > /etc/screenlets/prefix
+	python setup.py install --record=$(INSTALL_LOG) --prefix=$(PREFIX)
 	cp desktop-menu/screenlets-daemon.desktop $(HOME)/.config/autostart
 
-# uninstall the Screenlets (NOT FINISHED)
+# uninstall
 uninstall:
-	rm -rf /usr/local/share/screenlets*
-	rm -rf /usr/local/bin/screenlets*
-	rm -rf /usr/lib/python2.4/site-packages/screenlets*
-	rm -rf /usr/lib/python2.5/site-packages/screenlets*
-	rm -r /usr/share/screenlets
-	rm -r /usr/share/screenlets-manager
-	rm /usr/bin/screenlets*
-	rm /usr/share/icons/screenlets.svg
-	@echo "Makefile: Uninstall of python-libs not supported yet ..."
-	@echo "          To uninstall, run 'rm -rf /usr/lib/python2.x/site-packages/screenlets*'"
-	@echo "          Replace '2.x' with your installed python version (e.g. '2.5')"
+	rm -rf $(shell cat $(INSTALL_LOG))
+	rm -rf /etc/screenlets
+	rm -f $(INSTALL_LOG)
+	rm -f $(HOME)/.config/autostart/screenlets-daemon.desktop
+	@echo "Makefile: Screenlets removed."
 
-# remove all files created by install
+# remove temporary files created by install
+# note: this does not remove the install log
 clean:
 	python setup.py clean
-	rm -r dist
-	rm -r build
-	rm MANIFEST
-	@echo "Makefile: Temporary files have been removed ..."
+	rm -rf dist
+	rm -rf build
+	@echo "Makefile: Temporary files have been removed."
+
+# echo documentation options
+docs:
+	@echo "Available documentation: doxydoc, pydoc, and epydoc."
+	@echo "To generate doxydoc documentation (recommended) please run:"
+	@echo "	make doxydoc"
 
 # create API-documentation (using doxgen)
 doxydoc:
@@ -49,7 +55,7 @@ pydoc:
 
 # create API-documentation (using epydoc)
 epydoc:
-	epydoc --html --output=docs/epydoc --name="Screenlets 0.1.2" screenlets screenlets.backend screenlets.options screenlets.utils screenlets.session screenlets.services screenlets.sensors screenlets.XmlMenu
+	epydoc --html --output=docs/epydoc --name="Screenlets 0.1.2" screenlets screenlets.backend screenlets.install screenlets.mail screenlets.options screenlets.session screenlets.services screenlets.sensors screenlets.utils screenlets.XmlMenu
 
 # create API-documentation
 menu:
@@ -59,4 +65,3 @@ menu:
 source_package:
 	python setup.py sdist --formats=bztar
 	@echo "Makefile: Source-package is ready and waiting in ./dist ..."
-

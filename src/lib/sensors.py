@@ -5,9 +5,9 @@
 # the terms and conditions of this license. 
 # Thank you for using free software!
 
-# The screenlets.sensors module contains helper-functions to aid in
-# creating CPU/RAM/*-meters and in retrieving general system information.
+# Sensors Module (c) Whise (Helder Fraga) 2008 <helder.fraga@hotmail.com>
 
+import screenlets
 import sys
 import re
 import gobject
@@ -20,7 +20,7 @@ import subprocess
 import gtk
 # translation stuff
 gettext.textdomain('screenlets')
-gettext.bindtextdomain('screenlets', '/usr/share/locale')
+gettext.bindtextdomain('screenlets', screenlets.INSTALL_PREFIX +  '/share/locale')
 
 def _(s):
 	return gettext.gettext(s)

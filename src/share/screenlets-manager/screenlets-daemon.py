@@ -7,8 +7,8 @@
 # the terms and conditions of this license. 
 # Thank you for using free software!
 
-# ScreenletsDaemon - (c) RYX (Rico Pfaus) 2007
-#
+# ScreenletsDaemon - (c) RYX (Rico Pfaus) 2007 and Whise Helder Fraga
+# <helder.fraga@hotmail.com>
 # + INFO:
 # This is a background daemon that keeps track of opened screenlets. The
 # screenlets.session.ScreenletSession currently (ab)uses this as a workaround
@@ -37,7 +37,7 @@ from screenlets import utils
 import gettext
 
 gettext.textdomain('screenlets-manager')
-gettext.bindtextdomain('screenlets-manager', '/usr/share/locale')
+gettext.bindtextdomain('screenlets-manager', screenlets.INSTALL_PREFIX +  '/share/locale')
 
 
 def _(s):

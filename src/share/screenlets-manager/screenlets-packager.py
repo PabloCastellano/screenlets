@@ -11,7 +11,8 @@
 # A small app to package a screenlet into an easily distributible archive
 # Useful for screenlet-developers ..
 #
-# (c) RYX (Rico Pfaus) 2007
+# (c) RYX (Rico Pfaus) 2007 and Whise Helder Fraga
+# <helder.fraga@hotmail.com>
 #
 
 import sys, os
@@ -20,7 +21,7 @@ import screenlets
 import gettext
 
 gettext.textdomain('screenlets-manager')
-gettext.bindtextdomain('screenlets-manager', '/usr/share/locale')
+gettext.bindtextdomain('screenlets-manager', screenlets.INSTALL_PREFIX +  '/share/locale')
 
 def _(s):
 	return gettext.gettext(s)

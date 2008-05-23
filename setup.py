@@ -1,33 +1,20 @@
+#!/usr/bin/python
 #
 # INFO: The setup-script for the screenlets
 #
-# (c) RYX (Rico Pfaus) , Whise (Helder Fraga) ...
+# (c) 2008 Rico Pfaus (RYX), Helder Fraga (Whise), and Natan Yellin (Aantn)
 #
 
 from distutils.core import setup
+import distutils.sysconfig
 import os
 import sys
 
-# import screenlets to get package constants (like path/prefix)
+# import screenlets to get package constants
 #sys.path.insert(0, 'src/')
-#import lib	# screenlets-package called 'lib' here because of the dir-names
+#import lib  # screenlets-package called 'lib' here because of the dir-names
 
-
-
-#----------------------------------------------------------------------------
-# CONFIGURATION
-#----------------------------------------------------------------------------
-
-# install prefix (if you want to change this, change it in src/lib/__init__.py)
-INSTALL_PREFIX	= '/usr'
-# global install-path for daemon and screenlets-packages
-INSTALL_PATH	= INSTALL_PREFIX + '/share/screenlets'
-# current version of package
-VERSION			= '0.1.2'
-
-#----------------------------------------------------------------------------
-# FUNCTIONS
-#----------------------------------------------------------------------------
+VERSION	= '0.1.2'
 
 def filter_filename_callback(filename):
 	"""Called by make_file_list to determine which files to add/install 
@@ -67,27 +54,22 @@ def make_file_list(dirlist, install_path, strip=''):
 		data_files.append((install_path + '/' + d.replace(strip, ''), dlst))
 	return data_files
 
+# ---------------------------------------------------------------
+# Create various lists of files that will be passed to setup()
+# ---------------------------------------------------------------
 
+# Create a list of scripts that will be installed into PREFIX/bin/
+scripts_list = ['src/bin/screenletsd',
+	'src/bin/screenlets-manager',
+	'src/bin/screenlets-packager']
 
-#----------------------------------------------------------------------------
-# RUN SETUP
-#----------------------------------------------------------------------------
-
-# + Create list with additional files to be installed (passed as 
-#   data_files-attribute to setup-function):
-
-# - screenlets-subdirs and all their data go into INSTALL_PATH/<name>/...
-dirlist		= scan_dir_list('src/share/screenlets')
-files_list	= make_file_list(dirlist, INSTALL_PATH, 
+# Install screenlets into PREFIX/share/screenlets/
+dirlist	= scan_dir_list('src/share/screenlets') 
+files_list = make_file_list(dirlist, 'share/screenlets', 
 	strip='src/share/screenlets/')	# to strip this string from filenames
 
-# - our pseudo-"binaries" go into INSTALL_PREFIX/bin
-files_list.insert(0, (INSTALL_PREFIX + '/bin', ['bin/screenletsd']))
-files_list.insert(0, (INSTALL_PREFIX + '/bin', ['bin/screenlets-manager']))
-files_list.insert(0, (INSTALL_PREFIX + '/bin', ['bin/screenlets-packager']))
-
-# - the manager and its files go into INSTALL_PATH + '-manager'
-files_list.insert(0, (INSTALL_PATH + '-manager', 
+# Install the manager's files into PREFIX/share/screenlets-manager
+files_list.insert(0, ('share/screenlets-manager',
 	['src/share/screenlets-manager/screenlets-manager.py',
 	'src/share/screenlets-manager/screenlets-daemon.py',
 	'src/share/screenlets-manager/screenlets-packager.py',
@@ -99,19 +81,19 @@ files_list.insert(0, (INSTALL_PATH + '-manager',
 	'src/share/screenlets-manager/webapp.png',
 	'src/share/screenlets-manager/WebappScreenlet.py',
 	'src/share/screenlets-manager/karamba.png']))
-	
 
-#Desktop file and icon for screenlets-manager
-files_list.insert(0, ('/usr/share/applications', ['desktop-menu/screenlets-manager.desktop']))
-files_list.insert(0, ('/usr/share/icons', ['desktop-menu/screenlets.svg']))
 
+# Install desktop files and icons
+files_list.insert(0, ('share/applications', ['desktop-menu/screenlets-manager.desktop']))
+files_list.insert(0, ('share/icons', ['desktop-menu/screenlets.svg']))
+
+# Install translation files
 podir = os.path.join (os.path.realpath ("."), "po")
 if os.path.isdir (podir):
 	buildcmd = "msgfmt -o build/locale/%s/LC_MESSAGES/%s.mo po/%s.po"
 	mopath = "build/locale/%s/LC_MESSAGES/%s.mo"
 	destpath = "share/locale/%s/LC_MESSAGES"
-	for name in os.listdir (podir):
-		
+	for name in os.listdir (podir):		
 		if name.endswith('.po'):
 			name = name.replace('screenlets-manager','screenletsmanager')
 			dname = name.split('-')[1].split('.')[0]
@@ -123,22 +105,20 @@ if os.path.isdir (podir):
 					os.makedirs ("build/locale/%s/LC_MESSAGES" % dname)
 				os.system (buildcmd % (dname,name.replace('-'+dname,''), name))
 				files_list.append ((destpath % dname, [mopath % (dname,name.replace('-'+dname,''))]))
+				
+# ----------------------------
+# Call setup()
+# ----------------------------
 
-	
-# + Call setup function (installs screenlets into python's root)
-setup(name = 'screenlets',
-	# metainfo for this package
+setup(name='screenlets',
 	version			= VERSION,
-	author			= 'RYX (Rico Pfaus), Whise (Helder Fraga)',
-	author_email	= 'helder.fraga@hotmail.com',
+	description		= 'A widget framework for Linux',
 	url				= 'http://www.screenlets.org',
+	author			= 'RYX (Rico Pfaus) <ryx@ryxperience.com>, Whise (Helder Fraga)<helder.fraga@hotmail.com>, Sorcerer (Hendrik Kaju), Natan Yellin (Aantn) <aantny@gmail.com>',
+	author_email	= 'aantny@gmail.com',
 	license			= 'GPL v3',
-	description		= 'Screenlets - widget-like mini-applications combining '+\
-		'usability and eye-candy on the modern, composited Linux-desktop.',
-	# packages (go into python-packages and become globally available)
 	packages		= ['screenlets'],
 	package_dir		= {'screenlets': 'src/lib'},
-	# additional files to be installed
-	data_files		= files_list
-	)
-
+	data_files		= files_list,
+	scripts			= scripts_list
+)

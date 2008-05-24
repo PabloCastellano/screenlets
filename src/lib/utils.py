@@ -12,6 +12,7 @@
 #
 
 import screenlets
+import gtk
 import dbus
 import os
 import sys
@@ -139,6 +140,14 @@ def create_autostarter (name):
 		print _("Starter already exists.")
 		return True
 
+def _contains_path (string):
+	"""Internal function: Returns true if the given string contains one of the
+	SCREENLETS_PATH entries."""
+	for p in screenlets.SCREENLETS_PATH:
+		if string.find(p) > -1:
+			return True
+	return False
+
 def create_user_dir ():
 	"""Create the userdir for the screenlets."""
 	if not os.path.isdir(os.environ['HOME'] + '/.screenlets'):
@@ -171,6 +180,19 @@ def find_first_screenlet_path (screenlet_name):
 			pass
 	# nothing found
 	return None
+
+def get_screenlet_icon (screenlet_name,width,height):
+	img = gtk.gdk.pixbuf_new_from_file_at_size(\
+			screenlets.INSTALL_PREFIX + '/share/screenlets-manager/noimage.svg',width,height)
+	for path in screenlets.SCREENLETS_PATH:
+		for ext in ['svg', 'png']:
+			img_path = "%s/%s/icon.%s" % (path, screenlet_name, ext)
+			if os.path.isfile(img_path):
+				try:
+					img = gtk.gdk.pixbuf_new_from_file_at_size(img_path,width,height)
+				except Exception, ex:
+					pass
+	return img
 
 def get_screenlet_metadata (screenlet_name):
 	"""Returns a dict with name, info, author and version of the given
@@ -233,13 +255,6 @@ def list_running_screenlets ():
 		return running
 	return False
 
-def _contains_path (string):
-	"""Internal function: Returns true if the given string contains one of the
-	SCREENLETS_PATH entries."""
-	for p in screenlets.SCREENLETS_PATH:
-		if string.find(p) > -1:
-			return True
-	return False
 
 def list_running_screenlets2 ():
 	"""Returns a list with names of running screenlets. The list can be empty if
@@ -252,7 +267,7 @@ def list_running_screenlets2 ():
 			and _contains_path(line):
 			slname = regex.findall(line)
 			if slname and type(slname) == list and len(slname) > 0:
-				lst.append(slname[0])
+				lst.append(slname[0]+'Screenlet')
 	p.close()
 	return lst
 
@@ -399,6 +414,21 @@ def quit_screenlet_by_name ( name):
 	service = screenlets.services.get_service_by_name(name)
 	if service:
 		service.quit()
+
+def quit_all_screenlets():
+	a = list_running_screenlets2()
+	b = list_running_screenlets()
+	if b != None:
+		for sl in b:
+			if b not in a: a.append(sl)
+	if a != None:
+		for s in a:
+			if s.endswith('Screenlet'):
+				s = s[:-9]
+			try:
+				utils.quit_screenlet_by_name(s)
+			except:
+				pass
 
 def readMountFile( filename):
 	"""Reads fstab file"""

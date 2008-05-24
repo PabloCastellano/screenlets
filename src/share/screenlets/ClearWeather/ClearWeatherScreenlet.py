@@ -162,7 +162,7 @@ class ClearWeatherScreenlet(screenlets.Screenlet):
 				day = data[dcstart:dcstop]
 				forecast.append(self.tokenizeForecast(day))
 		except IOError, e:
-			print "Error retreiving Weather Data", e
+			pass
 
 		return forecast
 
@@ -323,15 +323,16 @@ class ClearWeatherScreenlet(screenlets.Screenlet):
 		ctx.set_operator(cairo.OPERATOR_OVER)
 		ctx.set_source_rgba(*self.background_color)
 		if self.theme:
+			s = self.theme.path
 			if (self.mini == False and weather != []):
-
-
+				self.theme.render(ctx,'weather-bg')
+				
 				if self.theme_name == 'default':self.draw_rounded_rectangle(ctx,11.5,18.5,8,120,80)
-				self.theme.render(ctx,  'weather-bg' )
-
+				self.theme.render(ctx,'weather-bg')
 			else:
 				if self.theme_name == 'default':self.draw_rounded_rectangle(ctx,11.5,18.5,8,120,41.8)
-				self.theme.render(ctx,  'weather-bg-mini' )
+				self.theme.render(ctx,'weather-bg-mini')
+				
 		ctx.set_source_rgba(*self.font_color)
 		# draw memory-graph
 		if self.theme:

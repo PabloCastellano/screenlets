@@ -39,7 +39,9 @@ pygtk.require('2.0')
 import gtk
 import cairo, pango
 import gobject
-import rsvg
+try:
+	import rsvg
+except ImportError: print 'No module RSVG , graphics will not be so good'
 import os
 import glob
 import gettext
@@ -51,7 +53,8 @@ import services
 import utils
 import sensors
 # TEST
-import XmlMenu
+import menu
+from menu import DefaultMenuItem, add_menuitem
 # /TEST
 
 
@@ -138,11 +141,14 @@ class DefaultMenuItem:
 	SIZE		= 8
 	WINDOW_MENU	= 16
 	PROPERTIES	= 32
+	DELETE		= 64
+	QUIT 		= 128
+	QUIT_ALL 	= 256
 	# EXPERIMENTAL!! If you use this, the file menu.xml in the 
 	# Screenlet's data-dir is used for generating the menu ...
 	XML			= 512
 	# the default items
-	STANDARD	= 1|2|8|16|32
+	STANDARD	= 1|2|8|16|32|64|128|256
 
 
 class ScreenletTheme (dict):
@@ -461,18 +467,29 @@ class ScreenletTheme (dict):
 		"""Load an SVG-file into this theme and reference it as ref_name."""
 		if self.has_key(filename):
 			del self[filename]
-		self[filename] = rsvg.Handle(self.path + "/" + filename)
-		self.svgs[filename[:-4]] = self[filename]
-		if self[filename] != None:
-			# set width/height
-			size=self[filename].get_dimension_data()
-			if size:
-				self.width = size[0]
-				self.height = size[1]
+		try:
+			self[filename] = rsvg.Handle(self.path + "/" + filename)
+			self.svgs[filename[:-4]] = self[filename]
+			if self[filename] != None:
+				# set width/height
+				size=self[filename].get_dimension_data()
+				if size:
+					self.width = size[0]
+					self.height = size[1]
 			return True
+		except NameError, ex: 
+			self[filename] =  gtk.gdk.pixbuf_new_from_file(self.path + '/' + filename)
+			self.svgs[filename[:-4]] = self[filename]
+			if self[filename] != None:
+				# set width/height
+				self.width = self[filename].get_width()
+				self.height = self[filename].get_height()
+			print str(ex)
+			return True
+
 		else:
 			return False
-		self[filename] = None
+		#self[filename] = None
 	
 	def load_png (self, filename):
 		"""Load a PNG-file into this theme and reference it as ref_name."""
@@ -485,7 +502,7 @@ class ScreenletTheme (dict):
 			return True
 		else:
 			return False
-		self[filename] = None
+		#self[filename] = None
 	
 	def __load_all (self):
 		"""Load all files in the theme's path. Currently only loads SVGs and
@@ -525,6 +542,9 @@ class ScreenletTheme (dict):
 		TODO: freeing rsvg-handles does NOT work for some reason"""
 		self.option_overrides.clear()
 		for filename in self:
+			try:
+				self[filename].free()
+			except AttributeError:pass
 			#self[filename].close()
 			del filename
 		self.clear()
@@ -539,22 +559,35 @@ class ScreenletTheme (dict):
 		function for drawing its images. The image name has to be defined
 		without the extension and the function will automatically select 
 		the available one (SVG is prefered over PNG)."""
-		"""if self.has_key(name + '.svg'):
-			self[name + '.svg'].render_cairo(ctx)
-		else:
-			ctx.set_source_surface(self[name + '.png'], 0, 0)
-			ctx.paint()"""
-		try:
-			#self[name + '.svg'].render_cairo(ctx)
-			self.svgs[name].render_cairo(ctx)
-		except:
-			#ctx.set_source_surface(self[name + '.png'], 0, 0)
+
+		### Render Graphics even if rsvg is not available###
+		if os.path.isfile (self.path + '/' + name + '.svg'):
+
+			try:
+				self.svgs[name].render_cairo(ctx)
+			except:
+				try:
+					ctx.set_source_pixbuf(self.svgs[name], 0, 0)
+				
+					ctx.paint()
+					pixbuf = None
+				except TypeError:	
+					ctx.set_source_surface(self.pngs[name], 0, 0)
+					ctx.paint()
+
+		elif os.path.isfile (self.path + '/' + name + '.png'):
 			ctx.set_source_surface(self.pngs[name], 0, 0)
 			ctx.paint()
 			
-		#else:
-		#	ctx.set_source_pixbuf(self[name + '.png'], 0, 0)
-		#	ctx.paint()
+
+
+	def render_png_colorized(self, ctx, name,color):
+		# Scale the pixmap
+		ctx.set_source_rgba(color[0], color[1], color[2], color[3])
+		ctx.set_source_surface(self.pngs[name], 0, 0)
+		ctx.mask_surface(image, 0, 0)
+		ctx.stroke()
+
 
 
 class Screenlet (gobject.GObject, EditableOptions):
@@ -908,29 +941,24 @@ class Screenlet (gobject.GObject, EditableOptions):
 	# Screenlet's public functions
 	#-----------------------------------------------------------------------
 	
-	# NOTE: This function is deprecated and will get removed. The
-	# XML-based menus should be preferred
 	def add_default_menuitems (self, flags=DefaultMenuItem.STANDARD):
 		"""Appends the default menu-items to self.menu. You can add on OR'ed
 		   flag with DefaultMenuItems you want to add."""
 		if not self.has_started: print 'WARNING - add_default_menuitems and add_menuitems should be set in on_init ,menu values will be displayed incorrectly'
-		# children already exist? add separator
-		if len(self.menu.get_children()) > 0:
-			self.add_menuitem("", "-")
-		# create menu (or submenu?)
-		#if flags & DefaultMenuItem.IS_SUBMENU :
-		#	menu = gtk.Menu()
-		#else:
+		
 		menu = self.menu
+		
+		# children already exist? add separator
+		if len(menu.get_children()) > 0:
+			self.add_menuitem("", "-")
 		# EXPERIMENTAL:
 		if flags & DefaultMenuItem.XML:
 			# create XML-menu from screenletpath/menu.xml
 			xfile = self.get_screenlet_dir() + "/menu.xml"
-			xmlmenu = XmlMenu.create_menu_from_file(xfile, 
+			xmlmenu = screenlets.menu.create_menu_from_file(xfile, 
 				self.menuitem_callback)
 			if xmlmenu:
 				self.menu = xmlmenu
-			pass
 		# add size-selection
 		if flags & DefaultMenuItem.SIZE:
 			size_item = gtk.MenuItem(_("Size"))
@@ -957,10 +985,10 @@ class Screenlet (gobject.GObject, EditableOptions):
 			lst = self.get_available_themes()
 			for tname in lst:
 				item = gtk.MenuItem(tname)
-				item.connect("activate", self.menuitem_callback, 
-					"theme:"+tname)
+				item.connect("activate", self.menuitem_callback, "theme:"+tname)
 				item.show()
 				themes_menu.append(item)
+
 		# add window-options menu
 		if flags & DefaultMenuItem.WINDOW_MENU:
 			winmenu_item = gtk.MenuItem(_("Window"))
@@ -1003,39 +1031,39 @@ class Screenlet (gobject.GObject, EditableOptions):
 				"option:keep_below")
 			item.show()
 			winmenu_menu.append(item)
-		# add Settings-item
+
+		# add Settings item
 		if flags & DefaultMenuItem.PROPERTIES:
-			self.add_menuitem("", "-")
-			self.add_menuitem("options", _("Properties..."))
-		# add info-item
+			add_menuitem(menu, "-", self.menuitem_callback, "")
+			add_menuitem(menu, _("Properties..."), self.menuitem_callback, "options")
+		# add info item
 		if flags & DefaultMenuItem.INFO:
-			self.add_menuitem("", "-")
-			self.add_menuitem("info", _("Info..."))
+			add_menuitem(menu, "-", self.menuitem_callback, "")
+			add_menuitem(menu, _("Info..."), self.menuitem_callback, "info")
 		# add delete item
 		if flags & DefaultMenuItem.DELETE:
-			self.add_menuitem("", "-")
-			self.add_menuitem("delete", _("Delete Screenlet ..."))
-		# add Quit-item
-		self.add_menuitem("", "-")
-		self.add_menuitem("quit_instance", _("Quit this %s ...") % self.get_short_name())
-		# add Quit-item
-		self.add_menuitem("", "-")
-		self.add_menuitem("quit", _("Quit all %ss ...") % self.get_short_name())
+			add_menuitem(menu, "-", self.menuitem_callback, "")
+			add_menuitem(menu, _("Delete Screenlet ..."), self.menuitem_callback, "delete")
+		# add Quit item
+		if flags & DefaultMenuItem.QUIT:
+			add_menuitem(menu, "-", self.menuitem_callback, "")
+			add_menuitem(menu, _("Quit this %s ...") % self.get_short_name(), self.menuitem_callback, "quit_instance")
+		# add Quit-all item
+		if flags & DefaultMenuItem.QUIT_ALL:
+			add_menuitem(menu, "-", self.menuitem_callback, "")
+			add_menuitem(menu, _("Quit all %ss ...") % self.get_short_name(), self.menuitem_callback, "quit")
 
 	def add_menuitem (self, id, label, callback=None):
-		"""Simple way to add menuitems to the right-click menu."""
+		"""Simple way to add menuitems to a right-click menu.
+		This function wraps screenlets.menu.add_menuitem.
+		For backwards compatibility, the order of the parameters
+		to this function is switched."""
 		if not self.has_started: print 'WARNING - add_default_menuitems and add_menuitems should be set in on_init ,menu values will be displayed incorrectly'
-		if callback == None:
+		if callback is None:
 			callback = self.menuitem_callback
-		if label == "-":
-			menu_item = gtk.SeparatorMenuItem()
-		else:
-			menu_item = gtk.MenuItem(label)
-			menu_item.connect("activate", callback, id)
-		self.menu.append(menu_item)
-		menu_item.show()
-		return menu_item
-
+		# call menu.add_menuitem
+		return add_menuitem(self.menu, label, callback, id)
+	
 	def add_submenuitem (self, id, label, lst, callback=None):
 		"""Simple way to add submenuitems to the right-click menu through a list."""
 		if not self.has_started: print 'WARNING - add_default_menuitems and add_menuitems should be set in on_init ,menu values will be displayed incorrectly'
@@ -1055,6 +1083,8 @@ class Screenlet (gobject.GObject, EditableOptions):
 			sub_menu.append(item)
 
 		return submenu
+
+
 
 	def load_buttons(self, event):
 		self.closeb = self.gtk_icon_theme.load_icon ("gtk-close", 16, 0)
@@ -1282,7 +1312,7 @@ class Screenlet (gobject.GObject, EditableOptions):
 		if self.session:
 			if len(self.session.instances) == 0:
 				# if it is the basic service, add name to call
-				if service_classobj==services.ScreenletService:
+				if service_classobj==services.ScreenletService:#BUG
 					self.service = service_classobj(self, self.get_short_name())
 				else:
 					# else only pass this screenlet

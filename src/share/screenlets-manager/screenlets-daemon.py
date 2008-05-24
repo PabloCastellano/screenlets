@@ -32,8 +32,9 @@ if getattr(dbus, 'version', (0,0,0)) >= (0,41,0):
 		DBusGMainLoop(set_as_default=True)
 import gobject
 import screenlets
+from screenlets.menu import add_menuitem, add_image_menuitem
 import gtk
-from screenlets import utils
+from screenlets import utils, install
 import gettext
 
 gettext.textdomain('screenlets-manager')
@@ -65,6 +66,7 @@ class ScreenletsDaemon (dbus.service.Object):
 		dbus.service.Object.__init__(self, bus_name, SLD_PATH)
 		# init properties
 		self.running_screenlets = []
+		self.menu = None
 		# get list of currently open screenlets from system
 		running = utils.list_running_screenlets()
 		if running:
@@ -116,78 +118,49 @@ class ScreenletsDaemon (dbus.service.Object):
 
 
 	def show_menu(self, status_icon, button, activate_time):
-		menu = gtk.Menu()
-		menu1 = gtk.Menu()
-		menu2 = gtk.Menu()
-		menu3 = gtk.Menu()
-		itemc = gtk.MenuItem(_("Screenlets Manager"))
-		itemc.connect("activate", self.openit)
-		menu.append(itemc)
-		sep = gtk.SeparatorMenuItem()
-		menu.append(sep)
-		item = gtk.MenuItem(_("Get more Screenlets"))
-		item.connect("activate", self.getit)
-		menu.append(item)
-		item = gtk.MenuItem(_("Install Screenlet"))
-		item.connect("activate", self.installit)
-		menu.append(item)
-		sep = gtk.SeparatorMenuItem()
-		menu.append(sep)
-		item0 = gtk.MenuItem(_("Launch Screenlet"))
-
-
-		if os.path.exists(self.DIR_USER) and os.path.isdir(self.DIR_USER): #is it a valid folder?
-			a = os.listdir(self.DIR_USER)
-			a.sort()
-			for f in a:     
+		"""Create the menu and show it."""
+		if self.menu is None:
+			self.menu = gtk.Menu()
+			
+			# create top menuitems
+			add_image_menuitem(self.menu, gtk.STOCK_PREFERENCES, _("Screenlets Manager"), self.openit)
+			add_menuitem(self.menu, "-")
+			add_image_menuitem(self.menu, gtk.STOCK_ADD, _("Install Screenlet"), self.installit)
+			add_image_menuitem(self.menu, gtk.STOCK_NETWORK, _("Get more Screenlets"), self.website_open, screenlets.THIRD_PARTY_DOWNLOAD)
+			add_menuitem(self.menu, "-")
+			
+			# create 	def openit(self, widget):
+		try:
+			os.system('screenlets-manager &')	
+		except:
+			passthe launch menu 
+			launch_menu = gtk.Menu()
+			item = add_image_menuitem(self.menu, gtk.STOCK_EXECUTE, _("Launch Screenlet"))
+			item.set_submenu(launch_menu)
+			
+			def set_item_image (self, item, name):
+				img = utils.get_screenlet_icon(name,16,16)
+				item.set_image_from_pixbuf(img)
+				return False
+			
+			# populate the launch menu
+			for path in screenlets.SCREENLETS_PATH:
+				if os.path.exists(path) and os.path.isdir(path): #is it a valid folder?
+					a = os.listdir(path)
+					a.sort()
+					for f in a:
+						item = add_image_menuitem(launch_menu, gtk.STOCK_MISSING_IMAGE, f, self.launch, str(f))
+						gobject.idle_add(set_item_image, self, item, f)
+					add_menuitem(launch_menu, "-")
+			
+			# create the bottom menuitems
+			add_image_menuitem(self.menu, gtk.STOCK_QUIT, _("Close all Screenlets"), utils.quit_all_screenlets)
+			add_image_menuitem(self.menu, gtk.STOCK_ABOUT, None, self.about)
+			
+			self.menu.show_all()
 		
-				item = gtk.MenuItem(str(f))
-				item.connect("activate", self.launch,str(f))
-		
-				menu1.append(item)
-		sep = gtk.SeparatorMenuItem()
-		menu1.append(sep)
-		if os.path.exists(self.DIR_USER1) and os.path.isdir(self.DIR_USER1): #is it a valid folder?
-			a = os.listdir(self.DIR_USER1)
-			a.sort()
-			for f in a:       
-		
-				item = gtk.MenuItem(str(f))
-				item.connect("activate", self.launch,str(f))
-		
-				menu1.append(item)
-		sep = gtk.SeparatorMenuItem()
-		menu1.append(sep)
-		if os.path.exists(self.DIR_USER2) and os.path.isdir(self.DIR_USER2): #is it a valid folder?
-			a = os.listdir(self.DIR_USER2)
-			a.sort()
-			for f in a:        
-		
-				item = gtk.MenuItem(str(f))
-				item.connect("activate", self.launch,str(f))
-	
-				menu1.append(item)
-		sep = gtk.SeparatorMenuItem()
-		menu1.append(sep)
-		item0.set_submenu(menu1)
-
-		menu.append(item0)
-
-
-
-#		item = gtk.MenuItem("Restart all Screenlets")
-#		item.connect("activate", self.restartit)
-#		menu.append(item)
-		item = gtk.MenuItem(_("Close all Screenlets"))
-		item.connect("activate", self.closeit)
-		menu.append(item)		
-		sep = gtk.SeparatorMenuItem()
-		menu1.append(sep)		
-		itema = gtk.ImageMenuItem(stock_id=gtk.STOCK_ABOUT)
-		itema.connect("activate", self.about)
-		menu.append(itema)
-		menu.show_all()
-		menu.popup(None, None, None, button, activate_time)
+		# show the menu
+		self.menu.popup(None, None, None, button, activate_time)
 
 	def quit_screenlet_by_name (self, name):
 		"""Quit all instances of the given screenlet type."""
@@ -227,11 +200,14 @@ class ScreenletsDaemon (dbus.service.Object):
 				self.unregister_screenlet(s)
 				self.quit_screenlet_by_name(s)
 				
+	def installit(self, widget):
+		self.show_install_dialog()
+
+
+
 	def openit(self, widget):
-		try:
-			os.system('screenlets-manager &')	
-		except:
-			pass
+		os.system('screenlets-manager &')	
+
 	
 	def getit(self, widget):
 		try:
@@ -273,11 +249,6 @@ class ScreenletsDaemon (dbus.service.Object):
 			screenlets.show_error(None, _('Failed to add %sScreenlet.') % name)
 
 	
-	def installit (self, widget):
-
-		self.show_install_dialog()
-
-	
 
 	
 
@@ -317,69 +288,13 @@ class ScreenletsDaemon (dbus.service.Object):
 	def install (self, filename):
 		"""Install a screenlet from a given archive-file. Extracts the
 		contents of the archive to the user's screenlet dir."""
-		print 'Installing %s' % filename
-		result = False
-		# TODO: set busy cursor
-		# ...
-		# get name of screenlet
-		basename	= os.path.basename(filename)
-		ext	= str(filename)[len(str(filename)) -3:]
-#		name		= basename[:basename.find('.')]
-		
-		# check extension and create appropriate args for tar
-	
-		tar_opts = 'xfz'
-		if ext == 'bz2':
-			tar_opts = 'xfj'
-			
-		# extract archive to temporary dir
-		if not os.path.isdir('/tmp/screenlets/'):
-			os.system('mkdir ' + '/tmp/screenlets/')
-		
-		tmpdir = '/tmp/screenlets' + '/install-temp/'
-		if not os.path.isdir('/tmp/screenlets' + '/install-temp/'): os.system('mkdir %s' % tmpdir)
-		
-		
-		os.system('tar %s %s -C %s' % (tar_opts,  chr(34)+filename+chr(34), tmpdir))
-		for d in tmpdir : #for each item in folders
-  			if os.path.exists(d) and os.path.isdir(d): #is it a valid folder?
-				for f in os.listdir(tmpdir): 
-					
-					name = f
-		try:
-			print name
-		except:
-			screenlets.show_message (None, _("Archive damaged or unsuported, only tar , bz2 or gz."))
-		if not os.path.isdir('%s/%s' % (tmpdir, name)):
-			# dir missing
-			screenlets.show_message (None, _("Invalid archive. Archive must contain a directory with the screenlet's name."))
-		elif not os.path.isfile('%s/%s/%sScreenlet.py' % (tmpdir, name, name)):
-			# Screenlet.py missing
-			screenlets.show_message (None, _("Invalid archive. Archive does not contain a screenlet."))
+		installer = install.ScreenletInstaller()
+		result = installer.install(filename)
+		if result:
+			# reload screenlets to add new screenlet to iconview and show result
+			screenlets.show_message(None, installer.get_result_message())
 		else:
-			# check for package-info
-
-			if not os.path.isfile('%s/%s/Screenlet.package' % (tmpdir, name)):
-				if screenlets.show_question(None,(_("%s was not packaged with the screenlet packager. Do you wish to continue and try to install it?") % (name)),(_('Install %s') % (name))):
-					pass
-				else:
-					screenlets.show_message (None, _("This package was not packaged with the screenlet packager."))
-					return False	
-			
-			# copy archive to user dir (and create if not exists)
-			self.create_user_dir()
-			os.system('tar %s %s -C %s' % (tar_opts, chr(34)+filename+chr(34), DIR_USER))
-			# delete package info from target dir
-			os.system('rm %s/%s/Screenlet.package' % (DIR_USER, name))
-			# set msg/result
-			screenlets.show_message (None, _("The %sScreenlet has been succesfully installed.") % name)
-			result = True
-		# remove temp contents
-		os.system('rm -rf %s/install-temp' % DIR_TMP)
-	
-		
-
-		return result
+			screenlets.show_error(None, installer.get_result_message())
 
 if __name__ == '__main__':
 	# check for running daemon

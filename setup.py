@@ -61,6 +61,7 @@ def make_file_list(dirlist, install_path, strip=''):
 # Create a list of scripts that will be installed into PREFIX/bin/
 scripts_list = ['src/bin/screenletsd',
 	'src/bin/screenlets-manager',
+	'src/bin/screenlets-daemon',
 	'src/bin/screenlets-packager']
 
 # Install screenlets into PREFIX/share/screenlets/
@@ -113,9 +114,9 @@ if os.path.isdir (podir):
 setup(name='screenlets',
 	version			= VERSION,
 	description		= 'A widget framework for Linux',
-	url				= 'http://www.screenlets.org',
-	author			= 'RYX (Rico Pfaus) <ryx@ryxperience.com>, Whise (Helder Fraga)<helder.fraga@hotmail.com>, Sorcerer (Hendrik Kaju), Natan Yellin (Aantn) <aantny@gmail.com>',
-	author_email	= 'aantny@gmail.com',
+	url			= 'http://www.screenlets.org',
+	author			= 'Whise (Helder Fraga)<helder.fraga@hotmail.com>, RYX (Rico Pfaus) <ryx@ryxperience.com>, Sorcerer (Hendrik Kaju), Natan Yellin (Aantn) <aantny@gmail.com>',
+	author_email		= 'helderfraga@hotmail.com',
 	license			= 'GPL v3',
 	packages		= ['screenlets'],
 	package_dir		= {'screenlets': 'src/lib'},

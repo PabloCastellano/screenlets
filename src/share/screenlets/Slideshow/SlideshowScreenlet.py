@@ -12,7 +12,7 @@
 
 import screenlets
 from screenlets.options import FileOption, IntOption, FloatOption, StringOption, BoolOption
-from screenlets import DefaultMenuItem
+from screenlets import DefaultMenuItem , utils
 import cairo
 import gtk
 import pango
@@ -49,7 +49,7 @@ class SlideshowScreenlet (screenlets.Screenlet):
 	slide = True
 	home = commands.getoutput("echo $HOME")
 	folders = home
-	use_types = ['.jpg', '.gif', '.png']
+	use_types = ['.jpg', '.gif', '.png','.bmp', '.svg', '.jpeg', '.tif', '.tiff']
 	engine = ''
 	engine1 = 'directory'
 	engine_sel = ['directory', 'Flickr']
@@ -273,35 +273,11 @@ class SlideshowScreenlet (screenlets.Screenlet):
 	def on_drop (self, x, y, sel_data, timestamp):
 		print "Data dropped ..."
 		filename = ''
-		# get text-elements in selection data
-		txt = sel_data.get_text()
-		if txt:
-			print txt
-			txt = txt.replace ('%C3%81', '')			
-			txt = txt.replace ('%20', ' ')
-			txt = txt.replace ('%26', '&')
-			txt = txt.replace ('%5B', '[')
-			txt = txt.replace ('%5D', ']')
-			txt = txt.replace ('%2C', ',')
-			if txt[-1] == '\n':
-				txt = txt[:-1]
-			txt.replace('\n', '\\n')
-			# if it is a filename, use it
-			if txt.startswith('file://'):
-				filename = txt[7:]
-				self.set_image (filename)
-				self.redraw_canvas()
-			else:
-				screenlets.show_error(self, 'Invalid string: %s.' % txt)
-		else:
-			# else get uri-part of selection
-			uris = sel_data.get_uris()
-			if uris and len(uris)>0:
-				#print "URIS: "+str(uris	)
-				filename = uris[0][7:]
+		filename = utils.get_filename_on_drop(sel_data)[0]
+		print filename
 		if filename != '':
 			#self.set_image(filename)
-			self.image_filename = filename
+			self.image_filename = filename.replace(chr(34),'')
 
 	def show_install_dialog (self):
 		"""Craete/Show the install-dialog."""
@@ -360,7 +336,9 @@ class SlideshowScreenlet (screenlets.Screenlet):
 			ctx.save()
 			ctx.translate(self.image_offset_x, self.image_offset_y)
 			ctx.scale(0.875,self.image_scale)
-			self.theme.draw_scaled_image(ctx,0,0,self.image_filename,w,h)
+			try:
+				self.theme.draw_scaled_image(ctx,0,0,self.image_filename,w,h)
+			except:pass
 			ctx.restore()
 			ctx.translate(60,158)
 			if self.paint_menu == True and  self.showbuttons == True: self.theme.render(ctx, 'menu')				

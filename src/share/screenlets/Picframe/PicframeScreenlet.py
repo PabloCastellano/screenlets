@@ -12,6 +12,7 @@
 
 import screenlets
 from screenlets.options import ImageOption, IntOption, FloatOption, ColorOption,BoolOption
+from screenlets import utils
 import gtk
 import cairo
 import math
@@ -128,28 +129,11 @@ class PicframeScreenlet (screenlets.Screenlet):
 	def on_drop (self, x, y, sel_data, timestamp):
 		print "Data dropped ..."
 		filename = ''
-		# get text-elements in selection data
-		txt = sel_data.get_text()
-		if txt:
-			if txt[-1] == '\n':
-				txt = txt[:-1]
-			txt.replace('\n', '\\n')
-			# if it is a filename, use it
-			if txt.startswith('file://'):
-				filename = txt[7:]
-			else:
-				screenlets.show_error(self, 'Invalid string: %s.' % txt)
-		else:
-			# else get uri-part of selection
-			uris = sel_data.get_uris()
-			if uris and len(uris)>0:
-				#print "URIS: "+str(uris	)
-				filename = uris[0][7:]
+		filename = utils.get_filename_on_drop(sel_data)[0]
+		print filename
 		if filename != '':
 			#self.set_image(filename)
-			print filename
-			
-			self.image_filename = urllib.unquote(filename)
+			self.image_filename = filename.replace(chr(34),'')
 	
 	def on_draw (self, ctx):
 		ctx.set_operator(cairo.OPERATOR_OVER)
@@ -193,7 +177,9 @@ class PicframeScreenlet (screenlets.Screenlet):
 			if self.image_filename != '': 
 				
 				self.image_filename = urllib.unquote(self.image_filename)
-				pixbuf = gtk.gdk.pixbuf_new_from_file(self.image_filename).scale_simple(w,h,gtk.gdk.INTERP_HYPER)
+				try:
+					pixbuf = gtk.gdk.pixbuf_new_from_file(self.image_filename).scale_simple(w,h,gtk.gdk.INTERP_HYPER)
+				except:pass
 				format = cairo.FORMAT_RGB24
 				if pixbuf.get_has_alpha():
 					format = cairo.FORMAT_ARGB32

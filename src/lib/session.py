@@ -330,7 +330,7 @@ class ScreenletSession (object):
 		# get running screenlets
 		running = utils.list_running_screenlets()
 		if running and len(running) > 0:
-			print _("Removing entry for %s from global tempfile %s") % (name, self.tempfile)
+			pass#print _("Removing entry for %s from global tempfile %s") % (name, self.tempfile)
 			try:
 				running.remove(name)
 			except:

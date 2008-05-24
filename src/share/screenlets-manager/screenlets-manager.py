@@ -196,7 +196,11 @@ class ScreenletsManager:
 			56, 56)
 		# get list of available/running screenlets
 		lst_a = utils.list_available_screenlets()
-		lst_r = utils.list_running_screenlets()
+		lst_r = utils.list_running_screenlets2()
+		lst_r2 = utils.list_running_screenlets()
+		if lst_r2 != None:
+			for slet in lst_r2:
+				if lst_r2 not in lst_r: lst_r.append(slet)
 		if not lst_r:
 			lst_r = []
 		lst_a.sort()
@@ -1016,32 +1020,42 @@ class ScreenletsManager:
 				print _('Failed to create autostarter for %s.') % name
 				return False
 		elif id == 'restartall':
-			a = utils.list_running_screenlets()
+			a = utils.list_running_screenlets2()
+			b = utils.list_running_screenlets()
+			if b != None:
+				for sl in b:
+					if b not in a: a.append(sl)
 			if a != None:
 				for s in a:
 					print _('closing %s') % str(s)
 					if s.endswith('Screenlet'):
 						s = s[:-9]
-						try:
-							utils.quit_screenlet_by_name(s)
-						except:
-							pass
+					try:
+						utils.quit_screenlet_by_name(s)
+					except:
+						pass
 			for s in os.listdir(DIR_AUTOSTART):
 		
 				if s.lower().endswith('screenlet.desktop'):
 					#s = s[:-17]
 					os.system('sh '+ DIR_AUTOSTART + s + ' &')	
 		elif id == 'closeall':
-			a = utils.list_running_screenlets()
+			a = utils.list_running_screenlets2()
+			b = utils.list_running_screenlets()
+			print a
+			print b
+			if b != None:
+				for sl in b:
+					if b not in a: a.append(sl)
 			if a != None:
 				for s in a:
-					print 'closing' + str(s)
+					print 'closing ' + str(s)
 					if s.endswith('Screenlet'):
 						s = s[:-9]
-						try:
-							utils.quit_screenlet_by_name(s)
-						except:
-							pass
+					try:
+						utils.quit_screenlet_by_name(s)
+					except:
+						pass
 		elif id == 'website':
 			print "TODO: open website"
 

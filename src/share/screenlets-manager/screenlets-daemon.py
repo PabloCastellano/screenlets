@@ -126,7 +126,7 @@ class ScreenletsDaemon (dbus.service.Object):
 			add_image_menuitem(self.menu, gtk.STOCK_PREFERENCES, _("Screenlets Manager"), self.openit)
 			add_menuitem(self.menu, "-")
 			add_image_menuitem(self.menu, gtk.STOCK_ADD, _("Install Screenlet"), self.installit)
-			add_image_menuitem(self.menu, gtk.STOCK_NETWORK, _("Get more Screenlets"), self.getit, screenlets.THIRD_PARTY_DOWNLOAD)
+			add_image_menuitem(self.menu, gtk.STOCK_NETWORK, _("Get more Screenlets"), self.getit)
 			add_menuitem(self.menu, "-")
 			
 			# create the

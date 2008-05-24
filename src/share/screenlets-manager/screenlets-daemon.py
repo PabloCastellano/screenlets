@@ -179,7 +179,7 @@ class ScreenletsDaemon (dbus.service.Object):
 
 
 	def openit(self, widget):
-		utils.xdg_open('screenlets-manager')
+		os.system('screenlets-manager &')
 			
 
 	

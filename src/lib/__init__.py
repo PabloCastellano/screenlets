@@ -95,6 +95,10 @@ THIRD_PARTY_DOWNLOAD = "http://screenlets.org/index.php/Category:UserScreenlets"
 #-------------------------------------------------------------------------------
 DIR_TMP			= '/tmp/screenlets/'
 
+TMP_DIR = DIR_TMP
+
+TMP_FILE	= 'screenlets.' + os.environ['USER'] + '.running'
+
 DIR_USER_ROOT = screenlets.INSTALL_PREFIX + '/share/screenlets'
 
 DIR_USER = os.environ['HOME'] + '/.screenlets'

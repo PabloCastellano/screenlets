@@ -126,14 +126,11 @@ class ScreenletsDaemon (dbus.service.Object):
 			add_image_menuitem(self.menu, gtk.STOCK_PREFERENCES, _("Screenlets Manager"), self.openit)
 			add_menuitem(self.menu, "-")
 			add_image_menuitem(self.menu, gtk.STOCK_ADD, _("Install Screenlet"), self.installit)
-			add_image_menuitem(self.menu, gtk.STOCK_NETWORK, _("Get more Screenlets"), self.website_open, screenlets.THIRD_PARTY_DOWNLOAD)
+			add_image_menuitem(self.menu, gtk.STOCK_NETWORK, _("Get more Screenlets"), self.getit, screenlets.THIRD_PARTY_DOWNLOAD)
 			add_menuitem(self.menu, "-")
 			
-			# create 	def openit(self, widget):
-		try:
-			os.system('screenlets-manager &')	
-		except:
-			passthe launch menu 
+			# create the
+			#launch menu 
 			launch_menu = gtk.Menu()
 			item = add_image_menuitem(self.menu, gtk.STOCK_EXECUTE, _("Launch Screenlet"))
 			item.set_submenu(launch_menu)
@@ -154,7 +151,8 @@ class ScreenletsDaemon (dbus.service.Object):
 					add_menuitem(launch_menu, "-")
 			
 			# create the bottom menuitems
-			add_image_menuitem(self.menu, gtk.STOCK_QUIT, _("Close all Screenlets"), utils.quit_all_screenlets)
+			add_image_menuitem(self.menu, gtk.STOCK_QUIT, _("Close all Screenlets"), self.closeit)
+			add_image_menuitem(self.menu, gtk.STOCK_REFRESH, _("Restart all Screenlets"), self.restartit)
 			add_image_menuitem(self.menu, gtk.STOCK_ABOUT, None, self.about)
 			
 			self.menu.show_all()
@@ -169,36 +167,11 @@ class ScreenletsDaemon (dbus.service.Object):
 		if service:
 			service.quit()
 
-#	def restartit(self, widget):
-#		a = utils.list_running_screenlets()
-#		import time
-#		if a != None:
-#			for s in a:
-#				print 'restarting' + str(s)
-#				if s.endswith('Screenlet'):
-#					s = s[:-9]
-#				time.sleep(0.4)
-#				self.unregister_screenlet(s)
-#				self.quit_screenlet_by_name(s)
-#				
-#		if a != None:
-#			for s in a:
-#				if s.endswith('Screenlet'):
-#					s = s[:-9]
-#				try:
-#					screenlets.launch_screenlet(s)
-#				except:
-#					pass
-#
+	def restartit(self, widget):
+		utils.restart_all_screenlets()
+
 	def closeit(self, widget):
-		a = utils.list_running_screenlets()
-		if a != None:
-			for s in a:
-				print 'closing' + str(s)
-				if s.endswith('Screenlet'):
-					s = s[:-9]
-				self.unregister_screenlet(s)
-				self.quit_screenlet_by_name(s)
+		utils.quit_all_screenlets()
 				
 	def installit(self, widget):
 		self.show_install_dialog()
@@ -206,16 +179,16 @@ class ScreenletsDaemon (dbus.service.Object):
 
 
 	def openit(self, widget):
-		os.system('screenlets-manager &')	
+		utils.xdg_open('screenlets-manager')
+			
 
 	
 	def getit(self, widget):
-		try:
-			os.system('xdg-open http://screenlets.org/index.php/Category:UserScreenlets &')	
-		except:
-			pass
+		utils.xdg_open('http://screenlets.org/index.php/Category:UserScreenlets')
+
 	def website_open(self, d, link, data):
-		os.system('xdg-open http://screenlets.org &')
+		utils.xdg_open('http://screenlets.org')
+
 
 	def about(self, widget):
 		
@@ -242,15 +215,10 @@ class ScreenletsDaemon (dbus.service.Object):
 		# run/destroy
 		dlg.run()
 		dlg.destroy()
+
 	def launch(self, widget,screenlet):
-		
-		name = str(screenlet)
-		if not screenlets.launch_screenlet(name):
-			screenlets.show_error(None, _('Failed to add %sScreenlet.') % name)
+		utils.launch_screenlet(screenlet)
 
-	
-
-	
 
 	def show_install_dialog (self):
 		"""Craete/Show the install-dialog."""
@@ -285,6 +253,7 @@ class ScreenletsDaemon (dbus.service.Object):
 		"""Create the userdir for the screenlets."""
 		if not os.path.isdir(os.environ['HOME'] + '/.screenlets'):
 			os.mkdir(os.environ['HOME'] + '/.screenlets')
+
 	def install (self, filename):
 		"""Install a screenlet from a given archive-file. Extracts the
 		contents of the archive to the user's screenlet dir."""

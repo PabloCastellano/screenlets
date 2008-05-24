@@ -879,33 +879,7 @@ class ScreenletsManager:
 				screenlets.launch_screenlet(info.name, debug=screenlets.DEBUG_MODE)
 				
 		elif id == 'install':
-			install_combo = gtk.combo_box_new_text()
-
-			#go_button = gtk.Button('Install')
-			install_combo.append_text('Install Screenlet')
-			install_combo.append_text('Install SuperKaramba Theme')
-			install_combo.append_text('Convert Web Widget')
-			install_combo.append_text('Install Web Application')
-			install_combo.set_active(0)
-       			dialog = gtk.Dialog("Install",self.window,
-                     gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
-                     (gtk.STOCK_CANCEL, gtk.RESPONSE_REJECT,
-                      gtk.STOCK_OK, gtk.RESPONSE_ACCEPT))
-			install_combo.show()
-
-			dialog.vbox.add(install_combo)
-				
-			
-			resp = dialog.run()
-			ret = None
-			if resp == gtk.RESPONSE_ACCEPT:
-				if install_combo.get_active() == 0 or install_combo.get_active() == 1:
-					self.show_install_dialog()
-				elif install_combo.get_active() == 2:
-					self.show_widget_converter()
-				elif install_combo.get_active() == 3:
-					self.show_webapp()						
-			dialog.destroy()
+			self.show_install_chose_ui()
 		elif id == 'uninstall':
 			self.delete_selected_screenlet()
 		elif id == 'reset':
@@ -913,81 +887,7 @@ class ScreenletsManager:
 		elif id == 'theme':
 			self.show_install_theme_dialog()
 		elif id == 'prop':
-			label = gtk.Label(_('New screenlets atributes..'))
-			cb1 = gtk.CheckButton(_('Lock'))
-			cb2 = gtk.CheckButton(_('Sticky'))
-			cb3 = gtk.CheckButton(_('Widget'))
-			cb4 = gtk.CheckButton(_('Keep above'))
-			cb4.set_active(True)
-			cb5 = gtk.CheckButton(_('Keep below'))
-			cb6 = gtk.CheckButton(_('Show buttons'))
-			ini = utils.IniReader()
-			if ini.load (DIR_USER + '/config.ini'):
-				
-				if ini.get_option('Lock', section='Options') == 'True':
-					cb1.set_active(True)
-				elif ini.get_option('Lock', section='Options') == 'False':
-					cb1.set_active(False)
-				if ini.get_option('Sticky', section='Options') == 'True':
-					cb2.set_active(True)
-				elif ini.get_option('Sticky', section='Options') == 'False':
-					cb2.set_active(False)
-				if ini.get_option('Widget', section='Options') == 'True':
-					cb3.set_active(True)
-				elif ini.get_option('Widget', section='Options') == 'False':
-					cb3.set_active(False)
-				if ini.get_option('Keep_above', section='Options') == 'True':
-					cb4.set_active(True)
-				elif ini.get_option('Keep_above', section='Options') == 'False':
-					cb4.set_active(False)
-				else:
-					cb4.set_active(True)
-				if ini.get_option('Keep_below', section='Options') == 'True':
-					cb5.set_active(True)
-				elif ini.get_option('Keep_below', section='Options') == 'False':
-					cb5.set_active(False)
-				if ini.get_option('draw_buttons', section='Options') == 'True':
-					cb6.set_active(True)
-				elif ini.get_option('draw_buttons', section='Options') == 'False':
-					cb6.set_active(False)
-				else:
-					cb6.set_active(True)					
-			dialog = gtk.Dialog(_("New Screenlets atributes"),
-                     self.window,
-                     gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
-                     (gtk.STOCK_CANCEL, gtk.RESPONSE_REJECT,
-                      gtk.STOCK_OK, gtk.RESPONSE_ACCEPT))
-			label.show()
-			cb1.show()
-			cb2.show()
-			cb3.show()
-			cb4.show()
-			cb5.show()
-			cb6.show()
-			dialog.vbox.add(label)
-			dialog.vbox.add(cb1)
-			dialog.vbox.add(cb2)
-			dialog.vbox.add(cb3)
-			dialog.vbox.add(cb4)
-			dialog.vbox.add(cb5)
-			dialog.vbox.add(cb6)				
-			
-			resp = dialog.run()
-			ret = None
-			if resp == gtk.RESPONSE_ACCEPT:
-				
-				ret = 'show_in_tray=' + str(self.cb_tray.get_active()) + '\n'
-				ret = ret + 'Lock=' + str(cb1.get_active()) + '\n'
-				ret = ret + 'Sticky=' + str(cb2.get_active()) + '\n'
-				ret = ret + 'Widget=' + str(cb3.get_active()) + '\n'
-				ret = ret + 'Keep_above=' + str(cb4.get_active()) + '\n'
-				ret = ret + 'Keep_below=' + str(cb5.get_active()) + '\n'
-				ret = ret + 'draw_buttons=' + str(cb6.get_active()) + '\n'	
-				f = open(DIR_USER + '/config.ini', 'w')
-				f.write("[Options]\n")
-				f.write(ret)
-				f.close()
-			dialog.destroy()
+			sekf.show_options_ui()
 		elif id == 'desktop_shortcut':
 			info = self.get_selection()
 			name = info.name
@@ -1020,47 +920,119 @@ class ScreenletsManager:
 				print _('Failed to create autostarter for %s.') % name
 				return False
 		elif id == 'restartall':
-			a = utils.list_running_screenlets2()
-			b = utils.list_running_screenlets()
-			if b != None:
-				for sl in b:
-					if b not in a: a.append(sl)
-			if a != None:
-				for s in a:
-					print _('closing %s') % str(s)
-					if s.endswith('Screenlet'):
-						s = s[:-9]
-					try:
-						utils.quit_screenlet_by_name(s)
-					except:
-						pass
+			utils.quit_all_screenlets()
 			for s in os.listdir(DIR_AUTOSTART):
 		
 				if s.lower().endswith('screenlet.desktop'):
 					#s = s[:-17]
 					os.system('sh '+ DIR_AUTOSTART + s + ' &')	
 		elif id == 'closeall':
-			a = utils.list_running_screenlets2()
-			b = utils.list_running_screenlets()
-			print a
-			print b
-			if b != None:
-				for sl in b:
-					if b not in a: a.append(sl)
-			if a != None:
-				for s in a:
-					print 'closing ' + str(s)
-					if s.endswith('Screenlet'):
-						s = s[:-9]
-					try:
-						utils.quit_screenlet_by_name(s)
-					except:
-						pass
-		elif id == 'website':
-			print "TODO: open website"
+			utils.quit_all_screenlets()
 
 		elif id == 'download':
 			subprocess.Popen(["xdg-open", screenlets.THIRD_PARTY_DOWNLOAD])
+
+	def show_install_chose_ui(self):
+		install_combo = gtk.combo_box_new_text()
+		install_combo.append_text('Install Screenlet')
+		install_combo.append_text('Install SuperKaramba Theme')
+		install_combo.append_text('Convert Web Widget')
+		install_combo.append_text('Install Web Application')
+		install_combo.set_active(0)
+       		dialog = gtk.Dialog("Install",self.window,
+                    gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
+                    (gtk.STOCK_CANCEL, gtk.RESPONSE_REJECT,
+                     gtk.STOCK_OK, gtk.RESPONSE_ACCEPT))
+		install_combo.show()
+		dialog.vbox.add(install_combo)
+		resp = dialog.run()
+		ret = None
+		if resp == gtk.RESPONSE_ACCEPT:
+			if install_combo.get_active() == 0 or install_combo.get_active() == 1:
+				self.show_install_dialog()
+			elif install_combo.get_active() == 2:
+				self.show_widget_converter()
+			elif install_combo.get_active() == 3:
+				self.show_webapp()						
+		dialog.destroy()
+
+	def show_options_ui(self):
+		label = gtk.Label(_('New screenlets atributes..'))
+		cb1 = gtk.CheckButton(_('Lock'))
+		cb2 = gtk.CheckButton(_('Sticky'))
+		cb3 = gtk.CheckButton(_('Widget'))
+		cb4 = gtk.CheckButton(_('Keep above'))
+		cb4.set_active(True)
+		cb5 = gtk.CheckButton(_('Keep below'))
+		cb6 = gtk.CheckButton(_('Show buttons'))
+		ini = utils.IniReader()
+		if ini.load (DIR_USER + '/config.ini'):
+				
+			if ini.get_option('Lock', section='Options') == 'True':
+				cb1.set_active(True)
+			elif ini.get_option('Lock', section='Options') == 'False':
+				cb1.set_active(False)
+			if ini.get_option('Sticky', section='Options') == 'True':
+				cb2.set_active(True)
+			elif ini.get_option('Sticky', section='Options') == 'False':
+				cb2.set_active(False)
+			if ini.get_option('Widget', section='Options') == 'True':
+				cb3.set_active(True)
+			elif ini.get_option('Widget', section='Options') == 'False':
+				cb3.set_active(False)
+			if ini.get_option('Keep_above', section='Options') == 'True':
+				cb4.set_active(True)
+			elif ini.get_option('Keep_above', section='Options') == 'False':
+				cb4.set_active(False)
+			else:
+				cb4.set_active(True)
+			if ini.get_option('Keep_below', section='Options') == 'True':
+				cb5.set_active(True)
+			elif ini.get_option('Keep_below', section='Options') == 'False':
+				cb5.set_active(False)
+			if ini.get_option('draw_buttons', section='Options') == 'True':
+				cb6.set_active(True)
+			elif ini.get_option('draw_buttons', section='Options') == 'False':
+				cb6.set_active(False)
+			else:
+				cb6.set_active(True)					
+		dialog = gtk.Dialog(_("New Screenlets atributes"),
+                    self.window,
+                    gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
+                    (gtk.STOCK_CANCEL, gtk.RESPONSE_REJECT,
+                     gtk.STOCK_OK, gtk.RESPONSE_ACCEPT))
+		label.show()
+		cb1.show()
+		cb2.show()
+		cb3.show()
+		cb4.show()
+		cb5.show()
+		cb6.show()
+		dialog.vbox.add(label)
+		dialog.vbox.add(cb1)
+		dialog.vbox.add(cb2)
+		dialog.vbox.add(cb3)
+		dialog.vbox.add(cb4)
+		dialog.vbox.add(cb5)
+		dialog.vbox.add(cb6)				
+		
+		resp = dialog.run()
+		ret = None
+		if resp == gtk.RESPONSE_ACCEPT:
+			
+			ret = 'show_in_tray=' + str(self.cb_tray.get_active()) + '\n'
+			ret = ret + 'Lock=' + str(cb1.get_active()) + '\n'
+			ret = ret + 'Sticky=' + str(cb2.get_active()) + '\n'
+			ret = ret + 'Widget=' + str(cb3.get_active()) + '\n'
+			ret = ret + 'Keep_above=' + str(cb4.get_active()) + '\n'
+			ret = ret + 'Keep_below=' + str(cb5.get_active()) + '\n'
+			ret = ret + 'draw_buttons=' + str(cb6.get_active()) + '\n'	
+			f = open(DIR_USER + '/config.ini', 'w')
+			f.write("[Options]\n")
+			f.write(ret)
+			f.close()
+		dialog.destroy()
+
 	def show_webapp(self):
 		label1 = gtk.Label(_('Web Application Url'))
 		label2 = gtk.Label(_('Web Application Name'))
@@ -1123,92 +1095,92 @@ class ScreenletsManager:
 				else:	screenlets.show_error(None,_("Please specify a name for the widget"))
 			else:	screenlets.show_error(None,_("No HTML code found"))
 		dialog.destroy()
-	def show_widget_converter(self):
-			label1 = gtk.Label(_('Convert any webpage widget into a Screenlet.'))
-			label2 = gtk.Label(_('Step 1 : Find the widget you want to convert'))
-			label3 = gtk.Label(_('Step 2 : Copy and Paste the HTML from the widget in the box below'))
-			label4 = gtk.Label(_('Step 3 : Give it a name in the box below and click on Ok to convert'))
-			label5 = gtk.Label(_('The name of the widget'))
-			code = gtk.Entry()
-			name = gtk.Entry()
-			h = gtk.HBox()
-			h1 = gtk.HBox()
-			self.combo1 = combo = gtk.combo_box_new_text()
-			combo.append_text('Google Gadgets')
-			combo.append_text('Yourminis Widgets')
-			combo.append_text('SpringWidgets')
-			combo.append_text('Widgetbox')
-			combo.set_active(0)
-			web = gtk.Button('Go to web page')
-			web.connect('clicked', self.button_clicked, 'widgetsite')
-    			label1.show()
-    			label2.show()
-    			label3.show()
-    			label4.show()
-    			label5.show()
-			combo.show()
-			name.show()
-			web.show()
-			h.show()
-			h1.show()
-			code.show()
-			dialog = gtk.Dialog(_("Widget converter"),
-                     self.window,
-                     gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
-                     (gtk.STOCK_CANCEL, gtk.RESPONSE_REJECT,
-                      gtk.STOCK_OK, gtk.RESPONSE_ACCEPT))
-			#dialog.set_size_request(300, 500)
-			dialog.vbox.pack_start(label1,False,False,20)
-			dialog.vbox.pack_start(label2,True,False,5)
-			h.pack_start(combo,True,True,5)
-			h.pack_start(web,False,False,5)
-			dialog.vbox.pack_start(h,False,False,5)
-			dialog.vbox.pack_start(label3,False,False,10)
-			dialog.vbox.pack_start(code,False,False,5)
-			dialog.vbox.pack_start(label4,False,False,5)
-			h1.pack_start(label5,False,False,5)			
-			h1.pack_start(name,True,True,5)
-			dialog.vbox.pack_start(h1,False,False,5)
-			resp = dialog.run()
-			ret = None
-			if resp == gtk.RESPONSE_ACCEPT:
-				if code.get_text() != '':
-					if name.get_text() != '':
-						try:
-							a = name.get_text()
-							a = a.replace(' ','')
-							if os.path.isdir(DIR_USER + '/' + a):#found_path != None:
-								if screenlets.show_question(None,(_("There is already a screenlet with that name installed\nDo you wish to continue?") )):
-									pass
-								else: 
-									return False
-							os.system('mkdir ' +DIR_USER + '/' + a)
-							os.system('mkdir ' +DIR_USER + '/' + a + '/themes')
-							os.system('mkdir ' +DIR_USER + '/' + a + '/themes/default')
-							os.system('mkdir ' +DIR_USER + '/' + a + '/mozilla')
-							f = open(DIR_USER + '/' + a  + '/' + 'index.html' , 'w')
-							f.write(code.get_text())
-							f.close()
-							os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/WidgetScreenlet.py ' +DIR_USER + '/' + a + '/' + a + 'Screenlet.py')
-							os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/widget.png ' +DIR_USER + '/' + a + '/icon.png')				
-							os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/widget.png ' +DIR_USER + '/' + a + '/themes/default')
-							os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/prefs.js ' +DIR_USER + '/' + a + '/mozilla')			
 
-		
-							enginecopy = open(DIR_USER + '/' + a + '/' + a + 'Screenlet.py','r')
-							enginesave = enginecopy.read()
-							enginesave = enginesave.replace('WidgetScreenlet',a + 'Screenlet')
-							enginecopy.close()
-							enginecopy = open(DIR_USER + '/' + a + '/' + a + 'Screenlet.py','w')
-							enginecopy.write(enginesave)
-							enginecopy.close()
-							screenlets.show_message (None,_("Widget was successfully converted"))
-							self.model.clear()
-							self.load_screenlets()			
-						except:	screenlets.show_error(None,_("Error converting!!!"))
-					else:	screenlets.show_error(None,_("Please specify a name for the widget"))		
-				else:	screenlets.show_error(None,_("No HTML code found"))			
-			dialog.destroy()
+	def show_widget_converter(self):
+		label1 = gtk.Label(_('Convert any webpage widget into a Screenlet.'))
+		label2 = gtk.Label(_('Step 1 : Find the widget you want to convert'))
+		label3 = gtk.Label(_('Step 2 : Copy and Paste the HTML from the widget in the box below'))
+		label4 = gtk.Label(_('Step 3 : Give it a name in the box below and click on Ok to convert'))
+		label5 = gtk.Label(_('The name of the widget'))
+		code = gtk.Entry()
+		name = gtk.Entry()
+		h = gtk.HBox()
+		h1 = gtk.HBox()
+		self.combo1 = combo = gtk.combo_box_new_text()
+		combo.append_text('Google Gadgets')
+		combo.append_text('Yourminis Widgets')
+		combo.append_text('SpringWidgets')
+		combo.append_text('Widgetbox')
+		combo.set_active(0)
+		web = gtk.Button('Go to web page')
+		web.connect('clicked', self.button_clicked, 'widgetsite')
+    		label1.show()
+    		label2.show()
+    		label3.show()
+    		label4.show()
+    		label5.show()
+		combo.show()
+		name.show()
+		web.show()
+		h.show()
+		h1.show()
+		code.show()
+		dialog = gtk.Dialog(_("Widget converter"),
+                    self.window,
+                    gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
+                    (gtk.STOCK_CANCEL, gtk.RESPONSE_REJECT,
+                     gtk.STOCK_OK, gtk.RESPONSE_ACCEPT))
+		#dialog.set_size_request(300, 500)
+		dialog.vbox.pack_start(label1,False,False,20)
+		dialog.vbox.pack_start(label2,True,False,5)
+		h.pack_start(combo,True,True,5)
+		h.pack_start(web,False,False,5)
+		dialog.vbox.pack_start(h,False,False,5)
+		dialog.vbox.pack_start(label3,False,False,10)
+		dialog.vbox.pack_start(code,False,False,5)
+		dialog.vbox.pack_start(label4,False,False,5)
+		h1.pack_start(label5,False,False,5)			
+		h1.pack_start(name,True,True,5)
+		dialog.vbox.pack_start(h1,False,False,5)
+		resp = dialog.run()
+		ret = None
+		if resp == gtk.RESPONSE_ACCEPT:
+			if code.get_text() != '':
+				if name.get_text() != '':
+					try:
+						a = name.get_text()
+						a = a.replace(' ','')
+						if os.path.isdir(DIR_USER + '/' + a):#found_path != None:
+							if screenlets.show_question(None,(_("There is already a screenlet with that name installed\nDo you wish to continue?") )):
+								pass
+							else: 
+								return False
+						os.system('mkdir ' +DIR_USER + '/' + a)
+						os.system('mkdir ' +DIR_USER + '/' + a + '/themes')
+						os.system('mkdir ' +DIR_USER + '/' + a + '/themes/default')
+						os.system('mkdir ' +DIR_USER + '/' + a + '/mozilla')
+						f = open(DIR_USER + '/' + a  + '/' + 'index.html' , 'w')
+						f.write(code.get_text())
+						f.close()
+						os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/WidgetScreenlet.py ' +DIR_USER + '/' + a + '/' + a + 'Screenlet.py')
+						os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/widget.png ' +DIR_USER + '/' + a + '/icon.png')				
+						os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/widget.png ' +DIR_USER + '/' + a + '/themes/default')
+						os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/prefs.js ' +DIR_USER + '/' + a + '/mozilla')			
+						enginecopy = open(DIR_USER + '/' + a + '/' + a + 'Screenlet.py','r')
+						enginesave = enginecopy.read()
+						enginesave = enginesave.replace('WidgetScreenlet',a + 'Screenlet')
+						enginecopy.close()
+						enginecopy = open(DIR_USER + '/' + a + '/' + a + 'Screenlet.py','w')
+						enginecopy.write(enginesave)
+						enginecopy.close()
+						screenlets.show_message (None,_("Widget was successfully converted"))
+						self.model.clear()
+						self.load_screenlets()			
+					except:	screenlets.show_error(None,_("Error converting!!!"))
+				else:	screenlets.show_error(None,_("Please specify a name for the widget"))		
+			else:	screenlets.show_error(None,_("No HTML code found"))			
+		dialog.destroy()
+
 	def handle_screenlet_registered (self, name):
 		"""Callback for dbus-signal, called when a new screenlet gets 
 		registered within the daemon."""

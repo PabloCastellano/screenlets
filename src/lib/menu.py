@@ -290,19 +290,22 @@ class ApplicationMenu:
 class DefaultMenuItem:
 	"""A container with constants for the default menuitems"""
 	
+	# default menuitem constants (is it right to increase like this?)
 	NONE		= 0
-	THEMES		= 1
-	SIZE		= 2
+	DELETE		= 1
+	THEMES		= 2
 	INFO		= 4
-	PROPERTIES	= 8
-	QUIT 		= 16
-	QUIT_ALL 	= 32
-	DELETE		= 64
-	XML			= 128	# Experimental! The file menu.xml is used.
-	STANDARD	= THEMES|SIZE|PROPERTIES|QUIT|QUIT_ALL|DELETE
-	
-	# Deprecated
+	SIZE		= 8
 	WINDOW_MENU	= 16
+	PROPERTIES	= 32
+	DELETE		= 64
+	QUIT 		= 128
+	QUIT_ALL 	= 256
+	# EXPERIMENTAL!! If you use this, the file menu.xml in the 
+	# Screenlet's data-dir is used for generating the menu ...
+	XML			= 512
+	# the default items
+	STANDARD	= 1|2|8|16|32|64|128|256
 
 
 class ImageMenuItem(gtk.ImageMenuItem):

@@ -243,7 +243,7 @@ def list_running_screenlets ():
 	"""Returns a list with names of running screenlets or None if no
 	Screenlet is currently running. Function returns False if an error
 	happened!"""
-	tempfile = session.TMP_DIR + '/' + session.TMP_FILE
+	tempfile = screenlets.TMP_DIR + '/' + screenlets.TMP_FILE
 	if not os.path.isfile(tempfile):
 		return None
 	f = open(tempfile, 'r')
@@ -426,9 +426,16 @@ def quit_all_screenlets():
 			if s.endswith('Screenlet'):
 				s = s[:-9]
 			try:
-				utils.quit_screenlet_by_name(s)
+				quit_screenlet_by_name(s)
 			except:
 				pass
+
+def restart_all_screenlets():
+	quit_all_screenlets()
+	for s in os.listdir(DIR_AUTOSTART):
+		if s.lower().endswith('screenlet.desktop'):
+			#s = s[:-17]
+			os.system('sh '+ DIR_AUTOSTART + s + ' &')
 
 def readMountFile( filename):
 	"""Reads fstab file"""
@@ -492,6 +499,17 @@ def lookup_daemon_autostart ():
 		print _("Starter already exists.")
 		return True
 
+def launch_screenlet(screenlet):
+	"""Launches a screenlet"""
+	name = str(screenlet)
+	if not screenlets.launch_screenlet(name):
+		screenlets.show_error(None, _('Failed to add %sScreenlet.') % name)
+
+
+
+def xdg_open(name):
+	"""Opens anything"""
+	os.system('xdg-open ' + name + ' &')
 
 # ------------------------------------------------------------------------------
 # CLASSES

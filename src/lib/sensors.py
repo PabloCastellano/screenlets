@@ -66,6 +66,7 @@ def cpu_get_load (processor_number=0):
 	return None
 
 def cpu_get_cpu_name():
+	"""Returns Cpu Name"""
 	try:
 		f = open("/proc/cpuinfo", "r")
 		tmp = f.readlines(500)
@@ -80,6 +81,7 @@ def cpu_get_cpu_name():
 	return ''
 
 def cpu_get_cpu_list ():
+	"""Returns Cpu List"""
 	try:
 		f = open("/proc/stat", "r")
 		tmp = f.readlines(2000)
@@ -95,6 +97,7 @@ def cpu_get_cpu_list ():
 	return list
 
 def cpu_get_nb_cpu ():
+	"""Returns Cpu Number"""
 	try:
 		f = open("/proc/stat", "r")
 		tmp = f.readlines(2000)
@@ -109,6 +112,7 @@ def cpu_get_nb_cpu ():
 	return nb -1
 
 def cpu_get_current_freq():
+	"""Returns Cpu frequency"""
 	op = commands.getoutput('cat /proc/cpuinfo | grep "cpu MHz"')
 	try:
 		op = int(op.replace(" ","").split(':')[1].split('\n')[0].replace(".",""))
@@ -116,12 +120,14 @@ def cpu_get_current_freq():
 	except: return None
 
 def cpu_get_current_gov(self):
+	"""Returns Cpu governator"""
 	try:
 		op = commands.getoutput('cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor').strip()
 		return op
 	except: return None
 
 def get_available_freq(self):
+	"""Returns available frequencies"""
 	try:
 		afreqsh = open("/sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies", "r")
 		op = afreqsh.readline().strip().split(' ')
@@ -131,6 +137,7 @@ def get_available_freq(self):
 		return None
 
 def get_available_gov(self):
+	"""Returns available governators"""
 	try:
 		afreqsh = open("/sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors", "r")
 		op = afreqsh.readline().strip().split(' ')
@@ -147,6 +154,7 @@ def get_available_gov(self):
 
 # written by Hendrik Kaju
 def sys_get_uptime_long ():
+	"""Returns uptime extended version"""
 	try:
 		f = open("/proc/uptime", "r")
 		data1 = f.readline(100)
@@ -164,6 +172,7 @@ def sys_get_uptime_long ():
 	return 'Error'
 
 def sys_get_uptime():
+	"""Returns uptime"""
 	try:
 		f = open("/proc/uptime", "r")
 		tmp = f.readline(100)
@@ -181,6 +190,7 @@ def sys_get_uptime():
 
 
 def sys_get_username():
+	"""Returns username"""
 	res = commands.getstatusoutput('whoami')
 	if res[0]==0:
 		return res[1].strip()
@@ -271,12 +281,14 @@ def sys_get_desktop_enviroment():
 	return desktop_environment
 
 def sys_get_kernel_version():
+	"""Returns kernel version"""
 	res = commands.getstatusoutput('uname -r')
 	if res[0]==0:
 		return res[1].strip()
 	return _("Can't get kernel version")
 
 def sys_get_kde_version():
+	"""Returns kde version"""
 	res = commands.getstatusoutput('kde-config --version')
 	if res[0]==0:
 		lst = res[1].splitlines()
@@ -286,6 +298,7 @@ def sys_get_kde_version():
 	return _("Can't get KDE version")
 
 def sys_get_gnome_version():
+	"""Returns gnome version"""
 	res = commands.getstatusoutput('gnome-about --gnome-version')
 	if res[0]==0:
 		lst = res[1].splitlines()
@@ -312,6 +325,7 @@ def sys_get_full_info ():
 	return commands.getoutput("cat /proc/cpuinfo")
 
 def sys_get_window_manager():
+	"""Returns window manager name"""
 	root = gtk.gdk.get_default_root_window()
 	try:
 		ident = root.property_get("_NET_SUPPORTING_WM_CHECK", "WINDOW")[2]
@@ -355,6 +369,7 @@ def mem_get_usedmem ():# written by Hendrik Kaju
 		int(buffers)/1024 - int(free)/1024
 
 def mem_get_usage():
+	"""Returns memory usage"""
 	try:
 		meminfo_file = open('/proc/meminfo')
 		meminfo = {}
@@ -389,6 +404,7 @@ def mem_get_total():
 		return 0
 
 def mem_get_usedswap():
+	"""Returns used swap"""
 	try:
 		meminfo_file = open('/proc/meminfo')
 		meminfo = {}
@@ -408,6 +424,7 @@ def mem_get_usedswap():
 		return 0
 
 def mem_get_totalswap():
+	"""Returns total swap"""
 	try:
 		meminfo_file = open('/proc/meminfo')
 		meminfo = {}
@@ -470,6 +487,7 @@ def disk_get_swap ():
 	return 'Error'
 
 def disk_get_usage(disk_disk):
+	"""Returns disk usage"""
 	res = commands.getoutput('df -h -a -P').splitlines()
 	for i in res:
 		if i.startswith('/dev/'):
@@ -479,6 +497,7 @@ def disk_get_usage(disk_disk):
 				return data
 	
 def disk_get_disk_list():
+	"""Returns disk list"""
 	disks = []
 	res = commands.getoutput('df -h -a -P').splitlines()
 	for i in res:
@@ -511,6 +530,7 @@ def net_get_ip(): # by Whise
 
 
 def net_get_updown():
+	"""Returns upload and download"""
 	try:
 		f = open("/proc/net/dev", "r")
 		data = f.readlines(2000)
@@ -551,6 +571,7 @@ def net_get_connections ():
 ###########################################
 
 def wir_get_interfaces():
+	"""Returns wireless interfaces"""
 	try:
 		interfaces = []
 		f = open("/proc/net/wireless")
@@ -693,6 +714,7 @@ def cal_get_ampm ():
 
 
 def bat_get_battery_list():
+	"""Returns battery list"""
 	try:
 		path = "/proc/acpi/battery/"
 		files = os.listdir(path)
@@ -701,6 +723,7 @@ def bat_get_battery_list():
 		return[]
 	
 def bat_get_data(name):
+	"""Returns battery data"""
 	path = "/proc/acpi/battery/"+name+"/info"
 	try:
 		f = open(path)
@@ -734,10 +757,12 @@ def bat_get_data(name):
 		return 0, 0, 0, '', False
 
 def bat_get_value(line):
+	"""Returns battery value"""
 	return line.split(':')[1].strip().split(' ')[0]
 
 
 def bat_get_ac():
+	"""Returns battery ac"""
 	data = commands.getoutput("acpi -V | grep AC | sed 's/.*: //'")
 	return data
 
@@ -749,14 +774,71 @@ def bat_get_ac():
 
 
 def process_get_list():
+	"""Returns process list"""
 	res = commands.getoutput('ps -eo pcpu,pmem,comm --sort pcpu').splitlines()
 	l = res.__len__()
 	return res,l
 
 def process_get_top():
+	"""Returns top list"""
 	res = commands.getoutput('ps axo comm,user,pcpu --sort=-pcpu | head -n 10')
 	
 	return res
+
+
+
+###########################################
+#                                         #
+#                Nvidia                   #
+#                                         #
+###########################################
+
+
+def getGpuType():
+	"""return GPU Type to its caller"""
+	output = commands.getoutput("nvidia-settings -q Gpus | cut -d '(' -f 2 -s | cut -d ')' -f 1")
+	return output
+
+
+
+def getGpuRam():
+	"""return GPU Ram size in MB to its caller"""
+	output = commands.getoutput("nvidia-settings -q VideoRam | cut -d ':' -f 3 -s | cut -d ' ' -f 2 | cut -d '.' -f 1")
+	return str(int(output)/1024) + " MB"
+
+
+def getGpuDriver():
+	"""return current GPU Driver version to its caller"""
+	output = commands.getoutput("nvidia-settings -q NvidiaDriverVersion | cut -d ':' -f 3 -s | cut -d ' ' -f 2")
+	return output
+
+
+def getGpuResolution():
+	"""return current screen resolution to its caller"""
+	output = commands.getoutput("nvidia-settings -q FrontendResolution")
+	return output[74:83].replace(",", "x")
+
+	
+def getGpuRefreshRate():
+	"""return current refreshrate to its caller"""
+	output = commands.getoutput("nvidia-settings -q RefreshRate | cut -d ':' -f 4 -s | cut -d ' ' -f 2 | cut -d ',' -f 1")
+	return str(int(output)) + " Hz"
+
+
+def getGpuClock():
+	"""return current GPU Clock Frequency to its caller"""
+	output = commands.getoutput("nvidia-settings -q gpuperfmodes | cut -d '=' -f 3 | cut -d ',' -f 1 -s")
+	return str(output) + " MHz"
+
+def getGpuMemClock():
+	"""return current GPU Memory Clock Frequency to its caller"""
+	output = commands.getoutput("nvidia-settings -q gpuperfmodes | grep 'memclock'")
+	return str(output).lstrip()[9:] + " MHz"
+
+def getGpuTemp():
+	"""return current GPU Core Temperature to its caller"""
+	output = commands.getoutput("nvidia-settings -q GPUCoreTemp | cut -d ':' -f 3 -s | cut -d ' ' -f 2 | cut -d '.' -f 1")
+	return output
 
 
 ###########################################
@@ -955,7 +1037,7 @@ def sensors_get_sensor_value(sensorName):
 
 
 # ------------------------------------------------------------------------------
-# CLASSES should not be used , calling classes from multiple screenlets instances causes erros due to goobject multiple instaces
+# CLASSES should not be used , calling classes from multiple screenlets instances causes erros due to gobject multiple instaces
 # ------------------------------------------------------------------------------
 
 class Sensor (gobject.GObject):

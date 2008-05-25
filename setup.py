@@ -60,6 +60,7 @@ def make_file_list(dirlist, install_path, strip=''):
 
 # Create a list of scripts that will be installed into PREFIX/bin/
 scripts_list = ['src/bin/screenletsd',
+	'src/bin/screenlets',
 	'src/bin/screenlets-manager',
 	'src/bin/screenlets-daemon',
 	'src/bin/screenlets-packager']

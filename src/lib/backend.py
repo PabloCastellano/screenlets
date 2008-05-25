@@ -211,7 +211,7 @@ class CachingBackend (ScreenletsBackend):
 				self.__queue.remove(id)
 				break
 			# create list with options
-			print _("CachingBackend: Saving <#%s> :) ...") % id
+			#print _("CachingBackend: Saving <#%s> :) ...") % id
 			lst = []
 			for oname in self.__instances[id]:
 				lst.append([oname, self.__instances[id][oname]])

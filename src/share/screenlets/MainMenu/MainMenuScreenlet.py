@@ -332,7 +332,7 @@ class MainMenuScreenlet (screenlets.Screenlet):
 		# add default menuitems
 		self.add_menuitem("Menuapplet", "How to gnome panel")
 		self.add_default_menuitems(DefaultMenuItem.WINDOW_MENU | DefaultMenuItem.THEMES | DefaultMenuItem.PROPERTIES |
-			DefaultMenuItem.DELETE)
+			DefaultMenuItem.DELETE | DefaultMenuItem.QUIT | DefaultMenuItem.QUIT_ALL)
 		self.is_visible = True
 
 	def menuitem_callback(self, widget, id):

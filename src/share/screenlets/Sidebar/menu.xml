@@ -149,4 +149,6 @@
 		<item label="Properties..." id="options" />
 		<separator />
 		<item label="Remove Screenlet" id="delete" />
+		<item label="Quit This Sidebar" id="quit_instance" />
+		<item label="Quit all sidebars" id="quit" />
 </menu>

@@ -164,7 +164,7 @@ class ConvertScreenlet(screenlets.Screenlet):
 		# set scale relative to scale-attribute
 		ctx.scale(self.scale, self.scale)
 		# render background
-		self.theme['convert-bg.svg'].render_cairo(ctx)
+		self.theme.render(ctx,'convert-bg.svg')
 		# compute space between fields
 		n = self.__converter.num_fields
 		m = (100 - 20*n) / (n + 1)
@@ -173,12 +173,12 @@ class ConvertScreenlet(screenlets.Screenlet):
 		ctx.translate(0, m)
 		for i in range(n):
 			if self.__has_focus and i == self.__converter.active_field:
-				self.theme['convert-fieldhl.svg'].render_cairo(ctx)
+				self.theme.render(ctx,'convert-fieldhl')
 				# cursor: disabled - it looks weird
 				#ctx.rectangle(185, 3, 2, 16)
 				#ctx.fill()
 			else:
-				self.theme['convert-field.svg'].render_cairo(ctx)
+				self.theme.render(ctx,'convert-field')
 			ctx.translate(0, m + 20)
 		ctx.restore()
 		# render field names
@@ -210,13 +210,13 @@ class ConvertScreenlet(screenlets.Screenlet):
 			ctx.translate(0, m + 20)
 		ctx.restore()
 		# ...and finally something to cover this all
-		self.theme['convert-glass.svg'].render_cairo(ctx)
+		self.theme.render(ctx,'convert-glass')
 	
 	def on_draw_shape(self, ctx):
 		if self.theme:
 			ctx.scale(self.scale, self.scale)
 			# the background will serve well
-			self.theme['convert-bg.svg'].render_cairo(ctx)
+			self.theme.render(ctx,'convert-bg')
 
 
 

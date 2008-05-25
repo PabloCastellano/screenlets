@@ -74,11 +74,11 @@ class CalcScreenlet(screenlets.Screenlet):
 
 		if self.theme:
 			# render the file we want
-			self.theme['calc-bg-shape.svg'].render_cairo(ctx)
+			self.theme.render(ctx,'calc-bg-shape')
 			if self.has_focus or self.is_dragged:
-				self.theme['calc-screen-on.svg'].render_cairo(ctx)
+				self.theme.render(ctx,'calc-screen-on')
 			else:
-				self.theme['calc-screen-off.svg'].render_cairo(ctx)
+				self.theme.render(ctx,'calc-screen-off')
 
 		ctx.restore()
 
@@ -155,20 +155,20 @@ class CalcScreenlet(screenlets.Screenlet):
 		ctx.translate(x, y)
 		if self.theme:
 			if is_on_click:
-				self.theme['calc-button-clk.svg'].render_cairo(ctx)
+				self.theme.render(ctx,'calc-button-clk')
 			else:
 				if self.button_value == evt:
 					if is_large:
-						self.theme['calc-button-large-on.svg'].render_cairo(ctx)
+						self.theme.render(ctx,'calc-button-large-on')
 					else:
-						self.theme['calc-button-on.svg'].render_cairo(ctx)
+						self.theme.render(ctx,'calc-button-on')
 				else:
 					if is_large:
-						self.theme['calc-button-large-off.svg'].render_cairo(ctx)
+						self.theme.render(ctx,'calc-button-large-off')
 					else:
-						self.theme['calc-button-off.svg'].render_cairo(ctx)
+						self.theme.render(ctx,'calc-button-off')
 		if with_svg_face and self.theme:
-			self.theme[value].render_cairo(ctx)
+			self.theme.render(ctx,value)
 		else:
 			ctx.translate(8.5*ratio, 7)
 			p_layout = ctx.create_layout()

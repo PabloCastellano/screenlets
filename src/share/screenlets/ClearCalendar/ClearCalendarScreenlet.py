@@ -51,6 +51,9 @@ class ClearCalendarScreenlet(screenlets.Screenlet):
 	event1 = ''
 
 	font_color = (1,1,1, 0.8)
+	today_color = (1,0,0, 0.8)
+	event_color = (0,1,0, 0.8)
+	today_event_color = (0,0,1, 0.8)
 	background_color = (0,0,0, 0.8)
 	showevents = True
 	today=datetime.datetime.now().strftime("%F")
@@ -84,7 +87,12 @@ class ClearCalendarScreenlet(screenlets.Screenlet):
 			self.font_color, 'Text color', 'font_color'))
 		self.add_option(ColorOption('iCalendar','background_color', 
 			self.background_color, 'Back color(only with default theme)', 'only works with default theme'))
-	
+		self.add_option(ColorOption('iCalendar','today_color', 
+			self.today_color, 'Today color', 'today_color'))
+		self.add_option(ColorOption('iCalendar','event_color', 
+			self.event_color, 'Event day color', 'event_color'))
+		self.add_option(ColorOption('iCalendar','today_event_color', 
+			self.today_event_color, 'Today event color', 'today_event_color'))
 		# init the timeout functions
 		self.update_interval = self.update_interval
 		self.enable_buttons = self.enable_buttons
@@ -224,9 +232,9 @@ class ClearCalendarScreenlet(screenlets.Screenlet):
 		self.clear_cairo_context(ctx)
 		ctx.scale(2 *self.scale, 2* self.scale)
 		ctx.set_operator(cairo.OPERATOR_OVER)
-		self.theme['buttons-dim.svg'].render_cairo(ctx)
+		self.theme.render(ctx,'buttons-dim')
 		ctx.translate(0, 50)	# bottom half
-		self.theme['buttons-press.svg'].render_cairo(ctx)
+		self.theme.render(ctx,'buttons-press')
 		del ctx
 
 	def on_mouse_down(self, event):
@@ -298,7 +306,7 @@ class ClearCalendarScreenlet(screenlets.Screenlet):
 		if self.theme:
 			ctx.set_source_rgba(*self.background_color)
 			if self.theme_name == 'default':self.draw_rounded_rectangle(ctx,0,0,8,100,83)
-			try:self.theme['date-bg.svg'].render_cairo(ctx)
+			try:self.theme.render(ctx,'date-bg')
 			except:pass
 			#self.theme['date-border.svg'].render_cairo(ctx)
 		# draw buttons and optionally the pressed one
@@ -382,7 +390,8 @@ class ClearCalendarScreenlet(screenlets.Screenlet):
 				#print str(6 + (day - 1)*13)
 				#print str( 25 + 12*(row - 1))
 				if self.__month_shift == 0 and int(x)+1 == int(date[0]):
-					self.theme['day-bg1.svg'].render_cairo(ctx)
+					ctx.set_source_rgba(*self.today_color)
+					self.draw_rounded_rectangle(ctx,0,0,2,10,9)
 				if self.showevents == True:
 					for event in self.reader.events:
 						
@@ -394,12 +403,15 @@ class ClearCalendarScreenlet(screenlets.Screenlet):
 							a = '0' + a
 					
 						if myevent == str(date[1]) + '-' + str(date[5])+ '-' + str(a) :
-							self.theme['day-bg.svg'].render_cairo(ctx)
+							ctx.set_source_rgba(*self.event_color)
+							self.draw_rounded_rectangle(ctx,0,0,2,10,9)
 							if int(date[1]) >= int(self.today[:4]) or int(date[1]) >= int(self.today[:4]) and int(date[5]) >= int(self.today[5:7]) :
 								
 								self.event1 = self.event1 + '\n'+ str(date[1]) + '-' + str(date[5])+ '-' + str(a)+ ' - ' +str(event)
 						if myevent == datetime.datetime.now().strftime("%F") and self.__month_shift == 0 and int(x)+1 == int(date[0]) :
-							self.theme['day-bg2.svg'].render_cairo(ctx)
+							ctx.set_source_rgba(*self.today_event_color)
+							self.draw_rounded_rectangle(ctx,0,0,2,10,9)
+
 							self.event1 = self.event1 + '\n Today - '+ str(event)
 				p_layout.set_markup( str(x+1) )
 	

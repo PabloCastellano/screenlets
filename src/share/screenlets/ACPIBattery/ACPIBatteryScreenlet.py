@@ -118,6 +118,7 @@ class ACPIBatteryScreenlet(screenlets.Screenlet):
 		# add default menuitems
 		self.add_default_menuitems()			
 	def getValue(self):
+		present_rate = None
 		charge_status='NA'
 		ispresent='no'
 		if path.exists(self.file_path+self.state_file):
@@ -207,25 +208,25 @@ class ACPIBatteryScreenlet(screenlets.Screenlet):
 		# draw bg (if theme available)
 		ctx.set_operator(cairo.OPERATOR_OVER)
 		if self.theme and self.show_background:
-			self.theme['acpibattery-bg.svg'].render_cairo(ctx)
-		self.theme['acpibattery-battery.svg'].render_cairo(ctx)
+			self.theme.render(ctx,'acpibattery-bg')
+		self.theme.render(ctx,'acpibattery-battery')
 		if charge_status=='charged': 
 			time_value='  Full'
 		elif charge_status=='discharging':
 			t=(60*int(remaining))/int(present_rate)
 			time_value="%02i:%02i" % (int(t/60),int(t%60))
 			if int(percents)<=self.alarm_threshold:
-				self.theme['acpibattery-alarm.svg'].render_cairo(ctx)				
+				self.theme.render(ctx,'acpibattery-alarm')
 			else:
-				self.theme['acpibattery-using.svg'].render_cairo(ctx)
+				self.theme.render(ctx,'acpibattery-using')
 		elif charge_status=='charging':
 			t=(60*(int(last_full)-int(remaining)))/int(present_rate)
 			time_value="%02i:%02i" % (int(t/60),int(t%60))
-			self.theme['acpibattery-charging.svg'].render_cairo(ctx)
+			self.theme.render(ctx,'acpibattery-charging')
 		else:
 			time_value='   NA'
 			percents='   0'
-			self.theme['acpibattery-alarm.svg'].render_cairo(ctx)				
+			self.theme.render(ctx,'acpibattery-alarm')
 		if charge_status=='NA':
 			# draw message
 			ctx.save()
@@ -332,14 +333,14 @@ class ACPIBatteryScreenlet(screenlets.Screenlet):
 			ctx.restore()
 		# draw glass (if theme available)
 		if self.theme:
-			self.theme['acpibattery-glass.svg'].render_cairo(ctx)
+			self.theme.render(ctx,'acpibattery-glass')
 		
 	def on_draw_shape(self,ctx):
 		if self.theme:
 			# set size rel to width/height
 			#ctx.scale(self.width/100.0, self.height/100.0)
 			ctx.scale(self.scale, self.scale)
-			self.theme['acpibattery-bg.svg'].render_cairo(ctx)
+			self.theme.render(ctx,'acpibattery-bg')
 
 	
 # If the program is run directly or passed as an argument to the python

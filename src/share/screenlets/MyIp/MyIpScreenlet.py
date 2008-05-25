@@ -62,16 +62,19 @@ class MyIpScreenlet(screenlets.Screenlet):
 		
 
 	def gen(self):
-		site = urlopen("http://www.whatismyip.com/automation/n09230945.asp")
-		self.myip = site.read()
-
+		try:
+			site = urlopen("http://www.whatismyip.com/automation/n09230945.asp")
+			self.myip = site.read()
+		except:
+			from screenlets import sensors
+			self.myip = sensors.net_get_ip()
 
 	def on_draw(self, ctx):
 		ctx.scale(self.scale, self.scale)
 		ctx.set_operator(cairo.OPERATOR_OVER)
 		if self.theme:
-			self.theme['background.svg'].render_cairo(ctx)
-			self.theme['glass.svg'].render_cairo(ctx)
+			self.theme.render(ctx,'background')
+			self.theme.render(ctx,'glass')
 			ctx.save()
 			ctx.translate(2, 9)
 			if self.p_layout == None :
@@ -105,8 +108,8 @@ class MyIpScreenlet(screenlets.Screenlet):
 		ctx.scale(self.scale, self.scale)
 		if self.theme:
 			
-			self.theme['background.svg'].render_cairo(ctx)
-			self.theme['glass.svg'].render_cairo(ctx)
+			self.theme.render(ctx,'background')
+			self.theme.render(ctx,'glass')
 
 if __name__ == "__main__":
 	import screenlets.session

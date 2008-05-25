@@ -121,7 +121,7 @@ class DiskusageScreenlet(screenlets.Screenlet):
 		# draw bg (if theme available)
 		#ctx.set_operator(cairo.OPERATOR_OVER)
 		if self.theme:
-			self.theme['disk-bg.svg'].render_cairo(ctx)
+			self.theme.render(ctx,'disk-bg')
 		
 		if len(str(load))==1:
 			load = "0" + str(load)
@@ -144,12 +144,12 @@ class DiskusageScreenlet(screenlets.Screenlet):
 			ctx.translate(25, 35)
 			ctx.clip()
 			#ctx.new_path()
-			self.theme['disk-gauge.svg'].render_cairo(ctx)
+			self.theme.render(ctx,'disk-gauge')
 			ctx.restore()
 		if self.theme:
 			try:
 			
-				self.theme['disk-glow.svg'].render_cairo(ctx)
+				self.theme.render(ctx,'disk-glow')
 			except Exception, ex:
 				pass			
 			

@@ -218,7 +218,7 @@ class WidgetScreenlet (screenlets.Screenlet):
 	def on_init(self):
 		self.load_widget()
 		self.add_default_menuitems(DefaultMenuItem.WINDOW_MENU | DefaultMenuItem.PROPERTIES |
-			DefaultMenuItem.DELETE)
+			DefaultMenuItem.DELETE | DefaultMenuItem.QUIT | DefaultMenuItem.QUIT_ALL)
 		if self.set_width == 0: self.set_width = int(self.widget_width)
 		else:
 			self.width = self.set_width + 30

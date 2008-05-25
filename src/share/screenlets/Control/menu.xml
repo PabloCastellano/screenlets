@@ -112,4 +112,6 @@
 	<separator />
 	<!-- delete Screenlet -->
 	<item label="Delete Screenlet ..." id="delete" />
+	<item label="Quit This Sidebar" id="quit_instance" />
+	<item label="Quit all sidebars" id="quit" />
 </menu>

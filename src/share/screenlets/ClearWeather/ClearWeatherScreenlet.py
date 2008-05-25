@@ -161,7 +161,7 @@ class ClearWeatherScreenlet(screenlets.Screenlet):
 				dcstop = data.find('</day>',dcstart)   #####10-day forecast
 				day = data[dcstart:dcstop]
 				forecast.append(self.tokenizeForecast(day))
-		except IOError, e:
+		except:
 			pass
 
 		return forecast

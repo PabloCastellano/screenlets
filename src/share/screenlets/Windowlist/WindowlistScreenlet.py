@@ -123,7 +123,7 @@ class WindowlistScreenlet (screenlets.Screenlet):
 		self.add_default_menuitems(
 			DefaultMenuItem.WINDOW_MENU | 
 			DefaultMenuItem.PROPERTIES | 
-			DefaultMenuItem.DELETE)
+			DefaultMenuItem.DELETE | DefaultMenuItem.QUIT | DefaultMenuItem.QUIT_ALL)
 
 	def check_window_name (self, name):
 		if name[-10:] != "Screenlets" and name[-12:] != "Screenlet.py" \

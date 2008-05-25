@@ -86,7 +86,7 @@ class LauncherScreenlet (screenlets.Screenlet):
 		# add default menuitems
 		self.add_default_menuitems(DefaultMenuItem.SIZE |
 			DefaultMenuItem.WINDOW_MENU | DefaultMenuItem.PROPERTIES |
-			DefaultMenuItem.DELETE)
+			DefaultMenuItem.DELETE | DefaultMenuItem.QUIT | DefaultMenuItem.QUIT_ALL)
 		
 	def __setattr__ (self, name, value):
 		screenlets.Screenlet.__setattr__(self, name, value)

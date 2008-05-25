@@ -15,7 +15,7 @@
    sodipodi:version="0.32"
    inkscape:version="0.46"
    version="1.0"
-   sodipodi:docbase="/usr/local/share/screenlets/Calendar/themes/ryx"
+   sodipodi:docbase="/usr/local/share/screenlets/ClearCalendar/themes/grey"
    sodipodi:docname="date-bg.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape">
   <defs
@@ -30,7 +30,7 @@
     <linearGradient
        id="linearGradient7153">
       <stop
-         style="stop-color:#5571c1;stop-opacity:1;"
+         style="stop-color:#52555b;stop-opacity:1;"
          offset="0"
          id="stop7155" />
       <stop
@@ -288,7 +288,7 @@
        x1="64.5"
        y1="97"
        x2="65"
-       y2="-55.550568" />
+       y2="-66.065086" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient6154"
@@ -307,17 +307,17 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.8284271"
-     inkscape:cx="56.76757"
-     inkscape:cy="86.085397"
+     inkscape:zoom="2"
+     inkscape:cx="-45.98243"
+     inkscape:cy="66.085397"
      inkscape:document-units="px"
      inkscape:current-layer="layer3"
      width="132px"
      height="100px"
      inkscape:window-width="1280"
-     inkscape:window-height="744"
+     inkscape:window-height="742"
      inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:window-y="26"
      showgrid="false" />
   <metadata
      id="metadata7">
@@ -357,11 +357,11 @@
          x="14.721626"
          y="9.8382416" /></text>
     <path
-       style="opacity:1;fill:url(#linearGradient5166);fill-opacity:1;fill-rule:nonzero;stroke:#090909;stroke-width:0.46114813999999998;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="opacity:0.51779935;fill:url(#linearGradient5166);fill-opacity:1;fill-rule:nonzero;stroke:#090909;stroke-width:0.46114813999999998;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="M 7.0826437,0.73057582 C 3.2758169,0.73057582 0.23057408,4.2394448 0.23057408,8.5942076 L 0.23057408,74.905794 C 0.23057408,79.260556 3.2758169,82.769424 7.0826437,82.769426 L 92.917338,82.769426 C 96.724185,82.769426 99.769426,79.260559 99.769426,74.905794 L 99.769426,8.5942076 C 99.769426,4.5801607 97.175311,1.2968623 93.786404,0.80618796 C 93.649447,0.81895636 93.526673,0.843993 93.385295,0.843993 C 93.07558,0.843993 92.769041,0.78978623 92.482843,0.73057582 L 7.0826437,0.73057582 z "
        id="path5164" />
     <rect
-       style="opacity:0.59717317;fill:url(#linearGradient5170);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.98983228px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="opacity:0.51779935;fill:url(#linearGradient5170);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.98983228000000001px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        id="rect5168"
        width="98.55278"
        height="16.019348"

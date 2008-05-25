@@ -11,7 +11,7 @@
 
 
 import screenlets
-from screenlets.options import StringOption, BoolOption
+from screenlets.options import StringOption, BoolOption, ColorOption
 import cairo
 import pango
 import gtk
@@ -50,7 +50,8 @@ class ClearCalendarScreenlet(screenlets.Screenlet):
 	reader = ICalReader()
 	event1 = ''
 
-
+	font_color = (1,1,1, 0.8)
+	background_color = (0,0,0, 0.8)
 	showevents = True
 	today=datetime.datetime.now().strftime("%F")
 	mypath = sys.argv[0][:sys.argv[0].find('ClearCalendarScreenlet.py')].strip()
@@ -79,6 +80,11 @@ class ClearCalendarScreenlet(screenlets.Screenlet):
 			'Enable month shifting', 'Enable buttons selecting another months'))
 		self.add_option(StringOption('iCalendar', 'icalpath', self.icalpath, 'iCalendar ics file path', 'The full path where the .ics file is located , local or url) ...'), realtime=False)
 		self.add_option(BoolOption('iCalendar', 'showevents',bool(self.showevents), 'Show iCalendar events','Show iCalendar events'),realtime=False)
+		self.add_option(ColorOption('iCalendar','font_color', 
+			self.font_color, 'Text color', 'font_color'))
+		self.add_option(ColorOption('iCalendar','background_color', 
+			self.background_color, 'Back color(only with default theme)', 'only works with default theme'))
+	
 		# init the timeout functions
 		self.update_interval = self.update_interval
 		self.enable_buttons = self.enable_buttons
@@ -290,7 +296,10 @@ class ClearCalendarScreenlet(screenlets.Screenlet):
 		# draw bg (if theme available)
 		ctx.set_operator(cairo.OPERATOR_OVER)
 		if self.theme:
-			self.theme['date-bg.svg'].render_cairo(ctx)
+			ctx.set_source_rgba(*self.background_color)
+			if self.theme_name == 'default':self.draw_rounded_rectangle(ctx,0,0,8,100,83)
+			try:self.theme['date-bg.svg'].render_cairo(ctx)
+			except:pass
 			#self.theme['date-border.svg'].render_cairo(ctx)
 		# draw buttons and optionally the pressed one
 		if self.__buttons_pixmap:
@@ -322,7 +331,7 @@ class ClearCalendarScreenlet(screenlets.Screenlet):
 			p_layout.set_font_description(p_fdesc)      ### draw the month
 			p_layout.set_width((self.width - 10) * pango.SCALE)
 			p_layout.set_markup('<b>' + date[2] + '</b>')
-			ctx.set_source_rgba(1, 1, 1, 0.8)
+			ctx.set_source_rgba(*self.font_color)
 			
 			
 			#ctx.show_layout(p_layout)
@@ -331,7 +340,7 @@ class ClearCalendarScreenlet(screenlets.Screenlet):
 			p_layout.set_width((self.width - 10) * pango.SCALE)
 			p_layout.set_alignment(pango.ALIGN_RIGHT)
 			p_layout.set_markup("<b>" + date[2]+' '+ str(date[1])+ '  </b>') ### draw the year
-			ctx.set_source_rgba(1, 1, 1, 0.8)
+			ctx.set_source_rgba(*self.font_color)
 			ctx.show_layout(p_layout)
 
 			ctx.restore()
@@ -350,7 +359,7 @@ class ClearCalendarScreenlet(screenlets.Screenlet):
 				dayname = self.__day_names[(i \
 					+ self.__first_day) % 7]
 				p_layout.set_markup("<b><span font_desc='Monospace'>" + dayname[:3] + '</span></b>') # use first letter
-				ctx.set_source_rgba(1, 1, 1, 0.8)
+				ctx.set_source_rgba(*self.font_color)
 				ctx.show_layout(p_layout)
 				ctx.translate(13, 0)	# 6 + 6*13 + 6 = 100
 			p_fdesc.set_size(6 * pango.SCALE)
@@ -394,7 +403,7 @@ class ClearCalendarScreenlet(screenlets.Screenlet):
 							self.event1 = self.event1 + '\n Today - '+ str(event)
 				p_layout.set_markup( str(x+1) )
 	
-				ctx.set_source_rgba(1, 1, 1, 1)
+				ctx.set_source_rgba(*self.font_color)
 				ctx.show_layout(p_layout)
 				if day == 7:
 					day = 0
@@ -421,10 +430,9 @@ class ClearCalendarScreenlet(screenlets.Screenlet):
 		self.update()
 
 	def on_draw_shape(self,ctx):
-		if self.theme:
-			# set size rel to width/height
-			ctx.scale(2*self.scale, 2*self.scale)
-			self.theme['date-bg.svg'].render_cairo(ctx)
+		ctx.rectangle(0,0,self.width,self.height)
+		ctx.fill()
+		self.on_draw(ctx)
 	
 
 # If the program is run directly or passed as an argument to the python

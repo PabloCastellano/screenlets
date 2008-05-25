@@ -15,7 +15,7 @@
    sodipodi:version="0.32"
    inkscape:version="0.45.1"
    version="1.0"
-   sodipodi:docbase="/usr/local/share/screenlets/ClearCalendar/themes/default"
+   sodipodi:docbase="/usr/local/share/screenlets/ClearCalendar/themes/grey"
    sodipodi:docname="day-bg.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape">
   <defs
@@ -23,7 +23,7 @@
     <linearGradient
        id="linearGradient7053">
       <stop
-         style="stop-color:#6269cf;stop-opacity:1;"
+         style="stop-color:#4e4f5d;stop-opacity:1;"
          offset="0"
          id="stop7055" />
       <stop

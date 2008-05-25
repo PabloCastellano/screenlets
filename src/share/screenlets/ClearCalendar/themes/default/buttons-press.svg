@@ -2,7 +2,7 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:cc="http://creativecommons.org/ns#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
@@ -14,13 +14,20 @@
    id="svg2"
    inkscape:label="Pozadí"
    sodipodi:version="0.32"
-   inkscape:version="0.45.1"
+   inkscape:version="0.46"
    version="1.0"
-   sodipodi:docbase="/usr/local/share/screenlets/Calendar/themes/ryx"
+   sodipodi:docbase="/usr/local/share/screenlets/ClearCalendar/themes/grey"
    sodipodi:docname="buttons-press.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape">
   <defs
      id="defs2259">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 50 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="100 : 50 : 1"
+       inkscape:persp3d-origin="50 : 33.333333 : 1"
+       id="perspective23" />
     <linearGradient
        id="linearGradient2770">
       <stop
@@ -46,9 +53,9 @@
       <stop
          id="stop3256"
          offset="0"
-         style="stop-color:#3e5fd1;stop-opacity:1;" />
+         style="stop-color:#5a5a5a;stop-opacity:1;" />
       <stop
-         style="stop-color:#3276d4;stop-opacity:0.49019608;"
+         style="stop-color:#282828;stop-opacity:0.49019608;"
          offset="1"
          id="stop3274" />
     </linearGradient>
@@ -101,7 +108,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="8"
-     inkscape:cx="58.372433"
+     inkscape:cx="32.684933"
      inkscape:cy="91.379177"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -109,8 +116,9 @@
      height="100px"
      inkscape:window-width="1239"
      inkscape:window-height="606"
-     inkscape:window-x="10"
-     inkscape:window-y="46" />
+     inkscape:window-x="18"
+     inkscape:window-y="72"
+     showgrid="false" />
   <metadata
      id="metadata2262">
     <rdf:RDF>
@@ -127,18 +135,18 @@
      inkscape:groupmode="layer"
      id="layer1">
     <path
-       style="fill:url(#linearGradient3252);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:url(#linearGradient3252);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;opacity:0.51456311"
        d="M 8.3,9.309158 C 8.3,7.4395243 12.73165,4.6782455 14.129881,5.5740654 C 15.567098,6.4948622 15.773333,11.154452 14.22593,12.145843 C 12.73281,13.102457 8.3,11.183232 8.3,9.309158 z "
        id="path2270"
        sodipodi:nodetypes="czzz" />
     <path
-       style="fill:url(#linearGradient3262);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:url(#linearGradient3262);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;opacity:0.51456311"
        d="M 35.3,9.3091575 C 35.3,7.4395238 30.86835,4.6782449 29.470118,5.5740649 C 28.032902,6.4948619 27.826666,11.154452 29.37407,12.145844 C 30.867191,13.102457 35.3,11.183232 35.3,9.3091575 z "
        id="path3260"
        sodipodi:nodetypes="czzz" />
     <path
        sodipodi:type="arc"
-       style="fill:url(#linearGradient3272);fill-opacity:1;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:url(#linearGradient3272);fill-opacity:1;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;opacity:0.51456311"
        id="path3264"
        sodipodi:cx="43.601582"
        sodipodi:cy="4.0897098"

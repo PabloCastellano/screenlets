@@ -13,121 +13,128 @@ import gtk, cairo, pango, math
 class Drawing:
 	"""Contains static drawing functions."""
 	
-	@staticmethod
-	def clear_cairo_context (ctx):
-		"""Fills the given cairo.Context with fully transparent white."""
-		ctx.save()
-		ctx.set_source_rgba(1, 1, 1, 0)
-		ctx.set_operator (cairo.OPERATOR_SOURCE)
-		ctx.paint()
-		ctx.restore() 
-	
-	@staticmethod
-	def get_text_width(ctx, text, font, p_layout=None, p_fdesc=None):
-		"""Returns the pixel width of a given text"""
-		return Drawing.get_text_extents(ctx, text, font, p_layout, p_fdesc)[2]
+	# ----------------------------------------------------------------------
+	# Screenlet's Drawing functions
+	# ----------------------------------------------------------------------
+	p_context		= None		# PangoContext
+	p_layout		= None		# PangoLayout
 
-	@staticmethod
-	def get_text_extents(ctx, text, font, p_layout=None, p_fdesc=None):
-		"""Returns the pixel extents of a given text"""
+	def get_text_width(self, ctx, text, font):
+		"""Returns the pixel width of a given text"""
 		ctx.save()
-		
-		if p_layout is None:
-			p_layout = ctx.create_layout()
+		if self.p_layout == None :
+	
+			self.p_layout = ctx.create_layout()
 		else:
-			ctx.update_layout(p_layout)
 			
-		if p_fdesc is None:
-			p_fdesc = pango.FontDescription()
-		p_fdesc.set_family_static(font)
-		p_layout.set_font_description(p_fdesc)
-		p_layout.set_text(text)
-		extents, lextents = p_layout.get_pixel_extents()
+			ctx.update_layout(self.p_layout)
+		if self.p_fdesc == None:self.p_fdesc = pango.FontDescription()
+		else: pass
+		self.p_fdesc.set_family_static(font)
+		self.p_layout.set_font_description(self.p_fdesc)
+		self.p_layout.set_text(text)
+		extents, lextents = self.p_layout.get_pixel_extents()
 		ctx.restore()
-		return extents
+		return extents[2]
+
+	def get_text_width(self, ctx, text, font):
+		"""Returns the pixel width of a given text"""
+		ctx.save()
+		if self.p_layout == None :
 	
-	@staticmethod
-	def get_text_line_count(ctx, text, font, p_layout=None, p_fdesc=None): 	
-		"""Returns the line count of a given text""" 	
-		ctx.save() 	
-		
-		if p_layout is None : 	
-			p_layout = ctx.create_layout() 	
-		else: 	
-			ctx.update_layout(p_layout) 
-				
-		if p_fdesc is None:
-			p_fdesc = pango.FontDescription() 	
+			self.p_layout = ctx.create_layout()
+		else:
 			
-		p_fdesc.set_family_static(font) 	
-		p_layout.set_font_description(p_fdesc) 	
-		p_layout.set_text(text) 	
-		ctx.restore() 	
-		return p_layout.get_line_count()
+			ctx.update_layout(self.p_layout)
+		if self.p_fdesc == None:self.p_fdesc = pango.FontDescription()
+		else: pass
+		self.p_fdesc.set_family_static(font)
+		self.p_layout.set_font_description(self.p_fdesc)
+		self.p_layout.set_text(text)
+		extents, lextents = self.p_layout.get_pixel_extents()
+		ctx.restore()
+		return extents[2]
+
+	def get_text_line_count(self, ctx, text, font):
+		"""Returns the line count of a given text"""
+		ctx.save()
+		if self.p_layout == None :
 	
-	@staticmethod
-	def get_text_line(ctx, text, font, line, p_layout=None, p_fdesc=None): 	
-		"""Returns a line of a given text""" 	
-		ctx.save() 	
-		# create the pango layout
-		if p_layout is None : 	
-			p_layout = ctx.create_layout() 	
-		else: 	
-			ctx.update_layout(p_layout) 
-		# create the pango font description
-		if p_fdesc is None:
-			p_fdesc = pango.FontDescription()
-		p_fdesc.set_family_static(font) 	
-		p_layout.set_font_description(p_fdesc) 	
-		p_layout.set_text(text) 	
-		ctx.restore() 	
-		return p_layout.get_line(line)
+			self.p_layout = ctx.create_layout()
+		else:
+			
+			ctx.update_layout(self.p_layout)
+		if self.p_fdesc == None:self.p_fdesc = pango.FontDescription()
+		else: pass
+		self.p_fdesc.set_family_static(font)
+		self.p_layout.set_font_description(self.p_fdesc)
+		self.p_layout.set_text(text)
+		ctx.restore()
+		return self.p_layout.get_line_count()
 	
-	@staticmethod
-	def check_for_icon(icon):
+	def get_text_line(self, ctx, text, font, line):
+		"""Returns a line of a given text"""
+		ctx.save()
+		if self.p_layout == None :
+	
+			self.p_layout = ctx.create_layout()
+		else:
+			
+			ctx.update_layout(self.p_layout)
+		if self.p_fdesc == None:self.p_fdesc = pango.FontDescription()
+		else: pass
+		self.p_fdesc.set_family_static(font)
+		self.p_layout.set_font_description(self.p_fdesc)
+		self.p_layout.set_text(text)
+		ctx.restore()
+		return self.p_layout.get_line(line)
+
+	def check_for_icon(self,icon):
 		try:
 			icontheme = gtk.icon_theme_get_default()
 			image = icontheme.load_icon (icon,32,32)
+			image = None
+			icontheme = None
 			return True
 		except:
 			return False
-
-	@staticmethod
-	def draw_text(ctx, text, x, y, font, size, width, allignment=pango.ALIGN_LEFT,
-		justify=False, weight=0, ellipsize=pango.ELLIPSIZE_NONE, p_layout=None, p_fdesc=None):
+	
+	def draw_text(self, ctx, text, x, y,  font, size, width, allignment=pango.ALIGN_LEFT,justify = False,weight = 0, ellipsize = pango.ELLIPSIZE_NONE):
 		"""Draws text"""
 		ctx.save()
 		ctx.translate(x, y)
-		if p_layout is None :
-			p_layout = ctx.create_layout()
+		if self.p_layout == None :
+	
+			self.p_layout = ctx.create_layout()
 		else:
-			ctx.update_layout(p_layout)
-		if p_fdesc is None:
-			p_fdesc = pango.FontDescription()
-		p_fdesc.set_family_static(font)
-		p_fdesc.set_size(size * pango.SCALE)
-		p_fdesc.set_weight(weight)
-		p_layout.set_font_description(p_fdesc)
-		p_layout.set_width(width * pango.SCALE)
-		p_layout.set_alignment(allignment)
-		p_layout.set_justify(justify)
-		p_layout.set_ellipsize(ellipsize)
-		p_layout.set_markup(text)
-		ctx.show_layout(p_layout)
+			
+			ctx.update_layout(self.p_layout)
+		if self.p_fdesc == None:self.p_fdesc = pango.FontDescription()
+		else: pass
+		self.p_fdesc.set_family_static(font)
+		self.p_fdesc.set_size(size * pango.SCALE)
+		self.p_fdesc.set_weight(weight)
+		self.p_layout.set_font_description(self.p_fdesc)
+		self.p_layout.set_width(width * pango.SCALE)
+		self.p_layout.set_alignment(allignment)
+		self.p_layout.set_justify(justify)
+		self.p_layout.set_ellipsize(ellipsize)
+		self.p_layout.set_markup(text)
+		ctx.show_layout(self.p_layout)
 		ctx.restore()
 
-	@staticmethod
-	def draw_circle(ctx,x,y,width,height,fill=True):
+
+	def draw_circle(self,ctx,x,y,width,height,fill=True):
 		"""Draws a circule"""
 		ctx.save()
 		ctx.translate(x, y)
-		ctx.arc(width/2,height/2,min(height,width)/2,0,2*math.pi)
-		if fill: ctx.fill()
+       		ctx.arc(width/2,height/2,min(height,width)/2,0,2*math.pi)
+		if fill:ctx.fill()
 		else: ctx.stroke()
 		ctx.restore()
 
-	@staticmethod
-	def draw_triangle(ctx,x,y,width,height,fill=True):
+
+	def draw_triangle(self,ctx,x,y,width,height,fill=True):
 		"""Draws a circule"""
 		ctx.save()
 		ctx.translate(x, y)
@@ -135,24 +142,22 @@ class Drawing:
 		ctx.line_to(width,height)
 		ctx.rel_line_to(-(width-(width/3)), 0)
 		ctx.close_path()
-		if fill: ctx.fill()
+		if fill:ctx.fill()
 		else: ctx.stroke()
 		ctx.restore()
 
-	@staticmethod
-	def draw_line(ctx,start_x,start_y,end_x,end_y,line_width = 1,close=False,preserve=False):
+	def draw_line(self,ctx,start_x,start_y,end_x,end_y,line_width = 1,close=False,preserve=False):
 		"""Draws a line"""
 		ctx.save()
 		ctx.move_to(start_x, start_y)
 		ctx.set_line_width(line_width)
-		ctx.rel_line_to(end_x, end_y)
-		if close: ctx.close_path()
+        	ctx.rel_line_to(end_x, end_y)
+		if close : ctx.close_path()
 		if preserve: ctx.stroke_preserve()
 		else: ctx.stroke()
 		ctx.restore()
 
-	@staticmethod
-	def draw_rectangle(ctx,x,y,width,height,fill=True):
+	def draw_rectangle(self,ctx,x,y,width,height,fill=True):
 		"""Draws a rectangle"""
 		ctx.save()
 		ctx.translate(x, y)
@@ -160,12 +165,10 @@ class Drawing:
 		if fill:ctx.fill()
 		else: ctx.stroke()
 		ctx.restore()
-	
-	@staticmethod
-	def draw_rectangle_advanced (ctx, x, y, width, height, rounded_angles=(0,0,0,0),
-		fill=True, border_size=0, border_color=(0,0,0,1), shadow_size=0, shadow_color=(0,0,0,0.5)):
-		"""Draws a rectangle with several extra options.
-		TODO: Rewrite and compact this function!"""
+
+
+	def draw_rectangle_advanced (self, ctx, x, y, width, height, rounded_angles=(0,0,0,0), fill=True, border_size=0, border_color=(0,0,0,1), shadow_size=0, shadow_color=(0,0,0,0.5)):
+		'''with this funktion you can create a rectangle in advanced mode'''
 		ctx.save()
 		ctx.translate(x, y)
 		s = shadow_size
@@ -174,7 +177,6 @@ class Drawing:
 		rounded = rounded_angles
 		if shadow_size > 0:
 			ctx.save()
-			
 			#top shadow
 			gradient = cairo.LinearGradient(0,s,0,0)
 			gradient.add_color_stop_rgba(0,*shadow_color)
@@ -300,56 +302,49 @@ class Drawing:
 			ctx.restore()
 		ctx.restore()
 
-	@staticmethod
-	def draw_rounded_rectangle(ctx, x, y, rounded_angle, width, height,
-		round_top_left=True, round_top_right=True, round_bottom_left=True,
-		round_bottom_right=True, fill=True):
+	def draw_rounded_rectangle(self,ctx,x,y,rounded_angle,width,height,round_top_left = True ,round_top_right = True,round_bottom_left = True,round_bottom_right = True, fill=True):
 		"""Draws a rounded rectangle"""
 		ctx.save()
 		ctx.translate(x, y)
 		padding=0 # Padding from the edges of the window
-		rounded=rounded_angle # How round to make the edges. 20 is normal.
-		w = width
+        	rounded=rounded_angle # How round to make the edges 20 is ok
+        	w = width
 		h = height
 
-		# Move to top corner
-		ctx.move_to(0+padding+rounded, 0+padding)
-			
-		# Top right corner and round the edge
+        	# Move to top corner
+        	ctx.move_to(0+padding+rounded, 0+padding)
+        	
+        	# Top right corner and round the edge
 		if round_top_right:
-			ctx.line_to(w-padding-rounded, 0+padding)
-			ctx.arc(w-padding-rounded, 0+padding+rounded, rounded, (math.pi/2 )+(math.pi) , 0)
+	        	ctx.line_to(w-padding-rounded, 0+padding)
+	        	ctx.arc(w-padding-rounded, 0+padding+rounded, rounded, (math.pi/2 )+(math.pi) , 0)
 		else:
 			ctx.line_to(w-padding, 0+padding)
 
-		# Bottom right corner and round the edge
+        	# Bottom right corner and round the edge
 		if round_bottom_right:
-			ctx.line_to(w-padding, h-padding-rounded)
-			ctx.arc(w-padding-rounded, h-padding-rounded, rounded, 0, math.pi/2)
+		       	ctx.line_to(w-padding, h-padding-rounded)
+	        	ctx.arc(w-padding-rounded, h-padding-rounded, rounded, 0, math.pi/2)
 		else:
-			ctx.line_to(w-padding, h-padding)       	
-
-		# Bottom left corner and round the edge.
+	        	ctx.line_to(w-padding, h-padding)       	
+        	# Bottom left corner and round the edge.
 		if round_bottom_left:
-			ctx.line_to(0+padding+rounded, h-padding)
-			ctx.arc(0+padding+rounded, h-padding-rounded, rounded,math.pi/2, math.pi)
+	        	ctx.line_to(0+padding+rounded, h-padding)
+	        	ctx.arc(0+padding+rounded, h-padding-rounded, rounded,math.pi/2, math.pi)
 		else:	
-			ctx.line_to(0+padding, h-padding)
-		
-		# Top left corner and round the edge
+	        	ctx.line_to(0+padding, h-padding)
+        	# Top left corner and round the edge
 		if round_top_left:
-			ctx.line_to(0+padding, 0+padding+rounded)
-			ctx.arc(0+padding+rounded, 0+padding+rounded, rounded, math.pi, (math.pi/2 )+(math.pi))
+	        	ctx.line_to(0+padding, 0+padding+rounded)
+	        	ctx.arc(0+padding+rounded, 0+padding+rounded, rounded, math.pi, (math.pi/2 )+(math.pi))
 		else:
 			ctx.line_to(0+padding, 0+padding)
-		
-		# Fill in the shape.
+        	# Fill in the shape.
 		if fill:ctx.fill()
 		else: ctx.stroke()
 		ctx.restore()
 
-	@staticmethod
-	def draw_quadrant_shadow(ctx, x, y, from_r, to_r, quad, col):
+	def draw_quadrant_shadow(self, ctx, x, y, from_r, to_r, quad, col):
 		gradient = cairo.RadialGradient(x,y,from_r,x,y,to_r)
 		gradient.add_color_stop_rgba(0,col[0],col[1],col[2],col[3])
 		gradient.add_color_stop_rgba(1,col[0],col[1],col[2],0)
@@ -363,9 +358,8 @@ class Drawing:
 		ctx.close_path()
 		ctx.fill()
 
-	@staticmethod
-	def draw_side_shadow(ctx, x, y, w, h, side, col):
-		"""side: 0 - left, 1 - right, 2 - top, 3 - bottom"""
+	# side: 0 - left, 1 - right, 2 - top, 3 - bottom
+	def draw_side_shadow(self, ctx, x, y, w, h, side, col):
 		gradient = None
 		if side==0:
 			gradient = cairo.LinearGradient(x+w,y,x,y)
@@ -382,10 +376,9 @@ class Drawing:
 		ctx.rectangle(x,y,w,h)
 		ctx.fill()
 
-	@staticmethod
-	def draw_shadow(ctx, x, y, w, h, shadow_size, col):
+	def draw_shadow(self, ctx, x, y, w, h, shadow_size, col):
 		s = shadow_size
-		#r = layout.window.radius
+		#r = self.layout.window.radius
 		r = s
 		rr = r+s
 		h = h-r
@@ -397,42 +390,45 @@ class Drawing:
 		ctx.translate(x,y)
 
 		# Top Left
-		Drawing.draw_quadrant_shadow(ctx, rr, rr, 0, rr, 0, col)
+		self.draw_quadrant_shadow(ctx, rr, rr, 0, rr, 0, col)
 		# Left
-		Drawing.draw_side_shadow(ctx, 0, rr, r+s, h-2*r, 0, col)
+		self.draw_side_shadow(ctx, 0, rr, r+s, h-2*r, 0, col)
 		# Bottom Left
-		Drawing.draw_quadrant_shadow(ctx, rr, h-r+s, 0, rr, 2, col)
+		self.draw_quadrant_shadow(ctx, rr, h-r+s, 0, rr, 2, col)
 		# Bottom
-		Drawing.draw_side_shadow(ctx, rr, h-r+s, w-2*r, s+r, 3, col)
+		self.draw_side_shadow(ctx, rr, h-r+s, w-2*r, s+r, 3, col)
 		# Bottom Right
-		Drawing.draw_quadrant_shadow(ctx, w-r+s, h-r+s, 0, rr, 3, col)
+		self.draw_quadrant_shadow(ctx, w-r+s, h-r+s, 0, rr, 3, col)
 		# Right
-		Drawing.draw_side_shadow(ctx, w-r+s, rr, s+r, h-2*r, 1, col)
+		self.draw_side_shadow(ctx, w-r+s, rr, s+r, h-2*r, 1, col)
 		# Top Right
-		Drawing.draw_quadrant_shadow(ctx, w-r+s, rr, 0, rr, 1, col)
+		self.draw_quadrant_shadow(ctx, w-r+s, rr, 0, rr, 1, col)
 		# Top
-		Drawing.draw_side_shadow(ctx, rr, 0, w-2*r, s+r, 2, col)
+		self.draw_side_shadow(ctx, rr, 0, w-2*r, s+r, 2, col)
 
 		ctx.restore()
 
-	@staticmethod
-	def get_image_size(pix):
+
+
+	def get_image_size(self,pix):
 		"""Gets a picture width and height"""
+
 		pixbuf = gtk.gdk.pixbuf_new_from_file(pix)
 		iw = pixbuf.get_width()
 		ih = pixbuf.get_height()
 		puxbuf = None
 		return iw,ih
 
-	@staticmethod
-	def draw_image(ctx,x,y, pix):
+	def draw_image(self,ctx,x,y, pix):
 		"""Draws a picture from specified path"""
+
 		ctx.save()
 		ctx.translate(x, y)	
 		pixbuf = gtk.gdk.pixbuf_new_from_file(pix)
 		format = cairo.FORMAT_RGB24
 		if pixbuf.get_has_alpha():
 			format = cairo.FORMAT_ARGB32
+
 		iw = pixbuf.get_width()
 		ih = pixbuf.get_height()
 		image = cairo.ImageSurface(format, iw, ih)
@@ -443,9 +439,9 @@ class Drawing:
 		image = None
 		ctx.restore()
 
-	@staticmethod
-	def draw_icon(ctx,x,y, pix,width=32,height=32):
+	def draw_icon(self,ctx,x,y, pix,width=32,height=32):
 		"""Draws a gtk icon """
+
 		ctx.save()
 		ctx.translate(x, y)	
 		icontheme = gtk.icon_theme_get_default()
@@ -456,9 +452,9 @@ class Drawing:
 		image = None
 		ctx.restore()
 
-	@staticmethod
-	def draw_scaled_image(ctx,x,y, pix, w, h):
+	def draw_scaled_image(self,ctx,x,y, pix, w, h):
 		"""Draws a picture from specified path with a certain width and height"""
+
 		ctx.save()
 		ctx.translate(x, y)	
 		pixbuf = gtk.gdk.pixbuf_new_from_file(pix).scale_simple(w,h,gtk.gdk.INTERP_HYPER)
@@ -472,7 +468,7 @@ class Drawing:
 
 		matrix = cairo.Matrix(xx=iw/w, yy=ih/h)
 		image = ctx.set_source_pixbuf(pixbuf, 0, 0)
-		if image is not None :image.set_matrix(matrix)
+		if image != None :image.set_matrix(matrix)
 		ctx.paint()
 		puxbuf = None
 		image = None

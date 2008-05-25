@@ -40,6 +40,7 @@ import pango
 import socket
 import math
 import poplib
+import imaplib
 import os
 from gtk import Tooltips
 from screenlets import mail
@@ -72,25 +73,26 @@ class MailCheckScreenlet (screenlets.Screenlet):
 	__desc__	= __doc__
 	
 	# internals
-	__timeout		= None
-	__mailbackend	= None
-	__status		= mail.MailCheckStatus.IDLE
-	__blinking		= False
-	__blink_phase	= 0
-	__blink_timeout	= None
-	__tooltips		= Tooltips()
+	__timeout					= None
+	__mailbackend			= None
+	__status					= mail.MailCheckStatus.IDLE
+	__mailbox_status	=	mail.MailboxStatus.UNKNOWN
+	__blinking				= False
+	__blink_phase			= 0
+	__blink_timeout		= None
+	__tooltips				= Tooltips()
 	
 	# editable options
 	check_interval	= 1		# minutes!!!
 	mail_client		= 'evolution'
 	known_mailcount	= 0		# hidden option to remember number of known mails
-	unchecked_mails	= 0		# hidden option to remember unchecked mails
+	unseen_count			= 0
 	backend_type	= 'IMAP'
 	
 	# POP3/IMAP-options (should be added by backend)
 	pop3_server		= ''
 	pop3_account	= ('', '')		# username/pass for POP3 mailbox
-	imap_server		= ''
+	imap_host			= ''
 	imap_account	= ('','')
 	
 	# constructor
@@ -127,16 +129,17 @@ class MailCheckScreenlet (screenlets.Screenlet):
 			self.pop3_account, 'Username/Password', 
 			'Enter username/password here ...'))
 		# IMAP settings
-		self.add_option(StringOption('IMAP','imap_server', self.imap_server,
-			'Server URL', 'The url of the IMAP-server to check ...'), 
+		self.add_option(StringOption('IMAP', 'imap_host', self.imap_host,
+			'Server URL', 'The hostname of the IMAP server to check ...'), 
 			realtime=False)
 		self.add_option(AccountOption('IMAP','imap_account',self.imap_account,
 			'Username/Password','Enter username/password here ...'))
         # hidden options
-		self.add_option(IntOption('E-Mail','known_mailcount', 
-			self.known_mailcount, '', '', hidden=True))
-		self.add_option(IntOption('E-Mail','unchecked_mails', 
-			self.unchecked_mails, '', '', hidden=True))
+#		self.add_option(IntOption('E-Mail','known_mailcount', 
+#			self.known_mailcount, '', '', hidden=True))
+#		self.add_option(IntOption('E-Mail','unchecked_mails', 
+#			self.unchecked_mails, '', '', hidden=True))
+		# TEST: add options from metadata (NOTE: need less backend.mailcount > self.known_mailcountugly way for this)
 		# TEST: add options from metadata (NOTE: need less ugly way for this)
 		#mypath = __file__[:__file__.rfind('/')]
 		#self.add_options_from_file( mypath + '/' + self.__name__ + '.xml')	
@@ -176,15 +179,11 @@ class MailCheckScreenlet (screenlets.Screenlet):
 		signals and disconnects/quits the currently active backend.
 		TODO: check for running acton and ask for confirmation"""
 		if self.__mailbackend:
-			# check for refresh-status in curr. backend
-			# disconnect signals and remove backend
-			print "BACKEND SET, TODO: remove/free"
-			pass
-		else:
-			# create new backend and connect to its signals
-			self.__mailbackend = backend_class(self)
-			self.__mailbackend.connect('check_finished', 
-				self.handle_check_finished)
+			self.__mailbackend.stop()
+		# create new backend and connect to its signals
+		self.__mailbackend = backend_class(self)
+		self.__mailbackend.connect('check_finished', 
+			self.handle_check_finished)
 	
 	def run_mailcheck (self):
 		"""Check the current backend for email (executes backend-thread and
@@ -193,10 +192,9 @@ class MailCheckScreenlet (screenlets.Screenlet):
 		# like server/pass/user/... - if not, show error
 		# if it is not currently refreshing
 		if not self.__mailbackend.refreshing:
-			self.__mailbackend.start()
-			# workaround, cause backend shouldn't call redraw
 			self.__status = mail.MailCheckStatus.REFRESH 
 			self.redraw_canvas()
+			self.__mailbackend.start()
 		return False	# in case we are run as a timeout
 	
 	def set_check_interval (self, interval):
@@ -207,12 +205,6 @@ class MailCheckScreenlet (screenlets.Screenlet):
 		self.__timeout = gobject.timeout_add(interval * 60000, 
 			self.run_mailcheck)
 	
-	def reset_to_idle (self):
-		"""Reset the status back to idle state. (REMOVE???)"""
-		self.stop_blinking()
-		self.__status == mail.MailCheckStatus.IDLE
-		self.redraw_canvas()
-		self.unchecked_mails = 0
 		
 	# blinking
 	
@@ -265,59 +257,44 @@ class MailCheckScreenlet (screenlets.Screenlet):
 		ctx.restore()
 	
 	def draw_text (self, ctx):
-		"""Draw the text with the mail count."""
-		ctx.translate(16, 41) # TODO: use options here
-		p_layout = ctx.create_layout()
-		p_fdesc = pango.FontDescription("Free Sans Bold 10")
-		p_layout.set_font_description(p_fdesc)
-		if self.known_mailcount > -1:
-			mnumstr = str(self.known_mailcount)
-		else:
-			mnumstr = "-"
-		p_layout.set_markup(str(self.unchecked_mails) + '|' + mnumstr)
-		ctx.set_source_rgba(0.5, 0.5, 0.5, 0.3)
-		ctx.show_layout(p_layout)
-		ctx.fill()
-		ctx.translate(-1, -1)
-		ctx.set_source_rgba(0, 0, 0, 1)	# TODO: option!
-		ctx.show_layout(p_layout)
-		ctx.fill()
+		"""Draw the text with the unread count."""
+		if self.unseen_count > 0:
+			ctx.translate(16, 41) # TODO: use options here
+			p_layout = ctx.create_layout()
+			p_fdesc = pango.FontDescription("Free Sans Bold 10")
+			p_layout.set_font_description(p_fdesc)
+			p_layout.set_markup(str(self.unseen_count))
+			ctx.set_source_rgba(0.5, 0.5, 0.5, 0.3)
+			ctx.show_layout(p_layout)
+			ctx.fill()
+			ctx.translate(-1, -1)
+			ctx.set_source_rgba(0, 0, 0, 1)	# TODO: option!
+			ctx.show_layout(p_layout)
+			ctx.fill()
 	
 	# --------------------------------------------------------------------------
 	# signal-handler for MailCheckBackend
 	# --------------------------------------------------------------------------
 	
-	def handle_check_finished (self, backend, status):
+	def handle_check_finished (self, backend, status, mailbox_status):
 		"""Gets called whenver the backend-thread finished its job. Checks
 		the status of the backend and performs the needed actions.
 		Starts new timeout after getting called"""
-		#gtk.gdk.threads_enter()	# start critical section
-		if status == mail.MailCheckStatus.GOT_MAIL:
-			print "You got %i mail(s)." % backend.mailcount
-			# if we got mail, check if we got more mails than last time
-			if backend.mailcount > self.known_mailcount:
-				self.__status = status					# yup, we got new mail
-				self.unchecked_mails = backend.mailcount - self.known_mailcount
-				self.known_mailcount = backend.mailcount
-				print "You got %i new mail(s)." % self.unchecked_mails
-				# start blinking
-				self.start_blinking()
-			else:
-				self.__status = mail.MailCheckStatus.IDLE
-		elif status == mail.MailCheckStatus.ERROR:
-			# if we had an error
-			self.__status = status
+		print "handle_check_finished(); status = %i, mailbox_status = %i" % (status, mailbox_status)
+		self.unseen_count = backend.unseen_count
+		if status == mail.MailCheckStatus.ERROR:
 			#screenlets.show_error(self, backend.error)	# threading-problem!!!
 			self.notifier.notify(backend.error)
-		else:
-			self.reset_to_idle()
-		# and redraw the screenlet
+		self.__status = status
+		self.__mailbox_status = mailbox_status
+		#threading.g_thread_init()
+		#gobject.gdk_threads_init()
 		self.redraw_canvas()
 		# finally we re-add the timeout-function to init the next check
 		# (we don't use more than one thread this way and avoid duplicate 
 		# and/or hanging threads in the background)
 		self.set_check_interval(self.check_interval)
-		#gtk.gdk.threads_leave()	# end critical section
+
 	
 	# --------------------------------------------------------------------------
 	# overridden Screenlet-handlers
@@ -340,8 +317,8 @@ class MailCheckScreenlet (screenlets.Screenlet):
 	def on_draw (self, ctx):
 		ctx.scale(self.scale, self.scale)
 		if self.theme:
-			if self.__status == mail.MailCheckStatus.GOT_MAIL or \
-				self.unchecked_mails == True:
+			if self.__mailbox_status == mail.MailboxStatus.UNREAD_MAIL or \
+				self.__mailbox_status == mail.MailboxStatus.NEW_MAIL:
 				#self.theme['mailcheck-got-mail.svg'].render_cairo(ctx)
 				self.theme.render(ctx, 'mailcheck-got-mail')
 			else:
@@ -351,6 +328,7 @@ class MailCheckScreenlet (screenlets.Screenlet):
 			self.draw_blinking(ctx)
 		# draw icon?
 		if self.__status == mail.MailCheckStatus.REFRESH:
+			print "draw refresh icon"
 			self.draw_icon(ctx, 'refresh')
 		elif self.__status == mail.MailCheckStatus.ERROR:
 			self.draw_icon(ctx, 'error')

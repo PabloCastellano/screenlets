@@ -24,6 +24,10 @@ try:
 	import poplib
 except ImportError, err:
 	print " !!!Please install python poplib :", err
+try:
+	import imaplib
+except ImportError, err:
+	print " !!!Please install python imaplib :", err
 
 try:
 	import gnomevfs
@@ -80,9 +84,16 @@ MSG_AUTH_FAILED = """Error on login - invalid login data given? Some hosts
 may block connections for a certain interval before allowing reconnects."""
 
 # the current operational status of the mailcheck
+class MailboxStatus:
+	UNKNOWN			= 0
+	ALL_READ		= 1
+	UNREAD_MAIL	= 2
+	NEW_MAIL		=	3
+
+# the mailcheck status
 class MailCheckStatus:
 	REFRESH		= 1
-	GOT_MAIL	= 2
+	IDLE		= 2
 	ERROR		= 3
 	IDLE		= 100
 
@@ -92,26 +103,34 @@ class MailCheckBackend (gobject.GObject):
 	mail-backends to the MailCheckScreenlet (e.g. pop3, maildir, imap, 
 	gmail, ...)."""
 	
-	__gsignals__ = dict(check_finished=(gobject.SIGNAL_RUN_FIRST,
-		gobject.TYPE_NONE, (gobject.TYPE_INT,)))
-	
+
+	__gsignals__ = {
+		'check_finished' : (gobject.SIGNAL_RUN_LAST,	gobject.TYPE_NONE,(gobject.TYPE_INT, gobject.TYPE_INT,))
+		}
+
 	def __init__ (self, name, screenlet):
 		gobject.GObject.__init__(self)
 		# properties
-		self.name		= name					# name of backend
-		self.screenlet	= screenlet				# assigned MailCheckScreenlet
-		self.refreshing	= False					# not refreshing yet
-		self.mailcount	= 0						# num of mails found on server
-		self.status		= MailCheckStatus.IDLE	# status of the backend
-		self.error		= ''					# human-readable error message
-		self.options	= []					# ???additonal Options for backend
-		self.thread	= None
+		self.name		= name			# name of backend
+		self.screenlet		= screenlet		# assigned MailCheckScreenlet
+		self.refreshing		= False			# not refreshing yet
+		self.unseen_count	= 0			# number of unread messages on the server
+		self.status		= MailCheckStatus.IDLE	# status of the mailcheck backend
+		self.mailbox_status	= MailboxStatus.UNKNOWN	# status of the mailbox
+		self.error					= ''		# human-readable error message
+		self.options		= []				# ???additonal ptions for backend
+		self.thread		= None
 	
 	def check_mail (self):
 		"""This handler should be overridden by subclasses to add new types
 		of checking mails in a backend. This handler has to set self.mailcount 
 		to the number of mails found in the backend. The return value is
 		ignored, set self.error and self.status to return results."""
+
+	def stop (self):
+	  """Stop receiving mails from the backend.  This should be overridden
+	  by subclasses."""
+	  self.thread = None
 	
 	def start (self):
 		"""Start receiving mails from the backend. Runs self.__execute as
@@ -122,12 +141,8 @@ class MailCheckBackend (gobject.GObject):
 		"""Execute the thread and call the check-mail function."""
 		# set status to REFRESH and call check_mail-handler to fetch mails
 		self.refreshing	= True
-		self.status		= MailCheckStatus.REFRESH
 		self.check_mail()
-		# notify registered handlers that we are ready with checking
-		self.emit('check_finished', self.status)
-		# and set status back to idle
-		self.status		= MailCheckStatus.IDLE
+		self.emit('check_finished', self.status, self.mailbox_status)
 		# not refreshing anymore
 		self.refreshing	= False
 
@@ -139,44 +154,61 @@ class IMAPBackend(MailCheckBackend):
 	def __init__ (self, screenlet):
 		# call super
 		MailCheckBackend.__init__(self, 'IMAP', screenlet)
+		self.server = None
 
 	def check_mail(self):
 		# set default timeout for all socket connections to 30 secs
 		socket.setdefaulttimeout(30000)
 		print "IMAPBackend: Connecting to IMAP-server ... please wait."
+		self.status = MailCheckStatus.REFRESH
 		try:
-			server = IMAP4(self.screenlet.imap_server)
+			self.server = imaplib.IMAP4(self.screenlet.imap_host)
 		except:
 			self.error	= MSG_CONNECTION_FAILED
 			self.status	= MailCheckStatus.ERROR
 			return False
-		user, passwd=self.screenlet.imap_account
+		user, passwd = self.screenlet.imap_account
 		try:
-			server.login(user,passwd)
+			self.server.login(user, passwd)
 		except:
 			self.error	= MSG_AUTH_FAILED
 			self.status	= MailCheckStatus.ERROR
-			server.logout()
+			self.server.logout()
 			return False
 
-		typ,data = server.select()
+		self.server.select()
+		typ, data = self.server.search(None, 'UNSEEN')
 		if typ == 'OK':
-			msgnum = int(data[0])
-			if msgnum > self.mailcount:
-				diff = msgnum - self.mailcount
-				self.mailcount	= msgnum
-				self.status		= MailCheckStatus.GOT_MAIL
-				print "GOT_MAIL"
-			elif msgnum <= self.mailcount:
-				self.mailcount	= msgnum
-				self.status		= MailCheckStatus.IDLE
-				print "IDLE"
+			self.unseen_count = len(data[0].split())
+			if self.unseen_count > 0:
+				typ, data = self.server.search(None, 'NEW')
+				if typ == 'OK':
+					if len(data[0].split()) > 0:
+						self.mailboxstatus = MailboxStatus.NEW_MAIL
+						print "NEW_MAIL"
+					else:
+						self.mailboxstatus = MailboxStatus.UNREAD_MAIL
+						print "UNREAD_MAIL"
+				else:
+					print "IMAP error (checking new count): " + typ
+			else:
+				self.mailboxstatus = MailboxStatus.ALL_READ
+			self.status = MailCheckStatus.IDLE
 		else:
+			print "IMAP error (checking unseen count): " + typ
 			self.error	= MSG_FETCH_MAILS_FAILED
 			self.status	= MailCheckStatus.ERROR
-			server.logout()
+			self.mailboxstatus = MailboxStatus.UNKNOWN
+		self.server.close()
+		self.server.logout()
 		return False
 
+	def stop(self):
+		if self.server:
+			self.server.close()
+			self.server.logout()
+			self.thread.join()
+			self.thread = None
 
 class Mailer:
     """
@@ -297,6 +329,7 @@ class POP3Backend (MailCheckBackend):
 	def __init__ (self, screenlet):
 		# call super
 		MailCheckBackend.__init__(self, 'POP3', screenlet)
+		self.server = None
 		# init additional attributes for this backend-type
 		# TODO: add POP3-specific options to the backend instead of having them
 		# defined in the screenlet by default (ideally they should be only shown
@@ -308,7 +341,7 @@ class POP3Backend (MailCheckBackend):
 		print "POP3Backend: Connecting to POP3-server ... please wait."
 		#self.screenlet.redraw_canvas()
 		try:
-			server = poplib.POP3(self.screenlet.pop3_server)
+			self.server = poplib.POP3(self.screenlet.pop3_server)
 		except:
 			self.error	= MSG_CONNECTION_FAILED
 			self.status = MailCheckStatus.ERROR
@@ -317,26 +350,26 @@ class POP3Backend (MailCheckBackend):
 		user, pw = self.screenlet.pop3_account
 		#print "ACCOUNT IS %s/%s!!" % (o[0], o[1])
 		try:
-			# TODO: remove print here once ready!!!!
-			print server.user(user)
-			print server.pass_(pw)
+			self.server.user(user)
+			self.server.pass_(pw)
 		except:
 			self.error	= MSG_AUTH_FAILED
 			self.status = MailCheckStatus.ERROR
-			server.quit()
+			self.server.quit()
 			return False
 		# get list with mails (response, list-of-mails)
-		resp = server.list()
+		resp = self.server.list()
 		if resp[0].startswith('+OK'):
 			messages = resp[1]
 			#print messages
 			msgnum = len(messages)
-			if msgnum > self.mailcount:
+			if msgnum > self.unseen_count:
 				diff = msgnum - self.mailcount
 				self.mailcount = msgnum
 				self.status = MailCheckStatus.GOT_MAIL
 				print "GOT_MAIL"
 			elif msgnum <= self.mailcount:
+				print "set status to IDLE (POP3Backend.check_mail)"
 				self.mailcount = msgnum
 				self.status = MailCheckStatus.IDLE
 				print "IDLE"
@@ -346,6 +379,11 @@ class POP3Backend (MailCheckBackend):
 			#server.quit()
 			#return False
 		# close connection
-		server.quit()
+		self.server.quit()
 		return False
 
+	def stop(self):
+	 	if self.server:
+			self.server.quit()
+			self.thread.join()
+			self.thread = None

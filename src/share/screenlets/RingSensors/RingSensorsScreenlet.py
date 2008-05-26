@@ -23,8 +23,8 @@ class RingSensorsScreenlet(screenlets.Screenlet):
 
 	# default meta-info for Screenlets
 	__name__ = 'RingSensorsScreenlet'
-	__version__ = '0.2'
-	__author__ = 'Helder Fraga aka Whise based on RingClock by Paul Ashton'
+	__version__ = '0.3'
+	__author__ = 'Helder Fraga aka Whise based on ClockRing by Paul Ashton'
 	__desc__ = 'Ring Sensors Screenlet.'
 
 	# internals
@@ -222,7 +222,7 @@ class RingSensorsScreenlet(screenlets.Screenlet):
 
 		ctx.scale(self.scale, self.scale)
 		# draw bg (if theme available)
-		ctx.set_operator(cairo.OPERATOR_OVER)
+		ctx.set_operator(cairo.OPERATOR_ADD)
 		
 		b = (int(self.load)*80)/100
 		a = (int(b)*450)/100

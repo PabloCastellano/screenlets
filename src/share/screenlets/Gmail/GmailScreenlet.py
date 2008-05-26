@@ -8,8 +8,6 @@
 # Thank you for using free software!
 
 # GmailScreenlet (c) Whise <helder.fraga@hotmail.com>
-#
-# INFO:
 
 
 
@@ -19,7 +17,6 @@ import cairo
 import pango
 import gtk
 from os import system
-from urllib import quote
 import gobject
 from screenlets import DefaultMenuItem
 from screenlets import Plugins
@@ -32,24 +29,19 @@ class GmailScreenlet(screenlets.Screenlet):
 	
 	# default meta-info for Screenlets
 	__name__ = 'GmailScreenlet'
-	__version__ = '0.6'
+	__version__ = '0.7'
 	__author__ = 'Helder Fraga'
-	__desc__ = 'A screenlet that shows your unread gmail message count , click on the mail icon to go to gmail.com , new version has password encryption but is  a bit more laggy.'
+	__desc__ = 'A screenlet that shows your unread gmail message count'
 
 	# a list of the converter class objects
 
 
-	__has_focus = False
-	__query = ''
+
 	__timeout = None
-	# editable options
-	# the name, i.e., __title__ of the active converter
 	update_interval = 60
 	forecast = ''
 	msgs = ' 0'
-	msgss = ''
 	account = ('', '')	
-	p_layouta = None
 
 	# constructor
 	def __init__(self, **keyword_args):
@@ -58,8 +50,7 @@ class GmailScreenlet(screenlets.Screenlet):
 		# set theme
 		self.theme_name = "default"
 		# add default menu items
-		self.add_default_menuitems(DefaultMenuItem.XML)
-	
+
 		self.add_options_group('gmail', 'Gmail Screenlet settings ...')
 		self.add_option(IntOption('gmail', 'update_interval', 
 			self.update_interval, 'Update interval', 'The interval for updating info (in seconds ,3660 = 1 day, 25620 = 1 week)', min=30, max=25620))
@@ -87,6 +78,7 @@ class GmailScreenlet(screenlets.Screenlet):
 	def on_init (self):
 		print "Screenlet has been initialized."
 		# add default menuitems
+		self.add_default_menuitems(DefaultMenuItem.XML)
 		self.add_default_menuitems()
 
 	def update(self):
@@ -94,24 +86,14 @@ class GmailScreenlet(screenlets.Screenlet):
 		self.redraw_canvas()
 		return True
 
-	def set_engine(self, name):
-
-		for engine in self.__engines:
-			if engine["name"] == name:
-				break
-		self.__engine = engine
-		# make the option be cached and show in the Options dialog
-		self.engine = engine['name']
-		self.redraw_canvas()
-
-	# I don't want to call this on_key_press, I consider such a name reserved 
-	# for future versions of screenlets.
 	def check(self):
 
 		if self.account[0] != '' and self.account[1] != '':
 			n = self.account[0].replace('@gmail.com','')
-			self.msgs = mail.get_GMail_Num(n, self.account[1])
-			print str(self.msgs) + ' Unread Messages'
+			try:
+				self.msgs = mail.get_GMail_Num(n, self.account[1])
+				print str(self.msgs) + ' Unread Messages'
+			except:self.msgs = 0
 		else:
 			self.msgs = 0
 
@@ -139,89 +121,43 @@ class GmailScreenlet(screenlets.Screenlet):
 
 
 	def on_draw(self, ctx):
-		# if a converter or theme is not yet loaded, there's no way to continue
-		# set scale relative to scale-attribute
 		ctx.scale(self.scale, self.scale)
 		# render background
 		self.theme.render(ctx, 'gmail')
-
-		n = 1
-		m = 20
-
-		
-
-		
-		ctx.save()
-		
-		ctx.restore()
-		# render field names
-		# ctx.save()
-		
-		
-		if self.p_layouta == None :
 	
-			self.p_layouta = ctx.create_layout()
-		else:
-			
-			ctx.update_layout(self.p_layouta)
-		p_fdesc = pango.FontDescription()
-		p_fdesc.set_family_static("Free Sans")
+
 		if self.msgs == None: self.msgs = 0
 		if int(self.msgs) < 10:
-			p_fdesc.set_size(36 * pango.SCALE)
-			ctx.translate(180, 182)
+			s = 36
+			x,y = (188, 182)
 		elif int(self.msgs) >= 10 and int(self.msgs) <= 99:
-			p_fdesc.set_size(30 * pango.SCALE)
-			ctx.translate(180, 187)
+			s = 30
+			x,y =(180, 187)
 		elif int(self.msgs) >= 100 and int(self.msgs) <= 999:
-			p_fdesc.set_size(24 * pango.SCALE)
-			ctx.translate(175, 187)
+			s = 24
+			x,y =(175, 187)
 		elif int(self.msgs) >= 1000:
-			p_fdesc.set_size(20 * pango.SCALE)
+			s = 20
 			ctx.translate(170, 190)
 		else:
-			p_fdesc.set_size(36 * pango.SCALE)
-			ctx.translate(188, 182)
-		self.p_layouta.set_font_description(p_fdesc)
-		self.p_layouta.set_width(290 * pango.SCALE)
-		self.p_layouta.set_markup('<b>'+ str(self.msgs) +'</b>')
+			s = 36
+			x,y = (188, 182)
 
 		ctx.set_source_rgba(1, 1, 1, 0.9)
-		ctx.show_layout(self.p_layouta)
-		# ...and finally something to cover this all
-
-		#self.theme['glass.svg'].render_cairo(ctx)
+		self.draw_text(ctx,'<b>'+ str(self.msgs) +'</b>',x,y, 'FreeSans',s, self.width)
 		
 	def on_draw_shape(self, ctx):
 		if self.theme:
 			ctx.scale(self.scale, self.scale)
-			# the background will serve well
+
 			self.theme.render(ctx, 'gmail')
 
 	def on_menuitem_select (self, id):
 		"""handle MenuItem-events in right-click menu"""
 		if id == "update":
-			# TODO: use DBus-call for this
-			#self.switch_hide_show()
 			self.check()
 			self.redraw_canvas()
-		elif id[:4] == "add:":
-			# make first letter uppercase (workaround for xml-menu)
-			name = id[4].upper()+id[5:][:-9]
-			 #and launch screenlet (or show error)
-			if not screenlets.launch_screenlet(name):
-				screenlets.show_error(self, 'Failed to add %sScreenlet.' % name)
-		elif id[:6] == "engine":
-			# execute shell command
-			engine = id[9:][:+20]
-			self.set_engine(id[9:][:+20])
-			self.redraw_canvas()
-			print  (engine)
-		#elif id[:7] == "engine7":
-		#	screenlets.show_error(self, id[8:][:+10])
-			#engine = 'Mininova'
-		#	self.set_engine(id[6:][:+8] )
-		#	self.redraw_canvas()
+
 
 # If the program is run directly or passed as an argument to the python
 # interpreter then create a Screenlet instance and show it

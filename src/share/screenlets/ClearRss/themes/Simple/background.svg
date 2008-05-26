@@ -354,7 +354,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4142136"
-     inkscape:cx="51.29829"
+     inkscape:cx="-94.01215"
      inkscape:cy="94.489665"
      inkscape:document-units="px"
      inkscape:current-layer="layer3"
@@ -426,11 +426,11 @@
        sodipodi:open="true"
        transform="matrix(2.6943256,0,0,2.5949278,43.920635,179.37529)" />
     <rect
-       style="opacity:0.52103558999999999;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.50000048;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect2463"
-       width="199"
-       height="199"
-       x="0.49999997"
-       y="0.5" />
+       width="198.5"
+       height="198.5"
+       x="0.75000024"
+       y="0.74999976" />
   </g>
 </svg>

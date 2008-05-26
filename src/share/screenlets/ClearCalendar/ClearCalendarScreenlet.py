@@ -18,7 +18,8 @@ import gtk
 import gobject
 import datetime
 import locale
-from screenlets import iCal
+from screenlets import Plugins
+iCal = Plugins.importAPI('iCal')
 import sys
 
 

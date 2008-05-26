@@ -43,7 +43,9 @@ import poplib
 import imaplib
 import os
 from gtk import Tooltips
-from screenlets import mail
+from screenlets import Plugins
+
+mail = Plugins.importAPI('Mail')
 
 # error messages
 MSG_CONNECTION_FAILED	= "Error while connecting to server."

@@ -3,6 +3,6 @@ import os
 sys.path.append(sys.path[0])
 
 def importAPI(module):
-	sys.path.append(os.path.dirname(__file__))
+	sys.path.append(os.path.dirname(__file__) + '/plugins')
 	mod = __import__(module)
 	return mod

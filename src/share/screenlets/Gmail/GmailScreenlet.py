@@ -14,15 +14,17 @@
 
 
 import screenlets
-from screenlets.options import StringOption, IntOption
+from screenlets.options import StringOption, IntOption, AccountOption
 import cairo
 import pango
 import gtk
 from os import system
 from urllib import quote
 import gobject
-from screenlets import DefaultMenuItem,mail
-import pyDes
+from screenlets import DefaultMenuItem
+from screenlets import Plugins
+mail = Plugins.importAPI('Mail')
+
 
 
 class GmailScreenlet(screenlets.Screenlet):
@@ -43,16 +45,12 @@ class GmailScreenlet(screenlets.Screenlet):
 	# editable options
 	# the name, i.e., __title__ of the active converter
 	update_interval = 60
-	p_layout = None
-	p_layouta = None
 	forecast = ''
 	msgs = ' 0'
 	msgss = ''
-	nam = ''
-	pas = ''
-	ga = ''
-	d = ''
-	k = pyDes.triple_des("MySecretTripleDesKeyData")
+	account = ('', '')	
+	p_layouta = None
+
 	# constructor
 	def __init__(self, **keyword_args):
 		#call super
@@ -65,24 +63,15 @@ class GmailScreenlet(screenlets.Screenlet):
 		self.add_options_group('gmail', 'Gmail Screenlet settings ...')
 		self.add_option(IntOption('gmail', 'update_interval', 
 			self.update_interval, 'Update interval', 'The interval for updating info (in seconds ,3660 = 1 day, 25620 = 1 week)', min=30, max=25620))
-		self.add_option(StringOption('gmail', 'nam', self.nam,'Select Email Account', '',),realtime=False)
-		self.add_option(StringOption('gmail', 'pas', self.pas,'Select Password', '',),realtime=False)
+		self.add_option(AccountOption('gmail', 'account', 
+			self.account, 'Username/Password', 
+			'Enter username/password here ...'))
 		self.update_interval = self.update_interval
 
 	def __setattr__(self, name, value):
 		# call Screenlet.__setattr__ in baseclass (ESSENTIAL!!!!)
 		screenlets.Screenlet.__setattr__(self, name, value)
-		if name == 'pas' and self.nam != '':
-			
-
-
-			
-			self.d = self.k.encrypt(value, "*")
-			value = self.d
-			screenlets.Screenlet.__setattr__(self, name, value)
-			value = self.k.decrypt(self.d, "*")
-			self.update()
-		if name == 'nam' and self.pas != '':
+		if name == 'account':
 			self.update()
 
 		if name == "update_interval":
@@ -119,15 +108,12 @@ class GmailScreenlet(screenlets.Screenlet):
 	# for future versions of screenlets.
 	def check(self):
 
-		self.msa = self.k.decrypt(self.pas, "*")
-	
-		n = self.nam.replace('@gmail.com','')
-		self.msgs = mail.get_GMail_Num(n, self.msa)
-
-
-
-
-		print str(self.msgs) + ' Unread Messages'
+		if self.account[0] != '' and self.account[1] != '':
+			n = self.account[0].replace('@gmail.com','')
+			self.msgs = mail.get_GMail_Num(n, self.account[1])
+			print str(self.msgs) + ' Unread Messages'
+		else:
+			self.msgs = 0
 
 
 	def on_mouse_down(self, event):
@@ -158,12 +144,10 @@ class GmailScreenlet(screenlets.Screenlet):
 		ctx.scale(self.scale, self.scale)
 		# render background
 		self.theme.render(ctx, 'gmail')
-		
-		#self.theme.render(ctx, 'urban')
-		# compute space between fields
+
 		n = 1
 		m = 20
-		# draw fields
+
 		
 
 		
@@ -183,7 +167,10 @@ class GmailScreenlet(screenlets.Screenlet):
 		p_fdesc = pango.FontDescription()
 		p_fdesc.set_family_static("Free Sans")
 		if self.msgs == None: self.msgs = 0
-		if int(self.msgs) >= 10 and int(self.msgs) <= 99:
+		if int(self.msgs) < 10:
+			p_fdesc.set_size(36 * pango.SCALE)
+			ctx.translate(180, 182)
+		elif int(self.msgs) >= 10 and int(self.msgs) <= 99:
 			p_fdesc.set_size(30 * pango.SCALE)
 			ctx.translate(180, 187)
 		elif int(self.msgs) >= 100 and int(self.msgs) <= 999:

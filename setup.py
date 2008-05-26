@@ -108,6 +108,8 @@ if os.path.isdir (podir):
 				os.system (buildcmd % (dname,name.replace('-'+dname,''), name))
 				files_list.append ((destpath % dname, [mopath % (dname,name.replace('-'+dname,''))]))
 				
+PACKAGES = ['screenlets','screenlets.plugins']
+
 # ----------------------------
 # Call setup()
 # ----------------------------
@@ -119,7 +121,7 @@ setup(name='screenlets',
 	author			= 'Whise (Helder Fraga)<helder.fraga@hotmail.com>, RYX (Rico Pfaus) <ryx@ryxperience.com>, Sorcerer (Hendrik Kaju), Natan Yellin (Aantn) <aantny@gmail.com>',
 	author_email		= 'helderfraga@hotmail.com',
 	license			= 'GPL v3',
-	packages		= ['screenlets'],
+	packages		= PACKAGES,
 	package_dir		= {'screenlets': 'src/lib'},
 	data_files		= files_list,
 	scripts			= scripts_list

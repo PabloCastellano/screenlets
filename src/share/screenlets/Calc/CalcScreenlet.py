@@ -103,21 +103,21 @@ class CalcScreenlet(screenlets.Screenlet):
 		self.draw_button(ctx, 'mc', 'mc', 56, 60, 0.7)
 		self.draw_button(ctx, 'mr', 'mr', 80, 60, 0.7)
 
-		self.draw_button(ctx, 'slash', 'calc-div.svg', 108, 60, 0.7, True)
-		self.draw_button(ctx, 'asterisk', 'calc-aste.svg', 108, 87, 0.7, True)
-		self.draw_button(ctx, 'minus', 'calc-minus.svg', 108, 114, 0.7, True)
-		self.draw_button(ctx, 'plus', 'calc-plus.svg', 108, 141, 0.7, True)
+		self.draw_button(ctx, 'slash', 'calc-div', 108, 60, 0.7, True)
+		self.draw_button(ctx, 'asterisk', 'calc-aste', 108, 87, 0.7, True)
+		self.draw_button(ctx, 'minus', 'calc-minus', 108, 114, 0.7, True)
+		self.draw_button(ctx, 'plus', 'calc-plus', 108, 141, 0.7, True)
 		if self.get_current()=="" and self.peek_oper()!="":
 			if self.peek_oper()=="/":
-				self.draw_button(ctx, 'slash', 'calc-div-white.svg', 108, 60, 0.7, True, False, True)
+				self.draw_button(ctx, 'slash', 'calc-div-white', 108, 60, 0.7, True, False, True)
 			elif self.peek_oper()=="*":
-				self.draw_button(ctx, 'asterisk', 'calc-aste-white.svg', 108, 87, 0.7, True, False, True)
+				self.draw_button(ctx, 'asterisk', 'calc-aste-white', 108, 87, 0.7, True, False, True)
 			elif self.peek_oper()=="-":
-				self.draw_button(ctx, 'minus', 'calc-minus-white.svg', 108, 114, 0.7, True, False, True)
+				self.draw_button(ctx, 'minus', 'calc-minus-white', 108, 114, 0.7, True, False, True)
 			elif self.peek_oper()=="+":
-				self.draw_button(ctx, 'plus', 'calc-plus-white.svg', 108, 141, 0.7, True, False, True)
+				self.draw_button(ctx, 'plus', 'calc-plus-white', 108, 141, 0.7, True, False, True)
 
-		self.draw_button(ctx, 'equal', 'calc-equal.svg', 108, 169, 0.7, True, True)
+		self.draw_button(ctx, 'equal', 'calc-equal', 108, 169, 0.7, True, True)
 
 		#if self.operation != '+' or self.last != 0:
 		if self.get_current()=="" and self.peek_oper()!="":

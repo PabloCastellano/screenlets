@@ -164,7 +164,7 @@ class ConvertScreenlet(screenlets.Screenlet):
 		# set scale relative to scale-attribute
 		ctx.scale(self.scale, self.scale)
 		# render background
-		self.theme.render(ctx,'convert-bg.svg')
+		self.theme.render(ctx,'convert-bg')
 		# compute space between fields
 		n = self.__converter.num_fields
 		m = (100 - 20*n) / (n + 1)

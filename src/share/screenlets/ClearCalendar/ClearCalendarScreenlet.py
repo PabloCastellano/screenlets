@@ -18,7 +18,7 @@ import gtk
 import gobject
 import datetime
 import locale
-from iCal import ICalReader
+from screenlets import iCal
 import sys
 
 
@@ -47,7 +47,7 @@ class ClearCalendarScreenlet(screenlets.Screenlet):
 	update_interval = 10
 	first_weekday = ''
 	enable_buttons = True
-	reader = ICalReader()
+	reader = iCal.ICalReader()
 	event1 = ''
 
 	font_color = (1,1,1, 0.8)
@@ -104,7 +104,7 @@ class ClearCalendarScreenlet(screenlets.Screenlet):
 		screenlets.Screenlet.__setattr__(self, name, value)
 		# check for this Screenlet's attributes, we are interested in:
 		if name == ('icalpath'):
-			self.reader = ICalReader()
+			self.reader = iCal.ICalReader()
 			self.reader.readURL(self.icalpath)
 			if self.window:
 				self.redraw_canvas()

@@ -11,7 +11,7 @@
 
 
 import screenlets
-from screenlets.options import FloatOption, BoolOption, StringOption
+from screenlets.options import FloatOption, BoolOption, StringOption, ColorOption, FontOption
 from screenlets.options import create_option_from_node
 import cairo
 import pango
@@ -35,7 +35,10 @@ class DiskusageScreenlet(screenlets.Screenlet):
 	# settings
 	update_interval = 20.0
 	mount_point = '/'
-	
+	font = 'FreeSans'
+	font_color = (1,1,1, 0.8)
+	background_color = (0,0,0, 0.1)
+
 	# constructor
 	def __init__(self, **keyword_args):
 		#call super
@@ -52,6 +55,14 @@ class DiskusageScreenlet(screenlets.Screenlet):
 			self.mount_point, 'Mount Point', 
 			'Enter the Mountpoint for the Device you want to show'), 
 			realtime=False)
+		self.add_option(FontOption('Disk-Usage','font', 
+			self.font, 'Font', 
+			'font'))
+		self.add_option(ColorOption('Disk-Usage','font_color', 
+			self.font_color, 'Text color', 'font_color'))
+		self.add_option(ColorOption('Disk-Usage','background_color', 
+			self.background_color, 'Back color(only with default theme)', 'only works with default theme'))
+	
 		# init the timeout function
 		self.update_interval = self.update_interval
 		
@@ -121,44 +132,40 @@ class DiskusageScreenlet(screenlets.Screenlet):
 		# draw bg (if theme available)
 		#ctx.set_operator(cairo.OPERATOR_OVER)
 		if self.theme:
+			print self.theme_name
+			if self.theme_name == 'default':ctx.set_source_rgba(*self.background_color)
+			self.draw_rounded_rectangle(ctx,20,0,8,200,50)
 			self.theme.render(ctx,'disk-bg')
 		
 		if len(str(load))==1:
 			load = "0" + str(load)
-		ctx.set_source_rgba(1, 1, 1, 1)
+		ctx.set_source_rgba(*self.font_color)
 		try:
-			self.draw_text(ctx,"<b>" + info['mount']  + "</b>\n <b>" +   info['free'] + "</b> free of <b>" + info['size'] + " - " + info['quota']+"</b>", 60, 8, 'FreeSans', 10,  self.width,pango.ALIGN_LEFT)
+			self.draw_text(ctx,"<b>" + info['mount']  + "</b>\n <b>" +   info['free'] + "</b> free of <b>" + info['size'] + " - " + info['quota']+"</b>", 60, 8, self.font.split(' ')[0], 10,  self.width,pango.ALIGN_LEFT)
 		except:
-			self.draw_text(ctx,self.mount_point + "\nNot Mounted", 60, 8, 'FreeSans', 10,  self.width,pango.ALIGN_LEFT)
+			self.draw_text(ctx,self.mount_point + "\nNot Mounted", 60, 8, self.font.split(' ')[0], 10,  self.width,pango.ALIGN_LEFT)
 		# draw glass (if theme available)
 		if self.theme:
 			#self.theme['cpumeter-graph-bg.svg'].render_cairo(ctx)
 			w = (float(load) / 100.0) * 220.0
-			#print "width: "+str(w)
-			# get step
-			#steps_height = 7
-			#h = 40
 			ctx.save()
 			ctx.rectangle(0, 0, w, 50)
 			#ctx.rectangle(20, 15+(70-h), 60, h)
 			ctx.translate(25, 35)
 			ctx.clip()
 			#ctx.new_path()
-			self.theme.render(ctx,'disk-gauge')
+			if load > 90:
+				self.theme.render(ctx,'red')
+			else:
+				self.theme.render(ctx,'blue')
 			ctx.restore()
-		if self.theme:
-			try:
 			
-				self.theme.render(ctx,'disk-glow')
-			except Exception, ex:
-				pass			
 			
 			self.theme.render(ctx, 'drive2')
 		
 	def on_draw_shape(self,ctx):
-
-		if self.theme:
-			self.on_draw(ctx)
+		self.draw_rounded_rectangle(ctx,20,0,8,200,50)
+		self.on_draw(ctx)
 	
 # If the program is run directly or passed as an argument to the python
 # interpreter then create a Screenlet instance and show it

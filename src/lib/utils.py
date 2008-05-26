@@ -117,7 +117,7 @@ def create_autostarter (name):
 			os.system('rm %s%s' % (chr(34)+DIR_AUTOSTART,f+chr(34)))
 			print _('Removed duplicate entry')
 	if not os.path.isfile(starter) and not os.path.exists(os.environ['HOME'] + '/.config/autostart/CalendarScreenlet'):
-		path = utils.find_first_screenlet_path(name)
+		path = find_first_screenlet_path(name)
 		if path:
 			print _("Create autostarter for: %s/%sScreenlet.py") % (path, name)
 			code = ['[Desktop Entry]']
@@ -139,6 +139,19 @@ def create_autostarter (name):
 	else:
 		print _("Starter already exists.")
 		return True
+
+def delete_autostarter ( name):
+	"""Delete the autostart for the given screenlet."""
+	if name.endswith('Screenlet'):
+		name = name[:-9]
+	print _('Delete autostarter for %s.') % name
+	os.system('rm %s%sScreenlet.desktop' % (DIR_AUTOSTART, name))
+	for f in os.listdir(DIR_AUTOSTART):
+		a = f.find(name + 'Screenlet')
+		if a != -1:
+			print str(f) + ' duplicate entry'
+			os.system('rm %s%s' % (chr(34)+DIR_AUTOSTART,f+chr(34)))
+			print _('Removed duplicate entry')
 
 def _contains_path (string):
 	"""Internal function: Returns true if the given string contains one of the

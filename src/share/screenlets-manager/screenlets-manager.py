@@ -152,20 +152,6 @@ class ScreenletsManager:
 				self.handle_screenlet_unregistered)
 	
 
-
-	def delete_autostarter (self, name):
-		"""Delete the autostart for the given screenlet."""
-		if name.endswith('Screenlet'):
-			name = name[:-9]
-		print _('Delete autostarter for %s.') % name
-		os.system('rm %s%sScreenlet.desktop' % (DIR_AUTOSTART, name))
-		for f in os.listdir(DIR_AUTOSTART):
-			a = f.find(name + 'Screenlet')
-			if a != -1:
-				print str(f) + ' duplicate entry'
-				os.system('rm %s%s' % (chr(34)+DIR_AUTOSTART,f+chr(34)))
-				print _('Removed duplicate entry')
-	
 	def delete_selected_screenlet (self):
 		"""Delete the selected screenlet from the user's screenlet dir."""
 		sel = self.view.get_selected_items()
@@ -1265,7 +1251,7 @@ class ScreenletsManager:
 					widget.set_active(False)
 					widget.set_sensitive(False)
 			else:
-				self.delete_autostarter(info.name)
+				utils.delete_autostarter(info.name)
 
 	def toggle_tray (self, widget):
 		"""Callback for handling changes to the tray-CheckButton."""

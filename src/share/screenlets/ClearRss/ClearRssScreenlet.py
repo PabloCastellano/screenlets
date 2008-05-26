@@ -49,6 +49,7 @@ class ClearRssScreenlet(screenlets.Screenlet):
 	feed_url = ""
 	feed_number = 0
 	font_name = "Free Sans 11"
+	font = 'FreeSans'
 	use_custom_feed = False
 	rgba_color = (1, 1, 1, 0.9)
 	update_interval = 5
@@ -56,6 +57,8 @@ class ClearRssScreenlet(screenlets.Screenlet):
 	a = ''
 	__button_pressed = 1
 	p_layout = None
+	background_color = (0,0,0, 0.8)
+
 	def __init__(self, **keyword_args):
 		"""Create a RssScreenlet instance"""
 		screenlets.Screenlet.__init__(self, width=200, height=200, 
@@ -64,21 +67,12 @@ class ClearRssScreenlet(screenlets.Screenlet):
 		self.add_menuitem("next", "next")
 		self.add_options_group('Rss', 'Rss-specific settings.')
 		self.add_options_group('Text', 'Text settings.')
-		#self.add_option(FontOption('Text', 'font_name', 
-		#	self.font_name, 'Default Font', 
-		#	'The default font of the text) ...'))
-		#self.add_option(IntOption('Text', 'text_x', 
-		#	self.text_x, 'X-Position of Text', 
-		#	'The X-Position of the text-rectangle\'s upper left corner ...', 
-		#	min=0, max=200))
-		#self.add_option(IntOption('Text', 'text_y', 
-		#	self.text_y, 'Y-Position of Text', 
-		#	'The Y-Position of the text-rectangle\'s upper left corner ...', 
-		#	min=0, max=200))
 		self.add_option(ColorOption('Text', 'rgba_color', 
 			self.rgba_color, 'Default Color', 
 			'The default color of the text (when no Markup is used) ...'))
-
+		self.add_option(FontOption('Text','font', 
+			self.font, 'Text Font', 
+			'Text font'))
 		self.add_option(StringOption('Rss', 'feed_name', 
 			self.feed_name, 'Feed name', 
 			'Feed name',), realtime=False)
@@ -88,7 +82,8 @@ class ClearRssScreenlet(screenlets.Screenlet):
 		self.add_option(IntOption('Rss', 'update_interval', 
 			self.update_interval, 'Update interval', 
 			'The interval for refreshing RSS feed (in minutes)', min=1, max=60))
-
+		self.add_option(ColorOption('Rss','background_color', 
+			self.background_color, 'Back color(only with default theme)', 'only works with default theme'))
 		#self.add_menuitem("next", "next")
 		#self.add_menuitem("prev", "prev")
 		self.update_interval = self.update_interval
@@ -110,6 +105,7 @@ class ClearRssScreenlet(screenlets.Screenlet):
 			else:
 				self.__dict__['update_interval'] = 1
 				pass
+		if name == 'font': self.font_name = str(value).split(' ')[0]
 
 	def on_init (self):
 		print "Screenlet has been initialized."
@@ -227,29 +223,17 @@ class ClearRssScreenlet(screenlets.Screenlet):
 
 	def on_draw(self, ctx):
 		ctx.scale(self.scale, self.scale)
-		#if self.is_dragged:
-			#ctx.translate(-5, -5)
+
 		ctx.set_operator(cairo.OPERATOR_OVER)
 		if self.theme:
-			self.theme['background.svg'].render_cairo(ctx)
+			ctx.set_source_rgba(*self.background_color)
+			if self.theme_name == 'default':self.draw_rounded_rectangle(ctx,0,0,17,200,200)
+			self.theme.render(ctx,'background')
 		ctx.save()
-		ctx.translate(self.text_x, self.text_y)
 		feed_text = self.__feed_text
 		name = str(self.feed_name)
-		if self.p_layout == None :
-	
-			self.p_layout = ctx.create_layout()
-		else:
-			
-			ctx.update_layout(self.p_layout)
-		p_fdesc = pango.FontDescription()
-		p_fdesc.set_family_static("Free Sans")
-		p_fdesc.set_size(11 * pango.SCALE)
-		self.p_layout.set_font_description(p_fdesc)
-		self.p_layout.set_width(((self.width - self.text_x) * pango.SCALE))
 		om = '<span font_desc="'+self.font_name+'">'
 		cm = '</span>'
-
 		if len(self.__feed_text)> self.scrol:
 			self.a = '...(more)'
 		else:
@@ -258,23 +242,17 @@ class ClearRssScreenlet(screenlets.Screenlet):
 		if self.scale > 1 or self.scale <= 0.7:
 			self.b =''
 		feed_text = self.strip_ml_tags(feed_text)
-		if self.show_feed_name == True:
-			self.p_layout.set_markup("<b><big>" + name + "</big></b>" + "\n" + self.b + feed_text[:self.scrol][self.scrol-180:] + self.a)
-		
-
-		ctx.set_source_rgba(self.rgba_color[0], 
-			self.rgba_color[1], self.rgba_color[2], 
-			self.rgba_color[3])
-		#print feed_text[:self.scrol][self.scrol-180:]
-
-		ctx.show_layout(self.p_layout)
+		ctx.set_source_rgba(*self.rgba_color)
+		t = "<b>" + name + "</b>" + "\n" + self.b + feed_text[:self.scrol][self.scrol-180:] + self.a
+		self.draw_text(ctx, t , self.text_x, self.text_y, self.font_name, 9.5, (self.width - self.text_x) , pango.ALIGN_LEFT)
 		ctx.fill()
 		ctx.restore()
 		
 	def on_draw_shape(self,ctx):
-		ctx.scale(self.scale, self.scale)
-		if self.theme:
-			self.theme['background.svg'].render_cairo(ctx)
+		ctx.rectangle(0,0,self.width,self.height)
+		ctx.fill()
+		self.on_draw(ctx)
+
 	def strip_ml_tags(self,in_text):
 	
 		# convert in_text to a mutable object (e.g. list)
@@ -296,18 +274,16 @@ class ClearRssScreenlet(screenlets.Screenlet):
 		# convert the list back into text
 		join_char=''
 		return join_char.join(s_list)
+
 	def get_feed(self):
 		"""Get the summary and title of the selected feed"""
 		url = str(self.feed_url)
 		f = feedparser.parse(url)
-		print f
-		#Get the summary of the newest item (0)
-		#return  f['entries'][self.feed_number]['title'] + "\n\n" + f['entries'][self.feed_number]['summary']
-		print 
+
 		try:
 			self.__feed_text = f['entries'][self.feed_number]['title'] + "\n\n" + f['entries'][self.feed_number]['summary']
 			self.link = f["channel"].get("link", "No link")
-			print self.link
+			
 		except IndexError:
 			self.__feed_text = 'Refreshing...'
 

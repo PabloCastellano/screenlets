@@ -30,7 +30,7 @@
     <linearGradient
        id="linearGradient7153">
       <stop
-         style="stop-color:#d43734;stop-opacity:1;"
+         style="stop-color:#000000;stop-opacity:0.65909094;"
          offset="0"
          id="stop7155" />
       <stop
@@ -348,11 +348,11 @@
       <stop
          id="stop3274"
          offset="0.23076923"
-         style="stop-color:#91302d;stop-opacity:1;" />
+         style="stop-color:#000000;stop-opacity:1;" />
       <stop
          id="stop3258"
          offset="1"
-         style="stop-color:#c38e92;stop-opacity:1;" />
+         style="stop-color:#616161;stop-opacity:1;" />
     </linearGradient>
     <linearGradient
        gradientUnits="userSpaceOnUse"
@@ -403,16 +403,16 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.7071068"
-     inkscape:cx="196.60873"
+     inkscape:cx="-94.012149"
      inkscape:cy="32.722956"
      inkscape:document-units="px"
      inkscape:current-layer="layer3"
      width="200px"
      height="205px"
      inkscape:window-width="1280"
-     inkscape:window-height="744"
+     inkscape:window-height="742"
      inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:window-y="26"
      showgrid="false" />
   <metadata
      id="metadata7">
@@ -452,7 +452,7 @@
          x="32.403553"
          y="20.742355" /></text>
     <path
-       style="fill:url(#linearGradient2227);fill-opacity:1;fill-rule:nonzero;stroke:#090909;stroke-width:1.01501285999999991;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:url(#linearGradient2227);fill-opacity:1;fill-rule:nonzero;stroke:#090909;stroke-width:1.01501285999999991;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;opacity:0.5210356"
        d="M 14.158498,0.6675336 C 6.548687,0.6675336 0.4612749,9.1714404 0.4612749,19.72541 L 0.4612749,180.43462 C 0.4612749,190.98858 6.548687,199.49249 14.158498,199.49249 L 185.74125,199.49249 C 193.35111,199.49249 199.43851,190.98859 199.43851,180.43462 L 199.43851,19.72541 C 199.43851,9.9971812 194.2529,2.0399552 187.47851,0.85078313 C 187.20473,0.88172794 186.95931,0.9424054 186.6767,0.9424054 C 186.05758,0.9424054 185.44481,0.81103277 184.8727,0.6675336 L 14.158498,0.6675336 z "
        id="path5164" />
     <rect
@@ -464,18 +464,18 @@
        y="1.0312498"
        ry="15.777287" />
     <path
-       style="fill:url(#linearGradient3256);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:url(#linearGradient3256);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;opacity:0.39158576"
        d="M 135.34597,190.74828 C 135.34597,187.27331 143.89779,182.14111 146.59597,183.80611 C 149.3694,185.51753 149.76737,194.17799 146.78133,196.02061 C 143.90003,197.79862 135.34597,194.23148 135.34597,190.74828 z "
        id="path2270"
        sodipodi:nodetypes="czzz" />
     <path
-       style="fill:url(#linearGradient3253);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:url(#linearGradient3253);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;opacity:0.39158576"
        d="M 187.44826,190.74828 C 187.44826,187.27331 178.89644,182.14111 176.19825,183.80611 C 173.42484,185.51753 173.02687,194.17799 176.01291,196.02061 C 178.8942,197.79862 187.44826,194.23148 187.44826,190.74828 z "
        id="path3260"
        sodipodi:nodetypes="czzz" />
     <path
        sodipodi:type="arc"
-       style="fill:url(#linearGradient3272);fill-opacity:1;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:url(#linearGradient3272);fill-opacity:1;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;opacity:0.39158576"
        id="path3264"
        sodipodi:cx="43.601582"
        sodipodi:cy="4.0897098"

@@ -1303,6 +1303,14 @@ class ScreenletsManager:
 	def start (self):
 		gtk.main()
 		
+import os
+proc = os.popen("""ps axo "%p,%a" | grep "screenlets-manager.py" | grep -v grep|cut -d',' -f1""").read()
+procs = proc.split('\n')
+if len(procs) > 2:
+	print "daemon already started"
+	import sys
+	sys.exit(1)
+
 
 app = ScreenletsManager()
 app.start()

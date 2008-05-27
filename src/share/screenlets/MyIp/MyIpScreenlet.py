@@ -51,8 +51,7 @@ class MyIpScreenlet(screenlets.Screenlet):
 	def __setattr__(self, name, value):
 		# call Screenlet.__setattr__ in baseclass (ESSENTIAL!!!!)
 		screenlets.Screenlet.__setattr__(self, name, value)
-		if name == 'password':
-			self.redraw_canvas()
+
 	def on_init (self):
 		print "Screenlet has been initialized."
 		# add default menuitems
@@ -62,16 +61,7 @@ class MyIpScreenlet(screenlets.Screenlet):
 		self.gen()
 		self.redraw_canvas()
 		return True # keep running this event	
-	#def on_mouse_down(self, event):
-		# do the active button's action
-	#	if event.button == 1:
-	#		self.gen()
-		
-	#def on_key_down(self, keycode, keyvalue, event):
-	#	"""Called when a keypress-event occured in Screenlet's window."""
-	#	key = gtk.gdk.keyval_name(event.keyval)
-	#	if key == "Return" or key == "Tab":
-	#		self.gen()
+
 		
 
 	def gen(self):

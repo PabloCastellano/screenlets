@@ -33,7 +33,7 @@ import gtk
 import math
 import cairo
 import pango
-from datetime import datetime
+import datetime
 import gobject
 import os
 from os import environ
@@ -94,7 +94,7 @@ class ClockScreenlet (Screenlet):
 	__timeout		= None
 	__buffer_back	= None
 	__buffer_fore	= None
-	__time = datetime.now()
+	__time = datetime.datetime.now()
 	__alarm_running	= False
 	__alarm_state	= 0
 	__alarm_count	= 0
@@ -212,8 +212,9 @@ class ClockScreenlet (Screenlet):
 	
 	def get_date (self):
 		"""Only needed for the service."""
-		self.__time = datetime.now()
-		return self.__time.strftime(self.date_format)
+		self.__time = datetime.datetime.now()
+		add_offset=datetime.timedelta(hours=self.time_offset)
+		return (self.__time+add_offset).strftime(self.date_format)
 
 	def get_time (self):
 		"""Only needed for the service."""
@@ -322,7 +323,7 @@ class ClockScreenlet (Screenlet):
 		"""Update the time and redraw the canvas"""
 		if self.timezone != '':
 			environ['TZ'] = self.timezone
-		self.__time = datetime.now()
+		self.__time = datetime.datetime.now()
 		if self.alarm_activated:
 			self.check_alarm()
 		if self.show_date:

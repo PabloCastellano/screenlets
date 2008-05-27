@@ -224,10 +224,9 @@ class RingSensorsScreenlet(screenlets.Screenlet):
 		# draw bg (if theme available)
 		ctx.set_operator(cairo.OPERATOR_ADD)
 		
-		b = (int(self.load)*80)/100
-		a = (int(b)*450)/100
+
 		startrad = self.size-(self.thickness/2.0)		
-		a = float(self.load*12)/100
+		a = float(self.load*11)/100
 				
 		
 		ctx.set_line_width( self.thickness )	
@@ -237,19 +236,19 @@ class RingSensorsScreenlet(screenlets.Screenlet):
 				else: col = self.color_back
 				if self.hourMiddle: radius = startrad-(self.ringSpacing*2.0)
 				else: radius = startrad
-				pos = -105+(self.blockSpacing/2.0)+(i*30)
+				pos = -90+(self.blockSpacing/2.0)+(i*30)
 				
 				ctx.arc( 100, 100, radius, math.radians(pos), math.radians(pos+30-self.blockSpacing) )
 				ctx.set_source_rgba(col[0],col[1],col[2],col[3])
 				ctx.stroke()
 		else:
-			a = float(self.load*60)/100
+			a = float(self.load*59)/100
 			for i in range(60):
 				if i == a or (i<=a ): col = self.color_front
 				else: col = self.color_back
 				if self.hourMiddle: radius = startrad-(self.ringSpacing*2.0)
 				else: radius = startrad
-				pos = -93+(self.blockSpacing/2.0)+(i*6)
+				pos = -90+(self.blockSpacing/2.0)+(i*6)
 				
 				ctx.arc( 100, 100, radius, math.radians(pos), math.radians(pos+6-self.blockSpacing) )
 				ctx.set_source_rgba(col[0],col[1],col[2],col[3])
@@ -261,6 +260,7 @@ class RingSensorsScreenlet(screenlets.Screenlet):
 			text = '<small><small><small><small>' +str(self.sensor.split(':')[0]) +'</small></small></small></small>\n'+str(self.sensor.split(':')[1])	
 		else:
 			text = '<small><small><small><small>' +self.sensor +'</small></small></small></small>\n'+self.text_prefix + str(self.load) + self.text_suffix
+		ctx.set_operator(cairo.OPERATOR_OVER)
 		if self.show_text and self.theme:self.theme.draw_text(ctx,text, 0, 70, 'Free Sans', 25,  self.width,pango.ALIGN_CENTER)
 			
 			

@@ -132,7 +132,6 @@ class DiskusageScreenlet(screenlets.Screenlet):
 		# draw bg (if theme available)
 		#ctx.set_operator(cairo.OPERATOR_OVER)
 		if self.theme:
-			print self.theme_name
 			if self.theme_name == 'default':ctx.set_source_rgba(*self.background_color)
 			self.draw_rounded_rectangle(ctx,20,0,8,200,50)
 			self.theme.render(ctx,'disk-bg')

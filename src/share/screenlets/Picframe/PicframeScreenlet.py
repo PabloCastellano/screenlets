@@ -47,6 +47,9 @@ class PicframeScreenlet (screenlets.Screenlet):
 	s_width = 300
 	s_height = 200
 	color_back = (0.5,0.5,0.5,0.7)
+	frame_color = (0, 0, 0, 0.7)
+	iner_frame_color = (0,0,0,0.3)
+	shadow_color = (0,0,0,0.5)
 	# --------------------------------------------------------------------------
 	# constructor and internals
 	# --------------------------------------------------------------------------
@@ -75,6 +78,17 @@ class PicframeScreenlet (screenlets.Screenlet):
 		self.add_option(BoolOption('Picframe','show_frame', 
 			self.show_frame, 'Show Theme Frame ', 
 			''))
+		self.add_option(ColorOption('Picframe','frame_color', 
+			self.frame_color, 'Background Frame color', 
+			'Frame color'))
+
+		self.add_option(ColorOption('Picframe','iner_frame_color', 
+			self.iner_frame_color, 'Iner Frame color', 
+			'Iner Frame color'))
+
+		self.add_option(ColorOption('Picframe','shadow_color', 
+			self.shadow_color, 'Shadow color', 
+			'Shadow color'))
 		
 	def on_init (self):
 		print "Screenlet has been initialized."
@@ -143,17 +157,14 @@ class PicframeScreenlet (screenlets.Screenlet):
 			if self.dragging_over:
 				ctx.set_operator(cairo.OPERATOR_XOR)
 
-			ctx.set_source_rgba(0,0,0,0.2)
-			self.draw_rounded_rectangle(ctx,0,0,self.curve,self.s_width,self.s_height)	
-			ctx.translate(1,1)
-			ctx.set_source_rgba(0,0,0,0.8)
-			self.draw_rounded_rectangle(ctx,1,1,self.curve,self.s_width-4,self.s_height-4)
-			ctx.translate(2,2)
+			ctx.set_source_rgba(*self.frame_color)
+		
+			self.draw_rectangle_advanced (ctx, 0, 0, self.width-12, self.height-12, rounded_angles=(self.curve,self.curve,self.curve,self.curve), fill=True, border_size=2, border_color=(self.iner_frame_color[0],self.iner_frame_color[1],self.iner_frame_color[2],self.iner_frame_color[3]), shadow_size=6, shadow_color=(self.shadow_color[0],self.shadow_color[1],self.shadow_color[2],self.shadow_color[3]))
 			padding=0 # Padding from the edges of the window
 	        	rounded=self.curve # How round to make the edges 20 is ok
-	        	w = self.s_width-6
-			h = self.s_height-6
-
+	        	w = self.s_width-14
+			h = self.s_height-14
+			ctx.translate(7,7)
 	        	# Move to top corner
 	        	ctx.move_to(0+padding+rounded, 0+padding)
 	        	
@@ -179,33 +190,26 @@ class PicframeScreenlet (screenlets.Screenlet):
 				self.image_filename = urllib.unquote(self.image_filename)
 				try:
 					pixbuf = gtk.gdk.pixbuf_new_from_file(self.image_filename).scale_simple(w,h,gtk.gdk.INTERP_HYPER)
+				
+					format = cairo.FORMAT_RGB24
+					if pixbuf.get_has_alpha():
+						format = cairo.FORMAT_ARGB32
+
+					iw = pixbuf.get_width()
+					ih = pixbuf.get_height()
+					image = cairo.ImageSurface(format, iw, ih)
+
+				
+	
+					#iw = float(image.get_width()) 
+					#ih = float(image.get_height()) 
+
+					matrix = cairo.Matrix(xx=iw/w, yy=ih/h)
+					image = ctx.set_source_pixbuf(pixbuf, 0, 0)
+					if image != None :image.set_matrix(matrix)
 				except:pass
-				format = cairo.FORMAT_RGB24
-				if pixbuf.get_has_alpha():
-					format = cairo.FORMAT_ARGB32
-
-				iw = pixbuf.get_width()
-				ih = pixbuf.get_height()
-				image = cairo.ImageSurface(format, iw, ih)
-
-				
-
-				#iw = float(image.get_width()) 
-				#ih = float(image.get_height()) 
-
-				matrix = cairo.Matrix(xx=iw/w, yy=ih/h)
-				image = ctx.set_source_pixbuf(pixbuf, 0, 0)
-				if image != None :image.set_matrix(matrix)
-				
-				#ctx.scale( min(((self.width-8)/iw),, ((self.height-8)/ih))
-				
-				#image = ctx.set_source_pixbuf(pixbuf, 0, 0)
-			#except:pass
-	        	# Fill in the shape.
-			
 
 			ctx.fill()
-			#ctx.paint()
 
 			image = None
 			puxbuf = None
@@ -217,9 +221,6 @@ class PicframeScreenlet (screenlets.Screenlet):
 				a = self.get_image_size(s)
 				ctx.scale(float(self.width)/float(a[0]),float(self.height)/float(a[1]))
 				self.theme.render(ctx, 'picframe-frame')
-			# render glass
-			#self.theme['picframe-glass.svg'].render_cairo(ctx)
-			#self.theme.render(ctx, 'picframe-glass')
 
 	def draw_scaled_image(self,ctx, pix, w, h):
 		"""Draws a png or svg from specified path with a certain width and height"""

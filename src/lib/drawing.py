@@ -99,7 +99,7 @@ class Drawing:
 		except:
 			return False
 	
-	def draw_text(self, ctx, text, x, y,  font, size, width, allignment=pango.ALIGN_LEFT,justify = False,weight = 0, ellipsize = pango.ELLIPSIZE_NONE):
+	def draw_text(self, ctx, text, x, y,  font, size, width, allignment=pango.ALIGN_LEFT,alignment=None,justify = False,weight = 0, ellipsize = pango.ELLIPSIZE_NONE):
 		"""Draws text"""
 		ctx.save()
 		ctx.translate(x, y)
@@ -117,6 +117,7 @@ class Drawing:
 		self.p_layout.set_font_description(self.p_fdesc)
 		self.p_layout.set_width(width * pango.SCALE)
 		self.p_layout.set_alignment(allignment)
+		if alignment != None:self.p_layout.set_alignment(alignment)
 		self.p_layout.set_justify(justify)
 		self.p_layout.set_ellipsize(ellipsize)
 		self.p_layout.set_markup(text)

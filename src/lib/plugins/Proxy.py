@@ -13,20 +13,49 @@ import gconf
 class Proxy:
 
 	def __init__(self):
-		self.gconf_client = gconf.client_get_default()
-		self.gconf_client.notify_add("/system/http_proxy/use_http_proxy", self.get_is_active)
-		self.gconf_client.notify_add("/system/http_proxy/port", self.get_port) 
-		self.gconf_client.notify_add("/system/http_proxy/host", self.get_host) 
+		try:
+			self.gconf_client = gconf.client_get_default()
+			self.gconf_client.notify_add("/system/http_proxy/use_http_proxy", self.get_is_active)
+			self.gconf_client.notify_add("/system/http_proxy/port", self.get_port) 
+			self.gconf_client.notify_add("/system/http_proxy/host", self.get_host) 
+		except:pass
 		self.get_is_active()
 		self.get_port()
 		self.get_host()
 
 	def get_is_active (self):
-		"""Returns if the proxy gnome settings are enabled"""
-		return bool(self.gconf_client.get_bool("/system/http_proxy/use_http_proxy"))
+		"""Returns if the proxy gnome settings are enabled, shoulnt be used separatly"""
+		try:
+			a = bool(self.gconf_client.get_bool("/system/http_proxy/use_http_proxy"))
+			return a
+		except:
+			return None
 	def get_port (self):
-		"""Returns the proxy gnome settings port"""
-		return self.gconf_client.get_int("/system/http_proxy/port")
+		"""Returns the proxy gnome settings port, shoulnt be used separatly"""
+		try:
+			a = self.gconf_client.get_int("/system/http_proxy/port")
+			return a
+		except:
+			return None
 	def get_host (self):
-		"""Returns the proxy gnome settings host"""
-		return self.gconf_client.get_string("/system/http_proxy/host")
+		"""Returns the proxy gnome settings host, shoulnt be used separatly"""
+		try:
+			a = self.gconf_client.get_string("/system/http_proxy/host")
+			return a
+		except:
+			return None
+
+	def get_proxy(self):
+		"""Return {'http' : HOST:PORT } if available or {} if not"""
+		try:
+			proxy = {}
+			if self.get_is_active():
+				a = self.get_host()
+				b = self.get_port()
+				if a != None and b != None:
+					proxy['http'] = 'http://' + str(a) + ':' + str(b)
+					return proxy
+			
+			else: return proxy
+		except:
+			return {}

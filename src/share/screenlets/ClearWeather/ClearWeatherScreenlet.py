@@ -25,7 +25,8 @@ import math
 import gtk
 from gtk import gdk
 import os
-
+from screenlets import Plugins
+proxy = Plugins.importAPI('Proxy')
 
 class ClearWeatherScreenlet(screenlets.Screenlet):
 	"""A Weather Screenlet modified from the original to look more clear and to enable the use of icon pack , you can use any icon pack compatible with weather.com , you can find many packs on deviantart.com or http://liquidweather.net/icons.php#iconsets."""
@@ -147,8 +148,11 @@ class ClearWeatherScreenlet(screenlets.Screenlet):
 			unit = 's'
 
 		forecast = []
+
+		
+		proxies = proxy.Proxy().get_proxy()
 		try:
-			data = urlopen('http://xoap.weather.com/weather/local/'+self.ZIP+'?cc=*&dayf=10&prod=xoap&par=1003666583&key=4128909340a9b2fc&unit='+unit + '&link=xoap').read()
+			data = urlopen('http://xoap.weather.com/weather/local/'+self.ZIP+'?cc=*&dayf=10&prod=xoap&par=1003666583&key=4128909340a9b2fc&unit='+unit + '&link=xoap',proxies=proxies).read()
 
 			dcstart = data.find('<loc ')
 			dcstop = data.find('</cc>')     ###### current conditions
@@ -174,7 +178,9 @@ class ClearWeatherScreenlet(screenlets.Screenlet):
 
 		hforecast = []
 		try:
-			data = urlopen('http://xoap.weather.com/weather/local/'+self.ZIP+'?cc=*&dayf=10&prod=xoap&par=1003666583&key=4128909340a9b2fc&unit='+unit+'&hbhf=12&link=xoap').read()
+			
+			proxies = proxy.Proxy().get_proxy()
+			data = urlopen('http://xoap.weather.com/weather/local/'+self.ZIP+'?cc=*&dayf=10&prod=xoap&par=1003666583&key=4128909340a9b2fc&unit='+unit+'&hbhf=12&link=xoap',proxies=proxies).read()
 			for x in range(8):
 				dcstart = data.find('<hour h=\"'+str(x))
 				dcstop = data.find('</hour>',dcstart)   ####hourly forecast

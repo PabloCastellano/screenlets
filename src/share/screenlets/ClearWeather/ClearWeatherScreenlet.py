@@ -13,7 +13,6 @@ import re
 from urllib import urlopen
 import screenlets
 from screenlets.options import StringOption, BoolOption, ColorOption, FontOption
-from Numeric import *
 import pygtk
 pygtk.require('2.0')
 import cairo

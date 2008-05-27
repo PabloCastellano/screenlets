@@ -8,6 +8,7 @@
 # Thank you for using free software!
 
 #MyIpScreenlet (c) Whise <helder.fraga@hotmail.com>
+
 import screenlets
 from screenlets.options import FloatOption, BoolOption, StringOption, FontOption, ColorOption, IntOption
 from screenlets import DefaultMenuItem
@@ -48,6 +49,7 @@ class MyIpScreenlet(screenlets.Screenlet):
 	
 		self.gen()
 		self.__timeout = gobject.timeout_add(24 * 60 * 60 * 1000, self.update)
+
 	def __setattr__(self, name, value):
 		# call Screenlet.__setattr__ in baseclass (ESSENTIAL!!!!)
 		screenlets.Screenlet.__setattr__(self, name, value)

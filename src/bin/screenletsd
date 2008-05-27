@@ -6,8 +6,12 @@
 # the terms and conditions of this license.
 # Thank you for using free software!
 
-
-PREFIX=$(</etc/screenlets/prefix)
+PREFIX=$(cat /etc/screenlets/prefix)
+if [ -e $PREFIX/share/screenlets-manager/screenlets-manager.py ]; then
+	PREFIX=$(cat /etc/screenlets/prefix)
+else
+	PREFIX=/usr
+fi
 screenlet_folders="$HOME/.screenlets $PREFIX/share/screenlets"
 
 runDaemon()

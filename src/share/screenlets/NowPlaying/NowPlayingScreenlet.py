@@ -241,6 +241,7 @@ class NowPlayingScreenlet(screenlets.Screenlet):
 	def on_quit(self):
 		if self.default_player_old != '' and self.player_close == True:
 			if self.default_player_old == 'amarok':
+				os.system('dcop amarok playlist saveCurrentPlaylist &')
 				os.system((self.default_player_old) + ' -s \n')
 				os.system((self.default_player_old) + ' --exit  \n')
 			else:

@@ -1,0 +1,31 @@
+<!-- 
+	Skin created by Kshegzyaj.
+	Based on DDrDark's work : http://ddrdark.deviantart.com/art/Coversutra-Searchbar-mod-76824191
+	DeviantART : http://kshegzyaj.deviantart.com
+	Contact : kshegzyaj@gmail.com 
+-->
+
+<skin name="Coversutra Searchbar Album Art" width="460" height="190">
+
+	<image src="background.png" x="0" y="0" width="460" height="190" display="on-stopped"/>
+	<image src="background.png" x="0" y="0" width="460" height="190" display="on-playing"/>
+	<albumcover x="57" y="70" width="77" height="77"/> 
+	<image src="overlay.png" x="57" y="70" width="77" height="76" display="on-playing" />
+
+
+
+	<titlename x="170" y="75" font="Sans 8" color="#ffffffFF" maxchars="40"/>
+	<artistname x="170" y="95" font="Sans 8" color="#ffffffFF" maxchars="40"/>
+	<albumname x="170" y="115" font="Sans 8" color="#ffffffFF" maxchars="40"/>
+
+
+
+	<playercontrols spacing="0" x="404" y="36">
+
+		<prev width="37" height="22"/> 
+		<play_pause width="40" height="22"/>
+		<next width="37" height="22"/>
+
+	</playercontrols>
+
+</skin>

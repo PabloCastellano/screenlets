@@ -10,8 +10,14 @@
 import os
 import string
 import gobject
-import pydcop
+try:
+	import pydcop
+	dcop = True
+except:
+	print 'Pydcop not found , will work limited'
+	dcop = False
 from GenericPlayer import GenericAPI
+import commands
 
 class AmarokAPI(GenericAPI):
 	__name__ = 'Amarok API'
@@ -36,40 +42,91 @@ class AmarokAPI(GenericAPI):
 	# A handle to the dbus interface is passed in : doesn't need to be used
 	# if there are other ways of checking this (like dcop in amarok)
 	def is_active(self, dbus_iface):
-		app = pydcop.anyAppCalled("amarok")
-		if not app: return False
-		else: return True
-
-	# Make a connection to the Player
+		if dcop:
+			app = pydcop.anyAppCalled("amarok")
+			if not app: return False
+			else: return True
+		else:
+			proc = os.popen("""ps axo "%p,%a" | grep "amarokapp" | grep -v grep|cut -d',' -f1""").read()
+			procs = proc.split('\n')
+			if len(procs) > 1:
+				return True
+			else:
+				return False
 	def connect(self):
-		self.playerAPI = pydcop.anyAppCalled("amarok").player
+		if dcop:
+			self.playerAPI = pydcop.anyAppCalled("amarok").player
+		else:pass
 	
 	# The following return Strings
 	def get_title(self):
-		return self.playerAPI.title()
+		if dcop:
+			return self.playerAPI.title()
+		else:
+			return commands.getoutput('dcop amarok player title')
 	
 	def get_album(self):
-		return self.playerAPI.album()
+		if dcop:
+			return self.playerAPI.album()
+		else:
+			return commands.getoutput('dcop amarok player album')
 
 	def get_artist(self):
-		return self.playerAPI.artist()
+		if dcop:
+			return self.playerAPI.artist()
+		else:
+			return commands.getoutput('dcop amarok player artist')
+
 
 	def get_cover_path(self):
-		return self.playerAPI.coverImage()
+		if dcop:
+			return self.playerAPI.coverImage()
+		else:
+			path =  commands.getoutput('dcop amarok player coverImage')
+			if path.find('130@nocover.png') != -1:
+				t = commands.getoutput('dcop amarok player path')
+				t = t.split('/')
+				coverFile = ''
+				for l in t:
+					if l.find('.') == -1:
+						coverFile = coverFile + l +'/'
+				coverFilefinal = coverFile + 'Folder.jpg'
+				if os.path.isfile(coverFilefinal):
+					return coverFilefinal
+				else:
+					coverFilefinal = coverFile + 'folder.jpg'					
+				if os.path.isfile(coverFilefinal):
+					return coverFilefinal
+
+				else:
+					return path
+#path
 
 	# Returns Boolean
 	def is_playing(self):
-		return self.playerAPI.isPlaying()
+		if dcop:
+			return self.playerAPI.isPlaying()
+		else:
+			return commands.getoutput('dcop amarok player isPlaying')
 
 	# The following do not return any values
 	def play_pause(self):
-		self.playerAPI.playPause()
+		if dcop:
+			self.playerAPI.playPause()
+		else:
+			os.system('amarok -t &')
 
 	def next(self):
-		self.playerAPI.next()
+		if dcop:
+			self.playerAPI.next()
+		else:
+			os.system('amarok -f &')
 
 	def previous(self):
-		self.playerAPI.prev()
+		if dcop:
+			self.playerAPI.prev()
+		else:
+			os.system('amarok -r &')
 
 	def register_change_callback(self, fn):
 		self.callback_fn = fn
@@ -81,9 +138,14 @@ class AmarokAPI(GenericAPI):
 
 	def info_changed(self, signal=None):
 		# Only call the callback function if Data has changed
-		if self.__curplaying != self.playerAPI.nowPlaying():
-			self.__curplaying = self.playerAPI.nowPlaying()
-			self.callback_fn()
+		if dcop:
+			if self.__curplaying != self.playerAPI.nowPlaying():
+				self.__curplaying = self.playerAPI.nowPlaying()
+				self.callback_fn()
+		else:
+			if self.__curplaying != commands.getoutput('dcop amarok player nowPlaying'):
+				self.__curplaying = commands.getoutput('dcop amarok player nowPlaying')
+				self.callback_fn()
 
 		if self.__timeout:
 			gobject.source_remove(self.__timeout)

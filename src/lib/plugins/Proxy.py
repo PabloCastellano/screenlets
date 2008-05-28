@@ -53,7 +53,9 @@ class Proxy:
 				a = self.get_host()
 				b = self.get_port()
 				if a != None and b != None:
-					proxy['http'] = 'http://' + str(a) + ':' + str(b)
+					c = str(a) + ':' + str(b)
+					if c.find ('http://') == -1: c = 'http://' + c
+					proxy['http'] = c
 					return proxy
 			
 			else: return proxy

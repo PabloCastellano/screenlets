@@ -86,21 +86,18 @@ class AmarokAPI(GenericAPI):
 			if path.find('130@nocover.png') != -1:
 				t = commands.getoutput('dcop amarok player path')
 				t = t.split('/')
-				coverFile = ''
+				basePath = ''
 				for l in t:
 					if l.find('.') == -1:
-						coverFile = coverFile + l +'/'
-				coverFilefinal = coverFile + 'Folder.jpg'
-				if os.path.isfile(coverFilefinal):
-					return coverFilefinal
-				else:
-					coverFilefinal = coverFile + 'folder.jpg'					
-				if os.path.isfile(coverFilefinal):
-					return coverFilefinal
+						basePath = basePath + l +'/'
 
-				else:
-					return path
-#path
+				names = ['Album', 'Cover', 'Folde']
+				for x in os.listdir(basePath):
+					if os.path.splitext(x)[1] in [".jpg", ".png"] and (x.capitalize()[:5] in names):
+						coverFile = basePath + x
+						return coverFile
+
+		return ''
 
 	# Returns Boolean
 	def is_playing(self):

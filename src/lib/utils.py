@@ -256,6 +256,7 @@ def list_running_screenlets ():
 	"""Returns a list with names of running screenlets or None if no
 	Screenlet is currently running. Function returns False if an error
 	happened!"""
+	running = []
 	tempfile = screenlets.TMP_DIR + '/' + screenlets.TMP_FILE
 	if not os.path.isfile(tempfile):
 		return None
@@ -265,8 +266,22 @@ def list_running_screenlets ():
 		f.close()
 		for i in xrange(len(running)):
 			running[i] = running[i][:-1]	# strip trailing EOL
-		return running
-	return False
+		
+	p = os.popen("ps aux | awk '/Screenlet.py/{ print $11, $12, $13, $14, $15, $16 }'")
+	lst = []
+	regex = re.compile('/([A-Za-z0-9]+)Screenlet.py ')
+	for line in p.readlines():
+		if not line.endswith('awk /Screenlet.py/{\n') and line != 'sh -c\n' \
+			and _contains_path(line):
+			slname = regex.findall(line)
+			if slname and type(slname) == list and len(slname) > 0:
+				lst.append(slname[0]+'Screenlet')
+	p.close()
+	for a in lst:
+		if a not in running:
+			running.append(a)
+	return running
+
 
 
 def list_running_screenlets2 ():

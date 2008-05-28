@@ -21,13 +21,38 @@
 	<!-- Uncomment to add Hide/show option to menu -->
 	<!--<item label="Hide/Show" id="hide_show" />-->
 	<!-- user definable actions here: -->
-	<imageitem label="Firefox" icon="firefox" id="exec:firefox" />
-	<imageitem label="Terminal" icon="terminal" id="exec:gnome-terminal  --working-directory=$HOME" />
-	<!--<imageitem label="SciTE" icon="/usr/share/pixmaps/Sci48M.png" id="exec:scite" />-->
-	<imageitem label="gEdit" icon="text-editor" id="exec:gedit" />
-	<imageitem label="gconf-editor" icon="gconf-editor" id="exec:gconf-editor" />
-	<imageitem label="Inkscape" icon="inkscape" id="exec:inkscape" />
+	<item label="All to widget layer" id="to_widget" />
+	<item label="All to normal layer" id="to_normal" />
+	<item label="All keep above" id="above" />
+	<item label="All keep normal" id="normal" />
+	<item label="All keep below" id="below" />
+	<item label="All sticky" id="sticky" />
+	<item label="All unsticky" id="unsticky" />
+	<item label="All lock" id="lock" />
+	<item label="All unlock" id="unlock" />
+	<item label="All show buttons" id="show_but" />
+	<item label="All hide buttons" id="hide_but" />
 	<separator />
+	<item label="Add">
+		<scandir directory="/usr/share/screenlets" 
+			filter="*"
+			skip="screenletsd.py,add-screenlet.py"
+			id_prefix="add:"
+			id_suffix="Screenlet"
+			search=""
+			replace=""
+		/>
+		<separator />
+		<scandir directory="$HOME/.screenlets" 
+			filter="*"
+			id_prefix="add:"
+			id_suffix="Screenlet"
+			search=""
+			replace=""
+		/>
+			<!-- TODO: replace $HOME in directory -->
+			<!-- <scandir directory="$HOME/.screenlets" /> -->
+	</item>
 	<!-- add applications-menu -->
 	<!--<item label="Applications">
 		<appdir path="/usr/share/applications/" 
@@ -36,41 +61,7 @@
 	<separator />-->
 	<!-- Screenlet-menu -->
 	<item label="Screenlet">
-		<item label="Add">
-			<!--<item label="Clock" id="add:ClockScreenlet" />
-			<item label="CPU-Meter" id="add:CPUMeterScreenlet" />
-			<item label="Example" id="add:ExampleScreenlet" />
-			<item label="Sticky Note" id="add:NotesScreenlet" />
-			<item label="Ruler" id="add:RulerScreenlet" />
-			<item label="Window-List" id="add:WindowlistScreenlet" />-->
-			<!-- TEST -->
-			<!--<scandir directory="." 
-				filter="*Screenlet.py"
-				skip="ControlScreenlet.py"
-				id_prefix="add:"
-				id_suffix="Screenlet"
-				search="Screenlet.py"
-				replace=""
-			/>-->
-			<scandir directory="/usr/share/screenlets" 
-				filter="*"
-				skip="screenletsd.py,add-screenlet.py"
-				id_prefix="add:"
-				id_suffix="Screenlet"
-				search=""
-				replace=""
-			/>
-			<separator />
-			<scandir directory="$HOME/.screenlets" 
-				filter="*"
-				id_prefix="add:"
-				id_suffix="Screenlet"
-				search=""
-				replace=""
-			/>
-			<!-- TODO: replace $HOME in directory -->
-			<!-- <scandir directory="$HOME/.screenlets" /> -->
-		</item>
+
 		<!-- Window-menu -->
 		<!--<item label="Window">-->
 			<!-- NOTE: This is still a problem because the saved settings are
@@ -112,6 +103,6 @@
 	<separator />
 	<!-- delete Screenlet -->
 	<item label="Delete Screenlet ..." id="delete" />
-	<item label="Quit This Sidebar" id="quit_instance" />
-	<item label="Quit all sidebars" id="quit" />
+	<item label="Quit This control" id="quit_instance" />
+	<item label="Quit all controls" id="quit" />
 </menu>

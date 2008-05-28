@@ -20,7 +20,7 @@
 # 
 
 import screenlets
-from screenlets import DefaultMenuItem
+from screenlets import DefaultMenuItem,utils
 from screenlets.options import BoolOption
 
 import cairo
@@ -78,17 +78,122 @@ class ControlScreenlet (screenlets.Screenlet):
 		self.add_default_menuitems(DefaultMenuItem.XML)
 	def on_mouse_down (self, event):
 		"""If hide_show_on_click is active, switch hide/show state."""
-		#if self.hide_show_on_click and event.button==1:
-		#	#self.switch_hide_show()
-		#	return True	
+		#self.menu.popup(None, None, None, event.button, event.time)
 		pass
-	
+		
 	def on_menuitem_select (self, id):
 		"""handle MenuItem-events in right-click menu"""
-		if id == "hide_show":
-			# TODO: use DBus-call for this
-			#self.switch_hide_show()
-			pass
+		if id == "to_widget":
+			running = utils.list_running_screenlets()
+			for name in running:
+				name = name[:-9]
+				if name != 'Control':
+					service = screenlets.services.get_service_by_name(name)
+					set = service.set
+					if service != None and service:
+						for f in service.list_instances():
+							set(f,'is_widget',True)
+		if id == "to_normal":
+			running = utils.list_running_screenlets()
+			for name in running:
+				name = name[:-9]
+				if name != 'Control':
+					service = screenlets.services.get_service_by_name(name)
+					set = service.set
+					if service != None and service:
+						for f in service.list_instances():
+							set(f,'is_widget',False)
+		if id == "above":
+			running = utils.list_running_screenlets()
+			for name in running:
+				name = name[:-9]
+				if name != 'Control':
+					service = screenlets.services.get_service_by_name(name)
+					set = service.set
+					if service != None and service:
+						for f in service.list_instances():
+							set(f,'keep_above',True)
+		if id == "normal":
+			running = utils.list_running_screenlets()
+			for name in running:
+				name = name[:-9]
+				if name != 'Control':
+					service = screenlets.services.get_service_by_name(name)
+					set = service.set
+					if service != None and service:
+						for f in service.list_instances():
+							set(f,'keep_above',False)
+							set(f,'keep_below',False)
+		if id == "below":
+			running = utils.list_running_screenlets()
+			for name in running:
+				name = name[:-9]
+				if name != 'Control':
+					service = screenlets.services.get_service_by_name(name)
+					set = service.set
+					if service != None and service:
+						for f in service.list_instances():
+							set(f,'keep_above',True)
+		if id == "sticky":
+			running = utils.list_running_screenlets()
+			for name in running:
+				name = name[:-9]
+				if name != 'Control':
+					service = screenlets.services.get_service_by_name(name)
+					set = service.set
+					if service != None and service:
+						for f in service.list_instances():
+							set(f,'is_sticky',True)
+		if id == "unsticky":
+			running = utils.list_running_screenlets()
+			for name in running:
+				name = name[:-9]
+				if name != 'Control':
+					service = screenlets.services.get_service_by_name(name)
+					set = service.set
+					if service != None and service:
+						for f in service.list_instances():
+							set(f,'is_sticky',False)
+		if id == "lock":
+			running = utils.list_running_screenlets()
+			for name in running:
+				name = name[:-9]
+				if name != 'Control':
+					service = screenlets.services.get_service_by_name(name)
+					set = service.set
+					if service != None and service:
+						for f in service.list_instances():
+							set(f,'lock_position',True)
+		if id == "unlock":
+			running = utils.list_running_screenlets()
+			for name in running:
+				name = name[:-9]
+				if name != 'Control':
+					service = screenlets.services.get_service_by_name(name)
+					set = service.set
+					if service != None and service:
+						for f in service.list_instances():
+							set(f,'lock_position',False)
+		if id == "show_but":
+			running = utils.list_running_screenlets()
+			for name in running:
+				name = name[:-9]
+				if name != 'Control':
+					service = screenlets.services.get_service_by_name(name)
+					set = service.set
+					if service != None and service:
+						for f in service.list_instances():
+							set(f,'draw_buttons',True)
+		if id == "hide_but":
+			running = utils.list_running_screenlets()
+			for name in running:
+				name = name[:-9]
+				if name != 'Control':
+					service = screenlets.services.get_service_by_name(name)
+					set = service.set
+					if service != None and service:
+						for f in service.list_instances():
+							set(f,'draw_buttons',False)
 		elif id[:4] == "add:":
 			# make first letter uppercase (workaround for xml-menu)
 			name = id[4].upper()+id[5:][:-9]

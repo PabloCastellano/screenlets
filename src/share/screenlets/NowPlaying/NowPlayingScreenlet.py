@@ -61,10 +61,11 @@ PLAYER_LIST = {'Rhythmbox':'RhythmboxAPI',
                     'Amarok':'AmarokAPI',
                     'Exaile':'ExaileAPI',
                     'Sonata':'SonataAPI',
+                    'Kaffeine':'KaffeineAPI',
                     'Quodlibet':'QuodlibetAPI',
                     'Songbird':'SongbirdAPI',}
 
-PLAYER_LIST_LAUNCH = ['rhythmbox','listen','banshee','amarok','exaile','sonata','quodlibet','songbird']
+PLAYER_LIST_LAUNCH = ['rhythmbox','listen','banshee','amarok','exaile','sonata','quodlibet','songbird','kaffeine']
 # The Screenlet
 class NowPlayingScreenlet(screenlets.Screenlet):
 	"""Shows Song Info"""
@@ -360,6 +361,29 @@ class NowPlayingScreenlet(screenlets.Screenlet):
 		if self.check_playing():
 			#print "checking for cover path "
 			self.cover_path = self.player.get_cover_path()
+			try :
+				a = os.path.exists(self.cover_path)
+			except: 
+				if self.__num_times_cover_checked < self.__max_cover_path_searches:
+					if self.__cover_timeout:
+						gobject.source_remove(self.__cover_timeout)
+					self.__cover_timeout = gobject.timeout_add(self.__cover_check_interval * 1000, 
+						self.check_for_cover_path)
+					self.__num_times_cover_checked += 1
+				else:
+					if self.__cover_timeout:
+						gobject.source_remove(self.__cover_timeout)
+					self.__num_times_cover_checked = 0
+					# Cannot get it from the Player, try to retreive it yourself
+					artist = self.player.get_artist()
+					album = self.player.get_album()
+					if artist and album:
+						# Need to make this a thread
+						self.coverEngine = CoverSearch.CoverSearch()
+						self.coverEngine.initData(artist, album, self.set_cover_cb)
+						self.coverEngine.start()
+						self.__cover_timeout = gobject.timeout_add(200, self.cover_update_cb)
+				return False
 			if os.path.exists(self.cover_path):
 				if self.__cover_timeout:
 					gobject.source_remove(self.__cover_timeout)

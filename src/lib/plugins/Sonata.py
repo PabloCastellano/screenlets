@@ -72,17 +72,22 @@ class SonataAPI(GenericAPI):
                 filename = os.path.expanduser("~/.covers/" + artist + "-" + album + ".jpg")
                 if os.path.isfile(filename):
                         return filename
-                songfile = mpdclient2.connect().currentsong().file
-                songpath = self.musicdir + os.sep + os.path.dirname(songfile)
-                filename = songpath + "/cover.jpg"
-                if os.path.isfile(filename):
-                        return filename
-                filename = songpath + "/album.jpg"
-                if os.path.isfile(filename):
-                        return filename
-                filename = songpath + "/folder.jpg"
-                if os.path.isfile(filename):
-                        return filename
+
+		try:
+			t = mpdclient2.connect().currentsong().file
+			t = t.replace('file://','')
+			t = t.split('/')
+			basePath = ''
+			for l in t:
+				if l.find('.') == -1:
+					basePath = basePath + l +'/'
+		
+			names = ['Album', 'Cover', 'Folde']
+			for x in os.listdir(basePath):
+				if os.path.splitext(x)[1] in [".jpg", ".png"] and (x.capitalize()[:5] in names):
+					coverFile = basePath + x
+					return coverFile
+		except: return ''
                 return ''
                 
 

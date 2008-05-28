@@ -211,11 +211,8 @@ class NowPlayingScreenlet(screenlets.Screenlet):
 		#helps to load the buttons properly
 			if self.default_player == '' : self.default_player = 'rhythmbox'
 			print self.default_player
-			if self.default_player == 'amarok':
-				print 'you need python dcop module ,make shure you have it installed'
 			self.default_player_old = self.default_player
 			if self.default_player != '' and self.player_start == True:
-				print self.default_player
 				if self.default_player == 'amarok':
 					os.system((self.default_player) +  '  \n')
 				else:

@@ -5,7 +5,7 @@
 # INFO:
 # - Retrieve stock-information from finance.yahoo.com
 # - Info button opens a more detailed view on finance.yahoo.com in webbrowser
-# 
+#
 # TODO:
 # - make web browser gain focus and leave widget-mode when info-button is clicked
 #
@@ -26,31 +26,30 @@ from os import system
 import gobject
 
 class StocksScreenlet(screenlets.Screenlet):
-	
+
 	# default meta-info for Screenlets
 	__name__ = 'StocksScreenlet'
-	__version__ = '0.2'
-	__author__ = 'Patrik Kullman'
+	__version__ = '0.2.1'
+	__author__ = 'Patrik Kullman (modified by Pedro Huerta)'
 	__desc__ = 'Retrieve stock-information from finance.yahoo.com'
 
 	# internals
 	__word = {"word": "Fetching stock...", "desc": "Please stand by..."}
-	__stockdata = {'name': "Not updated", 'last_trade': 0.00, 'change': 0.00}
+	__stockdata = {'name': "Not updated", 'last_trade': 0.00, 'change': 0.00, 'percent_change': 0.00}
 	__timeout = None
 	__offline_timer = None
 
 	# editable options and defaults
 	update_interval = 3600 # every hour
 	symbol = 'GOOG'
-		
+	use_percentage = False
+
 	# constructor
 	def __init__(self, **keyword_args):
 		# call super
 		screenlets.Screenlet.__init__(self, width=200, height=100, **keyword_args)
 		# set theme
 		self.theme_name = "default"
-		# add default menu items
-		self.add_default_menuitems()
 		# add option groups
 		self.fetch_stocks()
 		self.update_interval = self.update_interval
@@ -61,12 +60,22 @@ class StocksScreenlet(screenlets.Screenlet):
 			'Update interval (seconds)', 						# widget-label
 			'Specify number of seconds between re-fetching stock data', min=60, max=86400	# description
 			))
+		self.add_option(BoolOption('Stocks',
+			'use_percentage', 						# attribute-name
+			self.use_percentage,						# default-value
+			'Use % variation',						# widget-label
+			'Show % variation instead of absolute change',	# description
+			))
 		self.add_option(StringOption('Stocks',
 			'symbol', 						# attribute-name
 			self.symbol,						# default-value
 			'Stock symbol', 						# widget-label
 			'The stock symbol of the company',	# description
 			))
+
+	def on_init (self):
+		# add default menu items
+		self.add_default_menuitems()
 
 	def __setattr__(self, name, value):
 		# call Screenlet.__setattr__ in baseclass (ESSENTIAL!!!!)
@@ -82,6 +91,9 @@ class StocksScreenlet(screenlets.Screenlet):
 				# TODO: raise exception!!!
 				pass
 		if name == "symbol":
+			self.fetch_stocks()
+
+		if name == "use_percentage":
 			self.fetch_stocks()
 
 	def update(self):
@@ -127,10 +139,12 @@ class StocksScreenlet(screenlets.Screenlet):
 				elif (stockchange > 0):
 					change_color = "green"
 					icon = "up"
-			self.draw_text(ctx, "Change: <span foreground='" + change_color + "'>" + str(self.__stockdata['change']) + "</span>", 10, 50, 10)
+			if self.use_percentage:
+				self.draw_text(ctx, "Change: <span foreground='" + change_color + "'>" + str(self.__stockdata['percent_change']) + "%</span>", 10, 50, 10)
+			else:
+				self.draw_text(ctx, "Change: <span foreground='" + change_color + "'>" + str(self.__stockdata['change']) + "</span>", 10, 50, 10)
 			self.draw_text(ctx, "Last trade: " + str(self.__stockdata['last_trade']), 10, 70, 10)
 			ctx.restore()
-
 
 			ctx.save()
 			ctx.scale(self.scale, self.scale)
@@ -153,7 +167,11 @@ class StocksScreenlet(screenlets.Screenlet):
 		y = event.y / self.scale
 		if x > 170 and y < 28:
 			self.open_info()
-	
+		if 60 < x and x < 120 and 45 < y and y < 70:
+			print x, y
+			self.__setattr__('use_percentage', not self.use_percentage)
+			self.redraw_canvas()
+
 	def on_draw_shape(self, ctx):
 		if self.theme:
 			self.on_draw(ctx)
@@ -182,12 +200,17 @@ class StocksScreenlet(screenlets.Screenlet):
 			stockfd = urlopen('http://download.finance.yahoo.com/d/quotes.csv?s=' + self.symbol + '&f=nl1c1')
 			stockcsv = stockfd.read().split(",")
 			if stockcsv[0].strip() == "Missing Symbols List.":
-				stockdata = {'name': "Wrong symbol", 'last_trade': 0.00, 'change': 0.00}
+				stockdata = {'name': "Wrong symbol", 'last_trade': 0.00, 'change': 0.00, 'percent_change': 0.00}
 			else:
 				stockdata = {}
 				stockdata['name'] = stockcsv[0].split('"')[1].title()
 				stockdata['last_trade'] = stockcsv[1]
 				stockdata['change'] = stockcsv[2]
+				change = float(stockdata['change'])/(float(stockdata['last_trade'])-float(stockdata['change']))
+				if change > 0:
+					stockdata['percent_change'] = '+' + str(round(100*change,2))
+				if change < 0:
+					stockdata['percent_change'] = '-' + str(round(100*change,2))
 		except URLError:
 			stockdata = {'name': "Connection Error", 'last_trade': 0.00, 'change': 0.00}
 			self.__offline_timer = gobject.timeout_add(30 * 1000, self.update)
@@ -197,7 +220,7 @@ class StocksScreenlet(screenlets.Screenlet):
 
 	def open_info(self):
 		system("gnome-open 'http://finance.yahoo.com/q?s=" + self.symbol + "'")
-	
+
 # If the program is run directly or passed as an argument to the python
 # interpreter then create a Screenlet instance and show it
 if __name__ == "__main__":

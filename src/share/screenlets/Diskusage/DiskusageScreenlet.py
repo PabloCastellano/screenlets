@@ -38,7 +38,7 @@ class DiskusageScreenlet(screenlets.Screenlet):
 	font = 'FreeSans'
 	font_color = (1,1,1, 0.8)
 	background_color = (0,0,0, 0.1)
-
+	red_bar = True
 	# constructor
 	def __init__(self, **keyword_args):
 		#call super
@@ -62,7 +62,9 @@ class DiskusageScreenlet(screenlets.Screenlet):
 			self.font_color, 'Text color', 'font_color'))
 		self.add_option(ColorOption('Disk-Usage','background_color', 
 			self.background_color, 'Back color(only with default theme)', 'only works with default theme'))
-	
+		self.add_option(FontOption('Disk-Usage','red_bar', 
+			self.red_bar, 'Show red bar on 90 percent', 
+			'red_bar'))	
 		# init the timeout function
 		self.update_interval = self.update_interval
 		
@@ -132,8 +134,9 @@ class DiskusageScreenlet(screenlets.Screenlet):
 		# draw bg (if theme available)
 		#ctx.set_operator(cairo.OPERATOR_OVER)
 		if self.theme:
-			if self.theme_name == 'default':ctx.set_source_rgba(*self.background_color)
-			self.draw_rounded_rectangle(ctx,20,0,8,200,50)
+			if self.theme_name == 'default':
+				ctx.set_source_rgba(*self.background_color)
+				self.draw_rounded_rectangle(ctx,20,0,8,200,50)
 			self.theme.render(ctx,'disk-bg')
 		
 		if len(str(load))==1:
@@ -153,7 +156,7 @@ class DiskusageScreenlet(screenlets.Screenlet):
 			ctx.translate(25, 35)
 			ctx.clip()
 			#ctx.new_path()
-			if load > 90:
+			if load > 90 and self.red_bar:
 				self.theme.render(ctx,'red')
 			else:
 				self.theme.render(ctx,'blue')

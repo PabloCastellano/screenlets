@@ -1,11 +1,10 @@
 --------------------------------------------------------------------------------
-  Screenlets - POSSIBLE TODO LIST
+  Screenlets - TODO LIST
 --------------------------------------------------------------------------------
 
 + TODO: Core
 -----------------------------------
 - Implement gconf-backend
-- Implement gnome keyring
 - switching themes slowly increases the memory usage (maybe rsvg leak?)
 - Scaling  slowly increases the memory usage 
 - some useful logging system for a more unified (and optional) logging
@@ -19,19 +18,15 @@
   and mass for certain window-types?) to be able to stack screenlets on top of
   another and put them on top of other windows and have them stay there and
   move when the other windows are moved, akamaru lib? aantn seems to be working on it
-- Remove rsvg rependecies? its not used often can be replaced by gtk draw
 - Fix fileoption and directoryoption
 - find a way to get notified about end of a begin_move_drag-operation?
 - add/finish missing handlers:
   on_key_up, on_minimize, on_maxmize, ...
-- ??screenlets should get their own .service-files for dbus to launch the 
-  main instance if none is running (causes very long delay on startup - why?)
 - [PermanentItem] code cleanup and bug-hunt
 - Take advantage of webkit when the python bindings become available
 - screenlets-interoperability-with other apps - aantn seems to be working on it 
   in universal applets branch
 - Notification area - needs C module...
-- Proxy usage on net dependent screenlets https://bugs.launchpad.net/screenlets/+bug/172801
 - Have a way to show the current scale of a screenlet 
   https://bugs.launchpad.net/screenlets/+bug/205711
 - Drag drop launch of screenlets in the manager

@@ -68,6 +68,7 @@ class NotesScreenlet (screenlets.Screenlet):
 	text_suffix	= ''
 	note_text	= ""	# hidden option because val has its own editing-dialog
 	random_pin_pos	= True
+	clipboard = gtk.clipboard_get()
 	
 	# constructor
 	def __init__ (self, text="", **keyword_args):
@@ -212,9 +213,21 @@ class NotesScreenlet (screenlets.Screenlet):
 			self.note_text[self.__cursor_index:]
 		# and update cursor index
 		self.__cursor_index += len(text)
+		self.redraw_canvas()
 	
 	# parsing/text-handling
-	
+					
+
+	def insert_del (self):
+		"""Remove one char backwards from the current position."""
+		if self.__cursor_index < len(self.note_text) :
+			self.__cursor_index += 1
+			# remove char at cursor index - 1
+			self.note_text = self.note_text[:self.__cursor_index-1] + \
+				self.note_text[self.__cursor_index:]
+			self.__cursor_index -= 1
+			self.redraw_canvas()
+
 	def insert_backspace (self):
 		"""Remove one char backwards from the current position."""
 		if self.__cursor_index > 0:
@@ -222,6 +235,7 @@ class NotesScreenlet (screenlets.Screenlet):
 			self.note_text = self.note_text[:self.__cursor_index-1] + \
 				self.note_text[self.__cursor_index:]
 			self.__cursor_index -= 1
+			self.redraw_canvas()
 			
 	def insert_eol (self):
 		"""Insert an EOL (linebreak) at the current position."""
@@ -230,29 +244,31 @@ class NotesScreenlet (screenlets.Screenlet):
 	def get_last_eol (self):
 		"""Find previous EOL from cursor position. Returns absolute position in
 		text, not the distance in chars."""
-		p = self.__cursor_index - 1
+		p = self.__cursor_index -1
 		while p > 0:
 			if self.note_text[p] == '\n':
-				return p
+				return p 
 			p -= 1
-		return 0
+		return -1
 		
 	def get_next_eol (self):
 		"""Find next EOL from cursor position."""
 		p = self.note_text.find('\n', self.__cursor_index)
 		if p == -1 or p > self.__textlen - 1:
-			return self.__textlen - 1
-		return p
+			return self.__textlen -1
+		return p -1
 	
 	def get_cursor_offset (self):
 		"""Returns the offset (in chars) of the cursor from the beginning of the
 		current line."""
 		leol = self.get_last_eol()
-		dist = self.__cursor_index - leol
+		dist = self.__cursor_index - leol 
 		if dist > -1:
+			
 			return dist
 		return 0
 	
+
 	# cursor movement
 	
 	def cursor_left (self):
@@ -265,7 +281,7 @@ class NotesScreenlet (screenlets.Screenlet):
 	def cursor_up (self):
 		"""Move the cursor one line up and redraw.
 		TODO: redraw only changed area, fix weirdness."""
-		self.__cursor_index = self.get_last_eol() - self.get_cursor_offset()
+		self.__cursor_index = self.get_last_eol() -((self.get_next_eol()-self.get_last_eol()) - self.get_cursor_offset()) - 1
 		if self.__cursor_index < 0:
 			self.__cursor_index = 0
 		self.redraw_canvas()
@@ -280,7 +296,7 @@ class NotesScreenlet (screenlets.Screenlet):
 	def cursor_down (self):
 		"""Move the cursor one line down and redraw.
 		TODO: redraw only changed area."""
-		self.__cursor_index = self.get_next_eol() + self.get_cursor_offset()
+		self.__cursor_index = self.get_next_eol()+ self.get_cursor_offset() +1
 		if self.__cursor_index >=  self.__textlen:
 			self.__cursor_index = self.__textlen
 		self.redraw_canvas()
@@ -358,6 +374,8 @@ class NotesScreenlet (screenlets.Screenlet):
 		# HTML-special chars? &, <, >
 		if code == 38:
 			self.insert_text('&amp;')
+		#elif code == 118:
+		#	self.on_menuitem_select('paste')
 		elif code == 60:
 			self.insert_text('&gt;')
 		elif code == 62:
@@ -371,6 +389,9 @@ class NotesScreenlet (screenlets.Screenlet):
 		# BACKSPACE?
 		elif code == 65288:
 			self.insert_backspace()
+		elif code == 65535:
+			if self.__cursor_index < self.__textlen:
+				self.insert_del()
 		# HOME? go to last EOL or pos -1
 		elif code == 65360:
 			self.cursor_home()
@@ -390,7 +411,7 @@ class NotesScreenlet (screenlets.Screenlet):
 		elif code == 65364:
 			self.cursor_down()
 		#print "cursorIndex: "+str(self.__cursor_index)
-	
+
 	def on_drop (self, x, y, sel_data, timestamp):
 		print "SOMETHING DROPPED!! TODO: ask for confirmation if text not empty"
 		txt = sel_data.get_text()
@@ -415,9 +436,14 @@ class NotesScreenlet (screenlets.Screenlet):
 		elif id == 'clear':
 			self.clear_text()
 		elif id == 'paste':
-			print "TODO: paste text from clipboard"
+			self.clipboard = gtk.clipboard_get()
+			self.note_text = self.note_text + self.clipboard.wait_for_text()
 	
 	def on_mouse_down (self, event):
+		x = event.x / self.scale
+		y = event.y / self.scale
+		print x /y
+
 		if event.button == 1:
 			self.__pin_var_rot = (random.random()-0.5)/2
 			self.__pin_var_x = random.random()

@@ -13,6 +13,7 @@ import string
 import gobject
 from GenericPlayer import GenericAPI
 import commands
+import urllib
 
 class AudaciousAPI(GenericAPI):
 	__name__ = 'Audacious API'
@@ -71,7 +72,7 @@ class AudaciousAPI(GenericAPI):
 
 	def get_cover_path(self):
 		try:
-			t = commands.getoutput('audtool --current-song-filename')
+			t = urllib.unquote(commands.getoutput('audtool --current-song-filename'))
 			t = t.replace('file://','')
 			t = t.split('/')
 			basePath = ''

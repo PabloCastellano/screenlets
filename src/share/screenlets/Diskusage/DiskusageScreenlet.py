@@ -62,7 +62,7 @@ class DiskusageScreenlet(screenlets.Screenlet):
 			self.font_color, 'Text color', 'font_color'))
 		self.add_option(ColorOption('Disk-Usage','background_color', 
 			self.background_color, 'Back color(only with default theme)', 'only works with default theme'))
-		self.add_option(FontOption('Disk-Usage','red_bar', 
+		self.add_option(BoolOption('Disk-Usage','red_bar', 
 			self.red_bar, 'Show red bar on 90 percent', 
 			'red_bar'))	
 		# init the timeout function

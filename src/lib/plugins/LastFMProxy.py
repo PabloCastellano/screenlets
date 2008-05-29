@@ -38,7 +38,14 @@ class LastFMProxyAPI(GenericAPI):
 	def is_active(self, dbus_iface):
 		app = mpdclient2.connect()
 		if not app: return False
-		else: return True
+		else: 
+			proc = os.popen("""ps axo "%p,%a" | grep "last" | grep -v grep|cut -d',' -f1""").read()
+			procs = proc.split('\n')
+			if len(procs) > 1:
+				return True
+			else:
+				return False
+
 
 	# Make a connection to the Player
 	def connect(self):

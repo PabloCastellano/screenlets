@@ -65,6 +65,7 @@ PLAYER_LIST = {'Rhythmbox':'RhythmboxAPI',
                     'Audacious':'AudaciousAPI',
                     'Quodlibet':'QuodlibetAPI',
                     'Juk':'JukAPI',
+                    'LastFMProxy':'LastFMProxyAPI',
                     'Songbird':'SongbirdAPI',}
 
 PLAYER_LIST_LAUNCH = ['amarok','audacious','banshee','exaile','juk','kaffeine','listen','quodlibet','rhythmbox','sonata','songbird']

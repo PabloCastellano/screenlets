@@ -56,14 +56,14 @@ class AudaciousAPI(GenericAPI):
 	
 	def get_album(self):
 		try:
-			a =  commands.getoutput('audtool --current-song').split(' - ')[0]
+			a =  commands.getoutput('audtool --current-song').split(' - ')[1]
 			return a
 		except:
 			return ''
 
 	def get_artist(self):
 		try:
-			a =  commands.getoutput('audtool --current-song').split(' - ')[1]
+			a =  commands.getoutput('audtool --current-song').split(' - ')[0]
 			return a
 		except:
 			return ''

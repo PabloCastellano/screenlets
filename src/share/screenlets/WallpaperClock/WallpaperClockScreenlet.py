@@ -335,55 +335,56 @@ class WallpaperClockScreenlet (screenlets.Screenlet):
 
 	def set_image(self):
 		print "Point 1: " +str(time.localtime())
+		self.imagepath = os.environ['HOME'] + '/.screenlets/WallpaperClock/'
 		if self.wall != '':
 			print "Point 1: " +str(datetime.now())
 			try:
-				self.image = Image.open(self.mypath+'wallpapers/' +self.wall+'/bg.jpg')
+				self.image = Image.open(self.imagepath+'wallpapers/' +self.wall+'/bg.jpg')
 			except:
 				pass
 			print "Point 2: " +str(datetime.now())
 			try:
-				self.image1 = Image.open(self.mypath+'wallpapers/' +self.wall+'/month'+ self.month+'.png')
+				self.image1 = Image.open(self.imagepath+'wallpapers/' +self.wall+'/month'+ self.month+'.png')
 				self.image.paste(self.image1, (0,0), self.image1)
 			except:
 				pass
 			try:
-				self.image1 = Image.open(self.mypath+'wallpapers/' +self.wall+'/day'+ self.day+'.png')
+				self.image1 = Image.open(self.imagepath+'wallpapers/' +self.wall+'/day'+ self.day+'.png')
 				self.image.paste(self.image1, (0,0), self.image1)
 			except:
 				pass
 			
 			try:
-				self.image1 = Image.open(self.mypath+'wallpapers/' +self.wall+'/weekday'+ self.weekday+'.png')
+				self.image1 = Image.open(self.imagepath+'wallpapers/' +self.wall+'/weekday'+ self.weekday+'.png')
 				self.image.paste(self.image1, (0,0), self.image1)
 			except:
 				pass
 			try:
-				self.image1 = Image.open(self.mypath+'wallpapers/' +self.wall+'/moonphase'+ self.moon+'.png')
+				self.image1 = Image.open(self.imagepath+'wallpapers/' +self.wall+'/moonphase'+ self.moon+'.png')
 				self.image.paste(self.image1, (0,0), self.image1)
 			except:
 				pass			
 			try:
-				self.image1 = Image.open(self.mypath+'wallpapers/' +self.wall+'/zodiac'+ self.zodiac +'.png')
+				self.image1 = Image.open(self.imagepath+'wallpapers/' +self.wall+'/zodiac'+ self.zodiac +'.png')
 				self.image.paste(self.image1, (0,0), self.image1)
 			except:
 				pass
 			if self.hour_format == '12' :
 				try:
-					if os.path.isfile (self.mypath+'wallpapers/' +self.wall+'/am.png'):
+					if os.path.isfile (self.imagepath+'wallpapers/' +self.wall+'/am.png'):
 	
 						if int(self.get_hour24())> 12:
-							self.image1 = Image.open(self.mypath+'wallpapers/' +self.wall+'/pm.png')
+							self.image1 = Image.open(self.imagepath+'wallpapers/' +self.wall+'/pm.png')
 							self.image.paste(self.image1, (0,0), self.image1)
 						else:
-							self.image1 = Image.open(self.mypath+'wallpapers/' +self.wall+'/am.png')
+							self.image1 = Image.open(self.imagepath+'wallpapers/' +self.wall+'/am.png')
 							self.image.paste(self.image1, (0,0), self.image1)
 					#self.hour = str(int(self.hour)/2)
 				except:
 					pass
 			
 			try:
-				self.image1 = Image.open(self.mypath+'wallpapers/' +self.wall+'/hour'+ self.hour+'.png')
+				self.image1 = Image.open(self.imagepath+'wallpapers/' +self.wall+'/hour'+ self.hour+'.png')
 				self.image.paste(self.image1, (0,0), self.image1)
 			except:
 				pass		
@@ -395,22 +396,22 @@ class WallpaperClockScreenlet (screenlets.Screenlet):
 			#	pass
 			
 			try:
-				self.image1 = Image.open(self.mypath+'wallpapers/' +self.wall+'/minute'+ self.minute+'.png')
+				self.image1 = Image.open(self.imagepath+'wallpapers/' +self.wall+'/minute'+ self.minute+'.png')
 				self.image.paste(self.image1, (0,0), self.image1)
 			except:
 				pass
 			print "Point 3: " +str(datetime.now())
 			try:
 				# This is a slow operation!!!
-				self.image.save (self.mypath + '/wallpaper.png')
+				self.image.save (self.imagepath + '/wallpaper.png')
 				if self.black_workarround:
-					os.system ("mv -f "+self.mypath+"/wallpaper.working.png "+ self.mypath + '/wallpaper.png')
+					os.system ("mv -f "+self.imagepath+"/wallpaper.working.png "+ self.imagepath + '/wallpaper.png')
 			except:
 				pass
 			print "Point 4: " +str(datetime.now())
 			if self.xfce_workarround:os.system ("killall -USR1 xfdesktop &")
 			try:
-				os.system("gconftool-2 -t string -s /desktop/gnome/background/picture_filename " + self.mypath + '/wallpaper.png')
+				os.system("gconftool-2 -t string -s /desktop/gnome/background/picture_filename " + self.imagepath + '/wallpaper.png')
 				os.system("gconftool-2 -t string -s /desktop/gnome/background/picture_options " + self.gnome_wallpaper_option)
 				os.system("gconftool-2 -t bool -s /desktop/gnome/background/draw_background False")
 				os.system("gconftool-2 -t bool -s /desktop/gnome/background/draw_background True")
@@ -421,7 +422,7 @@ class WallpaperClockScreenlet (screenlets.Screenlet):
 					kde_wall = 6
 				else:
 					kde_wall = 7
-				os.system("/usr/bin/dcop kdesktop KBackgroundIface setWallpaper " + self.mypath + "/wallpaper.png " + kde_wall)
+				os.system("/usr/bin/dcop kdesktop KBackgroundIface setWallpaper " + self.imagepath + "/wallpaper.png " + kde_wall)
 			except:
 				pass
 			self.image = None
@@ -453,7 +454,7 @@ class WallpaperClockScreenlet (screenlets.Screenlet):
 
 		self.moon = str(self.moon)
 		self.hour = self.get_hour()
-		if os.path.isfile (self.mypath+'wallpapers/' +self.wall+'/hour25.png'):
+		if os.path.isfile (self.imagepath+'wallpapers/' +self.wall+'/hour25.png'):
 
 				if int(self.hour24) <= 12:
 					self.hour = str(((int(self.hour24)*60)/12)+(int(self.minute)/12))
@@ -570,8 +571,8 @@ class WallpaperClockScreenlet (screenlets.Screenlet):
 		if id == "wallinfo":
 			# TODO: use DBus-call for this
 			#self.switch_hide_show()
-				if os.path.isfile (self.mypath+'wallpapers/' +self.wall+'/clock.ini'):
-					f = open(self.mypath+'wallpapers/' +self.wall+'/clock.ini')
+				if os.path.isfile (self.imagepath+'wallpapers/' +self.wall+'/clock.ini'):
+					f = open(self.imagepath+'wallpapers/' +self.wall+'/clock.ini')
 					text = f.read()
 					author = text[text.find('name'):]
 					author = author[:author.find('refreshhourinterval')].strip()

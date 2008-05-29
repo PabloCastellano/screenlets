@@ -40,7 +40,7 @@
 			/>-->
 			<item label="Pick a random wallpaper"  id="random" />
 			<separator />
-			<item label="Shared Wallpapers">
+		<!--	<item label="Shared Wallpapers">
 				<scandir directory="/usr/local/share/screenlets/WallpaperClock/wallpapers" 
 					filter="*.*"
 					skip=""
@@ -56,7 +56,7 @@
 					search=""
 					replace=""
 				/>
-			</item>
+			</item>-->
 			<item label="My Wallpapers">
 				<scandir directory="$HOME/.screenlets/WallpaperClock/wallpapers" 
 					filter="*.*"

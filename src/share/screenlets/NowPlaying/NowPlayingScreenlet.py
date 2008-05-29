@@ -64,9 +64,10 @@ PLAYER_LIST = {'Rhythmbox':'RhythmboxAPI',
                     'Kaffeine':'KaffeineAPI',
                     'Audacious':'AudaciousAPI',
                     'Quodlibet':'QuodlibetAPI',
+                    'Juk':'JukAPI',
                     'Songbird':'SongbirdAPI',}
 
-PLAYER_LIST_LAUNCH = ['rhythmbox','listen','banshee','amarok','exaile','sonata','quodlibet','songbird','kaffeine','audacious']
+PLAYER_LIST_LAUNCH = ['amarok','audacious','banshee','exaile','juk','kaffeine','listen','quodlibet','rhythmbox','sonata','songbird']
 # The Screenlet
 class NowPlayingScreenlet(screenlets.Screenlet):
 	"""Shows Song Info"""

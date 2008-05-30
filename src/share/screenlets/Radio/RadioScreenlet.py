@@ -333,10 +333,12 @@ class RadioScreenlet(screenlets.Screenlet):
 		if id[:6] == "startr":
 			print 'start recording'
 			self.record()
+			self.redraw_canvas()
 
 		if id[:5] == "stopr":
 			print 'stop recording'
 			self.close_record_stream()
+			self.redraw_canvas()
 
 		if id[:5] == "stopp":
 			print 'stop playing'
@@ -436,7 +438,8 @@ class RadioScreenlet(screenlets.Screenlet):
 			tb = self.radio_station
 			tb = tb[tb.find(" ")+1:]
 			tb = tb[:11]
-			ctx.set_source_rgba(*self.radio_name_color)
+			if self.is_recording:ctx.set_source_rgba(1,0,0,1)
+			else:ctx.set_source_rgba(*self.radio_name_color)
 			self.draw_text(ctx,tb, self.radio_name_x, self.radio_name_y, self.radio_name_font.split(' ')[0], self.radio_name_fontsize,  self.radio_name_fontwidth,pango.ALIGN_LEFT)
 			tc = self.displayedStreamTitle
 			tc = tc[:STREAM_TITLE_MAX_LENGTH]

@@ -233,12 +233,13 @@ class MeterScreenlet(screenlets.Screenlet):
 			
 		# draw glass (if theme available)
 	
-			self.theme['cpumeter-glass.svg'].render_cairo(ctx)
+			#self.theme.render('cpumeter-glass')
 
 	def on_draw_shape(self,ctx):
 		if self.theme:
 			ctx.scale(self.scale, self.scale)
-			self.theme['cpumeter-bg.svg'].render_cairo(ctx)
+			self.draw_rectangle(ctx,0,0,self.width,self.height)
+			self.on_draw(ctx)
 
 
 # If the program is run directly or passed as an argument to the python

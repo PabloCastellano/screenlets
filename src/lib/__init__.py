@@ -674,7 +674,7 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 		show_window=True, is_widget=False, is_sticky=False, 
 		uses_theme=True, draw_buttons=True,path=os.getcwd(), drag_drop=False, session=None, 
 		enable_saving=True, service_class=services.ScreenletService,
-		uses_pango=False, is_sizable=True,resize_on_scroll=True, ask_on_option_override=True):
+		uses_pango=False, is_sizable=True,resize_on_scroll=True, ask_on_option_override=False):
 		"""Constructor - should only be subclassed"""
 		
 		# call gobject and EditableOptions superclasses

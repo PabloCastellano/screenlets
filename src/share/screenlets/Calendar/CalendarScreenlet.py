@@ -7,7 +7,7 @@
 # the terms and conditions of this license. 
 # Thank you for using free software!
 
-#  CalendarScreenlet (c) robgig1088 2007
+#  CalendarScreenlet (c) RYX 2007 Whise 2008
 #
 # INFO:
 # - 
@@ -17,6 +17,8 @@ import screenlets
 import cairo
 import pango
 import datetime
+import locale
+from screenlets.options import ColorOption
 
 class CalendarScreenlet (screenlets.Screenlet):
 	"""A simple Calendar Screenlet."""
@@ -24,9 +26,13 @@ class CalendarScreenlet (screenlets.Screenlet):
 	# default meta-info for Screenlets
 	__name__	= 'CalendarScreenlet'
 	__version__	= '0.3'
-	__author__	= 'RYX (initial version by robgig1088)'
+	__author__	= 'RYX modified by Whise'
 	__desc__	= __doc__
 
+
+	p_layout = None
+	font_color = (1,1,1, 0.8)
+	__day_names = None
 	# constructor
 	def __init__(self, **keyword_args):
 		# call super
@@ -34,7 +40,14 @@ class CalendarScreenlet (screenlets.Screenlet):
 		# set some options
 		self.text_shadow_offset = 0.666
 		# set theme
+		locale.setlocale(locale.LC_ALL, '');
+		# we convert to unicode here for the first letter extraction to work well
+		self.__day_names = [locale.nl_langinfo(locale.DAY_1 + i).decode() for i in range(7)] 
+
 		self.theme_name = "ryx"
+		self.add_options_group('Calendar', 'Calendar specific options')
+		self.add_option(ColorOption('Calendar','font_color', 
+			self.font_color, 'Text color', 'font_color'))
 
 	def on_init (self):
 		print "Screenlet has been initialized."
@@ -96,14 +109,13 @@ class CalendarScreenlet (screenlets.Screenlet):
 	
 	def draw_header (self, ctx, pl):
 		ctx.save()
-		ctx.translate(5 + self.text_shadow_offset, 17 + self.text_shadow_offset)
-		pl.set_markup('<b>' + "Su  Mo  Tu  We  Th  Fr  Sa" + '</b>')
-		ctx.set_source_rgba(0, 0, 0, 0.3)
-		ctx.show_layout(pl)
-		ctx.translate(-self.text_shadow_offset, -self.text_shadow_offset)
-		ctx.set_source_rgba(1, 1, 1, 0.8)
-		ctx.show_layout(pl)
+		ctx.set_source_rgba(*self.font_color)
+		ctx.translate(5,0)
+		for i in range(7):
+			self.draw_text(ctx, self.__day_names[i][:2] , 0, 17, 'FreeSans',6, self.width , pango.ALIGN_LEFT)
+			ctx.translate(13,0)
 		ctx.restore()
+
 	
 	def draw_days (self, ctx, pl, date):
 		#ctx.translate(-5, 0)
@@ -134,7 +146,13 @@ class CalendarScreenlet (screenlets.Screenlet):
 				row = row + 1
 			day = day + 1
 			ctx.restore()
-	
+
+	def on_mouse_enter(self,event):
+		self.redraw_canvas()
+
+	def on_mouse_leave(self,event):
+		self.redraw_canvas()
+
 	def on_draw (self, ctx):
 		# get dates
 		date = self.get_date_info()
@@ -142,19 +160,32 @@ class CalendarScreenlet (screenlets.Screenlet):
 		ctx.scale(self.scale, self.scale)
 		# draw bg (if theme available)
 		ctx.set_operator(cairo.OPERATOR_OVER)
+		if self.p_layout == None :
+	
+			self.p_layout = ctx.create_layout()
+		else:
+		
+			ctx.update_layout(self.p_layout)
 		if self.theme:
 			# render bg
 			self.theme.render(ctx, 'calendar-bg')
 			# create layout
-			p_layout = ctx.create_layout()
-			p_fdesc = pango.FontDescription("Free Sans 5")
-			p_layout.set_font_description(p_fdesc)
-			# draw year/month
-			self.draw_year_and_month(ctx, p_layout, date[2], date[3])
-			# draw header
-			self.draw_header(ctx, p_layout)
-			# draw days
-			self.draw_days(ctx, p_layout, date)
+			if self.mouse_is_over:
+				self.p_layout = ctx.create_layout()
+				p_fdesc = pango.FontDescription("FreeSans 5")
+				self.p_layout.set_font_description(p_fdesc)
+
+				# draw year/month
+				self.draw_year_and_month(ctx, self.p_layout, date[2], date[3])
+				# draw header
+				self.draw_header(ctx, self.p_layout)
+				# draw days
+				self.draw_days(ctx, self.p_layout, date)
+			else:
+				ctx.set_source_rgba(*self.font_color)
+				#self.draw_text(ctx, str(date[3]) , 0, 5, 'FreeSans', 10, self.width , pango.ALIGN_CENTER)
+				self.draw_text(ctx, date[0] , 0, 12, 'FreeSans', 55, self.width , pango.ALIGN_CENTER)
+				self.draw_text(ctx, str(date[3])+ ' ' + str(date[2]) , 0, 78, 'FreeSans', 10, self.width , pango.ALIGN_CENTER)
 		
 	def on_draw_shape(self,ctx):
 		ctx.scale(self.scale, self.scale)

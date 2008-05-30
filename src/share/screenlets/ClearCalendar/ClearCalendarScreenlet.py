@@ -60,6 +60,7 @@ class ClearCalendarScreenlet(screenlets.Screenlet):
 	today=datetime.datetime.now().strftime("%F")
 	mypath = sys.argv[0][:sys.argv[0].find('ClearCalendarScreenlet.py')].strip()
 	icalpath = mypath + 'calendar.ics'
+	p_layout = None
 	# constructor
 	def __init__(self, **keyword_args):
 		screenlets.Screenlet.__init__(self, width=int(102*2), height=int(105*2),uses_theme=True, **keyword_args) 
@@ -311,6 +312,12 @@ class ClearCalendarScreenlet(screenlets.Screenlet):
 			except:pass
 			#self.theme['date-border.svg'].render_cairo(ctx)
 		# draw buttons and optionally the pressed one
+		if self.p_layout == None :
+	
+			self.p_layout = ctx.create_layout()
+		else:
+		
+			ctx.update_layout(self.p_layout)
 		if self.__buttons_pixmap:
 			ctx.save()
 			ctx.rectangle(0, 0, 100, 15)
@@ -333,24 +340,24 @@ class ClearCalendarScreenlet(screenlets.Screenlet):
 		if self.theme:
 			ctx.save()
 			ctx.translate(5,5)
-			p_layout = ctx.create_layout()
+			self.p_layout = ctx.create_layout()
 			p_fdesc = pango.FontDescription()
 			p_fdesc.set_family_static("Tahoma")
 			p_fdesc.set_size(5 * pango.SCALE)
-			p_layout.set_font_description(p_fdesc)      ### draw the month
-			p_layout.set_width((self.width - 10) * pango.SCALE)
-			p_layout.set_markup('<b>' + date[2] + '</b>')
+			self.p_layout.set_font_description(p_fdesc)      ### draw the month
+			self.p_layout.set_width((self.width - 10) * pango.SCALE)
+			self.p_layout.set_markup('<b>' + date[2] + '</b>')
 			ctx.set_source_rgba(*self.font_color)
 			
 			
-			#ctx.show_layout(p_layout)
+			#ctx.show_layout(self.p_layout)
 		
 			ctx.translate(-100,0)
-			p_layout.set_width((self.width - 10) * pango.SCALE)
-			p_layout.set_alignment(pango.ALIGN_RIGHT)
-			p_layout.set_markup("<b>" + date[2]+' '+ str(date[1])+ '  </b>') ### draw the year
+			self.p_layout.set_width((self.width - 10) * pango.SCALE)
+			self.p_layout.set_alignment(pango.ALIGN_RIGHT)
+			self.p_layout.set_markup("<b>" + date[2]+' '+ str(date[1])+ '  </b>') ### draw the year
 			ctx.set_source_rgba(*self.font_color)
-			ctx.show_layout(p_layout)
+			ctx.show_layout(self.p_layout)
 
 			ctx.restore()
 			ctx.save()
@@ -359,22 +366,22 @@ class ClearCalendarScreenlet(screenlets.Screenlet):
 			#self.theme['header-bg.svg'].render_cairo(ctx)  #draw the header background
 			ctx.translate(6, 0)
 			p_fdesc.set_size(4 * pango.SCALE)
-			p_layout.set_font_description(p_fdesc) 
+			self.p_layout.set_font_description(p_fdesc) 
 			#Draw header
-			p_layout.set_alignment(pango.ALIGN_CENTER);
-			p_layout.set_width(10*pango.SCALE);
+			self.p_layout.set_alignment(pango.ALIGN_CENTER);
+			self.p_layout.set_width(10*pango.SCALE);
 			self.event1 = ''
 			for i in range(7):
 				dayname = self.__day_names[(i \
 					+ self.__first_day) % 7]
-				p_layout.set_markup("<b><span font_desc='Monospace'>" + dayname[:3] + '</span></b>') # use first letter
+				self.p_layout.set_markup("<b><span font_desc='Monospace'>" + dayname[:3] + '</span></b>') # use first letter
 				ctx.set_source_rgba(*self.font_color)
-				ctx.show_layout(p_layout)
+				ctx.show_layout(self.p_layout)
 				ctx.translate(13, 0)	# 6 + 6*13 + 6 = 100
 			p_fdesc.set_size(6 * pango.SCALE)
-			p_fdesc.set_family_static("Free Sans")
+			p_fdesc.set_family_static("FreeSans")
 
-			p_layout.set_font_description(p_fdesc) 
+			self.p_layout.set_font_description(p_fdesc) 
 			# Draw the day labels
 			ctx.restore()
 			row = 1
@@ -414,10 +421,10 @@ class ClearCalendarScreenlet(screenlets.Screenlet):
 							self.draw_rounded_rectangle(ctx,0,0,2,10,9)
 
 							self.event1 = self.event1 + '\n Today - '+ str(event)
-				p_layout.set_markup( str(x+1) )
+				self.p_layout.set_markup( str(x+1) )
 	
 				ctx.set_source_rgba(*self.font_color)
-				ctx.show_layout(p_layout)
+				ctx.show_layout(self.p_layout)
 				if day == 7:
 					day = 0
 					row = row + 1

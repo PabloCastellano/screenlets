@@ -239,7 +239,7 @@ class SidebarScreenlet (screenlets.Screenlet):
 			
 			service.quit() 
 	def on_mouse_down(self,event):
-
+		self.window.set_keep_above(0)
 		self.window.set_keep_below(1)
 		
 	def dock_screenlet(self,win,x,y):

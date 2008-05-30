@@ -95,7 +95,7 @@ class CalendarScreenlet (screenlets.Screenlet):
 		ctx.set_source_rgba(0, 0, 0, 0.3)
 		ctx.show_layout(pl)
 		ctx.translate(-self.text_shadow_offset, -self.text_shadow_offset)
-		ctx.set_source_rgba(1, 1, 1, 0.8)
+		ctx.set_source_rgba(*self.font_color)
 		ctx.show_layout(pl)
 		# draw the year
 		ctx.translate(70 + self.text_shadow_offset, self.text_shadow_offset)
@@ -103,7 +103,7 @@ class CalendarScreenlet (screenlets.Screenlet):
 		ctx.set_source_rgba(0, 0, 0, 0.3)
 		ctx.show_layout(pl)
 		ctx.translate(-self.text_shadow_offset, -self.text_shadow_offset)
-		ctx.set_source_rgba(1, 1, 1, 0.8)
+		ctx.set_source_rgba(*self.font_color)
 		ctx.show_layout(pl)
 		ctx.restore()
 	
@@ -139,7 +139,7 @@ class CalendarScreenlet (screenlets.Screenlet):
 			ctx.set_source_rgba(0, 0, 0, 0.3)
 			ctx.show_layout(pl)
 			ctx.translate(-tso, -tso)
-			ctx.set_source_rgba(1, 1, 1, 0.8)
+			ctx.set_source_rgba(*self.font_color)
 			ctx.show_layout(pl)
 			if day == 7:
 				day = 0

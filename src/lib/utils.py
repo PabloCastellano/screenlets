@@ -444,11 +444,8 @@ def quit_screenlet_by_name ( name):
 		service.quit()
 
 def quit_all_screenlets():
-	a = list_running_screenlets2()
-	b = list_running_screenlets()
-	if b != None:
-		for sl in b:
-			if b not in a: a.append(sl)
+
+	a = list_running_screenlets()
 	if a != None:
 		for s in a:
 			if s.endswith('Screenlet'):

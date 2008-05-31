@@ -182,34 +182,24 @@ class ScreenletsManager:
 			56, 56)
 		# get list of available/running screenlets
 		lst_a = utils.list_available_screenlets()
-		lst_r = utils.list_running_screenlets2()
-		lst_r2 = utils.list_running_screenlets()
-		if lst_r2 != None:
-			for slet in lst_r2:
-				if lst_r2 not in lst_r: lst_r.append(slet)
+		lst_r = utils.list_running_screenlets()
+
 		if not lst_r:
 			lst_r = []
 		lst_a.sort()
-		for s in lst_a:
-			#path = screenlets.SCREENLETS_PATH[0] + '/' + s + '/icon.svg'
-			#print path
-			# not really beautiful, but it works .. (maybe make a function)
-			p = screenlets.SCREENLETS_PATH
-			icon_svg = '/' + s + '/icon.svg'
-			icon_png = '/' + s + '/icon.png'
-			if os.path.isfile(p[0] + icon_svg):
-				path = p[0] + icon_svg
-			elif os.path.isfile(p[0] + icon_png):
-				path = p[0] + icon_png
-			elif os.path.isfile(p[1] + icon_svg):
-				path = p[1] + icon_svg
-			elif os.path.isfile(p[1] +icon_png):
-				path = p[1] + icon_png
-			else:
-				img = noimg	
+		lst_filtered = []
+		filter_input = str(self.txtsearch.get_text()).lower()
+		combo_sel = self.combo.get_active()
+		if filter_input != '':
+			for s in lst_a:
+				filter_slname = str(s).lower()
+				filter_find = filter_slname.find(filter_input)
+				if filter_input == None or filter_find != -1:
+					lst_filtered.append(s)
+		if lst_filtered == [] : lst_filtered = lst_a
+		for s in lst_filtered:
 			try:
-				img = gtk.gdk.pixbuf_new_from_file_at_size(path, 56, 56)
-				path = ''
+				img = utils.get_screenlet_icon(s, 56, 56)
 			except Exception, ex:
 				#print "Exception while loading icon '%s': %s" % (path, ex)
 				img = noimg
@@ -242,32 +232,20 @@ class ScreenletsManager:
 				print _('Error while loading screenlets metadata for "%s".' % s)
 				slinfo = utils.ScreenletInfo(s, '', '', '', '', img)
 			# add to model
-			ccc = self.combo.get_active()
-			sss = str(self.txtsearch.get_text()).lower()
-			slname = str(s).lower()
-			a = slname.find(sss)
-			if ccc == 0:
-				if sss == None or a != -1:
-					self.model.append(['<span size="9000">%s</span>' % s, img, slinfo])	
-				
-			elif ccc == 1:
-				
-				if sss == None or a != -1:
-					if slinfo.active :self.model.append(['<span size="9000">%s</span>' % s, img, slinfo])	
-			elif ccc == 2:
-				
-				if sss == None or a != -1:
-					if slinfo.autostart == True :self.model.append(['<span size="9000">%s</span>' % s, img, slinfo])	
-			elif ccc == 3:
-				
-				if sss == None or a != -1:
-					if slinfo.system == True :self.model.append(['<span size="9000">%s</span>' % s, img, slinfo])	
-			elif ccc == 4:
-				
-				if sss == None or a != -1:
-					if slinfo.system == False:self.model.append(['<span size="9000">%s</span>' % s, img, slinfo])				
 
-	# general handling
+
+			if combo_sel == 0:
+				self.model.append(['<span size="9000">%s</span>' % s, img, slinfo])	
+			elif combo_sel == 1:
+				if slinfo.active :self.model.append(['<span size="9000">%s</span>' % s, img, slinfo])	
+			elif combo_sel == 2:
+				if slinfo.autostart == True :self.model.append(['<span size="9000">%s</span>' % s, img, slinfo])	
+			elif combo_sel == 3:
+				if slinfo.system == True :self.model.append(['<span size="9000">%s</span>' % s, img, slinfo])	
+			elif combo_sel == 4:
+				if slinfo.system == False:self.model.append(['<span size="9000">%s</span>' % s, img, slinfo])				
+
+
 	
 	def get_Info_by_name (self, name):
 		"""Returns a ScreenletInfo-object for the screenlet with given name."""
@@ -1307,7 +1285,7 @@ import os
 proc = os.popen("""ps axo "%p,%a" | grep "screenlets-manager.py" | grep -v grep|cut -d',' -f1""").read()
 procs = proc.split('\n')
 if len(procs) > 2:
-	print "daemon already started"
+	print "Manager already started"
 	import sys
 	sys.exit(1)
 

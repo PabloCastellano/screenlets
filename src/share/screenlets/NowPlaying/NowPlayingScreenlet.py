@@ -217,10 +217,7 @@ class NowPlayingScreenlet(screenlets.Screenlet):
 			print self.default_player
 			self.default_player_old = self.default_player
 			if self.default_player != '' and self.player_start == True:
-				if self.default_player == 'amarok':
-					os.system((self.default_player) +  '  \n')
-				else:
-					os.system((self.default_player) +  '  &')
+				os.system((self.default_player) +  '  &')
 	
 			print "Screenlet has been initialized."
 			# add default menuitems

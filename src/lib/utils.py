@@ -301,34 +301,6 @@ def list_running_screenlets2 ():
 
 
 
-def get_evolution_contacts():
-	"""Returns a list of evolution contacts"""
-	contacts = []
-
-	try:
-		import evolution
-	except ImportError, err:
-		print " !!!Please install python evolution bindings Unable to import evolution bindings:", err
-	    	return None
-
-	try:
-		if evolution:
-			for book_id in evolution.ebook.list_addressbooks():
-				book = evolution.ebook.open_addressbook(book_id[1])
-				if book:
-					for contact in book.get_all_contacts():
-					
-						contacts.append(contact)
-	except:
-		if evolution:
-			for book_id in evolution.list_addressbooks():
-				book = evolution.open_addressbook(book_id[1])
-				if book:
-					for contact in book.get_all_contacts():
-						
-						contacts.append(contact)
-                            
-        return contacts
 
 def get_screenlet_process (name):
 	"""Returns the PID of the given screenlet (if running) or None."""

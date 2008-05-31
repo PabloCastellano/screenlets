@@ -36,7 +36,7 @@ from screenlets.menu import add_menuitem, add_image_menuitem
 import gtk
 from screenlets import utils, install
 import gettext
-import wnck
+
 gettext.textdomain('screenlets-manager')
 gettext.bindtextdomain('screenlets-manager', screenlets.INSTALL_PREFIX +  '/share/locale')
 
@@ -60,12 +60,6 @@ class ScreenletsDaemon (dbus.service.Object):
 	def __init__ (self):
 		# create bus, call super
 
-
-		try:
-			wnck.set_client_type(wnck.CLIENT_TYPE_PAGER)
-		except AttributeError:
-			print "Error: Failed to set libwnck client type, window " \
-				"activation may not work"
 		pixbuf = gtk.gdk.pixbuf_new_from_file("/usr/share/icons/screenlets.svg")
 
 		session_bus = dbus.SessionBus()
@@ -187,20 +181,7 @@ class ScreenletsDaemon (dbus.service.Object):
 
 	def openit(self, widget):
 
-		screen = wnck.screen_get_default()
-		wins = screen.get_windows_stacked()
-		found = 0
-		for win in wins:
-			name = win.get_name()
-			if name== _('Screenlets Manager'):
-				found = found +1
-				if win and win.is_active():
-					os.system('pkill -f screenlets-manager.py &')
-				elif win and win.is_minimized():
-					win.unminimize(1)
-				elif win and win.is_active() == False:
-					win.activate(1)
-		if found == 0: os.system('screenlets-manager &')
+		os.system('screenlets-manager &')
 			
 
 	

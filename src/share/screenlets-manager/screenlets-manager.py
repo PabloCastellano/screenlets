@@ -1284,9 +1284,32 @@ class ScreenletsManager:
 import os
 proc = os.popen("""ps axo "%p,%a" | grep "screenlets-manager.py" | grep -v grep|cut -d',' -f1""").read()
 procs = proc.split('\n')
+import sys
+import wnck
+try:
+	wnck.set_client_type(wnck.CLIENT_TYPE_PAGER)
+except AttributeError:
+	print "Error: Failed to set libwnck client type, window " \
+				"activation may not work"
 if len(procs) > 2:
 	print "Manager already started"
-	import sys
+	screen = wnck.screen_get_default()
+	while gtk.events_pending():
+		gtk.main_iteration()
+	wins = screen.get_windows_stacked()
+	
+	for win in wins:
+		name = win.get_name()
+		if name == gettext.gettext('Screenlets Manager'):
+
+			if win and win.is_active():
+				sys.exit(1)
+			elif win and win.is_minimized():
+				win.unminimize(1)
+			elif win and win.is_active() == False:
+				win.activate(1)
+
+
 	sys.exit(1)
 
 

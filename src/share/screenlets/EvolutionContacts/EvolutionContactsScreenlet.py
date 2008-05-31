@@ -21,7 +21,8 @@ from xml.dom.minidom import parse
 from xml.parsers.expat import ExpatError
 import re
 import gnomevfs
-
+from screenlets import Plugins
+Evolution = Plugins.importAPI('Evolution')
 
 class EvolutionContactsScreenlet (screenlets.Screenlet):
 	"""Displays Evolution contacts"""
@@ -112,12 +113,13 @@ class EvolutionContactsScreenlet (screenlets.Screenlet):
 		
 		#fstab = self.readFile('/etc/fstab')
 		#mounts = self.readFile('/proc/mounts')
+		
 		self.contacts = {}
 		self.__timeout = gobject.timeout_add(int(60000), self.update)
 		self.update()
 
 	def update(self):
-		self.contacts = utils.get_evolution_contacts()
+		self.contacts = Evolution.get_evolution_contacts()
 
 		self.redraw_canvas()
 		return True

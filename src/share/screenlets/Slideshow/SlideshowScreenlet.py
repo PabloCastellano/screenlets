@@ -16,12 +16,12 @@ from screenlets import DefaultMenuItem , utils
 import cairo
 import gtk
 import pango
-from urllib2 import urlopen
 import gobject
 import os
 import commands
 import random
-
+from screenlets import Plugins
+Flickr = Plugins.importAPI('Flickr')
 
 
 class SlideshowScreenlet (screenlets.Screenlet):
@@ -191,38 +191,20 @@ class SlideshowScreenlet (screenlets.Screenlet):
 		
 	 #if self.slide == True:	
 	 if self.engine1 == 'Flickr':
-	 
-		source = urlopen(self.flickrurl)
-		sourcetxt = source.read()
-		image = sourcetxt[sourcetxt.find("Photo" + chr(34))+7:]
-		
-		
-		sourceimage = image[image.find("a href=" + chr(34))+8:]
-		sourceimage = sourceimage[:sourceimage.find(chr(34)) ].strip()
+		imgs = []
+		a = Flickr.Flickr()
+		imgs = a.get_image_list(self.flickrurl)
 
-		realimage = image[image.find("mg src=" + chr(34))+8:]
-		realimage = realimage[:realimage.find(chr(34)) ].strip()
+		choice = random.choice(imgs) 
+		self.url = a.url_list[str(choice)]
+		self.img_name =  self.home + "/slide.jpg"
+		random.choice(imgs) 
+		saveto = self.home + "/slide.jpg"
+		a.save_image(choice,saveto)
 
-		
-		
-		imageurl = 'http://www.flickr.com' + sourceimage
-		
-		self.url = imageurl
-
-		
-		imageget = urlopen(realimage)
-		imagefile = imageget.read()
-		
-		fileObj = open( self.home + "/slide.jpg","w") #// open for for write
-		fileObj.write(imagefile)
-
-		fileObj.close()
-		
-		self.image_filename =  self.home + "/slide.jpg"
-		
-		forecast = self.image_filename
-		self.img_name = forecast
-	 if self.engine1 == 'directory':
+		self.img_name =  self.home + "/slide.jpg"	
+		forecast = self.img_name
+	 elif self.engine1 == 'directory':
 		imgs = []
 		
 		if self.recursive:

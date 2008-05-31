@@ -83,6 +83,7 @@ class ScreenletSession (object):
 		self.path = BaseDirectory.load_first_config('Screenlets/' + p)
 		if self.path == None:
 			self.path = BaseDirectory.save_config_path('Screenlets/' + p)
+		if self.path == None: self.path = (os.environ['HOME'] + '.config/Screenlets/' + p)
 		if self.path:
 			if backend_type == 'caching':
 				self.backend = backend.CachingBackend(path=self.path)
@@ -118,7 +119,6 @@ class ScreenletSession (object):
 	def create_instance (self, id=None, **keyword_args):
 		"""Create a new instance with ID 'id' and add it to this session. The 
 		function returns either the new Screenlet-instance or None."""
-		print _("Creating new instance: ")
 		# if id is none or already exists
 		if id==None or id=='' or self.get_instance_by_id(id) != None:
 			print _("ID is unset or already in use - creating new one!")

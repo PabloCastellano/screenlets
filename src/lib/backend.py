@@ -217,14 +217,27 @@ class CachingBackend (ScreenletsBackend):
 				lst.append([oname, self.__instances[id][oname]])
 			# and save them (if any)
 			if len(lst) > 0:
+				backup = ''
 				try:
+					backup = open(self.path + id + '.ini', 'r')
+					backup.close()	
+				except:pass
+				try:
+					# In here something strage appends , sometimes it opens the file , then it cant write to it  so it writes and empty file reseting all settings
+		
 					f = open(self.path + id + '.ini', 'w')
 					for el in lst:
 						f.write(el[0] + '=' + el[1] + "\n")
 					f.close()
 					print "OK"
 				except:
-					print _("error while saving config: %s%s") % (self.path, oname)
+					if backup != '' and os.path.exists(self.path + id + '.ini'):
+						try:
+							backup_restore = open(self.path + id + '.ini', 'w')	
+							backup_restore.write(backup)	
+							backup_restore.close()
+						except:pass								
+					print _("error while saving config: %s %s") % ( oname , self.path)
 		# clear queue
 		self.__queue = []
 		# NOT continue the timeout-function (!!!!!)

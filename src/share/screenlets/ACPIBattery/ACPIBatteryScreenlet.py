@@ -51,7 +51,7 @@ class ACPIBatteryScreenlet(screenlets.Screenlet):
 	# constructor
 	def __init__(self, **keyword_args):
 		#call super (and not show window yet)
-		screenlets.Screenlet.__init__(self, uses_theme=True, **keyword_args)
+		screenlets.Screenlet.__init__(self, uses_theme=True,width=100,height=50, **keyword_args)
 		# set theme
 		self.theme_name = "default"
 		# add settings
@@ -233,106 +233,53 @@ class ACPIBatteryScreenlet(screenlets.Screenlet):
 		if charge_status=='NA':
 			# draw message
 			ctx.save()
-			#ctx.set_operator(cairo.OPERATOR_OVER)
-			p_layout = ctx.create_layout()
 			ctx.translate(37,5)
-			p_fdesc = pango.FontDescription("Free Sans 14")
-			#p_fdesc.set_family_static("Free Sans")
-			#p_fdesc.set_size(25 * pango.SCALE)
-			p_layout.set_font_description(p_fdesc)
-			p_layout.set_width((self.width) * pango.SCALE)
-			p_layout.set_markup('   No')
 			ctx.set_source_rgba(1, 0, 0, 1)
-			ctx.show_layout(p_layout)
+			self.draw_text(ctx,'   No',0,0,"FreeSans", 14,  self.width)
 			ctx.fill()
 			ctx.restore()							
 			ctx.save()
-			#ctx.set_operator(cairo.OPERATOR_OVER)
-			p_layout = ctx.create_layout()
 			ctx.translate(37,26)
-			p_fdesc = pango.FontDescription("Free Sans 12")
-			#p_fdesc.set_family_static("Free Sans")
-			#p_fdesc.set_size(25 * pango.SCALE)
-			p_layout.set_font_description(p_fdesc)
-			p_layout.set_width((self.width) * pango.SCALE)
-			p_layout.set_markup(' battery')
 			ctx.set_source_rgba(1, 0, 0, 1)
-			ctx.show_layout(p_layout)
-			ctx.fill()
+			self.draw_text(ctx,' battery',0,0,"FreeSans", 12,  self.width)
 			ctx.restore()									
 		elif self.show_time and self.show_percent:
 			# draw percent and time
 			ctx.save()
-			#ctx.set_operator(cairo.OPERATOR_OVER)
-			p_layout = ctx.create_layout()
 			ctx.translate(37,5)
-			p_fdesc = pango.FontDescription("Free Sans 16")
-			#p_fdesc.set_family_static("Free Sans")
-			#p_fdesc.set_size(25 * pango.SCALE)
-			p_layout.set_font_description(p_fdesc)
-			p_layout.set_width((self.width) * pango.SCALE)
-			p_layout.set_markup(percents+"%")
 			if int(percents)<=self.alarm_threshold:
 				ctx.set_source_rgba(1, 0, 0, 1)
 			else:
 				ctx.set_source_rgba(1, 1, 1, 1)
-			ctx.show_layout(p_layout)
-			ctx.fill()
+			self.draw_text(ctx,percents+"%",0,0,"FreeSans", 16,  self.width)
 			ctx.restore()							
 			ctx.save()
-			#ctx.set_operator(cairo.OPERATOR_OVER)
-			p_layout = ctx.create_layout()
 			ctx.translate(37,26)
-			p_fdesc = pango.FontDescription("Free Sans 14")
-			#p_fdesc.set_family_static("Free Sans")
-			#p_fdesc.set_size(25 * pango.SCALE)
-			p_layout.set_font_description(p_fdesc)
-			p_layout.set_width((self.width) * pango.SCALE)
-			p_layout.set_markup(time_value)
 			if int(percents)<=self.alarm_threshold:
 				ctx.set_source_rgba(1, 0, 0, 1)
 			else:
 				ctx.set_source_rgba(1, 1, 1, 1)
-			ctx.show_layout(p_layout)
-			ctx.fill()
+			self.draw_text(ctx,time_value,0,0,"FreeSans", 14,  self.width)
 			ctx.restore()							
 		elif self.show_time:
 			# draw time
 			ctx.save()
-			#ctx.set_operator(cairo.OPERATOR_OVER)
-			p_layout = ctx.create_layout()
 			ctx.translate(37,13)
-			p_fdesc = pango.FontDescription("Free Sans 16")
-			#p_fdesc.set_family_static("Free Sans")
-			#p_fdesc.set_size(25 * pango.SCALE)
-			p_layout.set_font_description(p_fdesc)
-			p_layout.set_width((self.width) * pango.SCALE)
-			p_layout.set_markup(time_value)
 			if int(percents)<=self.alarm_threshold:
 				ctx.set_source_rgba(1, 0, 0, 1)
 			else:
 				ctx.set_source_rgba(1, 1, 1, 1)
-			ctx.show_layout(p_layout)
-			ctx.fill()
+			self.draw_text(ctx,time_value,0,0,"FreeSans", 16,  self.width)
 			ctx.restore()				
 		else:
 			# draw percent
 			ctx.save()
-			#ctx.set_operator(cairo.OPERATOR_OVER)
-			p_layout = ctx.create_layout()
 			ctx.translate(37,13)
-			p_fdesc = pango.FontDescription("Free Sans 16")
-			#p_fdesc.set_family_static("Free Sans")
-			#p_fdesc.set_size(25 * pango.SCALE)
-			p_layout.set_font_description(p_fdesc)
-			p_layout.set_width((self.width) * pango.SCALE)
-			p_layout.set_markup(percents+"%")
 			if int(percents)<=self.alarm_threshold:
 				ctx.set_source_rgba(1, 0, 0, 1)
 			else:
 				ctx.set_source_rgba(1, 1, 1, 1)
-			ctx.show_layout(p_layout)
-			ctx.fill()
+			self.draw_text(ctx,percents+"%",0,0,"FreeSans", 16,  self.width)
 			ctx.restore()
 		# draw glass (if theme available)
 		if self.theme:

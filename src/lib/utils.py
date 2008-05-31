@@ -207,6 +207,12 @@ def get_screenlet_icon (screenlet_name,width,height):
 					pass
 	return img
 
+def getBetween(data, first, last):
+	x = len(first)
+	begin = data.find(first) +x
+	end = data.find(last, begin)
+	return data[begin:end]
+
 def get_screenlet_metadata (screenlet_name):
 	"""Returns a dict with name, info, author and version of the given
 	screenlet. Use with care because it always imports the screenlet 
@@ -214,21 +220,45 @@ def get_screenlet_metadata (screenlet_name):
 	# find path to file
 	path = find_first_screenlet_path(screenlet_name)
 	classname = screenlet_name + 'Screenlet'
-	# add path to PYTHONPATH
-	if sys.path.count(path) == 0:
-		sys.path.insert(0, path)
+
 	try:
-		slmod = __import__(classname)
-		cls = getattr(slmod, classname)
-		sys.path.remove(path)
-		return {'name'	: cls.__name__, 
-			'info'		: cls.__desc__, 
-			'author'	: cls.__author__, 
-			'version'	: cls.__version__
-			}
-	except Exception, ex:
-		print _("Unable to load '%s' from %s: %s ") % (screenlet_name, path, ex)
-		return None
+		slfile = open(path + '/'+ classname + '.py','r')
+		sldata = slfile.read()
+		slfile.close()
+		name = getBetween(sldata,'__name__','\n')
+		name1 = getBetween(name ,"'","'")
+		if name1.find(' = ') != -1: name1 = getBetween(name ,chr(34),chr(34))
+		info = getBetween(sldata,'__desc__','\n')
+		info1 = getBetween(info ,"'","'")
+		if info1.find(' = ') != -1: info1 = getBetween(info ,chr(34),chr(34))
+		if info1.find('_doc_') != -1: info1 = getBetween(sldata ,chr(34) +chr(34)+chr(34),chr(34)+chr(34)+chr(34))
+		author = getBetween(sldata,'__author__','\n')
+		author1 = getBetween(author ,"'","'")
+		if author1.find(' = ') != -1: author1 = getBetween(author ,chr(34),chr(34))
+		version = getBetween(sldata,'__version__','\n')
+		version1 = getBetween(version ,"'","'")
+		if version1.find(' = ') != -1: version1 = getBetween(version ,chr(34),chr(34))
+		return {'name'	: name1, 
+			'info'		: info1, 
+			'author'	: author1, 
+			'version'	: version1
+			}		
+	except:
+		try:
+	# add path to PYTHONPATH
+			if sys.path.count(path) == 0:
+				sys.path.insert(0, path)
+			slmod = __import__(classname)
+			cls = getattr(slmod, classname)
+			sys.path.remove(path)
+			return {'name'	: cls.__name__, 
+				'info'		: cls.__desc__, 
+				'author'	: cls.__author__, 
+				'version'	: cls.__version__
+				}
+		except Exception, ex:
+			print _("Unable to load '%s' from %s: %s ") % (screenlet_name, path, ex)
+			return None
 
 def list_available_screenlets ():
 	"""Scan the SCREENLETS_PATHs for all existing screenlets and return their

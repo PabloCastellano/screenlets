@@ -307,7 +307,7 @@ class ClearCalendarScreenlet(screenlets.Screenlet):
 		ctx.set_operator(cairo.OPERATOR_OVER)
 		if self.theme:
 			ctx.set_source_rgba(*self.background_color)
-			if self.theme_name == 'default':self.draw_rounded_rectangle(ctx,0,0,8,100,83)
+			if self.theme_name == 'default':self.draw_rounded_rectangle(ctx,0,1,8,100,82)
 			try:self.theme.render(ctx,'date-bg')
 			except:pass
 			#self.theme['date-border.svg'].render_cairo(ctx)

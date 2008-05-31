@@ -23,7 +23,7 @@ class MeterScreenlet(screenlets.Screenlet):
 	# default meta-info for Screenlets
 	__name__ = 'MeterScreenlet'
 	__version__ = '0.1'
-	__author__ = 'Helder Fraga aka Whise , theme by RYX'
+	__author__ = 'Helder Fraga aka Whise ,default theme by RYX'
 	__desc__ = 'Sensors Screenlet.'
 
 	# internals
@@ -50,6 +50,7 @@ class MeterScreenlet(screenlets.Screenlet):
 	new_cpu = 0
 	wire_list = []
 	wire_data = []
+	background_color = (0,0,0, 0.8)
 	# constructor
 	def __init__(self,**keyword_args):
 		screenlets.Screenlet.__init__(self, width=100, height=100, 
@@ -97,6 +98,8 @@ class MeterScreenlet(screenlets.Screenlet):
 		self.add_option(StringOption('Sensors', 'sensor',
 			self.sensor, 'Sensor to Display',
 			'',choices=self.sensor_list))
+		self.add_option(ColorOption('Sensors','background_color', 
+			self.background_color, 'Back color(only with default theme)', 'only works with default theme'))
 
 		# init the timeout function
 		self.update_interval = self.update_interval
@@ -208,6 +211,8 @@ class MeterScreenlet(screenlets.Screenlet):
 		# draw bg (if theme available)
 		ctx.set_operator(cairo.OPERATOR_OVER)
 		if self.theme:
+			ctx.set_source_rgba(*self.background_color)
+			if self.theme_name == 'default':self.draw_rounded_rectangle(ctx,6.3,7,9,84.1,80.1)
 			self.theme.render(ctx, 'cpumeter-bg')
 		# draw text
 			if len(str(self.load))==1:

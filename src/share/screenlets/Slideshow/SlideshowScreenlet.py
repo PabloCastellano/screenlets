@@ -32,7 +32,7 @@ class SlideshowScreenlet (screenlets.Screenlet):
 	# --------------------------------------------------------------------------
 	
 	__name__		= 'SlideshowScreenlet'
-	__version__		= '1.0'
+	__version__		= '1.1'
 	__author__		= 'Helder Fraga aka Whise'
 	__desc__		= __doc__
 	
@@ -136,26 +136,6 @@ class SlideshowScreenlet (screenlets.Screenlet):
 				self.factor = 1
 
 
-			
-		#if name == 'engine':	
-		#	screenlets.Screenlet.__setattr__(self, name, value)
-		#	if value != '' :
-		#		self.engine1 = value
-		#		pass
-		#		print 'c'
-		#	else:
-		#		
-		#		if self.engine == '' : 
-		#			self.engine1 = 'gnome_art'
-		#			pass
-		#			print 'a'
-		#		else:
-		#			self.engine1 = self.engine
-		#			pass
-		#			print 'b'
-		#	screenlets.Screenlet.__setattr__(self, name, value)
-		#	self.update()
-
 		if name == "image_filename":
 			screenlets.Screenlet.__setattr__(self, name, value)
 			# update view
@@ -194,7 +174,7 @@ class SlideshowScreenlet (screenlets.Screenlet):
 		imgs = []
 		a = Flickr.Flickr()
 		imgs = a.get_image_list(self.flickrurl)
-
+		
 		choice = random.choice(imgs) 
 		self.url = a.url_list[str(choice)]
 		self.img_name =  self.home + "/slide.jpg"
@@ -298,7 +278,7 @@ class SlideshowScreenlet (screenlets.Screenlet):
 			#self.theme['Slideshow-bg.svg'].render_cairo(ctx)
 			self.theme.render(ctx, 'frame')
 			if self.preserve_aspect == 1:
-        			w, h = self.theme.get_image_size(self.image_filename)
+        			w, h = self.get_image_size(self.image_filename)
 	      			h_offset = 0
 			        w_offset = 0
 			        if w >= h:
@@ -319,7 +299,7 @@ class SlideshowScreenlet (screenlets.Screenlet):
 			ctx.translate(self.image_offset_x, self.image_offset_y)
 			ctx.scale(0.875,self.image_scale)
 			try:
-				self.theme.draw_scaled_image(ctx,0,0,self.image_filename,w,h)
+				self.draw_scaled_image(ctx,0,0,self.image_filename,w,h)
 			except:pass
 			ctx.restore()
 			ctx.translate(60,158)

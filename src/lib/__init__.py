@@ -1229,7 +1229,7 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 		# the keep above and keep bellow must be reset after the window is shown this is absolutly necessary 
 		self.window.hide()
 		self.window.move(self.x, self.y)
-		self.window.present()	
+		self.window.show()	
 		self.has_started = True	
 		self.is_dragged = False
 		self.keep_above= self.keep_above

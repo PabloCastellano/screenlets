@@ -2,7 +2,7 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:cc="http://creativecommons.org/ns#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
@@ -13,7 +13,7 @@
    height="50"
    id="svg2"
    sodipodi:version="0.32"
-   inkscape:version="0.45"
+   inkscape:version="0.46"
    version="1.0"
    sodipodi:docbase="/home/nsierro/.screenlets/ACPIBattery/themes/default"
    sodipodi:docname="acpibattery-bg.svg"
@@ -21,6 +21,25 @@
    sodipodi:modified="true">
   <defs
      id="defs4">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient3193">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop3195" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="1"
+         id="stop3197" />
+    </linearGradient>
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 25 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="98 : 25 : 1"
+       inkscape:persp3d-origin="49 : 16.666667 : 1"
+       id="perspective42" />
     <linearGradient
        id="linearGradient2805">
       <stop
@@ -219,6 +238,16 @@
          offset="1.0000000"
          style="stop-color:#000000;stop-opacity:0.0000000;" />
     </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3193"
+       id="linearGradient3199"
+       x1="49.49675"
+       y1="73.346832"
+       x2="48.230083"
+       y2="-30.730989"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(0.5,-0.4999985)" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -227,18 +256,19 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="8.18"
-     inkscape:cx="49"
+     inkscape:zoom="2.8920667"
+     inkscape:cx="-0.79498017"
      inkscape:cy="25"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      width="98px"
      height="50px"
-     inkscape:window-width="989"
-     inkscape:window-height="626"
-     inkscape:window-x="436"
-     inkscape:window-y="111"
-     showborder="false" />
+     inkscape:window-width="1280"
+     inkscape:window-height="744"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     showborder="false"
+     showgrid="false" />
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -256,20 +286,12 @@
      id="layer1"
      transform="translate(-0.3969162,-0.1800056)">
     <rect
-       style="opacity:1;fill:#000000;fill-opacity:0.62745098;stroke:none;stroke-width:1.52297926;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter3245)"
-       id="rect3143"
-       width="93.545013"
-       height="45.075722"
-       x="4.4927354"
-       y="4.9836936"
-       rx="9.114356" />
-    <rect
-       style="opacity:1;fill:#00a1ff;fill-opacity:1;stroke:none;stroke-width:1.52297926;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="opacity:1;fill:url(#linearGradient3199);fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect1872"
        width="95.666336"
        height="47.550594"
-       x="0.39691621"
-       y="0.1800056"
+       x="0.89691621"
+       y="0.12941127"
        rx="9.3210421" />
   </g>
 </svg>

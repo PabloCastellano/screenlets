@@ -17,7 +17,7 @@
 # This screenlets is heavily based on the CPUMeterScreenlet by RYX
 
 import screenlets
-from screenlets.options import IntOption, BoolOption, StringOption
+from screenlets.options import IntOption, BoolOption, StringOption, ColorOption
 import cairo
 import pango
 import sys
@@ -47,7 +47,7 @@ class ACPIBatteryScreenlet(screenlets.Screenlet):
 	show_time = True
 	show_percent = True
 	show_background = True
-	
+	background_color = (0,0,0, 0.4)
 	# constructor
 	def __init__(self, **keyword_args):
 		#call super (and not show window yet)
@@ -79,8 +79,9 @@ class ACPIBatteryScreenlet(screenlets.Screenlet):
 			self.show_time, 'Display time', 'Show remaining time on ACPI battery meter ...'))
 		self.add_option(BoolOption('ACPI Battery', 'show_percent', 
 			self.show_percent, 'Display percentage', 'Show percentage on ACPI battery meter ...'))
-		self.add_option(BoolOption('Screenlet', 'show_background', 
-			self.show_background, 'Show background', 'Set this Screenlet to show/hide its background ...'))
+		self.add_option(ColorOption('ACPI Battery','background_color', 
+			self.background_color, 'Back color(only with default theme)', 'only works with default theme'))
+
 		# init the timeout function
 		self.update_interval = self.update_interval
 		self.file_auto = self.file_auto
@@ -207,7 +208,9 @@ class ACPIBatteryScreenlet(screenlets.Screenlet):
 		ctx.scale(self.scale, self.scale)
 		# draw bg (if theme available)
 		ctx.set_operator(cairo.OPERATOR_OVER)
-		if self.theme and self.show_background:
+		if self.theme :
+			ctx.set_source_rgba(*self.background_color)
+			if self.theme_name == 'default':self.draw_rounded_rectangle(ctx,0,0,9,96.6,46.5)
 			self.theme.render(ctx,'acpibattery-bg')
 		self.theme.render(ctx,'acpibattery-battery')
 		if charge_status=='charged': 
@@ -337,11 +340,9 @@ class ACPIBatteryScreenlet(screenlets.Screenlet):
 		
 	def on_draw_shape(self,ctx):
 		if self.theme:
-			# set size rel to width/height
-			#ctx.scale(self.width/100.0, self.height/100.0)
 			ctx.scale(self.scale, self.scale)
-			self.theme.render(ctx,'acpibattery-bg')
-
+			self.draw_rectangle(ctx,0,0,self.width,self.height)
+			self.on_draw(ctx)
 	
 # If the program is run directly or passed as an argument to the python
 # interpreter then create a Screenlet instance and show it

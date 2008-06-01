@@ -33,11 +33,7 @@ import gettext
 import subprocess
 import commands
 import urllib
-#a = commands.getoutput("ps -ef | grep 'screenlets-manager.py'" )
-#b = a.find('/usr/share/screenlets-manager/screenlets-manager.py')
-#if b != -1:
-#	print b
-#	exit()
+
 
 gettext.textdomain('screenlets-manager')
 gettext.bindtextdomain('screenlets-manager', screenlets.INSTALL_PREFIX +  '/share/locale')
@@ -196,7 +192,7 @@ class ScreenletsManager:
 				filter_find = filter_slname.find(filter_input)
 				if filter_input == None or filter_find != -1:
 					lst_filtered.append(s)
-		if lst_filtered == [] : lst_filtered = lst_a
+		if lst_filtered == [] and filter_input == '': lst_filtered = lst_a
 		for s in lst_filtered:
 			try:
 				img = utils.get_screenlet_icon(s, 56, 56)
@@ -583,12 +579,8 @@ class ScreenletsManager:
 		if id == 'backspace':
 			if len(self.txtsearch.get_text()) == 1:
 				self.txtsearch.set_text('')
-				self.model.clear()
-				self.load_screenlets()
 		elif id == 'clean':
 			self.txtsearch.set_text('')
-			self.model.clear()
-			self.load_screenlets()
 		else:
 			self.model.clear()
 			self.load_screenlets()

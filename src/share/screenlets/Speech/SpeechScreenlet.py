@@ -58,7 +58,7 @@ class SpeechScreenlet(screenlets.Screenlet):
 	# constructor
 	def __init__(self, **keyword_args):
 		#call super
-		screenlets.Screenlet.__init__(self, width=200, height=50, 
+		screenlets.Screenlet.__init__(self, width=201, height=50, 
 				**keyword_args)
 		# set theme
 		self.theme_name = "default"
@@ -69,10 +69,6 @@ class SpeechScreenlet(screenlets.Screenlet):
 		self.add_option(ColorOption('Options','frame_color', 
 			self.frame_color, 'Frame color', 
 			'Frame color'))
-		# connect additional event handlers
-		# self.window.connect('key-press-event', self.key_press)
-		# initialize default converter
-		# self.set_converter('BaseConverter')
 
 	def __setattr__(self, name, value):
 		# call Screenlet.__setattr__ in baseclass (ESSENTIAL!!!!)
@@ -142,63 +138,57 @@ class SpeechScreenlet(screenlets.Screenlet):
 		# if a converter or theme is not yet loaded, there's no way to continue
 		# set scale relative to scale-attribute
 		ctx.scale(self.scale, self.scale)
-		# render background
-		ctx.set_source_rgba(*self.frame_color)
-		self.draw_rectangle_advanced (ctx, 0, 0, self.width-12, self.height-12, rounded_angles=(5,5,5,5), fill=True, border_size=2, border_color=(0,0,0,0.3), shadow_size=6, shadow_color=(0,0,0,0.5))
-		#self.theme['background.svg'].render_cairo(ctx)
-		# compute space between fields
 		n = 1
-		m = 15
-		# draw fields
+		m = 10
 		ctx.save()
-		ctx.translate(3, 6)
-		ctx.scale(1.5,1.5)
-		if self.theme:	self.theme.render(ctx,'icon')
-		#self.draw_icon(ctx
-		ctx.restore()
-		ctx.save()
+		if self.theme:	
+			ctx.set_source_rgba(*self.frame_color)
+			if self.theme_name == 'default':self.draw_rounded_rectangle(ctx,0,0,6.5,200,40)
+			self.theme.render(ctx,'background')
+
+		ctx.translate(6, 8)
+		if self.theme:	
+			self.theme.render(ctx,'icon')
+		ctx.translate(-6, -8)
 		ctx.translate(50, m)
 		if self.theme:
 			for i in range(n):
 				if self.__has_focus:
-					self.theme['fieldh.svg'].render_cairo(ctx)
+					self.theme.render(ctx,'fieldh')
 					# cursor: disabled - it looks weird
-					ctx.rectangle(185, 3, 2, 16)
-					ctx.fill()
+				#	ctx.rectangle(185, 3, 2, 16)
+				#	ctx.fill()
 				else:
-					self.theme['field.svg'].render_cairo(ctx)
+					self.theme.render(ctx,'field')
 				ctx.translate(0, m + 20)
 		ctx.restore()
 		# render field names
 		# ctx.save()
 		ctx.set_source_rgba(0,0,0,1)
-		self.p_layout = ctx.create_layout()
-		self.p_fdesc = pango.FontDescription()
-		self.p_fdesc.set_family_static("Free Sans")
-		self.p_fdesc.set_size(11 * pango.SCALE)
-		self.p_layout.set_font_description(self.p_fdesc)
+		if self.p_layout == None :
+	
+			self.p_layout = ctx.create_layout()
+		else:
+		
+			ctx.update_layout(self.p_layout)
+		p_fdesc = pango.FontDescription()
+		p_fdesc.set_family_static("Free Sans")
+		p_fdesc.set_size(11 * pango.SCALE)
+		self.p_layout.set_font_description(p_fdesc)
 		self.p_layout.set_width(40 * pango.SCALE)
-		# ctx.translate(10, m + 3)
-		# ctx.set_source_rgba(0, 0, 0, 1)
-		# for i in range(n):
-		# 	self.p_layout.set_markup('<b>' 
-		#			+ 'etst' 
-		#			+ '</b>')
-		#	ctx.show_layout(self.p_layout)
-		#	ctx.translate(0, m + 20)
-		#ctx.restore()
-		# render field values
 		ctx.save()
 		ctx.translate(55, m + 3)
 		self.p_layout.set_alignment(pango.ALIGN_RIGHT)
 		self.p_layout.set_width(130 * pango.SCALE)
 		self.p_layout.set_ellipsize(pango.ELLIPSIZE_START)
 		for i in range(n):
-			self.p_layout.set_markup(self.__query)
+			if self.has_focus:
+				self.p_layout.set_markup(self.__query + '_')
+			else:
+				self.p_layout.set_markup(self.__query)
 			ctx.show_layout(self.p_layout)
 			ctx.translate(0, m + 20)
 		ctx.restore()
-		# ...and finally something to cover this all
 
 	
 	def on_draw_shape(self, ctx):

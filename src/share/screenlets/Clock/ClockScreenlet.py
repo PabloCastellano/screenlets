@@ -249,9 +249,9 @@ class ClockScreenlet (Screenlet):
 		self.clear_cairo_context(ctx_fore)
 		# and compose foreground
 		ctx_fore.scale(self.scale, self.scale)
-		self.theme['clock-face-shadow.svg'].render_cairo(ctx_fore)
-		self.theme['clock-glass.svg'].render_cairo(ctx_fore)
-		self.theme['clock-frame.svg'].render_cairo(ctx_fore)
+		self.theme.render(ctx_fore,'clock-face-shadow')
+		self.theme.render(ctx_fore,'clock-glass')
+		self.theme.render(ctx_fore,'clock-frame')
 	
 	def redraw_background (self):
 		"""Redraw the background-buffer (drop-shadow, face, marks)."""
@@ -262,8 +262,8 @@ class ClockScreenlet (Screenlet):
 		# compose background
 		ctx_back.set_operator(cairo.OPERATOR_OVER)
 		ctx_back.scale(self.scale, self.scale)
-		self.theme['clock-drop-shadow.svg'].render_cairo(ctx_back)
-		self.theme['clock-face.svg'].render_cairo(ctx_back)
+		self.theme.render(ctx_back,'clock-drop-shadow')
+		self.theme.render(ctx_back,'clock-face')
 		# override text with date?
 		if self.show_date == True:
 			#today = self.__time.strftime("%d/%m/%Y")
@@ -286,7 +286,7 @@ class ClockScreenlet (Screenlet):
 			ctx_back.fill()
 			ctx_back.restore()
 			del p_layout
-		self.theme['clock-marks.svg'].render_cairo(ctx_back)
+		self.theme.render(ctx_back,'clock-marks')
 	
 	def start_alarm (self):
 		"""Start the alarm-animation."""
@@ -382,7 +382,7 @@ class ClockScreenlet (Screenlet):
 		ctx.rotate(-math.pi/2.0)
 		ctx.scale(ctx_w, ctx_h)
 		ctx.rotate ((math.pi/hf) * hours + (math.pi/hr) * minutes)
-		self.theme['clock-hour-hand-shadow.svg'].render_cairo(ctx)
+		self.theme.render(ctx,'clock-hour-hand-shadow')
 		ctx.restore()
 		# render hour-hand
 		ctx.save()
@@ -390,7 +390,7 @@ class ClockScreenlet (Screenlet):
 		ctx.rotate(-math.pi/2.0)
 		ctx.scale(ctx_w, ctx_h)
 		ctx.rotate ((math.pi/hf) * hours + (math.pi/hr) * minutes)
-		self.theme['clock-hour-hand.svg'].render_cairo(ctx)
+		self.theme.render(ctx,'clock-hour-hand')
 		ctx.restore()
 		# render minutes-hand-shadow
 		ctx.save()
@@ -398,7 +398,7 @@ class ClockScreenlet (Screenlet):
 		ctx.rotate(-math.pi/2.0)
 		ctx.scale(ctx_w, ctx_h)
 		ctx.rotate((math.pi/30.0) * minutes)
-		self.theme['clock-minute-hand-shadow.svg'].render_cairo(ctx)
+		self.theme.render(ctx,'clock-minute-hand-shadow')
 		ctx.restore()
 		# render minutes-hand
 		ctx.save()
@@ -406,7 +406,7 @@ class ClockScreenlet (Screenlet):
 		ctx.rotate(-math.pi/2.0)
 		ctx.scale(ctx_w, ctx_h)
 		ctx.rotate((math.pi/30.0) * minutes)
-		self.theme['clock-minute-hand.svg'].render_cairo(ctx)
+		self.theme.render(ctx,'clock-minute-hand')
 		ctx.restore()
 		# render seconds-hand
 		if self.show_seconds_hand:
@@ -418,9 +418,9 @@ class ClockScreenlet (Screenlet):
 			ctx.rotate((math.pi/30.0) * seconds)
 			ctx.translate(-shadow_offset_x, -shadow_offset_y)
 			ctx.set_operator(cairo.OPERATOR_OVER)
-			self.theme['clock-second-hand-shadow.svg'].render_cairo(ctx)
+			self.theme.render(ctx,'clock-second-hand-shadow')
 			ctx.translate(shadow_offset_x, shadow_offset_y)
-			self.theme['clock-second-hand.svg'].render_cairo(ctx)
+			self.theme.render(ctx,'clock-second-hand')
 			ctx.restore()
 		# render foreground-buffer to context
 		if self.__buffer_fore:

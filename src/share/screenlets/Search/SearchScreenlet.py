@@ -14,7 +14,7 @@
 
 
 import screenlets
-from screenlets.options import StringOption
+from screenlets.options import StringOption, ColorOption
 import cairo
 import pango
 import gtk
@@ -53,15 +53,15 @@ class SearchScreenlet(screenlets.Screenlet):
 	__engine = __engines[2]
 	__has_focus = False
 	__query = ''
-
+	frame_color = (0, 0, 0, 0.7)
 	# editable options
 	# the name, i.e., __title__ of the active converter
 	engine = 'Google'
-
+	p_layout = None
 	# constructor
 	def __init__(self, **keyword_args):
 		#call super
-		screenlets.Screenlet.__init__(self, width=200, height=40, 
+		screenlets.Screenlet.__init__(self, width=201, height=40, 
 				**keyword_args)
 		# set theme
 		self.theme_name = "default"
@@ -71,6 +71,9 @@ class SearchScreenlet(screenlets.Screenlet):
 		self.add_option(StringOption('Engine', 'engine', self.engine,
 			'TorrentSearch engine', 'TorrentSearch engine',
 			choices = [dictitem["name"] for dictitem in self.__engines]))
+		self.add_option(ColorOption('Engine','frame_color', 
+			self.frame_color, 'Frame color', 
+			'Frame color'))
 		# connect additional event handlers
 		# self.window.connect('key-press-event', self.key_press)
 		# initialize default converter
@@ -155,7 +158,10 @@ class SearchScreenlet(screenlets.Screenlet):
 		# set scale relative to scale-attribute
 		ctx.scale(self.scale, self.scale)
 		# render background
-		self.theme['background.svg'].render_cairo(ctx)
+		if self.theme:
+			ctx.set_source_rgba(*self.frame_color)
+			if self.theme_name == 'default':self.draw_rounded_rectangle(ctx,0,0,8,200,40)
+			self.theme.render(ctx,'background')
 		# compute space between fields
 		n = 1
 		m = 10
@@ -170,40 +176,39 @@ class SearchScreenlet(screenlets.Screenlet):
 		ctx.translate(50, m)
 		for i in range(n):
 			if self.__has_focus:
-				self.theme['fieldh.svg'].render_cairo(ctx)
+				self.theme.render(ctx,'fieldh')
 				# cursor: disabled - it looks weird
-				ctx.rectangle(185, 3, 2, 16)
-				ctx.fill()
+			#	ctx.rectangle(185, 3, 2, 16)
+			#	ctx.fill()
 			else:
-				self.theme['field.svg'].render_cairo(ctx)
+				self.theme.render(ctx,'field')
 			ctx.translate(0, m + 20)
 		ctx.restore()
 		# render field names
 		# ctx.save()
-		p_layout = ctx.create_layout()
+		ctx.set_source_rgba(0,0,0,1)
+		if self.p_layout == None :
+	
+			self.p_layout = ctx.create_layout()
+		else:
+		
+			ctx.update_layout(self.p_layout)
 		p_fdesc = pango.FontDescription()
 		p_fdesc.set_family_static("Free Sans")
 		p_fdesc.set_size(11 * pango.SCALE)
-		p_layout.set_font_description(p_fdesc)
-		p_layout.set_width(40 * pango.SCALE)
-		# ctx.translate(10, m + 3)
-		# ctx.set_source_rgba(0, 0, 0, 1)
-		# for i in range(n):
-		# 	p_layout.set_markup('<b>' 
-		#			+ 'etst' 
-		#			+ '</b>')
-		#	ctx.show_layout(p_layout)
-		#	ctx.translate(0, m + 20)
-		#ctx.restore()
-		# render field values
+		self.p_layout.set_font_description(p_fdesc)
+		self.p_layout.set_width(40 * pango.SCALE)
 		ctx.save()
 		ctx.translate(55, m + 3)
-		p_layout.set_alignment(pango.ALIGN_RIGHT)
-		p_layout.set_width(130 * pango.SCALE)
-		p_layout.set_ellipsize(pango.ELLIPSIZE_START)
+		self.p_layout.set_alignment(pango.ALIGN_RIGHT)
+		self.p_layout.set_width(130 * pango.SCALE)
+		self.p_layout.set_ellipsize(pango.ELLIPSIZE_START)
 		for i in range(n):
-			p_layout.set_markup(self.__query)
-			ctx.show_layout(p_layout)
+			if self.has_focus:
+				self.p_layout.set_markup(self.__query + '_')
+			else:
+				self.p_layout.set_markup(self.__query)
+			ctx.show_layout(self.p_layout)
 			ctx.translate(0, m + 20)
 		ctx.restore()
 		# ...and finally something to cover this all
@@ -213,7 +218,7 @@ class SearchScreenlet(screenlets.Screenlet):
 		if self.theme:
 			ctx.scale(self.scale, self.scale)
 			# the background will serve well
-			self.theme['background.svg'].render_cairo(ctx)
+			self.theme.render(ctx,'background')
 
 	def on_menuitem_select (self, id):
 		"""handle MenuItem-events in right-click menu"""
@@ -233,11 +238,6 @@ class SearchScreenlet(screenlets.Screenlet):
 			self.set_engine(id[9:][:+20])
 			self.redraw_canvas()
 			print  (engine)
-		#elif id[:7] == "engine7":
-		#	screenlets.show_error(self, id[8:][:+10])
-			#engine = 'Mininova'
-		#	self.set_engine(id[6:][:+8] )
-		#	self.redraw_canvas()
 
 # If the program is run directly or passed as an argument to the python
 # interpreter then create a Screenlet instance and show it

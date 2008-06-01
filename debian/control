@@ -16,5 +16,5 @@ Description: Screenlets are small owner-drawn applications (written in Python, a
  rulers, the possibilities are endless. The goal of the Screenlets base-class(es) is to 
  simplify the creation of fully themeable mini-apps that each solve basic desktop-work-related
  needs and generally improve the usability and eye-candy of the modern Linux-desktop.
- The Screenlets baseclass and core screenlets using it were created by RYX (aka Rico Pfaus)
- The Screenlets-New Branch was created by Whise aka Helder Fraga
+ The Screenlets where originaly developed by RYX (aka Rico Pfaus) but now they are developed
+ by Whise aka Helder Fraga

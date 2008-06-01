@@ -342,12 +342,12 @@ class WallpaperClockScreenlet (screenlets.Screenlet):
 		print "Point 1: " +str(time.localtime())
 		self.imagepath = os.environ['HOME'] + '/.screenlets/WallpaperClock/'
 		if self.wall != '':
-			print "Point 1: " +str(datetime.now())
+			#print "Point 1: " +str(datetime.now())
 			try:
 				self.image = Image.open(self.imagepath+'wallpapers/' +self.wall+'/bg.jpg')
 			except:
 				pass
-			print "Point 2: " +str(datetime.now())
+			#print "Point 2: " +str(datetime.now())
 			try:
 				self.image1 = Image.open(self.imagepath+'wallpapers/' +self.wall+'/month'+ self.month+'.png')
 				self.image.paste(self.image1, (0,0), self.image1)

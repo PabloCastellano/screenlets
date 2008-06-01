@@ -1,3 +1,15 @@
+screenlets (0.1.2~bzr410-hardy1-1) hardy; urgency=low
+
+  * Build bzr rev 410
+
+ -- Julien Lavergne <julien.lavergne@gmail.com>  Tue, 27 May 2008 22:50:50 +0000
+
+screenlets (0.1.2~bzr410-gutsy1-1) gutsy; urgency=low
+
+  * Build bzr rev 410
+
+ -- Julien Lavergne <julien.lavergne@gmail.com>  Tue, 27 May 2008 22:50:44 +0000
+
 screenlets (0.0.13-0ubuntu1) gutsy; urgency=low
 
   * Inital release.

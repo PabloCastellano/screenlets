@@ -173,8 +173,9 @@ class SlideshowScreenlet (screenlets.Screenlet):
 	 if self.engine1 == 'Flickr':
 		imgs = []
 		a = Flickr.Flickr()
-		imgs = a.get_image_list(self.flickrurl)
-		
+		try:
+			imgs = a.get_image_list(self.flickrurl)
+		except:return ''
 		choice = random.choice(imgs) 
 		self.url = a.url_list[str(choice)]
 		self.img_name =  self.home + "/slide.jpg"

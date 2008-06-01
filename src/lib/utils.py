@@ -231,7 +231,9 @@ def get_screenlet_metadata (screenlet_name):
 		info = getBetween(sldata,'__desc__','\n')
 		info1 = getBetween(info ,"'","'")
 		if info1.find(' = ') != -1: info1 = getBetween(info ,chr(34),chr(34))
-		if info1.find('_doc_') != -1: info1 = getBetween(sldata ,chr(34) +chr(34)+chr(34),chr(34)+chr(34)+chr(34))
+		if info1.find('_doc_') != -1: 
+			info1 = getBetween(sldata ,'class ' + classname,'__name__')		
+			info1 = getBetween(info1 ,chr(34) +chr(34)+chr(34),chr(34)+chr(34)+chr(34))
 		author = getBetween(sldata,'__author__','\n')
 		author1 = getBetween(author ,"'","'")
 		if author1.find(' = ') != -1: author1 = getBetween(author ,chr(34),chr(34))
@@ -276,7 +278,7 @@ def list_available_screenlets ():
 					if not sls.count(name):
 						sls.append(name)
 				else:
-					print _("LISTED PATH NOT EXISTS: ") + path
+					pass
 		except OSError: # Raised by os.listdir: the directory doesn't exist
 			pass
 	return sls

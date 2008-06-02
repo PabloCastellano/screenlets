@@ -5,7 +5,7 @@
 # the terms and conditions of this license. 
 # Thank you for using free software!
 
-# Amarok API by vrunner
+# Amarok API by Whise and vrunner
 
 import os
 import string
@@ -22,7 +22,7 @@ import commands
 class AmarokAPI(GenericAPI):
 	__name__ = 'Amarok API'
 	__version__ = '0.0'
-	__author__ = 'vrunner'
+	__author__ = 'Whise and vrunner'
 	__desc__ = 'Amarok API to a Music Player'
 
 	playerAPI = None

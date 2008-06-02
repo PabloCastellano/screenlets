@@ -38,6 +38,7 @@ class CalendarScreenlet (screenlets.Screenlet):
 	f = "FreeSans 9"
 	show_options = 'Both'
 	show_options_choices = ['Month view','Day view','Both']
+	background_color = (0,0,0, 0.8)
 
 	# constructor
 	def __init__(self, **keyword_args):
@@ -55,6 +56,8 @@ class CalendarScreenlet (screenlets.Screenlet):
 		self.add_option(StringOption('Calendar', 'show_options', 
 			self.show_options, 'View type', 
 			'show_options',choices = self.show_options_choices), realtime=False)
+		self.add_option(ColorOption('Calendar','background_color', 
+			self.background_color, 'Back color(only with default theme)', 'only works with default theme'))
 		self.add_option(ColorOption('Calendar','font_color', 
 			self.font_color, 'Text color', 'font_color'))
 		self.add_option(ColorOption('Calendar','today_color', 
@@ -133,7 +136,7 @@ class CalendarScreenlet (screenlets.Screenlet):
 	def draw_header (self, ctx, pl):
 		ctx.save()
 		tso = self.text_shadow_offset
-		ctx.translate(5,24)
+		ctx.translate(5,22)
 		for i in range(7):
 
 			ctx.set_source_rgba(0, 0, 0, 0.3)
@@ -240,7 +243,8 @@ class CalendarScreenlet (screenlets.Screenlet):
 			ctx.update_layout(self.p_layout1)
 		if self.theme:
 			# render bg
-
+			ctx.set_source_rgba(*self.background_color)
+			if self.theme_name == 'ryx':self.draw_rounded_rectangle(ctx,0.3,9.5,14,126,128)
 			self.theme.render(ctx, 'calendar')
 			# create layout
 			if self.show_options == 'Both':

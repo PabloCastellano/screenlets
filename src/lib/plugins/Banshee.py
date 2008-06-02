@@ -6,26 +6,24 @@
 # Thank you for using free software!
 
 
-# Banshee API by vrunner
+# Banshee API by Whise and vrunner
 
 import os
 import dbus
 import string
 import gobject
+import urllib
 from GenericPlayer import GenericAPI
 
 class BansheeAPI(GenericAPI):
 	__name__ = 'Banshee API'
 	__version__ = '0.0'
-	__author__ = 'vrunner'
+	__author__ = 'Whise and vrunner'
 	__desc__ = 'API to the Banshee Music Player'
 
 	ns = "org.gnome.Banshee"
 	iroot = "/org/gnome/Banshee/Player"
 	iface = "org.gnome.Banshee.Core"
-#	ns = "org.bansheeproject.Banshee"
-#	iroot = "/org/bansheeproject/Banshee/PlayerEngine"
-#	iface = "org.bansheeproject.Banshee.PlayerEngine"
 	playerAPI = None
 
 	__timeout = None
@@ -41,37 +39,78 @@ class BansheeAPI(GenericAPI):
 
 	def is_active(self, dbus_iface):
 		if self.ns in dbus_iface.ListNames(): return True
-		else: return False
+		else: 
+			self.ns = "org.bansheeproject.Banshee"
+			self.iroot = "/org/bansheeproject/Banshee/PlayerEngine"
+			self.iface = "org.bansheeproject.Banshee.PlayerEngine"
+			if self.ns in dbus_iface.ListNames(): return True
+			else:return False
 
 	def connect(self):
 		proxy_obj = self.session_bus.get_object(self.ns, self.iroot)
 		self.playerAPI = dbus.Interface(proxy_obj, self.iface)
 
 	def get_title(self):
-		return self.playerAPI.GetPlayingTitle()
+		try:
+			return self.playerAPI.GetPlayingTitle()
+			
+		except:
+			return self.playerAPI.GetCurrentTrack()['name']
 	
 	def get_album(self):
-		return self.playerAPI.GetPlayingAlbum()
+		try:
+			return self.playerAPI.GetPlayingAlbum()
+			
+		except:
+			return self.playerAPI.GetCurrentTrack()['album']
 
 	def get_artist(self):
-		return self.playerAPI.GetPlayingArtist()
+		try:
+			return self.playerAPI.GetPlayingArtist()
+			
+		except:
+			return self.playerAPI.GetCurrentTrack()['artist']
 
 	def get_cover_path(self):
-		return self.playerAPI.GetPlayingCoverUri()
+		try:
+			return self.playerAPI.GetPlayingCoverUri()
+		except:
+			
+			t = self.playerAPI.GetCurrentUri().replace('file://','')
+			t = urllib.unquote(unicode.encode(t, 'utf-8'))
+			t = t.split('/')
+			basePath = ''
+			for l in t:
+				if l.find('.') == -1:
+					basePath = basePath + l +'/'
+
+			names = ['Album', 'Cover', 'Folde']
+			for x in os.listdir(basePath):
+				if os.path.splitext(x)[1] in [".jpg", ".png"] and (x.capitalize()[:5] in names):
+					coverFile = basePath + x
+					return coverFile
 
 	def is_playing(self):
-		#print self.playerAPI.GetPlayingStatus()
-		if self.playerAPI.GetPlayingStatus() == 1: return True
-		else: return False
+		try:
+			if self.playerAPI.GetPlayingStatus() == 1: return True
+			else: return False
+		except:
+			if self.playerAPI.GetCurrentState() == 'playing':return True
+			else: return False
+
 
 	def play_pause(self):
 		self.playerAPI.TogglePlaying()
 
 	def next(self):
-		self.playerAPI.Next()
+		try:
+			self.playerAPI.Next()
+		except: os.system(' banshee-1 --next &')
 
 	def previous(self):
-		self.playerAPI.Previous()
+		try:
+			self.playerAPI.Previous()
+		except: os.system(' banshee-1 --previous &')
 
 	def register_change_callback(self, fn):
 		self.callback_fn = fn
@@ -88,8 +127,10 @@ class BansheeAPI(GenericAPI):
 			if self.__curplaying != None and not self.is_playing():
 				self.__curplaying = None
 				self.callback_fn()
-
-			playinguri = self.playerAPI.GetPlayingUri()
+			try:
+				playinguri = self.playerAPI.GetPlayingUri()
+			except:
+				playinguri = self.playerAPI.GetCurrentUri()
 			if self.is_playing() and self.__curplaying != playinguri:
 				self.__curplaying = playinguri
 				self.callback_fn()

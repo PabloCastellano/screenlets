@@ -18,7 +18,7 @@ import pango
 import subprocess
 import re
 import gobject
-
+import gtk
 
 class DiskusageScreenlet(screenlets.Screenlet):
 	"""A Diskusage Screenlet by Helder Fraga based on Jonathan Rauprich Disk screenlet."""
@@ -39,6 +39,7 @@ class DiskusageScreenlet(screenlets.Screenlet):
 	font_color = (1,1,1, 0.8)
 	background_color = (0,0,0, 0.1)
 	red_bar = True
+	use_gtk = False
 	# constructor
 	def __init__(self, **keyword_args):
 		#call super
@@ -65,6 +66,9 @@ class DiskusageScreenlet(screenlets.Screenlet):
 		self.add_option(BoolOption('Disk-Usage','red_bar', 
 			self.red_bar, 'Show red bar on 90 percent', 
 			'red_bar'))	
+		self.add_option(BoolOption('Disk-Usage','use_gtk', 
+			self.use_gtk, 'Use gtk icon theme', 
+			'use_gtk'))
 		# init the timeout function
 		self.update_interval = self.update_interval
 		
@@ -161,9 +165,16 @@ class DiskusageScreenlet(screenlets.Screenlet):
 			else:
 				self.theme.render(ctx,'blue')
 			ctx.restore()
-			
-			
-			self.theme.render(ctx, 'drive2')
+			self.gtk = True
+			if self.use_gtk:
+				try:
+					ico = 'drive-harddisk'
+					icontheme = gtk.icon_theme_get_default()
+					image = icontheme.load_icon (ico,56,56)
+					self.draw_icon(ctx,0,0,ico,56,48)
+				except:self.theme.render(ctx, 'drive2')
+			else:
+				self.theme.render(ctx, 'drive2')
 		
 	def on_draw_shape(self,ctx):
 		self.draw_rounded_rectangle(ctx,20,0,8,200,50)

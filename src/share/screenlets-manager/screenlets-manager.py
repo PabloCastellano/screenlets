@@ -843,7 +843,7 @@ class ScreenletsManager:
 		elif id == 'theme':
 			self.show_install_theme_dialog()
 		elif id == 'prop':
-			sekf.show_options_ui()
+			self.show_options_ui()
 		elif id == 'desktop_shortcut':
 			info = self.get_selection()
 			name = info.name

@@ -78,7 +78,7 @@ class WallpaperClockScreenlet (screenlets.Screenlet):
 	p_layout = None
 	home = getoutput("echo $HOME")
 	xfce_workarround = False
-	wall_sel = os.listdir(mypath + 'wallpapers')
+	wall_sel = os.listdir(os.environ['HOME'] + '/.screenlets/WallpaperClock/' + 'wallpapers')
 	imagepath = os.environ['HOME'] + '/.screenlets/WallpaperClock/'
 	if not os.path.exists(os.environ['HOME'] + '/.screenlets/WallpaperClock'):
 		os.system('mkdir ' + os.environ['HOME'] + '/.screenlets/WallpaperClock')
@@ -408,15 +408,23 @@ class WallpaperClockScreenlet (screenlets.Screenlet):
 			print "Point 3: " +str(datetime.now())
 			try:
 				# This is a slow operation!!!
-				self.image.save (self.imagepath + '/wallpaper.png')
+				self.image.save (self.imagepath + 'wallpaper.png')
 				if self.black_workarround:
-					os.system ("mv -f "+self.imagepath+"/wallpaper.working.png "+ self.imagepath + '/wallpaper.png')
+					os.system ("mv -f "+self.imagepath+"wallpaper.working.png "+ self.imagepath + 'wallpaper.png')
 			except:
 				pass
 			print "Point 4: " +str(datetime.now())
 			if self.xfce_workarround:os.system ("killall -USR1 xfdesktop &")
+	#		try:
+	#			import gconf
+	#			gconf_client = gconf.client_get_default() 
+	#			gconf_client.set_string('/desktop/gnome/background/picture_filename',self.imagepath + 'wallpaper.png') 
+	#			gconf_client.set_string('/desktop/gnome/background/picture_options', self.gnome_wallpaper_option) 
+	#			gconf_client.set_bool('/desktop/gnome/background/draw_background', False) 
+	#			gconf_client.set_bool('/desktop/gnome/background/draw_background', True) 
+	#		except:
 			try:
-				os.system("gconftool-2 -t string -s /desktop/gnome/background/picture_filename " + self.imagepath + '/wallpaper.png')
+				os.system("gconftool-2 -t string -s /desktop/gnome/background/picture_filename " + self.imagepath + 'wallpaper.png')
 				os.system("gconftool-2 -t string -s /desktop/gnome/background/picture_options " + self.gnome_wallpaper_option)
 				os.system("gconftool-2 -t bool -s /desktop/gnome/background/draw_background False")
 				os.system("gconftool-2 -t bool -s /desktop/gnome/background/draw_background True")
@@ -427,7 +435,7 @@ class WallpaperClockScreenlet (screenlets.Screenlet):
 					kde_wall = 6
 				else:
 					kde_wall = 7
-				os.system("/usr/bin/dcop kdesktop KBackgroundIface setWallpaper " + self.imagepath + "/wallpaper.png " + kde_wall)
+				os.system("/usr/bin/dcop kdesktop KBackgroundIface setWallpaper " + self.imagepath + "wallpaper.png " + kde_wall)
 			except:
 				pass
 			self.image = None

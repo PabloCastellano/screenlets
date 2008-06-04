@@ -173,7 +173,7 @@ class ConvertScreenlet(screenlets.Screenlet):
 		ctx.scale(self.scale, self.scale)
 		# render background
 		ctx.set_source_rgba(*self.background_color)
-		if self.theme_name == 'default':self.draw_rounded_rectangle(ctx,0,0,10,200,100)
+		if self.theme_name == 'default':self.draw_rounded_rectangle(ctx,0,0,11,200,100)
 		self.theme.render(ctx,'convert-bg')
 		ctx.set_source_rgba(0, 0, 0, 1)
 		# compute space between fields

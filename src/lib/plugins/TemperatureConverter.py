@@ -1,6 +1,6 @@
 # coding=UTF-8
 
-from ConvertScreenlet import Converter
+from Convert import Converter
 
 class TemperatureConverter(Converter):
 	"""A converter which converts temperature between Fahrenheit and Celsius."""

@@ -1,4 +1,4 @@
-from ConvertScreenlet import RatioConverter
+from Convert import RatioConverter
 
 # This is an example use of the RatioConverter superclass. See also
 # the documentation of Converter and RatioConverter in ConvertScreenlet.py, for 

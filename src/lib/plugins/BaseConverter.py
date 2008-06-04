@@ -1,4 +1,4 @@
-from ConvertScreenlet import Converter
+from Convert import Converter
 
 # An example of writing a (rather advanced) converter module. Please see also 
 # the documentation of the converter class if you haven't done so.

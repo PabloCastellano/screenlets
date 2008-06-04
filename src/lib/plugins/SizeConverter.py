@@ -1,4 +1,4 @@
-from ConvertScreenlet import RatioConverter
+from Convert import RatioConverter
 
 class SizeConverter(RatioConverter):
 	"""A converter which converts sizes between B, kB, MB and GB."""

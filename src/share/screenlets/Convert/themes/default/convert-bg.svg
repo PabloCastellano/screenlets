@@ -2,7 +2,7 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:cc="http://creativecommons.org/ns#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
@@ -14,7 +14,7 @@
    id="svg2"
    inkscape:label="Pozadí"
    sodipodi:version="0.32"
-   inkscape:version="0.45"
+   inkscape:version="0.46"
    version="1.0"
    sodipodi:docname="convert-bg.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape"
@@ -22,18 +22,25 @@
    sodipodi:modified="true">
   <defs
      id="defs12977">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 50 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="200 : 50 : 1"
+       inkscape:persp3d-origin="100 : 33.333333 : 1"
+       id="perspective17" />
     <linearGradient
        id="linearGradient6952">
       <stop
-         style="stop-color:#555555;stop-opacity:1;"
+         style="stop-color:#555555;stop-opacity:0.5151515;"
          offset="0"
          id="stop6954" />
       <stop
          id="stop12905"
          offset="0.82692307"
-         style="stop-color:#383838;stop-opacity:1;" />
+         style="stop-color:#383838;stop-opacity:0.71212119;" />
       <stop
-         style="stop-color:#2b2b2b;stop-opacity:1;"
+         style="stop-color:#2b2b2b;stop-opacity:0.63636363;"
          offset="1"
          id="stop6956" />
     </linearGradient>
@@ -77,16 +84,16 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="36.816635"
+     inkscape:cx="98.706564"
      inkscape:cy="97.859299"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      height="100px"
      width="200px"
      inkscape:window-width="778"
-     inkscape:window-height="586"
-     inkscape:window-x="5"
-     inkscape:window-y="23"
+     inkscape:window-height="597"
+     inkscape:window-x="13"
+     inkscape:window-y="49"
      inkscape:grid-points="false"
      gridtolerance="34.1"
      showgrid="true" />

@@ -18,7 +18,7 @@
 # - more conversions - ideas?
 
 import screenlets
-from screenlets.options import StringOption
+from screenlets.options import StringOption, ColorOption
 from screenlets import Plugins
 import cairo
 import pango
@@ -45,7 +45,7 @@ class ConvertScreenlet(screenlets.Screenlet):
 	# editable options
 	# the name, i.e., __title__ of the active converter
 	converter = ''
-		
+	background_color = (0,0,0, 0.8)
 	# constructor
 	def __init__(self, **keyword_args):
 		#call super
@@ -82,6 +82,9 @@ class ConvertScreenlet(screenlets.Screenlet):
 		self.add_option(StringOption('Converter', 'converter', self.converter,
 			'Convert engine', 'Active convert engine',
 			choices = [classobj.__title__ for classobj in self.__conv_list]))
+		self.add_option(ColorOption('Converter','background_color', 
+			self.background_color, 'Back color(only with default theme)', 'only works with default theme'))
+	
 		# connect additional event handlers
 		# initialize default converter
 		self.set_converter('BaseConverter')
@@ -169,7 +172,10 @@ class ConvertScreenlet(screenlets.Screenlet):
 		# set scale relative to scale-attribute
 		ctx.scale(self.scale, self.scale)
 		# render background
+		ctx.set_source_rgba(*self.background_color)
+		if self.theme_name == 'default':self.draw_rounded_rectangle(ctx,0,0,10,200,100)
 		self.theme.render(ctx,'convert-bg')
+		ctx.set_source_rgba(0, 0, 0, 1)
 		# compute space between fields
 		n = self.__converter.num_fields
 		m = (100 - 20*n) / (n + 1)

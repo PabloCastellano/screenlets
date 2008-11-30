@@ -7,7 +7,7 @@
 # the terms and conditions of this license. 
 # Thank you for using free software!
 
-#  CalendarScreenlet (c) RYX 2007 Whise 2008
+#  CalendarScreenlet (c)  Whise 2008 original by RYX
 #
 # INFO:
 # - 
@@ -20,23 +20,25 @@ import datetime
 import locale
 from screenlets.options import ColorOption
 
+import commands
+
 class CalendarScreenlet (screenlets.Screenlet):
 	"""A simple Calendar Screenlet."""
 	
 	# default meta-info for Screenlets
 	__name__	= 'CalendarScreenlet'
 	__version__	= '0.3'
-	__author__	= 'RYX modified by Whise'
+	__author__	= ' Whise aka helder Fraga original version by RYX'
 	__desc__	= __doc__
 
-
-	p_layout = None
+	p_layout1 = None
 	font_color = (1,1,1, 0.8)
 	__day_names = None
+	f = "FreeSans 9"
 	# constructor
 	def __init__(self, **keyword_args):
 		# call super
-		screenlets.Screenlet.__init__(self, uses_theme=True, **keyword_args)
+		screenlets.Screenlet.__init__(self, uses_theme=True,width=130,height=141, **keyword_args)
 		# set some options
 		self.text_shadow_offset = 0.666
 		# set theme
@@ -88,7 +90,7 @@ class CalendarScreenlet (screenlets.Screenlet):
 	
 	def draw_year_and_month (self, ctx, pl, year, month):
 		ctx.save()
-		ctx.translate(5 + self.text_shadow_offset, 5 + self.text_shadow_offset)
+		ctx.translate(5 + self.text_shadow_offset, 7 + self.text_shadow_offset)
 		# draw the month
 		pl.set_width((self.width) * pango.SCALE)
 		pl.set_markup('<b>' + month + '</b>')
@@ -98,7 +100,7 @@ class CalendarScreenlet (screenlets.Screenlet):
 		ctx.set_source_rgba(*self.font_color)
 		ctx.show_layout(pl)
 		# draw the year
-		ctx.translate(70 + self.text_shadow_offset, self.text_shadow_offset)
+		ctx.translate(90 + self.text_shadow_offset, self.text_shadow_offset)
 		pl.set_markup('<b>' + year + '</b>')
 		ctx.set_source_rgba(0, 0, 0, 0.3)
 		ctx.show_layout(pl)
@@ -109,11 +111,17 @@ class CalendarScreenlet (screenlets.Screenlet):
 	
 	def draw_header (self, ctx, pl):
 		ctx.save()
-		ctx.set_source_rgba(*self.font_color)
+		tso = self.text_shadow_offset
 		ctx.translate(5,0)
 		for i in range(7):
-			self.draw_text(ctx, self.__day_names[i][:2] , 0, 17, 'FreeSans',6, self.width , pango.ALIGN_LEFT)
-			ctx.translate(13,0)
+
+			ctx.set_source_rgba(0, 0, 0, 0.3)
+			ctx.translate(tso, tso)
+			self.draw_text(ctx, self.__day_names[i][:2] , 3, 24, 'FreeSans',9, self.width , pango.ALIGN_LEFT)
+			ctx.translate(-tso, -tso)
+			ctx.set_source_rgba(*self.font_color)
+			self.draw_text(ctx, self.__day_names[i][:2] , 3, 24, 'FreeSans',9, self.width , pango.ALIGN_LEFT)
+			ctx.translate(16,0)
 		ctx.restore()
 
 	
@@ -124,7 +132,7 @@ class CalendarScreenlet (screenlets.Screenlet):
 		tso = self.text_shadow_offset
 		for x in range(date[4] + 1):
 			ctx.save()
-			ctx.translate(4 + (day-1) * 13 + tso, 30 + 12 * (row - 1) + tso)
+			ctx.translate(6 + (day-1) * 16 + tso, 36 + 16 * (row - 1) + tso)
 			if str(int(x)+1) == str(date[0]) or \
 				"0" + str(int(x)+1) == str(date[0]):
 				ctx.save()
@@ -160,32 +168,43 @@ class CalendarScreenlet (screenlets.Screenlet):
 		ctx.scale(self.scale, self.scale)
 		# draw bg (if theme available)
 		ctx.set_operator(cairo.OPERATOR_OVER)
-		if self.p_layout == None :
+		if self.p_layout1 == None :
 	
-			self.p_layout = ctx.create_layout()
+			self.p_layout1 = ctx.create_layout()
 		else:
 		
-			ctx.update_layout(self.p_layout)
+			ctx.update_layout(self.p_layout1)
 		if self.theme:
 			# render bg
+
 			self.theme.render(ctx, 'calendar-bg')
 			# create layout
 			if self.mouse_is_over:
-				self.p_layout = ctx.create_layout()
-				p_fdesc = pango.FontDescription("FreeSans 5")
-				self.p_layout.set_font_description(p_fdesc)
+				ctx.save()
+
+				ctx.translate(0,7)
+
+				self.p_layout1 = ctx.create_layout()
+				p_fdesc = pango.FontDescription("FreeSans 9")
+				self.p_layout1.set_font_description(p_fdesc)
 
 				# draw year/month
-				self.draw_year_and_month(ctx, self.p_layout, date[2], date[3])
+				self.draw_year_and_month(ctx, self.p_layout1, date[2], date[3])
 				# draw header
-				self.draw_header(ctx, self.p_layout)
+				self.draw_header(ctx, self.p_layout1)
 				# draw days
-				self.draw_days(ctx, self.p_layout, date)
+				self.draw_days(ctx, self.p_layout1, date)
+				ctx.restore()
+				ctx.scale(self.scale, self.scale)
 			else:
+
 				ctx.set_source_rgba(*self.font_color)
+
 				#self.draw_text(ctx, str(date[3]) , 0, 5, 'FreeSans', 10, self.width , pango.ALIGN_CENTER)
-				self.draw_text(ctx, date[0] , 0, 12, 'FreeSans', 55, self.width , pango.ALIGN_CENTER)
-				self.draw_text(ctx, str(date[3])+ ' ' + str(date[2]) , 0, 78, 'FreeSans', 10, self.width , pango.ALIGN_CENTER)
+				self.draw_text(ctx, date[0] , 0, 38, 'FreeSans', 60, self.width , pango.ALIGN_CENTER)
+				self.draw_text(ctx, str(date[3])+ ' ' + str(date[2]) , 0, 20, 'FreeSans', 10, self.width , pango.ALIGN_CENTER)
+				o = commands.getoutput('date +%A')
+				self.draw_text(ctx, o, 0, 118, 'FreeSans', 10, self.width , pango.ALIGN_CENTER)
 		
 	def on_draw_shape(self,ctx):
 		ctx.scale(self.scale, self.scale)

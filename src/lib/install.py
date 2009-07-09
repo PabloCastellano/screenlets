@@ -4,9 +4,10 @@
 # By using, editing and/or distributing this software you agree to 
 # the terms and conditions of this license. 
 # Thank you for using free software!
-
-#  screenlets.install (c) Whise (Helder Fraga) 2008 <helder.fraga@hotmail.com>
-
+#
+#  screenlets.install (c) RYX (Rico Pfaus 2007) <ryx@ryxperience.com>,
+#  Whise (Helder Fraga) 2008 <helder.fraga@hotmail.com>
+#
 
 import screenlets
 from screenlets import utils

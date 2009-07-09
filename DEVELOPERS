@@ -1,6 +1,9 @@
 #-------------------------------------------------------------------------------
-#  Screenlets - (c) 2008 by Whise (Helder Fraga) <helder.fraga@hotmail.com>
-#  Original author RYX (aka Rico Pfaus) <ryx@ryxperience.com> 
+# Screenlets - (c) 2007-2009 by RYX (aka Rico Pfaus) <ryx@ryxperience.com> 
+#
+# with contributions by:
+# - Whise (Helder Fraga) <helder.fraga@hotmail.com>
+#
 #-------------------------------------------------------------------------------
 
 ==Developers==
@@ -25,7 +28,7 @@ The screenlets' sourcecode is hosted on [https://launchpad.net/screenlets launch
 Screenlets can be controled using builtin variables , for example , if you want to set the scale of the screenlet just do self.scale = 1,2 , or move it self.x = 10 , this will put the screenlet in x = 10 , this also aplys for scale , width , height etc , you can find all this in the api.
 
 ====Drawing====
-Screenlets are usualy drawn using cairo , but you can also use gtk to add gtk widgets to it , however gtk widgets wont resize the way cairo does , so you need to resize the gtk widgets manually , this may be done using a gtk.Box and setting a border width , then in on_scale event set the border you want
+Screenlets are usually drawn using cairo , but you can also use gtk to add gtk widgets to it , however gtk widgets wont resize the way cairo does , so you need to resize the gtk widgets manually , this may be done using a gtk.Box and setting a border width , then in on_scale event set the border you want
 
 ====Theming====
 Screenlets themes are very costumizable , you can choose to develop a screenlet themes in 3 diferent ways.

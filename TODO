@@ -4,12 +4,19 @@
 
 + TODO: core
 ------------
+- move some screenlets-related functions from utils module to __init__.py
+- move ShapedWidget and Tooltip classes out of __init__.py
+- review Screenlet.register_service, looks a bit messy
 - add __api_version__ attribute to Screenlet for performing version checks
 - check if switching themes still slowly increases the memory usage
 - check if scaling still slowly increases the memory usage 
 - check if fileoption and directoryoption still need to be fixed
+- create some better looking buttons toolbar with some more appealing effects
+  (maybe as different window that also uses sprite.py and fades in/out slowly
+  once a screenlet gets hovered; should solve several issues with current way
+  of drawing buttons into the screenlet itself)
 - merge Martin Owen's rework of the screenlets option system into trunk
-- add new sprite-based theme API
+- add/use new sprite-based drawing API in sprite.py (once finished)
 - improve config files: use XML files for new theme API (and use HTMLParser 
   class for reading those files)
 - use python-webkitgtk bindings for all HTML-based widget rendering and remove

@@ -863,7 +863,7 @@ class ScreenletsManager(object):
 				elif os.path.exists('%s/icon.png' % path):
 					code.append('Icon=%s/icon.png' % path)
 				code.append('Type=Application')
-				code.append('Exec= python -u %s/%sScreenlet.py' % (path, name))
+				code.append('Exec= python -u %s/%sScreenlet.py > /dev/null' % (path, name))
 				code.append('X-GNOME-Autostart-enabled=true')
 				#print code
 				f = open(starter, 'w')

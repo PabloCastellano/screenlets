@@ -58,7 +58,7 @@ class TomboyScreenlet (screenlets.Screenlet):
 	if os.environ.has_key("TOMBOY_PATH"):
 		note_path = os.environ["TOMBOY_PATH"]
 	else:
-		note_path = "~/.tomboy"
+		note_path = "~/.local/share/tomboy"
 	note_path = os.path.expanduser(note_path)
 
 	# constructor

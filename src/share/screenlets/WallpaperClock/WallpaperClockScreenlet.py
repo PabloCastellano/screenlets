@@ -431,6 +431,12 @@ class WallpaperClockScreenlet (screenlets.Screenlet):
 			except:
 				pass
 			try:
+				os.system("xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0/image-path -s "+ self.imagepath + 'wallpaper.png')
+				os.system("xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0/image-show -s true")
+				os.system("xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0/image-style -s 0")
+			except:
+				pass
+			try:
 				if self.gnome_wallpaper_option == 'stretched': 
 					kde_wall = 6
 				else:

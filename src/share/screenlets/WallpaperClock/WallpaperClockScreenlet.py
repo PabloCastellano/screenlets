@@ -78,12 +78,12 @@ class WallpaperClockScreenlet (screenlets.Screenlet):
 	p_layout = None
 	home = getoutput("echo $HOME")
 	xfce_workarround = False
-	wall_sel = os.listdir(os.environ['HOME'] + '/.screenlets/WallpaperClock/' + 'wallpapers')
-	imagepath = os.environ['HOME'] + '/.screenlets/WallpaperClock/'
 	if not os.path.exists(os.environ['HOME'] + '/.screenlets/WallpaperClock'):
 		os.system('mkdir ' + os.environ['HOME'] + '/.screenlets/WallpaperClock')
 	if not os.path.exists(os.environ['HOME'] + '/.screenlets/WallpaperClock/wallpapers'):
 		os.system('mkdir ' + os.environ['HOME'] + '/.screenlets/WallpaperClock/wallpapers')
+	wall_sel = os.listdir(os.environ['HOME'] + '/.screenlets/WallpaperClock/' + 'wallpapers')
+	imagepath = os.environ['HOME'] + '/.screenlets/WallpaperClock/'
 	# --------------------------------------------------------------------------
 	# constructor and internals
 	# --------------------------------------------------------------------------

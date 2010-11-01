@@ -110,7 +110,11 @@ class PlacesScreenlet (screenlets.Screenlet):
 
 
 		
-		self.places =  [(os.environ['HOME'],'Home')]+ [(utils.get_desktop_dir(),'Desktop')] + utils.LoadBookmarks()
+		self.places =  [(os.environ['HOME'], 'Home'),
+						(utils.get_desktop_dir(),'Desktop')]
+		bookmarks = utils.LoadBookmarks()
+		if bookmarks:
+			self.places.extend(bookmarks)
 		#self.mounts = utils.readMountFile('/proc/mounts')
 		
 		if self.height != 20 + (len(self.places)*20) +20:

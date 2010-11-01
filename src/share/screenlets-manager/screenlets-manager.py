@@ -78,7 +78,7 @@ else:
 # /TEST
 
 
-class ScreenletsManager:
+class ScreenletsManager(object):
 	"""The main application class."""
 	
 	daemon_iface = None

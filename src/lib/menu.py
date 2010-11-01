@@ -216,7 +216,7 @@ def read_desktop_file (filename):
 # Classes
 #-----------------------------------------------
 
-class ApplicationMenu:
+class ApplicationMenu(object):
 	"""A utility-class to simplify the creation of gtk.Menus from directories with 
 	desktop-files. Reads all files in one or multiple directories into its internal list 
 	and offers an easy way to create entire categories as complete gtk.Menu 
@@ -287,7 +287,7 @@ class ApplicationMenu:
 		# return menu
 		return menu
 
-class DefaultMenuItem:
+class DefaultMenuItem(object):
 	"""A container with constants for the default menuitems"""
 	
 	# default menuitem constants (is it right to increase like this?)

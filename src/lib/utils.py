@@ -544,7 +544,7 @@ def xdg_open(name):
 # CLASSES
 # ------------------------------------------------------------------------------
 
-class ScreenletInfo:
+class ScreenletInfo(object):
 	"""A container with info about a screenlet."""
 
 	def __init__ (self, name, lname, info, author, version, icon):
@@ -632,7 +632,7 @@ class FileMonitor(gobject.GObject):
 		return False
 
 
-class IniReader:
+class IniReader(object):
 	"""A simple config/ini-reader class. This is only used for reading the 
 	theme.conf files yet, thus it only uses string-values.
 	TODO: add writing-functions and let backend use this, too"""
@@ -709,7 +709,7 @@ class IniReader:
 
 
 
-class Notifier:
+class Notifier(object):
 	"""A simple and conveniet wrapper for the notification-service. Allows
 	screenlets to easily pop up notes with their own icon (if any)."""
 	

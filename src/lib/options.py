@@ -371,7 +371,7 @@ def create_option_from_node (node, groupname):
 	return None
 	
 
-class EditableOptions:
+class EditableOptions(object):
 	"""The EditableOptions can be inherited from to allow objects to export 
 	editable options for editing them with the OptionsEditor-class.
 	NOTE: This could use some improvement and is very poorly coded :) ..."""

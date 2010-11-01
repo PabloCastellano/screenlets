@@ -10,7 +10,7 @@
 import gconf
 
 
-class Proxy:
+class Proxy(object):
 
 	def __init__(self):
 		try:

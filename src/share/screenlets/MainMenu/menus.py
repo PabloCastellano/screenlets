@@ -7,7 +7,7 @@ import gtk
 from gtk import gdk
 import string
 import gmenu
-class MenuDateStore:
+class MenuDateStore(object):
     MENUCORE = gmenu.lookup_tree('applications.menu')
     MENUROOT = MENUCORE.get_root_directory()
     SYSTEMMENUCORE = gmenu.lookup_tree('settings.menu')

@@ -33,7 +33,7 @@ except:
 	print _("GConf python module not found. GConf settings backend is disabled.")
 
 
-class ScreenletsBackend:
+class ScreenletsBackend(object):
 	"""The backend performs the loading/saving of the 'key=value'-strings. 
 	Extend this superclass to implement different saving-backends."""
 	

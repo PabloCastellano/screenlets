@@ -3,7 +3,7 @@
 # file BaseConverter.py. But first, please, read below if a RatioConverter isn't 
 # well suitable for your desired task.
 
-class Converter:
+class Converter(object):
 	"""The base class for the converters. The converters look after maintaining 
 	the list of currently shown values - initialising, accepting keyboard input, 
 	etc.."""

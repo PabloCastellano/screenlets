@@ -45,7 +45,7 @@ import re
 import datetime
 import time
 
-class ICalReader:
+class ICalReader(object):
 	def __init__(self, dataLines = None):
 		'''
 		iCal.ICalReader([dataList])
@@ -215,7 +215,7 @@ class ICalReader:
 			hour = 0
 			minute = 0
 
-class ICalEvent:
+class ICalEvent(object):
 	def __init__(self):
 		self.exceptionDates = []
 		self.dateSet = None
@@ -260,10 +260,10 @@ class ICalEvent:
 	def startTime(self):
 		return self.startDate
 
-#class ICalTodo:
+#class ICalTodo(object):
 
 #strange...
-#class DateParser:
+#class DateParser(object):
 def parse(dateStr):
 	year = int(dateStr[0:4])
 	if year < 1970:
@@ -280,7 +280,7 @@ def parse(dateStr):
 	return datetime.datetime(year, month, day, hour, minute)
 
 
-class DateSet:
+class DateSet(object):
 	def __init__(self, startDate, endDate, rule):
 		self.startDate = startDate
 		self.endDate = endDate

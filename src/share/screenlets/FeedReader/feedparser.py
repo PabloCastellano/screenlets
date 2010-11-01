@@ -284,7 +284,7 @@ def _urljoin(base, uri):
     uri = _urifixer.sub(r'\1\3', uri)
     return urlparse.urljoin(base, uri)
 
-class _FeedParserMixin:
+class _FeedParserMixin(object):
     namespaces = {'': '',
                   'http://backend.userland.com/rss': '',
                   'http://blogs.law.harvard.edu/tech/rss': '',

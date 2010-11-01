@@ -9,7 +9,7 @@ import xml.dom.minidom
 # The Main Skin Class
 # It parses the xml and creates various UI items
 
-class Skin:
+class Skin(object):
 	items = []
 	width = 500
 	height = 200
@@ -110,7 +110,7 @@ class Skin:
 
 
 # A Generic UI Item
-class GenericItem:
+class GenericItem(object):
 	type = ""
 	x = 0
 	y = 0
@@ -407,7 +407,7 @@ class PlayerButton(screenlets.ShapedWidget):
 			ctx.paint()
 
 
-class PlayerControls:
+class PlayerControls(object):
 	type = "playercontrols"
 
 	box = False

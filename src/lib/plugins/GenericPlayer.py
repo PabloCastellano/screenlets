@@ -9,7 +9,7 @@
 # A Generic API to a Music Player by vrunner
 # All Players must extend this class
 
-class GenericAPI:
+class GenericAPI(object):
 	__name__ = 'GenericAPI'
 	__version__ = '0.0'
 	__author__ = 'vrunner'

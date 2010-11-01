@@ -34,7 +34,7 @@ else:
 	DIR_USER		= screenlets.DIR_USER
 	DIR_AUTOSTART = utils.get_autostart_dir()
 
-class ScreenletInstaller:
+class ScreenletInstaller(object):
 	"""A simple utility to install screenlets into the current user's directory 
 	(so either into $HOME/.screenlets/ for normal users or, if run as root, 
 	into screenlets.INSTALL_PREFIX/share/screenlets/)."""

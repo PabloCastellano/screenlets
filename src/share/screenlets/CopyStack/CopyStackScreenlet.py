@@ -383,7 +383,7 @@ class CopyStackScreenlet (screenlets.Screenlet):
 
 
 # TODO: put in screenlets.ui
-class Tooltip:
+class Tooltip(object):
 	"""A window that displays a text and serves as Tooltip (very basic yet)."""
 	
 	# internals
@@ -490,7 +490,7 @@ class Tooltip:
 		ctx.stroke()
 
 
-class Element:
+class Element(object):
 	"""Abstract superclass for an element on the stack."""
 	
 	def __init__ (self, desc, data):

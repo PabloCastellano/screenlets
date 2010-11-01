@@ -11,7 +11,7 @@
 from urllib import urlopen
 import Proxy
 
-class Flickr:
+class Flickr(object):
 
 	url_list = {}
 

@@ -3,7 +3,7 @@ import pygst
 pygst.require("0.10")
 import gst
 
-class gstreamer:
+class gstreamer(object):
 
 	def __init__(self):
 		self.player = gst.element_factory_make("playbin", "player")

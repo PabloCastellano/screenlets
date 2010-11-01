@@ -7,7 +7,7 @@
 
 # pavpanchekha
 
-class KeyRing:
+class KeyRing(object):
     def __init__(self):
         import keyring
         self.keyring = keyring

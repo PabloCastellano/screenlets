@@ -26,7 +26,7 @@ DEFAULT_LOCALE = "en_US"
 ASSOCIATE = "webservices-20"
 
 
-class Bag: pass
+class Bag(object): pass
 
 class AmazonCoverArtSearch (object):
 	def __init__ (self, loader):

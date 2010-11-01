@@ -10,7 +10,7 @@
 
 import gtk, cairo, pango, math
 
-class Drawing:
+class Drawing(object):
 	"""Contains static drawing functions."""
 	
 	# ----------------------------------------------------------------------

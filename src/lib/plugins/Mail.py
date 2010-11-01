@@ -84,14 +84,14 @@ MSG_AUTH_FAILED = """Error on login - invalid login data given? Some hosts
 may block connections for a certain interval before allowing reconnects."""
 
 # the current operational status of the mailcheck
-class MailboxStatus:
+class MailboxStatus(object):
 	UNKNOWN			= 0
 	ALL_READ		= 1
 	UNREAD_MAIL	= 2
 	NEW_MAIL		=	3
 
 # the mailcheck status
-class MailCheckStatus:
+class MailCheckStatus(object):
 	REFRESH		= 1
 	IDLE		= 2
 	ERROR		= 3
@@ -210,7 +210,7 @@ class IMAPBackend(MailCheckBackend):
 			self.thread.join()
 			self.thread = None
 
-class Mailer:
+class Mailer(object):
     """
     Class that retrieve the information from an Imap, Pop or mbox account
 

@@ -19,7 +19,7 @@ import gtk
 
 
 # testing app class
-class TestApp:
+class TestApp(object):
 
 	def __init__ (self):
 		self.win = gtk.Window()

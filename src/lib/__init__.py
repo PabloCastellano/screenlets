@@ -135,7 +135,7 @@ def _(s):
 # CLASSES
 #-------------------------------------------------------------------------------
 
-class DefaultMenuItem:
+class DefaultMenuItem(object):
 	"""A container with constants for the default menuitems"""
 	
 	# default menuitem constants (is it right to increase like this?)
@@ -2081,7 +2081,7 @@ class ShapedWidget (gtk.DrawingArea):
 		del ctx
 		return False
 
-class Tooltip:
+class Tooltip(object):
 	"""A window that displays a text and serves as Tooltip (very basic yet)."""
 	
 	# internals
@@ -2194,7 +2194,7 @@ class Tooltip:
 		ctx.set_source_rgba(0, 0, 0, 0.7)
 		ctx.stroke()
 
-class Notify:
+class Notify(object):
 	"""A window that displays a text and serves as Notification (very basic yet)."""
 	
 	# internals

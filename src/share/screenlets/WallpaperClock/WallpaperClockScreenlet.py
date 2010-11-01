@@ -160,8 +160,8 @@ class WallpaperClockScreenlet (screenlets.Screenlet):
 		tar_opts = '-o'
 	
 		if extension == 'Wcz' or  extension == 'wcz'	or extension == 'WCZ':
-			if not os.path.isdir(self.mypath + '/wallpapers/' + basename):
-				os.mkdir(self.mypath + '/wallpapers/' + basename)
+			if not os.path.exists(os.path.expanduser('~/.screenlets/WallpaperClock/wallpapers')):
+				os.mkdir(os.path.expanduser('~/.screenlets/WallpaperClock/wallpapers'))
 			os.system('unzip %s %s -d %s' % (tar_opts,chr(34) +  filename + chr(34),os.environ['HOME'] + '/.screenlets/WallpaperClock' + '/wallpapers/' + basename))
 			screenlets.show_message(self,"Wallpaper clock  has been succesfully installed. if not please install unzip" )
 			result = True

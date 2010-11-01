@@ -74,8 +74,12 @@ class RhythmboxAPI(GenericAPI):
 
 
 	def is_playing(self):
-		if self.playerAPI.getPlaying() == 1: return True
-		else: return False
+		try:
+			test_playing = self.playerAPI.getPlaying()
+			if self.playerAPI.getPlaying() == 1: return True
+			else: return False
+		except DBusException:
+			return False
 
 	def play_pause(self):
 		if self.is_playing:

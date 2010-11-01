@@ -103,7 +103,11 @@ class ACPIBatteryScreenlet(screenlets.Screenlet):
 				self.__dict__['update_interval'] = 1
 		elif name == "file_auto":
 			if value:
-				dirs=listdir('/proc/acpi/battery/');
+				try:
+					dirs=listdir('/proc/acpi/battery/');
+				except OSError:
+					dirs=[];
+					pass
 				dirs.sort();
 				try:
 					self.__dict__['file_path']='/proc/acpi/battery/'+dirs[0]+'/'

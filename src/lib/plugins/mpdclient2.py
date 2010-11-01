@@ -325,9 +325,10 @@ def connect(**kw):
         password = kw_password
     if kw_host:
         host = kw_host
-
-    conn = mpd_connection(host, port)
-    if password:
-        conn.password(password)
-    return conn
-
+    try:
+        conn = mpd_connection(host, port)
+        if password:
+            conn.password(password)
+        return conn
+    except:
+        return False

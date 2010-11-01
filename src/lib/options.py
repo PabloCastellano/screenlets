@@ -423,6 +423,14 @@ class EditableOptions(object):
 				o.disabled = True
 				return True
 		return False
+
+	def enable_option(self, name):
+		"""Enable the inputs for a certain Option."""
+		for o in self.__options__:
+			if o.name == name:
+				o.disabled = False
+				return True
+		return False
 	
 	def export_options_as_list (self):
 		"""Returns all editable options within a list (without groups)

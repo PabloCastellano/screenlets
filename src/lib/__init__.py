@@ -865,6 +865,10 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 				self.first_run = True
 			self.window.hide()	
 
+		#Make opacity available only when composite is enabled
+		if not self.window.is_composited () :
+			self.disable_option('opacity')
+
 	def __setattr__ (self, name, value):
 		# set the value in GObject (ESSENTIAL!!!!)
 		self.on_before_set_atribute(name, value)
@@ -1726,7 +1730,11 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 
 		if not self.window.is_composited () :
 			self.show_buttons = False
-		#	print _('Warning - Buttons will not be shown until screenlet is restarted')
+			self.disable_option("opacity")
+ 		#	print _('Warning - Buttons will not be shown until screenlet is restarted')
+ 
+		if self.window.is_composited () :
+			self.enable_option("opacity")
 
 		self.is_sticky = self.is_sticky #and again ...
 		self.keep_above= self.keep_above

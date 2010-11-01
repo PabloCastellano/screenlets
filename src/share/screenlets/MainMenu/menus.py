@@ -19,7 +19,10 @@ def get_places(theme):
     """
     model = gtk.ListStore(gtk.gdk.Pixbuf, gobject.TYPE_STRING)
     book_loc = os.path.expanduser("~") + "/.gtk-bookmarks"
-    bookmark_list = open(book_loc,"r")
+    if os.path.exists(book_loc):
+        bookmark_list = open(book_loc,"r")
+    else:
+        bookmark_list =[]
     bookmarks = {}
     model_list = []
     home = [theme.load_icon('user-home',24,0),"Home"]

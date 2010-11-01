@@ -518,8 +518,8 @@ def net_get_ip(): # by Whise
 	ip = commands.getoutput("ifconfig")
 	x = 0
 	while True:
-		ip = ip[ip.find("inet addr:"):]
-		ip = ip[10:]
+		ip = ip[ip.find("inet adr:"):]
+		ip = ip[9:]
 		ipc = ip[:ip.find(chr(32))]
 		if ipc != '127.0.0.1' and ipc != None and ipc !='1': 
 			

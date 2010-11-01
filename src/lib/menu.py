@@ -321,9 +321,8 @@ class ImageMenuItem(gtk.ImageMenuItem):
 		super(ImageMenuItem, self).__init__(stock)
 		
 		# get the label and image for later
-		children = self.get_children()
-		self.label = children[0]
-		self.image = children[1]
+		self.label = self.get_child()
+		self.image = self.get_image()
 		
 		# set the label to custom text
 		if label is not None:

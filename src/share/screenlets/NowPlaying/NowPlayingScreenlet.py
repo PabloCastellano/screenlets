@@ -58,7 +58,8 @@ DBUS_OBJECT = "/org/freedesktop/DBus"
 PLAYER_LIST = {'Rhythmbox':'RhythmboxAPI',
                     'Listen':'ListenAPI',
                     'Banshee':'BansheeAPI',
-                    'Amarok':'AmarokAPI',
+#TODO Port to Amarok 2.X API
+#                    'Amarok':'AmarokAPI',
                     'Exaile':'ExaileAPI',
                     'Sonata':'SonataAPI',
                     'Kaffeine':'KaffeineAPI',
@@ -68,7 +69,7 @@ PLAYER_LIST = {'Rhythmbox':'RhythmboxAPI',
                     'LastFMProxy':'LastFMProxyAPI',
                     'Songbird':'SongbirdAPI',}
 
-PLAYER_LIST_LAUNCH = ['amarok','audacious','banshee','exaile','juk','kaffeine','listen','quodlibet','rhythmbox','sonata','songbird']
+PLAYER_LIST_LAUNCH = ['audacious','banshee','exaile','juk','kaffeine','listen','quodlibet','rhythmbox','sonata','songbird']
 # The Screenlet
 class NowPlayingScreenlet(screenlets.Screenlet):
 	"""Shows Song Info"""

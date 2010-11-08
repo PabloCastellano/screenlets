@@ -1372,7 +1372,7 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 		except:
 			img.set_from_stock(gtk.STOCK_PROPERTIES, 5)
 		se.set_title(self.__name__)
-		se.set_info(self.__name__, self.__desc__, '(c) ' + self.__author__, 
+		se.set_info(self.__name__, glib.markup_escape_text(self.__desc__), '(c) ' + glib.markup_escape_text(self.__author__), 
 			version='v' + self.__version__, icon=img)
 		se.show_options_for_object(self)
 		resp = se.run()

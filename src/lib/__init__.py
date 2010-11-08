@@ -894,10 +894,9 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 
 		elif name == "theme_name":
 			#self.__dict__ ['theme_name'] = value
-			print "LOAD NEW THEME: " + value
-			print "FOUND: " + str(self.find_theme(value))
 			#self.load_theme(self.get_theme_dir() + value)
 			# load theme
+			print "Theme set to: '%s'" % value
 			path = self.find_theme(value)
 			if path:
 				self.load_theme(path)

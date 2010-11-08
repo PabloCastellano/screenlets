@@ -1,3 +1,19 @@
+screenlets (0.1.3) maverick; urgency=low
+
+  * Incorporated most of the patches from bug tracker.
+  * Fixed a problem with the theme directories.
+  * Fixed icon logic to work with Ubuntu new icon policy.
+  * Monochrome icons available by default.
+  * Added Compiz setting to make screenlets stick to Desktop.
+  * Updated notification area menu and fixed refresh.
+  * Updated context menu.
+  * Updated some strings, links, translations.
+  * Updated the link to get fresh Screenlets.
+  * Implemented package requirements check for Screenlets.
+  * Created debianizer.
+
+ -- Guido Tabbernuk <boamaod@gmail.com>  Mon, 08 Nov 2010 16:33:25 +0900
+
 screenlets (0.1.2-7ubuntu2) maverick; urgency=low
 
   * debian/patches/21-return-ip-address.patch:

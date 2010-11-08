@@ -1,0 +1,7 @@
+#!/bin/sh
+PREFIX=$(cat /etc/screenlets/prefix)
+if [ -e $PREFIX/share/screenlets-manager/screenlets-manager.py ]; then
+	exec python -u $PREFIX/share/screenlets-manager/screenlets-debianizer.py $@
+else
+	exec python -u /usr/share/screenlets-manager/screenlets-debianizer.py $@
+fi

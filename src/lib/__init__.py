@@ -150,8 +150,9 @@ class DefaultMenuItem(object):
 	# EXPERIMENTAL!! If you use this, the file menu.xml in the 
 	# Screenlet's data-dir is used for generating the menu ...
 	XML			= 512
+	ADD		 	= 1024
 	# the default items
-	STANDARD	= 1|2|8|16|32|64|128|256
+	STANDARD	= 1|2|8|16|32|64|128|256|1024
 
 
 class ScreenletTheme (dict):
@@ -457,15 +458,15 @@ class ScreenletTheme (dict):
 				if opts:
 					for o in opts:
 						self.option_overrides[o[0]] = o[1]
-			print "theme.conf loaded: "
-			print "Name: " + str(self.__name__)
-			print "Author: " +str(self.__author__)
-			print "Version: " +str(self.__version__)
-			print "Info: " +str(self.__info__)
+			print "Loaded theme config from:", filename
+			print "\tName: " + str(self.__name__)
+			print "\tAuthor: " +str(self.__author__)
+			print "\tVersion: " +str(self.__version__)
+			print "\tInfo: " +str(self.__info__)
 		else:
-			print "Failed to load theme.conf"
+			print "Failed to theme config from", filename
 	
-	
+
 	def load_svg (self, filename):
 		"""Load an SVG-file into this theme and reference it as ref_name."""
 		if self.has_key(filename):
@@ -532,6 +533,7 @@ class ScreenletTheme (dict):
 				# theme.conf
 				if self.load_conf(file) == False:
 					return False
+#		print "Theme %s loaded from %s" % (self.__name__, self.path) 
 		return True
 	
 	def reload (self):
@@ -858,7 +860,7 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 			
 		if show_window:
 			self.window.show()
-			print os.environ['HOME'] + '/.config/Screenlets/' + self.__name__[:-9] + '/default/'+ self.id
+#			print os.environ['HOME'] + '/.config/Screenlets/' + self.__name__[:-9] + '/default/'+ self.id
 			if not os.path.exists(os.environ['HOME'] + '/.config/Screenlets/' + self.__name__[:-9] + '/default/'+ self.id + '.ini'):
 				self.first_run = True
 			self.window.hide()	
@@ -1045,20 +1047,21 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 			add_menuitem(menu, _("Properties..."), self.menuitem_callback, "options")
 		# add info item
 		if flags & DefaultMenuItem.INFO:
-			add_menuitem(menu, "-", self.menuitem_callback, "")
 			add_menuitem(menu, _("Info..."), self.menuitem_callback, "info")
 		# add delete item
-		if flags & DefaultMenuItem.DELETE:
+		if flags & DefaultMenuItem.ADD:
 			add_menuitem(menu, "-", self.menuitem_callback, "")
-			add_menuitem(menu, _("Delete Screenlet ..."), self.menuitem_callback, "delete")
+			add_menuitem(menu, _("Add one more %s") % self.get_short_name(), self.menuitem_callback, "add")
+		# add delete item
+		if flags & DefaultMenuItem.DELETE:
+			add_menuitem(menu, _("Delete this %s") % self.get_short_name(), self.menuitem_callback, "delete")
 		# add Quit item
 		if flags & DefaultMenuItem.QUIT:
 			add_menuitem(menu, "-", self.menuitem_callback, "")
-			add_menuitem(menu, _("Quit this %s ...") % self.get_short_name(), self.menuitem_callback, "quit_instance")
+			add_menuitem(menu, _("Quit this %s") % self.get_short_name(), self.menuitem_callback, "quit_instance")
 		# add Quit-all item
 		if flags & DefaultMenuItem.QUIT_ALL:
-			add_menuitem(menu, "-", self.menuitem_callback, "")
-			add_menuitem(menu, _("Quit all %ss ...") % self.get_short_name(), self.menuitem_callback, "quit")
+			add_menuitem(menu, _("Quit all %ss") % self.get_short_name(), self.menuitem_callback, "quit")
 
 	def add_menuitem (self, id, label, callback=None):
 		"""Simple way to add menuitems to a right-click menu.
@@ -1883,6 +1886,8 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 			self.service.instance_removed(self.id)
 		elif id == "quit":
 			self.close()
+		elif id == "add":
+			self.service.add("")
 		elif id in ("info", "about", "settings", "options", "properties"):
 			# show settings dialog
 			self.show_settings_dialog()

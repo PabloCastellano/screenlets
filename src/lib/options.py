@@ -985,8 +985,8 @@ class OptionsDialog (gtk.Dialog):
 		elif t == ColorOption:
 			widget = gtk.ColorButton(gtk.gdk.Color(int(value[0]*65535), int(value[1]*65535), int(value[2]*65535)))
 			widget.set_use_alpha(True)
-			print value
-			print value[3]
+#			print value
+#			print value[3]
 			widget.set_alpha(int(value[3]*65535))
 			widget.connect("color-set", self.options_callback, option)
 		elif t == FontOption:

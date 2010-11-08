@@ -83,7 +83,7 @@ class ScreenletsDaemon (dbus.service.Object):
 			tray.set_from_pixbuf(pixbuf)
 			tray.connect("activate", self.openit)
 			tray.connect("popup-menu", self.show_menu)
-			tray.set_tooltip("Screenlets daemon")
+			tray.set_tooltip(_("Screenlets daemon"))
 			tray.set_visible(True)		
 			gtk.main()
 	
@@ -154,7 +154,9 @@ class ScreenletsDaemon (dbus.service.Object):
 			# create the bottom menuitems
 			add_image_menuitem(self.menu, gtk.STOCK_QUIT, _("Close all Screenlets"), self.closeit)
 			add_image_menuitem(self.menu, gtk.STOCK_REFRESH, _("Restart all Screenlets"), self.restartit)
-			add_image_menuitem(self.menu, gtk.STOCK_ABOUT, None, self.about)
+#			add_image_menuitem(self.menu, gtk.STOCK_ABOUT, None, self.about)
+			add_menuitem(self.menu, "-")
+			add_image_menuitem(self.menu, gtk.STOCK_QUIT, _("Quit the Screenlets"), self.quittheprogram)
 			
 			self.menu.show_all()
 		
@@ -174,6 +176,11 @@ class ScreenletsDaemon (dbus.service.Object):
 	def closeit(self, widget):
 		utils.quit_all_screenlets()
 				
+	def quittheprogram(self, widget):
+		utils.quit_all_screenlets()
+		os.system('pkill -f screenlets-manager.py')
+		os.system('pkill -f screenlets-daemon.py')
+
 	def installit(self, widget):
 		self.show_install_dialog()
 
@@ -186,7 +193,8 @@ class ScreenletsDaemon (dbus.service.Object):
 
 	
 	def getit(self, widget):
-		utils.xdg_open('http://screenlets.org/index.php/Category:UserScreenlets')
+		# where to get more screenlets if user wants to
+		utils.xdg_open(screenlets.THIRD_PARTY_DOWNLOAD)
 
 	def website_open(self, d, link, data):
 		utils.xdg_open('http://screenlets.org')

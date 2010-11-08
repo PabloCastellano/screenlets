@@ -304,8 +304,9 @@ class DefaultMenuItem(object):
 	# EXPERIMENTAL!! If you use this, the file menu.xml in the 
 	# Screenlet's data-dir is used for generating the menu ...
 	XML			= 512
+	ADD		 	= 1024
 	# the default items
-	STANDARD	= 1|2|8|16|32|64|128|256
+	STANDARD	= 1|2|8|16|32|64|128|256|1024
 
 
 class ImageMenuItem(gtk.ImageMenuItem):

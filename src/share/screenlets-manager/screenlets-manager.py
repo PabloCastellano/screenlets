@@ -890,12 +890,12 @@ class ScreenletsManager(object):
 
 	def show_install_chose_ui(self):
 		install_combo = gtk.combo_box_new_text()
-		install_combo.append_text('Install Screenlet')
-		install_combo.append_text('Install SuperKaramba Theme')
-		install_combo.append_text('Convert Web Widget')
-		install_combo.append_text('Install Web Application')
+		install_combo.append_text(_('Install Screenlet'))
+		install_combo.append_text(_('Install SuperKaramba Theme'))
+		install_combo.append_text(_('Convert Web Widget'))
+		install_combo.append_text(_('Install Web Application'))
 		install_combo.set_active(0)
-       		dialog = gtk.Dialog("Install",self.window,
+       		dialog = gtk.Dialog(_("Install"),self.window,
                     gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
                     (gtk.STOCK_CANCEL, gtk.RESPONSE_REJECT,
                      gtk.STOCK_OK, gtk.RESPONSE_ACCEPT))

@@ -29,7 +29,7 @@ def _(s):
 
 # + constants
 USAGE				= _("""Screenlets packager - (c) RYX (Rico Pfaus) 2007
-Usage: %s <path> [options]""") % sys.argv[0]
+Usage: screenlets-packager <path> [options]""")
 PACKAGE_INFO_FILE	= 'Screenlet.package'
 
 

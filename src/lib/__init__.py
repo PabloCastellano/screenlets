@@ -58,6 +58,12 @@ from menu import DefaultMenuItem, add_menuitem
 from drawing import Drawing
 # /TEST
 
+# translation stuff
+gettext.textdomain('screenlets')
+gettext.bindtextdomain('screenlets', INSTALL_PREFIX +  '/share/locale')
+
+def _(s):
+	return gettext.gettext(s)
 
 #-------------------------------------------------------------------------------
 # CONSTANTS
@@ -88,7 +94,7 @@ TRANSLATORS = "Special thanks for translators\nFull Translator list on https://t
 WEBSITE = 'http://www.screenlets.org'
 
 # the third party screenlets download site
-THIRD_PARTY_DOWNLOAD = "http://screenlets.org/index.php/Category:UserScreenlets"
+THIRD_PARTY_DOWNLOAD = _("http://www.screenlets.org/index.php/Get_more_screenlets")
 
 
 #-------------------------------------------------------------------------------
@@ -122,14 +128,6 @@ DAEMON_IFACE = 'org.screenlets.ScreenletsDaemon'
 #Other stuff
 
 DEBUG_MODE		= True
-
-# translation stuff
-gettext.textdomain('screenlets')
-gettext.bindtextdomain('screenlets', INSTALL_PREFIX +  '/share/locale')
-
-def _(s):
-	return gettext.gettext(s)
-
 
 #-------------------------------------------------------------------------------
 # CLASSES

@@ -171,9 +171,10 @@ def create_user_dir ():
 
 
 def find_first_screenlet_path (screenlet_name):
-	"""Scan the SCREENLETS_PATH for the first occurence of screenlet "name" and 
-	return the full path to it. This function is used to get the theme/data 
-	directories for a Screenlet."""
+	"""Scan the SCREENLETS_PATH for the occurence of screenlet "name" with the
+	highest version and return the full path to it. This function is used to get
+	the theme/data directories for a Screenlet and run the Screenlet."""
+	available_versions_paths = []
 	for dir in screenlets.SCREENLETS_PATH:
 		try:
 			for name in os.listdir(dir):
@@ -184,13 +185,22 @@ def find_first_screenlet_path (screenlet_name):
 				# if path exists
 				if os.access(path + '/' + name_py, os.F_OK):
 					if name == screenlet_name:
-						return path
+						available_versions_paths.append(path)
 				else:
 					#print "utils.find_first_screenlet_path: "+\
 					#	"LISTED PATH NOT EXISTS: " + path
 					pass
 		except OSError: # Raised by os.listdir: the directory doesn't exist
 			pass
+	if len(available_versions_paths) == 1:
+		return available_versions_paths[0]
+	elif len(available_versions_paths) > 1:
+		path_and_version = []
+		for version_path in available_versions_paths:
+			path_and_version.append({'version': get_screenlet_metadata_by_path(version_path)['version'], 'path': version_path})
+		sorted_versions = sorted(path_and_version, key=lambda x: x["version"], reverse=True)
+		return sorted_versions[0]['path']
+
 	# nothing found
 	return None
 
@@ -213,13 +223,13 @@ def getBetween(data, first, last):
 	end = data.find(last, begin)
 	return data[begin:end]
 
-def get_screenlet_metadata (screenlet_name):
+def get_screenlet_metadata_by_path (path):
 	"""Returns a dict with name, info, author and version of the given
-	screenlet. Use with care because it always imports the screenlet 
+	screenlet. Use with care because it may import the screenlet 
 	module and shouldn't be used too often due to performance issues."""
-	# find path to file
-	path = find_first_screenlet_path(screenlet_name)
-	classname = screenlet_name + 'Screenlet'
+
+	chunks = path.split('/')
+	classname = chunks[len(chunks)-1] + 'Screenlet'
 
 	try:
 		slfile = open(path + '/'+ classname + '.py','r')
@@ -269,6 +279,15 @@ def get_screenlet_metadata (screenlet_name):
 		except Exception, ex:
 			print "Unable to load '%s' from %s: %s " % (screenlet_name, path, ex)
 			return None
+
+def get_screenlet_metadata (screenlet_name):
+	"""Returns a dict with name, info, author and version of the given
+	screenlet. Use with care because it always imports the screenlet 
+	module and shouldn't be used too often due to performance issues."""
+	# find path to file
+	path = find_first_screenlet_path(screenlet_name)
+
+	return get_screenlet_metadata_by_path(path)
 
 def list_available_screenlets ():
 	"""Scan the SCREENLETS_PATHs for all existing screenlets and return their

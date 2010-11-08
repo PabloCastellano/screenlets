@@ -210,7 +210,7 @@ class ScreenletTheme (dict):
 		theme_name = ''
 		# loop through overrides and appply them
 		for name in self.option_overrides:
-			print _("Override: ") + name
+			print "Override: " + name
 			o = screenlet.get_option_by_name(name)
 			if o and not o.protected:
 				if name == 'theme_name':
@@ -221,7 +221,7 @@ class ScreenletTheme (dict):
 					setattr(screenlet, name, 
 						o.on_import(self.option_overrides[name]))
 			else:
-				print _("WARNING: Option '%s' not found or protected.") % name
+				print "WARNING: Option '%s' not found or protected." % name
 		# now apply theme
 		if theme_name != '':
 			screenlet.theme_name = theme_name
@@ -457,13 +457,13 @@ class ScreenletTheme (dict):
 				if opts:
 					for o in opts:
 						self.option_overrides[o[0]] = o[1]
-			print _("theme.conf loaded: ")
-			print _("Name: ") + str(self.__name__)
-			print _("Author: ") +str(self.__author__)
-			print _("Version: ") +str(self.__version__)
-			print _("Info: ") +str(self.__info__)
+			print "theme.conf loaded: "
+			print "Name: " + str(self.__name__)
+			print "Author: " +str(self.__author__)
+			print "Version: " +str(self.__version__)
+			print "Info: " +str(self.__info__)
 		else:
-			print _("Failed to load theme.conf")
+			print "Failed to load theme.conf"
 	
 	
 	def load_svg (self, filename):
@@ -528,7 +528,7 @@ class ScreenletTheme (dict):
 				if self.load_png(fname) == False:
 					return False
 			elif fname == "theme.conf":
-				print _("theme.conf found! Loading option-overrides.")
+				print "theme.conf found! Loading option-overrides."
 				# theme.conf
 				if self.load_conf(file) == False:
 					return False
@@ -888,8 +888,8 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 
 		elif name == "theme_name":
 			#self.__dict__ ['theme_name'] = value
-			print _("LOAD NEW THEME: ") + value
-			print _("FOUND: ") + str(self.find_theme(value))
+			print "LOAD NEW THEME: " + value
+			print "FOUND: " + str(self.find_theme(value))
 			#self.load_theme(self.get_theme_dir() + value)
 			# load theme
 			path = self.find_theme(value)
@@ -1292,7 +1292,7 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 		self.theme = ScreenletTheme(path)
 		# check for errors
 		if self.theme.loaded == False:
-			print _("Error while loading theme: ") + path
+			print "Error while loading theme: " + path
 			self.theme = None
 		else:
 			# call user-defined handler
@@ -1419,7 +1419,7 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 		# if updates are disabled, just exit
 		if self.disable_updates:
 			return
-		#print _("UPDATING SHAPE")
+		#print "UPDATING SHAPE"
 		# TODO:
 		#if not self.window.is_composited():
 		#	self.update_shape_non_composited()
@@ -1698,10 +1698,10 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 			except : pass
 			self.menu.popup(None, None, None, event.button, event.time)
 		#elif event.button == 4:
-		#	print _("MOUSEWHEEL")
+		#	print "MOUSEWHEEL"
 		#	self.scale -= 0.1
 		#elif event.button == 5:
-		#	print _("MOUSEWHEEL")
+		#	print "MOUSEWHEEL"
 		#	self.scale += 0.1
 		return False
 	
@@ -1722,14 +1722,14 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 		self.keep_above= self.keep_above
 		self.keep_below= self.keep_below
 		self.window.show()
-		#print _('Compositing method changed to %s') % str(self.window.is_composited())
+		#print 'Compositing method changed to %s' % str(self.window.is_composited())
 		self.update_shape()
 		self.redraw_canvas()
 
 		if not self.window.is_composited () :
 			self.show_buttons = False
 			self.disable_option("opacity")
- 		#	print _('Warning - Buttons will not be shown until screenlet is restarted')
+ 		#	print 'Warning - Buttons will not be shown until screenlet is restarted'
  
 		if self.window.is_composited () :
 			self.enable_option("opacity")
@@ -1764,7 +1764,7 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 		# cancel event?
 		print "delete_event"
 		if self.on_delete() == True:
-			print _("Cancel delete_event")
+			print "Cancel delete_event"
 			return True
 		else:
 			self.close()
@@ -1784,7 +1784,7 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 			del self		# ??? does this really work???
 	
 	def drag_begin (self, widget, drag_context):
-		print _("Start drag")
+		print "Start drag"
 		self.is_dragged = True
 		self.on_drag_begin(drag_context)
 		#return False
@@ -1793,7 +1793,7 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 		return self.on_drop(x, y, sel_data, timestamp)
 	
 	def drag_end (self, widget, drag_context):
-		print _("End drag")
+		print "End drag"
 		self.is_dragged = False
 		return False
 	
@@ -1878,7 +1878,7 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 				# notify about being rmeoved (does this get send???)
 				self.service.instance_removed(self.id)
 		elif id == "quit_instance":
-			print _('Quitting current screenlet instance')
+			print 'Quitting current screenlet instance'
 			self.session.quit_instance (self.id)
 			self.service.instance_removed(self.id)
 		elif id == "quit":
@@ -1895,7 +1895,7 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 			self.height = int(id[5:])
 			self.update_shape()
 		elif id[:6]=="theme:":
-			print _("Screenlet: Set theme %s") % id[6:]
+			print "Screenlet: Set theme %s" % id[6:]
 			# set theme
 			self.theme_name = id[6:]
 		elif id[:8] == "setting:":
@@ -1904,7 +1904,7 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 				if type(self.__dict__[id[8:]]) == bool:
 					self.__dict__[id[8:]] = not self.__dict__[id[8:]]	# UNSAFE!!
 			except:
-				print _("Error: Cannot set missing or non-boolean value '")\
+				print "Error: Cannot set missing or non-boolean value '"\
 					+ id[8:] + "'"
 		elif id[:7] == "option:":
 			# NOTE: this part should be removed and XML-menus

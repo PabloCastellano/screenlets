@@ -47,7 +47,7 @@ def cpu_get_load (processor_number=0):
 		tmp = f.readlines(2000)
 		f.close()
 	except:
-		print _("Failed to open /proc/stat")
+		print "Failed to open /proc/stat"
 		return None
 	if processor_number == 0 : sufix = ''
 	else: sufix = str(processor_number -1)
@@ -72,7 +72,7 @@ def cpu_get_cpu_name():
 		tmp = f.readlines(500)
 		f.close()
 	except:
-		print _("Failed to open /proc/cpuinfo")
+		print "Failed to open /proc/cpuinfo"
 		return None
 		list = []
 	for line in tmp:
@@ -87,7 +87,7 @@ def cpu_get_cpu_list ():
 		tmp = f.readlines(2000)
 		f.close()
 	except:
-		print _("Failed to open /proc/stat")
+		print "Failed to open /proc/stat"
 		return None
 	list = []
 	for line in tmp:
@@ -103,7 +103,7 @@ def cpu_get_nb_cpu ():
 		tmp = f.readlines(2000)
 		f.close()
 	except:
-		print _("Failed to open /proc/stat")
+		print "Failed to open /proc/stat"
 		return None
 	nb = 0
 	for line in tmp:
@@ -168,7 +168,7 @@ def sys_get_uptime_long ():
 		return _("%s days, %s hours and %s minutes") % (str(days), str(hours), str(minutes))
 		#return str(days) + " days, " + str(hours) + " hours and " + str(minutes) + " minutes"
 	except:
-		print _("Failed to open /proc/uptime")
+		print "Failed to open /proc/uptime"
 	return 'Error'
 
 def sys_get_uptime():
@@ -185,7 +185,7 @@ def sys_get_uptime():
 		else:
 			return str(h)+':'+str(m)
 	except:
-		print _("Failed to open /proc/uptime")
+		print "Failed to open /proc/uptime"
 	return 'Error'
 
 
@@ -206,7 +206,7 @@ def sys_get_hostname ():
 		f.close()
 		return hostname
 	except:
-		print _("Failed to open /proc/sys/kernel/hostname")
+		print "Failed to open /proc/sys/kernel/hostname"
 	return 'Error'
 
 # written by Hendrik Kaju
@@ -221,7 +221,7 @@ def sys_get_average_load ():
 		load3 = str(float( data.split()[2] ))[:4]
 		return load1+ ','+ load2 +','+ load3
 	except:
-		print _("Failed to open /proc/loadavg")
+		print "Failed to open /proc/loadavg"
 	return 'Error'
 	
 def sys_get_distrib_name():
@@ -255,7 +255,7 @@ def sys_get_distrib_name():
 			f.close()
 			return tmp[0].replace('\\n','').replace('\l','').replace('\r','').strip()
 	except:
-		print _("Error getting distro name")
+		print "Error getting distro name"
 	return 'Error'
 
 
@@ -483,7 +483,7 @@ def disk_get_swap ():
 		swap = swap.replace(",","")
 		return str(swap)
 	except:
-		print _("Failed to open /proc/swaps")
+		print "Failed to open /proc/swaps"
 	return 'Error'
 
 def disk_get_usage(disk_disk):
@@ -1127,7 +1127,7 @@ class CPUSensor (Sensor):
 			tmp = f.readlines(200)
 			f.close()
 		except:
-			print _("CPUSensor: Failed to open /proc/stat. Sensor stopped.")
+			print "CPUSensor: Failed to open /proc/stat. Sensor stopped."
 			self.stop()
 		line = tmp[self._cpu + 1]
 		if line[0:5] == "cpu%i " % self._cpu:

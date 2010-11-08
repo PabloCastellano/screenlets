@@ -72,12 +72,12 @@ class ScreenletService (dbus.service.Object):
 		
 	@action(IFACE)
 	def test (self):
-		print _("TEST: %s") % str(self.screenlet)
+		print "TEST: %s" % str(self.screenlet)
 
 	@action(IFACE)
 	def debug (self, string):
 		"""Dump a string to the console."""
-		print _("DEBUG: %s") % string
+		print "DEBUG: %s" % string
 	
 	@action(IFACE)
 	def add (self, id):
@@ -108,7 +108,7 @@ class ScreenletService (dbus.service.Object):
 				if not o.protected:
 					return getattr(sl, attrib)
 				else:
-					print _("Cannot get/set protected options through service.")
+					print "Cannot get/set protected options through service."
 					return None
 			except AttributeError: 
 				print 'Error getting attribute'
@@ -151,7 +151,7 @@ class ScreenletService (dbus.service.Object):
 				if not o.protected:
 					setattr(sl, attrib, value)
 				else:
-					print _("Cannot get/set protected options through service.")
+					print "Cannot get/set protected options through service."
 			except: pass
 	
 	@signal(IFACE)
@@ -178,7 +178,7 @@ def get_service_by_name (name, interface=ScreenletService.IFACE):
 				#return dbus.Interface(proxy_obj, ScreenletService.IFACE)
 				return dbus.Interface(proxy_obj, interface)
 		except Exception, ex:
-			print _("Error in screenlets.services.get_service_by_name: %s") % str(ex)
+			print "Error in screenlets.services.get_service_by_name: %s" % str(ex)
 	return None
 
 def service_is_running (name):

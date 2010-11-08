@@ -98,7 +98,7 @@ def create_autostarter (name):
 		if screenlets.show_question(None, 
 			_("There is no existing autostart directory for your user account yet. Do you want me to automatically create it for you?"), 
 			_('Error')):
-			print _("Auto-create autostart dir ...")
+			print "Auto-create autostart dir ..."
 			os.system('mkdir %s' % DIR_AUTOSTART)
 			if not os.path.isdir(DIR_AUTOSTART):
 				screenlets.show_error(None, _("Automatic creation failed. Please manually create the directory:\n%s") % DIR_AUTOSTART, _('Error'))
@@ -115,11 +115,11 @@ def create_autostarter (name):
 		if a != -1:
 			print str(f) + ' duplicate entry'
 			os.system('rm %s%s' % (chr(34)+DIR_AUTOSTART,f+chr(34)))
-			print _('Removed duplicate entry')
+			print 'Removed duplicate entry'
 	if not os.path.isfile(starter) and not os.path.exists(os.environ['HOME'] + '/.config/autostart/CalendarScreenlet'):
 		path = find_first_screenlet_path(name)
 		if path:
-			print _("Create autostarter for: %s/%sScreenlet.py") % (path, name)
+			print "Create autostarter for: %s/%sScreenlet.py" % (path, name)
 			code = ['[Desktop Entry]']
 			code.append('Name=%sScreenlet' % name)
 			code.append('Encoding=UTF-8')
@@ -134,24 +134,24 @@ def create_autostarter (name):
 					f.write(l + '\n')
 				f.close()
 				return True
-			print _('Failed to create autostarter for %s.') % name
+			print 'Failed to create autostarter for %s.' % name
 			return False
 	else:
-		print _("Starter already exists.")
+		print "Starter already exists."
 		return True
 
 def delete_autostarter ( name):
 	"""Delete the autostart for the given screenlet."""
 	if name.endswith('Screenlet'):
 		name = name[:-9]
-	print _('Delete autostarter for %s.') % name
+	print 'Delete autostarter for %s.' % name
 	os.system('rm %s%sScreenlet.desktop' % (DIR_AUTOSTART, name))
 	for f in os.listdir(DIR_AUTOSTART):
 		a = f.find(name + 'Screenlet')
 		if a != -1:
 			print str(f) + ' duplicate entry'
 			os.system('rm %s%s' % (chr(34)+DIR_AUTOSTART,f+chr(34)))
-			print _('Removed duplicate entry')
+			print 'Removed duplicate entry'
 
 def _contains_path (string):
 	"""Internal function: Returns true if the given string contains one of the
@@ -259,7 +259,7 @@ def get_screenlet_metadata (screenlet_name):
 				'version'	: cls.__version__
 				}
 		except Exception, ex:
-			print _("Unable to load '%s' from %s: %s ") % (screenlet_name, path, ex)
+			print "Unable to load '%s' from %s: %s " % (screenlet_name, path, ex)
 			return None
 
 def list_available_screenlets ():
@@ -366,7 +366,7 @@ def get_daemon_iface ():
 				return dbus.Interface(proxy_obj, screenlets.DAEMON_IFACE)
 
 		except Exception, ex:
-			print _("Error in ScreenletsManager.connect_daemon: %s") % ex
+			print "Error in ScreenletsManager.connect_daemon: %s" % ex
 	return None
 
 def get_desktop_dir():
@@ -497,7 +497,7 @@ def lookup_daemon_autostart ():
 	if not os.path.isdir(DIR_AUTOSTART):
 	# create autostart directory, if not existent
 		if screenlets.show_question(None, _("There is no existing autostart directory for your user account yet. Do you want me to automatically create it for you?"), _('Error')):
-			print _("Auto-create autostart dir ...")
+			print "Auto-create autostart dir ..."
 			os.system('mkdir %s' % DIR_AUTOSTART)
 			if not os.path.isdir(DIR_AUTOSTART):
 				screenlets.show_error(None, _("Automatic creation failed. Please manually create the directory:\n%s") % DIR_AUTOSTART, _('Error'))
@@ -508,7 +508,7 @@ def lookup_daemon_autostart ():
 	starter = '%sScreenlets Daemon.desktop' % (DIR_AUTOSTART)
 
 	if not os.path.isfile(starter) and os.path.isfile('%sscreenlets-daemon.desktop' % (DIR_AUTOSTART)) == False:
-		print _("Create autostarter for: Screenlets Daemon")
+		print "Create autostarter for: Screenlets Daemon"
 		code = ['[Desktop Entry]']
 		code.append('Encoding=UTF-8')
 		code.append('Version=1.0')
@@ -522,10 +522,10 @@ def lookup_daemon_autostart ():
 				f.write(l + '\n')
 			f.close()
 			return True
-		print _('Failed to create autostarter for %s.') % name
+		print 'Failed to create autostarter for %s.' % name
 		return False
 	else:
-		print _("Starter already exists.")
+		print "Starter already exists."
 		return True
 
 def launch_screenlet(screenlet):
@@ -670,7 +670,7 @@ class IniReader(object):
 		try:
 			f = open (filename, "r")
 		except:
-			print _("File %s not found") % str(filename)
+			print "File %s not found" % str(filename)
 		if f:
 			section_name = ''
 			for line in f.readlines():
@@ -701,7 +701,7 @@ class IniReader(object):
 								try:
 									self.sections[section_name].append(o)
 								except:
-									print _("Section %s not found!") % section_name
+									print "Section %s not found!" % section_name
 			f.close()
 			return True
 		else:
@@ -737,7 +737,7 @@ class Notifier(object):
 				[], {}, timeout)
 			return True
 		else:
-			print _("Notify: No DBus running or notifications-daemon unavailable.")
+			print "Notify: No DBus running or notifications-daemon unavailable."
 		return False
 
 

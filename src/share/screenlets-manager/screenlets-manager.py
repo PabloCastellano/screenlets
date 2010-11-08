@@ -118,17 +118,17 @@ class ScreenletsManager(object):
 		# if daemon is not available, 
 		if self.daemon_iface == None:
 			# try to launch it 
-			print _("Trying to launching screenlets-daemon ...")
+			print "Trying to launching screenlets-daemon ..."
 			os.system(screenlets.INSTALL_PREFIX + \
 				'/share/screenlets-manager/screenlets-daemon.py &')
 			def daemon_check ():
-				print _("checking for running daemon again ...")
+				print "checking for running daemon again ..."
 				self.daemon_iface = utils.get_daemon_iface()
 				if self.daemon_iface:
-					print _("DAEMON FOUND - Ending timeout")
+					print "DAEMON FOUND - Ending timeout"
 					self.connect_daemon()
 				else:
-					print _("Error: Unable to connect/launch daemon.")
+					print "Error: Unable to connect/launch daemon."
 					screenlets.show_error(None, _("Unable to connect or launch daemon. Some values may be displayed incorrectly."), _('Error'))
 			import gobject
 			gobject.timeout_add(2000, daemon_check)
@@ -225,7 +225,7 @@ class ScreenletsManager(object):
 				#	print "SYSTEM: %s" % s
 				#	info.system = True
 			else:
-				print _('Error while loading screenlets metadata for "%s".' % s)
+				print 'Error while loading screenlets metadata for "%s".' % s
 				slinfo = utils.ScreenletInfo(s, '', '', '', '', img)
 			# add to model
 
@@ -615,7 +615,7 @@ class ScreenletsManager(object):
 
 	def drag_data_received (self, widget, dc, x, y, sel_data, info, timestamp):
 			
-		print _("Data dropped ...")
+		print "Data dropped ..."
 		filename = ''
 		# get text-elements in selection data
 		try:
@@ -653,7 +653,7 @@ class ScreenletsManager(object):
 					screenlets.show_error(None, installer.get_result_message())
 			else:
 				self.show_install_dialog()
-				print _('Please install screenlets from folders without strange characters')
+				print 'Please install screenlets from folders without strange characters'
 
 	def show_install_dialog (self):
 		"""Craete/Show the install-dialog."""
@@ -716,7 +716,7 @@ class ScreenletsManager(object):
 			
 			# try installing and show result dialog
 			self.window.window.set_cursor(gtk.gdk.Cursor(gtk.gdk.WATCH))
-			print _('Installing %s') % filename
+			print 'Installing %s' % filename
 			result = False
 			info = self.get_selection()
 			basename	= os.path.basename(filename)
@@ -761,9 +761,9 @@ class ScreenletsManager(object):
 
 			if os.listdir(tmpdir)[0] == 'themes': 
 				install_dir = install_dir + info.name
-				print _("list contains themes folder")
+				print "list contains themes folder"
 			elif os.listdir(tmpdir)[0] == info.name:
-				print _("list contains the screenlet name folder")
+				print "list contains the screenlet name folder"
 				install_dir = install_dir
 				if os.path.exists(tmpdir + os.listdir(tmpdir)[0] + '/'+ info.name + 'Screenlet.py') and os.path.isfile(tmpdir + os.listdir(tmpdir)[0] + '/'+ info.name + 'Screenlet.py'):
 					screenlets.show_message(None, _("This package seams to contain a full Screenlet and not just a theme, please use the screenlet install instead"))
@@ -782,7 +782,7 @@ class ScreenletsManager(object):
 					self.window.window.set_cursor(gtk.gdk.Cursor(gtk.gdk.LEFT_PTR))	
 					return False
 				install_dir = install_dir + info.name + '/themes/'
-				print _("only contains the themes folders")
+				print "only contains the themes folders"
 						
 			os.system('rm -rf %s/install-temp' % screenlets.DIR_TMP)
 
@@ -853,7 +853,7 @@ class ScreenletsManager(object):
 				name = name[:-9]
 			starter = '%s/%sScreenlet.desktop' % (desk, name)
 			if path:
-				print _("Create desktop shortcut for: %s/%sScreenlet.py") % (path, name)
+				print "Create desktop shortcut for: %s/%sScreenlet.py" % (path, name)
 				code = ['[Desktop Entry]']
 				code.append('Name=%sScreenlet' % name)
 				code.append('Encoding=UTF-8')
@@ -873,7 +873,7 @@ class ScreenletsManager(object):
 					f.close()
 					
 					return True
-				print _('Failed to create autostarter for %s.') % name
+				print 'Failed to create autostarter for %s.' % name
 				return False
 		elif id == 'restartall':
 			utils.quit_all_screenlets()
@@ -1201,13 +1201,13 @@ class ScreenletsManager(object):
 			info.active = not info.active
 			if info.active:
 				# launch screenlet
-				print _("Launch %s") % info.name
+				print "Launch %s" % info.name
 				screenlets.launch_screenlet(info.name, debug=screenlets.DEBUG_MODE)
 				
 			else:
 				# quit screenlet
 				utils.quit_screenlet_by_name(info.name)
-				print _("Quit %s") % info.name
+				print "Quit %s" % info.name
 				self.model.clear()
 				self.load_screenlets()
 
@@ -1266,7 +1266,7 @@ class ScreenletsManager(object):
 
 		gtk.widget_pop_colormap()
 		gtk.main_quit()
-		print _("Quit!")
+		print "Quit!"
 	
 	# start the app
 	

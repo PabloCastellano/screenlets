@@ -101,7 +101,7 @@ class ScreenletInstaller(object):
 	def install (self, filename):
 		"""Install a screenlet from a given archive-file. Extracts the
 		contents of the archive to the user's screenlet dir."""
-		print _('Installing %s') % filename
+		print 'Installing %s' % filename
 		result = False
 		# get name of screenlet
 		#basename	= os.path.basename(filename)

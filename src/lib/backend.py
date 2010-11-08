@@ -30,7 +30,7 @@ def _(s):
 try:
 	import gconf
 except:
-	print _("GConf python module not found. GConf settings backend is disabled.")
+	print "GConf python module not found. GConf settings backend is disabled."
 
 
 class ScreenletsBackend(object):
@@ -69,7 +69,7 @@ class GconfBackend (ScreenletsBackend):
 	
 	def __init__ (self):
 		ScreenletsBackend.__init__(self)
-		print _('GConfBackend: initializing')
+		print 'GConfBackend: initializing'
 		self.client = gconf.client_get_default()
 	
 	def delete_instance (self, id):
@@ -99,7 +99,7 @@ class GconfBackend (ScreenletsBackend):
 	def save_option (self, id, name, value):
 		"""Save one option for the instance with the given id."""
 		self.client.set_string(self.gconf_dir + id + '/' + name, value)
-		print _('Saved option %s%s/%s = %s') % (self.gconf_dir, id, name, value)
+		print 'Saved option %s%s/%s = %s' % (self.gconf_dir, id, name, value)
 
 
 class CachingBackend (ScreenletsBackend):
@@ -132,9 +132,9 @@ class CachingBackend (ScreenletsBackend):
 				os.remove(self.path + id + '.ini')
 			except Exception,ex:
 				print ex
-				print _("Temporary file didn't exist - nothing to remove.")
+				print "Temporary file didn't exist - nothing to remove."
 				return False
-		print _("CachingBackend: <#%s> removed!") % id
+		print "CachingBackend: <#%s> removed!" % id
 		return True
 	
 	def flush (self):
@@ -173,7 +173,7 @@ class CachingBackend (ScreenletsBackend):
 	def __load_cache (self):
 		"""Load all cached files from path."""
 		# perform saving
-		print _("CachingBackend: Loading instances from cache")
+		print "CachingBackend: Loading instances from cache"
 		# get dir content of self.path
 		dirname = self.path
 		dirlst = glob.glob(dirname + '*')
@@ -183,7 +183,7 @@ class CachingBackend (ScreenletsBackend):
 			dname = fname[tdlen:]
 			if dname.endswith('.ini'):
 				id = dname[:-4]
-				print _("CachingBackend: Loading <%s>") % id
+				print "CachingBackend: Loading <%s>" % id
 				#print "ID: "+id
 				if self.__instances.has_key(id) == False:
 					self.__instances[id] = {}
@@ -199,7 +199,7 @@ class CachingBackend (ScreenletsBackend):
 							self.__instances[id][parts[0]] = parts[1]
 					f.close()
 				except Exception, ex:
-					print _("Error while loading options: %s") % str(ex)
+					print "Error while loading options: %s" % str(ex)
 	
 	def __save_cache (self):
 		"""Save the cache (for all pending instances in queue) to self.path."""
@@ -207,11 +207,11 @@ class CachingBackend (ScreenletsBackend):
 		for id in self.__queue:
 			# if element with id not exists, remove it and break
 			if self.__instances.has_key(id) == False:
-				print _("Queue-element <%s> not found (already removed?)!") % id
+				print "Queue-element <%s> not found (already removed?)!" % id
 				self.__queue.remove(id)
 				break
 			# create list with options
-			#print _("CachingBackend: Saving <#%s> :) ...") % id
+			#print "CachingBackend: Saving <#%s> :) ..." % id
 			lst = []
 			for oname in self.__instances[id]:
 				lst.append([oname, self.__instances[id][oname]])
@@ -234,7 +234,7 @@ class CachingBackend (ScreenletsBackend):
 				newini += "%s=%s\n" % (el[0], el[1])
 		except:
 			isOk = False
-			print _("error while convert config to string (encoding error?), I lose your last changes :'(")
+			print "error while convert config to string (encoding error?), I lose your last changes :'("
 
 		if isOk:
 			# Write the new settings to a temporal file, disk full, encoding, rights may fails at this point.
@@ -242,7 +242,7 @@ class CachingBackend (ScreenletsBackend):
 				open(filenametmp, 'w').write(newini)
 			except:
 				isOk = False
-				print _("error while saving configuration to a temporal file %s, disk full?") % filenametmp
+				print "error while saving configuration to a temporal file %s, disk full?" % filenametmp
 
 		if isOk:
 			# Move saved settings to definitive configuration file, disk error o incorrect rights may fails at this point.
@@ -250,5 +250,5 @@ class CachingBackend (ScreenletsBackend):
 				import shutil
 				shutil.move(filenametmp, filename)
 			except:
-				print _("error while moving temporal file to configuration file, %s > %s, sorry, I lose your settings. :'(") % (filenametmp, filename)
+				print "error while moving temporal file to configuration file, %s > %s, sorry, I lose your settings. :'(" % (filenametmp, filename)
 

@@ -57,7 +57,7 @@ def create_menu_from_file (filename, callback):
 	try:
 		doc = xml.dom.minidom.parse(filename)
 	except Exception, e:
-		print _("XML-Error: %s") % str(e)
+		print "XML-Error: %s" % str(e)
 		return None
 	return create_menu_from_xml(doc.firstChild, callback)
 
@@ -186,7 +186,7 @@ def imageitem_from_name (filename, label, icon_size=32):
 			else:
 				image.set_from_pixbuf(pb)
 		except:
-			print _("Error while creating image from file: %s") % filename
+			print "Error while creating image from file: %s" % filename
 			return None
 	else:
 		image.set_from_icon_name(filename, 3)	# TODO: use better size
@@ -202,7 +202,7 @@ def read_desktop_file (filename):
 	try:
 		f = open (filename, "r")
 	except:
-		print _("Error: file %s not found.") % filename
+		print "Error: file %s not found." % filename
 	if f:
 		lines = f.readlines()
 		for line in lines:
@@ -256,8 +256,8 @@ class ApplicationMenu(object):
 					#if typ == "Application":
 					self.__applications.append(df)
 				except Exception, ex:
-					print _("Exception: %s") % str(ex)
-					print _("An error occured with desktop-file: %s") % file
+					print "Exception: %s" % str(ex)
+					print "An error occured with desktop-file: %s" % file
 	
 	def get_menu_for_category (self, cat_name, callback):
 		"""returns a gtk.Menu with all apps in the given category"""

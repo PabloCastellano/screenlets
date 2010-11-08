@@ -148,7 +148,7 @@ class IntOption (Option):
 				return int(strvalue[1:]) * -1
 			return int(strvalue)
 		except:
-			print _("Error during on_import - option: %s.") % self.name
+			print "Error during on_import - option: %s." % self.name
 			return 0
 
 
@@ -263,7 +263,7 @@ class AccountOption (Option):
 				pw = gnomekeyring.item_get_info_sync(self.keyring, 
 					int(auth_token)).get_secret()
 			except Exception, ex:
-				print _("ERROR: Unable to read password from keyring: %s") % ex
+				print "ERROR: Unable to read password from keyring: %s" % ex
 				pw = ''
 			# return
 			return (name, pw)
@@ -396,7 +396,7 @@ class EditableOptions(object):
 		try:
 			self.__options_groups__[option.group]['options'].append(option)
 		except:
-			print _("Options: Error - group %s not defined.") % option.group
+			print "Options: Error - group %s not defined." % option.group
 			return False
 		# now add the option
 		self.__options__.append(option)
@@ -613,7 +613,7 @@ class ListOptionDialog (gtk.Dialog):
 		return ret
 				
 	def button_callback (self, widget, id):
-		print _("PRESS: %s") % id
+		print "PRESS: %s" % id
 		if id == 'remove':
 			self.remove_selected_item()
 		if id == 'add':
@@ -776,7 +776,7 @@ class OptionsDialog (gtk.Dialog):
 			try:
 				dircontent = os.listdir(p)
 			except:
-				print _("Path %s not found.") % p
+				print "Path %s not found." % p
 				continue
 			# check all themes in path
 			for name in dircontent:
@@ -812,7 +812,7 @@ class OptionsDialog (gtk.Dialog):
 				# is it the active theme?
 				if name == obj.theme_name:
 					# select it in tree
-					print _("active theme is: %s") % name
+					print "active theme is: %s" % name
 					sel = self.tree.get_selection()
 					if sel:
 						it = self.liststore.get_iter_from_string(\
@@ -1157,7 +1157,7 @@ class OptionsDialog (gtk.Dialog):
 			widget.show_all()
 		else:
 			widget = gtk.Entry()
-			print _("unsupported type ''") % str(t)
+			print "unsupported type ''" % str(t)
 		hbox = gtk.HBox()
 		label = gtk.Label()
 		label.set_alignment(0.0, 0.0)
@@ -1235,7 +1235,7 @@ class OptionsDialog (gtk.Dialog):
 			val = (int(inputs[0].get_value()), int(inputs[2].get_value()), 
 				int(inputs[4].get_value()))
 		else:
-			print _("OptionsDialog: Unknown option type: %s") % str(t)
+			print "OptionsDialog: Unknown option type: %s" % str(t)
 			return None
 		# return the value
 		return val
@@ -1245,7 +1245,7 @@ class OptionsDialog (gtk.Dialog):
 	# TODO: custom callback/signal for each option?
 	def options_callback (self, widget, optionobj):
 		"""Callback for handling changed-events on entries."""
-		print _("Changed: %s") % optionobj.name
+		print "Changed: %s" % optionobj.name
 		if self.__shown_object:
 			# if the option is not real-time updated,
 			if optionobj.realtime == False:

@@ -112,7 +112,9 @@ DIR_USER = os.environ['HOME'] + '/.screenlets'
 
 DIR_CONFIG = os.environ['HOME'] + '/.config/Screenlets'
 
-SCREENLETS_PATH = [DIR_USER,DIR_USER_ROOT]
+# note that this is the order how themes are preferred to each other
+# don't change the order just like that
+SCREENLETS_PATH = [DIR_USER, DIR_USER_ROOT]
 
 
 #-------------------------------------------------------------------------------
@@ -1196,7 +1198,7 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 		self.saving_enabled = enabled
 	
 	def find_theme (self, name):
-		"""Find the first occurence of a theme and return its global path."""
+		"""Find the best occurence of a theme and return its global path."""
 		sn = self.get_short_name()
 		for p in SCREENLETS_PATH:
 			fpath = p + '/' + sn + '/themes/' + name
@@ -1228,7 +1230,7 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 	
 	def get_available_themes (self):
 		"""Returns a list with the names of all available themes in this
-			Screenlet's theme-directory."""
+			Screenlet's theme-directories."""
 		lst = []
 		for p in SCREENLETS_PATH:
 			d = p + '/' + self.get_short_name() + '/themes/'
@@ -1238,9 +1240,10 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 				dirlst.sort()
 				tdlen = len(d)
 				for fname in dirlst:
-					dname = fname[tdlen:]
-					# TODO: check if it's a dir
-					lst.append(dname)
+					if os.path.isdir(fname):
+						dname = fname[tdlen:]
+						if not dname in lst:
+							lst.append(dname)
 		return lst
 
 	def reshow(self):

@@ -766,59 +766,68 @@ class OptionsDialog (gtk.Dialog):
 	def show_themes_for_screenlet (self, obj):
 		"""Update the Themes-page to display the available themes for the
 		given Screenlet-object."""
-		# list with found themes
-		found_themes = []
-		# now check all paths for themes
+
+
+		dircontent = []
+
 		for path in screenlets.SCREENLETS_PATH:
 			p = path + '/' + obj.get_short_name() + '/themes'
 			print p
 			#p = '/usr/local/share/screenlets/Clock/themes'	# TEMP!!!
 			try:
-				dircontent = os.listdir(p)
+				dc = os.listdir(p)
+				for d in dc:
+					dircontent.append({'name':d, 'path':p+'/'})
 			except:
 				print "Path %s not found." % p
+
+		# list with found themes
+		found_themes = []
+			
+		# check all themes in path
+		for elem in dircontent:
+			# load themes with the same name only once
+			if found_themes.count(elem['name']):
 				continue
-			# check all themes in path
-			for name in dircontent:
-				# load themes with the same name only once
-				if found_themes.count(name):
-					continue
-				found_themes.append(name)
-				# build full path of theme.conf
-				theme_conf	= p + '/' + name + '/theme.conf'
-				# if dir contains a theme.conf
-				if os.access(theme_conf, os.F_OK):
-					# load it and create new list entry
-					ini = screenlets.utils.IniReader()
-					if ini.load(theme_conf):
-						# check for section
-						if ini.has_section('Theme'):
-							# get metainfo from theme
-							th_fullname	= ini.get_option('name', 
-								section='Theme')
-							th_info		= ini.get_option('info', 
-								section='Theme')
-							th_version	= ini.get_option('version', 
-								section='Theme')
-							th_author	= ini.get_option('author', 
-								section='Theme')
-							# create array from metainfo and add it to liststore
-							info = [name, th_fullname, th_info, th_author, 
-								th_version]
-							self.liststore.append([info])
-				else:
-					# no theme.conf in dir? just add theme-name
-					self.liststore.append([[name, '-', '-', '-', '-']])
-				# is it the active theme?
-				if name == obj.theme_name:
-					# select it in tree
-					print "active theme is: %s" % name
-					sel = self.tree.get_selection()
-					if sel:
-						it = self.liststore.get_iter_from_string(\
-							str(len(self.liststore)-1))
-						if it:
-							sel.select_iter(it)
+			found_themes.append(elem['name'])
+			# build full path of theme.conf
+			theme_conf = elem['path'] + elem['name'] + '/theme.conf'
+			# if dir contains a theme.conf
+			if os.access(theme_conf, os.F_OK):
+				# load it and create new list entry
+				ini = screenlets.utils.IniReader()
+				if ini.load(theme_conf):
+					# check for section
+					if ini.has_section('Theme'):
+						# get metainfo from theme
+						th_fullname	= ini.get_option('name', 
+							section='Theme')
+						th_info		= ini.get_option('info', 
+							section='Theme')
+						th_version	= ini.get_option('version', 
+							section='Theme')
+						th_author	= ini.get_option('author', 
+							section='Theme')
+						# create array from metainfo and add it to liststore
+						info = [elem['name'], th_fullname, th_info, th_author, 
+							th_version]
+						self.liststore.append([info])
+					else:
+						# no theme section in theme.conf just add theme-name
+						self.liststore.append([[elem['name'], '-', '-', '-', '-']])
+			else:
+				# no theme.conf in dir? just add theme-name
+				self.liststore.append([[elem['name'], '-', '-', '-', '-']])
+			# is it the active theme?
+			if elem['name'] == obj.theme_name:
+				# select it in tree
+				print "active theme is: %s" % elem['name']
+				sel = self.tree.get_selection()
+				if sel:
+					it = self.liststore.get_iter_from_string(\
+						str(len(self.liststore)-1))
+					if it:
+						sel.select_iter(it)
 
 	# UI-creation
 	

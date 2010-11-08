@@ -302,7 +302,10 @@ class ScreenletsManager(object):
 		w.set_skip_pager_hint(False)
 		#w.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_NORMAL)
 		w.set_position(gtk.WIN_POS_CENTER)
-		w.set_icon_from_file(screenlets.INSTALL_PREFIX +'/share/icons/screenlets.svg')
+
+		icontheme = gtk.icon_theme_get_default()
+		w.set_icon_list(icontheme.load_icon("screenlets", 24, 0))
+
 		w.connect('delete-event', self.delete_event)
 		#w.set_has_separator(False)
 		# create outer vbox in window
@@ -603,7 +606,8 @@ class ScreenletsManager(object):
 		dlg.set_artists(screenlets.ARTISTS)
 		dlg.set_translator_credits(screenlets.TRANSLATORS)
 		# add logo
-		logo = gtk.gdk.pixbuf_new_from_file(screenlets.INSTALL_PREFIX +'/share/icons/screenlets.svg')
+		icontheme = gtk.icon_theme_get_default()
+		logo = icontheme.load_icon("screenlets", 128, 0)
 		if logo:
 			dlg.set_logo(logo)
 		# run/destroy

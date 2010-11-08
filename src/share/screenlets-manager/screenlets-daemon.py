@@ -61,7 +61,9 @@ class ScreenletsDaemon (dbus.service.Object):
 	def __init__ (self):
 		# create bus, call super
 
-		pixbuf = gtk.gdk.pixbuf_new_from_file("/usr/share/icons/screenlets.svg")
+		icontheme = gtk.icon_theme_get_default()
+		pixbuf = icontheme.load_icon("screenlets", 24, 0)
+		pixbuf_tray = icontheme.load_icon("screenlets-tray", 24, 0)
 
 		session_bus = dbus.SessionBus()
 		bus_name = dbus.service.BusName(SLD_BUS, bus=session_bus)
@@ -81,7 +83,7 @@ class ScreenletsDaemon (dbus.service.Object):
 			self.show_in_tray = 'True'
 		if self.show_in_tray == 'True':
 			tray = gtk.StatusIcon()
-			tray.set_from_pixbuf(pixbuf)
+			tray.set_from_pixbuf(pixbuf_tray)
 			tray.connect("activate", self.openit)
 			tray.connect("popup-menu", self.show_menu)
 			tray.set_tooltip(_("Screenlets daemon"))
@@ -220,7 +222,9 @@ class ScreenletsDaemon (dbus.service.Object):
 		dlg.set_artists(screenlets.ARTISTS)
 		dlg.set_translator_credits(screenlets.TRANSLATORS)
 		# add logo
-		logo = gtk.gdk.pixbuf_new_from_file('/usr/share/icons/screenlets.svg')
+
+		icontheme = gtk.icon_theme_get_default()
+		logo = icontheme.load_icon("screenlets", 128, 0)
 		if logo:
 			dlg.set_logo(logo)
 		# run/destroy

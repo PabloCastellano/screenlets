@@ -8,6 +8,6 @@ Comment=A graphical tool to manage your Screenlets.
 Comment[de]=Ein grafisches Werkzeug, um Ihre Screenlets zu verwalten.
 Comment[et]=Graafiline tööriist Screenlets vidinate haldamiseks
 Icon=/usr/share/icons/screenlets.svg
-Exec=screenlets-manager > /dev/null
+Exec="screenlets-manager > /dev/null"
 StartupNotify=true
 

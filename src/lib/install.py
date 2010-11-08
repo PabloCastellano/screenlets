@@ -124,7 +124,7 @@ class ScreenletInstaller(object):
 		# check if screenlet is already installed
 		#found_path = screenlets.utils.find_first_screenlet_path(name)
 		if self.is_installed(name):#found_path != None:
-			if screenlets.show_question(None,(_("The %sScreenlet is already installed in '%s'.\nDo you wish to continue?") % (name, DIR_USER)),(_('Install %s') % (name))):
+			if screenlets.show_question(None,(_("The %(slet)sScreenlet is already installed in '%(dir)s'.\nDo you wish to continue?") % {"slet":name, "dir":DIR_USER}),(_('Install %s') % (name))):
 				pass
 			else:
 				self._message= _('%sScreenlet is already installed') % (name)

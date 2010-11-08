@@ -17,6 +17,7 @@
 
 import glob
 import os
+import gtk
 import gobject
 import gettext
 
@@ -196,6 +197,18 @@ class CachingBackend (ScreenletsBackend):
 						#print "LOAD: "+line[:-1]
 						parts = line[:-1].split('=', 1)
 						if len(parts) > 1:
+							# undocumented feature to resize screenlet dynamically on first launch
+							# by boamaod for Estobuntu
+							if parts[0] == 'rel_x':
+								parts[0] = 'x'
+								parts[1] = str(int(gtk.gdk.screen_width()*float(parts[1])))
+							if parts[0] == 'rel_y':
+								parts[0] = 'y'
+								parts[1] = str(int(gtk.gdk.screen_height()*float(parts[1])))
+							if parts[0] == 'rel_scale':
+								parts[0] = 'scale'
+								parts[1] = str(gtk.gdk.screen_height()/float(parts[1]))
+							print "%s='%s'" % (parts[0], parts[1])
 							self.__instances[id][parts[0]] = parts[1]
 					f.close()
 				except Exception, ex:

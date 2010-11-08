@@ -127,7 +127,7 @@ class ScreenletSession (object):
 			tdlen = len(self.path)
 			for filename in dirlst:
 				filename = filename[tdlen:]		# strip path from filename
-				print 'File: %s' % filename
+				print 'Loaded config from: %s' % filename
 				if filename.endswith(id + '.ini'):
 				# create new instance
 					sl = self.create_instance(id=filename[:-4], enable_saving=False)
@@ -385,7 +385,7 @@ class ScreenletSession (object):
 		tdlen = len(self.path)
 		for filename in dirlst:
 			filename = filename[tdlen:]		# strip path from filename
-			print 'File: %s' % filename
+			print 'Loaded config from: %s' % filename
 			if filename.endswith('.ini'):
 				# create new instance
 				sl = self.create_instance(id=filename[:-4], enable_saving=False)

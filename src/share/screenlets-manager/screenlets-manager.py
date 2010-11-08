@@ -157,7 +157,7 @@ class ScreenletsManager(object):
 				info = self.model.get_value(it, 2)
 				if info and not info.system:
 					# delete the file
-					if screenlets.show_question(None, _('Do you really want to permanently uninstall/delete the %sScreenlet from your system?' % info.name), _('Delete Screenlet')):
+					if screenlets.show_question(None, _('Do you really want to permanently uninstall and delete the %sScreenlet from your system?') % info.name, _('Delete Screenlet')):
 						# delete screenlet's directory from userdir
 						os.system('rm -rf %s/%s' % (DIR_USER, info.name))
 						# remove entry from model
@@ -266,7 +266,7 @@ class ScreenletsManager(object):
 			it = self.model.get_iter(sel[0][0])
 			if it:
 				info = self.model.get_value(it, 2)
-				if screenlets.show_question(None, _('Do you really want to reset the %sScreenlet configuration?' % info.name), _('Reset Screenlet')):
+				if screenlets.show_question(None, _('Do you really want to reset the %sScreenlet configuration?') % info.name, _('Reset Screenlet')):
 					# delete screenlet's config directory 
 					os.system('rm -rf %s/%s' % (screenlets.DIR_CONFIG, info.name))
 					# remove entry from model

@@ -1,0 +1,1101 @@
+# Estonian translation for screenlets
+# Copyright (c) 2007 Rosetta Contributors and Canonical Ltd 2007
+# This file is distributed under the same license as the screenlets package.
+#
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2007, 2010.
+# Guido Tabbernuk <boamaod@gmail.com>, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: screenlets\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-11-02 05:16+0900\n"
+"PO-Revision-Date: 2010-10-29 09:19+0000\n"
+"Last-Translator: tabbernuk <boamaod@gmail.com>\n"
+"Language-Team: Estonian <gnome-et@lists.linux.ee>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2010-11-02 05:13+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
+"Language: \n"
+
+#. the third party screenlets download site
+#: src/lib/__init__.py:100
+msgid "http://www.screenlets.org/index.php/Get_more_screenlets"
+msgstr "http://www.screenlets.org/index.php/Hangi_vidinaid_juurde"
+
+#: src/lib/__init__.py:201
+msgid "Error while loading ScreenletTheme in: "
+msgstr "Viga töölauavidina teema lugemisel: "
+
+#. default meta-info for Screenlets
+#: src/lib/__init__.py:616
+msgid "No name set for this Screenlet"
+msgstr "Informatsioon puudub"
+
+#: src/lib/__init__.py:618
+msgid "No author defined for this Screenlet"
+msgstr "Autor puudub"
+
+#: src/lib/__init__.py:619
+msgid "No info set for this Screenlet"
+msgstr "Informatsioon puudub"
+
+#: src/lib/__init__.py:731
+msgid "The basic settings for this Screenlet-instance."
+msgstr "Selle Screenlet-isendi põhilised sätted"
+
+#: src/lib/__init__.py:746
+msgid "X-Position"
+msgstr "X-teljel"
+
+#: src/lib/__init__.py:746
+msgid "The X-position of this Screenlet ..."
+msgstr "Töölauavidina asukoht x-teljel"
+
+#: src/lib/__init__.py:749
+msgid "Y-Position"
+msgstr "Y-teljel"
+
+#: src/lib/__init__.py:749
+msgid "The Y-position of this Screenlet ..."
+msgstr "Töölauavidina asukoht y-teljel"
+
+#: src/lib/__init__.py:752
+msgid "Width"
+msgstr "Laius"
+
+#: src/lib/__init__.py:752
+msgid "The width of this Screenlet ..."
+msgstr "Selle töölauavidina laius..."
+
+#: src/lib/__init__.py:755
+msgid "Height"
+msgstr "Kõrgus"
+
+#: src/lib/__init__.py:755
+msgid "The height of this Screenlet ..."
+msgstr "Selle töölauavidina kõrgus..."
+
+#: src/lib/__init__.py:758
+msgid "Scale"
+msgstr "Mõõtkava"
+
+#: src/lib/__init__.py:758
+msgid "The scale-factor of this Screenlet ..."
+msgstr "Suurenduse kordaja sellele töölauavidinale"
+
+#: src/lib/__init__.py:761
+msgid "Opacity"
+msgstr "Katvus"
+
+#: src/lib/__init__.py:761
+msgid "The opacity of the Screenlet window ..."
+msgstr "Töölauavidina katvuse koefitsent..."
+
+#: src/lib/__init__.py:764
+msgid "Stick to Desktop"
+msgstr "Kleepu töölauale"
+
+#: src/lib/__init__.py:765
+msgid "Show this Screenlet on all workspaces ..."
+msgstr "Näita seda töölauavidinat kõikidel tööaladel ..."
+
+#: src/lib/__init__.py:767
+msgid "Treat as Widget"
+msgstr "Käsitle vidinana"
+
+#: src/lib/__init__.py:768
+msgid "Treat this Screenlet as a \"Widget\" ..."
+msgstr "Kohtle töölauavidinat \"Widget\"'ina"
+
+#: src/lib/__init__.py:776
+msgid "Lock position"
+msgstr "Lukusta asukoht"
+
+#: src/lib/__init__.py:777
+msgid "Stop the screenlet from being moved..."
+msgstr "Keela töölauavidina liigutamine ..."
+
+#. add "Keep above"-menuitem
+#: src/lib/__init__.py:779 src/lib/__init__.py:1086
+msgid "Keep above"
+msgstr "Alati pealmine"
+
+#: src/lib/__init__.py:780
+msgid "Keep this Screenlet above other windows ..."
+msgstr "Hoia töölauavidinat alati kõikide teiste akende peal ..."
+
+#. add "Keep Below"-menuitem
+#: src/lib/__init__.py:782 src/lib/__init__.py:1093
+msgid "Keep below"
+msgstr "Alati alumine"
+
+#: src/lib/__init__.py:783
+msgid "Keep this Screenlet below other windows ..."
+msgstr "Hoia töölauavidinat alati kõikide teiste akende all ..."
+
+#: src/lib/__init__.py:785
+msgid "Draw button controls"
+msgstr "Joonista juhtnupud"
+
+#: src/lib/__init__.py:786
+msgid "Draw buttons in top right corner"
+msgstr "Joonista juhtnupud ülesse paremasse nurka"
+
+#: src/lib/__init__.py:788
+msgid "Skip Pager"
+msgstr "Ära näita töölauahalduris"
+
+#: src/lib/__init__.py:789
+msgid "Set this Screenlet to show/hide in pagers ..."
+msgstr "Määrab, kas seda töölauavidinat näidatakse töölauahalduris"
+
+#: src/lib/__init__.py:791
+msgid "Skip Taskbar"
+msgstr "Ära näita tegumiribal"
+
+#: src/lib/__init__.py:792
+msgid "Set this Screenlet to show/hide in taskbars ..."
+msgstr "Ära näita töölauavidina tegumiribal"
+
+#: src/lib/__init__.py:794
+msgid "Resize on mouse scroll"
+msgstr "Skaleerimine hiirerulliga"
+
+#: src/lib/__init__.py:796
+msgid "Ignore requirements"
+msgstr "Eira sõltuvusi"
+
+#: src/lib/__init__.py:797
+msgid "Set this Screenlet to ignore/demand DEB requirements ..."
+msgstr ""
+"Töölauavidin teeb/ei tee välja, et ta on koostaja poolt määratud sõltuma "
+"paketist x."
+
+#: src/lib/__init__.py:801
+msgid "Allow overriding Options"
+msgstr "Luba valikute ülekatmine"
+
+#: src/lib/__init__.py:802
+msgid "Allow themes to override options in this screenlet ..."
+msgstr "Lubab teemadel töölauavidinas tehtud valikuid üle katta"
+
+#: src/lib/__init__.py:804
+msgid "Ask on Override"
+msgstr "Küsi ülekatmisel kinnitust"
+
+#: src/lib/__init__.py:805
+msgid "Show a confirmation-dialog when a theme wants to override "
+msgstr "Näitab kinnitusdialoogi, kui teema püüab ära katta "
+
+#: src/lib/__init__.py:806
+msgid "the current options of this Screenlet ..."
+msgstr "töölauavidina kehtivaid sätteid"
+
+#. version of the deb package
+#: src/lib/__init__.py:998
+msgid "(?)"
+msgstr ""
+
+#: src/lib/__init__.py:1001
+#, python-format
+msgid ""
+"\n"
+"%s %s required, NOT INSTALLED!"
+msgstr ""
+"\n"
+"%s %s nõutud, PUUDUB SÜSTEEMIS!"
+
+#: src/lib/__init__.py:1004
+#, python-format
+msgid ""
+"\n"
+"%s (%s) installed, req %s."
+msgstr ""
+"\n"
+"%s (%s) olemas, nõutud %s."
+
+#: src/lib/__init__.py:1007
+#, python-format
+msgid ""
+"Requirements for the Screenlet are not satisfied! Use the package manager of "
+"your system to install required packages.\n"
+"\n"
+"REQUIREMENTS:\n"
+"%s"
+msgstr ""
+"Töölauavidina sõltuvused pole rahuldatud! Kasuta paketihaldurit, et "
+"vajalikud paketid paigaldada.\n"
+"\n"
+"SÕLTUVUSED:\n"
+"%s"
+
+#: src/lib/__init__.py:1029
+msgid "Size"
+msgstr "Suurus"
+
+#: src/lib/__init__.py:1044
+msgid "Theme"
+msgstr "Teema"
+
+#: src/lib/__init__.py:1059
+msgid "Window"
+msgstr "Aken"
+
+#. add "lock"-menuitem
+#: src/lib/__init__.py:1065
+msgid "Lock"
+msgstr "Lukusta"
+
+#. add "Sticky"-menuitem
+#: src/lib/__init__.py:1072
+msgid "Sticky"
+msgstr "Kleepuv"
+
+#. add "Widget"-menuitem
+#: src/lib/__init__.py:1079
+msgid "Widget"
+msgstr "Vidin"
+
+#: src/lib/__init__.py:1103
+msgid "Properties..."
+msgstr "Omadused"
+
+#: src/lib/__init__.py:1106
+msgid "Info..."
+msgstr "Info"
+
+#: src/lib/__init__.py:1110
+#, python-format
+msgid "Add one more %s"
+msgstr "Lisa veel üks %s"
+
+#: src/lib/__init__.py:1113
+#, python-format
+msgid "Delete this %s"
+msgstr "Kustuta see %s"
+
+#: src/lib/__init__.py:1117
+#, python-format
+msgid "Quit this %s"
+msgstr "Sulge see %s"
+
+#: src/lib/__init__.py:1120
+#, python-format
+msgid "Quit all %ss"
+msgstr "Sulge kõik %s'd"
+
+#: src/lib/__init__.py:1372
+msgid ""
+"This theme wants to override your settings for this Screenlet. Do you want "
+"to allow that?"
+msgstr ""
+"See teema tahab selle töölauavidina seadeid üle katta. Lubad sa seda?"
+
+#: src/lib/__init__.py:1500
+msgid "Updating input shape"
+msgstr ""
+
+#: src/lib/__init__.py:1508
+msgid "Updating window shape"
+msgstr ""
+
+#: src/lib/__init__.py:1606
+#, python-format
+msgid "To quit all %s's, use 'Quit' instead. "
+msgstr "Kõigi %s'de sulgemiseks kasuta 'Sulge'. "
+
+#: src/lib/__init__.py:1607
+#, python-format
+msgid "Really delete this %s and its settings?"
+msgstr "Kas tõesti kustutada see %s koos oma seadetega?"
+
+#: src/lib/options.py:233
+msgid "GnomeKeyring is not available!!"
+msgstr "GnomeKeyring ei ole saadaval!!"
+
+#: src/lib/options.py:239
+msgid "No keyrings found. Please create one first!"
+msgstr "Võtmerõngast ei leitud. Palun, loo see esmalt!"
+
+#: src/lib/options.py:271
+msgid "Illegal value in AccountOption.on_import."
+msgstr "Vigane väärtus AccountOption.on_import-is"
+
+#: src/lib/options.py:465
+#, python-format
+msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
+msgstr "Vigane XML metadata-failis (või fail puudub): \"%s\"."
+
+#: src/lib/options.py:469
+#, python-format
+msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
+msgstr "Puuduv või vigane rootnode metainformatsioonifailis: \"%s\"."
+
+#. we only allow groups in the first level (groups need children)
+#: src/lib/options.py:478
+#, python-format
+msgid ""
+"Error in metadata-file \"%s\" - only <group>-tags allowed in first level. "
+"Groups must contain at least one <info>-element."
+msgstr ""
+"Viga metainformatsioonifailis \"%s\" - esimesel tasemel on lubatud vaid "
+"<group>-märksõnad. Grupid peavad sisaldama vähemalt ühte <info>-elementi."
+
+#: src/lib/options.py:484
+#, python-format
+msgid "No name for group defined in \"%s\"."
+msgstr "Grupile pole nime defineeritud \"%s\"."
+
+#: src/lib/options.py:500
+#, python-format
+msgid "Invalid option-node found in \"%s\"."
+msgstr "\"%s\" sisaldab vigast option-node'i."
+
+#: src/lib/options.py:653
+msgid "Edit Options"
+msgstr "Muuda seadeid"
+
+#: src/lib/options.py:851
+msgid "About "
+msgstr "Programmist "
+
+#: src/lib/options.py:863
+msgid "Options "
+msgstr "Sätted "
+
+#. create info-text list
+#: src/lib/options.py:870
+msgid ""
+"Themes allow you to easily switch the appearance of your Screenlets. On this "
+"page you find a list of all available themes for this Screenlet."
+msgstr ""
+"Teemad võimaldavad lihtsalt ja kiiresti muuta töölauavidina välimust. Sellel "
+"leheküljel leiad nimekirja kõikidest teemadest, mis on saadaval antud "
+"töölauavidinatele."
+
+#: src/lib/options.py:899
+msgid "Themes "
+msgstr "Teemad "
+
+#: src/lib/options.py:912
+msgid "no info available"
+msgstr "täpsemad andmed puuduvad"
+
+#: src/lib/options.py:1003
+msgid "Choose File"
+msgstr "Vali fail"
+
+#: src/lib/options.py:1012
+msgid "Choose Directory"
+msgstr "Vali kataloog"
+
+#: src/lib/options.py:1038
+msgid "Choose Image"
+msgstr "Vali pilt"
+
+#: src/lib/options.py:1105
+msgid "Open List-Editor ..."
+msgstr "Ava nimekirja redaktor ..."
+
+#: src/lib/options.py:1126
+msgid "Apply username/password ..."
+msgstr "Sisestatud kasutajanime/parooli salvestamine ja kasutuselevõtmine"
+
+#: src/lib/options.py:1127
+msgid "Enter username here ..."
+msgstr "Sisesta siia kasutajanimi..."
+
+#: src/lib/options.py:1128
+msgid "Enter password here ..."
+msgstr ""
+"Sisesta siia parool... Kinnitamisel salvestatakse parool süsteemi vaikimisi "
+"võtmerõngasse."
+
+#: src/lib/options.py:1183
+msgid "Apply"
+msgstr "Kinnita"
+
+#: src/lib/sensors.py:168
+#, python-format
+msgid "%(days)s days, %(hours)s hours and %(minutes)s minutes"
+msgstr "%s päev(a), %s tund(i) ja %s minut(it)"
+
+#: src/lib/sensors.py:288
+msgid "Can't get kernel version"
+msgstr "Kerneli versiooni päring ebaõnnestus"
+
+#: src/lib/sensors.py:298
+msgid "Can't get KDE version"
+msgstr "KDE versiooni päring ebaõnnestus"
+
+#: src/lib/sensors.py:308
+msgid "Can't get Gnome version"
+msgstr "GNOME'i versiooni päring ebaõnnestus"
+
+#: src/lib/sensors.py:319
+msgid "Failed to open /proc/version"
+msgstr "/proc/version avamine ebaõnnesuts"
+
+#: src/lib/sensors.py:386
+msgid "Can't parse /proc/meminfo"
+msgstr "/proc/meminfo parsimine ebaõnnestus"
+
+#: src/lib/sensors.py:529
+msgid "Cannot get ip"
+msgstr "IP päring ebaõnnestus"
+
+#: src/lib/sensors.py:549
+msgid "Can't open /proc/net/dev"
+msgstr "/proc/net/dev avamine ebaõnnestus"
+
+#: src/lib/sensors.py:586
+msgid "Can't open /proc/net/wireless"
+msgstr ""
+
+#: src/lib/sensors.py:616 src/lib/sensors.py:629 src/lib/sensors.py:645
+#: src/lib/sensors.py:658
+msgid "Not connected"
+msgstr "Ühendamata"
+
+#: src/lib/sensors.py:936
+#, python-format
+msgid "Can't open %s/temperature"
+msgstr ""
+
+#: src/lib/sensors.py:938
+msgid "Can't open folder /proc/acpi/thermal_zone/"
+msgstr ""
+
+#: src/lib/sensors.py:954 src/lib/sensors.py:965
+#, python-format
+msgid "Can't open %s"
+msgstr ""
+
+#: src/lib/sensors.py:980
+msgid "Error during hddtemp drives search"
+msgstr ""
+
+#: src/lib/sensors.py:982 src/lib/sensors.py:1059
+msgid "Hddtemp not installed"
+msgstr ""
+
+#: src/lib/sensors.py:1012
+#, python-format
+msgid "can't read temperature in: %s"
+msgstr ""
+
+#: src/lib/sensors.py:1026 src/lib/sensors.py:1042
+#, python-format
+msgid "Can't read value from %s"
+msgstr ""
+
+#: src/lib/services.py:61
+msgid "No name set in ScreenletService.__init__!"
+msgstr "ScreenletService.__init__ ei sisalda nime!"
+
+#: src/lib/services.py:145
+#, python-format
+msgid "Trying to access invalid instance \"%s\"."
+msgstr ""
+
+#: src/lib/services.py:147
+#, python-format
+msgid "Trying to access invalid option \"%s\"."
+msgstr ""
+
+#. TODO: also check for correct type (Screenlet-subclass)!!
+#: src/lib/session.py:72
+msgid ""
+"ScreenletSession.__init__ has to be called with a\n"
+"\t\t\t valid Screenlet-classobject as first argument!"
+msgstr ""
+
+#, python-format
+#~ msgid "Error while creating image from file: %s"
+#~ msgstr "Viga sellest failist pildi tekitamisel: %s"
+
+#, python-format
+#~ msgid "Error: file %s not found."
+#~ msgstr "Viga: faili %s ei leitud."
+
+#, python-format
+#~ msgid "XML-Error: %s"
+#~ msgstr "XML-Viga: %s"
+
+#, python-format
+#~ msgid "Exception: %s"
+#~ msgstr "Viga: %s"
+
+#~ msgid "Error while creating menu."
+#~ msgstr "Viga menüü loomisel."
+
+#~ msgid "Override: "
+#~ msgstr "Ülekatmine: "
+
+#~ msgid "theme.conf loaded: "
+#~ msgstr "theme.conf laaditud: "
+
+#~ msgid "Name: "
+#~ msgstr "Nimi: "
+
+#~ msgid "Author: "
+#~ msgstr "Autor: "
+
+#~ msgid "Version: "
+#~ msgstr "Versioon: "
+
+#~ msgid "Info: "
+#~ msgstr "Info: "
+
+#~ msgid "Failed to load theme.conf"
+#~ msgstr "theme.conf'i laadimine ebaõnnestus"
+
+#~ msgid "Quit all %ss ..."
+#~ msgstr "Sulge kõik %s'd"
+
+#~ msgid "Error while loading theme: "
+#~ msgstr "Viga teema laadimisel: "
+
+#~ msgid "Start drag"
+#~ msgstr "Vedamist alga"
+
+#~ msgid "End drag"
+#~ msgstr "Vedamist lõpeta"
+
+#~ msgid "Quitting current screenlet instance"
+#~ msgstr "Jooksva töölauavidina sulgemine"
+
+#~ msgid "GConf python module not found. GConf settings backend is disabled."
+#~ msgstr ""
+#~ "GConf'i Pythoni moodulit ei leitud. GConf seadete pakkujat ei saa kasutada."
+
+#~ msgid "GConfBackend: initializing"
+#~ msgstr "GConfBackend: initsialiseerin"
+
+#~ msgid "Saved option %s%s/%s = %s"
+#~ msgstr "Salvestatud seade %s%s/%s = %s"
+
+#~ msgid "Temporary file didn't exist - nothing to remove."
+#~ msgstr "Ajutist faili polnud - ei ole midagi eemaldada"
+
+#, python-format
+#~ msgid "CachingBackend: <#%s> removed!"
+#~ msgstr "CachingBackend: <#%s> eemaldatud!"
+
+#~ msgid "CachingBackend: Loading instances from cache"
+#~ msgstr "CachingBackend: Laadin isendid puhvrist"
+
+#, python-format
+#~ msgid "CachingBackend: Loading <%s>"
+#~ msgstr "CachingBackend: Laen <%s>"
+
+#, python-format
+#~ msgid "Error while loading options: %s"
+#~ msgstr "Tõrge seade %s laadimisel"
+
+#, python-format
+#~ msgid "Queue-element <%s> not found (already removed?)!"
+#~ msgstr "Järjekorraelementi <%s> ei leitud (juba eemaldatud?)!"
+
+#~ msgid "CachingBackend: Saving <#%s> :) ..."
+#~ msgstr "CachingBackend: Salvestan <#%s> :) ..."
+
+#, python-format
+#~ msgid "Error during on_import - option: %s."
+#~ msgstr "Tõrge on_import ajal - seade: %s"
+
+#, python-format
+#~ msgid "ERROR: Unable to read password from keyring: %s"
+#~ msgstr "VIGA: Parooli lugemine võtmerõngast kukkus läbi: %s"
+
+#, python-format
+#~ msgid "Path %s not found."
+#~ msgstr "Asukohta %s ei leitud"
+
+#, python-format
+#~ msgid "active theme is: %s"
+#~ msgstr "aktiivne teema on: %s"
+
+#, python-format
+#~ msgid "OptionsDialog: Unknown option type: %s"
+#~ msgstr "OptionsDialog: Tundmatu seadetüüp: %s"
+
+#, python-format
+#~ msgid "Changed: %s"
+#~ msgstr "Muudetud: %s"
+
+#~ msgid "%s days, %s hours and %s minutes"
+#~ msgstr "%s päev(a), %s tund(i) ja %s minut(it)"
+
+#~ msgid "Creating new instance: "
+#~ msgstr "Uue isendi loomine: "
+
+#, python-format
+#~ msgid "File: %s"
+#~ msgstr "Fail: %s"
+
+#~ msgid "Removing last instance from session"
+#~ msgstr "Sessiooni viimase isendi eemaldamine"
+
+#~ msgid "Removing instance from session but staying alive"
+#~ msgstr "Isendi eemaldamine sessioonist ja edasi elamine"
+
+#~ msgid "Creating new entry for %s in %s"
+#~ msgstr "Uue kirje loomine %s jaoks %s'is"
+
+#, python-format
+#~ msgid "Screenlet has already been added to %s"
+#~ msgstr "Töölauavidin on juba %s'i lisatud"
+
+#, python-format
+#~ msgid ""
+#~ "Screenlet '%s' has been interrupted by keyboard. TODO: make this an event"
+#~ msgstr ""
+#~ "Töölauavidina '%s' tegevus peatati klahvistiku abil. TODO: tee sellest "
+#~ "sündmus :)"
+
+#, python-format
+#~ msgid "File %s not found"
+#~ msgstr "Faili %s ei leitud"
+
+#, python-format
+#~ msgid "Section %s not found!"
+#~ msgstr "Sektsiooni %s ei leitud!"
+
+#, python-format
+#~ msgid "Failed to add %sScreenlet."
+#~ msgstr "%sScreenleti lisamine ebaõnnestus."
+
+#~ msgid ""
+#~ "Invalid archive. Archive must contain a directory with the screenlet's name."
+#~ msgstr "Vigane arhiiv. Arhiivis peab olema kaust töölauavidina nimega."
+
+#, python-format
+#~ msgid "Install %s"
+#~ msgstr "Paigalda %s"
+
+#, python-format
+#~ msgid ""
+#~ "%s was not packaged with the screenlet packager. Do you wish to continue and "
+#~ "try to install it?"
+#~ msgstr ""
+#~ "%s ei ole pakitud töölauavidinate pakendajaga. Kas jätkata ja üritada seda "
+#~ "paigaldada?"
+
+#~ msgid "This package was not packaged with the screenlet packager."
+#~ msgstr "See pakk pole pakendatud töölauavidinate pakendajaga."
+
+#, python-format
+#~ msgid "The %sScreenlet has been succesfully installed."
+#~ msgstr "%sScreenlet on edukalt pigaldatud."
+
+#~ msgid ""
+#~ "This type of karamba theme is not supported yet\n"
+#~ " Only older versions can be used"
+#~ msgstr ""
+#~ "Seda tüüpi Karamba teemate veel ei toetata\n"
+#~ "Saab kasutada ainult vanemaid versioone"
+
+#, python-format
+#~ msgid "Installing %s"
+#~ msgstr "Paigaldatakse %s"
+
+#~ msgid "Archive is damaged or unsupported, use only tar, bz2 or gz."
+#~ msgstr "Vigane arhiiv. Arhiivifail on rikutud või pole bz2 ega bz tüüpi."
+
+#, python-format
+#~ msgid ""
+#~ "The %sScreenlet is already installed in '%s'.\n"
+#~ "Do you wish to continue?"
+#~ msgstr ""
+#~ "%sScreenlet on juba paigaldatud asukohta '%s'.\n"
+#~ "Kas jätkata?"
+
+#, python-format
+#~ msgid "%sScreenlet is already installed"
+#~ msgstr "%sScreenlet on juba paigaldatud"
+
+#~ msgid "Compatibility for this karamba theme is not yet implemented"
+#~ msgstr "Seda tüüpi Karamba teemat veel ei toetata"
+
+#~ msgid "Karamba theme was successfully installed"
+#~ msgstr "Karamba teema on edukalt paigaldatud"
+
+#~ msgid ""
+#~ "Invalid archive. Archive does not contain a screenlet or a valid karamba "
+#~ "theme."
+#~ msgstr ""
+#~ "Vigane arhiiv. Arhiivis pole ei Screenleti, ega ka sobivat Karamba teemat."
+
+#~ msgid "Error"
+#~ msgstr "Tõrge"
+
+#~ msgid ""
+#~ "There is no existing autostart directory for your user account yet. Do you "
+#~ "want me to automatically create it for you?"
+#~ msgstr ""
+#~ "Sinu kasutajakonto jaoks pole veel loodud automaatkäivituse kataloogi. Kas "
+#~ "luua see praegu?"
+
+#~ msgid "Auto-create autostart dir ..."
+#~ msgstr "Automaatkäivituse kataloogi loomine..."
+
+#, python-format
+#~ msgid ""
+#~ "Automatic creation failed. Please manually create the directory:\n"
+#~ "%s"
+#~ msgstr ""
+#~ "Automaatne tekitamine ebaõnnestus. Palun tekita see kataloog ise:\n"
+#~ "%s"
+
+#, python-format
+#~ msgid ""
+#~ "Please manually create the directory:\n"
+#~ "%s"
+#~ msgstr "Palun tekita see kataloog ise: %s"
+
+#~ msgid "Create autostarter for: Screenlets Daemon"
+#~ msgstr "Screenlets deemonile automaatkäivitaja tekitamine"
+
+#~ msgid "Starter already exists."
+#~ msgstr "Käivitaja on juba olemas."
+
+#~ msgid "Removed duplicate entry"
+#~ msgstr "Topeltsissekanne eemaldatud"
+
+#, python-format
+#~ msgid "Create autostarter for: %s/%sScreenlet.py"
+#~ msgstr "Tekita sellele automaatkäivitaja: %s/%sScreenlet.py"
+
+#, python-format
+#~ msgid "Delete autostarter for %s."
+#~ msgstr "Kustuta %s automaatkäivitaja."
+
+#~ msgid "Text"
+#~ msgstr "Tekst"
+
+#~ msgid "Text-/Font-related settings for the sticknotes."
+#~ msgstr "Kirjatüübi jms asjadega seotud seaded"
+
+#~ msgid "Layout"
+#~ msgstr "Paigutus"
+
+#~ msgid "The Layout-related settings for the sticknotes.."
+#~ msgstr "Lipikul oleva teksti paigutusega seotud seadistused"
+
+#~ msgid "Export"
+#~ msgstr "Eksportimine"
+
+#~ msgid "X-Position of Pin"
+#~ msgstr "Nõela asukoht x-teljel"
+
+#~ msgid "The X-Position of the tack/pin for the sticknote ..."
+#~ msgstr "Lipikut kinnitava nõela asukoht x-teljel"
+
+#~ msgid "Y-Position of Pin"
+#~ msgstr "Nõela asukoht y-teljel"
+
+#~ msgid "The Y-Position of the tack/pin for the sticknote ..."
+#~ msgstr "Lipikut kinnitava nõela asukoht y-teljel"
+
+#~ msgid "Randomize Pin"
+#~ msgstr "Nõela juhuslikustamine"
+
+#~ msgid "If active, the pin/tack will be slightly moved randomly "
+#~ msgstr ""
+#~ "Kui sisse lülitatud, siis nihutatakse nõela pisut juhuslikkuse alusel "
+
+#~ msgid "Default Font"
+#~ msgstr "Vaikimisi kirjatüüp"
+
+#~ msgid "The default font of the text (when no Markup is used) ..."
+#~ msgstr "Vaikimisi kirjatüüp märkmeteksti jaoks"
+
+#~ msgid "Default Color"
+#~ msgstr "Vaikimisi tekstivärv"
+
+#~ msgid "The default color of the text (when no Markup is used) ..."
+#~ msgstr "Vaikimisi värk märkmeteksti jaoks"
+
+#~ msgid "X-top position"
+#~ msgstr "Ülanurk x-teljel"
+
+#~ msgid "The X-Position of the text-rectangle's upper left corner ..."
+#~ msgstr "Märkmeteksti paani ülemise vasema nurga asukoht x-teljel"
+
+#~ msgid "Y-top position"
+#~ msgstr "Ülanurk y-teljel"
+
+#~ msgid "The Y-Position of the text-rectangle's upper left corner ..."
+#~ msgstr "Märkmeteksti paani ülemise vasema nurga asukoht y-teljel"
+
+#~ msgid "X-bottom position"
+#~ msgstr "Alanurk x-teljel"
+
+#~ msgid "The X-Position of the text-rectangle's down right corner ..."
+#~ msgstr "Märkmeteksti paani alumise parema nurga asukoht x-teljel"
+
+#~ msgid "Y-bottom position"
+#~ msgstr "Alanurk y-teljel"
+
+#~ msgid "The Y-Position of the text-rectangle's down right corner ..."
+#~ msgstr "Märkmeteksti paani alumise parema nurga asukoht y-teljel"
+
+#~ msgid "Colorpicker X-position"
+#~ msgstr "Värvipipett x-teljel"
+
+#~ msgid "The X-Position of color picker to paint the text background..."
+#~ msgstr "Märkmeteksti paani jaoks värvi pipettimise paiga asukoht x-teljel"
+
+#~ msgid "Colorpicker Y-position"
+#~ msgstr "Värvipipett y-teljel"
+
+#~ msgid "The Y-Position of the color picker to paint the text background..."
+#~ msgstr "Märkmeteksti paani jaoks värvi pipettimise paiga asukoht y-teljel"
+
+#~ msgid "Note-Text"
+#~ msgstr "Märkmetekst"
+
+#~ msgid "The text on this sticky note ..."
+#~ msgstr "Sellel lipikul olev märkmetekst"
+
+#~ msgid "Export destination"
+#~ msgstr "Kuhu eksportida"
+
+#~ msgid "What is the destination of the export from the Screenlet"
+#~ msgstr "Rakendus, millesse märkmelipikuid eksporditakse"
+
+#~ msgid "Open after export"
+#~ msgstr "Ava peale eksporti"
+
+#~ msgid ""
+#~ "If checked, the note will be opened in the destination application "
+#~ "immediately after export."
+#~ msgstr ""
+#~ "Kui see on valitud, siis avatakse eksporditud lipik peale eksportimist "
+#~ "vastava rakendusega"
+
+#~ msgid "Exported note tag"
+#~ msgstr "Eksportimise sildistus"
+
+#~ msgid "The tag string that will be connected to note exported"
+#~ msgstr ""
+#~ "Sildistring, mis seotakse ekspoditud lipikuga eksportimise sihiks olevas "
+#~ "rakenduses"
+
+#~ msgid "Export now"
+#~ msgstr "Ekspordi"
+
+#, python-format
+#~ msgid "ScreenletsDaemon: registered %s"
+#~ msgstr "ScreenletsDaemon: registreeritud %s"
+
+#, python-format
+#~ msgid "screenletsDaemon: unregistered %s"
+#~ msgstr "screenletsDaemon: maha kantud %s"
+
+#~ msgid "Screenlets Manager"
+#~ msgstr "Screenlets töölauavidinate haldur"
+
+#~ msgid "Install Screenlet"
+#~ msgstr "Paigalda uus töölauavidin..."
+
+#~ msgid "Get more Screenlets"
+#~ msgstr "Hangi uusi töölauavidinaid..."
+
+#~ msgid "Launch Screenlet"
+#~ msgstr "Käivita töölauavidin"
+
+#~ msgid "Close all Screenlets"
+#~ msgstr "Sulge kõik töölauavidinad"
+
+#~ msgid "Install a Screenlet"
+#~ msgstr "Paigalda Screenlet"
+
+#~ msgid "ScreenletsDaemon running ..."
+#~ msgstr "ScreenletsDaemon käib ..."
+
+#~ msgid "ScreenletsDaemon has been shut down ..."
+#~ msgstr "ScreenletsDaemon on suletud ..."
+
+#~ msgid "Reset Screenlet"
+#~ msgstr "Lähtesta töölauavidin"
+
+#~ msgid "Install"
+#~ msgstr "Paigalda uus töölauavidin"
+
+#~ msgid "Uninstall"
+#~ msgstr "Eemalda töölauavidin"
+
+#~ msgid "Reset Screenlet Config"
+#~ msgstr "Lähtesta vidina seaded"
+
+#~ msgid "Install New Theme"
+#~ msgstr "Paigalda uus teema"
+
+#~ msgid "Close All"
+#~ msgstr "Peata kõik"
+
+#~ msgid "Create Desktop Shortcut"
+#~ msgstr "Tekita töölauale otsetee"
+
+#~ msgid "Launch/add a new instance of the selected Screenlet ..."
+#~ msgstr "Käivita veel üks valitud töölauavidin ..."
+
+#~ msgid "Permanently uninstall/delete the currently selected Screenlet ..."
+#~ msgstr "Eemalda valitud töölauavidin süsteemist lõplikult  ..."
+
+#~ msgid "Install new theme for this screenlet"
+#~ msgstr "Paigalda sellele töölauavidinale uus teema"
+
+#~ msgid "Close all Screenlets running"
+#~ msgstr "Sulge kõik töötavad töölauavidinad"
+
+#~ msgid "New Screenlets Options/Properties"
+#~ msgstr "Uue töölauavidina valikud/omadused"
+
+#~ msgid "Create a Desktop shortcut for this Screenlet"
+#~ msgstr "Tekita töölaual sellele töölauavidinale otsetee"
+
+#~ msgid "All Screenlets"
+#~ msgstr "Kõik töölauavidinad"
+
+#~ msgid "Running Screenlets"
+#~ msgstr "Hetkel töötavad vidinad"
+
+#~ msgid "Autostart Screenlets"
+#~ msgstr "Isekäivituvad vidinad"
+
+#~ msgid "Only native Screenlets"
+#~ msgstr "Sisseehitatud vidinad"
+
+#~ msgid "Get more screenlets"
+#~ msgstr "Hangi töölauavidinaid juurde"
+
+#~ msgid "Download more screenlets ..."
+#~ msgstr "Laadi veel töölauavidinaid alla ..."
+
+#~ msgid "Auto start on login"
+#~ msgstr "Isekäivitumine sisenemisel"
+
+#~ msgid "Install a Screenlet or SuperKaramba theme"
+#~ msgstr "Paigalda Screenleti tüüpi töölauavidin või SuperKaramba teema"
+
+#~ msgid "Install a new theme for the selected Screenlet"
+#~ msgstr "Paigalda valitud töölauavidinale uus teema"
+
+#~ msgid "Error Found"
+#~ msgstr "Leitud viga"
+
+#, python-format
+#~ msgid "Create desktop shortcut for: %s/%sScreenlet.py"
+#~ msgstr "Tekita töölaual otsetee: %s/%sScreenlet.py"
+
+#, python-format
+#~ msgid "Failed to create autostarter for %s."
+#~ msgstr "Automaatkäivitaja tekitamine %s jaoks ebaõnnestus."
+
+#~ msgid "New screenlets atributes.."
+#~ msgstr "Uute töölauavidinate atribuudid.."
+
+#~ msgid "New Screenlets atributes"
+#~ msgstr "Uute töölauavidinate atribuudid"
+
+#~ msgid ""
+#~ "There is already a screenlet with that name installed\n"
+#~ "Do you wish to continue?"
+#~ msgstr ""
+#~ "Sellise nimega töölauavidin on juba paigaldatud\n"
+#~ "Kas jätkata?"
+
+#~ msgid "Web Application was successfully installed"
+#~ msgstr "Web Application on edukalt paigaldatud"
+
+#~ msgid "Widget converter"
+#~ msgstr "Vidina teisendaja"
+
+#~ msgid "Widget was successfully converted"
+#~ msgstr "Vidin on edukalt teisendatud"
+
+#, python-format
+#~ msgid "Quit %s"
+#~ msgstr "Sulge %s"
+
+#~ msgid "Screenlets-Manager must now be restarted"
+#~ msgstr "Töölauavidinate haldur tuleb nüüd taaskäivitada"
+
+#~ msgid "Quit!"
+#~ msgstr "Sulge!"
+
+#~ msgid "Failed to extract screenlet name from path."
+#~ msgstr "Töölauavidina lahtipakkimine antud asukohast ebaõnnestus."
+
+#~ msgid "Archive damaged or unsuported, only tar , bz2 or gz."
+#~ msgstr "Arhiiv vigane või toetatamata, võib olla ainult tar, bz2 või gz."
+
+#~ msgid "Invalid archive. Archive does not contain a screenlet."
+#~ msgstr "Vigane arhiiv. Arhiiv ei sisalda töölauavidin'i."
+
+#~ msgid "closing %s"
+#~ msgstr "sulgemas %s"
+
+#, python-format
+#~ msgid "Screenlet: Set theme %s"
+#~ msgstr "Screenlet: Määra teema %s"
+
+#, python-format
+#~ msgid "Error in screenlets.services.get_service_by_name: %s"
+#~ msgstr "Screenlets.services.get_service_by_name viga: %s"
+
+#, python-format
+#~ msgid "Error in screenlets.session.connect_daemon: %s"
+#~ msgstr "Screenlets.session.connect_daemon viga: %s"
+
+#, python-format
+#~ msgid "Set options in %s"
+#~ msgstr "Määra valikud %s jaoks"
+
+#, python-format
+#~ msgid "Adding new instance through: %s"
+#~ msgstr "Uue isendi lisamine läbi: %s"
+
+#, python-format
+#~ msgid "Loading instances in: %s"
+#~ msgstr "Laadin isendeid asukohast: %s"
+
+#, python-format
+#~ msgid "Restored instances from session '%s' ..."
+#~ msgstr "Isendid taastatud sessioonist '%s'..."
+
+#, python-format
+#~ msgid "Failed creating instance of: %s"
+#~ msgstr "Uue isendi loomine nurjus: %s"
+
+#, python-format
+#~ msgid "Creating new entry for %(slet)s in %(file)s"
+#~ msgstr "Uue kirje loomine %(slet)s jaoks %(file)s'is"
+
+#, python-format
+#~ msgid "Failed to unregister from daemon: %s"
+#~ msgstr "Vidina väljameldimine deemonist ebaõnnestus: %s"
+
+#~ msgid "No more screenlets running."
+#~ msgstr "Enam ei käi ühtegi töölauavidinat."
+
+#~ msgid "No screenlets running?"
+#~ msgstr "Ühtegi töölauavidinat ei tööta?"
+
+#, python-format
+#~ msgid "Failed to create instance of '%s'!"
+#~ msgstr "Isendi loomine %s jaoks ebaõnnestus."
+
+#~ msgid "Exception in ScreenletSession: "
+#~ msgstr "Exception in ScreenletSession: "
+
+#~ msgid "Quit this %s ..."
+#~ msgstr "Sulge see %s"
+
+#~ msgid "error while saving config: %s%s"
+#~ msgstr "tõrge seadete salvestamisel: %s%s"

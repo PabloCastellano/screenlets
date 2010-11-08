@@ -1,0 +1,8 @@
+src/share/screenlets-manager/KarambaScreenlet.py
+src/share/screenlets-manager/screenlets-daemon.py
+src/share/screenlets-manager/screenlets-manager.py
+src/share/screenlets-manager/screenlets-packager.py
+src/share/screenlets-manager/WebappScreenlet.py
+src/share/screenlets-manager/WidgetScreenlet.py
+src/lib/install.py
+src/lib/utils.py

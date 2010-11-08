@@ -1,0 +1,9 @@
+src/lib/backend.py
+src/lib/drawing.py
+src/lib/__init__.py
+src/lib/menu.py
+src/lib/options.py
+src/lib/Plugins.py
+src/lib/sensors.py
+src/lib/services.py
+src/lib/session.py

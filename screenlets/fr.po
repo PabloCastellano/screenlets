@@ -1,0 +1,779 @@
+# French translation for screenlets
+# Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
+# This file is distributed under the same license as the screenlets package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: screenlets\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-11-02 05:16+0900\n"
+"PO-Revision-Date: 2010-10-26 07:02+0000\n"
+"Last-Translator: Oby. <Unknown>\n"
+"Language-Team: French <fr@li.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2010-10-29 06:08+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
+
+#. the third party screenlets download site
+#: src/lib/__init__.py:100
+msgid "http://www.screenlets.org/index.php/Get_more_screenlets"
+msgstr ""
+
+#: src/lib/__init__.py:201
+msgid "Error while loading ScreenletTheme in: "
+msgstr "Erreur lors du chargement du SreenletTheme dans: "
+
+#. default meta-info for Screenlets
+#: src/lib/__init__.py:616
+msgid "No name set for this Screenlet"
+msgstr ""
+
+#: src/lib/__init__.py:618
+msgid "No author defined for this Screenlet"
+msgstr "Aucun auteur n'est défini pour ce Screenlet"
+
+#: src/lib/__init__.py:619
+msgid "No info set for this Screenlet"
+msgstr "Aucune information définie pour ce Screenlet"
+
+#: src/lib/__init__.py:731
+msgid "The basic settings for this Screenlet-instance."
+msgstr "Les réglages basiques pour cette instance de Screenlet"
+
+#: src/lib/__init__.py:746
+msgid "X-Position"
+msgstr "Position en X"
+
+#: src/lib/__init__.py:746
+msgid "The X-position of this Screenlet ..."
+msgstr ""
+
+#: src/lib/__init__.py:749
+msgid "Y-Position"
+msgstr "Position en Y"
+
+#: src/lib/__init__.py:749
+msgid "The Y-position of this Screenlet ..."
+msgstr "La position-en-Y de ce Screenlet ..."
+
+#: src/lib/__init__.py:752
+msgid "Width"
+msgstr "Largeur"
+
+#: src/lib/__init__.py:752
+msgid "The width of this Screenlet ..."
+msgstr ""
+
+#: src/lib/__init__.py:755
+msgid "Height"
+msgstr "Hauteur"
+
+#: src/lib/__init__.py:755
+msgid "The height of this Screenlet ..."
+msgstr "La hauteur de ce Screenlet ..."
+
+#: src/lib/__init__.py:758
+msgid "Scale"
+msgstr "Échelle"
+
+#: src/lib/__init__.py:758
+msgid "The scale-factor of this Screenlet ..."
+msgstr ""
+
+#: src/lib/__init__.py:761
+msgid "Opacity"
+msgstr "Opacité"
+
+#: src/lib/__init__.py:761
+msgid "The opacity of the Screenlet window ..."
+msgstr "L'opacité de la fenêtre Screenlet ..."
+
+#: src/lib/__init__.py:764
+msgid "Stick to Desktop"
+msgstr "Afficher sur tous les bureaux"
+
+#: src/lib/__init__.py:765
+msgid "Show this Screenlet on all workspaces ..."
+msgstr "Montrer ce Screenlet sur tous les espaces de travail ..."
+
+#: src/lib/__init__.py:767
+msgid "Treat as Widget"
+msgstr "Traiter comme un Widget"
+
+#: src/lib/__init__.py:768
+msgid "Treat this Screenlet as a \"Widget\" ..."
+msgstr "Traiter ce Screenlet en tant que \"Widget\" ..."
+
+#: src/lib/__init__.py:776
+msgid "Lock position"
+msgstr "Verrouiller la position"
+
+#: src/lib/__init__.py:777
+msgid "Stop the screenlet from being moved..."
+msgstr "Empêcher le screenlet d'être déplacé..."
+
+#. add "Keep above"-menuitem
+#: src/lib/__init__.py:779 src/lib/__init__.py:1086
+msgid "Keep above"
+msgstr "Garder au-dessus"
+
+#: src/lib/__init__.py:780
+msgid "Keep this Screenlet above other windows ..."
+msgstr "Garder ce Screenlet au dessus des autres fenêtres"
+
+#. add "Keep Below"-menuitem
+#: src/lib/__init__.py:782 src/lib/__init__.py:1093
+msgid "Keep below"
+msgstr "Garder en dessous"
+
+#: src/lib/__init__.py:783
+msgid "Keep this Screenlet below other windows ..."
+msgstr "Garder ce Screenlet au dessous des autres fenêtres ..."
+
+#: src/lib/__init__.py:785
+msgid "Draw button controls"
+msgstr "Afficher les boutons de contrôle"
+
+#: src/lib/__init__.py:786
+msgid "Draw buttons in top right corner"
+msgstr "Déssiner les boutons dans le coin haut droit"
+
+#: src/lib/__init__.py:788
+msgid "Skip Pager"
+msgstr "Ne pas afficher dans les miniatures de bureaux..."
+
+#: src/lib/__init__.py:789
+msgid "Set this Screenlet to show/hide in pagers ..."
+msgstr ""
+"Décide si ce Screenlet doit être affiché/caché dans les miniatures de "
+"bureaux..."
+
+#: src/lib/__init__.py:791
+msgid "Skip Taskbar"
+msgstr "Ne pas afficher dans la barre d'état"
+
+#: src/lib/__init__.py:792
+msgid "Set this Screenlet to show/hide in taskbars ..."
+msgstr ""
+"Décide si ce Screenlet doit être affiché/caché dans les barres d'état..."
+
+#: src/lib/__init__.py:794
+msgid "Resize on mouse scroll"
+msgstr ""
+
+#: src/lib/__init__.py:796
+msgid "Ignore requirements"
+msgstr ""
+
+#: src/lib/__init__.py:797
+msgid "Set this Screenlet to ignore/demand DEB requirements ..."
+msgstr ""
+
+#: src/lib/__init__.py:801
+msgid "Allow overriding Options"
+msgstr "Autoriser l'écrasement d'Options"
+
+#: src/lib/__init__.py:802
+msgid "Allow themes to override options in this screenlet ..."
+msgstr "Autoriser les thèmes à écraser les options dans ce screenlet..."
+
+#: src/lib/__init__.py:804
+msgid "Ask on Override"
+msgstr "Demander à l'Ecrasement"
+
+#: src/lib/__init__.py:805
+msgid "Show a confirmation-dialog when a theme wants to override "
+msgstr ""
+"Afficher une boîte de dialogue de confirmation quand un thème veut écraser "
+
+#: src/lib/__init__.py:806
+msgid "the current options of this Screenlet ..."
+msgstr "les options actuelles de ce Screenlet..."
+
+#. version of the deb package
+#: src/lib/__init__.py:998
+msgid "(?)"
+msgstr ""
+
+#: src/lib/__init__.py:1001
+#, python-format
+msgid ""
+"\n"
+"%s %s required, NOT INSTALLED!"
+msgstr ""
+
+#: src/lib/__init__.py:1004
+#, python-format
+msgid ""
+"\n"
+"%s (%s) installed, req %s."
+msgstr ""
+
+#: src/lib/__init__.py:1007
+#, python-format
+msgid ""
+"Requirements for the Screenlet are not satisfied! Use the package manager of "
+"your system to install required packages.\n"
+"\n"
+"REQUIREMENTS:\n"
+"%s"
+msgstr ""
+
+#: src/lib/__init__.py:1029
+msgid "Size"
+msgstr "Taille"
+
+#: src/lib/__init__.py:1044
+msgid "Theme"
+msgstr "Thème"
+
+#: src/lib/__init__.py:1059
+msgid "Window"
+msgstr "Fenêtre"
+
+#. add "lock"-menuitem
+#: src/lib/__init__.py:1065
+msgid "Lock"
+msgstr "Verrouiller"
+
+#. add "Sticky"-menuitem
+#: src/lib/__init__.py:1072
+msgid "Sticky"
+msgstr "Afficher sur tous les bureaux"
+
+#. add "Widget"-menuitem
+#: src/lib/__init__.py:1079
+msgid "Widget"
+msgstr "Widget"
+
+#: src/lib/__init__.py:1103
+msgid "Properties..."
+msgstr "Propriétés..."
+
+#: src/lib/__init__.py:1106
+msgid "Info..."
+msgstr "Info..."
+
+#: src/lib/__init__.py:1110
+#, python-format
+msgid "Add one more %s"
+msgstr ""
+
+#: src/lib/__init__.py:1113
+#, python-format
+msgid "Delete this %s"
+msgstr ""
+
+#: src/lib/__init__.py:1117
+#, python-format
+msgid "Quit this %s"
+msgstr ""
+
+#: src/lib/__init__.py:1120
+#, python-format
+msgid "Quit all %ss"
+msgstr ""
+
+#: src/lib/__init__.py:1372
+msgid ""
+"This theme wants to override your settings for this Screenlet. Do you want "
+"to allow that?"
+msgstr ""
+"Ce thème veut outrepasser vos paramètres pour ce Screenlet. Voulez-vous "
+"permettre cela?"
+
+#: src/lib/__init__.py:1500
+msgid "Updating input shape"
+msgstr ""
+
+#: src/lib/__init__.py:1508
+msgid "Updating window shape"
+msgstr ""
+
+#: src/lib/__init__.py:1606
+#, python-format
+msgid "To quit all %s's, use 'Quit' instead. "
+msgstr "Pour quitter tous les %ss, utiliser \"Quit\" à la place. "
+
+#: src/lib/__init__.py:1607
+#, python-format
+msgid "Really delete this %s and its settings?"
+msgstr "Voulez vous vraiment supprimer ce %s et sa configuration?"
+
+#: src/lib/options.py:233
+msgid "GnomeKeyring is not available!!"
+msgstr ""
+
+#: src/lib/options.py:239
+msgid "No keyrings found. Please create one first!"
+msgstr "Aucun trousseau de clés n'a été trouvé. Veuillez d'abord en créer un!"
+
+#: src/lib/options.py:271
+msgid "Illegal value in AccountOption.on_import."
+msgstr "Valeur illégale dans AccontOption.on_import."
+
+#: src/lib/options.py:465
+#, python-format
+msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
+msgstr ""
+"XML invalide dans le fichier metadonnées (ou fichier manquant) : \"%s\"."
+
+#: src/lib/options.py:469
+#, python-format
+msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
+msgstr ""
+"Noeud racine manquant ou invalide dans le fichier métadonnées : \"%s\"."
+
+#. we only allow groups in the first level (groups need children)
+#: src/lib/options.py:478
+#, python-format
+msgid ""
+"Error in metadata-file \"%s\" - only <group>-tags allowed in first level. "
+"Groups must contain at least one <info>-element."
+msgstr ""
+"Erreur dans le fichier métadonnées \"%s\" - seules les balises <group> sont "
+"autorisées dans le premier niveau. Les groupes doivent contenir au moins un "
+"élément <info>."
+
+#: src/lib/options.py:484
+#, python-format
+msgid "No name for group defined in \"%s\"."
+msgstr "Pas de nom pour le groupe défini dans \"%s\"."
+
+#: src/lib/options.py:500
+#, python-format
+msgid "Invalid option-node found in \"%s\"."
+msgstr "Noeud option invalide trouvé dans \"%s\"."
+
+#: src/lib/options.py:653
+msgid "Edit Options"
+msgstr "Modifier les Options"
+
+#: src/lib/options.py:851
+msgid "About "
+msgstr "A propos "
+
+#: src/lib/options.py:863
+msgid "Options "
+msgstr ""
+
+#. create info-text list
+#: src/lib/options.py:870
+msgid ""
+"Themes allow you to easily switch the appearance of your Screenlets. On this "
+"page you find a list of all available themes for this Screenlet."
+msgstr ""
+"Les thèmes vous permettent de changer facilement l'apparence de vos "
+"Screenlets. Sur cette page vous trouverez une liste de tous les thèmes "
+"disponibles pour ce Screenlet."
+
+#: src/lib/options.py:899
+msgid "Themes "
+msgstr "Thèmes "
+
+#: src/lib/options.py:912
+msgid "no info available"
+msgstr "Aucune information disponible"
+
+#: src/lib/options.py:1003
+msgid "Choose File"
+msgstr ""
+
+#: src/lib/options.py:1012
+msgid "Choose Directory"
+msgstr "Choisir un répertoire"
+
+#: src/lib/options.py:1038
+msgid "Choose Image"
+msgstr "Choisir une image"
+
+#: src/lib/options.py:1105
+msgid "Open List-Editor ..."
+msgstr ""
+
+#: src/lib/options.py:1126
+msgid "Apply username/password ..."
+msgstr "Appliquer nom d'utilisateur / mot de passe..."
+
+#: src/lib/options.py:1127
+msgid "Enter username here ..."
+msgstr ""
+
+#: src/lib/options.py:1128
+msgid "Enter password here ..."
+msgstr "Entrer votre mot de passe ici ..."
+
+#: src/lib/options.py:1183
+msgid "Apply"
+msgstr "Appliquer"
+
+#: src/lib/sensors.py:168
+#, python-format
+msgid "%(days)s days, %(hours)s hours and %(minutes)s minutes"
+msgstr ""
+
+#: src/lib/sensors.py:288
+msgid "Can't get kernel version"
+msgstr "Impossible de récupérer la version du noyau"
+
+#: src/lib/sensors.py:298
+msgid "Can't get KDE version"
+msgstr "Impossible de récupérer la version de KDE"
+
+#: src/lib/sensors.py:308
+msgid "Can't get Gnome version"
+msgstr "Impossible de récupérer la version de Gnome"
+
+#: src/lib/sensors.py:319
+msgid "Failed to open /proc/version"
+msgstr ""
+
+#: src/lib/sensors.py:386
+msgid "Can't parse /proc/meminfo"
+msgstr "Impossible de parser /proc/meminfo"
+
+#: src/lib/sensors.py:529
+msgid "Cannot get ip"
+msgstr "Impossible de récupérer l'IP"
+
+#: src/lib/sensors.py:549
+msgid "Can't open /proc/net/dev"
+msgstr "Impossible d'ouvrir /proc/net/dev"
+
+#: src/lib/sensors.py:586
+msgid "Can't open /proc/net/wireless"
+msgstr "Impossible d'ouvrir /proc/net/wireless"
+
+#: src/lib/sensors.py:616 src/lib/sensors.py:629 src/lib/sensors.py:645
+#: src/lib/sensors.py:658
+msgid "Not connected"
+msgstr "Non connecté"
+
+#: src/lib/sensors.py:936
+#, python-format
+msgid "Can't open %s/temperature"
+msgstr "Impossible d'ouvrir %s/temperature"
+
+#: src/lib/sensors.py:938
+msgid "Can't open folder /proc/acpi/thermal_zone/"
+msgstr "Impossible d'ouvrir le dossier /proc/acpi/thermal_zone/"
+
+#: src/lib/sensors.py:954 src/lib/sensors.py:965
+#, python-format
+msgid "Can't open %s"
+msgstr "Impossible d'ouvrir %s"
+
+#: src/lib/sensors.py:980
+msgid "Error during hddtemp drives search"
+msgstr "Erreur durant recherche de lecteurs hddtemp"
+
+#: src/lib/sensors.py:982 src/lib/sensors.py:1059
+msgid "Hddtemp not installed"
+msgstr "Hddtemp non installé"
+
+#: src/lib/sensors.py:1012
+#, python-format
+msgid "can't read temperature in: %s"
+msgstr "Impossible de lire la température dans: %s"
+
+#: src/lib/sensors.py:1026 src/lib/sensors.py:1042
+#, python-format
+msgid "Can't read value from %s"
+msgstr "Ne peut pas lire la valeur depuis %s"
+
+#: src/lib/services.py:61
+msgid "No name set in ScreenletService.__init__!"
+msgstr "Pas de nom défini dans ScreenletService.__init__!"
+
+#: src/lib/services.py:145
+#, python-format
+msgid "Trying to access invalid instance \"%s\"."
+msgstr "Essai d'accés à l'instance invalide \"%s\"."
+
+#: src/lib/services.py:147
+#, python-format
+msgid "Trying to access invalid option \"%s\"."
+msgstr "Essai d'accés à l'option invalide \"%s\"."
+
+#. TODO: also check for correct type (Screenlet-subclass)!!
+#: src/lib/session.py:72
+msgid ""
+"ScreenletSession.__init__ has to be called with a\n"
+"\t\t\t valid Screenlet-classobject as first argument!"
+msgstr ""
+"ScreenletSession.__init__ doit être appelé avec une\n"
+"\t\t\t classe objet Screenlet valide comme premier argument !"
+
+#~ msgid "Error while creating image from file: %s"
+#~ msgstr "Erreur lors de la création de l'image à partir du fichier: %s"
+
+#~ msgid "Error: file %s not found."
+#~ msgstr "Erreur: fichier %s introuvable."
+
+#~ msgid "XML-Error: %s"
+#~ msgstr "Erreur-XML: %s"
+
+#~ msgid "Exception: %s"
+#~ msgstr "Exception : %s"
+
+#~ msgid "Error while creating menu."
+#~ msgstr "Erreur lors de la création du menu."
+
+#~ msgid "Override: "
+#~ msgstr "Ignorer "
+
+#~ msgid "WARNING: Option '%s' not found or protected."
+#~ msgstr "ATTENTION: Option '%s' non trouvé ou protégé"
+
+#~ msgid "theme.conf loaded: "
+#~ msgstr "theme.conf a été chargé: "
+
+#~ msgid "Name: "
+#~ msgstr "Nom: "
+
+#~ msgid "Author: "
+#~ msgstr "Auteur: "
+
+#~ msgid "Version: "
+#~ msgstr "Version: "
+
+#~ msgid "Info: "
+#~ msgstr "Info: "
+
+#~ msgid "theme.conf found! Loading option-overrides."
+#~ msgstr "theme.conf trouvé ! Chargement des options d'écrasements"
+
+#~ msgid "LOAD NEW THEME: "
+#~ msgstr "CHARGER UN NOUVEAU THEME: "
+
+#~ msgid "FOUND: "
+#~ msgstr "TROUVE: "
+
+#~ msgid "Quit all %ss ..."
+#~ msgstr "Quitter tous les %ss ..."
+
+#~ msgid "Error while loading theme: "
+#~ msgstr "Erreur lors du chargement du thème: "
+
+#~ msgid "Cancel delete_event"
+#~ msgstr "Annuler delete_event"
+
+#~ msgid "Start drag"
+#~ msgstr "Démarrer le glissement"
+
+#~ msgid "End drag"
+#~ msgstr "Terminer le glissement"
+
+#~ msgid "Quitting current screenlet instance"
+#~ msgstr "Quitter l'instance screenlet courante"
+
+#~ msgid "Error: Cannot set missing or non-boolean value '"
+#~ msgstr "Erreur : ne peut définir valeur manquante ou non-booléenne '"
+
+#~ msgid "GConf python module not found. GConf settings backend is disabled."
+#~ msgstr ""
+#~ "Module python GConf non trouvé. Le backend de réglages GConf est "
+#~ "désactivé."
+
+#~ msgid "Saved option %s%s/%s = %s"
+#~ msgstr "Option sauvegardée %s%s/%s = %s"
+
+#~ msgid "Temporary file didn't exist - nothing to remove."
+#~ msgstr "Le fichier temporaire n'existe oas - rien à supprimer."
+
+#~ msgid "CachingBackend: <#%s> removed!"
+#~ msgstr "CachingBackend: <#%s> supprimé!"
+
+#~ msgid "CachingBackend: Loading instances from cache"
+#~ msgstr "CachingBackend: Chargement des instances depuis le cache"
+
+#~ msgid "CachingBackend: Loading <%s>"
+#~ msgstr "CachingBackend: Chargement de <%s>"
+
+#~ msgid "Error while loading options: %s"
+#~ msgstr "Erreur lors du chargement des options: %s"
+
+#~ msgid "Queue-element <%s> not found (already removed?)!"
+#~ msgstr "Queue-element <%s> non trouvé (déjà enlevé?)!"
+
+#~ msgid "CachingBackend: Saving <#%s> :) ..."
+#~ msgstr "CachingBackend: Sauvegarde de <#%s> :) ..."
+
+#~ msgid "error while saving config: %s%s"
+#~ msgstr "Erreur lors de la sauvegarde de la configuration: %s%s"
+
+#~ msgid "Error during on_import - option: %s."
+#~ msgstr "Erreur pendant on_import - option : %s."
+
+#~ msgid "Warning: No default keyring found, storage is not permanent!"
+#~ msgstr ""
+#~ "Avertissement : pas de trousseau de clés par défaut trouvé, le stockage "
+#~ "est non permanent !"
+
+#~ msgid "ERROR: Unable to read password from keyring: %s"
+#~ msgstr ""
+#~ "ERREUR : Impossible de lire le mot de passe depuis le trousseau de clés : "
+#~ "%s"
+
+#~ msgid "Options: Error - group %s not defined."
+#~ msgstr "Options: Erreur - groupe %s non défini"
+
+#~ msgid "PRESS: %s"
+#~ msgstr "APPUYER : %s"
+
+#~ msgid "Path %s not found."
+#~ msgstr "Chemin %s non trouvé."
+
+#~ msgid "active theme is: %s"
+#~ msgstr "Le thème actif est: %s"
+
+#~ msgid "unsupported type ''"
+#~ msgstr "type '' non supporté"
+
+#~ msgid "OptionsDialog: Unknown option type: %s"
+#~ msgstr "OptionsDialog: option de type %s inconnue"
+
+#~ msgid "Changed: %s"
+#~ msgstr "Changé : %s"
+
+#~ msgid "Failed to open /proc/stat"
+#~ msgstr "Echec de l'ouverture de /proc/stat"
+
+#~ msgid "Failed to open /proc/cpuinfo"
+#~ msgstr "Echec de l'ouverture de /proc/cpuinfo"
+
+#~ msgid "%s days, %s hours and %s minutes"
+#~ msgstr "%s jours, %s heures et %s minutes"
+
+#~ msgid "Failed to open /proc/uptime"
+#~ msgstr "Echec de l'ouverture de /proc/uptime"
+
+#~ msgid "Error getting distro name"
+#~ msgstr "Erreur lors de la récupération du nom de la distribution"
+
+#~ msgid "CPUSensor: Failed to open /proc/stat. Sensor stopped."
+#~ msgstr "CPUSensor: Impossible d'ouvrir /proc/stat. Capteur stoppé."
+
+#~ msgid "TEST: %s"
+#~ msgstr "TEST: %s"
+
+#~ msgid "DEBUG: %s"
+#~ msgstr "DEBOGAGE: %s"
+
+#~ msgid "Error in screenlets.services.get_service_by_name: %s"
+#~ msgstr "Erreur dans screenlets.services.get_service_by_name: %s"
+
+#~ msgid "Unable to init backend - settings will not be saved!"
+#~ msgstr ""
+#~ "Impossible d'initialiser la backend - les réglages ne seront pas "
+#~ "sauvegardés !"
+
+#~ msgid "ID is unset or already in use - creating new one!"
+#~ msgstr "ID n'est pas définie ou déjà utilisée - création d'une nouvelle !"
+
+#~ msgid "File: %s"
+#~ msgstr "Fichier: %s"
+
+#~ msgid "Failed to remove INI-file for instance (not critical)."
+#~ msgstr "Impossible d'enlever fichier INI pour l'instance (non critique)."
+
+#~ msgid "Removing last instance from session"
+#~ msgstr "Enlèvement de la dernière instance de la session"
+
+#~ msgid "TODO: remove self.path: %s"
+#~ msgstr "TODO : enelver self.path: %s"
+
+#~ msgid "Failed to remove session dir '%s' - not empty?"
+#~ msgstr "Impossible le répertoire de session \"%s\" - pas vide ?"
+
+#~ msgid "Removing instance from session but staying alive"
+#~ msgstr "Enlèvement de l'instance de la session mais gardée en vie"
+
+#~ msgid "Found a running session of %s, adding new instance by service."
+#~ msgstr ""
+#~ "Trouvé une session en cours de %s, ajout d'une nouvelle instance par "
+#~ "service."
+
+#~ msgid "Adding new instance through: %s"
+#~ msgstr "Ajout d'une nouvelle instance par : %s"
+
+#~ msgid "Loading instances in: %s"
+#~ msgstr "Chargement des instances dans: %s"
+
+#~ msgid "No instance(s) found in session-path, creating new one."
+#~ msgstr ""
+#~ "Pas d'instance(s) trouvées dans le chemin de session, création d'une "
+#~ "nouvelle."
+
+#~ msgid "Failed creating instance of: %s"
+#~ msgstr "Impossible de créer l'instance de : %s"
+
+#~ msgid ""
+#~ "Error: Unable to create temp directory %s - screenlets-manager will not "
+#~ "work properly."
+#~ msgstr ""
+#~ "Erreur : impossible de créer répertoire temporaire %s - screenlets-"
+#~ "manager ne fonctionnera pas correctement."
+
+#~ msgid "Failed to unregister from daemon: %s"
+#~ msgstr "Impossible de désenregister du démon : %s"
+
+#~ msgid "Removing entry for %s from global tempfile %s"
+#~ msgstr "Enlèvement de l'entrée pour %s dans le fichier temporaire global %s"
+
+#~ msgid "Entry not found. Will (obviously) not be removed."
+#~ msgstr "Entrée non trouvée. Ne sera (évidemment) pas enlevée."
+
+#~ msgid "Error global tempfile not found. Some error before?"
+#~ msgstr "Erreur fichier temporaire non trouvé. Une erreur avant ?"
+
+#~ msgid "Deleting global tempfile %s"
+#~ msgstr "Effacement du fichier temporaire global %s"
+
+#~ msgid "Error: Failed to delete global tempfile"
+#~ msgstr "Erreur : impossible d'effacer fichier temporaire global"
+
+#~ msgid ""
+#~ "Screenlet '%s' has been interrupted by keyboard. TODO: make this an event"
+#~ msgstr ""
+#~ "Screenlet \"%s\" a été interrompu par clavier. TODO : en faire un "
+#~ "évènement."
+
+#~ msgid "LISTED PATH NOT EXISTS: "
+#~ msgstr "CHEMIN LISTE NON TROUVE : "
+
+#~ msgid "File %s not found"
+#~ msgstr "Fichier %s non trouvé"
+
+#~ msgid "Section %s not found!"
+#~ msgstr "Section %s non trouvée!"
+
+#~ msgid "Notify: No DBus running or notifications-daemon unavailable."
+#~ msgstr ""
+#~ "Notify : Pas de DBus en fonctionnement ou notifications-daemon non "
+#~ "disponible."
+
+#~ msgid "MOUSEWHEEL"
+#~ msgstr "MOLLETTESOURIS"
+
+#~ msgid "Compositing method changed to %s"
+#~ msgstr "Méthode de composition changée en %s"
+
+#~ msgid "Warning - Buttons will not be shown until screenlet is restarted"
+#~ msgstr ""
+#~ "Attention - les boutons ne seront pas affichés avant le redémarrage du "
+#~ "screenlet"
+
+#~ msgid ""
+#~ "Error: Unable to create temp entry - screenlets-manager will not work "
+#~ "properly."
+#~ msgstr ""
+#~ "Erreur : impossible de créer entrée temporaire : screenlets-manager ne "
+#~ "fonctionnera pas correctement."
+
+#~ msgid "Screenlet has been killed. TODO: make this an event"
+#~ msgstr "Screenlet a été trouvé. TODO : en faire un évènement"

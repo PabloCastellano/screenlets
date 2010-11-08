@@ -3,11 +3,11 @@ Type=Application
 Categories=Utility;
 Name=Screenlets
 Name[de]=Screenlets
-Name[et]=Screenlets
+Name[et]=Töölauavidinad
 Comment=A graphical tool to manage your Screenlets.
 Comment[de]=Ein grafisches Werkzeug, um Ihre Screenlets zu verwalten.
-Comment[et]=Graafiline tööriist Screenlets vidinate haldamiseks
-Icon=/usr/share/icons/screenlets.svg
+Comment[et]=Graafiline tööriist Screenlets töölauavidinate haldamiseks
+Icon=screenlets
 Exec="screenlets-manager > /dev/null"
 StartupNotify=true
 

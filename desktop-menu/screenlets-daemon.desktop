@@ -5,4 +5,4 @@ Name=Screenlets Daemon
 Exec="screenlets-daemon > /dev/null"
 X-GNOME-Autostart-enabled=true
 Name[de_DE]=Screenlets Daemon
-Name[et_EE]=Screenlets'i deemon
+Name[et_EE]=Screenlets töölauavidinate deemon

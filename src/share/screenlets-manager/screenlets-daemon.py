@@ -57,6 +57,7 @@ class ScreenletsDaemon (dbus.service.Object):
 	DIR_USER1 = '/usr/share/screenlets'
 	DIR_USER2 = '/usr/local/share/screenlets'	
 	show_in_tray = 'True'
+	launch_menu = None
 	def __init__ (self):
 		# create bus, call super
 
@@ -132,24 +133,9 @@ class ScreenletsDaemon (dbus.service.Object):
 			
 			# create the
 			#launch menu 
-			launch_menu = gtk.Menu()
+			self.launch_menu = gtk.Menu()
 			item = add_image_menuitem(self.menu, gtk.STOCK_EXECUTE, _("Launch Screenlet"))
-			item.set_submenu(launch_menu)
-			
-			def set_item_image (self, item, name):
-				img = utils.get_screenlet_icon(name,16,16)
-				item.set_image_from_pixbuf(img)
-				return False
-			
-			# populate the launch menu
-			for path in screenlets.SCREENLETS_PATH:
-				if os.path.exists(path) and os.path.isdir(path): #is it a valid folder?
-					a = os.listdir(path)
-					a.sort()
-					for f in a:
-						item = add_image_menuitem(launch_menu, gtk.STOCK_MISSING_IMAGE, f, self.launch, str(f))
-						gobject.idle_add(set_item_image, self, item, f)
-					add_menuitem(launch_menu, "-")
+			item.set_submenu(self.launch_menu)
 			
 			# create the bottom menuitems
 			add_image_menuitem(self.menu, gtk.STOCK_QUIT, _("Close all Screenlets"), self.closeit)
@@ -159,6 +145,21 @@ class ScreenletsDaemon (dbus.service.Object):
 			add_image_menuitem(self.menu, gtk.STOCK_QUIT, _("Quit the Screenlets"), self.quittheprogram)
 			
 			self.menu.show_all()
+
+		def set_item_image (self, item, name):
+			img = utils.get_screenlet_icon(name,16,16)
+			item.set_image_from_pixbuf(img)
+			return False
+		
+		for menuitem in self.launch_menu.get_children():
+			menuitem.destroy()
+
+		# (re)populate the launch menu
+		lst_a = utils.list_available_screenlets()
+		for f in lst_a:
+			item = add_image_menuitem(self.launch_menu, gtk.STOCK_MISSING_IMAGE, f, self.launch, f)
+			item.set_always_show_image(True)
+			gobject.idle_add(set_item_image, self, item, f)
 		
 		# show the menu
 		self.menu.popup(None, None, None, button, activate_time)

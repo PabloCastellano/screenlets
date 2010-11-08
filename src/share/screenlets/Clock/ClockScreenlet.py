@@ -362,8 +362,8 @@ class ClockScreenlet (Screenlet):
 		ctx_w = self.scale
 		ctx_h = self.scale
 		# init time-vars
-		hours = self.__time.hour + self.time_offset
-		minutes = self.__time.minute
+		hours = self.__time.hour + int(self.time_offset)
+		minutes = self.__time.minute + (self.time_offset-int(self.time_offset))*60.0
 		seconds = self.__time.second
 		# TODO: use better shadow-placing
 		shadow_offset_x = 1

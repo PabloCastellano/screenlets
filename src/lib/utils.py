@@ -240,10 +240,17 @@ def get_screenlet_metadata (screenlet_name):
 		version = getBetween(sldata,'__version__','\n')
 		version1 = getBetween(version ,"'","'")
 		if version1.find(' = ') != -1: version1 = getBetween(version ,chr(34),chr(34))
+		requires1=[]
+		if sldata.find('__requires__') > 0:
+			requires = getBetween(sldata,'__requires__',']')
+			if len(requires) > 0:
+				cleaned = requires.split('[')[1].replace("'", "").replace('"', '').replace('\n', '').replace('\t', '')
+				requires1 = "".join(cleaned.split()).split(",")
 		return {'name'	: name1, 
 			'info'		: info1, 
 			'author'	: author1, 
-			'version'	: version1
+			'version'	: version1,
+			'requires'	: requires1
 			}		
 	except:
 		try:
@@ -256,7 +263,8 @@ def get_screenlet_metadata (screenlet_name):
 			return {'name'	: cls.__name__, 
 				'info'		: cls.__desc__, 
 				'author'	: cls.__author__, 
-				'version'	: cls.__version__
+				'version'	: cls.__version__,
+				'requires'	: cls.__requires__
 				}
 		except Exception, ex:
 			print "Unable to load '%s' from %s: %s " % (screenlet_name, path, ex)

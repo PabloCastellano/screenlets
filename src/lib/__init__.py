@@ -648,6 +648,7 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 	lock_position	= False
 	allow_option_override 	= True		# if False, overrides are ignored
 	ask_on_option_override	= True		# if True, overrides need confirmation
+	ignore_requirements	= False		# if True, DEB requirements are ignored
 	resize_on_scroll = True
 	has_started = False
 	has_focus = False
@@ -775,6 +776,9 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 			_('Set this Screenlet to show/hide in taskbars ...')))
 		self.add_option(BoolOption('Screenlet', 'resize_on_scroll', 
 			self.resize_on_scroll, _("Resize on mouse scroll"),"resize_on_scroll"))
+		self.add_option(BoolOption('Screenlet', 'ignore_requirements', 
+			self.ignore_requirements, _('Ignore requirements'), 
+			_('Set this Screenlet to ignore/demand DEB requirements ...')))
 		if uses_theme:
 			self.ask_on_option_override = ask_on_option_override
 			self.add_option(BoolOption('Screenlet', 'allow_option_override', 
@@ -949,6 +953,36 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 	#-----------------------------------------------------------------------
 	# Screenlet's public functions
 	#-----------------------------------------------------------------------
+	
+	def check_requirements (self):
+		'''Checks if required DEB packages are installed'''
+
+		req_feedback = ""
+		fail = False
+
+		commandstr = 'apt-cache policy %s 2>/dev/null | sed -n "2 p" | grep -v ":[ \t]*([a-z \t]*)" | sed -r -e "s/(\s*[^\s]+:\s*)(.*)/\\2/"'
+		for req in self.__requires__:
+			if req.find(' ') != -1:
+				pos = req.find(' ')
+				package = req[:pos]
+				version = req[pos+1:]
+			elif req.find('(') != -1:
+				pos = req.find('(')
+				package = req[:pos]
+				version = req[pos:]
+			else:
+				package = req
+				# version of the deb package
+				version = _("(?)")
+			installed_version = os.popen(commandstr % package).readline().replace('\n', '')
+			if len(installed_version) < 1:
+				req_feedback += _("\n%s %s required, NOT INSTALLED!") % (package, version)
+				fail = True
+			else:
+				req_feedback += _("\n%s (%s) installed, req %s." % (package, installed_version, version))
+
+		if fail:
+			screenlets.show_message (self,_("Requirements for the Screenlet are not satisfied! Use the package manager of your system to install required packages.\n\nREQUIREMENTS:\n%s") % req_feedback, "Requirements not satisfied")
 	
 	def add_default_menuitems (self, flags=DefaultMenuItem.STANDARD):
 		"""Appends the default menu-items to self.menu. You can add on OR'ed
@@ -1234,6 +1268,10 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 		# the keep above and keep bellow must be reset after the window is shown this is absolutly necessary 
 		self.window.hide()
 		self.window.move(self.x, self.y)
+
+		if not self.ignore_requirements:
+			self.check_requirements()
+
 		self.window.show()	
 		self.has_started = True	
 		self.is_dragged = False

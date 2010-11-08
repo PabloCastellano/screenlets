@@ -165,8 +165,8 @@ def sys_get_uptime_long ():
 		hours = int( uptime / 60 / 60 )
 		uptime = uptime - hours * 60 * 60
 		minutes = int( uptime / 60 )
-		return _("%s days, %s hours and %s minutes") % (str(days), str(hours), str(minutes))
-		#return str(days) + " days, " + str(hours) + " hours and " + str(minutes) + " minutes"
+		return _("%(days)s days, %(hours)s hours and %(minutes)s minutes") % {"days":str(days), "hours":str(hours), "minutes":str(minutes)}
+#		return str(days) + " days, " + str(hours) + " hours and " + str(minutes) + " minutes"
 	except:
 		print "Failed to open /proc/uptime"
 	return 'Error'

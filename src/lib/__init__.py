@@ -39,6 +39,7 @@ pygtk.require('2.0')
 import gtk
 import cairo, pango
 import gobject
+import glib
 try:
 	import rsvg
 except ImportError: print 'No module RSVG , graphics will not be so good'

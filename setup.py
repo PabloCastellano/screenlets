@@ -14,7 +14,7 @@ import sys
 #sys.path.insert(0, 'src/')
 #import lib  # screenlets-package called 'lib' here because of the dir-names
 
-VERSION	= '0.1.2'
+VERSION	= open("VERSION").readline()
 
 def filter_filename_callback(filename):
 	"""Called by make_file_list to determine which files to add/install 
@@ -63,7 +63,8 @@ scripts_list = ['src/bin/screenletsd',
 	'src/bin/screenlets',
 	'src/bin/screenlets-manager',
 	'src/bin/screenlets-daemon',
-	'src/bin/screenlets-packager']
+	'src/bin/screenlets-packager',
+	'src/bin/screenlets-debianizer']
 
 # Install screenlets into PREFIX/share/screenlets/
 dirlist	= scan_dir_list('src/share/screenlets') 
@@ -75,6 +76,7 @@ files_list.insert(0, ('share/screenlets-manager',
 	['src/share/screenlets-manager/screenlets-manager.py',
 	'src/share/screenlets-manager/screenlets-daemon.py',
 	'src/share/screenlets-manager/screenlets-packager.py',
+	'src/share/screenlets-manager/screenlets-debianizer.py',
 	'src/share/screenlets-manager/noimage.svg',
 	'src/share/screenlets-manager/KarambaScreenlet.py',
 	'src/share/screenlets-manager/widget.png',
@@ -87,26 +89,35 @@ files_list.insert(0, ('share/screenlets-manager',
 
 # Install desktop files and icons
 files_list.insert(0, ('share/applications', ['desktop-menu/screenlets-manager.desktop']))
-files_list.insert(0, ('share/icons', ['desktop-menu/screenlets.svg']))
+files_list.insert(0, ('share/icons/hicolor/scalable/apps', ['desktop-menu/screenlets.svg']))
+files_list.insert(0, ('share/icons/hicolor/scalable/apps', ['desktop-menu/screenlets-tray.svg']))
+files_list.insert(0, ('share/icons/ubuntu-mono-dark/apps/24', ['desktop-menu/mono-dark/screenlets-tray.svg']))
+files_list.insert(0, ('share/icons/ubuntu-mono-light/apps/24', ['desktop-menu/mono-light/screenlets-tray.svg']))
 
 # Install translation files
-podir = os.path.join (os.path.realpath ("."), "po")
-if os.path.isdir (podir):
-	buildcmd = "msgfmt -o build/locale/%s/LC_MESSAGES/%s.mo po/%s.po"
-	mopath = "build/locale/%s/LC_MESSAGES/%s.mo"
-	destpath = "share/locale/%s/LC_MESSAGES"
-	for name in os.listdir (podir):		
-		if name.endswith('.po'):
-			name = name.replace('screenlets-manager','screenletsmanager')
-			dname = name.split('-')[1].split('.')[0]
-			name = name[:-3]
-			name = name.replace('screenletsmanager','screenlets-manager')
-			if sys.argv[1] == "build" or sys.argv[1] == "install":
-				print 'Creating language Binary for : ' + name
-				if not os.path.isdir ("build/locale/%s/LC_MESSAGES" % dname):
-					os.makedirs ("build/locale/%s/LC_MESSAGES" % dname)
-				os.system (buildcmd % (dname,name.replace('-'+dname,''), name))
-				files_list.append ((destpath % dname, [mopath % (dname,name.replace('-'+dname,''))]))
+buildcmd = "msgfmt -o build/locale/%s/LC_MESSAGES/%s.mo %s/%s.po"
+mopath = "build/locale/%s/LC_MESSAGES/%s.mo"
+destpath = "share/locale/%s/LC_MESSAGES"
+for name in os.listdir ("screenlets"):
+	if name.endswith('.po'):
+		dname = name.split('.')[0]
+		name = "screenlets"
+		if sys.argv[1] == "build" or sys.argv[1] == "install":
+			print 'Creating language Binary for : ' + name
+			if not os.path.isdir ("build/locale/%s/LC_MESSAGES" % dname):
+				os.makedirs ("build/locale/%s/LC_MESSAGES" % dname)
+			os.system (buildcmd % (dname, name, name, dname))
+			files_list.append ((destpath % dname, [mopath % (dname,name.replace('-'+dname,''))]))
+for name in os.listdir ("screenlets-manager"):
+	if name.endswith('.po'):
+		dname = name.split('.')[0]
+		name = "screenlets-manager"
+		if sys.argv[1] == "build" or sys.argv[1] == "install":
+			print 'Creating language Binary for : ' + name
+			if not os.path.isdir ("build/locale/%s/LC_MESSAGES" % dname):
+				os.makedirs ("build/locale/%s/LC_MESSAGES" % dname)
+			os.system (buildcmd % (dname, name, name, dname))
+			files_list.append ((destpath % dname, [mopath % (dname,name.replace('-'+dname,''))]))
 				
 PACKAGES = ['screenlets','screenlets.plugins']
 

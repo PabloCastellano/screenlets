@@ -25,8 +25,37 @@
   on_key_up, on_minimize, on_maxmize, ...
 - some useful logging system for a more unified (and optional) logging (or use 
   Python's Logging Module, seehttps://bugs.launchpad.net/screenlets/+bug/232541)
+- Implement gconf-backend
+- switching themes slowly increases the memory usage (maybe rsvg leak?)
+- Scaling  slowly increases the memory usage 
+- some useful logging system for a more unified (and optional) logging
+- more "crazy connectivity", e.g. make the PlantScreenlet depend on the 
+  WeatherScreenlet's data ... when it rains, the plant is growing and gets a
+  blossom and when it is too hot the plant drys out
+- allow using additional rendering backends like libclutter or even OpenGL to
+  fully take advantage of the accelerated desktop (maybe even make the 
+  screenlets completely 3d and embed them into one C-host?)
+- physics (maybe better through a WM-plugin which allows setting gravitation
+  and mass for certain window-types?) to be able to stack screenlets on top of
+  another and put them on top of other windows and have them stay there and
+  move when the other windows are moved, akamaru lib? aantn seems to be working on it
+- Fix fileoption and directoryoption
 - find a way to get notified about end of a begin_move_drag-operation?
 - implement gconf-backend (possibly)
+- add/finish missing handlers:
+  on_key_up, on_minimize, on_maxmize, ...
+- [PermanentItem] code cleanup and bug-hunt
+- Take advantage of webkit when the python bindings become available
+- screenlets-interoperability-with other apps - aantn seems to be working on it 
+  in universal applets branch
+- Notification area - needs C module...
+- Have a way to show the current scale of a screenlet 
+  https://bugs.launchpad.net/screenlets/+bug/205711
+- Drag drop launch of screenlets in the manager
+  https://bugs.launchpad.net/screenlets/+bug/208757
+- Use Python's Logging Module
+  https://bugs.launchpad.net/screenlets/+bug/232541
+  aantn seems to be working on it
 
 
 + TODO: screenlets-manager
@@ -79,9 +108,21 @@
 - screenlets-interoperability-with other apps - aantn seems to be working on it 
   in universal applets branch
 
-
 + IDEAS: new screenlets
 -----------------------
 - ProgressbarScreenlet which can be used by other apps to display progress of
   operations? Would remove the need for UI-threading in the calling application
+- PacoScreenlet which allows make/install of tarballs by drag&drop onto some
+  icon/symbol and a quick access to gpaco. When dragging a tarball onto the
+  icon, it should popup an input-dialog where you can add additional 
+  args to ./configure ... and maybe set some more options ... then the screenlet 
+  should either popup a nice progress bar or use some ProgressbarScreenlet 
+  (should launch paco through gksu to get a secure root-login)
+- Study Screenlet - a screenlet that retreives random frases from text files.
+- Jackfield Screenlet(DONE - however jackfield has bugs...)
+- Conky Screenlet??? could be done
+- MayBe Screenlet - http://gnome-look.org/content/show.php/May-B?content=45837
+- A Dock Screenlet , kinda like the dock in yahoo widgets or the mac dashboard bar
+- ColorManagerScreenlet that allows to pick colors from anywhere (and manage
+  the colors in a fancy and intuitive way?). Should display in RGB, hex, int.
 

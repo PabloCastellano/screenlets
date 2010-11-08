@@ -1,20 +1,78 @@
 Source: screenlets
 Section: gnome
 Priority: optional
-Maintainer: Helder Fraga <helder.fraga@hotmail.com> 
-Build-Depends: cdbs (>= 0.4.43), debhelper (>= 5.0.37.2), python-central (>= 0.5), python-all-dev (>= 2.4)
-Standards-Version: 3.7.2
+Maintainer: Julien Lavergne <julien.lavergne@gmail.com>
+Uploaders: Python Applications Packaging Team <python-apps-team@lists.alioth.debian.org>
+Build-Depends: 	debhelper (>= 5.0.37.2), 
+		cdbs (>= 0.4.43),
+		quilt,
+		python-dev (>= 2.3.5-11)
+Build-Depends-Indep:	python-support (>= 0.6.0),
+			doc-base
+Standards-Version: 3.8.2
+Homepage: http://www.screenlets.org/index.php/Screenlets_Stayinalive
+Vcs-Svn: svn://svn.debian.org/python-apps/packages/screenlets/trunk
+Vcs-Browser: http://svn.debian.org/viewsvn/python-apps/packages/screenlets/trunk/
 XS-Python-Version: all
 
 Package: screenlets
 Architecture: all
-Depends: ${python:Depends}, ${misc:Depends}, python-cairo, python-dbus, python-gnome2-desktop, python-gtk2 (>= 2.10), python-xdg
+Depends: 	${misc:Depends}, 
+		${python:Depends},
+		python-gtk2,
+		python-gnome2,
+ 		python-dbus, 
+		python-xdg,
+		python-rsvg | python-gnome2-desktop,
+		python-wnck | python-gnome2-desktop
+Recommends: 	gnome-keyring,
+		python-feedparser,
+		python-gmenu,
+		python-gtkmozembed | python-gnome2-extras (<< 2.19),
+		iceweasel | firefox,
+		python-imaging,
+		python-evolution | python-gnome2-desktop,
+		python-gnomekeyring | python-gnome2-desktop,
+		metacity (>= 2.21.4) | xcompmgr | compiz | xfwm4 (>= 4.2)
+Suggests:	screenlets-extra-pack | screenlets-extra-pack-old,
+		evolution,
+		tomboy,
+		gnome-orca,
+		xfconf (>= 4.5.93)
 XB-Python-Version: ${python:Versions}
-Description: Screenlets are small owner-drawn applications (written in Python, a 
- very simple object-oriented programming-language) that can be described as "the 
- virtual representation of things lying/standing around on your desk". Sticknotes, clocks, 
- rulers, the possibilities are endless. The goal of the Screenlets base-class(es) is to 
- simplify the creation of fully themeable mini-apps that each solve basic desktop-work-related
- needs and generally improve the usability and eye-candy of the modern Linux-desktop.
- The Screenlets where originaly developed by RYX (aka Rico Pfaus) but now they are developed
- by Whise aka Helder Fraga
+Description: Widget-like mini-applications for GNOME
+ Screenlets are small owner-drawn applications (written in Python) that can be
+ described as "the virtual representation of things lying/standing around on
+ your desk". Sticky notes, clocks, rulers, ... the possibilities are endless.
+ .
+ The goal of the Screenlets base-classes is to simplify the creation of fully
+ themable mini-apps that each solve basic desktop-work-related needs and
+ generally improve the usability and eye-candy of the modern composited
+ Linux-desktop. 
+ .
+ Features:
+  * Real applications, no HTML-"widgets"
+  * Easy to use, easy to develop
+  * Full compositing support
+  * Works with any composited X desktop (compiz, xfce4, ...)
+  * Works also on non-composited desktop
+  * Included ability to apply themes (SVG, PNG or mixed)
+  * Fully scalable when using SVGs
+  * Embedded drag&drop-support
+  * Automated storing of options (using ini or GConf)
+  * Controllable through customizable D-Bus service
+  * Can be used together with compiz' widget-plugin to create a 
+    Dashboard-like feature as seen on OS X
+  * Uses Cairo and GTK2 for drawing and windowing
+
+Package: screenlets-doc
+Section: doc
+Architecture: all
+Depends: 	screenlets,
+		${misc:Depends}
+Description: Widget-like mini-applications for GNOME - Documentation package
+ Screenlets are small owner-drawn applications (written in Python) that can be
+ described as "the virtual representation of things lying/standing around on
+ your desk". Sticky notes, clocks, rulers, ... the possibilities are endless.
+ .
+ This package contains the API documentation.

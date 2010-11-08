@@ -732,17 +732,17 @@ class ScreenletsManager(object):
 			x = 0
 			y = 0
 			
-			if not info.system:
-				install_dir = DIR_USER + '/' 
-				themes_dir = DIR_USER + '/' + info.name + '/themes/'
-				install_prefix = ''
-			else:
-				if not screenlets.show_question(None, _("You are about to install a theme in root mode. Continue only if you have gksudo installed, do you wish to continue?")):
-					self.window.window.set_cursor(gtk.gdk.Cursor(gtk.gdk.LEFT_PTR))	
-					result = False
-				themes_dir = screenlets.INSTALL_PREFIX + '/share/screenlets' + '/'  + info.name + '/themes/'
-				install_dir = screenlets.INSTALL_PREFIX + '/share/screenlets' + '/' 
-				install_prefix = 'gksudo '
+#			if not info.system:
+			install_dir = DIR_USER + '/' 
+			themes_dir = DIR_USER + '/' + info.name + '/themes/'
+			install_prefix = ''
+#			else:
+#				if not screenlets.show_question(None, _("You are about to install a theme in root mode. Continue only if you have gksudo installed, do you wish to continue?")):
+#					self.window.window.set_cursor(gtk.gdk.Cursor(gtk.gdk.LEFT_PTR))	
+#					result = False
+#				themes_dir = screenlets.INSTALL_PREFIX + '/share/screenlets' + '/'  + info.name + '/themes/'
+#				install_dir = screenlets.INSTALL_PREFIX + '/share/screenlets' + '/' 
+#				install_prefix = 'gksudo '
 
 			if not os.path.isdir('/tmp/screenlets/'):
 				os.system('mkdir ' + '/tmp/screenlets/')
@@ -789,6 +789,8 @@ class ScreenletsManager(object):
 				print "only contains the themes folders"
 						
 			os.system('rm -rf %s/install-temp' % screenlets.DIR_TMP)
+
+			os.system('mkdir -p ' + themes_dir)
 
 			for f in os.listdir(themes_dir):
 				x= x +1

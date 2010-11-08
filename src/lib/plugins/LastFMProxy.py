@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 # This application is released under the GNU General Public License 
 # v3 (or, at your option, any later version). You can find the full 
 # text of the license under http://www.gnu.org/licenses/gpl.txt. 

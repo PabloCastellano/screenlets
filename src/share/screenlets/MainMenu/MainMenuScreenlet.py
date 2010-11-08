@@ -197,7 +197,7 @@ class MainMenuScreenlet (screenlets.Screenlet):
         #
 
         	#entry.set_size_request(-1,20)
-        	search_button = gtk.Button("")
+        	search_button = gtk.Button()
 		search_button.set_image(gtk.image_new_from_stock(gtk.STOCK_FIND, 
 			gtk.ICON_SIZE_BUTTON))
 		hbox3 = gtk.HBox()
@@ -217,16 +217,16 @@ class MainMenuScreenlet (screenlets.Screenlet):
         	swindow2.add(tree1)
         	vbox.pack_start(swindow2,expand=True, fill=True)
         	vbox.pack_end(hbox2,expand=False, fill=True, padding=0)
-        	quit_button = gtk.Button("")
+        	quit_button = gtk.Button()
 		quit_button.set_image(gtk.image_new_from_stock(gtk.STOCK_QUIT, 
 			gtk.ICON_SIZE_BUTTON))
-        	edit_button = gtk.Button("")
+        	edit_button = gtk.Button()
 		edit_button.set_image(gtk.image_new_from_stock(gtk.STOCK_EDIT, 
 			gtk.ICON_SIZE_BUTTON))
-        	help_button = gtk.Button("")
+        	help_button = gtk.Button()
 		help_button.set_image(gtk.image_new_from_stock(gtk.STOCK_HELP, 
 			gtk.ICON_SIZE_BUTTON))
-        	control_button = gtk.Button("")
+        	control_button = gtk.Button()
 		control_button.set_image(gtk.image_new_from_stock(gtk.STOCK_PREFERENCES, 
 			gtk.ICON_SIZE_BUTTON))
         	swindow.add(tree2)

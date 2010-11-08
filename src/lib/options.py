@@ -1012,7 +1012,7 @@ class OptionsDialog (gtk.Dialog):
 			entry = gtk.Entry()
 			entry.set_text(value)
 			entry.set_editable(False)
-			but = gtk.Button('')
+			but = gtk.Button()
 			# util to reload preview image
 			def create_preview (filename):
 				if filename and os.path.isfile(filename):
@@ -1079,7 +1079,7 @@ class OptionsDialog (gtk.Dialog):
 			entry.show()
 			img = gtk.Image()
 			img.set_from_stock(gtk.STOCK_EDIT, 1)
-			but = gtk.Button('')
+			but = gtk.Button()
 			but.set_image(img)
 			def open_listeditor(event):
 				# open dialog

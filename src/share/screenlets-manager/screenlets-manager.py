@@ -425,7 +425,7 @@ class ScreenletsManager(object):
 		self.label.set_width_chars(70)
 		self.label.set_alignment(0, 0)
 		self.label.set_size_request(-1, 65)
-    		self.btnsearch = gtk.Button("")
+    		self.btnsearch = gtk.Button()
     		self.searchbox = gtk.HBox()
     		self.txtsearch = gtk.Entry()
 		self.btnsearch.set_image(gtk.image_new_from_stock(gtk.STOCK_CLOSE, 

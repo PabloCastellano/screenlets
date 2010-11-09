@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>screenlets.plugins.Loader</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="screenlets-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Screenlets 0.1.2</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="screenlets-module.html">Package&nbsp;screenlets</a> ::
+        <a href="screenlets.plugins-module.html">Package&nbsp;plugins</a> ::
+        Module&nbsp;Loader
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="screenlets.plugins.Loader-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="screenlets.plugins.Loader-module.html">Module screenlets.plugins.Loader</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-comment"># -*- Mode: python; coding: utf-8; tab-width: 8; indent-tabs-mode: t; -*- </tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Copyright (C) 2006 - Jonathan Matthew</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># This program is free software; you can redistribute it and/or modify</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># it under the terms of the GNU General Public License as published by</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># the Free Software Foundation; either version 2, or (at your option)</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># any later version.</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># </tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># This program is distributed in the hope that it will be useful,</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># but WITHOUT ANY WARRANTY; without even the implied warranty of</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># GNU General Public License for more details.</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># You should have received a copy of the GNU General Public License</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># along with this program; if not, write to the Free Software</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301  USA.</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">gobject</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"><tt class="py-comment">#try:</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       import gnomevfs</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#       use_gnomevfs = True</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#except:</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">import</tt> <tt class="py-name">urllib</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line"><tt id="link-0" class="py-name" targets="Variable screenlets.plugins.Loader.use_gnomevfs=screenlets.plugins.Loader-module.html#use_gnomevfs"><a title="screenlets.plugins.Loader.use_gnomevfs" class="py-name" href="#" onclick="return doclink('link-0', 'use_gnomevfs', 'link-0');">use_gnomevfs</a></tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line"> </tt>
+<a name="GnomeVFSAsyncSrc"></a><div id="GnomeVFSAsyncSrc-def"><a name="L29"></a><tt class="py-lineno">29</tt> <a class="py-toggle" href="#" id="GnomeVFSAsyncSrc-toggle" onclick="return toggle('GnomeVFSAsyncSrc');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="screenlets.plugins.Loader.GnomeVFSAsyncSrc-class.html">GnomeVFSAsyncSrc</a> <tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt>   </tt>
+</div><a name="GnomeVFSAsyncSrc.__init__"></a><div id="GnomeVFSAsyncSrc.__init__-def"><a name="L30"></a><tt class="py-lineno">30</tt> <a class="py-toggle" href="#" id="GnomeVFSAsyncSrc.__init__-toggle" onclick="return toggle('GnomeVFSAsyncSrc.__init__');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.plugins.Loader.GnomeVFSAsyncSrc-class.html#__init__">__init__</a> <tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="GnomeVFSAsyncSrc.__init__-collapsed" style="display:none;" pad="++" indent="++++++++++++"></div><div id="GnomeVFSAsyncSrc.__init__-expanded"><a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">chunk</tt> <tt class="py-op">=</tt> <tt class="py-number">4096</tt> </tt>
+</div><a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line"> </tt>
+<a name="GnomeVFSAsyncSrc.read_cb"></a><div id="GnomeVFSAsyncSrc.read_cb-def"><a name="L33"></a><tt class="py-lineno">33</tt> <a class="py-toggle" href="#" id="GnomeVFSAsyncSrc.read_cb-toggle" onclick="return toggle('GnomeVFSAsyncSrc.read_cb');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.plugins.Loader.GnomeVFSAsyncSrc-class.html#read_cb">read_cb</a> <tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">handle</tt><tt class="py-op">,</tt> <tt class="py-param">buffer</tt><tt class="py-op">,</tt> <tt class="py-param">exc_type</tt><tt class="py-op">,</tt> <tt class="py-param">bytes_requested</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt class="py-param">data</tt><tt class="py-op">,</tt> <tt class="py-param">callback</tt><tt class="py-op">,</tt> <tt class="py-param">args</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="GnomeVFSAsyncSrc.read_cb-collapsed" style="display:none;" pad="++" indent="++++++++++++"></div><div id="GnomeVFSAsyncSrc.read_cb-expanded"><a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">exc_type</tt><tt class="py-op">:</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-name">issubclass</tt> <tt class="py-op">(</tt><tt class="py-name">exc_type</tt><tt class="py-op">,</tt> <tt class="py-name">gnomevfs</tt><tt class="py-op">.</tt><tt class="py-name">EOFError</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">                                <tt class="py-name">gobject</tt><tt class="py-op">.</tt><tt class="py-name">idle_add</tt> <tt class="py-op">(</tt><tt class="py-name">callback</tt><tt class="py-op">,</tt> <tt class="py-name">data</tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-name">args</tt><tt class="py-op">)</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">                                <tt class="py-name">handle</tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Method screenlets.Screenlet.close()=screenlets.Screenlet-class.html#close,Method screenlets.plugins.Mplayer.Mplayer.close()=screenlets.plugins.Mplayer.Mplayer-class.html#close,Method screenlets.utils.FileMonitor.close()=screenlets.utils.FileMonitor-class.html#close"><a title="screenlets.Screenlet.close
+screenlets.plugins.Mplayer.Mplayer.close
+screenlets.utils.FileMonitor.close" class="py-name" href="#" onclick="return doclink('link-1', 'close', 'link-1');">close</a></tt> <tt class="py-op">(</tt><tt class="py-keyword">lambda</tt> <tt class="py-op">*</tt><tt class="py-name">args</tt><tt class="py-op">:</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">                        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">                                <tt class="py-name">gobject</tt><tt class="py-op">.</tt><tt class="py-name">idle_add</tt> <tt class="py-op">(</tt><tt class="py-name">callback</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-name">args</tt><tt class="py-op">)</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">                                <tt class="py-name">handle</tt><tt class="py-op">.</tt><tt id="link-2" class="py-name"><a title="screenlets.Screenlet.close
+screenlets.plugins.Mplayer.Mplayer.close
+screenlets.utils.FileMonitor.close" class="py-name" href="#" onclick="return doclink('link-2', 'close', 'link-1');">close</a></tt> <tt class="py-op">(</tt><tt class="py-keyword">lambda</tt> <tt class="py-op">*</tt><tt class="py-name">args</tt><tt class="py-op">:</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line">                        <tt class="py-keyword">return</tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">                         </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line">                <tt class="py-name">data</tt> <tt class="py-op">+=</tt> <tt class="py-name">buffer</tt> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line">                <tt class="py-name">handle</tt><tt class="py-op">.</tt><tt class="py-name">read</tt> <tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">chunk</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Method screenlets.plugins.Loader.GnomeVFSAsyncSrc.read_cb()=screenlets.plugins.Loader.GnomeVFSAsyncSrc-class.html#read_cb"><a title="screenlets.plugins.Loader.GnomeVFSAsyncSrc.read_cb" class="py-name" href="#" onclick="return doclink('link-3', 'read_cb', 'link-3');">read_cb</a></tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt class="py-name">data</tt><tt class="py-op">,</tt> <tt class="py-name">callback</tt><tt class="py-op">,</tt> <tt class="py-name">args</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line"> </tt>
+<a name="GnomeVFSAsyncSrc.open_cb"></a><div id="GnomeVFSAsyncSrc.open_cb-def"><a name="L46"></a><tt class="py-lineno">46</tt> <a class="py-toggle" href="#" id="GnomeVFSAsyncSrc.open_cb-toggle" onclick="return toggle('GnomeVFSAsyncSrc.open_cb');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.plugins.Loader.GnomeVFSAsyncSrc-class.html#open_cb">open_cb</a> <tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">handle</tt><tt class="py-op">,</tt> <tt class="py-param">exc_type</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt class="py-param">data</tt><tt class="py-op">,</tt> <tt class="py-param">callback</tt><tt class="py-op">,</tt> <tt class="py-param">args</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="GnomeVFSAsyncSrc.open_cb-collapsed" style="display:none;" pad="++" indent="++++++++++++"></div><div id="GnomeVFSAsyncSrc.open_cb-expanded"><a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">exc_type</tt><tt class="py-op">:</tt> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line">                        <tt class="py-name">gobject</tt><tt class="py-op">.</tt><tt class="py-name">idle_add</tt> <tt class="py-op">(</tt><tt class="py-name">callback</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-name">args</tt><tt class="py-op">)</tt> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line">                        <tt class="py-keyword">return</tt> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line"> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line">                <tt class="py-name">handle</tt><tt class="py-op">.</tt><tt class="py-name">read</tt> <tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">chunk</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-4" class="py-name"><a title="screenlets.plugins.Loader.GnomeVFSAsyncSrc.read_cb" class="py-name" href="#" onclick="return doclink('link-4', 'read_cb', 'link-3');">read_cb</a></tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt class="py-name">data</tt><tt class="py-op">,</tt> <tt class="py-name">callback</tt><tt class="py-op">,</tt> <tt class="py-name">args</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line">     </tt>
+<a name="GnomeVFSAsyncSrc.get_url"></a><div id="GnomeVFSAsyncSrc.get_url-def"><a name="L53"></a><tt class="py-lineno">53</tt> <a class="py-toggle" href="#" id="GnomeVFSAsyncSrc.get_url-toggle" onclick="return toggle('GnomeVFSAsyncSrc.get_url');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.plugins.Loader.GnomeVFSAsyncSrc-class.html#get_url">get_url</a> <tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">url</tt><tt class="py-op">,</tt> <tt class="py-param">callback</tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-param">args</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="GnomeVFSAsyncSrc.get_url-collapsed" style="display:none;" pad="++" indent="++++++++++++"></div><div id="GnomeVFSAsyncSrc.get_url-expanded"><a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line">                <tt class="py-name">gnomevfs</tt><tt class="py-op">.</tt><tt class="py-name">async</tt><tt class="py-op">.</tt><tt id="link-5" class="py-name" targets="Method screenlets.utils.FileMonitor.open()=screenlets.utils.FileMonitor-class.html#open"><a title="screenlets.utils.FileMonitor.open" class="py-name" href="#" onclick="return doclink('link-5', 'open', 'link-5');">open</a></tt> <tt class="py-op">(</tt><tt class="py-name">url</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Method screenlets.plugins.Loader.GnomeVFSAsyncSrc.open_cb()=screenlets.plugins.Loader.GnomeVFSAsyncSrc-class.html#open_cb"><a title="screenlets.plugins.Loader.GnomeVFSAsyncSrc.open_cb" class="py-name" href="#" onclick="return doclink('link-6', 'open_cb', 'link-6');">open_cb</a></tt><tt class="py-op">,</tt> <tt class="py-name">data</tt><tt class="py-op">=</tt><tt class="py-op">(</tt><tt class="py-string">""</tt><tt class="py-op">,</tt> <tt class="py-name">callback</tt><tt class="py-op">,</tt> <tt class="py-name">args</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line"> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line"> </tt>
+<a name="URLLibSrc"></a><div id="URLLibSrc-def"><a name="L57"></a><tt class="py-lineno">57</tt> <a class="py-toggle" href="#" id="URLLibSrc-toggle" onclick="return toggle('URLLibSrc');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="screenlets.plugins.Loader.URLLibSrc-class.html">URLLibSrc</a> <tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="URLLibSrc-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="URLLibSrc-expanded"><a name="URLLibSrc.get_url"></a><div id="URLLibSrc.get_url-def"><a name="L58"></a><tt class="py-lineno">58</tt> <a class="py-toggle" href="#" id="URLLibSrc.get_url-toggle" onclick="return toggle('URLLibSrc.get_url');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.plugins.Loader.URLLibSrc-class.html#get_url">get_url</a> <tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">url</tt><tt class="py-op">,</tt> <tt class="py-param">callback</tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-param">args</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="URLLibSrc.get_url-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="URLLibSrc.get_url-expanded"><a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line">                        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line">                                <tt class="py-name">sock</tt> <tt class="py-op">=</tt> <tt class="py-name">urllib</tt><tt class="py-op">.</tt><tt class="py-name">urlopen</tt> <tt class="py-op">(</tt><tt class="py-name">url</tt><tt class="py-op">)</tt> </tt>
+<a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line">                                <tt class="py-name">data</tt> <tt class="py-op">=</tt> <tt class="py-name">sock</tt><tt class="py-op">.</tt><tt class="py-name">read</tt> <tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line">                                <tt class="py-name">sock</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name"><a title="screenlets.Screenlet.close
+screenlets.plugins.Mplayer.Mplayer.close
+screenlets.utils.FileMonitor.close" class="py-name" href="#" onclick="return doclink('link-7', 'close', 'link-1');">close</a></tt> <tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line">                                <tt class="py-name">callback</tt> <tt class="py-op">(</tt><tt class="py-name">data</tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-name">args</tt><tt class="py-op">)</tt> </tt>
+<a name="L64"></a><tt class="py-lineno">64</tt>  <tt class="py-line">                        <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L65"></a><tt class="py-lineno">65</tt>  <tt class="py-line">                                <tt class="py-name">callback</tt> <tt class="py-op">(</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-name">args</tt><tt class="py-op">)</tt> </tt>
+<a name="L66"></a><tt class="py-lineno">66</tt>  <tt class="py-line">                                <tt class="py-keyword">raise</tt> </tt>
+</div></div><a name="L67"></a><tt class="py-lineno">67</tt>  <tt class="py-line"> </tt>
+<a name="L68"></a><tt class="py-lineno">68</tt>  <tt class="py-line"> </tt>
+<a name="Loader"></a><div id="Loader-def"><a name="L69"></a><tt class="py-lineno">69</tt> <a class="py-toggle" href="#" id="Loader-toggle" onclick="return toggle('Loader');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.plugins.Loader-module.html#Loader">Loader</a> <tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Loader-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="Loader-expanded"><a name="L70"></a><tt class="py-lineno">70</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-8" class="py-name"><a title="screenlets.plugins.Loader.use_gnomevfs" class="py-name" href="#" onclick="return doclink('link-8', 'use_gnomevfs', 'link-0');">use_gnomevfs</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L71"></a><tt class="py-lineno">71</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt id="link-9" class="py-name" targets="Class screenlets.plugins.Loader.GnomeVFSAsyncSrc=screenlets.plugins.Loader.GnomeVFSAsyncSrc-class.html"><a title="screenlets.plugins.Loader.GnomeVFSAsyncSrc" class="py-name" href="#" onclick="return doclink('link-9', 'GnomeVFSAsyncSrc', 'link-9');">GnomeVFSAsyncSrc</a></tt> <tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L72"></a><tt class="py-lineno">72</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L73"></a><tt class="py-lineno">73</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt id="link-10" class="py-name" targets="Class screenlets.plugins.Loader.URLLibSrc=screenlets.plugins.Loader.URLLibSrc-class.html"><a title="screenlets.plugins.Loader.URLLibSrc" class="py-name" href="#" onclick="return doclink('link-10', 'URLLibSrc', 'link-10');">URLLibSrc</a></tt> <tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L74"></a><tt class="py-lineno">74</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="screenlets-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Screenlets 0.1.2</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Wed Jun  4 18:53:01 2008
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

@@ -1,0 +1,792 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>screenlets.plugins.Mail</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="screenlets-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Screenlets 0.1.2</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="screenlets-module.html">Package&nbsp;screenlets</a> ::
+        <a href="screenlets.plugins-module.html">Package&nbsp;plugins</a> ::
+        Module&nbsp;Mail
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="screenlets.plugins.Mail-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="screenlets.plugins.Mail-module.html">Module screenlets.plugins.Mail</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment"># This application is released under the GNU General Public License </tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># v3 (or, at your option, any later version). You can find the full </tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># text of the license under http://www.gnu.org/licenses/gpl.txt. </tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># By using, editing and/or distributing this software you agree to </tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># the terms and conditions of this license. </tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Thank you for using free software!</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-comment">#  mail module (c) Whise (Helder Fraga) 2008 &lt;helder.fraga@hotmail.com&gt;</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Package screenlets=screenlets-module.html"><a title="screenlets" class="py-name" href="#" onclick="return doclink('link-0', 'screenlets', 'link-0');">screenlets</a></tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">dbus</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">os</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">sys</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">stat</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">gettext</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">re</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">urllib</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-name">gettext</tt><tt class="py-op">.</tt><tt class="py-name">textdomain</tt><tt class="py-op">(</tt><tt class="py-string">'screenlets'</tt><tt class="py-op">)</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-name">gettext</tt><tt class="py-op">.</tt><tt class="py-name">bindtextdomain</tt><tt class="py-op">(</tt><tt class="py-string">'screenlets'</tt><tt class="py-op">,</tt> <tt id="link-1" class="py-name"><a title="screenlets" class="py-name" href="#" onclick="return doclink('link-1', 'screenlets', 'link-0');">screenlets</a></tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Variable screenlets.INSTALL_PREFIX=screenlets-module.html#INSTALL_PREFIX"><a title="screenlets.INSTALL_PREFIX" class="py-name" href="#" onclick="return doclink('link-2', 'INSTALL_PREFIX', 'link-2');">INSTALL_PREFIX</a></tt> <tt class="py-op">+</tt>  <tt class="py-string">'/share/locale'</tt><tt class="py-op">)</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">gobject</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">socket</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">threading</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line">        <tt class="py-keyword">import</tt> <tt class="py-name">poplib</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-keyword">except</tt> <tt class="py-name">ImportError</tt><tt class="py-op">,</tt> <tt class="py-name">err</tt><tt class="py-op">:</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">" !!!Please install python poplib :"</tt><tt class="py-op">,</tt> <tt class="py-name">err</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line">        <tt class="py-keyword">import</tt> <tt class="py-name">imaplib</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-keyword">except</tt> <tt class="py-name">ImportError</tt><tt class="py-op">,</tt> <tt class="py-name">err</tt><tt class="py-op">:</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">" !!!Please install python imaplib :"</tt><tt class="py-op">,</tt> <tt class="py-name">err</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line">        <tt class="py-keyword">import</tt> <tt class="py-name">gnomevfs</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-keyword">except</tt> <tt class="py-name">ImportError</tt><tt class="py-op">,</tt> <tt class="py-name">err</tt><tt class="py-op">:</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">" !!!Please install python gnomevfs :"</tt><tt class="py-op">,</tt> <tt class="py-name">err</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"> </tt>
+<a name="get_KMail_num"></a><div id="get_KMail_num-def"><a name="L38"></a><tt class="py-lineno"> 38</tt> <a class="py-toggle" href="#" id="get_KMail_num-toggle" onclick="return toggle('get_KMail_num');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.plugins.Mail-module.html#get_KMail_num">get_KMail_num</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="get_KMail_num-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="get_KMail_num-expanded"><a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">        <tt class="py-docstring">"""This gets the unread mail number of kmail"""</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">        <tt class="py-name">kmail</tt> <tt class="py-op">=</tt> <tt id="link-3" class="py-name" targets="Variable screenlets.plugins.mpdclient2.commands=screenlets.plugins.mpdclient2-module.html#commands"><a title="screenlets.plugins.mpdclient2.commands" class="py-name" href="#" onclick="return doclink('link-3', 'commands', 'link-3');">commands</a></tt><tt class="py-op">.</tt><tt class="py-name">getoutput</tt><tt class="py-op">(</tt><tt class="py-string">"dcop kmail default checkMail; sleep 5; echo ' ' | tr -d '\n'; dcop kmail KMailIface getFolder /Krealia/Inbox &gt; /dev/null; dcop 'DCOPRef(kmail,FolderIface)' unreadMessages | tr -d '\n'; echo ' '"</tt><tt class="py-op">)</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">kmail</tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">"ERROR: Couldn't attach to DCOP server!"</tt><tt class="py-op">)</tt> <tt class="py-op">!=</tt> <tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">:</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">None</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">kmail</tt> </tt>
+</div><a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"> </tt>
+<a name="get_GMail_Num"></a><div id="get_GMail_Num-def"><a name="L46"></a><tt class="py-lineno"> 46</tt> <a class="py-toggle" href="#" id="get_GMail_Num-toggle" onclick="return toggle('get_GMail_Num');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.plugins.Mail-module.html#get_GMail_Num">get_GMail_Num</a><tt class="py-op">(</tt><tt class="py-param">login</tt><tt class="py-op">,</tt> <tt class="py-param">password</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="get_GMail_Num-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="get_GMail_Num-expanded"><a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">        <tt class="py-docstring">"""This output the number of messages of gmail box"""</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">        <tt class="py-name">f</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">popen</tt><tt class="py-op">(</tt><tt class="py-string">"wget --no-check-certificate -qO - https://"</tt> <tt class="py-op">+</tt> <tt class="py-name">login</tt> <tt class="py-op">+</tt> <tt class="py-string">":"</tt> <tt class="py-op">+</tt> <tt id="link-4" class="py-name" targets="Variable screenlets.plugins.keyring.KeyRing.Key.password=screenlets.plugins.keyring.KeyRing.Key-class.html#password"><a title="screenlets.plugins.keyring.KeyRing.Key.password" class="py-name" href="#" onclick="return doclink('link-4', 'password', 'link-4');">password</a></tt> <tt class="py-op">+</tt> <tt class="py-string">"@mail.google.com/mail/feed/atom"</tt><tt class="py-op">)</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">        <tt class="py-name">a</tt> <tt class="py-op">=</tt> <tt class="py-name">f</tt><tt class="py-op">.</tt><tt class="py-name">read</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">        <tt class="py-name">f</tt><tt class="py-op">.</tt><tt id="link-5" class="py-name" targets="Method screenlets.Screenlet.close()=screenlets.Screenlet-class.html#close,Method screenlets.plugins.Mplayer.Mplayer.close()=screenlets.plugins.Mplayer.Mplayer-class.html#close,Method screenlets.utils.FileMonitor.close()=screenlets.utils.FileMonitor-class.html#close"><a title="screenlets.Screenlet.close
+screenlets.plugins.Mplayer.Mplayer.close
+screenlets.utils.FileMonitor.close" class="py-name" href="#" onclick="return doclink('link-5', 'close', 'link-5');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">        <tt class="py-name">match</tt> <tt class="py-op">=</tt> <tt class="py-name">re</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Method screenlets.plugins.AmazonCoverArtSearch.AmazonCoverArtSearch.search()=screenlets.plugins.AmazonCoverArtSearch.AmazonCoverArtSearch-class.html#search"><a title="screenlets.plugins.AmazonCoverArtSearch.AmazonCoverArtSearch.search" class="py-name" href="#" onclick="return doclink('link-6', 'search', 'link-6');">search</a></tt><tt class="py-op">(</tt><tt class="py-string">"&lt;fullcount&gt;([0-9]+)&lt;/fullcount&gt;"</tt><tt class="py-op">,</tt> <tt class="py-name">a</tt><tt class="py-op">)</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">match</tt> <tt class="py-op">==</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">None</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">match</tt><tt class="py-op">.</tt><tt class="py-name">group</tt><tt class="py-op">(</tt><tt class="py-number">1</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line"> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line"> </tt>
+<a name="get_Mail_Num"></a><div id="get_Mail_Num-def"><a name="L59"></a><tt class="py-lineno"> 59</tt> <a class="py-toggle" href="#" id="get_Mail_Num-toggle" onclick="return toggle('get_Mail_Num');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.plugins.Mail-module.html#get_Mail_Num">get_Mail_Num</a><tt class="py-op">(</tt><tt class="py-param">server</tt><tt class="py-op">,</tt> <tt class="py-param">login</tt><tt class="py-op">,</tt> <tt class="py-param">passwd</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="get_Mail_Num-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="get_Mail_Num-expanded"><a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">        <tt class="py-docstring">"""This output the number of messages of mail box"""</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">        <tt class="py-name">m</tt> <tt class="py-op">=</tt> <tt class="py-name">poplib</tt><tt class="py-op">.</tt><tt class="py-name">POP3</tt><tt class="py-op">(</tt><tt class="py-name">server</tt><tt class="py-op">)</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">        <tt class="py-name">m</tt><tt class="py-op">.</tt><tt class="py-name">user</tt><tt class="py-op">(</tt><tt class="py-name">login</tt><tt class="py-op">)</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">        <tt class="py-name">m</tt><tt class="py-op">.</tt><tt class="py-name">pass_</tt><tt class="py-op">(</tt><tt class="py-name">passwd</tt><tt class="py-op">)</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">        <tt class="py-name">out</tt> <tt class="py-op">=</tt> <tt class="py-name">m</tt><tt class="py-op">.</tt><tt class="py-name">stat</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">        <tt class="py-name">m</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Method screenlets.services.ScreenletService.quit()=screenlets.services.ScreenletService-class.html#quit"><a title="screenlets.services.ScreenletService.quit" class="py-name" href="#" onclick="return doclink('link-7', 'quit', 'link-7');">quit</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">        <tt class="py-name">num</tt> <tt class="py-op">=</tt> <tt class="py-name">out</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">num</tt> </tt>
+</div><a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line"> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line"> </tt>
+<a name="send_mail"></a><div id="send_mail-def"><a name="L70"></a><tt class="py-lineno"> 70</tt> <a class="py-toggle" href="#" id="send_mail-toggle" onclick="return toggle('send_mail');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.plugins.Mail-module.html#send_mail">send_mail</a><tt class="py-op">(</tt><tt class="py-param">smtp_server</tt><tt class="py-op">,</tt><tt class="py-param">fromaddr</tt><tt class="py-op">,</tt><tt class="py-param">toaddrs</tt><tt class="py-op">,</tt> <tt class="py-param">subject</tt><tt class="py-op">,</tt><tt class="py-param">msg</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="send_mail-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="send_mail-expanded"><a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">        <tt class="py-docstring">"""Send mail via SMTP"""</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">        <tt class="py-keyword">import</tt> <tt class="py-name">smtplib</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">        <tt class="py-name">server</tt> <tt class="py-op">=</tt> <tt class="py-name">smtplib</tt><tt class="py-op">.</tt><tt class="py-name">SMTP</tt><tt class="py-op">(</tt><tt class="py-name">smtp_server</tt><tt class="py-op">)</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">        <tt class="py-name">server</tt><tt class="py-op">.</tt><tt class="py-name">sendmail</tt><tt class="py-op">(</tt><tt class="py-name">fromaddr</tt><tt class="py-op">,</tt> <tt class="py-name">toaddrs</tt><tt class="py-op">,</tt> <tt class="py-name">subject</tt> <tt class="py-op">+</tt> <tt class="py-name">msg</tt><tt class="py-op">)</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">        <tt class="py-name">server</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name"><a title="screenlets.services.ScreenletService.quit" class="py-name" href="#" onclick="return doclink('link-8', 'quit', 'link-7');">quit</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line"> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line"><tt class="py-comment">#------CLASSES----------</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#-----------------------</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"><tt class="py-comment"># error messages</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt id="link-9" class="py-name" targets="Variable screenlets.plugins.Mail.MSG_CONNECTION_FAILED=screenlets.plugins.Mail-module.html#MSG_CONNECTION_FAILED,Variable screenlets.plugins.mail.MSG_CONNECTION_FAILED=screenlets.plugins.mail-module.html#MSG_CONNECTION_FAILED"><a title="screenlets.plugins.Mail.MSG_CONNECTION_FAILED
+screenlets.plugins.mail.MSG_CONNECTION_FAILED" class="py-name" href="#" onclick="return doclink('link-9', 'MSG_CONNECTION_FAILED', 'link-9');">MSG_CONNECTION_FAILED</a></tt>   <tt class="py-op">=</tt> <tt class="py-string">"Error while connecting to server."</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line"><tt id="link-10" class="py-name" targets="Variable screenlets.plugins.Mail.MSG_FETCH_MAILS_FAILED=screenlets.plugins.Mail-module.html#MSG_FETCH_MAILS_FAILED,Variable screenlets.plugins.mail.MSG_FETCH_MAILS_FAILED=screenlets.plugins.mail-module.html#MSG_FETCH_MAILS_FAILED"><a title="screenlets.plugins.Mail.MSG_FETCH_MAILS_FAILED
+screenlets.plugins.mail.MSG_FETCH_MAILS_FAILED" class="py-name" href="#" onclick="return doclink('link-10', 'MSG_FETCH_MAILS_FAILED', 'link-10');">MSG_FETCH_MAILS_FAILED</a></tt>  <tt class="py-op">=</tt> <tt class="py-string">"Unable to retrieve mails from server."</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line"><tt id="link-11" class="py-name" targets="Variable screenlets.plugins.Mail.MSG_AUTH_FAILED=screenlets.plugins.Mail-module.html#MSG_AUTH_FAILED,Variable screenlets.plugins.mail.MSG_AUTH_FAILED=screenlets.plugins.mail-module.html#MSG_AUTH_FAILED"><a title="screenlets.plugins.Mail.MSG_AUTH_FAILED
+screenlets.plugins.mail.MSG_AUTH_FAILED" class="py-name" href="#" onclick="return doclink('link-11', 'MSG_AUTH_FAILED', 'link-11');">MSG_AUTH_FAILED</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"""Error on login - invalid login data given? Some hosts</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line"><tt class="py-string">may block connections for a certain interval before allowing reconnects."""</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line"> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line"><tt class="py-comment"># the current operational status of the mailcheck</tt> </tt>
+<a name="MailboxStatus"></a><div id="MailboxStatus-def"><a name="L87"></a><tt class="py-lineno"> 87</tt> <a class="py-toggle" href="#" id="MailboxStatus-toggle" onclick="return toggle('MailboxStatus');">-</a><tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">class</tt> <a class="py-def-name" href="screenlets.plugins.Mail.MailboxStatus-class.html">MailboxStatus</a><tt class="py-op">:</tt> </tt>
+</div><div id="MailboxStatus-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="MailboxStatus-expanded"><a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">        <tt id="link-12" class="py-name" targets="Variable screenlets.plugins.Mail.MailboxStatus.UNKNOWN=screenlets.plugins.Mail.MailboxStatus-class.html#UNKNOWN,Variable screenlets.plugins.mail.MailboxStatus.UNKNOWN=screenlets.plugins.mail.MailboxStatus-class.html#UNKNOWN"><a title="screenlets.plugins.Mail.MailboxStatus.UNKNOWN
+screenlets.plugins.mail.MailboxStatus.UNKNOWN" class="py-name" href="#" onclick="return doclink('link-12', 'UNKNOWN', 'link-12');">UNKNOWN</a></tt>                 <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">        <tt id="link-13" class="py-name" targets="Variable screenlets.plugins.Mail.MailboxStatus.ALL_READ=screenlets.plugins.Mail.MailboxStatus-class.html#ALL_READ,Variable screenlets.plugins.mail.MailboxStatus.ALL_READ=screenlets.plugins.mail.MailboxStatus-class.html#ALL_READ"><a title="screenlets.plugins.Mail.MailboxStatus.ALL_READ
+screenlets.plugins.mail.MailboxStatus.ALL_READ" class="py-name" href="#" onclick="return doclink('link-13', 'ALL_READ', 'link-13');">ALL_READ</a></tt>                <tt class="py-op">=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">        <tt id="link-14" class="py-name" targets="Variable screenlets.plugins.Mail.MailboxStatus.UNREAD_MAIL=screenlets.plugins.Mail.MailboxStatus-class.html#UNREAD_MAIL,Variable screenlets.plugins.mail.MailboxStatus.UNREAD_MAIL=screenlets.plugins.mail.MailboxStatus-class.html#UNREAD_MAIL"><a title="screenlets.plugins.Mail.MailboxStatus.UNREAD_MAIL
+screenlets.plugins.mail.MailboxStatus.UNREAD_MAIL" class="py-name" href="#" onclick="return doclink('link-14', 'UNREAD_MAIL', 'link-14');">UNREAD_MAIL</a></tt>     <tt class="py-op">=</tt> <tt class="py-number">2</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">        <tt id="link-15" class="py-name" targets="Variable screenlets.plugins.Mail.MailboxStatus.NEW_MAIL=screenlets.plugins.Mail.MailboxStatus-class.html#NEW_MAIL,Variable screenlets.plugins.mail.MailboxStatus.NEW_MAIL=screenlets.plugins.mail.MailboxStatus-class.html#NEW_MAIL"><a title="screenlets.plugins.Mail.MailboxStatus.NEW_MAIL
+screenlets.plugins.mail.MailboxStatus.NEW_MAIL" class="py-name" href="#" onclick="return doclink('link-15', 'NEW_MAIL', 'link-15');">NEW_MAIL</a></tt>                <tt class="py-op">=</tt>       <tt class="py-number">3</tt> </tt>
+</div><a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"><tt class="py-comment"># the mailcheck status</tt> </tt>
+<a name="MailCheckStatus"></a><div id="MailCheckStatus-def"><a name="L94"></a><tt class="py-lineno"> 94</tt> <a class="py-toggle" href="#" id="MailCheckStatus-toggle" onclick="return toggle('MailCheckStatus');">-</a><tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">class</tt> <a class="py-def-name" href="screenlets.plugins.Mail.MailCheckStatus-class.html">MailCheckStatus</a><tt class="py-op">:</tt> </tt>
+</div><div id="MailCheckStatus-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="MailCheckStatus-expanded"><a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">        <tt id="link-16" class="py-name" targets="Variable screenlets.plugins.Mail.MailCheckStatus.REFRESH=screenlets.plugins.Mail.MailCheckStatus-class.html#REFRESH,Variable screenlets.plugins.mail.MailCheckStatus.REFRESH=screenlets.plugins.mail.MailCheckStatus-class.html#REFRESH"><a title="screenlets.plugins.Mail.MailCheckStatus.REFRESH
+screenlets.plugins.mail.MailCheckStatus.REFRESH" class="py-name" href="#" onclick="return doclink('link-16', 'REFRESH', 'link-16');">REFRESH</a></tt>         <tt class="py-op">=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">        <tt id="link-17" class="py-name" targets="Variable screenlets.plugins.Mail.MailCheckStatus.IDLE=screenlets.plugins.Mail.MailCheckStatus-class.html#IDLE,Variable screenlets.plugins.mail.MailCheckStatus.IDLE=screenlets.plugins.mail.MailCheckStatus-class.html#IDLE"><a title="screenlets.plugins.Mail.MailCheckStatus.IDLE
+screenlets.plugins.mail.MailCheckStatus.IDLE" class="py-name" href="#" onclick="return doclink('link-17', 'IDLE', 'link-17');">IDLE</a></tt>            <tt class="py-op">=</tt> <tt class="py-number">2</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">        <tt id="link-18" class="py-name" targets="Variable screenlets.plugins.Mail.MailCheckStatus.ERROR=screenlets.plugins.Mail.MailCheckStatus-class.html#ERROR,Variable screenlets.plugins.mail.MailCheckStatus.ERROR=screenlets.plugins.mail.MailCheckStatus-class.html#ERROR"><a title="screenlets.plugins.Mail.MailCheckStatus.ERROR
+screenlets.plugins.mail.MailCheckStatus.ERROR" class="py-name" href="#" onclick="return doclink('link-18', 'ERROR', 'link-18');">ERROR</a></tt>           <tt class="py-op">=</tt> <tt class="py-number">3</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">        <tt id="link-19" class="py-name"><a title="screenlets.plugins.Mail.MailCheckStatus.IDLE
+screenlets.plugins.mail.MailCheckStatus.IDLE" class="py-name" href="#" onclick="return doclink('link-19', 'IDLE', 'link-17');">IDLE</a></tt>            <tt class="py-op">=</tt> <tt class="py-number">100</tt> </tt>
+</div><a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line"> </tt>
+<a name="MailCheckBackend"></a><div id="MailCheckBackend-def"><a name="L100"></a><tt class="py-lineno">100</tt> <a class="py-toggle" href="#" id="MailCheckBackend-toggle" onclick="return toggle('MailCheckBackend');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="screenlets.plugins.Mail.MailCheckBackend-class.html">MailCheckBackend</a> <tt class="py-op">(</tt><tt class="py-base-class">gobject</tt><tt class="py-op">.</tt><tt class="py-base-class">GObject</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MailCheckBackend-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="MailCheckBackend-expanded"><a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">        <tt class="py-docstring">"""The backend class which performs checking for mail and offers access</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line"><tt class="py-docstring">        to the current mail-backend. By subclassing this class you can add multiple</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line"><tt class="py-docstring">        mail-backends to the MailCheckScreenlet (e.g. pop3, maildir, imap, </tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line"><tt class="py-docstring">        gmail, ...)."""</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">         </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line"> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">        <tt id="link-20" class="py-name" targets="Variable screenlets.Screenlet.__gsignals__=screenlets.Screenlet-class.html#__gsignals__,Variable screenlets.options.Option.__gsignals__=screenlets.options.Option-class.html#__gsignals__,Variable screenlets.plugins.Mail.MailCheckBackend.__gsignals__=screenlets.plugins.Mail.MailCheckBackend-class.html#__gsignals__,Variable screenlets.plugins.mail.MailCheckBackend.__gsignals__=screenlets.plugins.mail.MailCheckBackend-class.html#__gsignals__,Variable screenlets.sensors.Sensor.__gsignals__=screenlets.sensors.Sensor-class.html#__gsignals__,Variable screenlets.utils.FileMonitor.__gsignals__=screenlets.utils.FileMonitor-class.html#__gsignals__"><a title="screenlets.Screenlet.__gsignals__
+screenlets.options.Option.__gsignals__
+screenlets.plugins.Mail.MailCheckBackend.__gsignals__
+screenlets.plugins.mail.MailCheckBackend.__gsignals__
+screenlets.sensors.Sensor.__gsignals__
+screenlets.utils.FileMonitor.__gsignals__" class="py-name" href="#" onclick="return doclink('link-20', '__gsignals__', 'link-20');">__gsignals__</a></tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">                <tt class="py-string">'check_finished'</tt> <tt class="py-op">:</tt> <tt class="py-op">(</tt><tt class="py-name">gobject</tt><tt class="py-op">.</tt><tt class="py-name">SIGNAL_RUN_LAST</tt><tt class="py-op">,</tt>    <tt class="py-name">gobject</tt><tt class="py-op">.</tt><tt class="py-name">TYPE_NONE</tt><tt class="py-op">,</tt><tt class="py-op">(</tt><tt class="py-name">gobject</tt><tt class="py-op">.</tt><tt class="py-name">TYPE_INT</tt><tt class="py-op">,</tt> <tt class="py-name">gobject</tt><tt class="py-op">.</tt><tt class="py-name">TYPE_INT</tt><tt class="py-op">,</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">                <tt class="py-op">}</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line"> </tt>
+<a name="MailCheckBackend.__init__"></a><div id="MailCheckBackend.__init__-def"><a name="L111"></a><tt class="py-lineno">111</tt> <a class="py-toggle" href="#" id="MailCheckBackend.__init__-toggle" onclick="return toggle('MailCheckBackend.__init__');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.plugins.Mail.MailCheckBackend-class.html#__init__">__init__</a> <tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">name</tt><tt class="py-op">,</tt> <tt class="py-param">screenlet</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MailCheckBackend.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="MailCheckBackend.__init__-expanded"><a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">                <tt class="py-name">gobject</tt><tt class="py-op">.</tt><tt class="py-name">GObject</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name" targets="Method screenlets.Notify.__init__()=screenlets.Notify-class.html#__init__,Method screenlets.Screenlet.__init__()=screenlets.Screenlet-class.html#__init__,Method screenlets.ScreenletTheme.__init__()=screenlets.ScreenletTheme-class.html#__init__,Method screenlets.ShapedWidget.__init__()=screenlets.ShapedWidget-class.html#__init__,Method screenlets.Tooltip.__init__()=screenlets.Tooltip-class.html#__init__,Method screenlets.backend.CachingBackend.__init__()=screenlets.backend.CachingBackend-class.html#__init__,Method screenlets.backend.GconfBackend.__init__()=screenlets.backend.GconfBackend-class.html#__init__,Method screenlets.backend.ScreenletsBackend.__init__()=screenlets.backend.ScreenletsBackend-class.html#__init__,Method screenlets.install.ScreenletInstaller.__init__()=screenlets.install.ScreenletInstaller-class.html#__init__,Method screenlets.menu.ApplicationMenu.__init__()=screenlets.menu.ApplicationMenu-class.html#__init__,Method screenlets.menu.ImageMenuItem.__init__()=screenlets.menu.ImageMenuItem-class.html#__init__,Method screenlets.options.AccountOption.__init__()=screenlets.options.AccountOption-class.html#__init__,Method screenlets.options.EditableOptions.__init__()=screenlets.options.EditableOptions-class.html#__init__,Method screenlets.options.FileOption.__init__()=screenlets.options.FileOption-class.html#__init__,Method screenlets.options.FloatOption.__init__()=screenlets.options.FloatOption-class.html#__init__,Method screenlets.options.IntOption.__init__()=screenlets.options.IntOption-class.html#__init__,Method screenlets.options.ListOptionDialog.__init__()=screenlets.options.ListOptionDialog-class.html#__init__,Method screenlets.options.Option.__init__()=screenlets.options.Option-class.html#__init__,Method screenlets.options.OptionsDialog.__init__()=screenlets.options.OptionsDialog-class.html#__init__,Method screenlets.options.StringOption.__init__()=screenlets.options.StringOption-class.html#__init__,Method screenlets.plugins.Amarok.AmarokAPI.__init__()=screenlets.plugins.Amarok.AmarokAPI-class.html#__init__,Method screenlets.plugins.AmazonCoverArtSearch.AmazonCoverArtSearch.__init__()=screenlets.plugins.AmazonCoverArtSearch.AmazonCoverArtSearch-class.html#__init__,Method screenlets.plugins.Audacious.AudaciousAPI.__init__()=screenlets.plugins.Audacious.AudaciousAPI-class.html#__init__,Method screenlets.plugins.Banshee.BansheeAPI.__init__()=screenlets.plugins.Banshee.BansheeAPI-class.html#__init__,Method screenlets.plugins.Convert.Converter.__init__()=screenlets.plugins.Convert.Converter-class.html#__init__,Method screenlets.plugins.CoverSearch.CoverSearch.__init__()=screenlets.plugins.CoverSearch.CoverSearch-class.html#__init__,Method screenlets.plugins.Exaile.ExaileAPI.__init__()=screenlets.plugins.Exaile.ExaileAPI-class.html#__init__,Method screenlets.plugins.Flickr.Flickr.__init__()=screenlets.plugins.Flickr.Flickr-class.html#__init__,Method screenlets.plugins.GenericPlayer.GenericAPI.__init__()=screenlets.plugins.GenericPlayer.GenericAPI-class.html#__init__,Method screenlets.plugins.Gstreamer.gstreamer.__init__()=screenlets.plugins.Gstreamer.gstreamer-class.html#__init__,Method screenlets.plugins.Juk.JukAPI.__init__()=screenlets.plugins.Juk.JukAPI-class.html#__init__,Method screenlets.plugins.Kaffeine.KaffeineAPI.__init__()=screenlets.plugins.Kaffeine.KaffeineAPI-class.html#__init__,Method screenlets.plugins.LastFMProxy.LastFMProxyAPI.__init__()=screenlets.plugins.LastFMProxy.LastFMProxyAPI-class.html#__init__,Method screenlets.plugins.Listen.ListenAPI.__init__()=screenlets.plugins.Listen.ListenAPI-class.html#__init__,Method screenlets.plugins.Loader.GnomeVFSAsyncSrc.__init__()=screenlets.plugins.Loader.GnomeVFSAsyncSrc-class.html#__init__,Method screenlets.plugins.Mail.IMAPBackend.__init__()=screenlets.plugins.Mail.IMAPBackend-class.html#__init__,Method screenlets.plugins.Mail.MailCheckBackend.__init__()=screenlets.plugins.Mail.MailCheckBackend-class.html#__init__,Method screenlets.plugins.Mail.Mailer.__init__()=screenlets.plugins.Mail.Mailer-class.html#__init__,Method screenlets.plugins.Mail.POP3Backend.__init__()=screenlets.plugins.Mail.POP3Backend-class.html#__init__,Method screenlets.plugins.Mplayer.Mplayer.__init__()=screenlets.plugins.Mplayer.Mplayer-class.html#__init__,Method screenlets.plugins.Proxy.Proxy.__init__()=screenlets.plugins.Proxy.Proxy-class.html#__init__,Method screenlets.plugins.Quodlibet.QuodlibetAPI.__init__()=screenlets.plugins.Quodlibet.QuodlibetAPI-class.html#__init__,Method screenlets.plugins.Rhythmbox.RhythmboxAPI.__init__()=screenlets.plugins.Rhythmbox.RhythmboxAPI-class.html#__init__,Method screenlets.plugins.Sonata.SonataAPI.__init__()=screenlets.plugins.Sonata.SonataAPI-class.html#__init__,Method screenlets.plugins.Songbird.SongbirdAPI.__init__()=screenlets.plugins.Songbird.SongbirdAPI-class.html#__init__,Method screenlets.plugins.TemperatureConverter.TemperatureConverter.__init__()=screenlets.plugins.TemperatureConverter.TemperatureConverter-class.html#__init__,Method screenlets.plugins.iCal.DateSet.__init__()=screenlets.plugins.iCal.DateSet-class.html#__init__,Method screenlets.plugins.iCal.ICalEvent.__init__()=screenlets.plugins.iCal.ICalEvent-class.html#__init__,Method screenlets.plugins.iCal.ICalReader.__init__()=screenlets.plugins.iCal.ICalReader-class.html#__init__,Method screenlets.plugins.keyring.KeyRing.Key.__init__()=screenlets.plugins.keyring.KeyRing.Key-class.html#__init__,Method screenlets.plugins.keyring.KeyRing.__init__()=screenlets.plugins.keyring.KeyRing-class.html#__init__,Method screenlets.plugins.mail.IMAPBackend.__init__()=screenlets.plugins.mail.IMAPBackend-class.html#__init__,Method screenlets.plugins.mail.MailCheckBackend.__init__()=screenlets.plugins.mail.MailCheckBackend-class.html#__init__,Method screenlets.plugins.mail.Mailer.__init__()=screenlets.plugins.mail.Mailer-class.html#__init__,Method screenlets.plugins.mail.POP3Backend.__init__()=screenlets.plugins.mail.POP3Backend-class.html#__init__,Method screenlets.plugins.mpdclient2.command_sender.__init__()=screenlets.plugins.mpdclient2.command_sender-class.html#__init__,Method screenlets.plugins.mpdclient2.mpd_connection.__init__()=screenlets.plugins.mpdclient2.mpd_connection-class.html#__init__,Method screenlets.plugins.mpdclient2.response_fetcher.__init__()=screenlets.plugins.mpdclient2.response_fetcher-class.html#__init__,Method screenlets.plugins.mpdclient2.sender_n_fetcher.__init__()=screenlets.plugins.mpdclient2.sender_n_fetcher-class.html#__init__,Method screenlets.plugins.mpdclient2.socket_talker.__init__()=screenlets.plugins.mpdclient2.socket_talker-class.html#__init__,Method screenlets.sensors.CPUSensor.__init__()=screenlets.sensors.CPUSensor-class.html#__init__,Method screenlets.sensors.MemorySensor.__init__()=screenlets.sensors.MemorySensor-class.html#__init__,Method screenlets.sensors.NetSensor.__init__()=screenlets.sensors.NetSensor-class.html#__init__,Method screenlets.sensors.Sensor.__init__()=screenlets.sensors.Sensor-class.html#__init__,Method screenlets.services.ScreenletService.__init__()=screenlets.services.ScreenletService-class.html#__init__,Method screenlets.session.ScreenletSession.__init__()=screenlets.session.ScreenletSession-class.html#__init__,Method screenlets.utils.FileMonitor.__init__()=screenlets.utils.FileMonitor-class.html#__init__,Method screenlets.utils.IniReader.__init__()=screenlets.utils.IniReader-class.html#__init__,Method screenlets.utils.Notifier.__init__()=screenlets.utils.Notifier-class.html#__init__,Method screenlets.utils.ScreenletInfo.__init__()=screenlets.utils.ScreenletInfo-class.html#__init__"><a title="screenlets.Notify.__init__
+screenlets.Screenlet.__init__
+screenlets.ScreenletTheme.__init__
+screenlets.ShapedWidget.__init__
+screenlets.Tooltip.__init__
+screenlets.backend.CachingBackend.__init__
+screenlets.backend.GconfBackend.__init__
+screenlets.backend.ScreenletsBackend.__init__
+screenlets.install.ScreenletInstaller.__init__
+screenlets.menu.ApplicationMenu.__init__
+screenlets.menu.ImageMenuItem.__init__
+screenlets.options.AccountOption.__init__
+screenlets.options.EditableOptions.__init__
+screenlets.options.FileOption.__init__
+screenlets.options.FloatOption.__init__
+screenlets.options.IntOption.__init__
+screenlets.options.ListOptionDialog.__init__
+screenlets.options.Option.__init__
+screenlets.options.OptionsDialog.__init__
+screenlets.options.StringOption.__init__
+screenlets.plugins.Amarok.AmarokAPI.__init__
+screenlets.plugins.AmazonCoverArtSearch.AmazonCoverArtSearch.__init__
+screenlets.plugins.Audacious.AudaciousAPI.__init__
+screenlets.plugins.Banshee.BansheeAPI.__init__
+screenlets.plugins.Convert.Converter.__init__
+screenlets.plugins.CoverSearch.CoverSearch.__init__
+screenlets.plugins.Exaile.ExaileAPI.__init__
+screenlets.plugins.Flickr.Flickr.__init__
+screenlets.plugins.GenericPlayer.GenericAPI.__init__
+screenlets.plugins.Gstreamer.gstreamer.__init__
+screenlets.plugins.Juk.JukAPI.__init__
+screenlets.plugins.Kaffeine.KaffeineAPI.__init__
+screenlets.plugins.LastFMProxy.LastFMProxyAPI.__init__
+screenlets.plugins.Listen.ListenAPI.__init__
+screenlets.plugins.Loader.GnomeVFSAsyncSrc.__init__
+screenlets.plugins.Mail.IMAPBackend.__init__
+screenlets.plugins.Mail.MailCheckBackend.__init__
+screenlets.plugins.Mail.Mailer.__init__
+screenlets.plugins.Mail.POP3Backend.__init__
+screenlets.plugins.Mplayer.Mplayer.__init__
+screenlets.plugins.Proxy.Proxy.__init__
+screenlets.plugins.Quodlibet.QuodlibetAPI.__init__
+screenlets.plugins.Rhythmbox.RhythmboxAPI.__init__
+screenlets.plugins.Sonata.SonataAPI.__init__
+screenlets.plugins.Songbird.SongbirdAPI.__init__
+screenlets.plugins.TemperatureConverter.TemperatureConverter.__init__
+screenlets.plugins.iCal.DateSet.__init__
+screenlets.plugins.iCal.ICalEvent.__init__
+screenlets.plugins.iCal.ICalReader.__init__
+screenlets.plugins.keyring.KeyRing.Key.__init__
+screenlets.plugins.keyring.KeyRing.__init__
+screenlets.plugins.mail.IMAPBackend.__init__
+screenlets.plugins.mail.MailCheckBackend.__init__
+screenlets.plugins.mail.Mailer.__init__
+screenlets.plugins.mail.POP3Backend.__init__
+screenlets.plugins.mpdclient2.command_sender.__init__
+screenlets.plugins.mpdclient2.mpd_connection.__init__
+screenlets.plugins.mpdclient2.response_fetcher.__init__
+screenlets.plugins.mpdclient2.sender_n_fetcher.__init__
+screenlets.plugins.mpdclient2.socket_talker.__init__
+screenlets.sensors.CPUSensor.__init__
+screenlets.sensors.MemorySensor.__init__
+screenlets.sensors.NetSensor.__init__
+screenlets.sensors.Sensor.__init__
+screenlets.services.ScreenletService.__init__
+screenlets.session.ScreenletSession.__init__
+screenlets.utils.FileMonitor.__init__
+screenlets.utils.IniReader.__init__
+screenlets.utils.Notifier.__init__
+screenlets.utils.ScreenletInfo.__init__" class="py-name" href="#" onclick="return doclink('link-21', '__init__', 'link-21');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">)</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">                <tt class="py-comment"># properties</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name" targets="Variable screenlets.plugins.keyring.KeyRing.Key.name=screenlets.plugins.keyring.KeyRing.Key-class.html#name"><a title="screenlets.plugins.keyring.KeyRing.Key.name" class="py-name" href="#" onclick="return doclink('link-22', 'name', 'link-22');">name</a></tt>               <tt class="py-op">=</tt> <tt id="link-23" class="py-name"><a title="screenlets.plugins.keyring.KeyRing.Key.name" class="py-name" href="#" onclick="return doclink('link-23', 'name', 'link-22');">name</a></tt>                  <tt class="py-comment"># name of backend</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">screenlet</tt>          <tt class="py-op">=</tt> <tt class="py-name">screenlet</tt>             <tt class="py-comment"># assigned MailCheckScreenlet</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">refreshing</tt>         <tt class="py-op">=</tt> <tt class="py-name">False</tt>                 <tt class="py-comment"># not refreshing yet</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">unseen_count</tt>       <tt class="py-op">=</tt> <tt class="py-number">0</tt>                     <tt class="py-comment"># number of unread messages on the server</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">status</tt>             <tt class="py-op">=</tt> <tt id="link-24" class="py-name" targets="Class screenlets.plugins.Mail.MailCheckStatus=screenlets.plugins.Mail.MailCheckStatus-class.html,Class screenlets.plugins.mail.MailCheckStatus=screenlets.plugins.mail.MailCheckStatus-class.html"><a title="screenlets.plugins.Mail.MailCheckStatus
+screenlets.plugins.mail.MailCheckStatus" class="py-name" href="#" onclick="return doclink('link-24', 'MailCheckStatus', 'link-24');">MailCheckStatus</a></tt><tt class="py-op">.</tt><tt id="link-25" class="py-name"><a title="screenlets.plugins.Mail.MailCheckStatus.IDLE
+screenlets.plugins.mail.MailCheckStatus.IDLE" class="py-name" href="#" onclick="return doclink('link-25', 'IDLE', 'link-17');">IDLE</a></tt>  <tt class="py-comment"># status of the mailcheck backend</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">mailbox_status</tt>     <tt class="py-op">=</tt> <tt id="link-26" class="py-name" targets="Class screenlets.plugins.Mail.MailboxStatus=screenlets.plugins.Mail.MailboxStatus-class.html,Class screenlets.plugins.mail.MailboxStatus=screenlets.plugins.mail.MailboxStatus-class.html"><a title="screenlets.plugins.Mail.MailboxStatus
+screenlets.plugins.mail.MailboxStatus" class="py-name" href="#" onclick="return doclink('link-26', 'MailboxStatus', 'link-26');">MailboxStatus</a></tt><tt class="py-op">.</tt><tt id="link-27" class="py-name"><a title="screenlets.plugins.Mail.MailboxStatus.UNKNOWN
+screenlets.plugins.mail.MailboxStatus.UNKNOWN" class="py-name" href="#" onclick="return doclink('link-27', 'UNKNOWN', 'link-12');">UNKNOWN</a></tt> <tt class="py-comment"># status of the mailbox</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">error</tt>                                      <tt class="py-op">=</tt> <tt class="py-string">''</tt>            <tt class="py-comment"># human-readable error message</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-28" class="py-name" targets="Module screenlets.options=screenlets.options-module.html"><a title="screenlets.options" class="py-name" href="#" onclick="return doclink('link-28', 'options', 'link-28');">options</a></tt>            <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt>                            <tt class="py-comment"># ???additonal ptions for backend</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">thread</tt>             <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+</div><a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line">         </tt>
+<a name="MailCheckBackend.check_mail"></a><div id="MailCheckBackend.check_mail-def"><a name="L124"></a><tt class="py-lineno">124</tt> <a class="py-toggle" href="#" id="MailCheckBackend.check_mail-toggle" onclick="return toggle('MailCheckBackend.check_mail');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.plugins.Mail.MailCheckBackend-class.html#check_mail">check_mail</a> <tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MailCheckBackend.check_mail-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="MailCheckBackend.check_mail-expanded"><a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line">                <tt class="py-docstring">"""This handler should be overridden by subclasses to add new types</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line"><tt class="py-docstring">                of checking mails in a backend. This handler has to set self.mailcount </tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line"><tt class="py-docstring">                to the number of mails found in the backend. The return value is</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line"><tt class="py-docstring">                ignored, set self.error and self.status to return results."""</tt> </tt>
+</div><a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line"> </tt>
+<a name="MailCheckBackend.stop"></a><div id="MailCheckBackend.stop-def"><a name="L130"></a><tt class="py-lineno">130</tt> <a class="py-toggle" href="#" id="MailCheckBackend.stop-toggle" onclick="return toggle('MailCheckBackend.stop');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.plugins.Mail.MailCheckBackend-class.html#stop">stop</a> <tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MailCheckBackend.stop-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="MailCheckBackend.stop-expanded"><a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">          <tt class="py-docstring">"""Stop receiving mails from the backend.  This should be overridden</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line"><tt class="py-docstring">          by subclasses."""</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line">          <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">thread</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+</div><a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line">         </tt>
+<a name="MailCheckBackend.start"></a><div id="MailCheckBackend.start-def"><a name="L135"></a><tt class="py-lineno">135</tt> <a class="py-toggle" href="#" id="MailCheckBackend.start-toggle" onclick="return toggle('MailCheckBackend.start');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.plugins.Mail.MailCheckBackend-class.html#start">start</a> <tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MailCheckBackend.start-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="MailCheckBackend.start-expanded"><a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">                <tt class="py-docstring">"""Start receiving mails from the backend. Runs self.__execute as</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line"><tt class="py-docstring">                a separate thread."""</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">thread</tt> <tt class="py-op">=</tt> <tt class="py-name">threading</tt><tt class="py-op">.</tt><tt class="py-name">Thread</tt><tt class="py-op">(</tt><tt class="py-name">target</tt><tt class="py-op">=</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-29" class="py-name" targets="Method screenlets.plugins.Mail.MailCheckBackend.__execute()=screenlets.plugins.Mail.MailCheckBackend-class.html#__execute,Method screenlets.plugins.mail.MailCheckBackend.__execute()=screenlets.plugins.mail.MailCheckBackend-class.html#__execute"><a title="screenlets.plugins.Mail.MailCheckBackend.__execute
+screenlets.plugins.mail.MailCheckBackend.__execute" class="py-name" href="#" onclick="return doclink('link-29', '__execute', 'link-29');">__execute</a></tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-30" class="py-name" targets="Method screenlets.plugins.Gstreamer.gstreamer.start()=screenlets.plugins.Gstreamer.gstreamer-class.html#start,Method screenlets.plugins.Mail.MailCheckBackend.start()=screenlets.plugins.Mail.MailCheckBackend-class.html#start,Method screenlets.plugins.mail.MailCheckBackend.start()=screenlets.plugins.mail.MailCheckBackend-class.html#start,Method screenlets.session.ScreenletSession.start()=screenlets.session.ScreenletSession-class.html#start"><a title="screenlets.plugins.Gstreamer.gstreamer.start
+screenlets.plugins.Mail.MailCheckBackend.start
+screenlets.plugins.mail.MailCheckBackend.start
+screenlets.session.ScreenletSession.start" class="py-name" href="#" onclick="return doclink('link-30', 'start', 'link-30');">start</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line">                 </tt>
+<a name="MailCheckBackend.__execute"></a><div id="MailCheckBackend.__execute-def"><a name="L140"></a><tt class="py-lineno">140</tt> <a class="py-toggle" href="#" id="MailCheckBackend.__execute-toggle" onclick="return toggle('MailCheckBackend.__execute');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.plugins.Mail.MailCheckBackend-class.html#__execute">__execute</a> <tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MailCheckBackend.__execute-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="MailCheckBackend.__execute-expanded"><a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line">                <tt class="py-docstring">"""Execute the thread and call the check-mail function."""</tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">                <tt class="py-comment"># set status to REFRESH and call check_mail-handler to fetch mails</tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">refreshing</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-31" class="py-name" targets="Method screenlets.plugins.Mail.IMAPBackend.check_mail()=screenlets.plugins.Mail.IMAPBackend-class.html#check_mail,Method screenlets.plugins.Mail.MailCheckBackend.check_mail()=screenlets.plugins.Mail.MailCheckBackend-class.html#check_mail,Method screenlets.plugins.Mail.POP3Backend.check_mail()=screenlets.plugins.Mail.POP3Backend-class.html#check_mail,Method screenlets.plugins.mail.IMAPBackend.check_mail()=screenlets.plugins.mail.IMAPBackend-class.html#check_mail,Method screenlets.plugins.mail.MailCheckBackend.check_mail()=screenlets.plugins.mail.MailCheckBackend-class.html#check_mail,Method screenlets.plugins.mail.POP3Backend.check_mail()=screenlets.plugins.mail.POP3Backend-class.html#check_mail"><a title="screenlets.plugins.Mail.IMAPBackend.check_mail
+screenlets.plugins.Mail.MailCheckBackend.check_mail
+screenlets.plugins.Mail.POP3Backend.check_mail
+screenlets.plugins.mail.IMAPBackend.check_mail
+screenlets.plugins.mail.MailCheckBackend.check_mail
+screenlets.plugins.mail.POP3Backend.check_mail" class="py-name" href="#" onclick="return doclink('link-31', 'check_mail', 'link-31');">check_mail</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">emit</tt><tt class="py-op">(</tt><tt class="py-string">'check_finished'</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">status</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">mailbox_status</tt><tt class="py-op">)</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line">                <tt class="py-comment"># not refreshing anymore</tt> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">refreshing</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+</div></div><a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line"> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line"> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line"><tt class="py-comment"># IMAPBackend was contributed by Robert Gartler - thanks :)</tt> </tt>
+<a name="IMAPBackend"></a><div id="IMAPBackend-def"><a name="L151"></a><tt class="py-lineno">151</tt> <a class="py-toggle" href="#" id="IMAPBackend-toggle" onclick="return toggle('IMAPBackend');">-</a><tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">class</tt> <a class="py-def-name" href="screenlets.plugins.Mail.IMAPBackend-class.html">IMAPBackend</a><tt class="py-op">(</tt><tt class="py-base-class">MailCheckBackend</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="IMAPBackend-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="IMAPBackend-expanded"><a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line">        <tt class="py-docstring">"""A backend for retrieving the mailcount from an IMAP server."""</tt> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line"> </tt>
+<a name="IMAPBackend.__init__"></a><div id="IMAPBackend.__init__-def"><a name="L154"></a><tt class="py-lineno">154</tt> <a class="py-toggle" href="#" id="IMAPBackend.__init__-toggle" onclick="return toggle('IMAPBackend.__init__');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.plugins.Mail.IMAPBackend-class.html#__init__">__init__</a> <tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">screenlet</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="IMAPBackend.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="IMAPBackend.__init__-expanded"><a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line">                <tt class="py-comment"># call super</tt> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt id="link-32" class="py-name" targets="Class screenlets.plugins.Mail.MailCheckBackend=screenlets.plugins.Mail.MailCheckBackend-class.html,Class screenlets.plugins.mail.MailCheckBackend=screenlets.plugins.mail.MailCheckBackend-class.html"><a title="screenlets.plugins.Mail.MailCheckBackend
+screenlets.plugins.mail.MailCheckBackend" class="py-name" href="#" onclick="return doclink('link-32', 'MailCheckBackend', 'link-32');">MailCheckBackend</a></tt><tt class="py-op">.</tt><tt id="link-33" class="py-name"><a title="screenlets.Notify.__init__
+screenlets.Screenlet.__init__
+screenlets.ScreenletTheme.__init__
+screenlets.ShapedWidget.__init__
+screenlets.Tooltip.__init__
+screenlets.backend.CachingBackend.__init__
+screenlets.backend.GconfBackend.__init__
+screenlets.backend.ScreenletsBackend.__init__
+screenlets.install.ScreenletInstaller.__init__
+screenlets.menu.ApplicationMenu.__init__
+screenlets.menu.ImageMenuItem.__init__
+screenlets.options.AccountOption.__init__
+screenlets.options.EditableOptions.__init__
+screenlets.options.FileOption.__init__
+screenlets.options.FloatOption.__init__
+screenlets.options.IntOption.__init__
+screenlets.options.ListOptionDialog.__init__
+screenlets.options.Option.__init__
+screenlets.options.OptionsDialog.__init__
+screenlets.options.StringOption.__init__
+screenlets.plugins.Amarok.AmarokAPI.__init__
+screenlets.plugins.AmazonCoverArtSearch.AmazonCoverArtSearch.__init__
+screenlets.plugins.Audacious.AudaciousAPI.__init__
+screenlets.plugins.Banshee.BansheeAPI.__init__
+screenlets.plugins.Convert.Converter.__init__
+screenlets.plugins.CoverSearch.CoverSearch.__init__
+screenlets.plugins.Exaile.ExaileAPI.__init__
+screenlets.plugins.Flickr.Flickr.__init__
+screenlets.plugins.GenericPlayer.GenericAPI.__init__
+screenlets.plugins.Gstreamer.gstreamer.__init__
+screenlets.plugins.Juk.JukAPI.__init__
+screenlets.plugins.Kaffeine.KaffeineAPI.__init__
+screenlets.plugins.LastFMProxy.LastFMProxyAPI.__init__
+screenlets.plugins.Listen.ListenAPI.__init__
+screenlets.plugins.Loader.GnomeVFSAsyncSrc.__init__
+screenlets.plugins.Mail.IMAPBackend.__init__
+screenlets.plugins.Mail.MailCheckBackend.__init__
+screenlets.plugins.Mail.Mailer.__init__
+screenlets.plugins.Mail.POP3Backend.__init__
+screenlets.plugins.Mplayer.Mplayer.__init__
+screenlets.plugins.Proxy.Proxy.__init__
+screenlets.plugins.Quodlibet.QuodlibetAPI.__init__
+screenlets.plugins.Rhythmbox.RhythmboxAPI.__init__
+screenlets.plugins.Sonata.SonataAPI.__init__
+screenlets.plugins.Songbird.SongbirdAPI.__init__
+screenlets.plugins.TemperatureConverter.TemperatureConverter.__init__
+screenlets.plugins.iCal.DateSet.__init__
+screenlets.plugins.iCal.ICalEvent.__init__
+screenlets.plugins.iCal.ICalReader.__init__
+screenlets.plugins.keyring.KeyRing.Key.__init__
+screenlets.plugins.keyring.KeyRing.__init__
+screenlets.plugins.mail.IMAPBackend.__init__
+screenlets.plugins.mail.MailCheckBackend.__init__
+screenlets.plugins.mail.Mailer.__init__
+screenlets.plugins.mail.POP3Backend.__init__
+screenlets.plugins.mpdclient2.command_sender.__init__
+screenlets.plugins.mpdclient2.mpd_connection.__init__
+screenlets.plugins.mpdclient2.response_fetcher.__init__
+screenlets.plugins.mpdclient2.sender_n_fetcher.__init__
+screenlets.plugins.mpdclient2.socket_talker.__init__
+screenlets.sensors.CPUSensor.__init__
+screenlets.sensors.MemorySensor.__init__
+screenlets.sensors.NetSensor.__init__
+screenlets.sensors.Sensor.__init__
+screenlets.services.ScreenletService.__init__
+screenlets.session.ScreenletSession.__init__
+screenlets.utils.FileMonitor.__init__
+screenlets.utils.IniReader.__init__
+screenlets.utils.Notifier.__init__
+screenlets.utils.ScreenletInfo.__init__" class="py-name" href="#" onclick="return doclink('link-33', '__init__', 'link-21');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-string">'IMAP'</tt><tt class="py-op">,</tt> <tt class="py-name">screenlet</tt><tt class="py-op">)</tt> </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">server</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+</div><a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line"> </tt>
+<a name="IMAPBackend.check_mail"></a><div id="IMAPBackend.check_mail-def"><a name="L159"></a><tt class="py-lineno">159</tt> <a class="py-toggle" href="#" id="IMAPBackend.check_mail-toggle" onclick="return toggle('IMAPBackend.check_mail');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.plugins.Mail.IMAPBackend-class.html#check_mail">check_mail</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="IMAPBackend.check_mail-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="IMAPBackend.check_mail-expanded"><a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line">                <tt class="py-comment"># set default timeout for all socket connections to 30 secs</tt> </tt>
+<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-name">socket</tt><tt class="py-op">.</tt><tt class="py-name">setdefaulttimeout</tt><tt class="py-op">(</tt><tt class="py-number">30000</tt><tt class="py-op">)</tt> </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line">                <tt class="py-keyword">print</tt> <tt class="py-string">"IMAPBackend: Connecting to IMAP-server ... please wait."</tt> </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">status</tt> <tt class="py-op">=</tt> <tt id="link-34" class="py-name"><a title="screenlets.plugins.Mail.MailCheckStatus
+screenlets.plugins.mail.MailCheckStatus" class="py-name" href="#" onclick="return doclink('link-34', 'MailCheckStatus', 'link-24');">MailCheckStatus</a></tt><tt class="py-op">.</tt><tt id="link-35" class="py-name"><a title="screenlets.plugins.Mail.MailCheckStatus.REFRESH
+screenlets.plugins.mail.MailCheckStatus.REFRESH" class="py-name" href="#" onclick="return doclink('link-35', 'REFRESH', 'link-16');">REFRESH</a></tt> </tt>
+<a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line">                <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">server</tt> <tt class="py-op">=</tt> <tt class="py-name">imaplib</tt><tt class="py-op">.</tt><tt class="py-name">IMAP4</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">screenlet</tt><tt class="py-op">.</tt><tt class="py-name">imap_host</tt><tt class="py-op">)</tt> </tt>
+<a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line">                <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">error</tt>      <tt class="py-op">=</tt> <tt id="link-36" class="py-name"><a title="screenlets.plugins.Mail.MSG_CONNECTION_FAILED
+screenlets.plugins.mail.MSG_CONNECTION_FAILED" class="py-name" href="#" onclick="return doclink('link-36', 'MSG_CONNECTION_FAILED', 'link-9');">MSG_CONNECTION_FAILED</a></tt> </tt>
+<a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">status</tt>     <tt class="py-op">=</tt> <tt id="link-37" class="py-name"><a title="screenlets.plugins.Mail.MailCheckStatus
+screenlets.plugins.mail.MailCheckStatus" class="py-name" href="#" onclick="return doclink('link-37', 'MailCheckStatus', 'link-24');">MailCheckStatus</a></tt><tt class="py-op">.</tt><tt id="link-38" class="py-name"><a title="screenlets.plugins.Mail.MailCheckStatus.ERROR
+screenlets.plugins.mail.MailCheckStatus.ERROR" class="py-name" href="#" onclick="return doclink('link-38', 'ERROR', 'link-18');">ERROR</a></tt> </tt>
+<a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line">                        <tt class="py-keyword">return</tt> <tt class="py-name">False</tt> </tt>
+<a name="L170"></a><tt class="py-lineno">170</tt>  <tt class="py-line">                <tt class="py-name">user</tt><tt class="py-op">,</tt> <tt class="py-name">passwd</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">screenlet</tt><tt class="py-op">.</tt><tt class="py-name">imap_account</tt> </tt>
+<a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line">                <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L172"></a><tt class="py-lineno">172</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">server</tt><tt class="py-op">.</tt><tt class="py-name">login</tt><tt class="py-op">(</tt><tt class="py-name">user</tt><tt class="py-op">,</tt> <tt class="py-name">passwd</tt><tt class="py-op">)</tt> </tt>
+<a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line">                <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">error</tt>      <tt class="py-op">=</tt> <tt id="link-39" class="py-name"><a title="screenlets.plugins.Mail.MSG_AUTH_FAILED
+screenlets.plugins.mail.MSG_AUTH_FAILED" class="py-name" href="#" onclick="return doclink('link-39', 'MSG_AUTH_FAILED', 'link-11');">MSG_AUTH_FAILED</a></tt> </tt>
+<a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">status</tt>     <tt class="py-op">=</tt> <tt id="link-40" class="py-name"><a title="screenlets.plugins.Mail.MailCheckStatus
+screenlets.plugins.mail.MailCheckStatus" class="py-name" href="#" onclick="return doclink('link-40', 'MailCheckStatus', 'link-24');">MailCheckStatus</a></tt><tt class="py-op">.</tt><tt id="link-41" class="py-name"><a title="screenlets.plugins.Mail.MailCheckStatus.ERROR
+screenlets.plugins.mail.MailCheckStatus.ERROR" class="py-name" href="#" onclick="return doclink('link-41', 'ERROR', 'link-18');">ERROR</a></tt> </tt>
+<a name="L176"></a><tt class="py-lineno">176</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">server</tt><tt class="py-op">.</tt><tt class="py-name">logout</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L177"></a><tt class="py-lineno">177</tt>  <tt class="py-line">                        <tt class="py-keyword">return</tt> <tt class="py-name">False</tt> </tt>
+<a name="L178"></a><tt class="py-lineno">178</tt>  <tt class="py-line"> </tt>
+<a name="L179"></a><tt class="py-lineno">179</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">server</tt><tt class="py-op">.</tt><tt class="py-name">select</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L180"></a><tt class="py-lineno">180</tt>  <tt class="py-line">                <tt class="py-name">typ</tt><tt class="py-op">,</tt> <tt class="py-name">data</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">server</tt><tt class="py-op">.</tt><tt id="link-42" class="py-name"><a title="screenlets.plugins.AmazonCoverArtSearch.AmazonCoverArtSearch.search" class="py-name" href="#" onclick="return doclink('link-42', 'search', 'link-6');">search</a></tt><tt class="py-op">(</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-string">'UNSEEN'</tt><tt class="py-op">)</tt> </tt>
+<a name="L181"></a><tt class="py-lineno">181</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">typ</tt> <tt class="py-op">==</tt> <tt class="py-string">'OK'</tt><tt class="py-op">:</tt> </tt>
+<a name="L182"></a><tt class="py-lineno">182</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">unseen_count</tt> <tt class="py-op">=</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">data</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L183"></a><tt class="py-lineno">183</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">unseen_count</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L184"></a><tt class="py-lineno">184</tt>  <tt class="py-line">                                <tt class="py-name">typ</tt><tt class="py-op">,</tt> <tt class="py-name">data</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">server</tt><tt class="py-op">.</tt><tt id="link-43" class="py-name"><a title="screenlets.plugins.AmazonCoverArtSearch.AmazonCoverArtSearch.search" class="py-name" href="#" onclick="return doclink('link-43', 'search', 'link-6');">search</a></tt><tt class="py-op">(</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-string">'NEW'</tt><tt class="py-op">)</tt> </tt>
+<a name="L185"></a><tt class="py-lineno">185</tt>  <tt class="py-line">                                <tt class="py-keyword">if</tt> <tt class="py-name">typ</tt> <tt class="py-op">==</tt> <tt class="py-string">'OK'</tt><tt class="py-op">:</tt> </tt>
+<a name="L186"></a><tt class="py-lineno">186</tt>  <tt class="py-line">                                        <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">data</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L187"></a><tt class="py-lineno">187</tt>  <tt class="py-line">                                                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">mailboxstatus</tt> <tt class="py-op">=</tt> <tt id="link-44" class="py-name"><a title="screenlets.plugins.Mail.MailboxStatus
+screenlets.plugins.mail.MailboxStatus" class="py-name" href="#" onclick="return doclink('link-44', 'MailboxStatus', 'link-26');">MailboxStatus</a></tt><tt class="py-op">.</tt><tt id="link-45" class="py-name"><a title="screenlets.plugins.Mail.MailboxStatus.NEW_MAIL
+screenlets.plugins.mail.MailboxStatus.NEW_MAIL" class="py-name" href="#" onclick="return doclink('link-45', 'NEW_MAIL', 'link-15');">NEW_MAIL</a></tt> </tt>
+<a name="L188"></a><tt class="py-lineno">188</tt>  <tt class="py-line">                                                <tt class="py-keyword">print</tt> <tt class="py-string">"NEW_MAIL"</tt> </tt>
+<a name="L189"></a><tt class="py-lineno">189</tt>  <tt class="py-line">                                        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L190"></a><tt class="py-lineno">190</tt>  <tt class="py-line">                                                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">mailboxstatus</tt> <tt class="py-op">=</tt> <tt id="link-46" class="py-name"><a title="screenlets.plugins.Mail.MailboxStatus
+screenlets.plugins.mail.MailboxStatus" class="py-name" href="#" onclick="return doclink('link-46', 'MailboxStatus', 'link-26');">MailboxStatus</a></tt><tt class="py-op">.</tt><tt id="link-47" class="py-name"><a title="screenlets.plugins.Mail.MailboxStatus.UNREAD_MAIL
+screenlets.plugins.mail.MailboxStatus.UNREAD_MAIL" class="py-name" href="#" onclick="return doclink('link-47', 'UNREAD_MAIL', 'link-14');">UNREAD_MAIL</a></tt> </tt>
+<a name="L191"></a><tt class="py-lineno">191</tt>  <tt class="py-line">                                                <tt class="py-keyword">print</tt> <tt class="py-string">"UNREAD_MAIL"</tt> </tt>
+<a name="L192"></a><tt class="py-lineno">192</tt>  <tt class="py-line">                                <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L193"></a><tt class="py-lineno">193</tt>  <tt class="py-line">                                        <tt class="py-keyword">print</tt> <tt class="py-string">"IMAP error (checking new count): "</tt> <tt class="py-op">+</tt> <tt class="py-name">typ</tt> </tt>
+<a name="L194"></a><tt class="py-lineno">194</tt>  <tt class="py-line">                        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L195"></a><tt class="py-lineno">195</tt>  <tt class="py-line">                                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">mailboxstatus</tt> <tt class="py-op">=</tt> <tt id="link-48" class="py-name"><a title="screenlets.plugins.Mail.MailboxStatus
+screenlets.plugins.mail.MailboxStatus" class="py-name" href="#" onclick="return doclink('link-48', 'MailboxStatus', 'link-26');">MailboxStatus</a></tt><tt class="py-op">.</tt><tt id="link-49" class="py-name"><a title="screenlets.plugins.Mail.MailboxStatus.ALL_READ
+screenlets.plugins.mail.MailboxStatus.ALL_READ" class="py-name" href="#" onclick="return doclink('link-49', 'ALL_READ', 'link-13');">ALL_READ</a></tt> </tt>
+<a name="L196"></a><tt class="py-lineno">196</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">status</tt> <tt class="py-op">=</tt> <tt id="link-50" class="py-name"><a title="screenlets.plugins.Mail.MailCheckStatus
+screenlets.plugins.mail.MailCheckStatus" class="py-name" href="#" onclick="return doclink('link-50', 'MailCheckStatus', 'link-24');">MailCheckStatus</a></tt><tt class="py-op">.</tt><tt id="link-51" class="py-name"><a title="screenlets.plugins.Mail.MailCheckStatus.IDLE
+screenlets.plugins.mail.MailCheckStatus.IDLE" class="py-name" href="#" onclick="return doclink('link-51', 'IDLE', 'link-17');">IDLE</a></tt> </tt>
+<a name="L197"></a><tt class="py-lineno">197</tt>  <tt class="py-line">                <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L198"></a><tt class="py-lineno">198</tt>  <tt class="py-line">                        <tt class="py-keyword">print</tt> <tt class="py-string">"IMAP error (checking unseen count): "</tt> <tt class="py-op">+</tt> <tt class="py-name">typ</tt> </tt>
+<a name="L199"></a><tt class="py-lineno">199</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">error</tt>      <tt class="py-op">=</tt> <tt id="link-52" class="py-name"><a title="screenlets.plugins.Mail.MSG_FETCH_MAILS_FAILED
+screenlets.plugins.mail.MSG_FETCH_MAILS_FAILED" class="py-name" href="#" onclick="return doclink('link-52', 'MSG_FETCH_MAILS_FAILED', 'link-10');">MSG_FETCH_MAILS_FAILED</a></tt> </tt>
+<a name="L200"></a><tt class="py-lineno">200</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">status</tt>     <tt class="py-op">=</tt> <tt id="link-53" class="py-name"><a title="screenlets.plugins.Mail.MailCheckStatus
+screenlets.plugins.mail.MailCheckStatus" class="py-name" href="#" onclick="return doclink('link-53', 'MailCheckStatus', 'link-24');">MailCheckStatus</a></tt><tt class="py-op">.</tt><tt id="link-54" class="py-name"><a title="screenlets.plugins.Mail.MailCheckStatus.ERROR
+screenlets.plugins.mail.MailCheckStatus.ERROR" class="py-name" href="#" onclick="return doclink('link-54', 'ERROR', 'link-18');">ERROR</a></tt> </tt>
+<a name="L201"></a><tt class="py-lineno">201</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">mailboxstatus</tt> <tt class="py-op">=</tt> <tt id="link-55" class="py-name"><a title="screenlets.plugins.Mail.MailboxStatus
+screenlets.plugins.mail.MailboxStatus" class="py-name" href="#" onclick="return doclink('link-55', 'MailboxStatus', 'link-26');">MailboxStatus</a></tt><tt class="py-op">.</tt><tt id="link-56" class="py-name"><a title="screenlets.plugins.Mail.MailboxStatus.UNKNOWN
+screenlets.plugins.mail.MailboxStatus.UNKNOWN" class="py-name" href="#" onclick="return doclink('link-56', 'UNKNOWN', 'link-12');">UNKNOWN</a></tt> </tt>
+<a name="L202"></a><tt class="py-lineno">202</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">server</tt><tt class="py-op">.</tt><tt id="link-57" class="py-name"><a title="screenlets.Screenlet.close
+screenlets.plugins.Mplayer.Mplayer.close
+screenlets.utils.FileMonitor.close" class="py-name" href="#" onclick="return doclink('link-57', 'close', 'link-5');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L203"></a><tt class="py-lineno">203</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">server</tt><tt class="py-op">.</tt><tt class="py-name">logout</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L204"></a><tt class="py-lineno">204</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">False</tt> </tt>
+</div><a name="L205"></a><tt class="py-lineno">205</tt>  <tt class="py-line"> </tt>
+<a name="IMAPBackend.stop"></a><div id="IMAPBackend.stop-def"><a name="L206"></a><tt class="py-lineno">206</tt> <a class="py-toggle" href="#" id="IMAPBackend.stop-toggle" onclick="return toggle('IMAPBackend.stop');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.plugins.Mail.IMAPBackend-class.html#stop">stop</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="IMAPBackend.stop-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="IMAPBackend.stop-expanded"><a name="L207"></a><tt class="py-lineno">207</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">server</tt><tt class="py-op">:</tt> </tt>
+<a name="L208"></a><tt class="py-lineno">208</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">server</tt><tt class="py-op">.</tt><tt id="link-58" class="py-name"><a title="screenlets.Screenlet.close
+screenlets.plugins.Mplayer.Mplayer.close
+screenlets.utils.FileMonitor.close" class="py-name" href="#" onclick="return doclink('link-58', 'close', 'link-5');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L209"></a><tt class="py-lineno">209</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">server</tt><tt class="py-op">.</tt><tt class="py-name">logout</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L210"></a><tt class="py-lineno">210</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">thread</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L211"></a><tt class="py-lineno">211</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">thread</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+</div></div><a name="L212"></a><tt class="py-lineno">212</tt>  <tt class="py-line"> </tt>
+<a name="Mailer"></a><div id="Mailer-def"><a name="L213"></a><tt class="py-lineno">213</tt> <a class="py-toggle" href="#" id="Mailer-toggle" onclick="return toggle('Mailer');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="screenlets.plugins.Mail.Mailer-class.html">Mailer</a><tt class="py-op">:</tt> </tt>
+</div><div id="Mailer-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="Mailer-expanded"><a name="L214"></a><tt class="py-lineno">214</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L215"></a><tt class="py-lineno">215</tt>  <tt class="py-line"><tt class="py-docstring">    Class that retrieve the information from an Imap, Pop or mbox account</tt> </tt>
+<a name="L216"></a><tt class="py-lineno">216</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L217"></a><tt class="py-lineno">217</tt>  <tt class="py-line"><tt class="py-docstring">    All the email-related operation lies in this few lines</tt> </tt>
+<a name="L218"></a><tt class="py-lineno">218</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L219"></a><tt class="py-lineno">219</tt>  <tt class="py-line">    <tt class="py-keyword">import</tt> <tt class="py-name">imaplib</tt> </tt>
+<a name="L220"></a><tt class="py-lineno">220</tt>  <tt class="py-line">    <tt class="py-keyword">import</tt> <tt class="py-name">poplib</tt> </tt>
+<a name="L221"></a><tt class="py-lineno">221</tt>  <tt class="py-line">    <tt class="py-keyword">import</tt> <tt class="py-name">mailbox</tt> </tt>
+<a name="L222"></a><tt class="py-lineno">222</tt>  <tt class="py-line">    <tt class="py-keyword">from</tt> <tt class="py-name">sys</tt> <tt class="py-keyword">import</tt> <tt class="py-name">exc_info</tt> </tt>
+<a name="L223"></a><tt class="py-lineno">223</tt>  <tt class="py-line">    <tt class="py-keyword">from</tt> <tt class="py-name">os</tt> <tt class="py-keyword">import</tt> <tt class="py-name">stat</tt><tt class="py-op">,</tt> <tt class="py-name">utime</tt><tt class="py-op">,</tt> <tt id="link-59" class="py-name" targets="Variable screenlets.ScreenletTheme.path=screenlets.ScreenletTheme-class.html#path,Variable screenlets.backend.CachingBackend.path=screenlets.backend.CachingBackend-class.html#path"><a title="screenlets.ScreenletTheme.path
+screenlets.backend.CachingBackend.path" class="py-name" href="#" onclick="return doclink('link-59', 'path', 'link-59');">path</a></tt><tt class="py-op">,</tt> <tt class="py-name">listdir</tt> </tt>
+<a name="L224"></a><tt class="py-lineno">224</tt>  <tt class="py-line">     </tt>
+<a name="L225"></a><tt class="py-lineno">225</tt>  <tt class="py-line">     </tt>
+<a name="Mailer.__init__"></a><div id="Mailer.__init__-def"><a name="L226"></a><tt class="py-lineno">226</tt> <a class="py-toggle" href="#" id="Mailer.__init__-toggle" onclick="return toggle('Mailer.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.plugins.Mail.Mailer-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">config</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Mailer.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Mailer.__init__-expanded"><a name="L227"></a><tt class="py-lineno">227</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">config</tt><tt class="py-op">=</tt><tt class="py-name">config</tt> </tt>
+<a name="L228"></a><tt class="py-lineno">228</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">last_size</tt><tt class="py-op">=</tt><tt class="py-op">-</tt><tt class="py-number">1</tt> </tt>
+<a name="L229"></a><tt class="py-lineno">229</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">size</tt><tt class="py-op">=</tt><tt class="py-op">-</tt><tt class="py-number">1</tt> </tt>
+<a name="L230"></a><tt class="py-lineno">230</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">mbox_size</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L231"></a><tt class="py-lineno">231</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">mbox_mtime</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+</div><a name="L232"></a><tt class="py-lineno">232</tt>  <tt class="py-line"> </tt>
+<a name="Mailer.__call__"></a><div id="Mailer.__call__-def"><a name="L233"></a><tt class="py-lineno">233</tt> <a class="py-toggle" href="#" id="Mailer.__call__-toggle" onclick="return toggle('Mailer.__call__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.plugins.Mail.Mailer-class.html#__call__">__call__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Mailer.__call__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Mailer.__call__-expanded"><a name="L234"></a><tt class="py-lineno">234</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">last_size</tt><tt class="py-op">=</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">size</tt> </tt>
+<a name="L235"></a><tt class="py-lineno">235</tt>  <tt class="py-line"> </tt>
+<a name="L236"></a><tt class="py-lineno">236</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L237"></a><tt class="py-lineno">237</tt>  <tt class="py-line">            <tt class="py-comment"># IMAP4</tt> </tt>
+<a name="L238"></a><tt class="py-lineno">238</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-comment">#</tt> </tt>
+<a name="L239"></a><tt class="py-lineno">239</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">config</tt><tt class="py-op">[</tt><tt class="py-string">'method'</tt><tt class="py-op">]</tt><tt class="py-op">==</tt><tt class="py-string">'imap4'</tt><tt class="py-op">:</tt> </tt>
+<a name="L240"></a><tt class="py-lineno">240</tt>  <tt class="py-line">                <tt class="py-name">s</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">imaplib</tt><tt class="py-op">.</tt><tt class="py-name">__dict__</tt><tt class="py-op">[</tt><tt class="py-string">'IMAP4'</tt><tt class="py-op">+</tt><tt class="py-op">[</tt><tt class="py-string">''</tt><tt class="py-op">,</tt><tt class="py-string">'_SSL'</tt><tt class="py-op">]</tt> </tt>
+<a name="L241"></a><tt class="py-lineno">241</tt>  <tt class="py-line">                                          <tt class="py-op">[</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">config</tt><tt class="py-op">[</tt><tt class="py-string">'ssl'</tt><tt class="py-op">]</tt><tt class="py-op">]</tt><tt class="py-op">]</tt>\ </tt>
+<a name="L242"></a><tt class="py-lineno">242</tt>  <tt class="py-line">                                          <tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">config</tt><tt class="py-op">[</tt><tt class="py-string">'host'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L243"></a><tt class="py-lineno">243</tt>  <tt class="py-line">                <tt class="py-name">s</tt><tt class="py-op">.</tt><tt class="py-name">login</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">config</tt><tt class="py-op">[</tt><tt class="py-string">'user_name'</tt><tt class="py-op">]</tt><tt class="py-op">,</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">config</tt><tt class="py-op">[</tt><tt class="py-string">'user_password'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L244"></a><tt class="py-lineno">244</tt>  <tt class="py-line">                <tt class="py-name">s</tt><tt class="py-op">.</tt><tt class="py-name">select</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L245"></a><tt class="py-lineno">245</tt>  <tt class="py-line">                <tt class="py-name">size</tt> <tt class="py-op">=</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">s</tt><tt class="py-op">.</tt><tt id="link-60" class="py-name"><a title="screenlets.plugins.AmazonCoverArtSearch.AmazonCoverArtSearch.search" class="py-name" href="#" onclick="return doclink('link-60', 'search', 'link-6');">search</a></tt><tt class="py-op">(</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-string">'UNSEEN'</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L246"></a><tt class="py-lineno">246</tt>  <tt class="py-line">                <tt class="py-name">s</tt><tt class="py-op">.</tt><tt class="py-name">logout</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L247"></a><tt class="py-lineno">247</tt>  <tt class="py-line">                 </tt>
+<a name="L248"></a><tt class="py-lineno">248</tt>  <tt class="py-line">            <tt class="py-comment"># POP3</tt> </tt>
+<a name="L249"></a><tt class="py-lineno">249</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-comment">#</tt> </tt>
+<a name="L250"></a><tt class="py-lineno">250</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-keyword">elif</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">config</tt><tt class="py-op">[</tt><tt class="py-string">'method'</tt><tt class="py-op">]</tt><tt class="py-op">==</tt><tt class="py-string">'pop3'</tt><tt class="py-op">:</tt> </tt>
+<a name="L251"></a><tt class="py-lineno">251</tt>  <tt class="py-line">                <tt class="py-name">s</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">poplib</tt><tt class="py-op">.</tt><tt class="py-name">__dict__</tt><tt class="py-op">[</tt><tt class="py-string">'POP3'</tt><tt class="py-op">+</tt><tt class="py-op">[</tt><tt class="py-string">''</tt><tt class="py-op">,</tt><tt class="py-string">'_SSL'</tt><tt class="py-op">]</tt> </tt>
+<a name="L252"></a><tt class="py-lineno">252</tt>  <tt class="py-line">                                         <tt class="py-op">[</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">config</tt><tt class="py-op">[</tt><tt class="py-string">'ssl'</tt><tt class="py-op">]</tt><tt class="py-op">]</tt><tt class="py-op">]</tt>\ </tt>
+<a name="L253"></a><tt class="py-lineno">253</tt>  <tt class="py-line">                                         <tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">config</tt><tt class="py-op">[</tt><tt class="py-string">'host'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L254"></a><tt class="py-lineno">254</tt>  <tt class="py-line">                <tt class="py-name">s</tt><tt class="py-op">.</tt><tt class="py-name">user</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">config</tt><tt class="py-op">[</tt><tt class="py-string">'user_name'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L255"></a><tt class="py-lineno">255</tt>  <tt class="py-line">                <tt class="py-name">s</tt><tt class="py-op">.</tt><tt class="py-name">pass_</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">config</tt><tt class="py-op">[</tt><tt class="py-string">'user_password'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L256"></a><tt class="py-lineno">256</tt>  <tt class="py-line">                <tt class="py-name">size</tt> <tt class="py-op">=</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">s</tt><tt class="py-op">.</tt><tt class="py-name">list</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L257"></a><tt class="py-lineno">257</tt>  <tt class="py-line">                 </tt>
+<a name="L258"></a><tt class="py-lineno">258</tt>  <tt class="py-line">            <tt class="py-comment"># Maildir</tt> </tt>
+<a name="L259"></a><tt class="py-lineno">259</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-comment">#</tt> </tt>
+<a name="L260"></a><tt class="py-lineno">260</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-comment"># This was reported to work with qmail, but it is untested with</tt> </tt>
+<a name="L261"></a><tt class="py-lineno">261</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-comment"># other mail servers -- for maximum portability, one could</tt> </tt>
+<a name="L262"></a><tt class="py-lineno">262</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-comment"># still rewrite next four lines using the mailbox Python module</tt> </tt>
+<a name="L263"></a><tt class="py-lineno">263</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-comment"># (in core libraries).</tt> </tt>
+<a name="L264"></a><tt class="py-lineno">264</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-comment">#</tt> </tt>
+<a name="L265"></a><tt class="py-lineno">265</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-keyword">elif</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">config</tt><tt class="py-op">[</tt><tt class="py-string">'method'</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'maildir'</tt><tt class="py-op">:</tt> </tt>
+<a name="L266"></a><tt class="py-lineno">266</tt>  <tt class="py-line">                <tt class="py-name">mdir_path</tt> <tt class="py-op">=</tt> <tt class="py-name">getenv</tt><tt class="py-op">(</tt><tt class="py-string">'MAILDIR'</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">config</tt><tt class="py-op">[</tt><tt class="py-string">'mailspool'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L267"></a><tt class="py-lineno">267</tt>  <tt class="py-line">                <tt class="py-name">mdir_new</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-61" class="py-name"><a title="screenlets.ScreenletTheme.path
+screenlets.backend.CachingBackend.path" class="py-name" href="#" onclick="return doclink('link-61', 'path', 'link-59');">path</a></tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-62" class="py-name"><a title="screenlets.ScreenletTheme.path
+screenlets.backend.CachingBackend.path" class="py-name" href="#" onclick="return doclink('link-62', 'path', 'link-59');">path</a></tt><tt class="py-op">.</tt><tt class="py-name">expanduser</tt><tt class="py-op">(</tt><tt class="py-name">mdir_path</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-string">'new'</tt><tt class="py-op">)</tt> </tt>
+<a name="L268"></a><tt class="py-lineno">268</tt>  <tt class="py-line"> </tt>
+<a name="L269"></a><tt class="py-lineno">269</tt>  <tt class="py-line">                <tt class="py-name">size</tt> <tt class="py-op">=</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-name">f</tt> <tt class="py-keyword">for</tt> <tt class="py-name">f</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">listdir</tt><tt class="py-op">(</tt><tt class="py-name">mdir_new</tt><tt class="py-op">)</tt> <tt class="py-keyword">if</tt> <tt class="py-name">f</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> <tt class="py-op">!=</tt> <tt class="py-string">'.'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L270"></a><tt class="py-lineno">270</tt>  <tt class="py-line"> </tt>
+<a name="L271"></a><tt class="py-lineno">271</tt>  <tt class="py-line">            <tt class="py-comment"># Unix mbox</tt> </tt>
+<a name="L272"></a><tt class="py-lineno">272</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-comment">#</tt> </tt>
+<a name="L273"></a><tt class="py-lineno">273</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-keyword">elif</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">config</tt><tt class="py-op">[</tt><tt class="py-string">'method'</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'mbox'</tt><tt class="py-op">:</tt> </tt>
+<a name="L274"></a><tt class="py-lineno">274</tt>  <tt class="py-line">                <tt class="py-name">mbox_path</tt> <tt class="py-op">=</tt> <tt class="py-name">getenv</tt><tt class="py-op">(</tt><tt class="py-string">'MAIL'</tt><tt class="py-op">,</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">config</tt><tt class="py-op">[</tt><tt class="py-string">'mailspool'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L275"></a><tt class="py-lineno">275</tt>  <tt class="py-line">                <tt class="py-comment"># Get mbox inode properties</tt> </tt>
+<a name="L276"></a><tt class="py-lineno">276</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-comment">#</tt> </tt>
+<a name="L277"></a><tt class="py-lineno">277</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-name">s</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">stat</tt><tt class="py-op">(</tt><tt class="py-name">mbox_path</tt><tt class="py-op">)</tt> </tt>
+<a name="L278"></a><tt class="py-lineno">278</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">s</tt><tt class="py-op">.</tt><tt class="py-name">st_size</tt> <tt class="py-op">==</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">mbox_size</tt> <tt class="py-keyword">and</tt> </tt>
+<a name="L279"></a><tt class="py-lineno">279</tt>  <tt class="py-line">                    <tt class="py-name">s</tt><tt class="py-op">.</tt><tt class="py-name">st_mtime</tt> <tt class="py-op">==</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">mbox_mtime</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L280"></a><tt class="py-lineno">280</tt>  <tt class="py-line">                    <tt class="py-name">size</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">last_size</tt>       <tt class="py-comment"># mbox has not changed on disk</tt> </tt>
+<a name="L281"></a><tt class="py-lineno">281</tt>  <tt class="py-line">                <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L282"></a><tt class="py-lineno">282</tt>  <tt class="py-line">                    <tt class="py-name">size</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt>                    <tt class="py-comment"># mbox has changed</tt> </tt>
+<a name="L283"></a><tt class="py-lineno">283</tt>  <tt class="py-line">                    <tt class="py-keyword">for</tt> <tt class="py-name">m</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">mailbox</tt><tt class="py-op">.</tt><tt class="py-name">PortableUnixMailbox</tt><tt class="py-op">(</tt><tt class="py-name">file</tt><tt class="py-op">(</tt><tt class="py-name">mbox_path</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L284"></a><tt class="py-lineno">284</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-name">m</tt><tt class="py-op">.</tt><tt id="link-63" class="py-name" targets="Method screenlets.plugins.keyring.KeyRing.Key.get()=screenlets.plugins.keyring.KeyRing.Key-class.html#get,Method screenlets.services.ScreenletService.get()=screenlets.services.ScreenletService-class.html#get"><a title="screenlets.plugins.keyring.KeyRing.Key.get
+screenlets.services.ScreenletService.get" class="py-name" href="#" onclick="return doclink('link-63', 'get', 'link-63');">get</a></tt><tt class="py-op">(</tt><tt class="py-string">'status'</tt><tt class="py-op">,</tt><tt class="py-string">'N'</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">'N'</tt><tt class="py-op">)</tt> <tt class="py-op">!=</tt> <tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">:</tt> </tt>
+<a name="L285"></a><tt class="py-lineno">285</tt>  <tt class="py-line">                            <tt class="py-name">size</tt> <tt class="py-op">+=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L286"></a><tt class="py-lineno">286</tt>  <tt class="py-line">                             </tt>
+<a name="L287"></a><tt class="py-lineno">287</tt>  <tt class="py-line">                    <tt class="py-comment"># Trick the system into thinking the mbox inode was not</tt> </tt>
+<a name="L288"></a><tt class="py-lineno">288</tt>  <tt class="py-line"><tt class="py-comment"></tt>                    <tt class="py-comment"># accessed since last modification. From 'manual.txt'</tt> </tt>
+<a name="L289"></a><tt class="py-lineno">289</tt>  <tt class="py-line"><tt class="py-comment"></tt>                    <tt class="py-comment"># of mutt 1.5.8:</tt> </tt>
+<a name="L290"></a><tt class="py-lineno">290</tt>  <tt class="py-line"><tt class="py-comment"></tt>                    <tt class="py-comment">#</tt> </tt>
+<a name="L291"></a><tt class="py-lineno">291</tt>  <tt class="py-line"><tt class="py-comment"></tt>                    <tt class="py-comment"># [ ... new mail is detected by comparing the last</tt> </tt>
+<a name="L292"></a><tt class="py-lineno">292</tt>  <tt class="py-line"><tt class="py-comment"></tt>                    <tt class="py-comment"># modification time to the last access time.</tt> </tt>
+<a name="L293"></a><tt class="py-lineno">293</tt>  <tt class="py-line"><tt class="py-comment"></tt>                    <tt class="py-comment"># Utilities like biff or frm or any other program</tt> </tt>
+<a name="L294"></a><tt class="py-lineno">294</tt>  <tt class="py-line"><tt class="py-comment"></tt>                    <tt class="py-comment"># which accesses the mailbox might cause Mutt to</tt> </tt>
+<a name="L295"></a><tt class="py-lineno">295</tt>  <tt class="py-line"><tt class="py-comment"></tt>                    <tt class="py-comment"># never detect new mail for that mailbox if they</tt> </tt>
+<a name="L296"></a><tt class="py-lineno">296</tt>  <tt class="py-line"><tt class="py-comment"></tt>                    <tt class="py-comment"># do not properly reset the access time.</tt> </tt>
+<a name="L297"></a><tt class="py-lineno">297</tt>  <tt class="py-line"><tt class="py-comment"></tt>                    <tt class="py-comment"># Backup tools are another common reason for updated</tt> </tt>
+<a name="L298"></a><tt class="py-lineno">298</tt>  <tt class="py-line"><tt class="py-comment"></tt>                    <tt class="py-comment"># access times. ]</tt> </tt>
+<a name="L299"></a><tt class="py-lineno">299</tt>  <tt class="py-line"><tt class="py-comment"></tt>                    <tt class="py-comment">#</tt> </tt>
+<a name="L300"></a><tt class="py-lineno">300</tt>  <tt class="py-line"><tt class="py-comment"></tt>                    <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">utime</tt><tt class="py-op">(</tt><tt class="py-name">mbox_path</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt class="py-name">s</tt><tt class="py-op">.</tt><tt class="py-name">st_atime</tt><tt class="py-op">,</tt> <tt class="py-name">s</tt><tt class="py-op">.</tt><tt class="py-name">st_mtime</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L301"></a><tt class="py-lineno">301</tt>  <tt class="py-line"> </tt>
+<a name="L302"></a><tt class="py-lineno">302</tt>  <tt class="py-line">                    <tt class="py-comment"># Remember size and time</tt> </tt>
+<a name="L303"></a><tt class="py-lineno">303</tt>  <tt class="py-line"><tt class="py-comment"></tt>                    <tt class="py-comment">#</tt> </tt>
+<a name="L304"></a><tt class="py-lineno">304</tt>  <tt class="py-line"><tt class="py-comment"></tt>                    <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">mbox_size</tt> <tt class="py-op">=</tt> <tt class="py-name">s</tt><tt class="py-op">.</tt><tt class="py-name">st_size</tt> </tt>
+<a name="L305"></a><tt class="py-lineno">305</tt>  <tt class="py-line">                    <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">mbox_mtime</tt> <tt class="py-op">=</tt> <tt class="py-name">s</tt><tt class="py-op">.</tt><tt class="py-name">st_mtime</tt> </tt>
+<a name="L306"></a><tt class="py-lineno">306</tt>  <tt class="py-line">                     </tt>
+<a name="L307"></a><tt class="py-lineno">307</tt>  <tt class="py-line">            <tt class="py-comment"># Uknown access method</tt> </tt>
+<a name="L308"></a><tt class="py-lineno">308</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-comment">#</tt> </tt>
+<a name="L309"></a><tt class="py-lineno">309</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L310"></a><tt class="py-lineno">310</tt>  <tt class="py-line">                <tt class="py-keyword">raise</tt> <tt class="py-name">RuntimeError</tt><tt class="py-op">(</tt><tt class="py-string">'unknown access method `%s\''</tt> <tt class="py-op">%</tt> </tt>
+<a name="L311"></a><tt class="py-lineno">311</tt>  <tt class="py-line">                                   <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">config</tt><tt class="py-op">[</tt><tt class="py-string">'method'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L312"></a><tt class="py-lineno">312</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L313"></a><tt class="py-lineno">313</tt>  <tt class="py-line">            <tt class="py-comment"># Exception handling: output a significant printout</tt> </tt>
+<a name="L314"></a><tt class="py-lineno">314</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-comment">#</tt> </tt>
+<a name="L315"></a><tt class="py-lineno">315</tt>  <tt class="py-line"><tt class="py-comment"></tt>            <tt class="py-name">size</tt> <tt class="py-op">=</tt> <tt class="py-op">-</tt><tt class="py-number">1</tt> </tt>
+<a name="L316"></a><tt class="py-lineno">316</tt>  <tt class="py-line">            <tt class="py-keyword">print</tt> <tt class="py-string">'='</tt><tt class="py-op">*</tt><tt class="py-number">80</tt> </tt>
+<a name="L317"></a><tt class="py-lineno">317</tt>  <tt class="py-line">            <tt class="py-keyword">print</tt> <tt class="py-name">traceback</tt><tt class="py-op">.</tt><tt class="py-name">print_exception</tt><tt class="py-op">(</tt><tt class="py-op">*</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">exc_info</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L318"></a><tt class="py-lineno">318</tt>  <tt class="py-line">            <tt class="py-keyword">print</tt> <tt class="py-string">'='</tt><tt class="py-op">*</tt><tt class="py-number">80</tt> </tt>
+<a name="L319"></a><tt class="py-lineno">319</tt>  <tt class="py-line">            <tt class="py-keyword">print</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">config</tt> </tt>
+<a name="L320"></a><tt class="py-lineno">320</tt>  <tt class="py-line">            <tt class="py-keyword">print</tt> <tt class="py-string">'='</tt><tt class="py-op">*</tt><tt class="py-number">80</tt> </tt>
+<a name="L321"></a><tt class="py-lineno">321</tt>  <tt class="py-line">             </tt>
+<a name="L322"></a><tt class="py-lineno">322</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">size</tt> <tt class="py-op">=</tt> <tt class="py-name">size</tt> </tt>
+<a name="L323"></a><tt class="py-lineno">323</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">size</tt> </tt>
+</div></div><a name="L324"></a><tt class="py-lineno">324</tt>  <tt class="py-line"> </tt>
+<a name="L325"></a><tt class="py-lineno">325</tt>  <tt class="py-line"> </tt>
+<a name="POP3Backend"></a><div id="POP3Backend-def"><a name="L326"></a><tt class="py-lineno">326</tt> <a class="py-toggle" href="#" id="POP3Backend-toggle" onclick="return toggle('POP3Backend');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="screenlets.plugins.Mail.POP3Backend-class.html">POP3Backend</a> <tt class="py-op">(</tt><tt class="py-base-class">MailCheckBackend</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="POP3Backend-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="POP3Backend-expanded"><a name="L327"></a><tt class="py-lineno">327</tt>  <tt class="py-line">        <tt class="py-docstring">"""A backend for retrieving the mailcount from a POP3 server."""</tt> </tt>
+<a name="L328"></a><tt class="py-lineno">328</tt>  <tt class="py-line">         </tt>
+<a name="POP3Backend.__init__"></a><div id="POP3Backend.__init__-def"><a name="L329"></a><tt class="py-lineno">329</tt> <a class="py-toggle" href="#" id="POP3Backend.__init__-toggle" onclick="return toggle('POP3Backend.__init__');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.plugins.Mail.POP3Backend-class.html#__init__">__init__</a> <tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">screenlet</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="POP3Backend.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="POP3Backend.__init__-expanded"><a name="L330"></a><tt class="py-lineno">330</tt>  <tt class="py-line">                <tt class="py-comment"># call super</tt> </tt>
+<a name="L331"></a><tt class="py-lineno">331</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt id="link-64" class="py-name"><a title="screenlets.plugins.Mail.MailCheckBackend
+screenlets.plugins.mail.MailCheckBackend" class="py-name" href="#" onclick="return doclink('link-64', 'MailCheckBackend', 'link-32');">MailCheckBackend</a></tt><tt class="py-op">.</tt><tt id="link-65" class="py-name"><a title="screenlets.Notify.__init__
+screenlets.Screenlet.__init__
+screenlets.ScreenletTheme.__init__
+screenlets.ShapedWidget.__init__
+screenlets.Tooltip.__init__
+screenlets.backend.CachingBackend.__init__
+screenlets.backend.GconfBackend.__init__
+screenlets.backend.ScreenletsBackend.__init__
+screenlets.install.ScreenletInstaller.__init__
+screenlets.menu.ApplicationMenu.__init__
+screenlets.menu.ImageMenuItem.__init__
+screenlets.options.AccountOption.__init__
+screenlets.options.EditableOptions.__init__
+screenlets.options.FileOption.__init__
+screenlets.options.FloatOption.__init__
+screenlets.options.IntOption.__init__
+screenlets.options.ListOptionDialog.__init__
+screenlets.options.Option.__init__
+screenlets.options.OptionsDialog.__init__
+screenlets.options.StringOption.__init__
+screenlets.plugins.Amarok.AmarokAPI.__init__
+screenlets.plugins.AmazonCoverArtSearch.AmazonCoverArtSearch.__init__
+screenlets.plugins.Audacious.AudaciousAPI.__init__
+screenlets.plugins.Banshee.BansheeAPI.__init__
+screenlets.plugins.Convert.Converter.__init__
+screenlets.plugins.CoverSearch.CoverSearch.__init__
+screenlets.plugins.Exaile.ExaileAPI.__init__
+screenlets.plugins.Flickr.Flickr.__init__
+screenlets.plugins.GenericPlayer.GenericAPI.__init__
+screenlets.plugins.Gstreamer.gstreamer.__init__
+screenlets.plugins.Juk.JukAPI.__init__
+screenlets.plugins.Kaffeine.KaffeineAPI.__init__
+screenlets.plugins.LastFMProxy.LastFMProxyAPI.__init__
+screenlets.plugins.Listen.ListenAPI.__init__
+screenlets.plugins.Loader.GnomeVFSAsyncSrc.__init__
+screenlets.plugins.Mail.IMAPBackend.__init__
+screenlets.plugins.Mail.MailCheckBackend.__init__
+screenlets.plugins.Mail.Mailer.__init__
+screenlets.plugins.Mail.POP3Backend.__init__
+screenlets.plugins.Mplayer.Mplayer.__init__
+screenlets.plugins.Proxy.Proxy.__init__
+screenlets.plugins.Quodlibet.QuodlibetAPI.__init__
+screenlets.plugins.Rhythmbox.RhythmboxAPI.__init__
+screenlets.plugins.Sonata.SonataAPI.__init__
+screenlets.plugins.Songbird.SongbirdAPI.__init__
+screenlets.plugins.TemperatureConverter.TemperatureConverter.__init__
+screenlets.plugins.iCal.DateSet.__init__
+screenlets.plugins.iCal.ICalEvent.__init__
+screenlets.plugins.iCal.ICalReader.__init__
+screenlets.plugins.keyring.KeyRing.Key.__init__
+screenlets.plugins.keyring.KeyRing.__init__
+screenlets.plugins.mail.IMAPBackend.__init__
+screenlets.plugins.mail.MailCheckBackend.__init__
+screenlets.plugins.mail.Mailer.__init__
+screenlets.plugins.mail.POP3Backend.__init__
+screenlets.plugins.mpdclient2.command_sender.__init__
+screenlets.plugins.mpdclient2.mpd_connection.__init__
+screenlets.plugins.mpdclient2.response_fetcher.__init__
+screenlets.plugins.mpdclient2.sender_n_fetcher.__init__
+screenlets.plugins.mpdclient2.socket_talker.__init__
+screenlets.sensors.CPUSensor.__init__
+screenlets.sensors.MemorySensor.__init__
+screenlets.sensors.NetSensor.__init__
+screenlets.sensors.Sensor.__init__
+screenlets.services.ScreenletService.__init__
+screenlets.session.ScreenletSession.__init__
+screenlets.utils.FileMonitor.__init__
+screenlets.utils.IniReader.__init__
+screenlets.utils.Notifier.__init__
+screenlets.utils.ScreenletInfo.__init__" class="py-name" href="#" onclick="return doclink('link-65', '__init__', 'link-21');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-string">'POP3'</tt><tt class="py-op">,</tt> <tt class="py-name">screenlet</tt><tt class="py-op">)</tt> </tt>
+<a name="L332"></a><tt class="py-lineno">332</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">server</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+</div><a name="L333"></a><tt class="py-lineno">333</tt>  <tt class="py-line">                <tt class="py-comment"># init additional attributes for this backend-type</tt> </tt>
+<a name="L334"></a><tt class="py-lineno">334</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-comment"># TODO: add POP3-specific options to the backend instead of having them</tt> </tt>
+<a name="L335"></a><tt class="py-lineno">335</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-comment"># defined in the screenlet by default (ideally they should be only shown</tt> </tt>
+<a name="L336"></a><tt class="py-lineno">336</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-comment"># when the POP3-backend is active</tt> </tt>
+<a name="L337"></a><tt class="py-lineno">337</tt>  <tt class="py-line"><tt class="py-comment"></tt>                 </tt>
+<a name="POP3Backend.check_mail"></a><div id="POP3Backend.check_mail-def"><a name="L338"></a><tt class="py-lineno">338</tt> <a class="py-toggle" href="#" id="POP3Backend.check_mail-toggle" onclick="return toggle('POP3Backend.check_mail');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.plugins.Mail.POP3Backend-class.html#check_mail">check_mail</a> <tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="POP3Backend.check_mail-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="POP3Backend.check_mail-expanded"><a name="L339"></a><tt class="py-lineno">339</tt>  <tt class="py-line">                <tt class="py-comment"># set default timeout for all socket connections to 30 secs</tt> </tt>
+<a name="L340"></a><tt class="py-lineno">340</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-name">socket</tt><tt class="py-op">.</tt><tt class="py-name">setdefaulttimeout</tt><tt class="py-op">(</tt><tt class="py-number">30000</tt><tt class="py-op">)</tt> </tt>
+<a name="L341"></a><tt class="py-lineno">341</tt>  <tt class="py-line">                <tt class="py-keyword">print</tt> <tt class="py-string">"POP3Backend: Connecting to POP3-server ... please wait."</tt> </tt>
+<a name="L342"></a><tt class="py-lineno">342</tt>  <tt class="py-line">                <tt class="py-comment">#self.screenlet.redraw_canvas()</tt> </tt>
+<a name="L343"></a><tt class="py-lineno">343</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L344"></a><tt class="py-lineno">344</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">server</tt> <tt class="py-op">=</tt> <tt class="py-name">poplib</tt><tt class="py-op">.</tt><tt class="py-name">POP3</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">screenlet</tt><tt class="py-op">.</tt><tt class="py-name">pop3_server</tt><tt class="py-op">)</tt> </tt>
+<a name="L345"></a><tt class="py-lineno">345</tt>  <tt class="py-line">                <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L346"></a><tt class="py-lineno">346</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">error</tt>      <tt class="py-op">=</tt> <tt id="link-66" class="py-name"><a title="screenlets.plugins.Mail.MSG_CONNECTION_FAILED
+screenlets.plugins.mail.MSG_CONNECTION_FAILED" class="py-name" href="#" onclick="return doclink('link-66', 'MSG_CONNECTION_FAILED', 'link-9');">MSG_CONNECTION_FAILED</a></tt> </tt>
+<a name="L347"></a><tt class="py-lineno">347</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">status</tt> <tt class="py-op">=</tt> <tt id="link-67" class="py-name"><a title="screenlets.plugins.Mail.MailCheckStatus
+screenlets.plugins.mail.MailCheckStatus" class="py-name" href="#" onclick="return doclink('link-67', 'MailCheckStatus', 'link-24');">MailCheckStatus</a></tt><tt class="py-op">.</tt><tt id="link-68" class="py-name"><a title="screenlets.plugins.Mail.MailCheckStatus.ERROR
+screenlets.plugins.mail.MailCheckStatus.ERROR" class="py-name" href="#" onclick="return doclink('link-68', 'ERROR', 'link-18');">ERROR</a></tt> </tt>
+<a name="L348"></a><tt class="py-lineno">348</tt>  <tt class="py-line">                        <tt class="py-keyword">return</tt> <tt class="py-name">False</tt> </tt>
+<a name="L349"></a><tt class="py-lineno">349</tt>  <tt class="py-line">                <tt class="py-comment"># authenticate</tt> </tt>
+<a name="L350"></a><tt class="py-lineno">350</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-name">user</tt><tt class="py-op">,</tt> <tt class="py-name">pw</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">screenlet</tt><tt class="py-op">.</tt><tt class="py-name">pop3_account</tt> </tt>
+<a name="L351"></a><tt class="py-lineno">351</tt>  <tt class="py-line">                <tt class="py-comment">#print "ACCOUNT IS %s/%s!!" % (o[0], o[1])</tt> </tt>
+<a name="L352"></a><tt class="py-lineno">352</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L353"></a><tt class="py-lineno">353</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">server</tt><tt class="py-op">.</tt><tt class="py-name">user</tt><tt class="py-op">(</tt><tt class="py-name">user</tt><tt class="py-op">)</tt> </tt>
+<a name="L354"></a><tt class="py-lineno">354</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">server</tt><tt class="py-op">.</tt><tt class="py-name">pass_</tt><tt class="py-op">(</tt><tt class="py-name">pw</tt><tt class="py-op">)</tt> </tt>
+<a name="L355"></a><tt class="py-lineno">355</tt>  <tt class="py-line">                <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L356"></a><tt class="py-lineno">356</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">error</tt>      <tt class="py-op">=</tt> <tt id="link-69" class="py-name"><a title="screenlets.plugins.Mail.MSG_AUTH_FAILED
+screenlets.plugins.mail.MSG_AUTH_FAILED" class="py-name" href="#" onclick="return doclink('link-69', 'MSG_AUTH_FAILED', 'link-11');">MSG_AUTH_FAILED</a></tt> </tt>
+<a name="L357"></a><tt class="py-lineno">357</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">status</tt> <tt class="py-op">=</tt> <tt id="link-70" class="py-name"><a title="screenlets.plugins.Mail.MailCheckStatus
+screenlets.plugins.mail.MailCheckStatus" class="py-name" href="#" onclick="return doclink('link-70', 'MailCheckStatus', 'link-24');">MailCheckStatus</a></tt><tt class="py-op">.</tt><tt id="link-71" class="py-name"><a title="screenlets.plugins.Mail.MailCheckStatus.ERROR
+screenlets.plugins.mail.MailCheckStatus.ERROR" class="py-name" href="#" onclick="return doclink('link-71', 'ERROR', 'link-18');">ERROR</a></tt> </tt>
+<a name="L358"></a><tt class="py-lineno">358</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">server</tt><tt class="py-op">.</tt><tt id="link-72" class="py-name"><a title="screenlets.services.ScreenletService.quit" class="py-name" href="#" onclick="return doclink('link-72', 'quit', 'link-7');">quit</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L359"></a><tt class="py-lineno">359</tt>  <tt class="py-line">                        <tt class="py-keyword">return</tt> <tt class="py-name">False</tt> </tt>
+<a name="L360"></a><tt class="py-lineno">360</tt>  <tt class="py-line">                <tt class="py-comment"># get list with mails (response, list-of-mails)</tt> </tt>
+<a name="L361"></a><tt class="py-lineno">361</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-name">resp</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">server</tt><tt class="py-op">.</tt><tt class="py-name">list</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L362"></a><tt class="py-lineno">362</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">resp</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt class="py-name">startswith</tt><tt class="py-op">(</tt><tt class="py-string">'+OK'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L363"></a><tt class="py-lineno">363</tt>  <tt class="py-line">                        <tt class="py-name">messages</tt> <tt class="py-op">=</tt> <tt class="py-name">resp</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> </tt>
+<a name="L364"></a><tt class="py-lineno">364</tt>  <tt class="py-line">                        <tt class="py-comment">#print messages</tt> </tt>
+<a name="L365"></a><tt class="py-lineno">365</tt>  <tt class="py-line"><tt class="py-comment"></tt>                        <tt class="py-name">msgnum</tt> <tt class="py-op">=</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">messages</tt><tt class="py-op">)</tt> </tt>
+<a name="L366"></a><tt class="py-lineno">366</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-name">msgnum</tt> <tt class="py-op">&gt;</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">unseen_count</tt><tt class="py-op">:</tt> </tt>
+<a name="L367"></a><tt class="py-lineno">367</tt>  <tt class="py-line">                                <tt class="py-name">diff</tt> <tt class="py-op">=</tt> <tt class="py-name">msgnum</tt> <tt class="py-op">-</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">mailcount</tt> </tt>
+<a name="L368"></a><tt class="py-lineno">368</tt>  <tt class="py-line">                                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">mailcount</tt> <tt class="py-op">=</tt> <tt class="py-name">msgnum</tt> </tt>
+<a name="L369"></a><tt class="py-lineno">369</tt>  <tt class="py-line">                                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">status</tt> <tt class="py-op">=</tt> <tt id="link-73" class="py-name"><a title="screenlets.plugins.Mail.MailCheckStatus
+screenlets.plugins.mail.MailCheckStatus" class="py-name" href="#" onclick="return doclink('link-73', 'MailCheckStatus', 'link-24');">MailCheckStatus</a></tt><tt class="py-op">.</tt><tt class="py-name">GOT_MAIL</tt> </tt>
+<a name="L370"></a><tt class="py-lineno">370</tt>  <tt class="py-line">                                <tt class="py-keyword">print</tt> <tt class="py-string">"GOT_MAIL"</tt> </tt>
+<a name="L371"></a><tt class="py-lineno">371</tt>  <tt class="py-line">                        <tt class="py-keyword">elif</tt> <tt class="py-name">msgnum</tt> <tt class="py-op">&lt;=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">mailcount</tt><tt class="py-op">:</tt> </tt>
+<a name="L372"></a><tt class="py-lineno">372</tt>  <tt class="py-line">                                <tt class="py-keyword">print</tt> <tt class="py-string">"set status to IDLE (POP3Backend.check_mail)"</tt> </tt>
+<a name="L373"></a><tt class="py-lineno">373</tt>  <tt class="py-line">                                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">mailcount</tt> <tt class="py-op">=</tt> <tt class="py-name">msgnum</tt> </tt>
+<a name="L374"></a><tt class="py-lineno">374</tt>  <tt class="py-line">                                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">status</tt> <tt class="py-op">=</tt> <tt id="link-74" class="py-name"><a title="screenlets.plugins.Mail.MailCheckStatus
+screenlets.plugins.mail.MailCheckStatus" class="py-name" href="#" onclick="return doclink('link-74', 'MailCheckStatus', 'link-24');">MailCheckStatus</a></tt><tt class="py-op">.</tt><tt id="link-75" class="py-name"><a title="screenlets.plugins.Mail.MailCheckStatus.IDLE
+screenlets.plugins.mail.MailCheckStatus.IDLE" class="py-name" href="#" onclick="return doclink('link-75', 'IDLE', 'link-17');">IDLE</a></tt> </tt>
+<a name="L375"></a><tt class="py-lineno">375</tt>  <tt class="py-line">                                <tt class="py-keyword">print</tt> <tt class="py-string">"IDLE"</tt> </tt>
+<a name="L376"></a><tt class="py-lineno">376</tt>  <tt class="py-line">                <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L377"></a><tt class="py-lineno">377</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">error</tt>      <tt class="py-op">=</tt> <tt id="link-76" class="py-name"><a title="screenlets.plugins.Mail.MSG_FETCH_MAILS_FAILED
+screenlets.plugins.mail.MSG_FETCH_MAILS_FAILED" class="py-name" href="#" onclick="return doclink('link-76', 'MSG_FETCH_MAILS_FAILED', 'link-10');">MSG_FETCH_MAILS_FAILED</a></tt> </tt>
+<a name="L378"></a><tt class="py-lineno">378</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">status</tt>     <tt class="py-op">=</tt> <tt id="link-77" class="py-name"><a title="screenlets.plugins.Mail.MailCheckStatus
+screenlets.plugins.mail.MailCheckStatus" class="py-name" href="#" onclick="return doclink('link-77', 'MailCheckStatus', 'link-24');">MailCheckStatus</a></tt><tt class="py-op">.</tt><tt id="link-78" class="py-name"><a title="screenlets.plugins.Mail.MailCheckStatus.ERROR
+screenlets.plugins.mail.MailCheckStatus.ERROR" class="py-name" href="#" onclick="return doclink('link-78', 'ERROR', 'link-18');">ERROR</a></tt> </tt>
+<a name="L379"></a><tt class="py-lineno">379</tt>  <tt class="py-line">                        <tt class="py-comment">#server.quit()</tt> </tt>
+<a name="L380"></a><tt class="py-lineno">380</tt>  <tt class="py-line"><tt class="py-comment"></tt>                        <tt class="py-comment">#return False</tt> </tt>
+<a name="L381"></a><tt class="py-lineno">381</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-comment"># close connection</tt> </tt>
+<a name="L382"></a><tt class="py-lineno">382</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">server</tt><tt class="py-op">.</tt><tt id="link-79" class="py-name"><a title="screenlets.services.ScreenletService.quit" class="py-name" href="#" onclick="return doclink('link-79', 'quit', 'link-7');">quit</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L383"></a><tt class="py-lineno">383</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">False</tt> </tt>
+</div><a name="L384"></a><tt class="py-lineno">384</tt>  <tt class="py-line"> </tt>
+<a name="POP3Backend.stop"></a><div id="POP3Backend.stop-def"><a name="L385"></a><tt class="py-lineno">385</tt> <a class="py-toggle" href="#" id="POP3Backend.stop-toggle" onclick="return toggle('POP3Backend.stop');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.plugins.Mail.POP3Backend-class.html#stop">stop</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="POP3Backend.stop-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="POP3Backend.stop-expanded"><a name="L386"></a><tt class="py-lineno">386</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">server</tt><tt class="py-op">:</tt> </tt>
+<a name="L387"></a><tt class="py-lineno">387</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">server</tt><tt class="py-op">.</tt><tt id="link-80" class="py-name"><a title="screenlets.services.ScreenletService.quit" class="py-name" href="#" onclick="return doclink('link-80', 'quit', 'link-7');">quit</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L388"></a><tt class="py-lineno">388</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">thread</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L389"></a><tt class="py-lineno">389</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">thread</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+</div></div><a name="L390"></a><tt class="py-lineno">390</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="screenlets-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Screenlets 0.1.2</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Wed Jun  4 18:52:59 2008
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

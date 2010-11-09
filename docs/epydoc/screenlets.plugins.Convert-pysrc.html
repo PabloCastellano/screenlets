@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>screenlets.plugins.Convert</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="screenlets-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Screenlets 0.1.2</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="screenlets-module.html">Package&nbsp;screenlets</a> ::
+        <a href="screenlets.plugins-module.html">Package&nbsp;plugins</a> ::
+        Module&nbsp;Convert
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="screenlets.plugins.Convert-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="screenlets.plugins.Convert-module.html">Module screenlets.plugins.Convert</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment"># The base Converter class. Not to be used directly.</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># For a commented example on how to write general converter modules, see the </tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># file BaseConverter.py. But first, please, read below if a RatioConverter isn't </tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># well suitable for your desired task.</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="Converter"></a><div id="Converter-def"><a name="L6"></a><tt class="py-lineno">  6</tt> <a class="py-toggle" href="#" id="Converter-toggle" onclick="return toggle('Converter');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="screenlets.plugins.Convert.Converter-class.html">Converter</a><tt class="py-op">:</tt> </tt>
+</div><div id="Converter-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="Converter-expanded"><a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line">        <tt class="py-docstring">"""The base class for the converters. The converters look after maintaining </tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-docstring">        the list of currently shown values - initialising, accepting keyboard input, </tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-docstring">        etc.."""</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line">        <tt class="py-comment"># the name of the class</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt id="link-0" class="py-name" targets="Variable screenlets.Screenlet.__name__=screenlets.Screenlet-class.html#__name__,Variable screenlets.ScreenletTheme.__name__=screenlets.ScreenletTheme-class.html#__name__,Variable screenlets.plugins.Amarok.AmarokAPI.__name__=screenlets.plugins.Amarok.AmarokAPI-class.html#__name__,Variable screenlets.plugins.Audacious.AudaciousAPI.__name__=screenlets.plugins.Audacious.AudaciousAPI-class.html#__name__,Variable screenlets.plugins.Banshee.BansheeAPI.__name__=screenlets.plugins.Banshee.BansheeAPI-class.html#__name__,Variable screenlets.plugins.BaseConverter.BaseConverter.__name__=screenlets.plugins.BaseConverter.BaseConverter-class.html#__name__,Variable screenlets.plugins.Convert.Converter.__name__=screenlets.plugins.Convert.Converter-class.html#__name__,Variable screenlets.plugins.Convert.RatioConverter.__name__=screenlets.plugins.Convert.RatioConverter-class.html#__name__,Variable screenlets.plugins.Exaile.ExaileAPI.__name__=screenlets.plugins.Exaile.ExaileAPI-class.html#__name__,Variable screenlets.plugins.GenericPlayer.GenericAPI.__name__=screenlets.plugins.GenericPlayer.GenericAPI-class.html#__name__,Variable screenlets.plugins.Juk.JukAPI.__name__=screenlets.plugins.Juk.JukAPI-class.html#__name__,Variable screenlets.plugins.Kaffeine.KaffeineAPI.__name__=screenlets.plugins.Kaffeine.KaffeineAPI-class.html#__name__,Variable screenlets.plugins.LastFMProxy.LastFMProxyAPI.__name__=screenlets.plugins.LastFMProxy.LastFMProxyAPI-class.html#__name__,Variable screenlets.plugins.LengthConverter.LengthConverter.__name__=screenlets.plugins.LengthConverter.LengthConverter-class.html#__name__,Variable screenlets.plugins.Listen.ListenAPI.__name__=screenlets.plugins.Listen.ListenAPI-class.html#__name__,Variable screenlets.plugins.Quodlibet.QuodlibetAPI.__name__=screenlets.plugins.Quodlibet.QuodlibetAPI-class.html#__name__,Variable screenlets.plugins.Rhythmbox.RhythmboxAPI.__name__=screenlets.plugins.Rhythmbox.RhythmboxAPI-class.html#__name__,Variable screenlets.plugins.SizeConverter.SizeConverter.__name__=screenlets.plugins.SizeConverter.SizeConverter-class.html#__name__,Variable screenlets.plugins.Sonata.SonataAPI.__name__=screenlets.plugins.Sonata.SonataAPI-class.html#__name__,Variable screenlets.plugins.Songbird.SongbirdAPI.__name__=screenlets.plugins.Songbird.SongbirdAPI-class.html#__name__,Variable screenlets.plugins.TemperatureConverter.TemperatureConverter.__name__=screenlets.plugins.TemperatureConverter.TemperatureConverter-class.html#__name__"><a title="screenlets.Screenlet.__name__
+screenlets.ScreenletTheme.__name__
+screenlets.plugins.Amarok.AmarokAPI.__name__
+screenlets.plugins.Audacious.AudaciousAPI.__name__
+screenlets.plugins.Banshee.BansheeAPI.__name__
+screenlets.plugins.BaseConverter.BaseConverter.__name__
+screenlets.plugins.Convert.Converter.__name__
+screenlets.plugins.Convert.RatioConverter.__name__
+screenlets.plugins.Exaile.ExaileAPI.__name__
+screenlets.plugins.GenericPlayer.GenericAPI.__name__
+screenlets.plugins.Juk.JukAPI.__name__
+screenlets.plugins.Kaffeine.KaffeineAPI.__name__
+screenlets.plugins.LastFMProxy.LastFMProxyAPI.__name__
+screenlets.plugins.LengthConverter.LengthConverter.__name__
+screenlets.plugins.Listen.ListenAPI.__name__
+screenlets.plugins.Quodlibet.QuodlibetAPI.__name__
+screenlets.plugins.Rhythmbox.RhythmboxAPI.__name__
+screenlets.plugins.SizeConverter.SizeConverter.__name__
+screenlets.plugins.Sonata.SonataAPI.__name__
+screenlets.plugins.Songbird.SongbirdAPI.__name__
+screenlets.plugins.TemperatureConverter.TemperatureConverter.__name__" class="py-name" href="#" onclick="return doclink('link-0', '__name__', 'link-0');">__name__</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'Converter'</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line">        <tt class="py-comment"># a short description to be used for selecting the converter</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt id="link-1" class="py-name" targets="Variable screenlets.plugins.BaseConverter.BaseConverter.__title__=screenlets.plugins.BaseConverter.BaseConverter-class.html#__title__,Variable screenlets.plugins.Convert.Converter.__title__=screenlets.plugins.Convert.Converter-class.html#__title__,Variable screenlets.plugins.Convert.RatioConverter.__title__=screenlets.plugins.Convert.RatioConverter-class.html#__title__,Variable screenlets.plugins.LengthConverter.LengthConverter.__title__=screenlets.plugins.LengthConverter.LengthConverter-class.html#__title__,Variable screenlets.plugins.SizeConverter.SizeConverter.__title__=screenlets.plugins.SizeConverter.SizeConverter-class.html#__title__,Variable screenlets.plugins.TemperatureConverter.TemperatureConverter.__title__=screenlets.plugins.TemperatureConverter.TemperatureConverter-class.html#__title__"><a title="screenlets.plugins.BaseConverter.BaseConverter.__title__
+screenlets.plugins.Convert.Converter.__title__
+screenlets.plugins.Convert.RatioConverter.__title__
+screenlets.plugins.LengthConverter.LengthConverter.__title__
+screenlets.plugins.SizeConverter.SizeConverter.__title__
+screenlets.plugins.TemperatureConverter.TemperatureConverter.__title__" class="py-name" href="#" onclick="return doclink('link-1', '__title__', 'link-1');">__title__</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'Base'</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line">        <tt class="py-comment"># the number of fields shown on the display between 2 and 4</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt id="link-2" class="py-name" targets="Variable screenlets.plugins.BaseConverter.BaseConverter.num_fields=screenlets.plugins.BaseConverter.BaseConverter-class.html#num_fields,Variable screenlets.plugins.Convert.Converter.num_fields=screenlets.plugins.Convert.Converter-class.html#num_fields,Variable screenlets.plugins.LengthConverter.LengthConverter.num_fields=screenlets.plugins.LengthConverter.LengthConverter-class.html#num_fields,Variable screenlets.plugins.SizeConverter.SizeConverter.num_fields=screenlets.plugins.SizeConverter.SizeConverter-class.html#num_fields,Variable screenlets.plugins.TemperatureConverter.TemperatureConverter.num_fields=screenlets.plugins.TemperatureConverter.TemperatureConverter-class.html#num_fields"><a title="screenlets.plugins.BaseConverter.BaseConverter.num_fields
+screenlets.plugins.Convert.Converter.num_fields
+screenlets.plugins.LengthConverter.LengthConverter.num_fields
+screenlets.plugins.SizeConverter.SizeConverter.num_fields
+screenlets.plugins.TemperatureConverter.TemperatureConverter.num_fields" class="py-name" href="#" onclick="return doclink('link-2', 'num_fields', 'link-2');">num_fields</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line">        <tt class="py-comment"># field captions up to 4 chars long</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt id="link-3" class="py-name" targets="Variable screenlets.plugins.BaseConverter.BaseConverter.field_names=screenlets.plugins.BaseConverter.BaseConverter-class.html#field_names,Variable screenlets.plugins.Convert.Converter.field_names=screenlets.plugins.Convert.Converter-class.html#field_names,Variable screenlets.plugins.LengthConverter.LengthConverter.field_names=screenlets.plugins.LengthConverter.LengthConverter-class.html#field_names,Variable screenlets.plugins.SizeConverter.SizeConverter.field_names=screenlets.plugins.SizeConverter.SizeConverter-class.html#field_names,Variable screenlets.plugins.TemperatureConverter.TemperatureConverter.field_names=screenlets.plugins.TemperatureConverter.TemperatureConverter-class.html#field_names"><a title="screenlets.plugins.BaseConverter.BaseConverter.field_names
+screenlets.plugins.Convert.Converter.field_names
+screenlets.plugins.LengthConverter.LengthConverter.field_names
+screenlets.plugins.SizeConverter.SizeConverter.field_names
+screenlets.plugins.TemperatureConverter.TemperatureConverter.field_names" class="py-name" href="#" onclick="return doclink('link-3', 'field_names', 'link-3');">field_names</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line">        <tt class="py-comment"># zero-based index of field having input focus</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt id="link-4" class="py-name" targets="Variable screenlets.plugins.Convert.Converter.active_field=screenlets.plugins.Convert.Converter-class.html#active_field"><a title="screenlets.plugins.Convert.Converter.active_field" class="py-name" href="#" onclick="return doclink('link-4', 'active_field', 'link-4');">active_field</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line">        <tt class="py-comment"># the list of currently shown 'values'. They should always be strings.</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt id="link-5" class="py-name" targets="Variable screenlets.plugins.Convert.Converter.values=screenlets.plugins.Convert.Converter-class.html#values"><a title="screenlets.plugins.Convert.Converter.values" class="py-name" href="#" onclick="return doclink('link-5', 'values', 'link-5');">values</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line">        <tt class="py-comment"># replace: True = replace all the input by next keypress</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt id="link-6" class="py-name" targets="Variable screenlets.plugins.Convert.Converter.replace=screenlets.plugins.Convert.Converter-class.html#replace"><a title="screenlets.plugins.Convert.Converter.replace" class="py-name" href="#" onclick="return doclink('link-6', 'replace', 'link-6');">replace</a></tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line">        <tt class="py-comment"># initialize the list of values and fill it with defaults (strings!). </tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># Override this if you don't want then be '0's.</tt> </tt>
+<a name="Converter.__init__"></a><div id="Converter.__init__-def"><a name="L29"></a><tt class="py-lineno"> 29</tt> <a class="py-toggle" href="#" id="Converter.__init__-toggle" onclick="return toggle('Converter.__init__');">-</a><tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.plugins.Convert.Converter-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Converter.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="Converter.__init__-expanded"><a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name"><a title="screenlets.plugins.Convert.Converter.values" class="py-name" href="#" onclick="return doclink('link-7', 'values', 'link-5');">values</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line">                <tt class="py-keyword">for</tt> <tt class="py-name">i</tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name"><a title="screenlets.plugins.BaseConverter.BaseConverter.num_fields
+screenlets.plugins.Convert.Converter.num_fields
+screenlets.plugins.LengthConverter.LengthConverter.num_fields
+screenlets.plugins.SizeConverter.SizeConverter.num_fields
+screenlets.plugins.TemperatureConverter.TemperatureConverter.num_fields" class="py-name" href="#" onclick="return doclink('link-8', 'num_fields', 'link-2');">num_fields</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-9" class="py-name"><a title="screenlets.plugins.Convert.Converter.values" class="py-name" href="#" onclick="return doclink('link-9', 'values', 'link-5');">values</a></tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-string">'0'</tt><tt class="py-op">)</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name"><a title="screenlets.plugins.Convert.Converter.active_field" class="py-name" href="#" onclick="return doclink('link-10', 'active_field', 'link-4');">active_field</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+</div><a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">         </tt>
+<a name="Converter.on_key_press"></a><div id="Converter.on_key_press-def"><a name="L35"></a><tt class="py-lineno"> 35</tt> <a class="py-toggle" href="#" id="Converter.on_key_press-toggle" onclick="return toggle('Converter.on_key_press');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.plugins.Convert.Converter-class.html#on_key_press">on_key_press</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">key</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Converter.on_key_press-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="Converter.on_key_press-expanded"><a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line">                <tt class="py-docstring">"""If accepted, appends the pressed key to the value in the currently </tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"><tt class="py-docstring">                active field."""</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">                <tt class="py-name">translate_dict</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-string">'comma'</tt><tt class="py-op">:</tt> <tt class="py-string">'.'</tt><tt class="py-op">,</tt> <tt class="py-string">'period'</tt><tt class="py-op">:</tt> <tt class="py-string">'.'</tt><tt class="py-op">,</tt> <tt class="py-string">'Add'</tt><tt class="py-op">:</tt> <tt class="py-string">'+'</tt><tt class="py-op">,</tt> <tt class="py-string">'plus'</tt><tt class="py-op">:</tt> <tt class="py-string">'+'</tt><tt class="py-op">,</tt>  </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">                                <tt class="py-string">'Subtract'</tt><tt class="py-op">:</tt> <tt class="py-string">'-'</tt><tt class="py-op">,</tt> <tt class="py-string">'minus'</tt><tt class="py-op">:</tt> <tt class="py-string">'-'</tt><tt class="py-op">}</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">key</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-number">3</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'KP_'</tt><tt class="py-op">:</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">                        <tt class="py-name">key</tt> <tt class="py-op">=</tt> <tt class="py-name">key</tt><tt class="py-op">[</tt><tt class="py-number">3</tt><tt class="py-op">:</tt><tt class="py-op">]</tt>           <tt class="py-comment"># keys from numerical keypad come as digits</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">translate_dict</tt><tt class="py-op">.</tt><tt class="py-name">has_key</tt><tt class="py-op">(</tt><tt class="py-name">key</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">                        <tt class="py-name">key</tt> <tt class="py-op">=</tt> <tt class="py-name">translate_dict</tt><tt class="py-op">[</tt><tt class="py-name">key</tt><tt class="py-op">]</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">key</tt> <tt class="py-op">==</tt> <tt class="py-string">'BackSpace'</tt><tt class="py-op">:</tt>  <tt class="py-comment"># try to guess :-)</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-11" class="py-name"><a title="screenlets.plugins.Convert.Converter.values" class="py-name" href="#" onclick="return doclink('link-11', 'values', 'link-5');">values</a></tt><tt class="py-op">[</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name"><a title="screenlets.plugins.Convert.Converter.active_field" class="py-name" href="#" onclick="return doclink('link-12', 'active_field', 'link-4');">active_field</a></tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-13" class="py-name"><a title="screenlets.plugins.Convert.Converter.values" class="py-name" href="#" onclick="return doclink('link-13', 'values', 'link-5');">values</a></tt><tt class="py-op">[</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name"><a title="screenlets.plugins.Convert.Converter.active_field" class="py-name" href="#" onclick="return doclink('link-14', 'active_field', 'link-4');">active_field</a></tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">                <tt class="py-keyword">elif</tt> <tt class="py-name">key</tt> <tt class="py-op">==</tt> <tt class="py-string">'Escape'</tt><tt class="py-op">:</tt>   <tt class="py-comment"># clean the field</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name"><a title="screenlets.plugins.Convert.Converter.values" class="py-name" href="#" onclick="return doclink('link-15', 'values', 'link-5');">values</a></tt><tt class="py-op">[</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name"><a title="screenlets.plugins.Convert.Converter.active_field" class="py-name" href="#" onclick="return doclink('link-16', 'active_field', 'link-4');">active_field</a></tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">                <tt class="py-keyword">elif</tt> <tt class="py-name">key</tt> <tt class="py-op">==</tt> <tt class="py-string">'Down'</tt><tt class="py-op">:</tt>             <tt class="py-comment"># move field focus</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-17" class="py-name"><a title="screenlets.plugins.Convert.Converter.active_field" class="py-name" href="#" onclick="return doclink('link-17', 'active_field', 'link-4');">active_field</a></tt> <tt class="py-op">&lt;</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name"><a title="screenlets.plugins.BaseConverter.BaseConverter.num_fields
+screenlets.plugins.Convert.Converter.num_fields
+screenlets.plugins.LengthConverter.LengthConverter.num_fields
+screenlets.plugins.SizeConverter.SizeConverter.num_fields
+screenlets.plugins.TemperatureConverter.TemperatureConverter.num_fields" class="py-name" href="#" onclick="return doclink('link-18', 'num_fields', 'link-2');">num_fields</a></tt> <tt class="py-op">-</tt> <tt class="py-number">1</tt><tt class="py-op">:</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">                                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name"><a title="screenlets.plugins.Convert.Converter.active_field" class="py-name" href="#" onclick="return doclink('link-19', 'active_field', 'link-4');">active_field</a></tt> <tt class="py-op">+=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">                                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-20" class="py-name"><a title="screenlets.plugins.Convert.Converter.replace" class="py-name" href="#" onclick="return doclink('link-20', 'replace', 'link-6');">replace</a></tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt>     <tt class="py-comment"># after a change, don't append next pressed </tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">                                <tt class="py-keyword">return</tt> <tt class="py-name">True</tt>                     <tt class="py-comment"># key but start over</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">                        <tt class="py-keyword">return</tt> <tt class="py-name">False</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">                <tt class="py-keyword">elif</tt> <tt class="py-name">key</tt> <tt class="py-op">==</tt> <tt class="py-string">'Up'</tt><tt class="py-op">:</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name"><a title="screenlets.plugins.Convert.Converter.active_field" class="py-name" href="#" onclick="return doclink('link-21', 'active_field', 'link-4');">active_field</a></tt> <tt class="py-op">&gt;</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">                                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name"><a title="screenlets.plugins.Convert.Converter.active_field" class="py-name" href="#" onclick="return doclink('link-22', 'active_field', 'link-4');">active_field</a></tt> <tt class="py-op">-=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">                                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-23" class="py-name"><a title="screenlets.plugins.Convert.Converter.replace" class="py-name" href="#" onclick="return doclink('link-23', 'replace', 'link-6');">replace</a></tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">                                <tt class="py-keyword">return</tt> <tt class="py-name">True</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">                        <tt class="py-keyword">return</tt> <tt class="py-name">False</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">                <tt class="py-keyword">elif</tt> <tt class="py-name">key</tt> <tt class="py-op">==</tt> <tt class="py-string">'Tab'</tt><tt class="py-op">:</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-24" class="py-name"><a title="screenlets.plugins.Convert.Converter.active_field" class="py-name" href="#" onclick="return doclink('link-24', 'active_field', 'link-4');">active_field</a></tt> <tt class="py-op">+=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-25" class="py-name"><a title="screenlets.plugins.Convert.Converter.active_field" class="py-name" href="#" onclick="return doclink('link-25', 'active_field', 'link-4');">active_field</a></tt> <tt class="py-op">%=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-26" class="py-name"><a title="screenlets.plugins.BaseConverter.BaseConverter.num_fields
+screenlets.plugins.Convert.Converter.num_fields
+screenlets.plugins.LengthConverter.LengthConverter.num_fields
+screenlets.plugins.SizeConverter.SizeConverter.num_fields
+screenlets.plugins.TemperatureConverter.TemperatureConverter.num_fields" class="py-name" href="#" onclick="return doclink('link-26', 'num_fields', 'link-2');">num_fields</a></tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-27" class="py-name"><a title="screenlets.plugins.Convert.Converter.replace" class="py-name" href="#" onclick="return doclink('link-27', 'replace', 'link-6');">replace</a></tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">                        <tt class="py-keyword">return</tt> <tt class="py-name">True</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">                <tt class="py-keyword">else</tt><tt class="py-op">:</tt>           <tt class="py-comment"># leave other keys unchanged</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-28" class="py-name" targets="Method screenlets.plugins.BaseConverter.BaseConverter.filter_key()=screenlets.plugins.BaseConverter.BaseConverter-class.html#filter_key,Method screenlets.plugins.Convert.Converter.filter_key()=screenlets.plugins.Convert.Converter-class.html#filter_key,Method screenlets.plugins.Convert.RatioConverter.filter_key()=screenlets.plugins.Convert.RatioConverter-class.html#filter_key,Method screenlets.plugins.TemperatureConverter.TemperatureConverter.filter_key()=screenlets.plugins.TemperatureConverter.TemperatureConverter-class.html#filter_key"><a title="screenlets.plugins.BaseConverter.BaseConverter.filter_key
+screenlets.plugins.Convert.Converter.filter_key
+screenlets.plugins.Convert.RatioConverter.filter_key
+screenlets.plugins.TemperatureConverter.TemperatureConverter.filter_key" class="py-name" href="#" onclick="return doclink('link-28', 'filter_key', 'link-28');">filter_key</a></tt><tt class="py-op">(</tt><tt class="py-name">key</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">                                <tt class="py-keyword">return</tt> <tt class="py-name">False</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-29" class="py-name"><a title="screenlets.plugins.Convert.Converter.replace" class="py-name" href="#" onclick="return doclink('link-29', 'replace', 'link-6');">replace</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">                                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-30" class="py-name"><a title="screenlets.plugins.Convert.Converter.values" class="py-name" href="#" onclick="return doclink('link-30', 'values', 'link-5');">values</a></tt><tt class="py-op">[</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-31" class="py-name"><a title="screenlets.plugins.Convert.Converter.active_field" class="py-name" href="#" onclick="return doclink('link-31', 'active_field', 'link-4');">active_field</a></tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">key</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">                        <tt class="py-comment"># limit input length to 10 characters</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"><tt class="py-comment"></tt>                        <tt class="py-keyword">elif</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-32" class="py-name"><a title="screenlets.plugins.Convert.Converter.values" class="py-name" href="#" onclick="return doclink('link-32', 'values', 'link-5');">values</a></tt><tt class="py-op">[</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-33" class="py-name"><a title="screenlets.plugins.Convert.Converter.active_field" class="py-name" href="#" onclick="return doclink('link-33', 'active_field', 'link-4');">active_field</a></tt><tt class="py-op">]</tt><tt class="py-op">)</tt> <tt class="py-op">&lt;</tt> <tt class="py-number">10</tt><tt class="py-op">:</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">                                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-34" class="py-name"><a title="screenlets.plugins.Convert.Converter.values" class="py-name" href="#" onclick="return doclink('link-34', 'values', 'link-5');">values</a></tt><tt class="py-op">[</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-35" class="py-name"><a title="screenlets.plugins.Convert.Converter.active_field" class="py-name" href="#" onclick="return doclink('link-35', 'active_field', 'link-4');">active_field</a></tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> \ </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">                                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-36" class="py-name"><a title="screenlets.plugins.Convert.Converter.values" class="py-name" href="#" onclick="return doclink('link-36', 'values', 'link-5');">values</a></tt><tt class="py-op">[</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-37" class="py-name"><a title="screenlets.plugins.Convert.Converter.active_field" class="py-name" href="#" onclick="return doclink('link-37', 'active_field', 'link-4');">active_field</a></tt><tt class="py-op">]</tt> <tt class="py-op">+</tt> <tt class="py-name">key</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-38" class="py-name"><a title="screenlets.plugins.Convert.Converter.replace" class="py-name" href="#" onclick="return doclink('link-38', 'replace', 'link-6');">replace</a></tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-39" class="py-name" targets="Method screenlets.plugins.Convert.Converter.neaten_input()=screenlets.plugins.Convert.Converter-class.html#neaten_input"><a title="screenlets.plugins.Convert.Converter.neaten_input" class="py-name" href="#" onclick="return doclink('link-39', 'neaten_input', 'link-39');">neaten_input</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-40" class="py-name" targets="Method screenlets.plugins.BaseConverter.BaseConverter.convert()=screenlets.plugins.BaseConverter.BaseConverter-class.html#convert,Method screenlets.plugins.Convert.Converter.convert()=screenlets.plugins.Convert.Converter-class.html#convert,Method screenlets.plugins.Convert.RatioConverter.convert()=screenlets.plugins.Convert.RatioConverter-class.html#convert,Method screenlets.plugins.TemperatureConverter.TemperatureConverter.convert()=screenlets.plugins.TemperatureConverter.TemperatureConverter-class.html#convert,Method screenlets.plugins.mpdclient2.response_fetcher.convert()=screenlets.plugins.mpdclient2.response_fetcher-class.html#convert"><a title="screenlets.plugins.BaseConverter.BaseConverter.convert
+screenlets.plugins.Convert.Converter.convert
+screenlets.plugins.Convert.RatioConverter.convert
+screenlets.plugins.TemperatureConverter.TemperatureConverter.convert
+screenlets.plugins.mpdclient2.response_fetcher.convert" class="py-name" href="#" onclick="return doclink('link-40', 'convert', 'link-40');">convert</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">True</tt> </tt>
+</div><a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line"> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">        <tt class="py-comment"># You can use this function instead of str or fixed-width % - it leaves </tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># 3 digits after the decimal point for floats, and no decimal part if the </tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># number is integer.</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># Serves good if the same converter can be used for both ints ant floats,</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># so that the user doesn't get '1.000' when not necessary, also for showing</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># '0' instead of '0.000' in all cases.</tt> </tt>
+<a name="Converter.str"></a><div id="Converter.str-def"><a name="L85"></a><tt class="py-lineno"> 85</tt> <a class="py-toggle" href="#" id="Converter.str-toggle" onclick="return toggle('Converter.str');">-</a><tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.plugins.Convert.Converter-class.html#str">str</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">val</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Converter.str-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="Converter.str-expanded"><a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">val</tt> <tt class="py-op">==</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">val</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">                        <tt class="py-keyword">return</tt> <tt id="link-41" class="py-name" targets="Method screenlets.plugins.Convert.Converter.str()=screenlets.plugins.Convert.Converter-class.html#str"><a title="screenlets.plugins.Convert.Converter.str" class="py-name" href="#" onclick="return doclink('link-41', 'str', 'link-41');">str</a></tt><tt class="py-op">(</tt><tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">val</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">                <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">                        <tt class="py-keyword">return</tt> <tt class="py-string">'%.3f'</tt> <tt class="py-op">%</tt> <tt class="py-name">val</tt> </tt>
+</div><a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">        <tt class="py-comment"># Overridable functions:</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">        <tt class="py-comment"># neaten_input: see the docstring</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># Return value: none</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># If you don't want such function, override it in your converter with pass.</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># If you override it by something more complicated, be careful not to modify </tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># the current value so that it breaks the input.</tt> </tt>
+<a name="Converter.neaten_input"></a><div id="Converter.neaten_input-def"><a name="L98"></a><tt class="py-lineno"> 98</tt> <a class="py-toggle" href="#" id="Converter.neaten_input-toggle" onclick="return toggle('Converter.neaten_input');">-</a><tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.plugins.Convert.Converter-class.html#neaten_input">neaten_input</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Converter.neaten_input-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="Converter.neaten_input-expanded"><a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">                <tt class="py-docstring">"""Replaces an empty value with '0' and again removes leading '0' in </tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line"><tt class="py-docstring">                a non-empty string."""</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">                <tt class="py-comment"># This version is aware of the possibility of negative input values,</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-comment"># but you must allow + and - keys in filter_key and avoid an error when </tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-comment"># the input is '-'. See TemperatureConverter for an example.</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-42" class="py-name"><a title="screenlets.plugins.Convert.Converter.values" class="py-name" href="#" onclick="return doclink('link-42', 'values', 'link-5');">values</a></tt><tt class="py-op">[</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-43" class="py-name"><a title="screenlets.plugins.Convert.Converter.active_field" class="py-name" href="#" onclick="return doclink('link-43', 'active_field', 'link-4');">active_field</a></tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">''</tt> <tt class="py-keyword">or</tt> \ </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">                                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-44" class="py-name"><a title="screenlets.plugins.Convert.Converter.values" class="py-name" href="#" onclick="return doclink('link-44', 'values', 'link-5');">values</a></tt><tt class="py-op">[</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-45" class="py-name"><a title="screenlets.plugins.Convert.Converter.active_field" class="py-name" href="#" onclick="return doclink('link-45', 'active_field', 'link-4');">active_field</a></tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'+'</tt><tt class="py-op">:</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">                                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-46" class="py-name"><a title="screenlets.plugins.Convert.Converter.values" class="py-name" href="#" onclick="return doclink('link-46', 'values', 'link-5');">values</a></tt><tt class="py-op">[</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-47" class="py-name"><a title="screenlets.plugins.Convert.Converter.active_field" class="py-name" href="#" onclick="return doclink('link-47', 'active_field', 'link-4');">active_field</a></tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-string">'0'</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">                <tt class="py-keyword">elif</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-48" class="py-name"><a title="screenlets.plugins.Convert.Converter.values" class="py-name" href="#" onclick="return doclink('link-48', 'values', 'link-5');">values</a></tt><tt class="py-op">[</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-49" class="py-name"><a title="screenlets.plugins.Convert.Converter.active_field" class="py-name" href="#" onclick="return doclink('link-49', 'active_field', 'link-4');">active_field</a></tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'-'</tt><tt class="py-op">:</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-50" class="py-name"><a title="screenlets.plugins.Convert.Converter.values" class="py-name" href="#" onclick="return doclink('link-50', 'values', 'link-5');">values</a></tt><tt class="py-op">[</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-51" class="py-name"><a title="screenlets.plugins.Convert.Converter.active_field" class="py-name" href="#" onclick="return doclink('link-51', 'active_field', 'link-4');">active_field</a></tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-string">'-'</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-52" class="py-name"><a title="screenlets.plugins.Convert.Converter.values" class="py-name" href="#" onclick="return doclink('link-52', 'values', 'link-5');">values</a></tt><tt class="py-op">[</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-53" class="py-name"><a title="screenlets.plugins.Convert.Converter.active_field" class="py-name" href="#" onclick="return doclink('link-53', 'active_field', 'link-4');">active_field</a></tt><tt class="py-op">]</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">1</tt> <tt class="py-keyword">and</tt> \ </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">                                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-54" class="py-name"><a title="screenlets.plugins.Convert.Converter.values" class="py-name" href="#" onclick="return doclink('link-54', 'values', 'link-5');">values</a></tt><tt class="py-op">[</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-55" class="py-name"><a title="screenlets.plugins.Convert.Converter.active_field" class="py-name" href="#" onclick="return doclink('link-55', 'active_field', 'link-4');">active_field</a></tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'0'</tt><tt class="py-op">:</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-56" class="py-name"><a title="screenlets.plugins.Convert.Converter.values" class="py-name" href="#" onclick="return doclink('link-56', 'values', 'link-5');">values</a></tt><tt class="py-op">[</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-57" class="py-name"><a title="screenlets.plugins.Convert.Converter.active_field" class="py-name" href="#" onclick="return doclink('link-57', 'active_field', 'link-4');">active_field</a></tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-58" class="py-name"><a title="screenlets.plugins.Convert.Converter.values" class="py-name" href="#" onclick="return doclink('link-58', 'values', 'link-5');">values</a></tt><tt class="py-op">[</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-59" class="py-name"><a title="screenlets.plugins.Convert.Converter.active_field" class="py-name" href="#" onclick="return doclink('link-59', 'active_field', 'link-4');">active_field</a></tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">:</tt><tt class="py-op">]</tt> </tt>
+</div><a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line"> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">        <tt class="py-comment"># filter_key: decides if pressed key can be appended to current value.</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># "key" is the GDK name of the key pressed by user</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># Return value: True - accept key, False - reject it.</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># There is no way to modify the value of key.</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># Be prepared for various "keys", e.g., 'apostrophe' must not match 'a'.</tt> </tt>
+<a name="Converter.filter_key"></a><div id="Converter.filter_key-def"><a name="L118"></a><tt class="py-lineno">118</tt> <a class="py-toggle" href="#" id="Converter.filter_key-toggle" onclick="return toggle('Converter.filter_key');">-</a><tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.plugins.Convert.Converter-class.html#filter_key">filter_key</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">key</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Converter.filter_key-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="Converter.filter_key-expanded"><a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line">                <tt class="py-docstring">"""Decides whether to accept pressed key."""</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">False</tt> </tt>
+</div><a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line"> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line">        <tt class="py-comment"># convert: actualizes field values to reflect input</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># Return value: none</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># Active value can be modified, but not so that it breaks the input.</tt> </tt>
+<a name="Converter.convert"></a><div id="Converter.convert-def"><a name="L125"></a><tt class="py-lineno">125</tt> <a class="py-toggle" href="#" id="Converter.convert-toggle" onclick="return toggle('Converter.convert');">-</a><tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.plugins.Convert.Converter-class.html#convert">convert</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Converter.convert-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="Converter.convert-expanded"><a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line">                <tt class="py-docstring">"""Recalculates field values after changes."""</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line">                <tt class="py-keyword">pass</tt> </tt>
+</div></div><a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line"> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line"> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line"><tt class="py-comment"># A subclass of Converter representing numerical converters whose field are </tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># bound by a simple linear relation. It cares about float value input and output </tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># and conversion, so the developer who wants to use it doesn't need to provide </tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># any functions. Besides the __anything__, num_fields and field_names variables, </tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># he must only provide a list describing desired ratios (see below).</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Not to be used directly. See LengthConverter for a commented example.</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="RatioConverter"></a><div id="RatioConverter-def"><a name="L137"></a><tt class="py-lineno">137</tt> <a class="py-toggle" href="#" id="RatioConverter-toggle" onclick="return toggle('RatioConverter');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="screenlets.plugins.Convert.RatioConverter-class.html">RatioConverter</a><tt class="py-op">(</tt><tt class="py-base-class">Converter</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="RatioConverter-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="RatioConverter-expanded"><a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line">        <tt class="py-docstring">"""A base class of converters having linear dependances between their </tt> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line"><tt class="py-docstring">        fields."""</tt> </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line"> </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line">        <tt id="link-60" class="py-name"><a title="screenlets.Screenlet.__name__
+screenlets.ScreenletTheme.__name__
+screenlets.plugins.Amarok.AmarokAPI.__name__
+screenlets.plugins.Audacious.AudaciousAPI.__name__
+screenlets.plugins.Banshee.BansheeAPI.__name__
+screenlets.plugins.BaseConverter.BaseConverter.__name__
+screenlets.plugins.Convert.Converter.__name__
+screenlets.plugins.Convert.RatioConverter.__name__
+screenlets.plugins.Exaile.ExaileAPI.__name__
+screenlets.plugins.GenericPlayer.GenericAPI.__name__
+screenlets.plugins.Juk.JukAPI.__name__
+screenlets.plugins.Kaffeine.KaffeineAPI.__name__
+screenlets.plugins.LastFMProxy.LastFMProxyAPI.__name__
+screenlets.plugins.LengthConverter.LengthConverter.__name__
+screenlets.plugins.Listen.ListenAPI.__name__
+screenlets.plugins.Quodlibet.QuodlibetAPI.__name__
+screenlets.plugins.Rhythmbox.RhythmboxAPI.__name__
+screenlets.plugins.SizeConverter.SizeConverter.__name__
+screenlets.plugins.Sonata.SonataAPI.__name__
+screenlets.plugins.Songbird.SongbirdAPI.__name__
+screenlets.plugins.TemperatureConverter.TemperatureConverter.__name__" class="py-name" href="#" onclick="return doclink('link-60', '__name__', 'link-0');">__name__</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'RatioConverter'</tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">        <tt id="link-61" class="py-name"><a title="screenlets.plugins.BaseConverter.BaseConverter.__title__
+screenlets.plugins.Convert.Converter.__title__
+screenlets.plugins.Convert.RatioConverter.__title__
+screenlets.plugins.LengthConverter.LengthConverter.__title__
+screenlets.plugins.SizeConverter.SizeConverter.__title__
+screenlets.plugins.TemperatureConverter.TemperatureConverter.__title__" class="py-name" href="#" onclick="return doclink('link-61', '__title__', 'link-1');">__title__</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'Base / Ratio'</tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line"> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line">        <tt class="py-comment"># The list of relative weights of the individual fields. The length of this </tt> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># list must be equal to num_fields. The ratio between two fields will be </tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># inverse to the ratio of corresponding entries in this list. For example, </tt> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># see LengthConverter. One may ask whether not to better use relative </tt> </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># ratios, i.e., ratios between fields = ratio between entries, the answer is </tt> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># that this approach is more intuitive. You would set 1 for some unit and </tt> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># 1000 for the corresponding kilo-unit this way.</tt> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># The above implies that the values in this list are relative to whichever </tt> </tt>
+<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># one you would choose, e.g., [10, 5, 1] (will be converted to float) is </tt> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># equivalent to [2.0, 1.0, 0.2]. Actually, integer (exact) values are </tt> </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># preferred if they reflect the logic of the conversion.</tt> </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt id="link-62" class="py-name" targets="Variable screenlets.plugins.Convert.RatioConverter.weights=screenlets.plugins.Convert.RatioConverter-class.html#weights,Variable screenlets.plugins.LengthConverter.LengthConverter.weights=screenlets.plugins.LengthConverter.LengthConverter-class.html#weights,Variable screenlets.plugins.SizeConverter.SizeConverter.weights=screenlets.plugins.SizeConverter.SizeConverter-class.html#weights"><a title="screenlets.plugins.Convert.RatioConverter.weights
+screenlets.plugins.LengthConverter.LengthConverter.weights
+screenlets.plugins.SizeConverter.SizeConverter.weights" class="py-name" href="#" onclick="return doclink('link-62', 'weights', 'link-62');">weights</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line"> </tt>
+<a name="RatioConverter.filter_key"></a><div id="RatioConverter.filter_key-def"><a name="L157"></a><tt class="py-lineno">157</tt> <a class="py-toggle" href="#" id="RatioConverter.filter_key-toggle" onclick="return toggle('RatioConverter.filter_key');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.plugins.Convert.RatioConverter-class.html#filter_key">filter_key</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">key</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="RatioConverter.filter_key-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="RatioConverter.filter_key-expanded"><a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line">                <tt class="py-comment"># Accept digits</tt> </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-keyword">if</tt> <tt class="py-name">key</tt><tt class="py-op">.</tt><tt class="py-name">isdigit</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line">                        <tt class="py-keyword">return</tt> <tt class="py-name">True</tt> </tt>
+<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line">                <tt class="py-comment"># Also accept a decimal point if there is no one yet</tt> </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-keyword">elif</tt> <tt class="py-name">key</tt> <tt class="py-op">==</tt> <tt class="py-string">'.'</tt><tt class="py-op">:</tt> </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line">                        <tt class="py-keyword">return</tt> <tt class="py-keyword">not</tt> <tt class="py-op">(</tt><tt class="py-string">'.'</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-63" class="py-name"><a title="screenlets.plugins.Convert.Converter.values" class="py-name" href="#" onclick="return doclink('link-63', 'values', 'link-5');">values</a></tt><tt class="py-op">[</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-64" class="py-name"><a title="screenlets.plugins.Convert.Converter.active_field" class="py-name" href="#" onclick="return doclink('link-64', 'active_field', 'link-4');">active_field</a></tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line">                <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line">                        <tt class="py-keyword">return</tt> <tt class="py-name">False</tt> </tt>
+</div><a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line"> </tt>
+<a name="RatioConverter.convert"></a><div id="RatioConverter.convert-def"><a name="L167"></a><tt class="py-lineno">167</tt> <a class="py-toggle" href="#" id="RatioConverter.convert-toggle" onclick="return toggle('RatioConverter.convert');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.plugins.Convert.RatioConverter-class.html#convert">convert</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="RatioConverter.convert-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="RatioConverter.convert-expanded"><a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line">                <tt class="py-comment"># A multiply-then-divide approach is used to help avoiding little</tt> </tt>
+<a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-comment"># inaccuracies arising in operations like (3/10)*100.</tt> </tt>
+<a name="L170"></a><tt class="py-lineno">170</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-name">val</tt> <tt class="py-op">=</tt> <tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-65" class="py-name"><a title="screenlets.plugins.Convert.Converter.values" class="py-name" href="#" onclick="return doclink('link-65', 'values', 'link-5');">values</a></tt><tt class="py-op">[</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-66" class="py-name"><a title="screenlets.plugins.Convert.Converter.active_field" class="py-name" href="#" onclick="return doclink('link-66', 'active_field', 'link-4');">active_field</a></tt><tt class="py-op">]</tt><tt class="py-op">)</tt> \ </tt>
+<a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line">                                <tt class="py-op">*</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-67" class="py-name"><a title="screenlets.plugins.Convert.RatioConverter.weights
+screenlets.plugins.LengthConverter.LengthConverter.weights
+screenlets.plugins.SizeConverter.SizeConverter.weights" class="py-name" href="#" onclick="return doclink('link-67', 'weights', 'link-62');">weights</a></tt><tt class="py-op">[</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-68" class="py-name"><a title="screenlets.plugins.Convert.Converter.active_field" class="py-name" href="#" onclick="return doclink('link-68', 'active_field', 'link-4');">active_field</a></tt><tt class="py-op">]</tt> </tt>
+<a name="L172"></a><tt class="py-lineno">172</tt>  <tt class="py-line">                <tt class="py-keyword">for</tt> <tt class="py-name">i</tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-69" class="py-name"><a title="screenlets.plugins.BaseConverter.BaseConverter.num_fields
+screenlets.plugins.Convert.Converter.num_fields
+screenlets.plugins.LengthConverter.LengthConverter.num_fields
+screenlets.plugins.SizeConverter.SizeConverter.num_fields
+screenlets.plugins.TemperatureConverter.TemperatureConverter.num_fields" class="py-name" href="#" onclick="return doclink('link-69', 'num_fields', 'link-2');">num_fields</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-name">i</tt> <tt class="py-op">==</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-70" class="py-name"><a title="screenlets.plugins.Convert.Converter.active_field" class="py-name" href="#" onclick="return doclink('link-70', 'active_field', 'link-4');">active_field</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line">                                <tt class="py-keyword">continue</tt> </tt>
+<a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-71" class="py-name"><a title="screenlets.plugins.Convert.Converter.values" class="py-name" href="#" onclick="return doclink('link-71', 'values', 'link-5');">values</a></tt><tt class="py-op">[</tt><tt class="py-name">i</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-72" class="py-name"><a title="screenlets.plugins.Convert.Converter.str" class="py-name" href="#" onclick="return doclink('link-72', 'str', 'link-41');">str</a></tt><tt class="py-op">(</tt><tt class="py-name">val</tt> <tt class="py-op">/</tt> <tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-73" class="py-name"><a title="screenlets.plugins.Convert.RatioConverter.weights
+screenlets.plugins.LengthConverter.LengthConverter.weights
+screenlets.plugins.SizeConverter.SizeConverter.weights" class="py-name" href="#" onclick="return doclink('link-73', 'weights', 'link-62');">weights</a></tt><tt class="py-op">[</tt><tt class="py-name">i</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L176"></a><tt class="py-lineno">176</tt>  <tt class="py-line">        <tt class="py-comment"># Note: if you don't like the Converter.str() function used above which </tt> </tt>
+<a name="L177"></a><tt class="py-lineno">177</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># tries to always display integers as integers, you can provide your own, </tt> </tt>
+<a name="L178"></a><tt class="py-lineno">178</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># e.g., def str(self, val): return '%.3f' % val</tt> </tt>
+<a name="L179"></a><tt class="py-lineno">179</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="screenlets-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Screenlets 0.1.2</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Wed Jun  4 18:52:59 2008
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

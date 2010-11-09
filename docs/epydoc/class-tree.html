@@ -1,0 +1,2666 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class Hierarchy</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="screenlets-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th bgcolor="#70b0f0" class="navbar-select"
+          >&nbsp;&nbsp;&nbsp;Trees&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Screenlets 0.1.2</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">&nbsp;</td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="class-tree.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<center><b>
+ [ <a href="module-tree.html">Module Hierarchy</a>
+ | <a href="class-tree.html">Class Hierarchy</a> ]
+</b></center><br />
+<h1 class="epydoc">Class Hierarchy</h1>
+<ul class="nomargin-top">
+    <li> <strong class="uidlink">object</strong>:
+      <em class="summary">The most base type</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.mpdclient2.response_fetcher-class.html">screenlets.plugins.mpdclient2.response_fetcher</a></strong>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.session.ScreenletSession-class.html">screenlets.session.ScreenletSession</a></strong>:
+      <em class="summary">The ScreenletSession manages instances of a Screenlet and 
+        handles saving/restoring options.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.mpdclient2.sender_n_fetcher-class.html">screenlets.plugins.mpdclient2.sender_n_fetcher</a></strong>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.Loader.GnomeVFSAsyncSrc-class.html">screenlets.plugins.Loader.GnomeVFSAsyncSrc</a></strong>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.Loader.URLLibSrc-class.html">screenlets.plugins.Loader.URLLibSrc</a></strong>
+    </li>
+    <li> <strong class="uidlink">dict</strong>:
+      <em class="summary">dict() -&gt; new empty dictionary.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.mpdclient2.dictobj-class.html">screenlets.plugins.mpdclient2.dictobj</a></strong>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.ScreenletTheme-class.html">screenlets.ScreenletTheme</a></strong>:
+      <em class="summary">ScreenletThemes are simple storages that allow loading files as 
+        svg-handles within a theme-directory.</em>
+    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink">threading._Verbose</strong>
+    <ul>
+    <li> <strong class="uidlink">threading.Thread</strong>
+    <ul>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.CoverSearch.CoverSearch-class.html">screenlets.plugins.CoverSearch.CoverSearch</a></strong>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink">gobject.GObject</strong>:
+      <em class="summary">Object GObject...</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="screenlets.sensors.Sensor-class.html">screenlets.sensors.Sensor</a></strong>:
+      <em class="summary">A base class for deriving new Sensor-types from.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="screenlets.sensors.MemorySensor-class.html">screenlets.sensors.MemorySensor</a></strong>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.sensors.CPUSensor-class.html">screenlets.sensors.CPUSensor</a></strong>:
+      <em class="summary">A very simple CPU-sensor.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.sensors.NetSensor-class.html">screenlets.sensors.NetSensor</a></strong>
+    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink">gtk.Object</strong>:
+      <em class="summary">Object GtkObject...</em>
+    <ul>
+    <li> <strong class="uidlink">gtk.Widget</strong>:
+      <em class="summary">Object GtkWidget
+
+Signals from GtkWidget:
+  composited-changed ()
+  show ()
+  hide ()
+  map ()
+  unmap ()
+  realize ()
+  unrealize ()
+  size-request (GtkRequisition)
+  size-allocate (GdkRectangle)
+  state-changed (GtkStateType)
+  parent-set (GtkWidget)
+  hierarchy-changed (GtkWidget)
+  style-set (GtkStyle)
+  direction-changed (GtkTextDirection)
+  grab-notify (gboolean)
+  child-notify (GParam)
+  mnemonic-activate (gboolean) -&gt; gboolean
+  grab-focus ()
+  focus (GtkDirectionType) -&gt; gboolean
+  move-focus (GtkDirectionType)
+  event (GdkEvent) -&gt; gboolean
+  event-after (GdkEvent)
+  button-press-event (GdkEvent) -&gt; gboolean
+  button-release-event (GdkEvent) -&gt; gboolean
+  scroll-event (GdkEvent) -&gt; gboolean
+  motion-notify-event (GdkEvent) -&gt; gboolean
+  keynav-failed (GtkDirectionType) -&gt; gboolean
+  delete-event (GdkEvent) -&gt; gboolean
+  destroy-event (GdkEvent) -&gt; gboolean
+  expose-event (GdkEvent) -&gt; gboolean
+  key-press-event (GdkEvent) -&gt; gboolean
+  key-release-event (GdkEvent) -&gt; gboolean
+  enter-notify-event (GdkEvent) -&gt; gboolean
+  leave-notify-event (GdkEvent) -&gt; gboolean
+  configure-event (GdkEvent) -&gt; gboolean
+  focus-in-event (GdkEvent) -&gt; gboolean
+  focus-out-event (GdkEvent) -&gt; gboolean
+  map-event (GdkEvent) -&gt; gboolean
+  unmap-event (GdkEvent) -&gt; gboolean
+  property-notify-event (GdkEvent) -&gt; gboolean
+  selection-clear-event (GdkEvent) -&gt; gboolean
+  selection-request-event (GdkEvent) -&gt; gboolean
+  selection-notify-event (GdkEvent) -&gt; gboolean
+  selection-received (GtkSelectionData, guint)
+  selection-get (GtkSelectionData, guint, guint)
+  proximity-in-event (GdkEvent) -&gt; gboolean
+  proximity-out-event (GdkEvent) -&gt; gboolean
+  drag-leave (GdkDragContext, guint)
+  drag-begin (GdkDragContext)
+  drag-end (GdkDragContext)
+  drag-data-delete (GdkDragContext)
+  drag-failed (GdkDragContext, GtkDragResult) -&gt; gboolean
+  drag-motion (GdkDragContext, gint, gint, guint) -&gt; gboolean
+  drag-drop (GdkDragContext, gint, gint, guint) -&gt; gboolean
+  drag-data-get (GdkDragContext, GtkSelectionData, guint, guint)
+  drag-data-received (GdkDragContext, gint, gint, GtkSelectionData, guint, guint)
+  visibility-notify-event (GdkEvent) -&gt; gboolean
+  client-event (GdkEvent) -&gt; gboolean
+  no-expose-event (GdkEvent) -&gt; gboolean
+  window-state-event (GdkEvent) -&gt; gboolean
+  grab-broken-event (GdkEvent) -&gt; gboolean
+  query-tooltip (gint, gint, gboolean, GtkTooltip) -&gt; gboolean
+  popup-menu () -&gt; gboolean
+  show-help (GtkWidgetHelpType) -&gt; gboolean
+  accel-closures-changed ()
+  screen-changed (GdkScreen)
+  can-activate-accel (guint) -&gt; gboolean
+
+Properties from GtkWidget:
+  name -&gt; gchararray: Nome do widget
+    O nome do widget
+  parent -&gt; GtkContainer: Widget pai
+    O widget pai deste widget.</em>
+    <ul>
+    <li> <strong class="uidlink">gtk.Container</strong>:
+      <em class="summary">Object GtkContainer
+
+Signals from GtkContainer:
+  add (GtkWidget)
+  remove (GtkWidget)
+  check-resize ()
+  set-focus-child (GtkWidget)
+
+Properties from GtkContainer:
+  border-width -&gt; guint: Largura da margem
+    A largura da margem vazia fora dos filhos do contentor
+  resize-mode -&gt; GtkResizeMode: Modo de redimensionamento
+    Especificar como s&#195;&#163;o geridos os eventos de redimensionamento
+  child -&gt; GtkWidget: Filho
+    Pode ser utilizado para adicionar novo filho ao contentor
+
+Signals from GtkWidget:
+  composited-changed ()
+  show ()
+  hide ()
+  map ()
+  unmap ()
+  realize ()
+  unrealize ()
+  size-request (GtkRequisition)
+  size-allocate (GdkRectangle)
+  state-changed (GtkStateType)
+  parent-set (GtkWidget)
+  hierarchy-changed (GtkWidget)
+  style-set (GtkStyle)
+  direction-changed (GtkTextDirection)
+  grab-notify (gboolean)
+  child-notify (GParam)
+  mnemonic-activate (gboolean) -&gt; gboolean
+  grab-focus ()
+  focus (GtkDirectionType) -&gt; gboolean
+  move-focus (GtkDirectionType)
+  event (GdkEvent) -&gt; gboolean
+  event-after (GdkEvent)
+  button-press-event (GdkEvent) -&gt; gboolean
+  button-release-event (GdkEvent) -&gt; gboolean
+  scroll-event (GdkEvent) -&gt; gboolean
+  motion-notify-event (GdkEvent) -&gt; gboolean
+  keynav-failed (GtkDirectionType) -&gt; gboolean
+  delete-event (GdkEvent) -&gt; gboolean
+  destroy-event (GdkEvent) -&gt; gboolean
+  expose-event (GdkEvent) -&gt; gboolean
+  key-press-event (GdkEvent) -&gt; gboolean
+  key-release-event (GdkEvent) -&gt; gboolean
+  enter-notify-event (GdkEvent) -&gt; gboolean
+  leave-notify-event (GdkEvent) -&gt; gboolean
+  configure-event (GdkEvent) -&gt; gboolean
+  focus-in-event (GdkEvent) -&gt; gboolean
+  focus-out-event (GdkEvent) -&gt; gboolean
+  map-event (GdkEvent) -&gt; gboolean
+  unmap-event (GdkEvent) -&gt; gboolean
+  property-notify-event (GdkEvent) -&gt; gboolean
+  selection-clear-event (GdkEvent) -&gt; gboolean
+  selection-request-event (GdkEvent) -&gt; gboolean
+  selection-notify-event (GdkEvent) -&gt; gboolean
+  selection-received (GtkSelectionData, guint)
+  selection-get (GtkSelectionData, guint, guint)
+  proximity-in-event (GdkEvent) -&gt; gboolean
+  proximity-out-event (GdkEvent) -&gt; gboolean
+  drag-leave (GdkDragContext, guint)
+  drag-begin (GdkDragContext)
+  drag-end (GdkDragContext)
+  drag-data-delete (GdkDragContext)
+  drag-failed (GdkDragContext, GtkDragResult) -&gt; gboolean
+  drag-motion (GdkDragContext, gint, gint, guint) -&gt; gboolean
+  drag-drop (GdkDragContext, gint, gint, guint) -&gt; gboolean
+  drag-data-get (GdkDragContext, GtkSelectionData, guint, guint)
+  drag-data-received (GdkDragContext, gint, gint, GtkSelectionData, guint, guint)
+  visibility-notify-event (GdkEvent) -&gt; gboolean
+  client-event (GdkEvent) -&gt; gboolean
+  no-expose-event (GdkEvent) -&gt; gboolean
+  window-state-event (GdkEvent) -&gt; gboolean
+  grab-broken-event (GdkEvent) -&gt; gboolean
+  query-tooltip (gint, gint, gboolean, GtkTooltip) -&gt; gboolean
+  popup-menu () -&gt; gboolean
+  show-help (GtkWidgetHelpType) -&gt; gboolean
+  accel-closures-changed ()
+  screen-changed (GdkScreen)
+  can-activate-accel (guint) -&gt; gboolean
+
+Properties from GtkWidget:
+  name -&gt; gchararray: Nome do widget
+    O nome do widget
+  parent -&gt; GtkContainer: Widget pai
+    O widget pai deste widget.</em>
+    <ul>
+    <li> <strong class="uidlink">gtk.Bin</strong>:
+      <em class="summary">Object GtkBin
+
+Signals from GtkContainer:
+  add (GtkWidget)
+  remove (GtkWidget)
+  check-resize ()
+  set-focus-child (GtkWidget)
+
+Properties from GtkContainer:
+  border-width -&gt; guint: Largura da margem
+    A largura da margem vazia fora dos filhos do contentor
+  resize-mode -&gt; GtkResizeMode: Modo de redimensionamento
+    Especificar como s&#195;&#163;o geridos os eventos de redimensionamento
+  child -&gt; GtkWidget: Filho
+    Pode ser utilizado para adicionar novo filho ao contentor
+
+Signals from GtkWidget:
+  composited-changed ()
+  show ()
+  hide ()
+  map ()
+  unmap ()
+  realize ()
+  unrealize ()
+  size-request (GtkRequisition)
+  size-allocate (GdkRectangle)
+  state-changed (GtkStateType)
+  parent-set (GtkWidget)
+  hierarchy-changed (GtkWidget)
+  style-set (GtkStyle)
+  direction-changed (GtkTextDirection)
+  grab-notify (gboolean)
+  child-notify (GParam)
+  mnemonic-activate (gboolean) -&gt; gboolean
+  grab-focus ()
+  focus (GtkDirectionType) -&gt; gboolean
+  move-focus (GtkDirectionType)
+  event (GdkEvent) -&gt; gboolean
+  event-after (GdkEvent)
+  button-press-event (GdkEvent) -&gt; gboolean
+  button-release-event (GdkEvent) -&gt; gboolean
+  scroll-event (GdkEvent) -&gt; gboolean
+  motion-notify-event (GdkEvent) -&gt; gboolean
+  keynav-failed (GtkDirectionType) -&gt; gboolean
+  delete-event (GdkEvent) -&gt; gboolean
+  destroy-event (GdkEvent) -&gt; gboolean
+  expose-event (GdkEvent) -&gt; gboolean
+  key-press-event (GdkEvent) -&gt; gboolean
+  key-release-event (GdkEvent) -&gt; gboolean
+  enter-notify-event (GdkEvent) -&gt; gboolean
+  leave-notify-event (GdkEvent) -&gt; gboolean
+  configure-event (GdkEvent) -&gt; gboolean
+  focus-in-event (GdkEvent) -&gt; gboolean
+  focus-out-event (GdkEvent) -&gt; gboolean
+  map-event (GdkEvent) -&gt; gboolean
+  unmap-event (GdkEvent) -&gt; gboolean
+  property-notify-event (GdkEvent) -&gt; gboolean
+  selection-clear-event (GdkEvent) -&gt; gboolean
+  selection-request-event (GdkEvent) -&gt; gboolean
+  selection-notify-event (GdkEvent) -&gt; gboolean
+  selection-received (GtkSelectionData, guint)
+  selection-get (GtkSelectionData, guint, guint)
+  proximity-in-event (GdkEvent) -&gt; gboolean
+  proximity-out-event (GdkEvent) -&gt; gboolean
+  drag-leave (GdkDragContext, guint)
+  drag-begin (GdkDragContext)
+  drag-end (GdkDragContext)
+  drag-data-delete (GdkDragContext)
+  drag-failed (GdkDragContext, GtkDragResult) -&gt; gboolean
+  drag-motion (GdkDragContext, gint, gint, guint) -&gt; gboolean
+  drag-drop (GdkDragContext, gint, gint, guint) -&gt; gboolean
+  drag-data-get (GdkDragContext, GtkSelectionData, guint, guint)
+  drag-data-received (GdkDragContext, gint, gint, GtkSelectionData, guint, guint)
+  visibility-notify-event (GdkEvent) -&gt; gboolean
+  client-event (GdkEvent) -&gt; gboolean
+  no-expose-event (GdkEvent) -&gt; gboolean
+  window-state-event (GdkEvent) -&gt; gboolean
+  grab-broken-event (GdkEvent) -&gt; gboolean
+  query-tooltip (gint, gint, gboolean, GtkTooltip) -&gt; gboolean
+  popup-menu () -&gt; gboolean
+  show-help (GtkWidgetHelpType) -&gt; gboolean
+  accel-closures-changed ()
+  screen-changed (GdkScreen)
+  can-activate-accel (guint) -&gt; gboolean
+
+Properties from GtkWidget:
+  name -&gt; gchararray: Nome do widget
+    O nome do widget
+  parent -&gt; GtkContainer: Widget pai
+    O widget pai deste widget.</em>
+    <ul>
+    <li> <strong class="uidlink">gtk.Window</strong>:
+      <em class="summary">Object GtkWindow
+
+Signals from GtkWindow:
+  set-focus (GtkWidget)
+  frame-event (GdkEvent) -&gt; gboolean
+  activate-focus ()
+  activate-default ()
+  keys-changed ()
+
+Properties from GtkWindow:
+  type -&gt; GtkWindowType: Tipo de Janela
+    O tipo da janela
+  title -&gt; gchararray: T&#195;&#173;tulo da Janela
+    O t&#195;&#173;tulo da janela
+  role -&gt; gchararray: Papel da Janela
+    Identificador &#195;&#186;nico para a janela a ser utilizado ao rep&#195;&#180;r uma sess&#195;&#163;o
+  startup-id -&gt; gchararray: ID de In&#195;&#173;cio
+    Identificador &#195;&#186;nico de in&#195;&#173;cio para a janela utilizado pelo startup-notification
+  allow-shrink -&gt; gboolean: Permitir Encolher
+    Se VERDADEIRO, a janela n&#195;&#163;o tem um tamanho m&#195;&#173;nimo.</em>
+    <ul>
+    <li> <strong class="uidlink">gtk.Dialog</strong>:
+      <em class="summary">Object GtkDialog
+
+Signals from GtkDialog:
+  response (gint)
+  close ()
+
+Properties from GtkDialog:
+  has-separator -&gt; gboolean: Tem separador
+    O di&#195;&#161;logo tem uma barra separadora acima dos seus bot&#195;&#181;es
+
+Signals from GtkWindow:
+  set-focus (GtkWidget)
+  frame-event (GdkEvent) -&gt; gboolean
+  activate-focus ()
+  activate-default ()
+  keys-changed ()
+
+Properties from GtkWindow:
+  type -&gt; GtkWindowType: Tipo de Janela
+    O tipo da janela
+  title -&gt; gchararray: T&#195;&#173;tulo da Janela
+    O t&#195;&#173;tulo da janela
+  role -&gt; gchararray: Papel da Janela
+    Identificador &#195;&#186;nico para a janela a ser utilizado ao rep&#195;&#180;r uma sess&#195;&#163;o
+  startup-id -&gt; gchararray: ID de In&#195;&#173;cio
+    Identificador &#195;&#186;nico de in&#195;&#173;cio para a janela utilizado pelo startup-notification
+  allow-shrink -&gt; gboolean: Permitir Encolher
+    Se VERDADEIRO, a janela n&#195;&#163;o tem um tamanho m&#195;&#173;nimo.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="screenlets.options.OptionsDialog-class.html">screenlets.options.OptionsDialog</a></strong>:
+      <em class="summary">A dynamic options-editor for editing Screenlets which are 
+        implementing the EditableOptions-class.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.options.ListOptionDialog-class.html">screenlets.options.ListOptionDialog</a></strong>:
+      <em class="summary">An editing dialog used for editing options of the 
+        ListOption-type.</em>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink">gtk.Item</strong>:
+      <em class="summary">Object GtkItem
+
+Signals from GtkItem:
+  select ()
+  deselect ()
+  toggle ()
+
+Signals from GtkContainer:
+  add (GtkWidget)
+  remove (GtkWidget)
+  check-resize ()
+  set-focus-child (GtkWidget)
+
+Properties from GtkContainer:
+  border-width -&gt; guint: Largura da margem
+    A largura da margem vazia fora dos filhos do contentor
+  resize-mode -&gt; GtkResizeMode: Modo de redimensionamento
+    Especificar como s&#195;&#163;o geridos os eventos de redimensionamento
+  child -&gt; GtkWidget: Filho
+    Pode ser utilizado para adicionar novo filho ao contentor
+
+Signals from GtkWidget:
+  composited-changed ()
+  show ()
+  hide ()
+  map ()
+  unmap ()
+  realize ()
+  unrealize ()
+  size-request (GtkRequisition)
+  size-allocate (GdkRectangle)
+  state-changed (GtkStateType)
+  parent-set (GtkWidget)
+  hierarchy-changed (GtkWidget)
+  style-set (GtkStyle)
+  direction-changed (GtkTextDirection)
+  grab-notify (gboolean)
+  child-notify (GParam)
+  mnemonic-activate (gboolean) -&gt; gboolean
+  grab-focus ()
+  focus (GtkDirectionType) -&gt; gboolean
+  move-focus (GtkDirectionType)
+  event (GdkEvent) -&gt; gboolean
+  event-after (GdkEvent)
+  button-press-event (GdkEvent) -&gt; gboolean
+  button-release-event (GdkEvent) -&gt; gboolean
+  scroll-event (GdkEvent) -&gt; gboolean
+  motion-notify-event (GdkEvent) -&gt; gboolean
+  keynav-failed (GtkDirectionType) -&gt; gboolean
+  delete-event (GdkEvent) -&gt; gboolean
+  destroy-event (GdkEvent) -&gt; gboolean
+  expose-event (GdkEvent) -&gt; gboolean
+  key-press-event (GdkEvent) -&gt; gboolean
+  key-release-event (GdkEvent) -&gt; gboolean
+  enter-notify-event (GdkEvent) -&gt; gboolean
+  leave-notify-event (GdkEvent) -&gt; gboolean
+  configure-event (GdkEvent) -&gt; gboolean
+  focus-in-event (GdkEvent) -&gt; gboolean
+  focus-out-event (GdkEvent) -&gt; gboolean
+  map-event (GdkEvent) -&gt; gboolean
+  unmap-event (GdkEvent) -&gt; gboolean
+  property-notify-event (GdkEvent) -&gt; gboolean
+  selection-clear-event (GdkEvent) -&gt; gboolean
+  selection-request-event (GdkEvent) -&gt; gboolean
+  selection-notify-event (GdkEvent) -&gt; gboolean
+  selection-received (GtkSelectionData, guint)
+  selection-get (GtkSelectionData, guint, guint)
+  proximity-in-event (GdkEvent) -&gt; gboolean
+  proximity-out-event (GdkEvent) -&gt; gboolean
+  drag-leave (GdkDragContext, guint)
+  drag-begin (GdkDragContext)
+  drag-end (GdkDragContext)
+  drag-data-delete (GdkDragContext)
+  drag-failed (GdkDragContext, GtkDragResult) -&gt; gboolean
+  drag-motion (GdkDragContext, gint, gint, guint) -&gt; gboolean
+  drag-drop (GdkDragContext, gint, gint, guint) -&gt; gboolean
+  drag-data-get (GdkDragContext, GtkSelectionData, guint, guint)
+  drag-data-received (GdkDragContext, gint, gint, GtkSelectionData, guint, guint)
+  visibility-notify-event (GdkEvent) -&gt; gboolean
+  client-event (GdkEvent) -&gt; gboolean
+  no-expose-event (GdkEvent) -&gt; gboolean
+  window-state-event (GdkEvent) -&gt; gboolean
+  grab-broken-event (GdkEvent) -&gt; gboolean
+  query-tooltip (gint, gint, gboolean, GtkTooltip) -&gt; gboolean
+  popup-menu () -&gt; gboolean
+  show-help (GtkWidgetHelpType) -&gt; gboolean
+  accel-closures-changed ()
+  screen-changed (GdkScreen)
+  can-activate-accel (guint) -&gt; gboolean
+
+Properties from GtkWidget:
+  name -&gt; gchararray: Nome do widget
+    O nome do widget
+  parent -&gt; GtkContainer: Widget pai
+    O widget pai deste widget.</em>
+    <ul>
+    <li> <strong class="uidlink">gtk.MenuItem</strong>:
+      <em class="summary">Object GtkMenuItem
+
+Signals from GtkMenuItem:
+  activate ()
+  activate-item ()
+  toggle-size-request (gpointer)
+  toggle-size-allocate (gint)
+
+Properties from GtkMenuItem:
+  submenu -&gt; GtkMenu: Submenu
+    O submenu associado ao item de menu, ou NULL se n&#195;&#163;o existir
+
+Signals from GtkItem:
+  select ()
+  deselect ()
+  toggle ()
+
+Signals from GtkContainer:
+  add (GtkWidget)
+  remove (GtkWidget)
+  check-resize ()
+  set-focus-child (GtkWidget)
+
+Properties from GtkContainer:
+  border-width -&gt; guint: Largura da margem
+    A largura da margem vazia fora dos filhos do contentor
+  resize-mode -&gt; GtkResizeMode: Modo de redimensionamento
+    Especificar como s&#195;&#163;o geridos os eventos de redimensionamento
+  child -&gt; GtkWidget: Filho
+    Pode ser utilizado para adicionar novo filho ao contentor
+
+Signals from GtkWidget:
+  composited-changed ()
+  show ()
+  hide ()
+  map ()
+  unmap ()
+  realize ()
+  unrealize ()
+  size-request (GtkRequisition)
+  size-allocate (GdkRectangle)
+  state-changed (GtkStateType)
+  parent-set (GtkWidget)
+  hierarchy-changed (GtkWidget)
+  style-set (GtkStyle)
+  direction-changed (GtkTextDirection)
+  grab-notify (gboolean)
+  child-notify (GParam)
+  mnemonic-activate (gboolean) -&gt; gboolean
+  grab-focus ()
+  focus (GtkDirectionType) -&gt; gboolean
+  move-focus (GtkDirectionType)
+  event (GdkEvent) -&gt; gboolean
+  event-after (GdkEvent)
+  button-press-event (GdkEvent) -&gt; gboolean
+  button-release-event (GdkEvent) -&gt; gboolean
+  scroll-event (GdkEvent) -&gt; gboolean
+  motion-notify-event (GdkEvent) -&gt; gboolean
+  keynav-failed (GtkDirectionType) -&gt; gboolean
+  delete-event (GdkEvent) -&gt; gboolean
+  destroy-event (GdkEvent) -&gt; gboolean
+  expose-event (GdkEvent) -&gt; gboolean
+  key-press-event (GdkEvent) -&gt; gboolean
+  key-release-event (GdkEvent) -&gt; gboolean
+  enter-notify-event (GdkEvent) -&gt; gboolean
+  leave-notify-event (GdkEvent) -&gt; gboolean
+  configure-event (GdkEvent) -&gt; gboolean
+  focus-in-event (GdkEvent) -&gt; gboolean
+  focus-out-event (GdkEvent) -&gt; gboolean
+  map-event (GdkEvent) -&gt; gboolean
+  unmap-event (GdkEvent) -&gt; gboolean
+  property-notify-event (GdkEvent) -&gt; gboolean
+  selection-clear-event (GdkEvent) -&gt; gboolean
+  selection-request-event (GdkEvent) -&gt; gboolean
+  selection-notify-event (GdkEvent) -&gt; gboolean
+  selection-received (GtkSelectionData, guint)
+  selection-get (GtkSelectionData, guint, guint)
+  proximity-in-event (GdkEvent) -&gt; gboolean
+  proximity-out-event (GdkEvent) -&gt; gboolean
+  drag-leave (GdkDragContext, guint)
+  drag-begin (GdkDragContext)
+  drag-end (GdkDragContext)
+  drag-data-delete (GdkDragContext)
+  drag-failed (GdkDragContext, GtkDragResult) -&gt; gboolean
+  drag-motion (GdkDragContext, gint, gint, guint) -&gt; gboolean
+  drag-drop (GdkDragContext, gint, gint, guint) -&gt; gboolean
+  drag-data-get (GdkDragContext, GtkSelectionData, guint, guint)
+  drag-data-received (GdkDragContext, gint, gint, GtkSelectionData, guint, guint)
+  visibility-notify-event (GdkEvent) -&gt; gboolean
+  client-event (GdkEvent) -&gt; gboolean
+  no-expose-event (GdkEvent) -&gt; gboolean
+  window-state-event (GdkEvent) -&gt; gboolean
+  grab-broken-event (GdkEvent) -&gt; gboolean
+  query-tooltip (gint, gint, gboolean, GtkTooltip) -&gt; gboolean
+  popup-menu () -&gt; gboolean
+  show-help (GtkWidgetHelpType) -&gt; gboolean
+  accel-closures-changed ()
+  screen-changed (GdkScreen)
+  can-activate-accel (guint) -&gt; gboolean
+
+Properties from GtkWidget:
+  name -&gt; gchararray: Nome do widget
+    O nome do widget
+  parent -&gt; GtkContainer: Widget pai
+    O widget pai deste widget.</em>
+    <ul>
+    <li> <strong class="uidlink">gtk.ImageMenuItem</strong>:
+      <em class="summary">Object GtkImageMenuItem
+
+Properties from GtkImageMenuItem:
+  image -&gt; GtkWidget: Widget de imagem
+    Widget filho a apresentar ao lado do texto de menu
+
+Signals from GtkMenuItem:
+  activate ()
+  activate-item ()
+  toggle-size-request (gpointer)
+  toggle-size-allocate (gint)
+
+Properties from GtkMenuItem:
+  submenu -&gt; GtkMenu: Submenu
+    O submenu associado ao item de menu, ou NULL se n&#195;&#163;o existir
+
+Signals from GtkItem:
+  select ()
+  deselect ()
+  toggle ()
+
+Signals from GtkContainer:
+  add (GtkWidget)
+  remove (GtkWidget)
+  check-resize ()
+  set-focus-child (GtkWidget)
+
+Properties from GtkContainer:
+  border-width -&gt; guint: Largura da margem
+    A largura da margem vazia fora dos filhos do contentor
+  resize-mode -&gt; GtkResizeMode: Modo de redimensionamento
+    Especificar como s&#195;&#163;o geridos os eventos de redimensionamento
+  child -&gt; GtkWidget: Filho
+    Pode ser utilizado para adicionar novo filho ao contentor
+
+Signals from GtkWidget:
+  composited-changed ()
+  show ()
+  hide ()
+  map ()
+  unmap ()
+  realize ()
+  unrealize ()
+  size-request (GtkRequisition)
+  size-allocate (GdkRectangle)
+  state-changed (GtkStateType)
+  parent-set (GtkWidget)
+  hierarchy-changed (GtkWidget)
+  style-set (GtkStyle)
+  direction-changed (GtkTextDirection)
+  grab-notify (gboolean)
+  child-notify (GParam)
+  mnemonic-activate (gboolean) -&gt; gboolean
+  grab-focus ()
+  focus (GtkDirectionType) -&gt; gboolean
+  move-focus (GtkDirectionType)
+  event (GdkEvent) -&gt; gboolean
+  event-after (GdkEvent)
+  button-press-event (GdkEvent) -&gt; gboolean
+  button-release-event (GdkEvent) -&gt; gboolean
+  scroll-event (GdkEvent) -&gt; gboolean
+  motion-notify-event (GdkEvent) -&gt; gboolean
+  keynav-failed (GtkDirectionType) -&gt; gboolean
+  delete-event (GdkEvent) -&gt; gboolean
+  destroy-event (GdkEvent) -&gt; gboolean
+  expose-event (GdkEvent) -&gt; gboolean
+  key-press-event (GdkEvent) -&gt; gboolean
+  key-release-event (GdkEvent) -&gt; gboolean
+  enter-notify-event (GdkEvent) -&gt; gboolean
+  leave-notify-event (GdkEvent) -&gt; gboolean
+  configure-event (GdkEvent) -&gt; gboolean
+  focus-in-event (GdkEvent) -&gt; gboolean
+  focus-out-event (GdkEvent) -&gt; gboolean
+  map-event (GdkEvent) -&gt; gboolean
+  unmap-event (GdkEvent) -&gt; gboolean
+  property-notify-event (GdkEvent) -&gt; gboolean
+  selection-clear-event (GdkEvent) -&gt; gboolean
+  selection-request-event (GdkEvent) -&gt; gboolean
+  selection-notify-event (GdkEvent) -&gt; gboolean
+  selection-received (GtkSelectionData, guint)
+  selection-get (GtkSelectionData, guint, guint)
+  proximity-in-event (GdkEvent) -&gt; gboolean
+  proximity-out-event (GdkEvent) -&gt; gboolean
+  drag-leave (GdkDragContext, guint)
+  drag-begin (GdkDragContext)
+  drag-end (GdkDragContext)
+  drag-data-delete (GdkDragContext)
+  drag-failed (GdkDragContext, GtkDragResult) -&gt; gboolean
+  drag-motion (GdkDragContext, gint, gint, guint) -&gt; gboolean
+  drag-drop (GdkDragContext, gint, gint, guint) -&gt; gboolean
+  drag-data-get (GdkDragContext, GtkSelectionData, guint, guint)
+  drag-data-received (GdkDragContext, gint, gint, GtkSelectionData, guint, guint)
+  visibility-notify-event (GdkEvent) -&gt; gboolean
+  client-event (GdkEvent) -&gt; gboolean
+  no-expose-event (GdkEvent) -&gt; gboolean
+  window-state-event (GdkEvent) -&gt; gboolean
+  grab-broken-event (GdkEvent) -&gt; gboolean
+  query-tooltip (gint, gint, gboolean, GtkTooltip) -&gt; gboolean
+  popup-menu () -&gt; gboolean
+  show-help (GtkWidgetHelpType) -&gt; gboolean
+  accel-closures-changed ()
+  screen-changed (GdkScreen)
+  can-activate-accel (guint) -&gt; gboolean
+
+Properties from GtkWidget:
+  name -&gt; gchararray: Nome do widget
+    O nome do widget
+  parent -&gt; GtkContainer: Widget pai
+    O widget pai deste widget.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="screenlets.menu.ImageMenuItem-class.html">screenlets.menu.ImageMenuItem</a></strong>:
+      <em class="summary">A menuitem with a custom image and label.</em>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink">gtk.DrawingArea</strong>:
+      <em class="summary">Object GtkDrawingArea
+
+Signals from GtkWidget:
+  composited-changed ()
+  show ()
+  hide ()
+  map ()
+  unmap ()
+  realize ()
+  unrealize ()
+  size-request (GtkRequisition)
+  size-allocate (GdkRectangle)
+  state-changed (GtkStateType)
+  parent-set (GtkWidget)
+  hierarchy-changed (GtkWidget)
+  style-set (GtkStyle)
+  direction-changed (GtkTextDirection)
+  grab-notify (gboolean)
+  child-notify (GParam)
+  mnemonic-activate (gboolean) -&gt; gboolean
+  grab-focus ()
+  focus (GtkDirectionType) -&gt; gboolean
+  move-focus (GtkDirectionType)
+  event (GdkEvent) -&gt; gboolean
+  event-after (GdkEvent)
+  button-press-event (GdkEvent) -&gt; gboolean
+  button-release-event (GdkEvent) -&gt; gboolean
+  scroll-event (GdkEvent) -&gt; gboolean
+  motion-notify-event (GdkEvent) -&gt; gboolean
+  keynav-failed (GtkDirectionType) -&gt; gboolean
+  delete-event (GdkEvent) -&gt; gboolean
+  destroy-event (GdkEvent) -&gt; gboolean
+  expose-event (GdkEvent) -&gt; gboolean
+  key-press-event (GdkEvent) -&gt; gboolean
+  key-release-event (GdkEvent) -&gt; gboolean
+  enter-notify-event (GdkEvent) -&gt; gboolean
+  leave-notify-event (GdkEvent) -&gt; gboolean
+  configure-event (GdkEvent) -&gt; gboolean
+  focus-in-event (GdkEvent) -&gt; gboolean
+  focus-out-event (GdkEvent) -&gt; gboolean
+  map-event (GdkEvent) -&gt; gboolean
+  unmap-event (GdkEvent) -&gt; gboolean
+  property-notify-event (GdkEvent) -&gt; gboolean
+  selection-clear-event (GdkEvent) -&gt; gboolean
+  selection-request-event (GdkEvent) -&gt; gboolean
+  selection-notify-event (GdkEvent) -&gt; gboolean
+  selection-received (GtkSelectionData, guint)
+  selection-get (GtkSelectionData, guint, guint)
+  proximity-in-event (GdkEvent) -&gt; gboolean
+  proximity-out-event (GdkEvent) -&gt; gboolean
+  drag-leave (GdkDragContext, guint)
+  drag-begin (GdkDragContext)
+  drag-end (GdkDragContext)
+  drag-data-delete (GdkDragContext)
+  drag-failed (GdkDragContext, GtkDragResult) -&gt; gboolean
+  drag-motion (GdkDragContext, gint, gint, guint) -&gt; gboolean
+  drag-drop (GdkDragContext, gint, gint, guint) -&gt; gboolean
+  drag-data-get (GdkDragContext, GtkSelectionData, guint, guint)
+  drag-data-received (GdkDragContext, gint, gint, GtkSelectionData, guint, guint)
+  visibility-notify-event (GdkEvent) -&gt; gboolean
+  client-event (GdkEvent) -&gt; gboolean
+  no-expose-event (GdkEvent) -&gt; gboolean
+  window-state-event (GdkEvent) -&gt; gboolean
+  grab-broken-event (GdkEvent) -&gt; gboolean
+  query-tooltip (gint, gint, gboolean, GtkTooltip) -&gt; gboolean
+  popup-menu () -&gt; gboolean
+  show-help (GtkWidgetHelpType) -&gt; gboolean
+  accel-closures-changed ()
+  screen-changed (GdkScreen)
+  can-activate-accel (guint) -&gt; gboolean
+
+Properties from GtkWidget:
+  name -&gt; gchararray: Nome do widget
+    O nome do widget
+  parent -&gt; GtkContainer: Widget pai
+    O widget pai deste widget.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="screenlets.ShapedWidget-class.html">screenlets.ShapedWidget</a></strong>:
+      <em class="summary">A simple base-class for creating owner-drawn gtk-widgets</em>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.Screenlet-class.html">screenlets.Screenlet</a></strong>:
+      <em class="summary">A Screenlet is a (i.e.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.mail.MailCheckBackend-class.html">screenlets.plugins.mail.MailCheckBackend</a></strong>:
+      <em class="summary">The backend class which performs checking for mail and offers 
+        access to the current mail-backend.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.mail.POP3Backend-class.html">screenlets.plugins.mail.POP3Backend</a></strong>:
+      <em class="summary">A backend for retrieving the mailcount from a POP3 server.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.mail.IMAPBackend-class.html">screenlets.plugins.mail.IMAPBackend</a></strong>:
+      <em class="summary">A backend for retrieving the mailcount from an IMAP server.</em>
+    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.Mail.MailCheckBackend-class.html">screenlets.plugins.Mail.MailCheckBackend</a></strong>:
+      <em class="summary">The backend class which performs checking for mail and offers 
+        access to the current mail-backend.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.Mail.POP3Backend-class.html">screenlets.plugins.Mail.POP3Backend</a></strong>:
+      <em class="summary">A backend for retrieving the mailcount from a POP3 server.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.Mail.IMAPBackend-class.html">screenlets.plugins.Mail.IMAPBackend</a></strong>:
+      <em class="summary">A backend for retrieving the mailcount from an IMAP server.</em>
+    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.utils.FileMonitor-class.html">screenlets.utils.FileMonitor</a></strong>:
+      <em class="summary">A simple wrapper around Gnome VFS file monitors.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.options.Option-class.html">screenlets.options.Option</a></strong>:
+      <em class="summary">An Option stores information about a certain 
+        object-attribute.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="screenlets.options.FontOption-class.html">screenlets.options.FontOption</a></strong>:
+      <em class="summary">An Option for fonts (a simple StringOption).</em>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.options.AccountOption-class.html">screenlets.options.AccountOption</a></strong>:
+      <em class="summary">An Option-type for username/password combos.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.options.ColorOption-class.html">screenlets.options.ColorOption</a></strong>:
+      <em class="summary">An Option for colors.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="screenlets.options.TimeOption-class.html">screenlets.options.TimeOption</a></strong>:
+      <em class="summary">An Option-subclass for string-values that contain dates.</em>
+    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.options.DirectoryOption-class.html">screenlets.options.DirectoryOption</a></strong>:
+      <em class="summary">An Option-subclass for filename-strings that contain 
+        directories.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.options.FileOption-class.html">screenlets.options.FileOption</a></strong>:
+      <em class="summary">An Option-subclass for string-values that contain filenames.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.options.ListOption-class.html">screenlets.options.ListOption</a></strong>:
+      <em class="summary">An Option-type for list of strings.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.options.BoolOption-class.html">screenlets.options.BoolOption</a></strong>:
+      <em class="summary">An Option for boolean values.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.options.StringOption-class.html">screenlets.options.StringOption</a></strong>:
+      <em class="summary">An Option for values of type string.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.options.IntOption-class.html">screenlets.options.IntOption</a></strong>:
+      <em class="summary">An Option for values of type number (can be int or float).</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="screenlets.options.FloatOption-class.html">screenlets.options.FloatOption</a></strong>:
+      <em class="summary">An Option for values of type float.</em>
+    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.options.ImageOption-class.html">screenlets.options.ImageOption</a></strong>:
+      <em class="summary">An Option-subclass for string-values that contain filenames of 
+        image-files.</em>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.mpdclient2.mpd_connection-class.html">screenlets.plugins.mpdclient2.mpd_connection</a></strong>
+    </li>
+    <li> <strong class="uidlink">gobject.GInterface</strong>:
+      <em class="summary">Interface GInterface</em>
+    <ul>
+    <li> <strong class="uidlink">gtk.Buildable</strong>
+    <ul>
+    <li> <strong class="uidlink">gtk.Widget</strong>:
+      <em class="summary">Object GtkWidget
+
+Signals from GtkWidget:
+  composited-changed ()
+  show ()
+  hide ()
+  map ()
+  unmap ()
+  realize ()
+  unrealize ()
+  size-request (GtkRequisition)
+  size-allocate (GdkRectangle)
+  state-changed (GtkStateType)
+  parent-set (GtkWidget)
+  hierarchy-changed (GtkWidget)
+  style-set (GtkStyle)
+  direction-changed (GtkTextDirection)
+  grab-notify (gboolean)
+  child-notify (GParam)
+  mnemonic-activate (gboolean) -&gt; gboolean
+  grab-focus ()
+  focus (GtkDirectionType) -&gt; gboolean
+  move-focus (GtkDirectionType)
+  event (GdkEvent) -&gt; gboolean
+  event-after (GdkEvent)
+  button-press-event (GdkEvent) -&gt; gboolean
+  button-release-event (GdkEvent) -&gt; gboolean
+  scroll-event (GdkEvent) -&gt; gboolean
+  motion-notify-event (GdkEvent) -&gt; gboolean
+  keynav-failed (GtkDirectionType) -&gt; gboolean
+  delete-event (GdkEvent) -&gt; gboolean
+  destroy-event (GdkEvent) -&gt; gboolean
+  expose-event (GdkEvent) -&gt; gboolean
+  key-press-event (GdkEvent) -&gt; gboolean
+  key-release-event (GdkEvent) -&gt; gboolean
+  enter-notify-event (GdkEvent) -&gt; gboolean
+  leave-notify-event (GdkEvent) -&gt; gboolean
+  configure-event (GdkEvent) -&gt; gboolean
+  focus-in-event (GdkEvent) -&gt; gboolean
+  focus-out-event (GdkEvent) -&gt; gboolean
+  map-event (GdkEvent) -&gt; gboolean
+  unmap-event (GdkEvent) -&gt; gboolean
+  property-notify-event (GdkEvent) -&gt; gboolean
+  selection-clear-event (GdkEvent) -&gt; gboolean
+  selection-request-event (GdkEvent) -&gt; gboolean
+  selection-notify-event (GdkEvent) -&gt; gboolean
+  selection-received (GtkSelectionData, guint)
+  selection-get (GtkSelectionData, guint, guint)
+  proximity-in-event (GdkEvent) -&gt; gboolean
+  proximity-out-event (GdkEvent) -&gt; gboolean
+  drag-leave (GdkDragContext, guint)
+  drag-begin (GdkDragContext)
+  drag-end (GdkDragContext)
+  drag-data-delete (GdkDragContext)
+  drag-failed (GdkDragContext, GtkDragResult) -&gt; gboolean
+  drag-motion (GdkDragContext, gint, gint, guint) -&gt; gboolean
+  drag-drop (GdkDragContext, gint, gint, guint) -&gt; gboolean
+  drag-data-get (GdkDragContext, GtkSelectionData, guint, guint)
+  drag-data-received (GdkDragContext, gint, gint, GtkSelectionData, guint, guint)
+  visibility-notify-event (GdkEvent) -&gt; gboolean
+  client-event (GdkEvent) -&gt; gboolean
+  no-expose-event (GdkEvent) -&gt; gboolean
+  window-state-event (GdkEvent) -&gt; gboolean
+  grab-broken-event (GdkEvent) -&gt; gboolean
+  query-tooltip (gint, gint, gboolean, GtkTooltip) -&gt; gboolean
+  popup-menu () -&gt; gboolean
+  show-help (GtkWidgetHelpType) -&gt; gboolean
+  accel-closures-changed ()
+  screen-changed (GdkScreen)
+  can-activate-accel (guint) -&gt; gboolean
+
+Properties from GtkWidget:
+  name -&gt; gchararray: Nome do widget
+    O nome do widget
+  parent -&gt; GtkContainer: Widget pai
+    O widget pai deste widget.</em>
+    <ul>
+    <li> <strong class="uidlink">gtk.Container</strong>:
+      <em class="summary">Object GtkContainer
+
+Signals from GtkContainer:
+  add (GtkWidget)
+  remove (GtkWidget)
+  check-resize ()
+  set-focus-child (GtkWidget)
+
+Properties from GtkContainer:
+  border-width -&gt; guint: Largura da margem
+    A largura da margem vazia fora dos filhos do contentor
+  resize-mode -&gt; GtkResizeMode: Modo de redimensionamento
+    Especificar como s&#195;&#163;o geridos os eventos de redimensionamento
+  child -&gt; GtkWidget: Filho
+    Pode ser utilizado para adicionar novo filho ao contentor
+
+Signals from GtkWidget:
+  composited-changed ()
+  show ()
+  hide ()
+  map ()
+  unmap ()
+  realize ()
+  unrealize ()
+  size-request (GtkRequisition)
+  size-allocate (GdkRectangle)
+  state-changed (GtkStateType)
+  parent-set (GtkWidget)
+  hierarchy-changed (GtkWidget)
+  style-set (GtkStyle)
+  direction-changed (GtkTextDirection)
+  grab-notify (gboolean)
+  child-notify (GParam)
+  mnemonic-activate (gboolean) -&gt; gboolean
+  grab-focus ()
+  focus (GtkDirectionType) -&gt; gboolean
+  move-focus (GtkDirectionType)
+  event (GdkEvent) -&gt; gboolean
+  event-after (GdkEvent)
+  button-press-event (GdkEvent) -&gt; gboolean
+  button-release-event (GdkEvent) -&gt; gboolean
+  scroll-event (GdkEvent) -&gt; gboolean
+  motion-notify-event (GdkEvent) -&gt; gboolean
+  keynav-failed (GtkDirectionType) -&gt; gboolean
+  delete-event (GdkEvent) -&gt; gboolean
+  destroy-event (GdkEvent) -&gt; gboolean
+  expose-event (GdkEvent) -&gt; gboolean
+  key-press-event (GdkEvent) -&gt; gboolean
+  key-release-event (GdkEvent) -&gt; gboolean
+  enter-notify-event (GdkEvent) -&gt; gboolean
+  leave-notify-event (GdkEvent) -&gt; gboolean
+  configure-event (GdkEvent) -&gt; gboolean
+  focus-in-event (GdkEvent) -&gt; gboolean
+  focus-out-event (GdkEvent) -&gt; gboolean
+  map-event (GdkEvent) -&gt; gboolean
+  unmap-event (GdkEvent) -&gt; gboolean
+  property-notify-event (GdkEvent) -&gt; gboolean
+  selection-clear-event (GdkEvent) -&gt; gboolean
+  selection-request-event (GdkEvent) -&gt; gboolean
+  selection-notify-event (GdkEvent) -&gt; gboolean
+  selection-received (GtkSelectionData, guint)
+  selection-get (GtkSelectionData, guint, guint)
+  proximity-in-event (GdkEvent) -&gt; gboolean
+  proximity-out-event (GdkEvent) -&gt; gboolean
+  drag-leave (GdkDragContext, guint)
+  drag-begin (GdkDragContext)
+  drag-end (GdkDragContext)
+  drag-data-delete (GdkDragContext)
+  drag-failed (GdkDragContext, GtkDragResult) -&gt; gboolean
+  drag-motion (GdkDragContext, gint, gint, guint) -&gt; gboolean
+  drag-drop (GdkDragContext, gint, gint, guint) -&gt; gboolean
+  drag-data-get (GdkDragContext, GtkSelectionData, guint, guint)
+  drag-data-received (GdkDragContext, gint, gint, GtkSelectionData, guint, guint)
+  visibility-notify-event (GdkEvent) -&gt; gboolean
+  client-event (GdkEvent) -&gt; gboolean
+  no-expose-event (GdkEvent) -&gt; gboolean
+  window-state-event (GdkEvent) -&gt; gboolean
+  grab-broken-event (GdkEvent) -&gt; gboolean
+  query-tooltip (gint, gint, gboolean, GtkTooltip) -&gt; gboolean
+  popup-menu () -&gt; gboolean
+  show-help (GtkWidgetHelpType) -&gt; gboolean
+  accel-closures-changed ()
+  screen-changed (GdkScreen)
+  can-activate-accel (guint) -&gt; gboolean
+
+Properties from GtkWidget:
+  name -&gt; gchararray: Nome do widget
+    O nome do widget
+  parent -&gt; GtkContainer: Widget pai
+    O widget pai deste widget.</em>
+    <ul>
+    <li> <strong class="uidlink">gtk.Bin</strong>:
+      <em class="summary">Object GtkBin
+
+Signals from GtkContainer:
+  add (GtkWidget)
+  remove (GtkWidget)
+  check-resize ()
+  set-focus-child (GtkWidget)
+
+Properties from GtkContainer:
+  border-width -&gt; guint: Largura da margem
+    A largura da margem vazia fora dos filhos do contentor
+  resize-mode -&gt; GtkResizeMode: Modo de redimensionamento
+    Especificar como s&#195;&#163;o geridos os eventos de redimensionamento
+  child -&gt; GtkWidget: Filho
+    Pode ser utilizado para adicionar novo filho ao contentor
+
+Signals from GtkWidget:
+  composited-changed ()
+  show ()
+  hide ()
+  map ()
+  unmap ()
+  realize ()
+  unrealize ()
+  size-request (GtkRequisition)
+  size-allocate (GdkRectangle)
+  state-changed (GtkStateType)
+  parent-set (GtkWidget)
+  hierarchy-changed (GtkWidget)
+  style-set (GtkStyle)
+  direction-changed (GtkTextDirection)
+  grab-notify (gboolean)
+  child-notify (GParam)
+  mnemonic-activate (gboolean) -&gt; gboolean
+  grab-focus ()
+  focus (GtkDirectionType) -&gt; gboolean
+  move-focus (GtkDirectionType)
+  event (GdkEvent) -&gt; gboolean
+  event-after (GdkEvent)
+  button-press-event (GdkEvent) -&gt; gboolean
+  button-release-event (GdkEvent) -&gt; gboolean
+  scroll-event (GdkEvent) -&gt; gboolean
+  motion-notify-event (GdkEvent) -&gt; gboolean
+  keynav-failed (GtkDirectionType) -&gt; gboolean
+  delete-event (GdkEvent) -&gt; gboolean
+  destroy-event (GdkEvent) -&gt; gboolean
+  expose-event (GdkEvent) -&gt; gboolean
+  key-press-event (GdkEvent) -&gt; gboolean
+  key-release-event (GdkEvent) -&gt; gboolean
+  enter-notify-event (GdkEvent) -&gt; gboolean
+  leave-notify-event (GdkEvent) -&gt; gboolean
+  configure-event (GdkEvent) -&gt; gboolean
+  focus-in-event (GdkEvent) -&gt; gboolean
+  focus-out-event (GdkEvent) -&gt; gboolean
+  map-event (GdkEvent) -&gt; gboolean
+  unmap-event (GdkEvent) -&gt; gboolean
+  property-notify-event (GdkEvent) -&gt; gboolean
+  selection-clear-event (GdkEvent) -&gt; gboolean
+  selection-request-event (GdkEvent) -&gt; gboolean
+  selection-notify-event (GdkEvent) -&gt; gboolean
+  selection-received (GtkSelectionData, guint)
+  selection-get (GtkSelectionData, guint, guint)
+  proximity-in-event (GdkEvent) -&gt; gboolean
+  proximity-out-event (GdkEvent) -&gt; gboolean
+  drag-leave (GdkDragContext, guint)
+  drag-begin (GdkDragContext)
+  drag-end (GdkDragContext)
+  drag-data-delete (GdkDragContext)
+  drag-failed (GdkDragContext, GtkDragResult) -&gt; gboolean
+  drag-motion (GdkDragContext, gint, gint, guint) -&gt; gboolean
+  drag-drop (GdkDragContext, gint, gint, guint) -&gt; gboolean
+  drag-data-get (GdkDragContext, GtkSelectionData, guint, guint)
+  drag-data-received (GdkDragContext, gint, gint, GtkSelectionData, guint, guint)
+  visibility-notify-event (GdkEvent) -&gt; gboolean
+  client-event (GdkEvent) -&gt; gboolean
+  no-expose-event (GdkEvent) -&gt; gboolean
+  window-state-event (GdkEvent) -&gt; gboolean
+  grab-broken-event (GdkEvent) -&gt; gboolean
+  query-tooltip (gint, gint, gboolean, GtkTooltip) -&gt; gboolean
+  popup-menu () -&gt; gboolean
+  show-help (GtkWidgetHelpType) -&gt; gboolean
+  accel-closures-changed ()
+  screen-changed (GdkScreen)
+  can-activate-accel (guint) -&gt; gboolean
+
+Properties from GtkWidget:
+  name -&gt; gchararray: Nome do widget
+    O nome do widget
+  parent -&gt; GtkContainer: Widget pai
+    O widget pai deste widget.</em>
+    <ul>
+    <li> <strong class="uidlink">gtk.Window</strong>:
+      <em class="summary">Object GtkWindow
+
+Signals from GtkWindow:
+  set-focus (GtkWidget)
+  frame-event (GdkEvent) -&gt; gboolean
+  activate-focus ()
+  activate-default ()
+  keys-changed ()
+
+Properties from GtkWindow:
+  type -&gt; GtkWindowType: Tipo de Janela
+    O tipo da janela
+  title -&gt; gchararray: T&#195;&#173;tulo da Janela
+    O t&#195;&#173;tulo da janela
+  role -&gt; gchararray: Papel da Janela
+    Identificador &#195;&#186;nico para a janela a ser utilizado ao rep&#195;&#180;r uma sess&#195;&#163;o
+  startup-id -&gt; gchararray: ID de In&#195;&#173;cio
+    Identificador &#195;&#186;nico de in&#195;&#173;cio para a janela utilizado pelo startup-notification
+  allow-shrink -&gt; gboolean: Permitir Encolher
+    Se VERDADEIRO, a janela n&#195;&#163;o tem um tamanho m&#195;&#173;nimo.</em>
+    <ul>
+    <li> <strong class="uidlink">gtk.Dialog</strong>:
+      <em class="summary">Object GtkDialog
+
+Signals from GtkDialog:
+  response (gint)
+  close ()
+
+Properties from GtkDialog:
+  has-separator -&gt; gboolean: Tem separador
+    O di&#195;&#161;logo tem uma barra separadora acima dos seus bot&#195;&#181;es
+
+Signals from GtkWindow:
+  set-focus (GtkWidget)
+  frame-event (GdkEvent) -&gt; gboolean
+  activate-focus ()
+  activate-default ()
+  keys-changed ()
+
+Properties from GtkWindow:
+  type -&gt; GtkWindowType: Tipo de Janela
+    O tipo da janela
+  title -&gt; gchararray: T&#195;&#173;tulo da Janela
+    O t&#195;&#173;tulo da janela
+  role -&gt; gchararray: Papel da Janela
+    Identificador &#195;&#186;nico para a janela a ser utilizado ao rep&#195;&#180;r uma sess&#195;&#163;o
+  startup-id -&gt; gchararray: ID de In&#195;&#173;cio
+    Identificador &#195;&#186;nico de in&#195;&#173;cio para a janela utilizado pelo startup-notification
+  allow-shrink -&gt; gboolean: Permitir Encolher
+    Se VERDADEIRO, a janela n&#195;&#163;o tem um tamanho m&#195;&#173;nimo.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="screenlets.options.OptionsDialog-class.html">screenlets.options.OptionsDialog</a></strong>:
+      <em class="summary">A dynamic options-editor for editing Screenlets which are 
+        implementing the EditableOptions-class.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.options.ListOptionDialog-class.html">screenlets.options.ListOptionDialog</a></strong>:
+      <em class="summary">An editing dialog used for editing options of the 
+        ListOption-type.</em>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink">gtk.Item</strong>:
+      <em class="summary">Object GtkItem
+
+Signals from GtkItem:
+  select ()
+  deselect ()
+  toggle ()
+
+Signals from GtkContainer:
+  add (GtkWidget)
+  remove (GtkWidget)
+  check-resize ()
+  set-focus-child (GtkWidget)
+
+Properties from GtkContainer:
+  border-width -&gt; guint: Largura da margem
+    A largura da margem vazia fora dos filhos do contentor
+  resize-mode -&gt; GtkResizeMode: Modo de redimensionamento
+    Especificar como s&#195;&#163;o geridos os eventos de redimensionamento
+  child -&gt; GtkWidget: Filho
+    Pode ser utilizado para adicionar novo filho ao contentor
+
+Signals from GtkWidget:
+  composited-changed ()
+  show ()
+  hide ()
+  map ()
+  unmap ()
+  realize ()
+  unrealize ()
+  size-request (GtkRequisition)
+  size-allocate (GdkRectangle)
+  state-changed (GtkStateType)
+  parent-set (GtkWidget)
+  hierarchy-changed (GtkWidget)
+  style-set (GtkStyle)
+  direction-changed (GtkTextDirection)
+  grab-notify (gboolean)
+  child-notify (GParam)
+  mnemonic-activate (gboolean) -&gt; gboolean
+  grab-focus ()
+  focus (GtkDirectionType) -&gt; gboolean
+  move-focus (GtkDirectionType)
+  event (GdkEvent) -&gt; gboolean
+  event-after (GdkEvent)
+  button-press-event (GdkEvent) -&gt; gboolean
+  button-release-event (GdkEvent) -&gt; gboolean
+  scroll-event (GdkEvent) -&gt; gboolean
+  motion-notify-event (GdkEvent) -&gt; gboolean
+  keynav-failed (GtkDirectionType) -&gt; gboolean
+  delete-event (GdkEvent) -&gt; gboolean
+  destroy-event (GdkEvent) -&gt; gboolean
+  expose-event (GdkEvent) -&gt; gboolean
+  key-press-event (GdkEvent) -&gt; gboolean
+  key-release-event (GdkEvent) -&gt; gboolean
+  enter-notify-event (GdkEvent) -&gt; gboolean
+  leave-notify-event (GdkEvent) -&gt; gboolean
+  configure-event (GdkEvent) -&gt; gboolean
+  focus-in-event (GdkEvent) -&gt; gboolean
+  focus-out-event (GdkEvent) -&gt; gboolean
+  map-event (GdkEvent) -&gt; gboolean
+  unmap-event (GdkEvent) -&gt; gboolean
+  property-notify-event (GdkEvent) -&gt; gboolean
+  selection-clear-event (GdkEvent) -&gt; gboolean
+  selection-request-event (GdkEvent) -&gt; gboolean
+  selection-notify-event (GdkEvent) -&gt; gboolean
+  selection-received (GtkSelectionData, guint)
+  selection-get (GtkSelectionData, guint, guint)
+  proximity-in-event (GdkEvent) -&gt; gboolean
+  proximity-out-event (GdkEvent) -&gt; gboolean
+  drag-leave (GdkDragContext, guint)
+  drag-begin (GdkDragContext)
+  drag-end (GdkDragContext)
+  drag-data-delete (GdkDragContext)
+  drag-failed (GdkDragContext, GtkDragResult) -&gt; gboolean
+  drag-motion (GdkDragContext, gint, gint, guint) -&gt; gboolean
+  drag-drop (GdkDragContext, gint, gint, guint) -&gt; gboolean
+  drag-data-get (GdkDragContext, GtkSelectionData, guint, guint)
+  drag-data-received (GdkDragContext, gint, gint, GtkSelectionData, guint, guint)
+  visibility-notify-event (GdkEvent) -&gt; gboolean
+  client-event (GdkEvent) -&gt; gboolean
+  no-expose-event (GdkEvent) -&gt; gboolean
+  window-state-event (GdkEvent) -&gt; gboolean
+  grab-broken-event (GdkEvent) -&gt; gboolean
+  query-tooltip (gint, gint, gboolean, GtkTooltip) -&gt; gboolean
+  popup-menu () -&gt; gboolean
+  show-help (GtkWidgetHelpType) -&gt; gboolean
+  accel-closures-changed ()
+  screen-changed (GdkScreen)
+  can-activate-accel (guint) -&gt; gboolean
+
+Properties from GtkWidget:
+  name -&gt; gchararray: Nome do widget
+    O nome do widget
+  parent -&gt; GtkContainer: Widget pai
+    O widget pai deste widget.</em>
+    <ul>
+    <li> <strong class="uidlink">gtk.MenuItem</strong>:
+      <em class="summary">Object GtkMenuItem
+
+Signals from GtkMenuItem:
+  activate ()
+  activate-item ()
+  toggle-size-request (gpointer)
+  toggle-size-allocate (gint)
+
+Properties from GtkMenuItem:
+  submenu -&gt; GtkMenu: Submenu
+    O submenu associado ao item de menu, ou NULL se n&#195;&#163;o existir
+
+Signals from GtkItem:
+  select ()
+  deselect ()
+  toggle ()
+
+Signals from GtkContainer:
+  add (GtkWidget)
+  remove (GtkWidget)
+  check-resize ()
+  set-focus-child (GtkWidget)
+
+Properties from GtkContainer:
+  border-width -&gt; guint: Largura da margem
+    A largura da margem vazia fora dos filhos do contentor
+  resize-mode -&gt; GtkResizeMode: Modo de redimensionamento
+    Especificar como s&#195;&#163;o geridos os eventos de redimensionamento
+  child -&gt; GtkWidget: Filho
+    Pode ser utilizado para adicionar novo filho ao contentor
+
+Signals from GtkWidget:
+  composited-changed ()
+  show ()
+  hide ()
+  map ()
+  unmap ()
+  realize ()
+  unrealize ()
+  size-request (GtkRequisition)
+  size-allocate (GdkRectangle)
+  state-changed (GtkStateType)
+  parent-set (GtkWidget)
+  hierarchy-changed (GtkWidget)
+  style-set (GtkStyle)
+  direction-changed (GtkTextDirection)
+  grab-notify (gboolean)
+  child-notify (GParam)
+  mnemonic-activate (gboolean) -&gt; gboolean
+  grab-focus ()
+  focus (GtkDirectionType) -&gt; gboolean
+  move-focus (GtkDirectionType)
+  event (GdkEvent) -&gt; gboolean
+  event-after (GdkEvent)
+  button-press-event (GdkEvent) -&gt; gboolean
+  button-release-event (GdkEvent) -&gt; gboolean
+  scroll-event (GdkEvent) -&gt; gboolean
+  motion-notify-event (GdkEvent) -&gt; gboolean
+  keynav-failed (GtkDirectionType) -&gt; gboolean
+  delete-event (GdkEvent) -&gt; gboolean
+  destroy-event (GdkEvent) -&gt; gboolean
+  expose-event (GdkEvent) -&gt; gboolean
+  key-press-event (GdkEvent) -&gt; gboolean
+  key-release-event (GdkEvent) -&gt; gboolean
+  enter-notify-event (GdkEvent) -&gt; gboolean
+  leave-notify-event (GdkEvent) -&gt; gboolean
+  configure-event (GdkEvent) -&gt; gboolean
+  focus-in-event (GdkEvent) -&gt; gboolean
+  focus-out-event (GdkEvent) -&gt; gboolean
+  map-event (GdkEvent) -&gt; gboolean
+  unmap-event (GdkEvent) -&gt; gboolean
+  property-notify-event (GdkEvent) -&gt; gboolean
+  selection-clear-event (GdkEvent) -&gt; gboolean
+  selection-request-event (GdkEvent) -&gt; gboolean
+  selection-notify-event (GdkEvent) -&gt; gboolean
+  selection-received (GtkSelectionData, guint)
+  selection-get (GtkSelectionData, guint, guint)
+  proximity-in-event (GdkEvent) -&gt; gboolean
+  proximity-out-event (GdkEvent) -&gt; gboolean
+  drag-leave (GdkDragContext, guint)
+  drag-begin (GdkDragContext)
+  drag-end (GdkDragContext)
+  drag-data-delete (GdkDragContext)
+  drag-failed (GdkDragContext, GtkDragResult) -&gt; gboolean
+  drag-motion (GdkDragContext, gint, gint, guint) -&gt; gboolean
+  drag-drop (GdkDragContext, gint, gint, guint) -&gt; gboolean
+  drag-data-get (GdkDragContext, GtkSelectionData, guint, guint)
+  drag-data-received (GdkDragContext, gint, gint, GtkSelectionData, guint, guint)
+  visibility-notify-event (GdkEvent) -&gt; gboolean
+  client-event (GdkEvent) -&gt; gboolean
+  no-expose-event (GdkEvent) -&gt; gboolean
+  window-state-event (GdkEvent) -&gt; gboolean
+  grab-broken-event (GdkEvent) -&gt; gboolean
+  query-tooltip (gint, gint, gboolean, GtkTooltip) -&gt; gboolean
+  popup-menu () -&gt; gboolean
+  show-help (GtkWidgetHelpType) -&gt; gboolean
+  accel-closures-changed ()
+  screen-changed (GdkScreen)
+  can-activate-accel (guint) -&gt; gboolean
+
+Properties from GtkWidget:
+  name -&gt; gchararray: Nome do widget
+    O nome do widget
+  parent -&gt; GtkContainer: Widget pai
+    O widget pai deste widget.</em>
+    <ul>
+    <li> <strong class="uidlink">gtk.ImageMenuItem</strong>:
+      <em class="summary">Object GtkImageMenuItem
+
+Properties from GtkImageMenuItem:
+  image -&gt; GtkWidget: Widget de imagem
+    Widget filho a apresentar ao lado do texto de menu
+
+Signals from GtkMenuItem:
+  activate ()
+  activate-item ()
+  toggle-size-request (gpointer)
+  toggle-size-allocate (gint)
+
+Properties from GtkMenuItem:
+  submenu -&gt; GtkMenu: Submenu
+    O submenu associado ao item de menu, ou NULL se n&#195;&#163;o existir
+
+Signals from GtkItem:
+  select ()
+  deselect ()
+  toggle ()
+
+Signals from GtkContainer:
+  add (GtkWidget)
+  remove (GtkWidget)
+  check-resize ()
+  set-focus-child (GtkWidget)
+
+Properties from GtkContainer:
+  border-width -&gt; guint: Largura da margem
+    A largura da margem vazia fora dos filhos do contentor
+  resize-mode -&gt; GtkResizeMode: Modo de redimensionamento
+    Especificar como s&#195;&#163;o geridos os eventos de redimensionamento
+  child -&gt; GtkWidget: Filho
+    Pode ser utilizado para adicionar novo filho ao contentor
+
+Signals from GtkWidget:
+  composited-changed ()
+  show ()
+  hide ()
+  map ()
+  unmap ()
+  realize ()
+  unrealize ()
+  size-request (GtkRequisition)
+  size-allocate (GdkRectangle)
+  state-changed (GtkStateType)
+  parent-set (GtkWidget)
+  hierarchy-changed (GtkWidget)
+  style-set (GtkStyle)
+  direction-changed (GtkTextDirection)
+  grab-notify (gboolean)
+  child-notify (GParam)
+  mnemonic-activate (gboolean) -&gt; gboolean
+  grab-focus ()
+  focus (GtkDirectionType) -&gt; gboolean
+  move-focus (GtkDirectionType)
+  event (GdkEvent) -&gt; gboolean
+  event-after (GdkEvent)
+  button-press-event (GdkEvent) -&gt; gboolean
+  button-release-event (GdkEvent) -&gt; gboolean
+  scroll-event (GdkEvent) -&gt; gboolean
+  motion-notify-event (GdkEvent) -&gt; gboolean
+  keynav-failed (GtkDirectionType) -&gt; gboolean
+  delete-event (GdkEvent) -&gt; gboolean
+  destroy-event (GdkEvent) -&gt; gboolean
+  expose-event (GdkEvent) -&gt; gboolean
+  key-press-event (GdkEvent) -&gt; gboolean
+  key-release-event (GdkEvent) -&gt; gboolean
+  enter-notify-event (GdkEvent) -&gt; gboolean
+  leave-notify-event (GdkEvent) -&gt; gboolean
+  configure-event (GdkEvent) -&gt; gboolean
+  focus-in-event (GdkEvent) -&gt; gboolean
+  focus-out-event (GdkEvent) -&gt; gboolean
+  map-event (GdkEvent) -&gt; gboolean
+  unmap-event (GdkEvent) -&gt; gboolean
+  property-notify-event (GdkEvent) -&gt; gboolean
+  selection-clear-event (GdkEvent) -&gt; gboolean
+  selection-request-event (GdkEvent) -&gt; gboolean
+  selection-notify-event (GdkEvent) -&gt; gboolean
+  selection-received (GtkSelectionData, guint)
+  selection-get (GtkSelectionData, guint, guint)
+  proximity-in-event (GdkEvent) -&gt; gboolean
+  proximity-out-event (GdkEvent) -&gt; gboolean
+  drag-leave (GdkDragContext, guint)
+  drag-begin (GdkDragContext)
+  drag-end (GdkDragContext)
+  drag-data-delete (GdkDragContext)
+  drag-failed (GdkDragContext, GtkDragResult) -&gt; gboolean
+  drag-motion (GdkDragContext, gint, gint, guint) -&gt; gboolean
+  drag-drop (GdkDragContext, gint, gint, guint) -&gt; gboolean
+  drag-data-get (GdkDragContext, GtkSelectionData, guint, guint)
+  drag-data-received (GdkDragContext, gint, gint, GtkSelectionData, guint, guint)
+  visibility-notify-event (GdkEvent) -&gt; gboolean
+  client-event (GdkEvent) -&gt; gboolean
+  no-expose-event (GdkEvent) -&gt; gboolean
+  window-state-event (GdkEvent) -&gt; gboolean
+  grab-broken-event (GdkEvent) -&gt; gboolean
+  query-tooltip (gint, gint, gboolean, GtkTooltip) -&gt; gboolean
+  popup-menu () -&gt; gboolean
+  show-help (GtkWidgetHelpType) -&gt; gboolean
+  accel-closures-changed ()
+  screen-changed (GdkScreen)
+  can-activate-accel (guint) -&gt; gboolean
+
+Properties from GtkWidget:
+  name -&gt; gchararray: Nome do widget
+    O nome do widget
+  parent -&gt; GtkContainer: Widget pai
+    O widget pai deste widget.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="screenlets.menu.ImageMenuItem-class.html">screenlets.menu.ImageMenuItem</a></strong>:
+      <em class="summary">A menuitem with a custom image and label.</em>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink">gtk.DrawingArea</strong>:
+      <em class="summary">Object GtkDrawingArea
+
+Signals from GtkWidget:
+  composited-changed ()
+  show ()
+  hide ()
+  map ()
+  unmap ()
+  realize ()
+  unrealize ()
+  size-request (GtkRequisition)
+  size-allocate (GdkRectangle)
+  state-changed (GtkStateType)
+  parent-set (GtkWidget)
+  hierarchy-changed (GtkWidget)
+  style-set (GtkStyle)
+  direction-changed (GtkTextDirection)
+  grab-notify (gboolean)
+  child-notify (GParam)
+  mnemonic-activate (gboolean) -&gt; gboolean
+  grab-focus ()
+  focus (GtkDirectionType) -&gt; gboolean
+  move-focus (GtkDirectionType)
+  event (GdkEvent) -&gt; gboolean
+  event-after (GdkEvent)
+  button-press-event (GdkEvent) -&gt; gboolean
+  button-release-event (GdkEvent) -&gt; gboolean
+  scroll-event (GdkEvent) -&gt; gboolean
+  motion-notify-event (GdkEvent) -&gt; gboolean
+  keynav-failed (GtkDirectionType) -&gt; gboolean
+  delete-event (GdkEvent) -&gt; gboolean
+  destroy-event (GdkEvent) -&gt; gboolean
+  expose-event (GdkEvent) -&gt; gboolean
+  key-press-event (GdkEvent) -&gt; gboolean
+  key-release-event (GdkEvent) -&gt; gboolean
+  enter-notify-event (GdkEvent) -&gt; gboolean
+  leave-notify-event (GdkEvent) -&gt; gboolean
+  configure-event (GdkEvent) -&gt; gboolean
+  focus-in-event (GdkEvent) -&gt; gboolean
+  focus-out-event (GdkEvent) -&gt; gboolean
+  map-event (GdkEvent) -&gt; gboolean
+  unmap-event (GdkEvent) -&gt; gboolean
+  property-notify-event (GdkEvent) -&gt; gboolean
+  selection-clear-event (GdkEvent) -&gt; gboolean
+  selection-request-event (GdkEvent) -&gt; gboolean
+  selection-notify-event (GdkEvent) -&gt; gboolean
+  selection-received (GtkSelectionData, guint)
+  selection-get (GtkSelectionData, guint, guint)
+  proximity-in-event (GdkEvent) -&gt; gboolean
+  proximity-out-event (GdkEvent) -&gt; gboolean
+  drag-leave (GdkDragContext, guint)
+  drag-begin (GdkDragContext)
+  drag-end (GdkDragContext)
+  drag-data-delete (GdkDragContext)
+  drag-failed (GdkDragContext, GtkDragResult) -&gt; gboolean
+  drag-motion (GdkDragContext, gint, gint, guint) -&gt; gboolean
+  drag-drop (GdkDragContext, gint, gint, guint) -&gt; gboolean
+  drag-data-get (GdkDragContext, GtkSelectionData, guint, guint)
+  drag-data-received (GdkDragContext, gint, gint, GtkSelectionData, guint, guint)
+  visibility-notify-event (GdkEvent) -&gt; gboolean
+  client-event (GdkEvent) -&gt; gboolean
+  no-expose-event (GdkEvent) -&gt; gboolean
+  window-state-event (GdkEvent) -&gt; gboolean
+  grab-broken-event (GdkEvent) -&gt; gboolean
+  query-tooltip (gint, gint, gboolean, GtkTooltip) -&gt; gboolean
+  popup-menu () -&gt; gboolean
+  show-help (GtkWidgetHelpType) -&gt; gboolean
+  accel-closures-changed ()
+  screen-changed (GdkScreen)
+  can-activate-accel (guint) -&gt; gboolean
+
+Properties from GtkWidget:
+  name -&gt; gchararray: Nome do widget
+    O nome do widget
+  parent -&gt; GtkContainer: Widget pai
+    O widget pai deste widget.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="screenlets.ShapedWidget-class.html">screenlets.ShapedWidget</a></strong>:
+      <em class="summary">A simple base-class for creating owner-drawn gtk-widgets</em>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink">atk.ImplementorIface</strong>
+    <ul>
+    <li> <strong class="uidlink">gtk.Widget</strong>:
+      <em class="summary">Object GtkWidget
+
+Signals from GtkWidget:
+  composited-changed ()
+  show ()
+  hide ()
+  map ()
+  unmap ()
+  realize ()
+  unrealize ()
+  size-request (GtkRequisition)
+  size-allocate (GdkRectangle)
+  state-changed (GtkStateType)
+  parent-set (GtkWidget)
+  hierarchy-changed (GtkWidget)
+  style-set (GtkStyle)
+  direction-changed (GtkTextDirection)
+  grab-notify (gboolean)
+  child-notify (GParam)
+  mnemonic-activate (gboolean) -&gt; gboolean
+  grab-focus ()
+  focus (GtkDirectionType) -&gt; gboolean
+  move-focus (GtkDirectionType)
+  event (GdkEvent) -&gt; gboolean
+  event-after (GdkEvent)
+  button-press-event (GdkEvent) -&gt; gboolean
+  button-release-event (GdkEvent) -&gt; gboolean
+  scroll-event (GdkEvent) -&gt; gboolean
+  motion-notify-event (GdkEvent) -&gt; gboolean
+  keynav-failed (GtkDirectionType) -&gt; gboolean
+  delete-event (GdkEvent) -&gt; gboolean
+  destroy-event (GdkEvent) -&gt; gboolean
+  expose-event (GdkEvent) -&gt; gboolean
+  key-press-event (GdkEvent) -&gt; gboolean
+  key-release-event (GdkEvent) -&gt; gboolean
+  enter-notify-event (GdkEvent) -&gt; gboolean
+  leave-notify-event (GdkEvent) -&gt; gboolean
+  configure-event (GdkEvent) -&gt; gboolean
+  focus-in-event (GdkEvent) -&gt; gboolean
+  focus-out-event (GdkEvent) -&gt; gboolean
+  map-event (GdkEvent) -&gt; gboolean
+  unmap-event (GdkEvent) -&gt; gboolean
+  property-notify-event (GdkEvent) -&gt; gboolean
+  selection-clear-event (GdkEvent) -&gt; gboolean
+  selection-request-event (GdkEvent) -&gt; gboolean
+  selection-notify-event (GdkEvent) -&gt; gboolean
+  selection-received (GtkSelectionData, guint)
+  selection-get (GtkSelectionData, guint, guint)
+  proximity-in-event (GdkEvent) -&gt; gboolean
+  proximity-out-event (GdkEvent) -&gt; gboolean
+  drag-leave (GdkDragContext, guint)
+  drag-begin (GdkDragContext)
+  drag-end (GdkDragContext)
+  drag-data-delete (GdkDragContext)
+  drag-failed (GdkDragContext, GtkDragResult) -&gt; gboolean
+  drag-motion (GdkDragContext, gint, gint, guint) -&gt; gboolean
+  drag-drop (GdkDragContext, gint, gint, guint) -&gt; gboolean
+  drag-data-get (GdkDragContext, GtkSelectionData, guint, guint)
+  drag-data-received (GdkDragContext, gint, gint, GtkSelectionData, guint, guint)
+  visibility-notify-event (GdkEvent) -&gt; gboolean
+  client-event (GdkEvent) -&gt; gboolean
+  no-expose-event (GdkEvent) -&gt; gboolean
+  window-state-event (GdkEvent) -&gt; gboolean
+  grab-broken-event (GdkEvent) -&gt; gboolean
+  query-tooltip (gint, gint, gboolean, GtkTooltip) -&gt; gboolean
+  popup-menu () -&gt; gboolean
+  show-help (GtkWidgetHelpType) -&gt; gboolean
+  accel-closures-changed ()
+  screen-changed (GdkScreen)
+  can-activate-accel (guint) -&gt; gboolean
+
+Properties from GtkWidget:
+  name -&gt; gchararray: Nome do widget
+    O nome do widget
+  parent -&gt; GtkContainer: Widget pai
+    O widget pai deste widget.</em>
+    <ul>
+    <li> <strong class="uidlink">gtk.Container</strong>:
+      <em class="summary">Object GtkContainer
+
+Signals from GtkContainer:
+  add (GtkWidget)
+  remove (GtkWidget)
+  check-resize ()
+  set-focus-child (GtkWidget)
+
+Properties from GtkContainer:
+  border-width -&gt; guint: Largura da margem
+    A largura da margem vazia fora dos filhos do contentor
+  resize-mode -&gt; GtkResizeMode: Modo de redimensionamento
+    Especificar como s&#195;&#163;o geridos os eventos de redimensionamento
+  child -&gt; GtkWidget: Filho
+    Pode ser utilizado para adicionar novo filho ao contentor
+
+Signals from GtkWidget:
+  composited-changed ()
+  show ()
+  hide ()
+  map ()
+  unmap ()
+  realize ()
+  unrealize ()
+  size-request (GtkRequisition)
+  size-allocate (GdkRectangle)
+  state-changed (GtkStateType)
+  parent-set (GtkWidget)
+  hierarchy-changed (GtkWidget)
+  style-set (GtkStyle)
+  direction-changed (GtkTextDirection)
+  grab-notify (gboolean)
+  child-notify (GParam)
+  mnemonic-activate (gboolean) -&gt; gboolean
+  grab-focus ()
+  focus (GtkDirectionType) -&gt; gboolean
+  move-focus (GtkDirectionType)
+  event (GdkEvent) -&gt; gboolean
+  event-after (GdkEvent)
+  button-press-event (GdkEvent) -&gt; gboolean
+  button-release-event (GdkEvent) -&gt; gboolean
+  scroll-event (GdkEvent) -&gt; gboolean
+  motion-notify-event (GdkEvent) -&gt; gboolean
+  keynav-failed (GtkDirectionType) -&gt; gboolean
+  delete-event (GdkEvent) -&gt; gboolean
+  destroy-event (GdkEvent) -&gt; gboolean
+  expose-event (GdkEvent) -&gt; gboolean
+  key-press-event (GdkEvent) -&gt; gboolean
+  key-release-event (GdkEvent) -&gt; gboolean
+  enter-notify-event (GdkEvent) -&gt; gboolean
+  leave-notify-event (GdkEvent) -&gt; gboolean
+  configure-event (GdkEvent) -&gt; gboolean
+  focus-in-event (GdkEvent) -&gt; gboolean
+  focus-out-event (GdkEvent) -&gt; gboolean
+  map-event (GdkEvent) -&gt; gboolean
+  unmap-event (GdkEvent) -&gt; gboolean
+  property-notify-event (GdkEvent) -&gt; gboolean
+  selection-clear-event (GdkEvent) -&gt; gboolean
+  selection-request-event (GdkEvent) -&gt; gboolean
+  selection-notify-event (GdkEvent) -&gt; gboolean
+  selection-received (GtkSelectionData, guint)
+  selection-get (GtkSelectionData, guint, guint)
+  proximity-in-event (GdkEvent) -&gt; gboolean
+  proximity-out-event (GdkEvent) -&gt; gboolean
+  drag-leave (GdkDragContext, guint)
+  drag-begin (GdkDragContext)
+  drag-end (GdkDragContext)
+  drag-data-delete (GdkDragContext)
+  drag-failed (GdkDragContext, GtkDragResult) -&gt; gboolean
+  drag-motion (GdkDragContext, gint, gint, guint) -&gt; gboolean
+  drag-drop (GdkDragContext, gint, gint, guint) -&gt; gboolean
+  drag-data-get (GdkDragContext, GtkSelectionData, guint, guint)
+  drag-data-received (GdkDragContext, gint, gint, GtkSelectionData, guint, guint)
+  visibility-notify-event (GdkEvent) -&gt; gboolean
+  client-event (GdkEvent) -&gt; gboolean
+  no-expose-event (GdkEvent) -&gt; gboolean
+  window-state-event (GdkEvent) -&gt; gboolean
+  grab-broken-event (GdkEvent) -&gt; gboolean
+  query-tooltip (gint, gint, gboolean, GtkTooltip) -&gt; gboolean
+  popup-menu () -&gt; gboolean
+  show-help (GtkWidgetHelpType) -&gt; gboolean
+  accel-closures-changed ()
+  screen-changed (GdkScreen)
+  can-activate-accel (guint) -&gt; gboolean
+
+Properties from GtkWidget:
+  name -&gt; gchararray: Nome do widget
+    O nome do widget
+  parent -&gt; GtkContainer: Widget pai
+    O widget pai deste widget.</em>
+    <ul>
+    <li> <strong class="uidlink">gtk.Bin</strong>:
+      <em class="summary">Object GtkBin
+
+Signals from GtkContainer:
+  add (GtkWidget)
+  remove (GtkWidget)
+  check-resize ()
+  set-focus-child (GtkWidget)
+
+Properties from GtkContainer:
+  border-width -&gt; guint: Largura da margem
+    A largura da margem vazia fora dos filhos do contentor
+  resize-mode -&gt; GtkResizeMode: Modo de redimensionamento
+    Especificar como s&#195;&#163;o geridos os eventos de redimensionamento
+  child -&gt; GtkWidget: Filho
+    Pode ser utilizado para adicionar novo filho ao contentor
+
+Signals from GtkWidget:
+  composited-changed ()
+  show ()
+  hide ()
+  map ()
+  unmap ()
+  realize ()
+  unrealize ()
+  size-request (GtkRequisition)
+  size-allocate (GdkRectangle)
+  state-changed (GtkStateType)
+  parent-set (GtkWidget)
+  hierarchy-changed (GtkWidget)
+  style-set (GtkStyle)
+  direction-changed (GtkTextDirection)
+  grab-notify (gboolean)
+  child-notify (GParam)
+  mnemonic-activate (gboolean) -&gt; gboolean
+  grab-focus ()
+  focus (GtkDirectionType) -&gt; gboolean
+  move-focus (GtkDirectionType)
+  event (GdkEvent) -&gt; gboolean
+  event-after (GdkEvent)
+  button-press-event (GdkEvent) -&gt; gboolean
+  button-release-event (GdkEvent) -&gt; gboolean
+  scroll-event (GdkEvent) -&gt; gboolean
+  motion-notify-event (GdkEvent) -&gt; gboolean
+  keynav-failed (GtkDirectionType) -&gt; gboolean
+  delete-event (GdkEvent) -&gt; gboolean
+  destroy-event (GdkEvent) -&gt; gboolean
+  expose-event (GdkEvent) -&gt; gboolean
+  key-press-event (GdkEvent) -&gt; gboolean
+  key-release-event (GdkEvent) -&gt; gboolean
+  enter-notify-event (GdkEvent) -&gt; gboolean
+  leave-notify-event (GdkEvent) -&gt; gboolean
+  configure-event (GdkEvent) -&gt; gboolean
+  focus-in-event (GdkEvent) -&gt; gboolean
+  focus-out-event (GdkEvent) -&gt; gboolean
+  map-event (GdkEvent) -&gt; gboolean
+  unmap-event (GdkEvent) -&gt; gboolean
+  property-notify-event (GdkEvent) -&gt; gboolean
+  selection-clear-event (GdkEvent) -&gt; gboolean
+  selection-request-event (GdkEvent) -&gt; gboolean
+  selection-notify-event (GdkEvent) -&gt; gboolean
+  selection-received (GtkSelectionData, guint)
+  selection-get (GtkSelectionData, guint, guint)
+  proximity-in-event (GdkEvent) -&gt; gboolean
+  proximity-out-event (GdkEvent) -&gt; gboolean
+  drag-leave (GdkDragContext, guint)
+  drag-begin (GdkDragContext)
+  drag-end (GdkDragContext)
+  drag-data-delete (GdkDragContext)
+  drag-failed (GdkDragContext, GtkDragResult) -&gt; gboolean
+  drag-motion (GdkDragContext, gint, gint, guint) -&gt; gboolean
+  drag-drop (GdkDragContext, gint, gint, guint) -&gt; gboolean
+  drag-data-get (GdkDragContext, GtkSelectionData, guint, guint)
+  drag-data-received (GdkDragContext, gint, gint, GtkSelectionData, guint, guint)
+  visibility-notify-event (GdkEvent) -&gt; gboolean
+  client-event (GdkEvent) -&gt; gboolean
+  no-expose-event (GdkEvent) -&gt; gboolean
+  window-state-event (GdkEvent) -&gt; gboolean
+  grab-broken-event (GdkEvent) -&gt; gboolean
+  query-tooltip (gint, gint, gboolean, GtkTooltip) -&gt; gboolean
+  popup-menu () -&gt; gboolean
+  show-help (GtkWidgetHelpType) -&gt; gboolean
+  accel-closures-changed ()
+  screen-changed (GdkScreen)
+  can-activate-accel (guint) -&gt; gboolean
+
+Properties from GtkWidget:
+  name -&gt; gchararray: Nome do widget
+    O nome do widget
+  parent -&gt; GtkContainer: Widget pai
+    O widget pai deste widget.</em>
+    <ul>
+    <li> <strong class="uidlink">gtk.Window</strong>:
+      <em class="summary">Object GtkWindow
+
+Signals from GtkWindow:
+  set-focus (GtkWidget)
+  frame-event (GdkEvent) -&gt; gboolean
+  activate-focus ()
+  activate-default ()
+  keys-changed ()
+
+Properties from GtkWindow:
+  type -&gt; GtkWindowType: Tipo de Janela
+    O tipo da janela
+  title -&gt; gchararray: T&#195;&#173;tulo da Janela
+    O t&#195;&#173;tulo da janela
+  role -&gt; gchararray: Papel da Janela
+    Identificador &#195;&#186;nico para a janela a ser utilizado ao rep&#195;&#180;r uma sess&#195;&#163;o
+  startup-id -&gt; gchararray: ID de In&#195;&#173;cio
+    Identificador &#195;&#186;nico de in&#195;&#173;cio para a janela utilizado pelo startup-notification
+  allow-shrink -&gt; gboolean: Permitir Encolher
+    Se VERDADEIRO, a janela n&#195;&#163;o tem um tamanho m&#195;&#173;nimo.</em>
+    <ul>
+    <li> <strong class="uidlink">gtk.Dialog</strong>:
+      <em class="summary">Object GtkDialog
+
+Signals from GtkDialog:
+  response (gint)
+  close ()
+
+Properties from GtkDialog:
+  has-separator -&gt; gboolean: Tem separador
+    O di&#195;&#161;logo tem uma barra separadora acima dos seus bot&#195;&#181;es
+
+Signals from GtkWindow:
+  set-focus (GtkWidget)
+  frame-event (GdkEvent) -&gt; gboolean
+  activate-focus ()
+  activate-default ()
+  keys-changed ()
+
+Properties from GtkWindow:
+  type -&gt; GtkWindowType: Tipo de Janela
+    O tipo da janela
+  title -&gt; gchararray: T&#195;&#173;tulo da Janela
+    O t&#195;&#173;tulo da janela
+  role -&gt; gchararray: Papel da Janela
+    Identificador &#195;&#186;nico para a janela a ser utilizado ao rep&#195;&#180;r uma sess&#195;&#163;o
+  startup-id -&gt; gchararray: ID de In&#195;&#173;cio
+    Identificador &#195;&#186;nico de in&#195;&#173;cio para a janela utilizado pelo startup-notification
+  allow-shrink -&gt; gboolean: Permitir Encolher
+    Se VERDADEIRO, a janela n&#195;&#163;o tem um tamanho m&#195;&#173;nimo.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="screenlets.options.OptionsDialog-class.html">screenlets.options.OptionsDialog</a></strong>:
+      <em class="summary">A dynamic options-editor for editing Screenlets which are 
+        implementing the EditableOptions-class.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.options.ListOptionDialog-class.html">screenlets.options.ListOptionDialog</a></strong>:
+      <em class="summary">An editing dialog used for editing options of the 
+        ListOption-type.</em>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink">gtk.Item</strong>:
+      <em class="summary">Object GtkItem
+
+Signals from GtkItem:
+  select ()
+  deselect ()
+  toggle ()
+
+Signals from GtkContainer:
+  add (GtkWidget)
+  remove (GtkWidget)
+  check-resize ()
+  set-focus-child (GtkWidget)
+
+Properties from GtkContainer:
+  border-width -&gt; guint: Largura da margem
+    A largura da margem vazia fora dos filhos do contentor
+  resize-mode -&gt; GtkResizeMode: Modo de redimensionamento
+    Especificar como s&#195;&#163;o geridos os eventos de redimensionamento
+  child -&gt; GtkWidget: Filho
+    Pode ser utilizado para adicionar novo filho ao contentor
+
+Signals from GtkWidget:
+  composited-changed ()
+  show ()
+  hide ()
+  map ()
+  unmap ()
+  realize ()
+  unrealize ()
+  size-request (GtkRequisition)
+  size-allocate (GdkRectangle)
+  state-changed (GtkStateType)
+  parent-set (GtkWidget)
+  hierarchy-changed (GtkWidget)
+  style-set (GtkStyle)
+  direction-changed (GtkTextDirection)
+  grab-notify (gboolean)
+  child-notify (GParam)
+  mnemonic-activate (gboolean) -&gt; gboolean
+  grab-focus ()
+  focus (GtkDirectionType) -&gt; gboolean
+  move-focus (GtkDirectionType)
+  event (GdkEvent) -&gt; gboolean
+  event-after (GdkEvent)
+  button-press-event (GdkEvent) -&gt; gboolean
+  button-release-event (GdkEvent) -&gt; gboolean
+  scroll-event (GdkEvent) -&gt; gboolean
+  motion-notify-event (GdkEvent) -&gt; gboolean
+  keynav-failed (GtkDirectionType) -&gt; gboolean
+  delete-event (GdkEvent) -&gt; gboolean
+  destroy-event (GdkEvent) -&gt; gboolean
+  expose-event (GdkEvent) -&gt; gboolean
+  key-press-event (GdkEvent) -&gt; gboolean
+  key-release-event (GdkEvent) -&gt; gboolean
+  enter-notify-event (GdkEvent) -&gt; gboolean
+  leave-notify-event (GdkEvent) -&gt; gboolean
+  configure-event (GdkEvent) -&gt; gboolean
+  focus-in-event (GdkEvent) -&gt; gboolean
+  focus-out-event (GdkEvent) -&gt; gboolean
+  map-event (GdkEvent) -&gt; gboolean
+  unmap-event (GdkEvent) -&gt; gboolean
+  property-notify-event (GdkEvent) -&gt; gboolean
+  selection-clear-event (GdkEvent) -&gt; gboolean
+  selection-request-event (GdkEvent) -&gt; gboolean
+  selection-notify-event (GdkEvent) -&gt; gboolean
+  selection-received (GtkSelectionData, guint)
+  selection-get (GtkSelectionData, guint, guint)
+  proximity-in-event (GdkEvent) -&gt; gboolean
+  proximity-out-event (GdkEvent) -&gt; gboolean
+  drag-leave (GdkDragContext, guint)
+  drag-begin (GdkDragContext)
+  drag-end (GdkDragContext)
+  drag-data-delete (GdkDragContext)
+  drag-failed (GdkDragContext, GtkDragResult) -&gt; gboolean
+  drag-motion (GdkDragContext, gint, gint, guint) -&gt; gboolean
+  drag-drop (GdkDragContext, gint, gint, guint) -&gt; gboolean
+  drag-data-get (GdkDragContext, GtkSelectionData, guint, guint)
+  drag-data-received (GdkDragContext, gint, gint, GtkSelectionData, guint, guint)
+  visibility-notify-event (GdkEvent) -&gt; gboolean
+  client-event (GdkEvent) -&gt; gboolean
+  no-expose-event (GdkEvent) -&gt; gboolean
+  window-state-event (GdkEvent) -&gt; gboolean
+  grab-broken-event (GdkEvent) -&gt; gboolean
+  query-tooltip (gint, gint, gboolean, GtkTooltip) -&gt; gboolean
+  popup-menu () -&gt; gboolean
+  show-help (GtkWidgetHelpType) -&gt; gboolean
+  accel-closures-changed ()
+  screen-changed (GdkScreen)
+  can-activate-accel (guint) -&gt; gboolean
+
+Properties from GtkWidget:
+  name -&gt; gchararray: Nome do widget
+    O nome do widget
+  parent -&gt; GtkContainer: Widget pai
+    O widget pai deste widget.</em>
+    <ul>
+    <li> <strong class="uidlink">gtk.MenuItem</strong>:
+      <em class="summary">Object GtkMenuItem
+
+Signals from GtkMenuItem:
+  activate ()
+  activate-item ()
+  toggle-size-request (gpointer)
+  toggle-size-allocate (gint)
+
+Properties from GtkMenuItem:
+  submenu -&gt; GtkMenu: Submenu
+    O submenu associado ao item de menu, ou NULL se n&#195;&#163;o existir
+
+Signals from GtkItem:
+  select ()
+  deselect ()
+  toggle ()
+
+Signals from GtkContainer:
+  add (GtkWidget)
+  remove (GtkWidget)
+  check-resize ()
+  set-focus-child (GtkWidget)
+
+Properties from GtkContainer:
+  border-width -&gt; guint: Largura da margem
+    A largura da margem vazia fora dos filhos do contentor
+  resize-mode -&gt; GtkResizeMode: Modo de redimensionamento
+    Especificar como s&#195;&#163;o geridos os eventos de redimensionamento
+  child -&gt; GtkWidget: Filho
+    Pode ser utilizado para adicionar novo filho ao contentor
+
+Signals from GtkWidget:
+  composited-changed ()
+  show ()
+  hide ()
+  map ()
+  unmap ()
+  realize ()
+  unrealize ()
+  size-request (GtkRequisition)
+  size-allocate (GdkRectangle)
+  state-changed (GtkStateType)
+  parent-set (GtkWidget)
+  hierarchy-changed (GtkWidget)
+  style-set (GtkStyle)
+  direction-changed (GtkTextDirection)
+  grab-notify (gboolean)
+  child-notify (GParam)
+  mnemonic-activate (gboolean) -&gt; gboolean
+  grab-focus ()
+  focus (GtkDirectionType) -&gt; gboolean
+  move-focus (GtkDirectionType)
+  event (GdkEvent) -&gt; gboolean
+  event-after (GdkEvent)
+  button-press-event (GdkEvent) -&gt; gboolean
+  button-release-event (GdkEvent) -&gt; gboolean
+  scroll-event (GdkEvent) -&gt; gboolean
+  motion-notify-event (GdkEvent) -&gt; gboolean
+  keynav-failed (GtkDirectionType) -&gt; gboolean
+  delete-event (GdkEvent) -&gt; gboolean
+  destroy-event (GdkEvent) -&gt; gboolean
+  expose-event (GdkEvent) -&gt; gboolean
+  key-press-event (GdkEvent) -&gt; gboolean
+  key-release-event (GdkEvent) -&gt; gboolean
+  enter-notify-event (GdkEvent) -&gt; gboolean
+  leave-notify-event (GdkEvent) -&gt; gboolean
+  configure-event (GdkEvent) -&gt; gboolean
+  focus-in-event (GdkEvent) -&gt; gboolean
+  focus-out-event (GdkEvent) -&gt; gboolean
+  map-event (GdkEvent) -&gt; gboolean
+  unmap-event (GdkEvent) -&gt; gboolean
+  property-notify-event (GdkEvent) -&gt; gboolean
+  selection-clear-event (GdkEvent) -&gt; gboolean
+  selection-request-event (GdkEvent) -&gt; gboolean
+  selection-notify-event (GdkEvent) -&gt; gboolean
+  selection-received (GtkSelectionData, guint)
+  selection-get (GtkSelectionData, guint, guint)
+  proximity-in-event (GdkEvent) -&gt; gboolean
+  proximity-out-event (GdkEvent) -&gt; gboolean
+  drag-leave (GdkDragContext, guint)
+  drag-begin (GdkDragContext)
+  drag-end (GdkDragContext)
+  drag-data-delete (GdkDragContext)
+  drag-failed (GdkDragContext, GtkDragResult) -&gt; gboolean
+  drag-motion (GdkDragContext, gint, gint, guint) -&gt; gboolean
+  drag-drop (GdkDragContext, gint, gint, guint) -&gt; gboolean
+  drag-data-get (GdkDragContext, GtkSelectionData, guint, guint)
+  drag-data-received (GdkDragContext, gint, gint, GtkSelectionData, guint, guint)
+  visibility-notify-event (GdkEvent) -&gt; gboolean
+  client-event (GdkEvent) -&gt; gboolean
+  no-expose-event (GdkEvent) -&gt; gboolean
+  window-state-event (GdkEvent) -&gt; gboolean
+  grab-broken-event (GdkEvent) -&gt; gboolean
+  query-tooltip (gint, gint, gboolean, GtkTooltip) -&gt; gboolean
+  popup-menu () -&gt; gboolean
+  show-help (GtkWidgetHelpType) -&gt; gboolean
+  accel-closures-changed ()
+  screen-changed (GdkScreen)
+  can-activate-accel (guint) -&gt; gboolean
+
+Properties from GtkWidget:
+  name -&gt; gchararray: Nome do widget
+    O nome do widget
+  parent -&gt; GtkContainer: Widget pai
+    O widget pai deste widget.</em>
+    <ul>
+    <li> <strong class="uidlink">gtk.ImageMenuItem</strong>:
+      <em class="summary">Object GtkImageMenuItem
+
+Properties from GtkImageMenuItem:
+  image -&gt; GtkWidget: Widget de imagem
+    Widget filho a apresentar ao lado do texto de menu
+
+Signals from GtkMenuItem:
+  activate ()
+  activate-item ()
+  toggle-size-request (gpointer)
+  toggle-size-allocate (gint)
+
+Properties from GtkMenuItem:
+  submenu -&gt; GtkMenu: Submenu
+    O submenu associado ao item de menu, ou NULL se n&#195;&#163;o existir
+
+Signals from GtkItem:
+  select ()
+  deselect ()
+  toggle ()
+
+Signals from GtkContainer:
+  add (GtkWidget)
+  remove (GtkWidget)
+  check-resize ()
+  set-focus-child (GtkWidget)
+
+Properties from GtkContainer:
+  border-width -&gt; guint: Largura da margem
+    A largura da margem vazia fora dos filhos do contentor
+  resize-mode -&gt; GtkResizeMode: Modo de redimensionamento
+    Especificar como s&#195;&#163;o geridos os eventos de redimensionamento
+  child -&gt; GtkWidget: Filho
+    Pode ser utilizado para adicionar novo filho ao contentor
+
+Signals from GtkWidget:
+  composited-changed ()
+  show ()
+  hide ()
+  map ()
+  unmap ()
+  realize ()
+  unrealize ()
+  size-request (GtkRequisition)
+  size-allocate (GdkRectangle)
+  state-changed (GtkStateType)
+  parent-set (GtkWidget)
+  hierarchy-changed (GtkWidget)
+  style-set (GtkStyle)
+  direction-changed (GtkTextDirection)
+  grab-notify (gboolean)
+  child-notify (GParam)
+  mnemonic-activate (gboolean) -&gt; gboolean
+  grab-focus ()
+  focus (GtkDirectionType) -&gt; gboolean
+  move-focus (GtkDirectionType)
+  event (GdkEvent) -&gt; gboolean
+  event-after (GdkEvent)
+  button-press-event (GdkEvent) -&gt; gboolean
+  button-release-event (GdkEvent) -&gt; gboolean
+  scroll-event (GdkEvent) -&gt; gboolean
+  motion-notify-event (GdkEvent) -&gt; gboolean
+  keynav-failed (GtkDirectionType) -&gt; gboolean
+  delete-event (GdkEvent) -&gt; gboolean
+  destroy-event (GdkEvent) -&gt; gboolean
+  expose-event (GdkEvent) -&gt; gboolean
+  key-press-event (GdkEvent) -&gt; gboolean
+  key-release-event (GdkEvent) -&gt; gboolean
+  enter-notify-event (GdkEvent) -&gt; gboolean
+  leave-notify-event (GdkEvent) -&gt; gboolean
+  configure-event (GdkEvent) -&gt; gboolean
+  focus-in-event (GdkEvent) -&gt; gboolean
+  focus-out-event (GdkEvent) -&gt; gboolean
+  map-event (GdkEvent) -&gt; gboolean
+  unmap-event (GdkEvent) -&gt; gboolean
+  property-notify-event (GdkEvent) -&gt; gboolean
+  selection-clear-event (GdkEvent) -&gt; gboolean
+  selection-request-event (GdkEvent) -&gt; gboolean
+  selection-notify-event (GdkEvent) -&gt; gboolean
+  selection-received (GtkSelectionData, guint)
+  selection-get (GtkSelectionData, guint, guint)
+  proximity-in-event (GdkEvent) -&gt; gboolean
+  proximity-out-event (GdkEvent) -&gt; gboolean
+  drag-leave (GdkDragContext, guint)
+  drag-begin (GdkDragContext)
+  drag-end (GdkDragContext)
+  drag-data-delete (GdkDragContext)
+  drag-failed (GdkDragContext, GtkDragResult) -&gt; gboolean
+  drag-motion (GdkDragContext, gint, gint, guint) -&gt; gboolean
+  drag-drop (GdkDragContext, gint, gint, guint) -&gt; gboolean
+  drag-data-get (GdkDragContext, GtkSelectionData, guint, guint)
+  drag-data-received (GdkDragContext, gint, gint, GtkSelectionData, guint, guint)
+  visibility-notify-event (GdkEvent) -&gt; gboolean
+  client-event (GdkEvent) -&gt; gboolean
+  no-expose-event (GdkEvent) -&gt; gboolean
+  window-state-event (GdkEvent) -&gt; gboolean
+  grab-broken-event (GdkEvent) -&gt; gboolean
+  query-tooltip (gint, gint, gboolean, GtkTooltip) -&gt; gboolean
+  popup-menu () -&gt; gboolean
+  show-help (GtkWidgetHelpType) -&gt; gboolean
+  accel-closures-changed ()
+  screen-changed (GdkScreen)
+  can-activate-accel (guint) -&gt; gboolean
+
+Properties from GtkWidget:
+  name -&gt; gchararray: Nome do widget
+    O nome do widget
+  parent -&gt; GtkContainer: Widget pai
+    O widget pai deste widget.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="screenlets.menu.ImageMenuItem-class.html">screenlets.menu.ImageMenuItem</a></strong>:
+      <em class="summary">A menuitem with a custom image and label.</em>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink">gtk.DrawingArea</strong>:
+      <em class="summary">Object GtkDrawingArea
+
+Signals from GtkWidget:
+  composited-changed ()
+  show ()
+  hide ()
+  map ()
+  unmap ()
+  realize ()
+  unrealize ()
+  size-request (GtkRequisition)
+  size-allocate (GdkRectangle)
+  state-changed (GtkStateType)
+  parent-set (GtkWidget)
+  hierarchy-changed (GtkWidget)
+  style-set (GtkStyle)
+  direction-changed (GtkTextDirection)
+  grab-notify (gboolean)
+  child-notify (GParam)
+  mnemonic-activate (gboolean) -&gt; gboolean
+  grab-focus ()
+  focus (GtkDirectionType) -&gt; gboolean
+  move-focus (GtkDirectionType)
+  event (GdkEvent) -&gt; gboolean
+  event-after (GdkEvent)
+  button-press-event (GdkEvent) -&gt; gboolean
+  button-release-event (GdkEvent) -&gt; gboolean
+  scroll-event (GdkEvent) -&gt; gboolean
+  motion-notify-event (GdkEvent) -&gt; gboolean
+  keynav-failed (GtkDirectionType) -&gt; gboolean
+  delete-event (GdkEvent) -&gt; gboolean
+  destroy-event (GdkEvent) -&gt; gboolean
+  expose-event (GdkEvent) -&gt; gboolean
+  key-press-event (GdkEvent) -&gt; gboolean
+  key-release-event (GdkEvent) -&gt; gboolean
+  enter-notify-event (GdkEvent) -&gt; gboolean
+  leave-notify-event (GdkEvent) -&gt; gboolean
+  configure-event (GdkEvent) -&gt; gboolean
+  focus-in-event (GdkEvent) -&gt; gboolean
+  focus-out-event (GdkEvent) -&gt; gboolean
+  map-event (GdkEvent) -&gt; gboolean
+  unmap-event (GdkEvent) -&gt; gboolean
+  property-notify-event (GdkEvent) -&gt; gboolean
+  selection-clear-event (GdkEvent) -&gt; gboolean
+  selection-request-event (GdkEvent) -&gt; gboolean
+  selection-notify-event (GdkEvent) -&gt; gboolean
+  selection-received (GtkSelectionData, guint)
+  selection-get (GtkSelectionData, guint, guint)
+  proximity-in-event (GdkEvent) -&gt; gboolean
+  proximity-out-event (GdkEvent) -&gt; gboolean
+  drag-leave (GdkDragContext, guint)
+  drag-begin (GdkDragContext)
+  drag-end (GdkDragContext)
+  drag-data-delete (GdkDragContext)
+  drag-failed (GdkDragContext, GtkDragResult) -&gt; gboolean
+  drag-motion (GdkDragContext, gint, gint, guint) -&gt; gboolean
+  drag-drop (GdkDragContext, gint, gint, guint) -&gt; gboolean
+  drag-data-get (GdkDragContext, GtkSelectionData, guint, guint)
+  drag-data-received (GdkDragContext, gint, gint, GtkSelectionData, guint, guint)
+  visibility-notify-event (GdkEvent) -&gt; gboolean
+  client-event (GdkEvent) -&gt; gboolean
+  no-expose-event (GdkEvent) -&gt; gboolean
+  window-state-event (GdkEvent) -&gt; gboolean
+  grab-broken-event (GdkEvent) -&gt; gboolean
+  query-tooltip (gint, gint, gboolean, GtkTooltip) -&gt; gboolean
+  popup-menu () -&gt; gboolean
+  show-help (GtkWidgetHelpType) -&gt; gboolean
+  accel-closures-changed ()
+  screen-changed (GdkScreen)
+  can-activate-accel (guint) -&gt; gboolean
+
+Properties from GtkWidget:
+  name -&gt; gchararray: Nome do widget
+    O nome do widget
+  parent -&gt; GtkContainer: Widget pai
+    O widget pai deste widget.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="screenlets.ShapedWidget-class.html">screenlets.ShapedWidget</a></strong>:
+      <em class="summary">A simple base-class for creating owner-drawn gtk-widgets</em>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.keyring.KeyRing.Key-class.html">screenlets.plugins.keyring.KeyRing.Key</a></strong>
+    </li>
+    <li> <strong class="uidlink">type</strong>:
+      <em class="summary">type(object) -&gt; the object's type type(name, bases, dict) 
+        -&gt; a new type</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="dbus.service.InterfaceType-class.html">dbus.service.InterfaceType</a></strong>
+    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink">dbus.service.Interface</strong>
+    <ul>
+    <li> <strong class="uidlink">dbus.service.Object</strong>:
+      <em class="summary">A base class for exporting your own Objects across the Bus.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="screenlets.services.ScreenletService-class.html">screenlets.services.ScreenletService</a></strong>:
+      <em class="summary">The ScreenletService contains the boilerplate code for creating 
+        new dbus-objects for Screenlets.</em>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.AmazonCoverArtSearch.AmazonCoverArtSearch-class.html">screenlets.plugins.AmazonCoverArtSearch.AmazonCoverArtSearch</a></strong>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.mpdclient2.command_sender-class.html">screenlets.plugins.mpdclient2.command_sender</a></strong>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.mpdclient2.socket_talker-class.html">screenlets.plugins.mpdclient2.socket_talker</a></strong>
+    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.DefaultMenuItem-class.html">screenlets.DefaultMenuItem</a></strong>:
+      <em class="summary">A container with constants for the default menuitems</em>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.Notify-class.html">screenlets.Notify</a></strong>:
+      <em class="summary">A window that displays a text and serves as Notification (very 
+        basic yet).</em>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.Tooltip-class.html">screenlets.Tooltip</a></strong>:
+      <em class="summary">A window that displays a text and serves as Tooltip (very basic 
+        yet).</em>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.backend.ScreenletsBackend-class.html">screenlets.backend.ScreenletsBackend</a></strong>:
+      <em class="summary">The backend performs the loading/saving of the 
+        'key=value'-strings.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="screenlets.backend.GconfBackend-class.html">screenlets.backend.GconfBackend</a></strong>:
+      <em class="summary">Backend for storing settings in the GConf registry</em>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.backend.CachingBackend-class.html">screenlets.backend.CachingBackend</a></strong>:
+      <em class="summary">A backend that stores the settings in arrays and saves after a 
+        short interval to avoid overhead when multiple values are set 
+        within a short time.</em>
+    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.drawing.Drawing-class.html">screenlets.drawing.Drawing</a></strong>:
+      <em class="summary">Contains static drawing functions.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="screenlets.Screenlet-class.html">screenlets.Screenlet</a></strong>:
+      <em class="summary">A Screenlet is a (i.e.</em>
+    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.install.ScreenletInstaller-class.html">screenlets.install.ScreenletInstaller</a></strong>:
+      <em class="summary">A simple utility to install screenlets into the current user's 
+        directory (so either into $HOME/.screenlets/ for normal users or, 
+        if run as root, into 
+        screenlets.INSTALL_PREFIX/share/screenlets/).</em>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.menu.ApplicationMenu-class.html">screenlets.menu.ApplicationMenu</a></strong>:
+      <em class="summary">A utility-class to simplify the creation of gtk.Menus from 
+        directories with desktop-files.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.menu.DefaultMenuItem-class.html">screenlets.menu.DefaultMenuItem</a></strong>:
+      <em class="summary">A container with constants for the default menuitems</em>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.options.EditableOptions-class.html">screenlets.options.EditableOptions</a></strong>:
+      <em class="summary">The EditableOptions can be inherited from to allow objects to 
+        export editable options for editing them with the 
+        OptionsEditor-class.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="screenlets.Screenlet-class.html">screenlets.Screenlet</a></strong>:
+      <em class="summary">A Screenlet is a (i.e.</em>
+    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.AmazonCoverArtSearch.Bag-class.html">screenlets.plugins.AmazonCoverArtSearch.Bag</a></strong>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.Convert.Converter-class.html">screenlets.plugins.Convert.Converter</a></strong>:
+      <em class="summary">The base class for the converters.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.BaseConverter.BaseConverter-class.html">screenlets.plugins.BaseConverter.BaseConverter</a></strong>:
+      <em class="summary">A converter which converts numbers between decimal, hexadecimal 
+        and octal bases.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.TemperatureConverter.TemperatureConverter-class.html">screenlets.plugins.TemperatureConverter.TemperatureConverter</a></strong>:
+      <em class="summary">A converter which converts temperature between Fahrenheit and 
+        Celsius.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.Convert.RatioConverter-class.html">screenlets.plugins.Convert.RatioConverter</a></strong>:
+      <em class="summary">A base class of converters having linear dependances between 
+        their fields.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.LengthConverter.LengthConverter-class.html">screenlets.plugins.LengthConverter.LengthConverter</a></strong>:
+      <em class="summary">A converter which converts lengths between centimeters and 
+        inches.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.SizeConverter.SizeConverter-class.html">screenlets.plugins.SizeConverter.SizeConverter</a></strong>:
+      <em class="summary">A converter which converts sizes between B, kB, MB and GB.</em>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.Flickr.Flickr-class.html">screenlets.plugins.Flickr.Flickr</a></strong>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.GenericPlayer.GenericAPI-class.html">screenlets.plugins.GenericPlayer.GenericAPI</a></strong>
+    <ul>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.Audacious.AudaciousAPI-class.html">screenlets.plugins.Audacious.AudaciousAPI</a></strong>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.Quodlibet.QuodlibetAPI-class.html">screenlets.plugins.Quodlibet.QuodlibetAPI</a></strong>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.Exaile.ExaileAPI-class.html">screenlets.plugins.Exaile.ExaileAPI</a></strong>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.Amarok.AmarokAPI-class.html">screenlets.plugins.Amarok.AmarokAPI</a></strong>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.Juk.JukAPI-class.html">screenlets.plugins.Juk.JukAPI</a></strong>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.Sonata.SonataAPI-class.html">screenlets.plugins.Sonata.SonataAPI</a></strong>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.Banshee.BansheeAPI-class.html">screenlets.plugins.Banshee.BansheeAPI</a></strong>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.Listen.ListenAPI-class.html">screenlets.plugins.Listen.ListenAPI</a></strong>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.Songbird.SongbirdAPI-class.html">screenlets.plugins.Songbird.SongbirdAPI</a></strong>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.LastFMProxy.LastFMProxyAPI-class.html">screenlets.plugins.LastFMProxy.LastFMProxyAPI</a></strong>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.Kaffeine.KaffeineAPI-class.html">screenlets.plugins.Kaffeine.KaffeineAPI</a></strong>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.Rhythmbox.RhythmboxAPI-class.html">screenlets.plugins.Rhythmbox.RhythmboxAPI</a></strong>
+    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.Gstreamer.gstreamer-class.html">screenlets.plugins.Gstreamer.gstreamer</a></strong>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.Mail.MailCheckStatus-class.html">screenlets.plugins.Mail.MailCheckStatus</a></strong>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.Mail.MailboxStatus-class.html">screenlets.plugins.Mail.MailboxStatus</a></strong>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.Mail.Mailer-class.html">screenlets.plugins.Mail.Mailer</a></strong>:
+      <em class="summary">Class that retrieve the information from an Imap, Pop or mbox 
+        account</em>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.Mplayer.Mplayer-class.html">screenlets.plugins.Mplayer.Mplayer</a></strong>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.Proxy.Proxy-class.html">screenlets.plugins.Proxy.Proxy</a></strong>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.iCal.DateSet-class.html">screenlets.plugins.iCal.DateSet</a></strong>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.iCal.ICalEvent-class.html">screenlets.plugins.iCal.ICalEvent</a></strong>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.iCal.ICalReader-class.html">screenlets.plugins.iCal.ICalReader</a></strong>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.keyring.KeyRing-class.html">screenlets.plugins.keyring.KeyRing</a></strong>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.mail.MailCheckStatus-class.html">screenlets.plugins.mail.MailCheckStatus</a></strong>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.mail.MailboxStatus-class.html">screenlets.plugins.mail.MailboxStatus</a></strong>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.plugins.mail.Mailer-class.html">screenlets.plugins.mail.Mailer</a></strong>:
+      <em class="summary">Class that retrieve the information from an Imap, Pop or mbox 
+        account</em>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.utils.IniReader-class.html">screenlets.utils.IniReader</a></strong>:
+      <em class="summary">A simple config/ini-reader class.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.utils.Notifier-class.html">screenlets.utils.Notifier</a></strong>:
+      <em class="summary">A simple and conveniet wrapper for the notification-service.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="screenlets.utils.ScreenletInfo-class.html">screenlets.utils.ScreenletInfo</a></strong>:
+      <em class="summary">A container with info about a screenlet.</em>
+    </li>
+</ul>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="screenlets-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th bgcolor="#70b0f0" class="navbar-select"
+          >&nbsp;&nbsp;&nbsp;Trees&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Screenlets 0.1.2</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Wed Jun  4 18:52:57 2008
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

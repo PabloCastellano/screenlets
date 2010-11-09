@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>screenlets.plugins.GenericPlayer</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="screenlets-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Screenlets 0.1.2</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="screenlets-module.html">Package&nbsp;screenlets</a> ::
+        <a href="screenlets.plugins-module.html">Package&nbsp;plugins</a> ::
+        Module&nbsp;GenericPlayer
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="screenlets.plugins.GenericPlayer-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="screenlets.plugins.GenericPlayer-module.html">Module screenlets.plugins.GenericPlayer</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-comment"># This application is released under the GNU General Public License </tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># v3 (or, at your option, any later version). You can find the full </tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># text of the license under http://www.gnu.org/licenses/gpl.txt. </tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># By using, editing and/or distributing this software you agree to </tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># the terms and conditions of this license. </tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># Thank you for using free software!</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-comment"># A Generic API to a Music Player by vrunner</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># All Players must extend this class</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="GenericAPI"></a><div id="GenericAPI-def"><a name="L12"></a><tt class="py-lineno">12</tt> <a class="py-toggle" href="#" id="GenericAPI-toggle" onclick="return toggle('GenericAPI');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="screenlets.plugins.GenericPlayer.GenericAPI-class.html">GenericAPI</a><tt class="py-op">:</tt> </tt>
+</div><div id="GenericAPI-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="GenericAPI-expanded"><a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line">        <tt id="link-0" class="py-name" targets="Variable screenlets.Screenlet.__name__=screenlets.Screenlet-class.html#__name__,Variable screenlets.ScreenletTheme.__name__=screenlets.ScreenletTheme-class.html#__name__,Variable screenlets.plugins.Amarok.AmarokAPI.__name__=screenlets.plugins.Amarok.AmarokAPI-class.html#__name__,Variable screenlets.plugins.Audacious.AudaciousAPI.__name__=screenlets.plugins.Audacious.AudaciousAPI-class.html#__name__,Variable screenlets.plugins.Banshee.BansheeAPI.__name__=screenlets.plugins.Banshee.BansheeAPI-class.html#__name__,Variable screenlets.plugins.BaseConverter.BaseConverter.__name__=screenlets.plugins.BaseConverter.BaseConverter-class.html#__name__,Variable screenlets.plugins.Convert.Converter.__name__=screenlets.plugins.Convert.Converter-class.html#__name__,Variable screenlets.plugins.Convert.RatioConverter.__name__=screenlets.plugins.Convert.RatioConverter-class.html#__name__,Variable screenlets.plugins.Exaile.ExaileAPI.__name__=screenlets.plugins.Exaile.ExaileAPI-class.html#__name__,Variable screenlets.plugins.GenericPlayer.GenericAPI.__name__=screenlets.plugins.GenericPlayer.GenericAPI-class.html#__name__,Variable screenlets.plugins.Juk.JukAPI.__name__=screenlets.plugins.Juk.JukAPI-class.html#__name__,Variable screenlets.plugins.Kaffeine.KaffeineAPI.__name__=screenlets.plugins.Kaffeine.KaffeineAPI-class.html#__name__,Variable screenlets.plugins.LastFMProxy.LastFMProxyAPI.__name__=screenlets.plugins.LastFMProxy.LastFMProxyAPI-class.html#__name__,Variable screenlets.plugins.LengthConverter.LengthConverter.__name__=screenlets.plugins.LengthConverter.LengthConverter-class.html#__name__,Variable screenlets.plugins.Listen.ListenAPI.__name__=screenlets.plugins.Listen.ListenAPI-class.html#__name__,Variable screenlets.plugins.Quodlibet.QuodlibetAPI.__name__=screenlets.plugins.Quodlibet.QuodlibetAPI-class.html#__name__,Variable screenlets.plugins.Rhythmbox.RhythmboxAPI.__name__=screenlets.plugins.Rhythmbox.RhythmboxAPI-class.html#__name__,Variable screenlets.plugins.SizeConverter.SizeConverter.__name__=screenlets.plugins.SizeConverter.SizeConverter-class.html#__name__,Variable screenlets.plugins.Sonata.SonataAPI.__name__=screenlets.plugins.Sonata.SonataAPI-class.html#__name__,Variable screenlets.plugins.Songbird.SongbirdAPI.__name__=screenlets.plugins.Songbird.SongbirdAPI-class.html#__name__,Variable screenlets.plugins.TemperatureConverter.TemperatureConverter.__name__=screenlets.plugins.TemperatureConverter.TemperatureConverter-class.html#__name__"><a title="screenlets.Screenlet.__name__
+screenlets.ScreenletTheme.__name__
+screenlets.plugins.Amarok.AmarokAPI.__name__
+screenlets.plugins.Audacious.AudaciousAPI.__name__
+screenlets.plugins.Banshee.BansheeAPI.__name__
+screenlets.plugins.BaseConverter.BaseConverter.__name__
+screenlets.plugins.Convert.Converter.__name__
+screenlets.plugins.Convert.RatioConverter.__name__
+screenlets.plugins.Exaile.ExaileAPI.__name__
+screenlets.plugins.GenericPlayer.GenericAPI.__name__
+screenlets.plugins.Juk.JukAPI.__name__
+screenlets.plugins.Kaffeine.KaffeineAPI.__name__
+screenlets.plugins.LastFMProxy.LastFMProxyAPI.__name__
+screenlets.plugins.LengthConverter.LengthConverter.__name__
+screenlets.plugins.Listen.ListenAPI.__name__
+screenlets.plugins.Quodlibet.QuodlibetAPI.__name__
+screenlets.plugins.Rhythmbox.RhythmboxAPI.__name__
+screenlets.plugins.SizeConverter.SizeConverter.__name__
+screenlets.plugins.Sonata.SonataAPI.__name__
+screenlets.plugins.Songbird.SongbirdAPI.__name__
+screenlets.plugins.TemperatureConverter.TemperatureConverter.__name__" class="py-name" href="#" onclick="return doclink('link-0', '__name__', 'link-0');">__name__</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'GenericAPI'</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line">        <tt id="link-1" class="py-name" targets="Variable screenlets.plugins.Amarok.AmarokAPI.__version__=screenlets.plugins.Amarok.AmarokAPI-class.html#__version__,Variable screenlets.plugins.Audacious.AudaciousAPI.__version__=screenlets.plugins.Audacious.AudaciousAPI-class.html#__version__,Variable screenlets.plugins.Banshee.BansheeAPI.__version__=screenlets.plugins.Banshee.BansheeAPI-class.html#__version__,Variable screenlets.plugins.Exaile.ExaileAPI.__version__=screenlets.plugins.Exaile.ExaileAPI-class.html#__version__,Variable screenlets.plugins.GenericPlayer.GenericAPI.__version__=screenlets.plugins.GenericPlayer.GenericAPI-class.html#__version__,Variable screenlets.plugins.Juk.JukAPI.__version__=screenlets.plugins.Juk.JukAPI-class.html#__version__,Variable screenlets.plugins.Kaffeine.KaffeineAPI.__version__=screenlets.plugins.Kaffeine.KaffeineAPI-class.html#__version__,Variable screenlets.plugins.LastFMProxy.LastFMProxyAPI.__version__=screenlets.plugins.LastFMProxy.LastFMProxyAPI-class.html#__version__,Variable screenlets.plugins.Listen.ListenAPI.__version__=screenlets.plugins.Listen.ListenAPI-class.html#__version__,Variable screenlets.plugins.Quodlibet.QuodlibetAPI.__version__=screenlets.plugins.Quodlibet.QuodlibetAPI-class.html#__version__,Variable screenlets.plugins.Rhythmbox.RhythmboxAPI.__version__=screenlets.plugins.Rhythmbox.RhythmboxAPI-class.html#__version__,Variable screenlets.plugins.Sonata.SonataAPI.__version__=screenlets.plugins.Sonata.SonataAPI-class.html#__version__,Variable screenlets.plugins.Songbird.SongbirdAPI.__version__=screenlets.plugins.Songbird.SongbirdAPI-class.html#__version__"><a title="screenlets.plugins.Amarok.AmarokAPI.__version__
+screenlets.plugins.Audacious.AudaciousAPI.__version__
+screenlets.plugins.Banshee.BansheeAPI.__version__
+screenlets.plugins.Exaile.ExaileAPI.__version__
+screenlets.plugins.GenericPlayer.GenericAPI.__version__
+screenlets.plugins.Juk.JukAPI.__version__
+screenlets.plugins.Kaffeine.KaffeineAPI.__version__
+screenlets.plugins.LastFMProxy.LastFMProxyAPI.__version__
+screenlets.plugins.Listen.ListenAPI.__version__
+screenlets.plugins.Quodlibet.QuodlibetAPI.__version__
+screenlets.plugins.Rhythmbox.RhythmboxAPI.__version__
+screenlets.plugins.Sonata.SonataAPI.__version__
+screenlets.plugins.Songbird.SongbirdAPI.__version__" class="py-name" href="#" onclick="return doclink('link-1', '__version__', 'link-1');">__version__</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'0.0'</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line">        <tt id="link-2" class="py-name" targets="Variable screenlets.plugins.Amarok.AmarokAPI.__author__=screenlets.plugins.Amarok.AmarokAPI-class.html#__author__,Variable screenlets.plugins.Audacious.AudaciousAPI.__author__=screenlets.plugins.Audacious.AudaciousAPI-class.html#__author__,Variable screenlets.plugins.Banshee.BansheeAPI.__author__=screenlets.plugins.Banshee.BansheeAPI-class.html#__author__,Variable screenlets.plugins.Exaile.ExaileAPI.__author__=screenlets.plugins.Exaile.ExaileAPI-class.html#__author__,Variable screenlets.plugins.GenericPlayer.GenericAPI.__author__=screenlets.plugins.GenericPlayer.GenericAPI-class.html#__author__,Variable screenlets.plugins.Juk.JukAPI.__author__=screenlets.plugins.Juk.JukAPI-class.html#__author__,Variable screenlets.plugins.Kaffeine.KaffeineAPI.__author__=screenlets.plugins.Kaffeine.KaffeineAPI-class.html#__author__,Variable screenlets.plugins.LastFMProxy.LastFMProxyAPI.__author__=screenlets.plugins.LastFMProxy.LastFMProxyAPI-class.html#__author__,Variable screenlets.plugins.Listen.ListenAPI.__author__=screenlets.plugins.Listen.ListenAPI-class.html#__author__,Variable screenlets.plugins.Quodlibet.QuodlibetAPI.__author__=screenlets.plugins.Quodlibet.QuodlibetAPI-class.html#__author__,Variable screenlets.plugins.Rhythmbox.RhythmboxAPI.__author__=screenlets.plugins.Rhythmbox.RhythmboxAPI-class.html#__author__,Variable screenlets.plugins.Sonata.SonataAPI.__author__=screenlets.plugins.Sonata.SonataAPI-class.html#__author__,Variable screenlets.plugins.Songbird.SongbirdAPI.__author__=screenlets.plugins.Songbird.SongbirdAPI-class.html#__author__"><a title="screenlets.plugins.Amarok.AmarokAPI.__author__
+screenlets.plugins.Audacious.AudaciousAPI.__author__
+screenlets.plugins.Banshee.BansheeAPI.__author__
+screenlets.plugins.Exaile.ExaileAPI.__author__
+screenlets.plugins.GenericPlayer.GenericAPI.__author__
+screenlets.plugins.Juk.JukAPI.__author__
+screenlets.plugins.Kaffeine.KaffeineAPI.__author__
+screenlets.plugins.LastFMProxy.LastFMProxyAPI.__author__
+screenlets.plugins.Listen.ListenAPI.__author__
+screenlets.plugins.Quodlibet.QuodlibetAPI.__author__
+screenlets.plugins.Rhythmbox.RhythmboxAPI.__author__
+screenlets.plugins.Sonata.SonataAPI.__author__
+screenlets.plugins.Songbird.SongbirdAPI.__author__" class="py-name" href="#" onclick="return doclink('link-2', '__author__', 'link-2');">__author__</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'vrunner'</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line">        <tt id="link-3" class="py-name" targets="Variable screenlets.Screenlet.__desc__=screenlets.Screenlet-class.html#__desc__,Variable screenlets.plugins.Amarok.AmarokAPI.__desc__=screenlets.plugins.Amarok.AmarokAPI-class.html#__desc__,Variable screenlets.plugins.Audacious.AudaciousAPI.__desc__=screenlets.plugins.Audacious.AudaciousAPI-class.html#__desc__,Variable screenlets.plugins.Banshee.BansheeAPI.__desc__=screenlets.plugins.Banshee.BansheeAPI-class.html#__desc__,Variable screenlets.plugins.Exaile.ExaileAPI.__desc__=screenlets.plugins.Exaile.ExaileAPI-class.html#__desc__,Variable screenlets.plugins.GenericPlayer.GenericAPI.__desc__=screenlets.plugins.GenericPlayer.GenericAPI-class.html#__desc__,Variable screenlets.plugins.Juk.JukAPI.__desc__=screenlets.plugins.Juk.JukAPI-class.html#__desc__,Variable screenlets.plugins.Kaffeine.KaffeineAPI.__desc__=screenlets.plugins.Kaffeine.KaffeineAPI-class.html#__desc__,Variable screenlets.plugins.LastFMProxy.LastFMProxyAPI.__desc__=screenlets.plugins.LastFMProxy.LastFMProxyAPI-class.html#__desc__,Variable screenlets.plugins.Listen.ListenAPI.__desc__=screenlets.plugins.Listen.ListenAPI-class.html#__desc__,Variable screenlets.plugins.Quodlibet.QuodlibetAPI.__desc__=screenlets.plugins.Quodlibet.QuodlibetAPI-class.html#__desc__,Variable screenlets.plugins.Rhythmbox.RhythmboxAPI.__desc__=screenlets.plugins.Rhythmbox.RhythmboxAPI-class.html#__desc__,Variable screenlets.plugins.Sonata.SonataAPI.__desc__=screenlets.plugins.Sonata.SonataAPI-class.html#__desc__,Variable screenlets.plugins.Songbird.SongbirdAPI.__desc__=screenlets.plugins.Songbird.SongbirdAPI-class.html#__desc__"><a title="screenlets.Screenlet.__desc__
+screenlets.plugins.Amarok.AmarokAPI.__desc__
+screenlets.plugins.Audacious.AudaciousAPI.__desc__
+screenlets.plugins.Banshee.BansheeAPI.__desc__
+screenlets.plugins.Exaile.ExaileAPI.__desc__
+screenlets.plugins.GenericPlayer.GenericAPI.__desc__
+screenlets.plugins.Juk.JukAPI.__desc__
+screenlets.plugins.Kaffeine.KaffeineAPI.__desc__
+screenlets.plugins.LastFMProxy.LastFMProxyAPI.__desc__
+screenlets.plugins.Listen.ListenAPI.__desc__
+screenlets.plugins.Quodlibet.QuodlibetAPI.__desc__
+screenlets.plugins.Rhythmbox.RhythmboxAPI.__desc__
+screenlets.plugins.Sonata.SonataAPI.__desc__
+screenlets.plugins.Songbird.SongbirdAPI.__desc__" class="py-name" href="#" onclick="return doclink('link-3', '__desc__', 'link-3');">__desc__</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'A Generic API to a Music Player. All Players must extend this'</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line">        <tt id="link-4" class="py-name" targets="Variable screenlets.plugins.GenericPlayer.GenericAPI.session_bus=screenlets.plugins.GenericPlayer.GenericAPI-class.html#session_bus"><a title="screenlets.plugins.GenericPlayer.GenericAPI.session_bus" class="py-name" href="#" onclick="return doclink('link-4', 'session_bus', 'link-4');">session_bus</a></tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"> </tt>
+<a name="GenericAPI.__init__"></a><div id="GenericAPI.__init__-def"><a name="L21"></a><tt class="py-lineno">21</tt> <a class="py-toggle" href="#" id="GenericAPI.__init__-toggle" onclick="return toggle('GenericAPI.__init__');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.plugins.GenericPlayer.GenericAPI-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">session_bus</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="GenericAPI.__init__-collapsed" style="display:none;" pad="++" indent="++++++++++++"></div><div id="GenericAPI.__init__-expanded"><a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-5" class="py-name"><a title="screenlets.plugins.GenericPlayer.GenericAPI.session_bus" class="py-name" href="#" onclick="return doclink('link-5', 'session_bus', 'link-4');">session_bus</a></tt> <tt class="py-op">=</tt> <tt id="link-6" class="py-name"><a title="screenlets.plugins.GenericPlayer.GenericAPI.session_bus" class="py-name" href="#" onclick="return doclink('link-6', 'session_bus', 'link-4');">session_bus</a></tt> </tt>
+</div><a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">         </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">        <tt class="py-comment"># Check if the player is active : Returns Boolean</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># A handle to the dbus interface is passed in : doesn't need to be used</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># if there are other ways of checking this (like dcop in amarok)</tt> </tt>
+<a name="GenericAPI.is_active"></a><div id="GenericAPI.is_active-def"><a name="L27"></a><tt class="py-lineno">27</tt> <a class="py-toggle" href="#" id="GenericAPI.is_active-toggle" onclick="return toggle('GenericAPI.is_active');">-</a><tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.plugins.GenericPlayer.GenericAPI-class.html#is_active">is_active</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">dbus_iface</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="GenericAPI.is_active-collapsed" style="display:none;" pad="++" indent="++++++++++++"></div><div id="GenericAPI.is_active-expanded"><a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">                <tt class="py-keyword">pass</tt> </tt>
+</div><a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line"> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">        <tt class="py-comment"># Make a connection to the Player</tt> </tt>
+<a name="GenericAPI.connect"></a><div id="GenericAPI.connect-def"><a name="L31"></a><tt class="py-lineno">31</tt> <a class="py-toggle" href="#" id="GenericAPI.connect-toggle" onclick="return toggle('GenericAPI.connect');">-</a><tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.plugins.GenericPlayer.GenericAPI-class.html#connect">connect</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="GenericAPI.connect-collapsed" style="display:none;" pad="++" indent="++++++++++++"></div><div id="GenericAPI.connect-expanded"><a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">                <tt class="py-keyword">pass</tt> </tt>
+</div><a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">         </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">        <tt class="py-comment"># The following return Strings</tt> </tt>
+<a name="GenericAPI.get_title"></a><div id="GenericAPI.get_title-def"><a name="L35"></a><tt class="py-lineno">35</tt> <a class="py-toggle" href="#" id="GenericAPI.get_title-toggle" onclick="return toggle('GenericAPI.get_title');">-</a><tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.plugins.GenericPlayer.GenericAPI-class.html#get_title">get_title</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="GenericAPI.get_title-collapsed" style="display:none;" pad="++" indent="++++++++++++"></div><div id="GenericAPI.get_title-expanded"><a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">                <tt class="py-keyword">pass</tt> </tt>
+</div><a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">         </tt>
+<a name="GenericAPI.get_album"></a><div id="GenericAPI.get_album-def"><a name="L38"></a><tt class="py-lineno">38</tt> <a class="py-toggle" href="#" id="GenericAPI.get_album-toggle" onclick="return toggle('GenericAPI.get_album');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.plugins.GenericPlayer.GenericAPI-class.html#get_album">get_album</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="GenericAPI.get_album-collapsed" style="display:none;" pad="++" indent="++++++++++++"></div><div id="GenericAPI.get_album-expanded"><a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">                <tt class="py-keyword">pass</tt> </tt>
+</div><a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line"> </tt>
+<a name="GenericAPI.get_artist"></a><div id="GenericAPI.get_artist-def"><a name="L41"></a><tt class="py-lineno">41</tt> <a class="py-toggle" href="#" id="GenericAPI.get_artist-toggle" onclick="return toggle('GenericAPI.get_artist');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.plugins.GenericPlayer.GenericAPI-class.html#get_artist">get_artist</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="GenericAPI.get_artist-collapsed" style="display:none;" pad="++" indent="++++++++++++"></div><div id="GenericAPI.get_artist-expanded"><a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">                <tt class="py-keyword">pass</tt> </tt>
+</div><a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line"> </tt>
+<a name="GenericAPI.get_cover_path"></a><div id="GenericAPI.get_cover_path-def"><a name="L44"></a><tt class="py-lineno">44</tt> <a class="py-toggle" href="#" id="GenericAPI.get_cover_path-toggle" onclick="return toggle('GenericAPI.get_cover_path');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.plugins.GenericPlayer.GenericAPI-class.html#get_cover_path">get_cover_path</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="GenericAPI.get_cover_path-collapsed" style="display:none;" pad="++" indent="++++++++++++"></div><div id="GenericAPI.get_cover_path-expanded"><a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line">                <tt class="py-keyword">pass</tt> </tt>
+</div><a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line"> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">        <tt class="py-comment"># Returns Boolean</tt> </tt>
+<a name="GenericAPI.is_playing"></a><div id="GenericAPI.is_playing-def"><a name="L48"></a><tt class="py-lineno">48</tt> <a class="py-toggle" href="#" id="GenericAPI.is_playing-toggle" onclick="return toggle('GenericAPI.is_playing');">-</a><tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.plugins.GenericPlayer.GenericAPI-class.html#is_playing">is_playing</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="GenericAPI.is_playing-collapsed" style="display:none;" pad="++" indent="++++++++++++"></div><div id="GenericAPI.is_playing-expanded"><a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line">                <tt class="py-keyword">pass</tt> </tt>
+</div><a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line"> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line">        <tt class="py-comment"># The following do not return any values</tt> </tt>
+<a name="GenericAPI.play_pause"></a><div id="GenericAPI.play_pause-def"><a name="L52"></a><tt class="py-lineno">52</tt> <a class="py-toggle" href="#" id="GenericAPI.play_pause-toggle" onclick="return toggle('GenericAPI.play_pause');">-</a><tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.plugins.GenericPlayer.GenericAPI-class.html#play_pause">play_pause</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="GenericAPI.play_pause-collapsed" style="display:none;" pad="++" indent="++++++++++++"></div><div id="GenericAPI.play_pause-expanded"><a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line">                <tt class="py-keyword">pass</tt> </tt>
+</div><a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line"> </tt>
+<a name="GenericAPI.next"></a><div id="GenericAPI.next-def"><a name="L55"></a><tt class="py-lineno">55</tt> <a class="py-toggle" href="#" id="GenericAPI.next-toggle" onclick="return toggle('GenericAPI.next');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.plugins.GenericPlayer.GenericAPI-class.html#next">next</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="GenericAPI.next-collapsed" style="display:none;" pad="++" indent="++++++++++++"></div><div id="GenericAPI.next-expanded"><a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line">                <tt class="py-keyword">pass</tt> </tt>
+</div><a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line"> </tt>
+<a name="GenericAPI.previous"></a><div id="GenericAPI.previous-def"><a name="L58"></a><tt class="py-lineno">58</tt> <a class="py-toggle" href="#" id="GenericAPI.previous-toggle" onclick="return toggle('GenericAPI.previous');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.plugins.GenericPlayer.GenericAPI-class.html#previous">previous</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="GenericAPI.previous-collapsed" style="display:none;" pad="++" indent="++++++++++++"></div><div id="GenericAPI.previous-expanded"><a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line">                <tt class="py-keyword">pass</tt> </tt>
+</div><a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line"> </tt>
+<a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line">        <tt class="py-comment"># The following calls the passed Callback function when one of the following event occurs:</tt> </tt>
+<a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># - Song Change, Play/Pause, Info Change</tt> </tt>
+<a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment"># If no dbus api to support it, then just do call the callback fn every few seconds</tt> </tt>
+<a name="GenericAPI.register_change_callback"></a><div id="GenericAPI.register_change_callback-def"><a name="L64"></a><tt class="py-lineno">64</tt> <a class="py-toggle" href="#" id="GenericAPI.register_change_callback-toggle" onclick="return toggle('GenericAPI.register_change_callback');">-</a><tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.plugins.GenericPlayer.GenericAPI-class.html#register_change_callback">register_change_callback</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">fn</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="GenericAPI.register_change_callback-collapsed" style="display:none;" pad="++" indent="++++++++++++"></div><div id="GenericAPI.register_change_callback-expanded"><a name="L65"></a><tt class="py-lineno">65</tt>  <tt class="py-line">                <tt class="py-keyword">pass</tt> </tt>
+</div></div><a name="L66"></a><tt class="py-lineno">66</tt>  <tt class="py-line">         </tt>
+<a name="L67"></a><tt class="py-lineno">67</tt>  <tt class="py-line">        <tt class="py-comment"># I haven't put in functions yet for volume control, and track control</tt> </tt>
+<a name="L68"></a><tt class="py-lineno">68</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="screenlets-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Screenlets 0.1.2</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Wed Jun  4 18:53:00 2008
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

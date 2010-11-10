@@ -1,4 +1,4 @@
-screenlets (0.1.3~bzr510+20101109071654~maverick1) maverick; urgency=low
+screenlets (0.1.3~bzr511+20101110054139~maverick1) maverick; urgency=low
 
   * Incorporated most of the patches from bug tracker.
   * Fixed a problem with the theme directories.

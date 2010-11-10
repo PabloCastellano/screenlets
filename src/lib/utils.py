@@ -155,9 +155,10 @@ def delete_autostarter ( name):
 
 def _contains_path (string):
 	"""Internal function: Returns true if the given string contains one of the
-	SCREENLETS_PATH entries."""
-	for p in screenlets.SCREENLETS_PATH:
-		if string.find(p) > -1:
+	Screenlets paths."""
+	# use saved paths for performance reasons
+	for path in screenlets.SCREENLETS_PATH:
+		if string.find(path) > -1:
 			return True
 	return False
 
@@ -171,10 +172,11 @@ def create_user_dir ():
 
 
 def find_first_screenlet_path (screenlet_name):
-	"""Scan the SCREENLETS_PATH for the occurence of screenlet "name" with the
+	"""Scan the Screenlets paths for the occurence of screenlet "name" with the
 	highest version and return the full path to it. This function is used to get
 	the theme/data directories for a Screenlet and run the Screenlet."""
 	available_versions_paths = []
+	# use saved paths for performance reasons
 	for dir in screenlets.SCREENLETS_PATH:
 		try:
 			for name in os.listdir(dir):
@@ -207,6 +209,7 @@ def find_first_screenlet_path (screenlet_name):
 def get_screenlet_icon (screenlet_name,width,height):
 	img = gtk.gdk.pixbuf_new_from_file_at_size(\
 			screenlets.INSTALL_PREFIX + '/share/screenlets-manager/noimage.svg',width,height)
+	# use saved paths for performance reasons
 	for path in screenlets.SCREENLETS_PATH:
 		for ext in ['svg', 'png']:
 			img_path = "%s/%s/icon.%s" % (path, screenlet_name, ext)
@@ -289,10 +292,26 @@ def get_screenlet_metadata (screenlet_name):
 
 	return get_screenlet_metadata_by_path(path)
 
+def refresh_available_screenlet_paths ():
+	"""Checks the system Screenlets directory for screenlet packs
+	and updates screenlets.SCREENLETS_PATH. Doesn't remove outdated paths
+	(this doesn't hurt anyone)."""
+	paths = screenlets.SCREENLETS_PATH
+	for name in os.listdir(screenlets.DIR_USER_ROOT):
+		path = screenlets.DIR_USER_ROOT + '/' + name
+		# check if entry is a dir
+		if name.startswith(screenlets.SCREENLETS_PACK_PREFIX):
+			if path not in paths:
+				if stat.S_ISDIR(os.stat(path).st_mode):
+					paths.append(path)
+
 def list_available_screenlets ():
-	"""Scan the SCREENLETS_PATHs for all existing screenlets and return their
+	"""Scan the Screenlets paths for all existing screenlets and return their
 	names (without trailing "Screenlet") as a list of strings."""
 	sls = []
+	# first refresh
+	refresh_available_screenlet_paths()
+	# use saved paths for performance reasons
 	for dir in screenlets.SCREENLETS_PATH:
 		try:
 			for name in os.listdir(dir):

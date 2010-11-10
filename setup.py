@@ -68,6 +68,9 @@ scripts_list = ['src/bin/screenletsd',
 
 files_list = []
 
+# Empty screenlets dir
+files_list.insert(0, ('share/screenlets', []))
+
 # Install the manager's files into PREFIX/share/screenlets-manager
 files_list.insert(0, ('share/screenlets-manager',
 	['src/share/screenlets-manager/screenlets-manager.py',

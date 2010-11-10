@@ -307,6 +307,8 @@ class ScreenletsManager(object):
 		w.set_icon_list(icontheme.load_icon("screenlets", 24, 0))
 
 		w.connect('delete-event', self.delete_event)
+		w.connect('notify::is-active', self.on_active_changed)
+
 		#w.set_has_separator(False)
 		# create outer vbox in window
 		vbox = gtk.VBox()
@@ -616,6 +618,15 @@ class ScreenletsManager(object):
 		
 	def website_open(self, d, link, data):
 		subprocess.Popen(["xdg-open", "http://www.screenlets.org"])
+
+	# could be used to reload screenlets on every activation (but it's a bit too much)
+	def on_active_changed(self, window, param):
+		if window.is_active():
+			# this makes the right one started/used at least if not displayed
+			utils.refresh_available_screenlet_paths()
+			# this seems too much (but if saved the active selection in view, maybe it could work)
+#			self.model.clear()
+#			self.load_screenlets()
 
 	def drag_data_received (self, widget, dc, x, y, sel_data, info, timestamp):
 			

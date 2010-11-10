@@ -25,6 +25,9 @@ install/screenlets::
 #	rm debian/tmp/usr/share/screenlets/FeedReader/feedparser.py
 #	rmdir debian/tmp/usr/share/screenlets/WallpaperClock/wallpapers
 
+binary-install/screenlets::
+	dh_icons -pscreenlets
+
 binary-predeb/screenlets::
 	find debian/screenlets/usr/share/screenlets-manager/ -name "*.png" -perm 755 | xargs chmod 644
 

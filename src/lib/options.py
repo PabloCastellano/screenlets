@@ -769,6 +769,7 @@ class OptionsDialog (gtk.Dialog):
 
 
 		dircontent = []
+		screenlets.utils.refresh_available_screenlet_paths()
 
 		for path in screenlets.SCREENLETS_PATH:
 			p = path + '/' + obj.get_short_name() + '/themes'

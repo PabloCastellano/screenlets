@@ -117,6 +117,7 @@ DIR_CONFIG = os.environ['HOME'] + '/.config/Screenlets'
 # don't change the order just like that
 SCREENLETS_PATH = [DIR_USER, DIR_USER_ROOT]
 
+SCREENLETS_PACK_PREFIX = "screenlets-pack-"
 
 #-------------------------------------------------------------------------------
 # DBUS
@@ -1201,6 +1202,7 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 	def find_theme (self, name):
 		"""Find the best occurence of a theme and return its global path."""
 		sn = self.get_short_name()
+		utils.refresh_available_screenlet_paths()
 		for p in SCREENLETS_PATH:
 			fpath = p + '/' + sn + '/themes/' + name
 			if os.path.isdir(fpath):
@@ -1233,6 +1235,7 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 		"""Returns a list with the names of all available themes in this
 			Screenlet's theme-directories."""
 		lst = []
+		utils.refresh_available_screenlet_paths()
 		for p in SCREENLETS_PATH:
 			d = p + '/' + self.get_short_name() + '/themes/'
 			if os.path.isdir(d):

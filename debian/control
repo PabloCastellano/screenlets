@@ -3,7 +3,7 @@ Section: gnome
 Priority: optional
 Maintainer: Julien Lavergne <julien.lavergne@gmail.com>
 Uploaders: Python Applications Packaging Team <python-apps-team@lists.alioth.debian.org>
-Build-Depends: 	debhelper (>= 5.0.37.2), 
+Build-Depends: 	debhelper (>= 5.0.51~), 
 		cdbs (>= 0.4.43),
 		quilt,
 		python-dev (>= 2.3.5-11)

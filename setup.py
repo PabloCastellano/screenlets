@@ -66,10 +66,7 @@ scripts_list = ['src/bin/screenletsd',
 	'src/bin/screenlets-packager',
 	'src/bin/screenlets-debianizer']
 
-# Install screenlets into PREFIX/share/screenlets/
-dirlist	= scan_dir_list('src/share/screenlets') 
-files_list = make_file_list(dirlist, 'share/screenlets', 
-	strip='src/share/screenlets/')	# to strip this string from filenames
+files_list = []
 
 # Install the manager's files into PREFIX/share/screenlets-manager
 files_list.insert(0, ('share/screenlets-manager',

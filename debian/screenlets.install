@@ -1,5 +1,4 @@
 debian/tmp/usr/bin
-debian/tmp/usr/share/screenlets
 debian/tmp/usr/lib
 debian/tmp/usr/share/screenlets-manager
 debian/tmp/usr/share/locale

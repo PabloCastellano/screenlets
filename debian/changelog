@@ -1,4 +1,4 @@
-screenlets (0.1.3) maverick; urgency=low
+screenlets (0.1.3~bzr510+20101109071654~maverick1) maverick; urgency=low
 
   * Incorporated most of the patches from bug tracker.
   * Fixed a problem with the theme directories.
@@ -11,8 +11,9 @@ screenlets (0.1.3) maverick; urgency=low
   * Updated the link to get fresh Screenlets.
   * Implemented package requirements check for Screenlets.
   * Created debianizer.
+  * Removed all individual Screenlets.
 
- -- Guido Tabbernuk <boamaod@gmail.com>  Mon, 08 Nov 2010 16:33:25 +0900
+ -- Guido Tabbernuk <boamaod@gmail.com>  Wed, 10 Nov 2010 12:54:00 +0900
 
 screenlets (0.1.2-7ubuntu2) maverick; urgency=low
 

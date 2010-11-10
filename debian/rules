@@ -8,7 +8,6 @@ include /usr/share/cdbs/1/class/python-distutils.mk
 include /usr/share/quilt/quilt.make
 
 DEB_PYTHON_MODULE_PACKAGE := screenlets
-DEB_PYTHON_PRIVATE_MODULES_DIRS := debian/tmp/usr/share/screenlets
 DEB_PYTHON_SETUP_CMD := setup.py
 
 DEB_INSTALL_MANPAGES_screenlets := debian/screenlets-manager.1 debian/screenlets-packager.1 debian/screenlets-debianizer.1 debian/screenletsd.1 debian/screenlets.1 debian/screenlets-daemon.1

@@ -6,15 +6,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: screenlets\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2010-11-02 05:16+0900\n"
-"PO-Revision-Date: 2010-11-01 08:33+0000\n"
-"Last-Translator: tabbernuk <boamaod@gmail.com>\n"
+"PO-Revision-Date: 2008-11-27 13:53+0000\n"
+"Last-Translator: Vyacheslav Kurenyshev <Unknown>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-02 05:13+0000\n"
+"X-Launchpad-Export-Date: 2010-11-12 07:28+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "Language: ru\n"
 
@@ -30,7 +30,7 @@ msgstr "Ошибка во время загрузки темы в: "
 #. default meta-info for Screenlets
 #: src/lib/__init__.py:616
 msgid "No name set for this Screenlet"
-msgstr ""
+msgstr "Имя Скринлета не задано"
 
 #: src/lib/__init__.py:618
 msgid "No author defined for this Screenlet"
@@ -42,7 +42,7 @@ msgstr "Информация об этом Скринлете не указан�
 
 #: src/lib/__init__.py:731
 msgid "The basic settings for this Screenlet-instance."
-msgstr ""
+msgstr "Основные настройки для этого скринлета."
 
 #: src/lib/__init__.py:746
 msgid "X-Position"
@@ -66,7 +66,7 @@ msgstr "Ширина"
 
 #: src/lib/__init__.py:752
 msgid "The width of this Screenlet ..."
-msgstr ""
+msgstr "Ширина этого Скринлета ..."
 
 #: src/lib/__init__.py:755
 msgid "Height"
@@ -102,11 +102,11 @@ msgstr "Показывать этот скринлет на всех рабоч�
 
 #: src/lib/__init__.py:767
 msgid "Treat as Widget"
-msgstr ""
+msgstr "Воспринимать как виджет"
 
 #: src/lib/__init__.py:768
 msgid "Treat this Screenlet as a \"Widget\" ..."
-msgstr ""
+msgstr "Воспринимать этот скринлет как \"Виджет\""
 
 #: src/lib/__init__.py:776
 msgid "Lock position"
@@ -114,7 +114,7 @@ msgstr "Закрепить"
 
 #: src/lib/__init__.py:777
 msgid "Stop the screenlet from being moved..."
-msgstr ""
+msgstr "Запретить перемещение скринлета..."
 
 #. add "Keep above"-menuitem
 #: src/lib/__init__.py:779 src/lib/__init__.py:1086
@@ -162,7 +162,7 @@ msgstr ""
 
 #: src/lib/__init__.py:794
 msgid "Resize on mouse scroll"
-msgstr ""
+msgstr "Масштабировать колесиком мыши"
 
 #: src/lib/__init__.py:796
 msgid "Ignore requirements"
@@ -196,7 +196,7 @@ msgstr "текущие настройки этого Скринлета ..."
 #. version of the deb package
 #: src/lib/__init__.py:998
 msgid "(?)"
-msgstr ""
+msgstr "(?)"
 
 #: src/lib/__init__.py:1001
 #, python-format
@@ -204,6 +204,8 @@ msgid ""
 "\n"
 "%s %s required, NOT INSTALLED!"
 msgstr ""
+"\n"
+"%s %s необходим, НО НЕ УСТАНОВЛЕН!"
 
 #: src/lib/__init__.py:1004
 #, python-format
@@ -221,6 +223,11 @@ msgid ""
 "REQUIREMENTS:\n"
 "%s"
 msgstr ""
+"Зависимости для Screenlet не удовлетворены! Используйте ваш системный "
+"менеджер пакетов для установки требуемых пакетов.\n"
+"\n"
+"ТРЕБОВАНИЯ:\n"
+"%s"
 
 #: src/lib/__init__.py:1029
 msgid "Size"
@@ -308,6 +315,7 @@ msgstr "GnomeKeyring не доступен"
 #: src/lib/options.py:239
 msgid "No keyrings found. Please create one first!"
 msgstr ""
+"Не найдено ни одного бумажника. Пожалуйста, сначала создайте бумажник!"
 
 #: src/lib/options.py:271
 msgid "Illegal value in AccountOption.on_import."
@@ -322,6 +330,7 @@ msgstr "Некорректный XML в файле метаданных (или 
 #, python-format
 msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
 msgstr ""
+"Отсутствует или неправильный корневой узел в файле метаданных: \"%s\"."
 
 #. we only allow groups in the first level (groups need children)
 #: src/lib/options.py:478
@@ -330,16 +339,19 @@ msgid ""
 "Error in metadata-file \"%s\" - only <group>-tags allowed in first level. "
 "Groups must contain at least one <info>-element."
 msgstr ""
+"Ошибка в файле метаданных: \"%s\" - только <group>-теги можно использовать "
+"на первом уровне. Группы должны содержать по крайней мере один <info>-"
+"элемент."
 
 #: src/lib/options.py:484
 #, python-format
 msgid "No name for group defined in \"%s\"."
-msgstr ""
+msgstr "Нет названия для группы, определенной в \"%s\"."
 
 #: src/lib/options.py:500
 #, python-format
 msgid "Invalid option-node found in \"%s\"."
-msgstr ""
+msgstr "В \"%s\" обнаружен неверный узел настроек."
 
 #: src/lib/options.py:653
 msgid "Edit Options"
@@ -351,7 +363,7 @@ msgstr "О "
 
 #: src/lib/options.py:863
 msgid "Options "
-msgstr ""
+msgstr "Настройки "
 
 #. create info-text list
 #: src/lib/options.py:870
@@ -359,6 +371,8 @@ msgid ""
 "Themes allow you to easily switch the appearance of your Screenlets. On this "
 "page you find a list of all available themes for this Screenlet."
 msgstr ""
+"Темы позволяют легко изменять внешний вид ваших скринлетов. На этой странице "
+"перечислены все доступные темы для этого скринлета."
 
 #: src/lib/options.py:899
 msgid "Themes "
@@ -370,7 +384,7 @@ msgstr "информация недоступна"
 
 #: src/lib/options.py:1003
 msgid "Choose File"
-msgstr ""
+msgstr "Выберите файл"
 
 #: src/lib/options.py:1012
 msgid "Choose Directory"
@@ -419,7 +433,7 @@ msgstr "Невозможно получить версию Gnome"
 
 #: src/lib/sensors.py:319
 msgid "Failed to open /proc/version"
-msgstr ""
+msgstr "Не удалось открыть /proc/version"
 
 #: src/lib/sensors.py:386
 msgid "Can't parse /proc/meminfo"
@@ -458,7 +472,7 @@ msgstr "Невозможно открыть %s"
 
 #: src/lib/sensors.py:980
 msgid "Error during hddtemp drives search"
-msgstr ""
+msgstr "Ошибка во время определения температуры дисков"
 
 #: src/lib/sensors.py:982 src/lib/sensors.py:1059
 msgid "Hddtemp not installed"
@@ -476,17 +490,17 @@ msgstr "Невозможно получить значение из %s"
 
 #: src/lib/services.py:61
 msgid "No name set in ScreenletService.__init__!"
-msgstr ""
+msgstr "Нет названия в ScreenletService.__init__!"
 
 #: src/lib/services.py:145
 #, python-format
 msgid "Trying to access invalid instance \"%s\"."
-msgstr ""
+msgstr "Попытка доступиться к недействительному экземпляру \"%s\"."
 
 #: src/lib/services.py:147
 #, python-format
 msgid "Trying to access invalid option \"%s\"."
-msgstr ""
+msgstr "Попытка доступиться к недействительной опции \"%s\"."
 
 #. TODO: also check for correct type (Screenlet-subclass)!!
 #: src/lib/session.py:72
@@ -494,6 +508,8 @@ msgid ""
 "ScreenletSession.__init__ has to be called with a\n"
 "\t\t\t valid Screenlet-classobject as first argument!"
 msgstr ""
+"Функция ScreenletSession.__init__ должна быть вызвана с\n"
+"\t\t\t правильным Screenlet-classobject для первого аргумента!"
 
 #, python-format
 #~ msgid "Error while creating image from file: %s"

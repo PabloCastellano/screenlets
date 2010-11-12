@@ -6,16 +6,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: screenlets\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2010-11-02 05:16+0900\n"
-"PO-Revision-Date: 2010-10-26 07:11+0000\n"
-"Last-Translator: tabbernuk <boamaod@gmail.com>\n"
+"PO-Revision-Date: 2009-10-02 04:33+0000\n"
+"Last-Translator: Miro Glavić <glavicmiro@gmail.com>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
 "Language: bs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-10-29 06:08+0000\n"
+"X-Launchpad-Export-Date: 2010-11-12 07:28+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. the third party screenlets download site
@@ -62,7 +62,7 @@ msgstr ""
 
 #: src/lib/__init__.py:752
 msgid "Width"
-msgstr ""
+msgstr "Širina"
 
 #: src/lib/__init__.py:752
 msgid "The width of this Screenlet ..."
@@ -70,7 +70,7 @@ msgstr ""
 
 #: src/lib/__init__.py:755
 msgid "Height"
-msgstr ""
+msgstr "Visina"
 
 #: src/lib/__init__.py:755
 msgid "The height of this Screenlet ..."
@@ -86,7 +86,7 @@ msgstr ""
 
 #: src/lib/__init__.py:761
 msgid "Opacity"
-msgstr ""
+msgstr "Providnost"
 
 #: src/lib/__init__.py:761
 msgid "The opacity of the Screenlet window ..."
@@ -128,7 +128,7 @@ msgstr ""
 #. add "Keep Below"-menuitem
 #: src/lib/__init__.py:782 src/lib/__init__.py:1093
 msgid "Keep below"
-msgstr ""
+msgstr "Zadrži ispod"
 
 #: src/lib/__init__.py:783
 msgid "Keep this Screenlet below other windows ..."
@@ -221,25 +221,25 @@ msgstr ""
 
 #: src/lib/__init__.py:1029
 msgid "Size"
-msgstr ""
+msgstr "Veličina"
 
 #: src/lib/__init__.py:1044
 msgid "Theme"
-msgstr ""
+msgstr "Tema"
 
 #: src/lib/__init__.py:1059
 msgid "Window"
-msgstr ""
+msgstr "Prozor"
 
 #. add "lock"-menuitem
 #: src/lib/__init__.py:1065
 msgid "Lock"
-msgstr ""
+msgstr "Zaključaj"
 
 #. add "Sticky"-menuitem
 #: src/lib/__init__.py:1072
 msgid "Sticky"
-msgstr ""
+msgstr "Ljepljivo"
 
 #. add "Widget"-menuitem
 #: src/lib/__init__.py:1079
@@ -248,11 +248,11 @@ msgstr ""
 
 #: src/lib/__init__.py:1103
 msgid "Properties..."
-msgstr ""
+msgstr "Svojstva..."
 
 #: src/lib/__init__.py:1106
 msgid "Info..."
-msgstr ""
+msgstr "Info..."
 
 #: src/lib/__init__.py:1110
 #, python-format
@@ -344,11 +344,11 @@ msgstr ""
 
 #: src/lib/options.py:851
 msgid "About "
-msgstr ""
+msgstr "O "
 
 #: src/lib/options.py:863
 msgid "Options "
-msgstr ""
+msgstr "Opcije "
 
 #. create info-text list
 #: src/lib/options.py:870
@@ -359,23 +359,23 @@ msgstr ""
 
 #: src/lib/options.py:899
 msgid "Themes "
-msgstr ""
+msgstr "Teme "
 
 #: src/lib/options.py:912
 msgid "no info available"
-msgstr ""
+msgstr "nema informacija"
 
 #: src/lib/options.py:1003
 msgid "Choose File"
-msgstr ""
+msgstr "Izaberi Datoteku"
 
 #: src/lib/options.py:1012
 msgid "Choose Directory"
-msgstr ""
+msgstr "Izaberi Direktorij"
 
 #: src/lib/options.py:1038
 msgid "Choose Image"
-msgstr ""
+msgstr "Izaberi sliku"
 
 #: src/lib/options.py:1105
 msgid "Open List-Editor ..."
@@ -387,15 +387,15 @@ msgstr ""
 
 #: src/lib/options.py:1127
 msgid "Enter username here ..."
-msgstr ""
+msgstr "Unesi korisničko ime ovdje..."
 
 #: src/lib/options.py:1128
 msgid "Enter password here ..."
-msgstr ""
+msgstr "Unesi lozinku ovdje..."
 
 #: src/lib/options.py:1183
 msgid "Apply"
-msgstr ""
+msgstr "Primjeni"
 
 #: src/lib/sensors.py:168
 #, python-format
@@ -437,7 +437,7 @@ msgstr ""
 #: src/lib/sensors.py:616 src/lib/sensors.py:629 src/lib/sensors.py:645
 #: src/lib/sensors.py:658
 msgid "Not connected"
-msgstr ""
+msgstr "Nije povezan"
 
 #: src/lib/sensors.py:936
 #, python-format
@@ -451,7 +451,7 @@ msgstr ""
 #: src/lib/sensors.py:954 src/lib/sensors.py:965
 #, python-format
 msgid "Can't open %s"
-msgstr ""
+msgstr "Nemoguće otvoriti %s"
 
 #: src/lib/sensors.py:980
 msgid "Error during hddtemp drives search"

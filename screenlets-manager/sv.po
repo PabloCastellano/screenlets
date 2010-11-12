@@ -5,17 +5,17 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: screenlets-manager\n"
-"Report-Msgid-Bugs-To: \n"
+"Project-Id-Version: screenlets\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2010-11-02 05:16+0900\n"
-"PO-Revision-Date: 2010-10-25 22:34+0000\n"
-"Last-Translator: tabbernuk <boamaod@gmail.com>\n"
+"PO-Revision-Date: 2008-09-04 10:04+0000\n"
+"Last-Translator: Niclas L <Unknown>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-10-29 06:08+0000\n"
+"X-Launchpad-Export-Date: 2010-11-12 07:28+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:88
@@ -28,7 +28,7 @@ msgstr ""
 #: src/share/screenlets-manager/screenlets-manager.py:49
 #: src/share/screenlets-manager/screenlets-manager.py:1315
 msgid "Screenlets Manager"
-msgstr "Screenlets-manager"
+msgstr "Hanterare för Screenlets"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:143
 #: src/share/screenlets-manager/screenlets-manager.py:907
@@ -53,7 +53,6 @@ msgid "Restart all Screenlets"
 msgstr ""
 
 #: src/share/screenlets-manager/screenlets-daemon.py:170
-#, fuzzy
 msgid "Quit the Screenlets"
 msgstr "Hämta fler Screenlets"
 
@@ -112,11 +111,11 @@ msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:162
 msgid "Delete Screenlet"
-msgstr "Avinstallera Screenlet"
+msgstr "Ta bort Screenlet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:167
 msgid "Do you also want to remove the Screenlet configuration files?"
-msgstr ""
+msgstr "Vill du även ta bort Screenlets konfigureringsfiler?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:173
 msgid "Can't delete system-wide screenlets."
@@ -233,15 +232,15 @@ msgstr "Autostarta Screenlets"
 
 #: src/share/screenlets-manager/screenlets-manager.py:451
 msgid "Only native Screenlets"
-msgstr ""
+msgstr "Endast inbyggda Screenlets"
 
 #: src/share/screenlets-manager/screenlets-manager.py:452
 msgid "Only third party"
-msgstr ""
+msgstr "Endast tredjeparts"
 
 #: src/share/screenlets-manager/screenlets-manager.py:478
 msgid "Get more screenlets"
-msgstr ""
+msgstr "Hämta fler Screenlets"
 
 #: src/share/screenlets-manager/screenlets-manager.py:484
 msgid "Show info about this dialog ..."
@@ -249,7 +248,7 @@ msgstr "Visa info om dialog"
 
 #: src/share/screenlets-manager/screenlets-manager.py:485
 msgid "Download more screenlets ..."
-msgstr "Hämta fler Screenlets.."
+msgstr "Hämta fler Screenlets ..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:486
 msgid "Close this dialog ..."
@@ -362,7 +361,7 @@ msgstr "Visa inte överst"
 
 #: src/share/screenlets-manager/screenlets-manager.py:937
 msgid "Show buttons"
-msgstr ""
+msgstr "Visa knappar"
 
 #: src/share/screenlets-manager/screenlets-manager.py:969
 msgid "New Screenlets atributes"
@@ -596,6 +595,8 @@ msgid ""
 "Automatic creation failed. Please manually create the directory:\n"
 "%s"
 msgstr ""
+"Autostartkatalog kunde inte skapas. Skapa katalogen manuellt:\n"
+"%s"
 
 #: src/lib/utils.py:107 src/lib/utils.py:533
 #, python-format
@@ -603,6 +604,8 @@ msgid ""
 "Please manually create the directory:\n"
 "%s"
 msgstr ""
+"Skapa katalogen manuellt:\n"
+"%s"
 
 #: src/lib/utils.py:562
 #, python-format

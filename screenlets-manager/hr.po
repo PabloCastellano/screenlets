@@ -5,17 +5,17 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: screenlets-manager\n"
-"Report-Msgid-Bugs-To: \n"
+"Project-Id-Version: screenlets\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2010-11-02 05:16+0900\n"
-"PO-Revision-Date: 2010-10-25 22:56+0000\n"
-"Last-Translator: tabbernuk <boamaod@gmail.com>\n"
+"PO-Revision-Date: 2008-05-21 17:20+0000\n"
+"Last-Translator: Igor Vatavuk <Unknown>\n"
 "Language-Team: Croatian <hr@li.org>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-10-29 06:08+0000\n"
+"X-Launchpad-Export-Date: 2010-11-12 07:28+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:88
@@ -53,7 +53,6 @@ msgid "Restart all Screenlets"
 msgstr ""
 
 #: src/share/screenlets-manager/screenlets-daemon.py:170
-#, fuzzy
 msgid "Quit the Screenlets"
 msgstr "Nabavi više Screenleta"
 
@@ -116,7 +115,7 @@ msgstr "Izbriši Screenlet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:167
 msgid "Do you also want to remove the Screenlet configuration files?"
-msgstr ""
+msgstr "Želite li izbrisati i konfiguracijske datoteke Screenleta?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:173
 msgid "Can't delete system-wide screenlets."
@@ -236,15 +235,15 @@ msgstr "Auto-pokrenuti Screenleti"
 
 #: src/share/screenlets-manager/screenlets-manager.py:451
 msgid "Only native Screenlets"
-msgstr ""
+msgstr "Samo službeni screenleti"
 
 #: src/share/screenlets-manager/screenlets-manager.py:452
 msgid "Only third party"
-msgstr ""
+msgstr "Samo neslužbeni"
 
 #: src/share/screenlets-manager/screenlets-manager.py:478
 msgid "Get more screenlets"
-msgstr ""
+msgstr "Nabavi više screenleta"
 
 #: src/share/screenlets-manager/screenlets-manager.py:484
 msgid "Show info about this dialog ..."
@@ -321,7 +320,8 @@ msgid "Theme installed , please restart %s"
 msgstr "Tema je instalirana , molim vas ponovno pokrenite %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:821
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Pronađena je greška 2 prilikom instaliranja teme - Tema nije instalirana ili "
 "je već ranije instalirana"
@@ -365,7 +365,7 @@ msgstr "Drži ispod"
 
 #: src/share/screenlets-manager/screenlets-manager.py:937
 msgid "Show buttons"
-msgstr ""
+msgstr "Prikaži kontrole"
 
 #: src/share/screenlets-manager/screenlets-manager.py:969
 msgid "New Screenlets atributes"
@@ -521,7 +521,8 @@ msgstr ""
 
 #: src/lib/install.py:112
 msgid "Archive is damaged or unsupported, use only tar, bz2 or gz."
-msgstr "Arhiva je oštećena ili nije podržana, koristite samo tar, bz2 ili gz."
+msgstr ""
+"Arhiva je oštećena ili nije podržana, koristite samo tar, bz2 ili gz."
 
 #. check if screenlet is already installed
 #. found_path = screenlets.utils.find_first_screenlet_path(name)

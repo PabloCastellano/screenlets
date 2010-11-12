@@ -5,8 +5,8 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: screenlets-manager\n"
-"Report-Msgid-Bugs-To: \n"
+"Project-Id-Version: screenlets\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2010-11-02 05:16+0900\n"
 "PO-Revision-Date: 2010-10-25 22:23+0000\n"
 "Last-Translator: Michal <partri@gmail.com>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-10-29 06:07+0000\n"
+"X-Launchpad-Export-Date: 2010-11-12 07:28+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:88
@@ -28,7 +28,7 @@ msgstr ""
 #: src/share/screenlets-manager/screenlets-manager.py:49
 #: src/share/screenlets-manager/screenlets-manager.py:1315
 msgid "Screenlets Manager"
-msgstr ""
+msgstr "Manažer Screenletů"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:143
 #: src/share/screenlets-manager/screenlets-manager.py:907
@@ -37,7 +37,7 @@ msgstr "Instalovat Screenlet"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:144
 msgid "Get more Screenlets"
-msgstr ""
+msgstr "Získat více screenletů"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:150
 msgid "Launch Screenlet"
@@ -53,7 +53,6 @@ msgid "Restart all Screenlets"
 msgstr ""
 
 #: src/share/screenlets-manager/screenlets-daemon.py:170
-#, fuzzy
 msgid "Quit the Screenlets"
 msgstr "Spustit Screenlet"
 
@@ -67,10 +66,10 @@ msgid ""
 "license. Thank you for using free software!"
 msgstr ""
 "Tato aplikace je vydávána pod licencí GNU General Public Licence v3 (nebo "
-"kompatibilní). Plné znění licence můžete najít na http://www.gnu.org/"
-"licenses/gpl.txt. Používáním, upravováním nebo distribuováním tohoto "
-"programu souhlasíte s podmínkami této licence. Děkujeme za používání "
-"svobodného softwaru!"
+"kompatibilní). Plné znění licence můžete najít na "
+"http://www.gnu.org/licenses/gpl.txt. Používáním, upravováním nebo "
+"distribuováním tohoto programu souhlasíte s podmínkami této licence. "
+"Děkujeme za používání svobodného softwaru!"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:259
 msgid "Install a Screenlet"
@@ -82,6 +81,8 @@ msgid ""
 "functionality is disabled. You can use this to install screenlets into the "
 "system-wide path."
 msgstr ""
+"Důležité! Spouštíte tuto aplikaci jako root, téměř všechny funkce jsou "
+"zakázány. Toto můžete použít k instalaci screenletů do systémových složek."
 
 #: src/share/screenlets-manager/screenlets-manager.py:101
 msgid "Warning!"
@@ -91,6 +92,8 @@ msgstr "Upozornění!"
 msgid ""
 "Unable to connect or launch daemon. Some values may be displayed incorrectly."
 msgstr ""
+"Není možné připojit nebo spustit daemon. Je možné, že některé hodnoty budou "
+"zobrazeny nesprávně."
 
 #: src/share/screenlets-manager/screenlets-manager.py:132 src/lib/utils.py:100
 #: src/lib/utils.py:104 src/lib/utils.py:526 src/lib/utils.py:530
@@ -107,15 +110,15 @@ msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:162
 msgid "Delete Screenlet"
-msgstr ""
+msgstr "Smazat Screenlet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:167
 msgid "Do you also want to remove the Screenlet configuration files?"
-msgstr ""
+msgstr "Chcete také smazat konfigurační soubory Screenletu?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:173
 msgid "Can't delete system-wide screenlets."
-msgstr ""
+msgstr "Nemohu smazat mimo-systémový screenlet."
 
 #: src/share/screenlets-manager/screenlets-manager.py:273
 #, python-format
@@ -124,190 +127,203 @@ msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:273
 msgid "Reset Screenlet"
-msgstr ""
+msgstr "Restartovat Screenlet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:360
 msgid "Launch/Add"
-msgstr ""
+msgstr "Spustut/Přidat"
 
 #: src/share/screenlets-manager/screenlets-manager.py:364
 #: src/share/screenlets-manager/screenlets-manager.py:912
 msgid "Install"
-msgstr ""
+msgstr "Nainstalovat"
 
 #. but2.set_image(gtk.image_new_from_stock(gtk.STOCK_ADD,
 #. gtk.ICON_SIZE_BUTTON))
 #: src/share/screenlets-manager/screenlets-manager.py:367
 msgid "Uninstall"
-msgstr ""
+msgstr "Odinstalovat"
 
 #. but3.set_image(gtk.image_new_from_stock(gtk.STOCK_DELETE,
 #. gtk.ICON_SIZE_BUTTON))
 #: src/share/screenlets-manager/screenlets-manager.py:371
 msgid "Reset Screenlet Config"
-msgstr ""
+msgstr "Restartovat Screenlet nastavení"
 
 #. but4.set_image(gtk.image_new_from_stock(gtk.STOCK_CLEAR,
 #. gtk.ICON_SIZE_BUTTON))
 #: src/share/screenlets-manager/screenlets-manager.py:375
 msgid "Install New Theme"
-msgstr ""
+msgstr "Nainstalovat nový styl"
 
 #. but5.set_image(gtk.image_new_from_stock(gtk.STOCK_ADD,
 #. gtk.ICON_SIZE_BUTTON))
 #: src/share/screenlets-manager/screenlets-manager.py:379
 msgid "Re-Start All"
-msgstr ""
+msgstr "Restartovat vše"
 
 #. but6.set_image(gtk.image_new_from_stock(gtk.STOCK_REFRESH,
 #. gtk.ICON_SIZE_BUTTON))
 #: src/share/screenlets-manager/screenlets-manager.py:383
 msgid "Close All"
-msgstr ""
+msgstr "Zavřit vše"
 
 #. but7.set_image(gtk.image_new_from_stock(gtk.STOCK_REMOVE,
 #. gtk.ICON_SIZE_BUTTON))
 #: src/share/screenlets-manager/screenlets-manager.py:387
 msgid "Options"
-msgstr ""
+msgstr "Nastavení"
 
 #: src/share/screenlets-manager/screenlets-manager.py:389
 msgid "Create Desktop Shortcut"
-msgstr ""
+msgstr "Vytvořit zástupce na ploše"
 
 #: src/share/screenlets-manager/screenlets-manager.py:421
 msgid "Launch/add a new instance of the selected Screenlet ..."
-msgstr ""
+msgstr "Spustit/Přidat nový proces vybraného Screenletu..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:422
 msgid ""
 "Install a new Screenlet, SuperKaramba or Web Widget or Web Application  ..."
 msgstr ""
+"Nainstalovat nový Screenlet, SuperKarambu, Webový Widget nebo Webovou "
+"aplikaci..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:423
 msgid "Permanently uninstall/delete the currently selected Screenlet ..."
-msgstr ""
+msgstr "Natrvalo odinstalovat/smazat současný Screenlet..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:424
 msgid ""
 "Reset this Screenlet configuration (will only work if screenlet isnt running)"
 msgstr ""
+"Restartovat tuto Screenlet konfiguraci (bude fungovat pouze, pokud není "
+"screenlet zapnutý)"
 
 #: src/share/screenlets-manager/screenlets-manager.py:425
 msgid "Install new theme for this screenlet"
-msgstr ""
+msgstr "Nainstalovat nový styl pro tento screenlet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:426
 msgid "Restart all screenlets that have auto start at login"
-msgstr ""
+msgstr "Restartovat všechny screenlety, které se spouští samy při přihlášení"
 
 #: src/share/screenlets-manager/screenlets-manager.py:427
 msgid "Close all Screenlets running"
-msgstr ""
+msgstr "Ukončit všechny běžící Screenlety"
 
 #: src/share/screenlets-manager/screenlets-manager.py:428
 msgid "New Screenlets Options/Properties"
-msgstr ""
+msgstr "Nastavení/Vlastnosti nových Screenletů"
 
 #: src/share/screenlets-manager/screenlets-manager.py:429
 msgid "Create a Desktop shortcut for this Screenlet"
-msgstr ""
+msgstr "Vytvořit pro tento Screenlet zástupce na ploše"
 
 #: src/share/screenlets-manager/screenlets-manager.py:448
 msgid "All Screenlets"
-msgstr ""
+msgstr "Všechny Screenlety"
 
 #: src/share/screenlets-manager/screenlets-manager.py:449
 msgid "Running Screenlets"
-msgstr ""
+msgstr "Spuštěné Screenlety"
 
 #: src/share/screenlets-manager/screenlets-manager.py:450
 msgid "Autostart Screenlets"
-msgstr ""
+msgstr "Automatické spuštění Screenletů"
 
 #: src/share/screenlets-manager/screenlets-manager.py:451
 msgid "Only native Screenlets"
-msgstr ""
+msgstr "Pouze nativní Screenlety"
 
 #: src/share/screenlets-manager/screenlets-manager.py:452
 msgid "Only third party"
-msgstr ""
+msgstr "Pouze software třetí strany"
 
 #: src/share/screenlets-manager/screenlets-manager.py:478
 msgid "Get more screenlets"
-msgstr ""
+msgstr "Získat více screenletů"
 
 #: src/share/screenlets-manager/screenlets-manager.py:484
 msgid "Show info about this dialog ..."
-msgstr ""
+msgstr "Ukázat informace o tomto dialogu..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:485
 msgid "Download more screenlets ..."
-msgstr ""
+msgstr "Stáhnout další screenlety..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:486
 msgid "Close this dialog ..."
-msgstr ""
+msgstr "Ukončit tento dialog..."
 
 #. create checkboxes
 #: src/share/screenlets-manager/screenlets-manager.py:520
 msgid "Start/Stop"
-msgstr ""
+msgstr "Spustit/Zastavit"
 
 #: src/share/screenlets-manager/screenlets-manager.py:521
 msgid "Auto start on login"
-msgstr ""
+msgstr "Automatické spuštění při přihlášení"
 
 #: src/share/screenlets-manager/screenlets-manager.py:522
 msgid "Show daemon in tray"
-msgstr ""
+msgstr "Zobrazit démona v liště"
 
 #: src/share/screenlets-manager/screenlets-manager.py:643
 #, python-format
 msgid "Invalid string: %s."
-msgstr ""
+msgstr "Neplatný řetězec: %s."
 
 #: src/share/screenlets-manager/screenlets-manager.py:680
 msgid "Install a Screenlet or SuperKaramba theme"
-msgstr ""
+msgstr "Nainstalovat Screenlet nebo styl SuperKaramba"
 
 #: src/share/screenlets-manager/screenlets-manager.py:722
 msgid "Install a new theme for the selected Screenlet"
-msgstr ""
+msgstr "Nainstalovat nový styl pro vybraný Screenlet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:750
 msgid ""
 "You are about to install a theme in root mode. Continue only if you have "
 "gksudo installed, do you wish to continue?"
 msgstr ""
+"Chystáte se nainstalovat styl ve režimu správce. Pokračujte pouze, pokud je "
+"nainstalované gksudo. Přejete si pokračovat?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:767
 msgid "Error Found"
-msgstr ""
+msgstr "Zjištěna chyba."
 
 #: src/share/screenlets-manager/screenlets-manager.py:772
 msgid ""
 "Theme install error 1 found - Theme not installed , maybe a package error "
 msgstr ""
+"Zjištěna 1 chyba během instalace stylu - Styl nebyl nainstalován, možná jde "
+"o chybu balíku "
 
 #: src/share/screenlets-manager/screenlets-manager.py:783
 msgid ""
 "This package seams to contain a full Screenlet and not just a theme, please "
 "use the screenlet install instead"
 msgstr ""
+"Tento balík pravděpodobně neobsahuje pouze styl, ale celý Screenlet, prosím, "
+"zvolte raději instalaci screenletu"
 
 #: src/share/screenlets-manager/screenlets-manager.py:795
 msgid "This package doesnt seem to contain a theme"
-msgstr ""
+msgstr "Tento balík zřejmě neobsahuje styl"
 
 #: src/share/screenlets-manager/screenlets-manager.py:816
 #, python-format
 msgid "Theme installed , please restart %s"
-msgstr ""
+msgstr "Styl nainstalován, prosím, restartujte %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:821
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
+"Zjištěna 2. chyba během instalace stylu - Styl nebyl nainstalován nebo již "
+"byl nainstalován."
 
 #: src/share/screenlets-manager/screenlets-manager.py:908
 msgid "Install SuperKaramba Theme"
@@ -320,47 +336,47 @@ msgstr ""
 #: src/share/screenlets-manager/screenlets-manager.py:910
 #: src/share/screenlets-manager/screenlets-manager.py:1017
 msgid "Install Web Application"
-msgstr ""
+msgstr "Nainstalovat webovou aplikaci"
 
 #: src/share/screenlets-manager/screenlets-manager.py:930
 msgid "New screenlets atributes.."
-msgstr ""
+msgstr "Atributy nových screenletů.."
 
 #: src/share/screenlets-manager/screenlets-manager.py:931
 msgid "Lock"
-msgstr ""
+msgstr "Uzamknout"
 
 #: src/share/screenlets-manager/screenlets-manager.py:932
 msgid "Sticky"
-msgstr ""
+msgstr "Přilepit"
 
 #: src/share/screenlets-manager/screenlets-manager.py:933
 msgid "Widget"
-msgstr ""
+msgstr "Widget"
 
 #: src/share/screenlets-manager/screenlets-manager.py:934
 msgid "Keep above"
-msgstr ""
+msgstr "Stále v popředí"
 
 #: src/share/screenlets-manager/screenlets-manager.py:936
 msgid "Keep below"
-msgstr ""
+msgstr "Stále na pozadí"
 
 #: src/share/screenlets-manager/screenlets-manager.py:937
 msgid "Show buttons"
-msgstr ""
+msgstr "Ukázat tlačítka"
 
 #: src/share/screenlets-manager/screenlets-manager.py:969
 msgid "New Screenlets atributes"
-msgstr ""
+msgstr "Atributy nových screenletů"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1007
 msgid "Web Application Url"
-msgstr ""
+msgstr "Adresa webové aplikace:"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1008
 msgid "Web Application Name"
-msgstr ""
+msgstr "Jméno webové aplikace:"
 
 #. found_path != None:
 #: src/share/screenlets-manager/screenlets-manager.py:1040
@@ -369,60 +385,62 @@ msgid ""
 "There is already a screenlet with that name installed\n"
 "Do you wish to continue?"
 msgstr ""
+"Screenlet s takovým jménem již byl nainstalován.\n"
+"Přejete si pokračovat?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1061
 msgid "Web Application was successfully installed"
-msgstr ""
+msgstr "Webová aplikace byla úspěšně nainstalována."
 
 #: src/share/screenlets-manager/screenlets-manager.py:1063
 msgid "Error installing!!!"
-msgstr ""
+msgstr "Chyba instalace!!!"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1064
 #: src/share/screenlets-manager/screenlets-manager.py:1149
 msgid "Please specify a name for the widget"
-msgstr ""
+msgstr "Prosím, upřesněte jméno widgetu"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1065
 #: src/share/screenlets-manager/screenlets-manager.py:1150
 msgid "No HTML code found"
-msgstr ""
+msgstr "Nebyl nalezen žádný HTML kód."
 
 #: src/share/screenlets-manager/screenlets-manager.py:1069
 msgid "Convert any webpage widget into a Screenlet."
-msgstr ""
+msgstr "Přeměň jakýkoliv webový widget do Screenletu."
 
 #: src/share/screenlets-manager/screenlets-manager.py:1070
 msgid "Step 1 : Find the widget you want to convert"
-msgstr ""
+msgstr "Krok 1 : Najděte widget, který chcete přeměnit"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1071
 msgid "Step 2 : Copy and Paste the HTML from the widget in the box below"
-msgstr ""
+msgstr "Krok 2 : Vyjměte a zkopírujte HTML z widgetu do spodního okna"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1072
 msgid "Step 3 : Give it a name in the box below and click on Ok to convert"
-msgstr ""
+msgstr "Krok 3 : Ve spodním okně vyberte jméno a pro přeměnu klikněte na OK"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1073
 msgid "The name of the widget"
-msgstr ""
+msgstr "Název widgetu"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1097
 msgid "Widget converter"
-msgstr ""
+msgstr "Převaděč Widgetů"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1145
 msgid "Widget was successfully converted"
-msgstr ""
+msgstr "Widget byl úspěšně přeměněn."
 
 #: src/share/screenlets-manager/screenlets-manager.py:1148
 msgid "Error converting!!!"
-msgstr ""
+msgstr "Chyba během přeměny!!!"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1278
 msgid "Screenlets-Manager must now be restarted"
-msgstr ""
+msgstr "Screenlets-Manager musí být restartován"
 
 #. + constants
 #: src/share/screenlets-manager/screenlets-packager.py:31
@@ -434,72 +452,77 @@ msgstr ""
 #: src/share/screenlets-manager/screenlets-packager.py:70
 #, python-format
 msgid "The specified path \"%s\" does not exist."
-msgstr ""
+msgstr "Uvedená cesta \"%s\" neexistuje."
 
 #: src/share/screenlets-manager/screenlets-packager.py:71
 #, python-format
 msgid "Found path \"%s\"."
-msgstr ""
+msgstr "Nalezena cesta \"%s\"."
 
 #: src/share/screenlets-manager/screenlets-packager.py:77
 msgid "Failed to extract screenlet name from path."
-msgstr ""
+msgstr "Nepodařilo se extrahovat název screenletu  z cesty."
 
 #: src/share/screenlets-manager/screenlets-packager.py:78
 #, python-format
 msgid "Screenlet name is %s."
-msgstr ""
+msgstr "Jméno Screenletu je %s."
 
 #: src/share/screenlets-manager/screenlets-packager.py:82
 #, python-format
 msgid "No screenlet-file \"%sScreenlet.py\" found in the given path."
 msgstr ""
+"Žádný screenlet-soubor jménem \"%sScreenlet.py\" nebyl v zadaném adresáři "
+"nalezen."
 
 #: src/share/screenlets-manager/screenlets-packager.py:83
 #, python-format
 msgid "Found %sScreenlet.py in path."
-msgstr ""
+msgstr "Nalezen% sScreenlet.py v cestě."
 
 #: src/share/screenlets-manager/screenlets-packager.py:93
 #, python-format
 msgid "Successfully imported module: %s"
-msgstr ""
+msgstr "Úspěšně importovaný modul: %s"
 
 #: src/share/screenlets-manager/screenlets-packager.py:99
 msgid "Unable to import class from module."
-msgstr ""
+msgstr "Nelze importovat třídu z modulu."
 
 #: src/share/screenlets-manager/screenlets-packager.py:101
 msgid "The class inside the module is no subclass of screenlets.Screenlet."
-msgstr ""
+msgstr "Třída uvnitř modulu není podtřídou screenlets.Screenlet."
 
 #: src/share/screenlets-manager/screenlets-packager.py:102
 #, python-format
 msgid "Successfully got class from module: %s"
-msgstr ""
+msgstr "Třída byla úspěšně získána z modulu: %s"
 
 #: src/share/screenlets-manager/screenlets-packager.py:126
 #, python-format
 msgid "Failed to create package info in \"%s\" (no permission?)."
-msgstr ""
+msgstr "Nepodařilo se vytvořit soubor informací v \"%s\"  (bez povolení?)"
 
 #: src/share/screenlets-manager/screenlets-packager.py:127
 msgid "Created package info file."
-msgstr ""
+msgstr "Balíček do souboru vytvořen."
 
 #: src/share/screenlets-manager/screenlets-packager.py:143
 msgid "Cleaned up and finished."
-msgstr ""
+msgstr "Vyčištěno a dokončeno."
 
 #: src/lib/install.py:56
 msgid ""
 "This type of karamba theme is not supported yet\n"
 " Only older versions can be used"
 msgstr ""
+"Tento typ karamba stylu není ještě podporován\n"
+"Může být použita pouze starší verze"
 
 #: src/lib/install.py:112
 msgid "Archive is damaged or unsupported, use only tar, bz2 or gz."
 msgstr ""
+"Archiv je poškozen nebo nepodporován, používejte pouze tar, bz2 nebo gz."
 
 #. check if screenlet is already installed
 #. found_path = screenlets.utils.find_first_screenlet_path(name)
@@ -529,7 +552,7 @@ msgstr "Neplatný archív. Archív musí obsahovat složku se jménem screenletu
 
 #: src/lib/install.py:148
 msgid "Compatibility for this karamba theme is not yet implemented"
-msgstr ""
+msgstr "Kompatibilita tohoto karamba stylu není ještě implementována"
 
 #: src/lib/install.py:175
 msgid "Karamba theme was successfully installed"
@@ -540,6 +563,7 @@ msgid ""
 "Invalid archive. Archive does not contain a screenlet or a valid karamba "
 "theme."
 msgstr ""
+"Neplatný archív. Archív neobsahuje a screenlet nebo platné téma Karamba."
 
 #: src/lib/install.py:192
 #, python-format
@@ -547,16 +571,18 @@ msgid ""
 "%s was not packaged with the screenlet packager. Do you wish to continue and "
 "try to install it?"
 msgstr ""
+"%s nebyl vytvořen balíkovacím systémem screenletů. Chcete pokračovat a "
+"pokusit se jej nainstalovat?"
 
 #: src/lib/install.py:195
 msgid "This package was not packaged with the screenlet packager."
-msgstr ""
+msgstr "Tento balík nebyl vytvořen balíkovacím systémem screenletů."
 
 #. set msg/result
 #: src/lib/install.py:204
 #, python-format
 msgid "The %sScreenlet has been succesfully installed."
-msgstr ""
+msgstr "Screenlet %s byl úspěšně naistalován."
 
 #. create autostart directory, if not existent
 #: src/lib/utils.py:99 src/lib/utils.py:526
@@ -564,6 +590,8 @@ msgid ""
 "There is no existing autostart directory for your user account yet. Do you "
 "want me to automatically create it for you?"
 msgstr ""
+"Pro tohoto uživatele neexistuje žádný adresář automatického spouštění. "
+"Přejete si, aby byl automaticky vytvořen?"
 
 #: src/lib/utils.py:104 src/lib/utils.py:530
 #, python-format
@@ -571,6 +599,8 @@ msgid ""
 "Automatic creation failed. Please manually create the directory:\n"
 "%s"
 msgstr ""
+"Automatické vytvoření selhalo. Prosím vytvořte ručně adresář\n"
+"%s"
 
 #: src/lib/utils.py:107 src/lib/utils.py:533
 #, python-format
@@ -578,11 +608,13 @@ msgid ""
 "Please manually create the directory:\n"
 "%s"
 msgstr ""
+"Prosím vytvořte ručně adresář\n"
+"%s"
 
 #: src/lib/utils.py:562
 #, python-format
 msgid "Failed to add %sScreenlet."
-msgstr ""
+msgstr "Chyba při přidání %sScreenletu"
 
 #~ msgid "ScreenletsDaemon: registered %s"
 #~ msgstr "Služba Screenlets: registrováno %s"

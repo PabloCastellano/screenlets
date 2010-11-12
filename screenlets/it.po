@@ -6,22 +6,22 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: screenlets\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2010-11-02 05:16+0900\n"
-"PO-Revision-Date: 2010-10-31 08:04+0000\n"
-"Last-Translator: tabbernuk <boamaod@gmail.com>\n"
+"PO-Revision-Date: 2009-10-05 13:18+0000\n"
+"Last-Translator: Nicola Cardinali <Unknown>\n"
 "Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-02 05:13+0000\n"
+"X-Launchpad-Export-Date: 2010-11-12 07:28+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "Language: it\n"
 
 #. the third party screenlets download site
 #: src/lib/__init__.py:100
 msgid "http://www.screenlets.org/index.php/Get_more_screenlets"
-msgstr "http://www.screenlets.org/index.php/Get_more_screenlets"
+msgstr ""
 
 #: src/lib/__init__.py:201
 msgid "Error while loading ScreenletTheme in: "
@@ -30,7 +30,7 @@ msgstr "Errore durante il caricamento di ScreenletTheme in: "
 #. default meta-info for Screenlets
 #: src/lib/__init__.py:616
 msgid "No name set for this Screenlet"
-msgstr ""
+msgstr "Nessun nome assegnato a questo Screenlet"
 
 #: src/lib/__init__.py:618
 msgid "No author defined for this Screenlet"
@@ -66,7 +66,7 @@ msgstr "Larghezza"
 
 #: src/lib/__init__.py:752
 msgid "The width of this Screenlet ..."
-msgstr ""
+msgstr "La larghezza di questo Screenlet ..."
 
 #: src/lib/__init__.py:755
 msgid "Height"
@@ -153,7 +153,7 @@ msgstr ""
 
 #: src/lib/__init__.py:791
 msgid "Skip Taskbar"
-msgstr ""
+msgstr "Salta Barra delle Applicazioni"
 
 #: src/lib/__init__.py:792
 msgid "Set this Screenlet to show/hide in taskbars ..."
@@ -161,7 +161,7 @@ msgstr "Mostra/nascondi questa Screenlet dalla barra delle applicazioni ..."
 
 #: src/lib/__init__.py:794
 msgid "Resize on mouse scroll"
-msgstr ""
+msgstr "Ridimensiona con lo scorrimento del mouse"
 
 #: src/lib/__init__.py:796
 msgid "Ignore requirements"
@@ -169,7 +169,7 @@ msgstr "Ignora requisiti"
 
 #: src/lib/__init__.py:797
 msgid "Set this Screenlet to ignore/demand DEB requirements ..."
-msgstr ""
+msgstr "Imposta questo Screenlet ad ignorare/richiedere i requisiti DEB ..."
 
 #: src/lib/__init__.py:801
 msgid "Allow overriding Options"
@@ -225,6 +225,11 @@ msgid ""
 "REQUIREMENTS:\n"
 "%s"
 msgstr ""
+"I requisiti per lo Screenlet non sono soddisfatti! Usa il gestore pacchetti "
+"del tuo sistema per installare i pacchetti richiesti.\n"
+"\n"
+"REQUISITI:\n"
+"%s"
 
 #: src/lib/__init__.py:1029
 msgid "Size"
@@ -291,11 +296,11 @@ msgstr ""
 
 #: src/lib/__init__.py:1500
 msgid "Updating input shape"
-msgstr ""
+msgstr "Aggiornamento forma dell' input"
 
 #: src/lib/__init__.py:1508
 msgid "Updating window shape"
-msgstr ""
+msgstr "Aggiornamento della forma della finestra"
 
 #: src/lib/__init__.py:1606
 #, python-format

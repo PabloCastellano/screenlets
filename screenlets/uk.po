@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: screenlets\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2010-11-02 05:16+0900\n"
 "PO-Revision-Date: 2010-10-26 06:53+0000\n"
 "Last-Translator: Serhey Kusyumoff (Сергій Кусюмов) <Unknown>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-10-29 06:08+0000\n"
+"X-Launchpad-Export-Date: 2010-11-12 07:28+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. the third party screenlets download site
@@ -25,24 +25,24 @@ msgstr ""
 
 #: src/lib/__init__.py:201
 msgid "Error while loading ScreenletTheme in: "
-msgstr ""
+msgstr "Виникла помилка під час завантаження ScreenletTheme в: "
 
 #. default meta-info for Screenlets
 #: src/lib/__init__.py:616
 msgid "No name set for this Screenlet"
-msgstr ""
+msgstr "Скрінлет не має назви"
 
 #: src/lib/__init__.py:618
 msgid "No author defined for this Screenlet"
-msgstr ""
+msgstr "Не зазначено автора Скрінлету"
 
 #: src/lib/__init__.py:619
 msgid "No info set for this Screenlet"
-msgstr ""
+msgstr "Відсутня інформація про Скрінлет"
 
 #: src/lib/__init__.py:731
 msgid "The basic settings for this Screenlet-instance."
-msgstr ""
+msgstr "Основні параметри для цього Скрінлета"
 
 #: src/lib/__init__.py:746
 msgid "X-Position"
@@ -50,7 +50,7 @@ msgstr "Х-координата"
 
 #: src/lib/__init__.py:746
 msgid "The X-position of this Screenlet ..."
-msgstr ""
+msgstr "Горизонтальне розташування Скрінлету ..."
 
 #: src/lib/__init__.py:749
 msgid "Y-Position"
@@ -58,7 +58,7 @@ msgstr "Y-координата"
 
 #: src/lib/__init__.py:749
 msgid "The Y-position of this Screenlet ..."
-msgstr ""
+msgstr "Вертикальне розташування Скрінлету ..."
 
 #: src/lib/__init__.py:752
 msgid "Width"
@@ -66,7 +66,7 @@ msgstr "Ширина"
 
 #: src/lib/__init__.py:752
 msgid "The width of this Screenlet ..."
-msgstr ""
+msgstr "Ширина Скрінлету ..."
 
 #: src/lib/__init__.py:755
 msgid "Height"
@@ -74,7 +74,7 @@ msgstr "Висота"
 
 #: src/lib/__init__.py:755
 msgid "The height of this Screenlet ..."
-msgstr ""
+msgstr "Висота цього Скрінлету ..."
 
 #: src/lib/__init__.py:758
 msgid "Scale"
@@ -82,7 +82,7 @@ msgstr "Масштабувати"
 
 #: src/lib/__init__.py:758
 msgid "The scale-factor of this Screenlet ..."
-msgstr ""
+msgstr "Масштаб-фактор цього Скрінлету ..."
 
 #: src/lib/__init__.py:761
 msgid "Opacity"
@@ -90,31 +90,31 @@ msgstr "Прозорість"
 
 #: src/lib/__init__.py:761
 msgid "The opacity of the Screenlet window ..."
-msgstr ""
+msgstr "Прозорість вікна Скрінлету ..."
 
 #: src/lib/__init__.py:764
 msgid "Stick to Desktop"
-msgstr ""
+msgstr "Приклеїти до стільниці"
 
 #: src/lib/__init__.py:765
 msgid "Show this Screenlet on all workspaces ..."
-msgstr ""
+msgstr "Показувати цей Скрінлет на всіх робочих місцях ..."
 
 #: src/lib/__init__.py:767
 msgid "Treat as Widget"
-msgstr ""
+msgstr "Вважати віджетом"
 
 #: src/lib/__init__.py:768
 msgid "Treat this Screenlet as a \"Widget\" ..."
-msgstr ""
+msgstr "Сприймати цей Скрінлет як \"Віджет\" ..."
 
 #: src/lib/__init__.py:776
 msgid "Lock position"
-msgstr ""
+msgstr "Закріпити позицію"
 
 #: src/lib/__init__.py:777
 msgid "Stop the screenlet from being moved..."
-msgstr ""
+msgstr "Заборонити переміщення скрінлета..."
 
 #. add "Keep above"-menuitem
 #: src/lib/__init__.py:779 src/lib/__init__.py:1086
@@ -123,44 +123,44 @@ msgstr "Завжди нагорі"
 
 #: src/lib/__init__.py:780
 msgid "Keep this Screenlet above other windows ..."
-msgstr ""
+msgstr "Закріпити Скрінлет поверх інших вікон ..."
 
 #. add "Keep Below"-menuitem
 #: src/lib/__init__.py:782 src/lib/__init__.py:1093
 msgid "Keep below"
-msgstr ""
+msgstr "Завжди знизу"
 
 #: src/lib/__init__.py:783
 msgid "Keep this Screenlet below other windows ..."
-msgstr ""
+msgstr "Тримати цей Скрінлет під іншими вікнами ..."
 
 #: src/lib/__init__.py:785
 msgid "Draw button controls"
-msgstr ""
+msgstr "Показувати кнопки управління"
 
 #: src/lib/__init__.py:786
 msgid "Draw buttons in top right corner"
-msgstr ""
+msgstr "Показувати кнопки в правому верхньому куті"
 
 #: src/lib/__init__.py:788
 msgid "Skip Pager"
-msgstr ""
+msgstr "Не відображати в перемикачі робочих областей"
 
 #: src/lib/__init__.py:789
 msgid "Set this Screenlet to show/hide in pagers ..."
-msgstr ""
+msgstr "Показати/приховати цей Скрінлет в перемикачі робочих областей ..."
 
 #: src/lib/__init__.py:791
 msgid "Skip Taskbar"
-msgstr ""
+msgstr "Не показувати на панелі завдань"
 
 #: src/lib/__init__.py:792
 msgid "Set this Screenlet to show/hide in taskbars ..."
-msgstr ""
+msgstr "Показати/приховати цей Скрінлет на панелі завдань ..."
 
 #: src/lib/__init__.py:794
 msgid "Resize on mouse scroll"
-msgstr ""
+msgstr "Зміна розміру коліщатком мишки"
 
 #: src/lib/__init__.py:796
 msgid "Ignore requirements"
@@ -172,23 +172,23 @@ msgstr ""
 
 #: src/lib/__init__.py:801
 msgid "Allow overriding Options"
-msgstr ""
+msgstr "Дозволити перевизначення налаштувань"
 
 #: src/lib/__init__.py:802
 msgid "Allow themes to override options in this screenlet ..."
-msgstr ""
+msgstr "Дозволити темами змінювати налаштування цього Скрінлета ..."
 
 #: src/lib/__init__.py:804
 msgid "Ask on Override"
-msgstr ""
+msgstr "Запитувати про перевизначення"
 
 #: src/lib/__init__.py:805
 msgid "Show a confirmation-dialog when a theme wants to override "
-msgstr ""
+msgstr "Показати діалог-підтвердження, коли тема перевизначає налаштування "
 
 #: src/lib/__init__.py:806
 msgid "the current options of this Screenlet ..."
-msgstr ""
+msgstr "поточні налаштування цього Скрінлета ..."
 
 #. version of the deb package
 #: src/lib/__init__.py:998
@@ -221,38 +221,38 @@ msgstr ""
 
 #: src/lib/__init__.py:1029
 msgid "Size"
-msgstr ""
+msgstr "Розмір"
 
 #: src/lib/__init__.py:1044
 msgid "Theme"
-msgstr ""
+msgstr "Тема"
 
 #: src/lib/__init__.py:1059
 msgid "Window"
-msgstr ""
+msgstr "Вікно"
 
 #. add "lock"-menuitem
 #: src/lib/__init__.py:1065
 msgid "Lock"
-msgstr ""
+msgstr "Блокувати"
 
 #. add "Sticky"-menuitem
 #: src/lib/__init__.py:1072
 msgid "Sticky"
-msgstr ""
+msgstr "Прикріпити"
 
 #. add "Widget"-menuitem
 #: src/lib/__init__.py:1079
 msgid "Widget"
-msgstr ""
+msgstr "Віджет"
 
 #: src/lib/__init__.py:1103
 msgid "Properties..."
-msgstr ""
+msgstr "Властивості..."
 
 #: src/lib/__init__.py:1106
 msgid "Info..."
-msgstr ""
+msgstr "Інформація..."
 
 #: src/lib/__init__.py:1110
 #, python-format
@@ -278,7 +278,7 @@ msgstr ""
 msgid ""
 "This theme wants to override your settings for this Screenlet. Do you want "
 "to allow that?"
-msgstr ""
+msgstr "Ця тема хоче перевизначити параметри цього Скрінлета. Дозволити?"
 
 #: src/lib/__init__.py:1500
 msgid "Updating input shape"
@@ -291,34 +291,35 @@ msgstr ""
 #: src/lib/__init__.py:1606
 #, python-format
 msgid "To quit all %s's, use 'Quit' instead. "
-msgstr ""
+msgstr "Щоб закрити всі %s, використовуйте 'Закрити'. "
 
 #: src/lib/__init__.py:1607
 #, python-format
 msgid "Really delete this %s and its settings?"
-msgstr ""
+msgstr "Дійсно видалити %s і всі його налаштування?"
 
 #: src/lib/options.py:233
 msgid "GnomeKeyring is not available!!"
-msgstr ""
+msgstr "GnomeKeyring не доступний!!"
 
 #: src/lib/options.py:239
 msgid "No keyrings found. Please create one first!"
-msgstr ""
+msgstr "Не знайдено в'язки ключів. Будь ласка, створіть її спочатку!"
 
 #: src/lib/options.py:271
 msgid "Illegal value in AccountOption.on_import."
-msgstr ""
+msgstr "Некоректне значення в AccountOption.on_import."
 
 #: src/lib/options.py:465
 #, python-format
 msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
-msgstr ""
+msgstr "Помилковий XML в файлі метаданих (або файл відсутній): \"%s\"."
 
 #: src/lib/options.py:469
 #, python-format
 msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
 msgstr ""
+"Відсутній або неправильний кореневий вузол в файлі метаданих: \"%s\"."
 
 #. we only allow groups in the first level (groups need children)
 #: src/lib/options.py:478
@@ -327,28 +328,30 @@ msgid ""
 "Error in metadata-file \"%s\" - only <group>-tags allowed in first level. "
 "Groups must contain at least one <info>-element."
 msgstr ""
+"Помилка в файлі метаданих \"%s\" - тільки <group>-теґи можна використовувати "
+"на першому рівні. Групи повинні містити принаймні один <info>-елемент."
 
 #: src/lib/options.py:484
 #, python-format
 msgid "No name for group defined in \"%s\"."
-msgstr ""
+msgstr "Немає назви для групи визначеній в \"%s\"."
 
 #: src/lib/options.py:500
 #, python-format
 msgid "Invalid option-node found in \"%s\"."
-msgstr ""
+msgstr "Знайдений неправильний параметр-вузол в \"%s\"."
 
 #: src/lib/options.py:653
 msgid "Edit Options"
-msgstr ""
+msgstr "Змінити налаштування"
 
 #: src/lib/options.py:851
 msgid "About "
-msgstr ""
+msgstr "Про "
 
 #: src/lib/options.py:863
 msgid "Options "
-msgstr ""
+msgstr "Налаштування "
 
 #. create info-text list
 #: src/lib/options.py:870
@@ -356,46 +359,48 @@ msgid ""
 "Themes allow you to easily switch the appearance of your Screenlets. On this "
 "page you find a list of all available themes for this Screenlet."
 msgstr ""
+"Теми дозволяють легко змінювати зовнішній вигляд Скрінлетів. На цій сторінці "
+"Ви знайдете список всіх доступних тем для цього Скрінлета."
 
 #: src/lib/options.py:899
 msgid "Themes "
-msgstr ""
+msgstr "Теми "
 
 #: src/lib/options.py:912
 msgid "no info available"
-msgstr ""
+msgstr "інформація не доступна"
 
 #: src/lib/options.py:1003
 msgid "Choose File"
-msgstr ""
+msgstr "Виберіть файл"
 
 #: src/lib/options.py:1012
 msgid "Choose Directory"
-msgstr ""
+msgstr "Виберіть каталог"
 
 #: src/lib/options.py:1038
 msgid "Choose Image"
-msgstr ""
+msgstr "Виберіть зображення"
 
 #: src/lib/options.py:1105
 msgid "Open List-Editor ..."
-msgstr ""
+msgstr "Відкрити редактор списків ..."
 
 #: src/lib/options.py:1126
 msgid "Apply username/password ..."
-msgstr ""
+msgstr "Застосувати ім'я/пароль ..."
 
 #: src/lib/options.py:1127
 msgid "Enter username here ..."
-msgstr ""
+msgstr "Введіть тут ім'я користувача ..."
 
 #: src/lib/options.py:1128
 msgid "Enter password here ..."
-msgstr ""
+msgstr "Введіть пароль ..."
 
 #: src/lib/options.py:1183
 msgid "Apply"
-msgstr ""
+msgstr "Застосувати"
 
 #: src/lib/sensors.py:168
 #, python-format
@@ -404,86 +409,86 @@ msgstr ""
 
 #: src/lib/sensors.py:288
 msgid "Can't get kernel version"
-msgstr ""
+msgstr "Не можливо отримати версію ядра"
 
 #: src/lib/sensors.py:298
 msgid "Can't get KDE version"
-msgstr ""
+msgstr "Не можливо отримати версію KDE"
 
 #: src/lib/sensors.py:308
 msgid "Can't get Gnome version"
-msgstr ""
+msgstr "Не можливо отримати версію Gnome"
 
 #: src/lib/sensors.py:319
 msgid "Failed to open /proc/version"
-msgstr ""
+msgstr "Не вдалося відкрити /proc/version"
 
 #: src/lib/sensors.py:386
 msgid "Can't parse /proc/meminfo"
-msgstr ""
+msgstr "Неможливо проаналізувати /proc/meminfo"
 
 #: src/lib/sensors.py:529
 msgid "Cannot get ip"
-msgstr ""
+msgstr "Неможливо отримати ip"
 
 #: src/lib/sensors.py:549
 msgid "Can't open /proc/net/dev"
-msgstr ""
+msgstr "Неможливо відкрити /proc/net/dev"
 
 #: src/lib/sensors.py:586
 msgid "Can't open /proc/net/wireless"
-msgstr ""
+msgstr "Неможливо відкрити /proc/net/wireless"
 
 #: src/lib/sensors.py:616 src/lib/sensors.py:629 src/lib/sensors.py:645
 #: src/lib/sensors.py:658
 msgid "Not connected"
-msgstr ""
+msgstr "Немає з'єднання"
 
 #: src/lib/sensors.py:936
 #, python-format
 msgid "Can't open %s/temperature"
-msgstr ""
+msgstr "Неможливо відкрити %s/temperature"
 
 #: src/lib/sensors.py:938
 msgid "Can't open folder /proc/acpi/thermal_zone/"
-msgstr ""
+msgstr "Неможливо відкрити теку /proc/acpi/thermal_zone/"
 
 #: src/lib/sensors.py:954 src/lib/sensors.py:965
 #, python-format
 msgid "Can't open %s"
-msgstr ""
+msgstr "Неможливо відкрити %s"
 
 #: src/lib/sensors.py:980
 msgid "Error during hddtemp drives search"
-msgstr ""
+msgstr "Помилка під час визначення температури дисків"
 
 #: src/lib/sensors.py:982 src/lib/sensors.py:1059
 msgid "Hddtemp not installed"
-msgstr ""
+msgstr "Hddtemp не встановлений"
 
 #: src/lib/sensors.py:1012
 #, python-format
 msgid "can't read temperature in: %s"
-msgstr ""
+msgstr "неможливо прочитати температуру для: %s"
 
 #: src/lib/sensors.py:1026 src/lib/sensors.py:1042
 #, python-format
 msgid "Can't read value from %s"
-msgstr ""
+msgstr "Не вдалося прочитати значення з %s"
 
 #: src/lib/services.py:61
 msgid "No name set in ScreenletService.__init__!"
-msgstr ""
+msgstr "Немає назви в ScreenletService.__init__!"
 
 #: src/lib/services.py:145
 #, python-format
 msgid "Trying to access invalid instance \"%s\"."
-msgstr ""
+msgstr "Спроба доступитися до недійсного екземпляру \"%s\"."
 
 #: src/lib/services.py:147
 #, python-format
 msgid "Trying to access invalid option \"%s\"."
-msgstr ""
+msgstr "Намагання отримати доступ до недійсної опції \"%s\"."
 
 #. TODO: also check for correct type (Screenlet-subclass)!!
 #: src/lib/session.py:72
@@ -491,6 +496,8 @@ msgid ""
 "ScreenletSession.__init__ has to be called with a\n"
 "\t\t\t valid Screenlet-classobject as first argument!"
 msgstr ""
+"ScreenletSession.__init__ має бути викликана з дійсним\n"
+"\t\t\t Screenlet-classobject для першого аргументу!"
 
 #~ msgid "GConf python module not found. GConf settings backend is disabled."
 #~ msgstr ""

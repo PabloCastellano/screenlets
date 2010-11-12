@@ -5,16 +5,16 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: screenlets-manager\n"
-"Report-Msgid-Bugs-To: \n"
+"Project-Id-Version: screenlets\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2010-11-02 05:16+0900\n"
-"PO-Revision-Date: 2010-11-01 08:33+0000\n"
-"Last-Translator: tabbernuk <boamaod@gmail.com>\n"
+"PO-Revision-Date: 2010-04-09 17:17+0000\n"
+"Last-Translator: Jochen Kemnade <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-02 05:13+0000\n"
+"X-Launchpad-Export-Date: 2010-11-12 07:28+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "Language: de\n"
 
@@ -54,7 +54,7 @@ msgstr "Alle Screenlets neu starten"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:170
 msgid "Quit the Screenlets"
-msgstr ""
+msgstr "Screenlets beenden"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:227
 #: src/share/screenlets-manager/screenlets-manager.py:607
@@ -139,7 +139,7 @@ msgstr "Starten/Hinzufügen"
 #: src/share/screenlets-manager/screenlets-manager.py:364
 #: src/share/screenlets-manager/screenlets-manager.py:912
 msgid "Install"
-msgstr ""
+msgstr "Installieren"
 
 #. but2.set_image(gtk.image_new_from_stock(gtk.STOCK_ADD,
 #. gtk.ICON_SIZE_BUTTON))
@@ -237,11 +237,11 @@ msgstr "Autostart Screenlets"
 
 #: src/share/screenlets-manager/screenlets-manager.py:451
 msgid "Only native Screenlets"
-msgstr ""
+msgstr "Nur ursprüngliche Screenlets"
 
 #: src/share/screenlets-manager/screenlets-manager.py:452
 msgid "Only third party"
-msgstr ""
+msgstr "Nur Drittanbieter"
 
 #: src/share/screenlets-manager/screenlets-manager.py:478
 msgid "Get more screenlets"
@@ -366,7 +366,7 @@ msgstr "Im Hintergrund"
 
 #: src/share/screenlets-manager/screenlets-manager.py:937
 msgid "Show buttons"
-msgstr ""
+msgstr "Schaltflächen Anzeigen"
 
 #: src/share/screenlets-manager/screenlets-manager.py:969
 msgid "New Screenlets atributes"

@@ -6,16 +6,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: screenlets\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2010-11-02 05:16+0900\n"
-"PO-Revision-Date: 2010-10-26 07:06+0000\n"
-"Last-Translator: Petr Pulc <petrpulc@gmail.com>\n"
+"PO-Revision-Date: 2009-05-06 14:27+0000\n"
+"Last-Translator: milboy <Unknown>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-10-29 06:08+0000\n"
+"X-Launchpad-Export-Date: 2010-11-12 07:28+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. the third party screenlets download site
@@ -30,7 +30,7 @@ msgstr "Chyba při načítání ScreenletMotivu v: "
 #. default meta-info for Screenlets
 #: src/lib/__init__.py:616
 msgid "No name set for this Screenlet"
-msgstr ""
+msgstr "Tento Screenlet nemá nastavené jméno"
 
 #: src/lib/__init__.py:618
 msgid "No author defined for this Screenlet"
@@ -66,7 +66,7 @@ msgstr "Šířka"
 
 #: src/lib/__init__.py:752
 msgid "The width of this Screenlet ..."
-msgstr ""
+msgstr "Šířka tohoto Screenletu ..."
 
 #: src/lib/__init__.py:755
 msgid "Height"
@@ -160,7 +160,7 @@ msgstr "Zobrazit/skrýt tento Screenlet v seznamu oken ..."
 
 #: src/lib/__init__.py:794
 msgid "Resize on mouse scroll"
-msgstr ""
+msgstr "Změnit velikost kolečkem myši"
 
 #: src/lib/__init__.py:796
 msgid "Ignore requirements"
@@ -352,7 +352,7 @@ msgstr "O aplikaci "
 
 #: src/lib/options.py:863
 msgid "Options "
-msgstr ""
+msgstr "Vlastnosti "
 
 #. create info-text list
 #: src/lib/options.py:870
@@ -373,7 +373,7 @@ msgstr "žádné informace"
 
 #: src/lib/options.py:1003
 msgid "Choose File"
-msgstr ""
+msgstr "Vyberte soubor"
 
 #: src/lib/options.py:1012
 msgid "Choose Directory"
@@ -422,7 +422,7 @@ msgstr "Nemohu získat verzi Gnome"
 
 #: src/lib/sensors.py:319
 msgid "Failed to open /proc/version"
-msgstr ""
+msgstr "Selhalo otevření /proc/version"
 
 #: src/lib/sensors.py:386
 msgid "Can't parse /proc/meminfo"

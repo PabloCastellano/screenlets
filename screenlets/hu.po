@@ -6,16 +6,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: screenlets\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2010-11-02 05:16+0900\n"
-"PO-Revision-Date: 2010-10-26 06:34+0000\n"
-"Last-Translator: Barnabas <szekeresbarnabas@gmail.com>\n"
+"PO-Revision-Date: 2008-09-27 09:22+0000\n"
+"Last-Translator: Kőrösi Krisztián <koeroesi86@gmail.com>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-10-29 06:08+0000\n"
+"X-Launchpad-Export-Date: 2010-11-12 07:28+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. the third party screenlets download site
@@ -30,15 +30,15 @@ msgstr "HIba a Screenlet Téma betöltése közben: "
 #. default meta-info for Screenlets
 #: src/lib/__init__.py:616
 msgid "No name set for this Screenlet"
-msgstr ""
+msgstr "Nincs név beállítva ennél a Screenletnél"
 
 #: src/lib/__init__.py:618
 msgid "No author defined for this Screenlet"
-msgstr "Nincs meghatáorzott szerző ennek a Screenletnek."
+msgstr "Nincs meghatározva szerző ennél a Screenletnél."
 
 #: src/lib/__init__.py:619
 msgid "No info set for this Screenlet"
-msgstr "Nincs információ megadva ennek a Screenletnek."
+msgstr "Nincs információ megadva ennél a Screenletnél."
 
 #: src/lib/__init__.py:731
 msgid "The basic settings for this Screenlet-instance."
@@ -50,7 +50,7 @@ msgstr "X-pozíció"
 
 #: src/lib/__init__.py:746
 msgid "The X-position of this Screenlet ..."
-msgstr "Az X-pozicója a Screenletnek"
+msgstr "A Screenlet X-pozicója ..."
 
 #: src/lib/__init__.py:749
 msgid "Y-Position"
@@ -58,7 +58,7 @@ msgstr "Y-pozíció"
 
 #: src/lib/__init__.py:749
 msgid "The Y-position of this Screenlet ..."
-msgstr "Az Y-pozicója a Screenletnek ..."
+msgstr "A Screenlet Y-pozicója ..."
 
 #: src/lib/__init__.py:752
 msgid "Width"
@@ -66,7 +66,7 @@ msgstr "Szélesség"
 
 #: src/lib/__init__.py:752
 msgid "The width of this Screenlet ..."
-msgstr ""
+msgstr "A Screenlet szélessége ..."
 
 #: src/lib/__init__.py:755
 msgid "Height"
@@ -74,7 +74,7 @@ msgstr "Magasság"
 
 #: src/lib/__init__.py:755
 msgid "The height of this Screenlet ..."
-msgstr "A Screenlet magassága"
+msgstr "A Screenlet magassága ..."
 
 #: src/lib/__init__.py:758
 msgid "Scale"
@@ -82,7 +82,7 @@ msgstr "Méretarány"
 
 #: src/lib/__init__.py:758
 msgid "The scale-factor of this Screenlet ..."
-msgstr ""
+msgstr "A méretarány szorzója ennek a Screenlet-nek"
 
 #: src/lib/__init__.py:761
 msgid "Opacity"
@@ -90,23 +90,23 @@ msgstr "Áttetszőség"
 
 #: src/lib/__init__.py:761
 msgid "The opacity of the Screenlet window ..."
-msgstr ""
+msgstr "A Screenlet ablak áttetszősége ..."
 
 #: src/lib/__init__.py:764
 msgid "Stick to Desktop"
-msgstr ""
+msgstr "Hozzátapad az Asztalhoz"
 
 #: src/lib/__init__.py:765
 msgid "Show this Screenlet on all workspaces ..."
-msgstr ""
+msgstr "Mutassa ezt a Screenletet az összes munkateürleten ..."
 
 #: src/lib/__init__.py:767
 msgid "Treat as Widget"
-msgstr ""
+msgstr "Kezelje Felületi elemként"
 
 #: src/lib/__init__.py:768
 msgid "Treat this Screenlet as a \"Widget\" ..."
-msgstr ""
+msgstr "\"Felületi elemként\" kezeli ezt a Screenletet ..."
 
 #: src/lib/__init__.py:776
 msgid "Lock position"
@@ -114,7 +114,7 @@ msgstr "Pozició Zárolása"
 
 #: src/lib/__init__.py:777
 msgid "Stop the screenlet from being moved..."
-msgstr ""
+msgstr "A Screenlet megállítása mozgatás közben..."
 
 #. add "Keep above"-menuitem
 #: src/lib/__init__.py:779 src/lib/__init__.py:1086
@@ -123,7 +123,7 @@ msgstr "Felül tartás"
 
 #: src/lib/__init__.py:780
 msgid "Keep this Screenlet above other windows ..."
-msgstr "A Screenletet tartsa a másik ablak felett"
+msgstr "A Screenlet a többi ablak felett lesz ..."
 
 #. add "Keep Below"-menuitem
 #: src/lib/__init__.py:782 src/lib/__init__.py:1093
@@ -132,35 +132,35 @@ msgstr "Mögé tartás"
 
 #: src/lib/__init__.py:783
 msgid "Keep this Screenlet below other windows ..."
-msgstr "A Screenletet tartsa a másik ablak mögött"
+msgstr "A Screenlet a többi ablak alatt lesz ..."
 
 #: src/lib/__init__.py:785
 msgid "Draw button controls"
-msgstr ""
+msgstr "Mozgató gombok megjelenítése"
 
 #: src/lib/__init__.py:786
 msgid "Draw buttons in top right corner"
-msgstr ""
+msgstr "Gombok megjelenítése a jobb felső sarokban"
 
 #: src/lib/__init__.py:788
 msgid "Skip Pager"
-msgstr ""
+msgstr "Ablaklista mellőzése"
 
 #: src/lib/__init__.py:789
 msgid "Set this Screenlet to show/hide in pagers ..."
-msgstr ""
+msgstr "A Screenlet megjelenítése/elrejtése az ablaklistából"
 
 #: src/lib/__init__.py:791
 msgid "Skip Taskbar"
-msgstr ""
+msgstr "Tálca kihagyása"
 
 #: src/lib/__init__.py:792
 msgid "Set this Screenlet to show/hide in taskbars ..."
-msgstr ""
+msgstr "A Screenletet megjeleníti/elrejti a tálcáról..."
 
 #: src/lib/__init__.py:794
 msgid "Resize on mouse scroll"
-msgstr ""
+msgstr "Egér görgetésre átméreteződik"
 
 #: src/lib/__init__.py:796
 msgid "Ignore requirements"
@@ -172,23 +172,23 @@ msgstr ""
 
 #: src/lib/__init__.py:801
 msgid "Allow overriding Options"
-msgstr ""
+msgstr "Felülírás engedélyezése"
 
 #: src/lib/__init__.py:802
 msgid "Allow themes to override options in this screenlet ..."
-msgstr ""
+msgstr "Engedélyezi a témának a screenlet beállításainak felülírását ..."
 
 #: src/lib/__init__.py:804
 msgid "Ask on Override"
-msgstr ""
+msgstr "Rákérdez felülíráskor"
 
 #: src/lib/__init__.py:805
 msgid "Show a confirmation-dialog when a theme wants to override "
-msgstr ""
+msgstr "Egy ablak jelenik meg ha egy téma felül akar írni "
 
 #: src/lib/__init__.py:806
 msgid "the current options of this Screenlet ..."
-msgstr ""
+msgstr "A screenlet aktuális beállításai ..."
 
 #. version of the deb package
 #: src/lib/__init__.py:998
@@ -239,7 +239,7 @@ msgstr "Zárolás"
 #. add "Sticky"-menuitem
 #: src/lib/__init__.py:1072
 msgid "Sticky"
-msgstr "Megmaradás be"
+msgstr "Ragadós"
 
 #. add "Widget"-menuitem
 #: src/lib/__init__.py:1079
@@ -252,7 +252,7 @@ msgstr "Tulajdonságok..."
 
 #: src/lib/__init__.py:1106
 msgid "Info..."
-msgstr "Info..."
+msgstr "Infó..."
 
 #: src/lib/__init__.py:1110
 #, python-format
@@ -278,7 +278,7 @@ msgstr ""
 msgid ""
 "This theme wants to override your settings for this Screenlet. Do you want "
 "to allow that?"
-msgstr ""
+msgstr "A téma felül akarja írni a Screenlet beállításai. Engedélyezi ezt?"
 
 #: src/lib/__init__.py:1500
 msgid "Updating input shape"
@@ -291,34 +291,34 @@ msgstr ""
 #: src/lib/__init__.py:1606
 #, python-format
 msgid "To quit all %s's, use 'Quit' instead. "
-msgstr ""
+msgstr "Az összes %s-ből való kilépéshez használja a 'Kilépést'. "
 
 #: src/lib/__init__.py:1607
 #, python-format
 msgid "Really delete this %s and its settings?"
-msgstr "Valóban törli ezt %s és ennek a beállításait?"
+msgstr "Valóban törli a %s-t és a beállításait?"
 
 #: src/lib/options.py:233
 msgid "GnomeKeyring is not available!!"
-msgstr ""
+msgstr "GnomeKeyring nem elérhető"
 
 #: src/lib/options.py:239
 msgid "No keyrings found. Please create one first!"
-msgstr ""
+msgstr "Nem található billentyűparancs. Először hozz létre egyet!"
 
 #: src/lib/options.py:271
 msgid "Illegal value in AccountOption.on_import."
-msgstr ""
+msgstr "Érvénytelen érték az AccountOption.on_import-ban."
 
 #: src/lib/options.py:465
 #, python-format
 msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
-msgstr ""
+msgstr "Érvénytelen XML adatfájl (vagy hiányzik): \"%s\"."
 
 #: src/lib/options.py:469
 #, python-format
 msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
-msgstr ""
+msgstr "Hiányzó vagy érvénytelen gyökércsomópont az adatfájlban: \"%s\"."
 
 #. we only allow groups in the first level (groups need children)
 #: src/lib/options.py:478
@@ -327,16 +327,18 @@ msgid ""
 "Error in metadata-file \"%s\" - only <group>-tags allowed in first level. "
 "Groups must contain at least one <info>-element."
 msgstr ""
+"Hiba az adatfájlban \"%s\" - csak <group>-tagek támogatottak az első "
+"szinten. A csoportoknak legalább egy-egy <info> részt tartalmazniuk kell."
 
 #: src/lib/options.py:484
 #, python-format
 msgid "No name for group defined in \"%s\"."
-msgstr ""
+msgstr "Nincs név definiálva a csoportnak a \"%s\"-ben."
 
 #: src/lib/options.py:500
 #, python-format
 msgid "Invalid option-node found in \"%s\"."
-msgstr ""
+msgstr "Érvénytelen beállítás a \"%s\"-ben"
 
 #: src/lib/options.py:653
 msgid "Edit Options"
@@ -348,7 +350,7 @@ msgstr "Névjegy "
 
 #: src/lib/options.py:863
 msgid "Options "
-msgstr ""
+msgstr "Beállítások "
 
 #. create info-text list
 #: src/lib/options.py:870
@@ -356,6 +358,8 @@ msgid ""
 "Themes allow you to easily switch the appearance of your Screenlets. On this "
 "page you find a list of all available themes for this Screenlet."
 msgstr ""
+"A témák segítenek s Screenletek kinézetének váltásában. Ebben a listában "
+"megtalálod ennek a Screenletnek minden elérhető kinézetét."
 
 #: src/lib/options.py:899
 msgid "Themes "
@@ -367,7 +371,7 @@ msgstr "Nincs megadott információ"
 
 #: src/lib/options.py:1003
 msgid "Choose File"
-msgstr ""
+msgstr "Fájl Választás"
 
 #: src/lib/options.py:1012
 msgid "Choose Directory"
@@ -404,35 +408,35 @@ msgstr ""
 
 #: src/lib/sensors.py:288
 msgid "Can't get kernel version"
-msgstr ""
+msgstr "Nem tudtam a kernel verzióját betölteni"
 
 #: src/lib/sensors.py:298
 msgid "Can't get KDE version"
-msgstr ""
+msgstr "Nem tudtam a KDE verzióját betölteni"
 
 #: src/lib/sensors.py:308
 msgid "Can't get Gnome version"
-msgstr ""
+msgstr "Nem tudtam a Gnome verzióját betölteni"
 
 #: src/lib/sensors.py:319
 msgid "Failed to open /proc/version"
-msgstr ""
+msgstr "Nem tudtam megnyitni: /proc/version"
 
 #: src/lib/sensors.py:386
 msgid "Can't parse /proc/meminfo"
-msgstr ""
+msgstr "Nem tudtam elemezni: /proc/meminfo"
 
 #: src/lib/sensors.py:529
 msgid "Cannot get ip"
-msgstr ""
+msgstr "Nem tudom megállípítani az ip-t"
 
 #: src/lib/sensors.py:549
 msgid "Can't open /proc/net/dev"
-msgstr ""
+msgstr "Nem tudtam megnyitni: /proc/net/dev"
 
 #: src/lib/sensors.py:586
 msgid "Can't open /proc/net/wireless"
-msgstr ""
+msgstr "Nem tudtam megnyitni: /proc/net/wireless"
 
 #: src/lib/sensors.py:616 src/lib/sensors.py:629 src/lib/sensors.py:645
 #: src/lib/sensors.py:658
@@ -442,48 +446,48 @@ msgstr "Nincs kapcsolat"
 #: src/lib/sensors.py:936
 #, python-format
 msgid "Can't open %s/temperature"
-msgstr ""
+msgstr "Nem tudtam megnyitni: %s/temperature"
 
 #: src/lib/sensors.py:938
 msgid "Can't open folder /proc/acpi/thermal_zone/"
-msgstr ""
+msgstr "Nem tudtam megnyitni: /proc/acpi/thermal_zone/"
 
 #: src/lib/sensors.py:954 src/lib/sensors.py:965
 #, python-format
 msgid "Can't open %s"
-msgstr ""
+msgstr "Nem tudtam megnyitni: %s"
 
 #: src/lib/sensors.py:980
 msgid "Error during hddtemp drives search"
-msgstr ""
+msgstr "Hiba a hddtemp meghajtó keresése közben"
 
 #: src/lib/sensors.py:982 src/lib/sensors.py:1059
 msgid "Hddtemp not installed"
-msgstr ""
+msgstr "Hddtemp nincs telepítve"
 
 #: src/lib/sensors.py:1012
 #, python-format
 msgid "can't read temperature in: %s"
-msgstr ""
+msgstr "Nem lehet olvasni a hőfokát: %s"
 
 #: src/lib/sensors.py:1026 src/lib/sensors.py:1042
 #, python-format
 msgid "Can't read value from %s"
-msgstr ""
+msgstr "Nem tudom olvasni az értékét: %s"
 
 #: src/lib/services.py:61
 msgid "No name set in ScreenletService.__init__!"
-msgstr ""
+msgstr "Nincs név beállítva a ScreenletService.__init__-ben!"
 
 #: src/lib/services.py:145
 #, python-format
 msgid "Trying to access invalid instance \"%s\"."
-msgstr ""
+msgstr "Érvénytelen folyamathoz próbáltam hozzáférni: %s"
 
 #: src/lib/services.py:147
 #, python-format
 msgid "Trying to access invalid option \"%s\"."
-msgstr ""
+msgstr "Érvénytelen beállításhoz próbáltam hozzáférni: %s"
 
 #. TODO: also check for correct type (Screenlet-subclass)!!
 #: src/lib/session.py:72
@@ -491,6 +495,8 @@ msgid ""
 "ScreenletSession.__init__ has to be called with a\n"
 "\t\t\t valid Screenlet-classobject as first argument!"
 msgstr ""
+"ScreenletSession.__init__ meg kell hogy legyen nyitva\n"
+"\t\t\t érvényes Screenlet-classobject mint első argumentum!"
 
 #~ msgid "Error while creating image from file: %s"
 #~ msgstr "Hiba a kép létrehozása közben: %s"

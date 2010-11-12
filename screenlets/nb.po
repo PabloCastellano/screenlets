@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: screenlets\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2010-11-02 05:16+0900\n"
 "PO-Revision-Date: 2010-10-26 06:54+0000\n"
 "Last-Translator: Ketil Wendelbo Aanensen <ketil.w.aanensen@gmail.com>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-10-29 06:08+0000\n"
+"X-Launchpad-Export-Date: 2010-11-12 07:28+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. the third party screenlets download site
@@ -30,7 +30,7 @@ msgstr "Feil ved lasting av ScreenletTheme i: "
 #. default meta-info for Screenlets
 #: src/lib/__init__.py:616
 msgid "No name set for this Screenlet"
-msgstr ""
+msgstr "Ingen navn gitt for denne Screenlet"
 
 #: src/lib/__init__.py:618
 msgid "No author defined for this Screenlet"
@@ -66,7 +66,7 @@ msgstr "Bredde"
 
 #: src/lib/__init__.py:752
 msgid "The width of this Screenlet ..."
-msgstr ""
+msgstr "Bredden på denne Screenlet ..."
 
 #: src/lib/__init__.py:755
 msgid "Height"
@@ -160,7 +160,7 @@ msgstr "La denne Screenlet vises/skjules i oppgavelinjer ..."
 
 #: src/lib/__init__.py:794
 msgid "Resize on mouse scroll"
-msgstr ""
+msgstr "Endre størrelse ved muserulling"
 
 #: src/lib/__init__.py:796
 msgid "Ignore requirements"
@@ -352,7 +352,7 @@ msgstr "Om "
 
 #: src/lib/options.py:863
 msgid "Options "
-msgstr ""
+msgstr "Valg "
 
 #. create info-text list
 #: src/lib/options.py:870
@@ -373,7 +373,7 @@ msgstr "ingen info tilgjengelig"
 
 #: src/lib/options.py:1003
 msgid "Choose File"
-msgstr ""
+msgstr "Velg fil"
 
 #: src/lib/options.py:1012
 msgid "Choose Directory"
@@ -422,7 +422,7 @@ msgstr "Kan ikke få Gnome-versjon"
 
 #: src/lib/sensors.py:319
 msgid "Failed to open /proc/version"
-msgstr ""
+msgstr "Klarte ikke å åpne /proc/version"
 
 #: src/lib/sensors.py:386
 msgid "Can't parse /proc/meminfo"

@@ -5,8 +5,8 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: screenlets-manager\n"
-"Report-Msgid-Bugs-To: \n"
+"Project-Id-Version: screenlets\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2010-11-02 05:16+0900\n"
 "PO-Revision-Date: 2010-10-25 22:46+0000\n"
 "Last-Translator: Ketil Wendelbo Aanensen <ketil.w.aanensen@gmail.com>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-10-29 06:08+0000\n"
+"X-Launchpad-Export-Date: 2010-11-12 07:28+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:88
@@ -53,7 +53,6 @@ msgid "Restart all Screenlets"
 msgstr ""
 
 #: src/share/screenlets-manager/screenlets-daemon.py:170
-#, fuzzy
 msgid "Quit the Screenlets"
 msgstr "Skaff flere screenlets"
 
@@ -116,7 +115,7 @@ msgstr "Slett Screenlet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:167
 msgid "Do you also want to remove the Screenlet configuration files?"
-msgstr ""
+msgstr "Ønsker du også å fjerne denne Screenlets' konfigurasjonsfiler?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:173
 msgid "Can't delete system-wide screenlets."
@@ -236,15 +235,15 @@ msgstr "Autostart screenlet-er"
 
 #: src/share/screenlets-manager/screenlets-manager.py:451
 msgid "Only native Screenlets"
-msgstr ""
+msgstr "Kun inkluderte Screenlets"
 
 #: src/share/screenlets-manager/screenlets-manager.py:452
 msgid "Only third party"
-msgstr ""
+msgstr "Kun tredje-parts"
 
 #: src/share/screenlets-manager/screenlets-manager.py:478
 msgid "Get more screenlets"
-msgstr ""
+msgstr "Få flere Screenlets!"
 
 #: src/share/screenlets-manager/screenlets-manager.py:484
 msgid "Show info about this dialog ..."
@@ -321,7 +320,8 @@ msgid "Theme installed , please restart %s"
 msgstr "Tema installert. Vennligst start %s på nytt"
 
 #: src/share/screenlets-manager/screenlets-manager.py:821
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Temainstalleringsfeil 2 funnet - Tema ikke installert eller allerede "
 "installert"
@@ -365,7 +365,7 @@ msgstr "Hold under"
 
 #: src/share/screenlets-manager/screenlets-manager.py:937
 msgid "Show buttons"
-msgstr ""
+msgstr "Vis knapper"
 
 #: src/share/screenlets-manager/screenlets-manager.py:969
 msgid "New Screenlets atributes"
@@ -490,7 +490,8 @@ msgstr "Ikke i stand til å importere klasse fra modul."
 
 #: src/share/screenlets-manager/screenlets-packager.py:101
 msgid "The class inside the module is no subclass of screenlets.Screenlet."
-msgstr "Klassen inne i modulen er ikke en underklasse av screenlets.Screenlet."
+msgstr ""
+"Klassen inne i modulen er ikke en underklasse av screenlets.Screenlet."
 
 #: src/share/screenlets-manager/screenlets-packager.py:102
 #, python-format

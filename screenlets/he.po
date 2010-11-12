@@ -6,16 +6,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: screenlets\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2010-11-02 05:16+0900\n"
-"PO-Revision-Date: 2010-10-26 07:01+0000\n"
-"Last-Translator: tabbernuk <boamaod@gmail.com>\n"
+"PO-Revision-Date: 2009-11-18 13:48+0000\n"
+"Last-Translator: Ddorda <Ddorda@ubuntu.com>\n"
 "Language-Team: Hebrew <he@li.org>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-10-29 06:08+0000\n"
+"X-Launchpad-Export-Date: 2010-11-12 07:28+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. the third party screenlets download site
@@ -25,60 +25,60 @@ msgstr ""
 
 #: src/lib/__init__.py:201
 msgid "Error while loading ScreenletTheme in: "
-msgstr "התרחשה שגיאה בעת טעינת הScreenletTheme ב: "
+msgstr "התרחשה שגיאה בעת טעינת ה-ScreenletTheme ב: "
 
 #. default meta-info for Screenlets
 #: src/lib/__init__.py:616
 msgid "No name set for this Screenlet"
-msgstr ""
+msgstr "לא הוגדר שם עבור Screenlet זה"
 
 #: src/lib/__init__.py:618
 msgid "No author defined for this Screenlet"
-msgstr ""
+msgstr "לא הוגדר מחבר עבור Screenlet זה"
 
 #: src/lib/__init__.py:619
 msgid "No info set for this Screenlet"
-msgstr ""
+msgstr "לא נקבע מידע אודות Screenlet זה."
 
 #: src/lib/__init__.py:731
 msgid "The basic settings for this Screenlet-instance."
-msgstr ""
+msgstr "ההגדרות הבסיסיות עבור דוגמת ה-Screenlet הזו."
 
 #: src/lib/__init__.py:746
 msgid "X-Position"
-msgstr ""
+msgstr "מיקום ה-X"
 
 #: src/lib/__init__.py:746
 msgid "The X-position of this Screenlet ..."
-msgstr ""
+msgstr "מיקום ה-X של Screenlet זה ..."
 
 #: src/lib/__init__.py:749
 msgid "Y-Position"
-msgstr ""
+msgstr "מיקום ה-Y"
 
 #: src/lib/__init__.py:749
 msgid "The Y-position of this Screenlet ..."
-msgstr ""
+msgstr "מיקום ה-Y של Screenlet זה ..."
 
 #: src/lib/__init__.py:752
 msgid "Width"
-msgstr ""
+msgstr "רוחב"
 
 #: src/lib/__init__.py:752
 msgid "The width of this Screenlet ..."
-msgstr ""
+msgstr "רוחב ה-Screenlet ..."
 
 #: src/lib/__init__.py:755
 msgid "Height"
-msgstr ""
+msgstr "גובה"
 
 #: src/lib/__init__.py:755
 msgid "The height of this Screenlet ..."
-msgstr ""
+msgstr "גובה ה-Screenlet ..."
 
 #: src/lib/__init__.py:758
 msgid "Scale"
-msgstr ""
+msgstr "קנה מידה"
 
 #: src/lib/__init__.py:758
 msgid "The scale-factor of this Screenlet ..."
@@ -86,53 +86,53 @@ msgstr ""
 
 #: src/lib/__init__.py:761
 msgid "Opacity"
-msgstr ""
+msgstr "שקיפות"
 
 #: src/lib/__init__.py:761
 msgid "The opacity of the Screenlet window ..."
-msgstr ""
+msgstr "השקיפות של חלון ה-Screenlet ..."
 
 #: src/lib/__init__.py:764
 msgid "Stick to Desktop"
-msgstr ""
+msgstr "הצמד לשולחן העבודה"
 
 #: src/lib/__init__.py:765
 msgid "Show this Screenlet on all workspaces ..."
-msgstr ""
+msgstr "הצג Screenlet זה על כל שולחנות העבודה ..."
 
 #: src/lib/__init__.py:767
 msgid "Treat as Widget"
-msgstr ""
+msgstr "התייחס כ- Widget"
 
 #: src/lib/__init__.py:768
 msgid "Treat this Screenlet as a \"Widget\" ..."
-msgstr ""
+msgstr "התייחס ל-Screenlet זה כ- \"Widget\" ..."
 
 #: src/lib/__init__.py:776
 msgid "Lock position"
-msgstr ""
+msgstr "נעל מיקום"
 
 #: src/lib/__init__.py:777
 msgid "Stop the screenlet from being moved..."
-msgstr ""
+msgstr "עצור את ה-screenlet מכל תזוזה..."
 
 #. add "Keep above"-menuitem
 #: src/lib/__init__.py:779 src/lib/__init__.py:1086
 msgid "Keep above"
-msgstr ""
+msgstr "תמיד עליון"
 
 #: src/lib/__init__.py:780
 msgid "Keep this Screenlet above other windows ..."
-msgstr ""
+msgstr "שמור screenlet זה מעל החלונות האחרים ..."
 
 #. add "Keep Below"-menuitem
 #: src/lib/__init__.py:782 src/lib/__init__.py:1093
 msgid "Keep below"
-msgstr ""
+msgstr "תמיד מתחת"
 
 #: src/lib/__init__.py:783
 msgid "Keep this Screenlet below other windows ..."
-msgstr ""
+msgstr "שמור screenlet זה מתחת לכל החלונות ..."
 
 #: src/lib/__init__.py:785
 msgid "Draw button controls"
@@ -152,7 +152,7 @@ msgstr ""
 
 #: src/lib/__init__.py:791
 msgid "Skip Taskbar"
-msgstr ""
+msgstr "דלג על שורת המשימות"
 
 #: src/lib/__init__.py:792
 msgid "Set this Screenlet to show/hide in taskbars ..."

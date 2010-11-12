@@ -1,0 +1,505 @@
+# Catalan translation for screenlets
+# Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
+# This file is distributed under the same license as the screenlets package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: screenlets\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2010-11-02 05:16+0900\n"
+"PO-Revision-Date: 2010-09-05 12:32+0000\n"
+"Last-Translator: David Planella <david.planella@ubuntu.com>\n"
+"Language-Team: Catalan <ca@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2010-11-12 07:28+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
+
+#. the third party screenlets download site
+#: src/lib/__init__.py:100
+msgid "http://www.screenlets.org/index.php/Get_more_screenlets"
+msgstr ""
+
+#: src/lib/__init__.py:201
+msgid "Error while loading ScreenletTheme in: "
+msgstr "Error en carregar el tema de l'Screenlet a: "
+
+#. default meta-info for Screenlets
+#: src/lib/__init__.py:616
+msgid "No name set for this Screenlet"
+msgstr "No s'ha posat nom a aquest Screenlet"
+
+#: src/lib/__init__.py:618
+msgid "No author defined for this Screenlet"
+msgstr "No s'ha definit l'autor d'aquest Screenlet"
+
+#: src/lib/__init__.py:619
+msgid "No info set for this Screenlet"
+msgstr "No s'ha definit informació per a aquest Screenlet"
+
+#: src/lib/__init__.py:731
+msgid "The basic settings for this Screenlet-instance."
+msgstr "La configuració bàsica per a aquest Screenlet."
+
+#: src/lib/__init__.py:746
+msgid "X-Position"
+msgstr "Posició X"
+
+#: src/lib/__init__.py:746
+msgid "The X-position of this Screenlet ..."
+msgstr "La posició X d'aquest Screenlet..."
+
+#: src/lib/__init__.py:749
+msgid "Y-Position"
+msgstr "Posició Y"
+
+#: src/lib/__init__.py:749
+msgid "The Y-position of this Screenlet ..."
+msgstr "La posició Y d'aquest Screenlet..."
+
+#: src/lib/__init__.py:752
+msgid "Width"
+msgstr "Amplada"
+
+#: src/lib/__init__.py:752
+msgid "The width of this Screenlet ..."
+msgstr "L'amplària d'aquest Screenlet..."
+
+#: src/lib/__init__.py:755
+msgid "Height"
+msgstr "Alçària"
+
+#: src/lib/__init__.py:755
+msgid "The height of this Screenlet ..."
+msgstr "L'alçària d'aquest Screenlet..."
+
+#: src/lib/__init__.py:758
+msgid "Scale"
+msgstr "Escala"
+
+#: src/lib/__init__.py:758
+msgid "The scale-factor of this Screenlet ..."
+msgstr "El factor d'escala d'aquest Screenlet..."
+
+#: src/lib/__init__.py:761
+msgid "Opacity"
+msgstr "Opacitat"
+
+#: src/lib/__init__.py:761
+msgid "The opacity of the Screenlet window ..."
+msgstr "L'opacitat d'aquest Screenlet ..."
+
+#: src/lib/__init__.py:764
+msgid "Stick to Desktop"
+msgstr "Enganxa a l'escriptori"
+
+#: src/lib/__init__.py:765
+msgid "Show this Screenlet on all workspaces ..."
+msgstr "Mostra aquest Screenlet a tots els escriptoris ..."
+
+#: src/lib/__init__.py:767
+msgid "Treat as Widget"
+msgstr "Tracta com un giny"
+
+#: src/lib/__init__.py:768
+msgid "Treat this Screenlet as a \"Widget\" ..."
+msgstr "Tracta aquest Screenlet com un giny ..."
+
+#: src/lib/__init__.py:776
+msgid "Lock position"
+msgstr "Bloca la posició"
+
+#: src/lib/__init__.py:777
+msgid "Stop the screenlet from being moved..."
+msgstr "Evita que l'Screenlet es pugui moure ..."
+
+#. add "Keep above"-menuitem
+#: src/lib/__init__.py:779 src/lib/__init__.py:1086
+msgid "Keep above"
+msgstr "Manté a sobre"
+
+#: src/lib/__init__.py:780
+msgid "Keep this Screenlet above other windows ..."
+msgstr "Manté aquest Screenlet sobre les altres finestres ..."
+
+#. add "Keep Below"-menuitem
+#: src/lib/__init__.py:782 src/lib/__init__.py:1093
+msgid "Keep below"
+msgstr "Manté a sota"
+
+#: src/lib/__init__.py:783
+msgid "Keep this Screenlet below other windows ..."
+msgstr "Manté aquest Screenlet sota les altres finestres ..."
+
+#: src/lib/__init__.py:785
+msgid "Draw button controls"
+msgstr "Dibuixa els controls dels botons"
+
+#: src/lib/__init__.py:786
+msgid "Draw buttons in top right corner"
+msgstr "Dibuixa els botons a la cantonada superior dreta"
+
+#: src/lib/__init__.py:788
+msgid "Skip Pager"
+msgstr "Saltar-se el paginador"
+
+#: src/lib/__init__.py:789
+msgid "Set this Screenlet to show/hide in pagers ..."
+msgstr "Defineix si l'screenlet ha d'aparèixer en el cercapersones..."
+
+#: src/lib/__init__.py:791
+msgid "Skip Taskbar"
+msgstr "Omet la barra de tasques"
+
+#: src/lib/__init__.py:792
+msgid "Set this Screenlet to show/hide in taskbars ..."
+msgstr ""
+"Fes que aquest Screenlet es mostri o no es mostri a la barra de tasques ..."
+
+#: src/lib/__init__.py:794
+msgid "Resize on mouse scroll"
+msgstr "Canvia la mida amb la roda del ratolí"
+
+#: src/lib/__init__.py:796
+msgid "Ignore requirements"
+msgstr ""
+
+#: src/lib/__init__.py:797
+msgid "Set this Screenlet to ignore/demand DEB requirements ..."
+msgstr ""
+
+#: src/lib/__init__.py:801
+msgid "Allow overriding Options"
+msgstr "Permet les opcions de sobreescriptura"
+
+#: src/lib/__init__.py:802
+msgid "Allow themes to override options in this screenlet ..."
+msgstr ""
+"Permet que els temes sobreescriguin les opcions per aquest Screenlet ..."
+
+#: src/lib/__init__.py:804
+msgid "Ask on Override"
+msgstr "Demana si s'ha de sobreescriure"
+
+#: src/lib/__init__.py:805
+msgid "Show a confirmation-dialog when a theme wants to override "
+msgstr "Mostra un diàleg de confirmació quan un tema vulgui sobreescriure "
+
+#: src/lib/__init__.py:806
+msgid "the current options of this Screenlet ..."
+msgstr "la posició actual d'aquest Screenlet ..."
+
+#. version of the deb package
+#: src/lib/__init__.py:998
+msgid "(?)"
+msgstr ""
+
+#: src/lib/__init__.py:1001
+#, python-format
+msgid ""
+"\n"
+"%s %s required, NOT INSTALLED!"
+msgstr ""
+
+#: src/lib/__init__.py:1004
+#, python-format
+msgid ""
+"\n"
+"%s (%s) installed, req %s."
+msgstr ""
+
+#: src/lib/__init__.py:1007
+#, python-format
+msgid ""
+"Requirements for the Screenlet are not satisfied! Use the package manager of "
+"your system to install required packages.\n"
+"\n"
+"REQUIREMENTS:\n"
+"%s"
+msgstr ""
+
+#: src/lib/__init__.py:1029
+msgid "Size"
+msgstr "Mida"
+
+#: src/lib/__init__.py:1044
+msgid "Theme"
+msgstr "Tema"
+
+#: src/lib/__init__.py:1059
+msgid "Window"
+msgstr "Finestra"
+
+#. add "lock"-menuitem
+#: src/lib/__init__.py:1065
+msgid "Lock"
+msgstr "Bloca"
+
+#. add "Sticky"-menuitem
+#: src/lib/__init__.py:1072
+msgid "Sticky"
+msgstr "Apegalós"
+
+#. add "Widget"-menuitem
+#: src/lib/__init__.py:1079
+msgid "Widget"
+msgstr "Giny"
+
+#: src/lib/__init__.py:1103
+msgid "Properties..."
+msgstr "Propietats..."
+
+#: src/lib/__init__.py:1106
+msgid "Info..."
+msgstr "Informació..."
+
+#: src/lib/__init__.py:1110
+#, python-format
+msgid "Add one more %s"
+msgstr ""
+
+#: src/lib/__init__.py:1113
+#, python-format
+msgid "Delete this %s"
+msgstr ""
+
+#: src/lib/__init__.py:1117
+#, python-format
+msgid "Quit this %s"
+msgstr ""
+
+#: src/lib/__init__.py:1120
+#, python-format
+msgid "Quit all %ss"
+msgstr ""
+
+#: src/lib/__init__.py:1372
+msgid ""
+"This theme wants to override your settings for this Screenlet. Do you want "
+"to allow that?"
+msgstr ""
+"Aquest tema vol sobreescriure la vostra configuració per a aquest Screenlet. "
+"Ho voleu permetre?"
+
+#: src/lib/__init__.py:1500
+msgid "Updating input shape"
+msgstr ""
+
+#: src/lib/__init__.py:1508
+msgid "Updating window shape"
+msgstr ""
+
+#: src/lib/__init__.py:1606
+#, python-format
+msgid "To quit all %s's, use 'Quit' instead. "
+msgstr "Per tancar tots els %s, utilitzeu \"Tanca\". "
+
+#: src/lib/__init__.py:1607
+#, python-format
+msgid "Really delete this %s and its settings?"
+msgstr "Voleu eliminar aquest %s i la seva configuració?"
+
+#: src/lib/options.py:233
+msgid "GnomeKeyring is not available!!"
+msgstr "El GnomeKeyring no està disponible."
+
+#: src/lib/options.py:239
+msgid "No keyrings found. Please create one first!"
+msgstr "No s'ha trobat cap anell de claus. Creeu-ne una."
+
+#: src/lib/options.py:271
+msgid "Illegal value in AccountOption.on_import."
+msgstr "Valor il·legal a l'AccountOption.on_import."
+
+#: src/lib/options.py:465
+#, python-format
+msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
+msgstr "XML invàlid al fitxer de metadata (o no existeix el fitxer): \"%s\"."
+
+#: src/lib/options.py:469
+#, python-format
+msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
+msgstr ""
+"No s'ha trobat el node arrel del fitxer de metadata o és invàlid: \"%s\"."
+
+#. we only allow groups in the first level (groups need children)
+#: src/lib/options.py:478
+#, python-format
+msgid ""
+"Error in metadata-file \"%s\" - only <group>-tags allowed in first level. "
+"Groups must contain at least one <info>-element."
+msgstr ""
+"Error al fitxer de metadata \"%s\" - només les etiquetes de  grup són "
+"permeses en el primer nivell. Els grups han de contenir com a mínim un "
+"element d'informació."
+
+#: src/lib/options.py:484
+#, python-format
+msgid "No name for group defined in \"%s\"."
+msgstr "No s'ha trobat nom per al grup definit a \"%s\"."
+
+#: src/lib/options.py:500
+#, python-format
+msgid "Invalid option-node found in \"%s\"."
+msgstr "S'ha trobat una opció de node invàlida a \"%s\"."
+
+#: src/lib/options.py:653
+msgid "Edit Options"
+msgstr "Opcions d'edició"
+
+#: src/lib/options.py:851
+msgid "About "
+msgstr "Quant al "
+
+#: src/lib/options.py:863
+msgid "Options "
+msgstr "Opcions "
+
+#. create info-text list
+#: src/lib/options.py:870
+msgid ""
+"Themes allow you to easily switch the appearance of your Screenlets. On this "
+"page you find a list of all available themes for this Screenlet."
+msgstr ""
+"Els temes us permeten canviar fàcilment l'aparença dels vostres Screenlets. "
+"En aquesta pàgina trobareu una llista de tots els temes disponibles per a "
+"aquest Screenlet."
+
+#: src/lib/options.py:899
+msgid "Themes "
+msgstr "Temes "
+
+#: src/lib/options.py:912
+msgid "no info available"
+msgstr "no hi ha informació disponible"
+
+#: src/lib/options.py:1003
+msgid "Choose File"
+msgstr "Seleccioneu un fitxer"
+
+#: src/lib/options.py:1012
+msgid "Choose Directory"
+msgstr "Seleccioneu un directori"
+
+#: src/lib/options.py:1038
+msgid "Choose Image"
+msgstr "Seleccioneu una imatge"
+
+#: src/lib/options.py:1105
+msgid "Open List-Editor ..."
+msgstr "Obre l'editor de llistes..."
+
+#: src/lib/options.py:1126
+msgid "Apply username/password ..."
+msgstr "Aplica l'usuari/contrasenya..."
+
+#: src/lib/options.py:1127
+msgid "Enter username here ..."
+msgstr "Entreu l'usuari aquí..."
+
+#: src/lib/options.py:1128
+msgid "Enter password here ..."
+msgstr "Entreu la contrasenya aquí..."
+
+#: src/lib/options.py:1183
+msgid "Apply"
+msgstr "Aplica"
+
+#: src/lib/sensors.py:168
+#, python-format
+msgid "%(days)s days, %(hours)s hours and %(minutes)s minutes"
+msgstr ""
+
+#: src/lib/sensors.py:288
+msgid "Can't get kernel version"
+msgstr "No s'ha pogut obtenir la versió del kernel"
+
+#: src/lib/sensors.py:298
+msgid "Can't get KDE version"
+msgstr "No s'ha pogut obtenir la versió del KDE"
+
+#: src/lib/sensors.py:308
+msgid "Can't get Gnome version"
+msgstr "No s'ha pogut obtenir la versió del Gnome"
+
+#: src/lib/sensors.py:319
+msgid "Failed to open /proc/version"
+msgstr "No s'ha pogut obrir el fitxer /proc/version"
+
+#: src/lib/sensors.py:386
+msgid "Can't parse /proc/meminfo"
+msgstr "No s'ha pogut analitzar el fitxer /proc/meminfo"
+
+#: src/lib/sensors.py:529
+msgid "Cannot get ip"
+msgstr "No s'ha pogut obtenir la ip"
+
+#: src/lib/sensors.py:549
+msgid "Can't open /proc/net/dev"
+msgstr "No s'ha pogut obrir el fitxer /proc/net/dev"
+
+#: src/lib/sensors.py:586
+msgid "Can't open /proc/net/wireless"
+msgstr "No s'ha pogut obrir el fitxer /proc/net/wireless"
+
+#: src/lib/sensors.py:616 src/lib/sensors.py:629 src/lib/sensors.py:645
+#: src/lib/sensors.py:658
+msgid "Not connected"
+msgstr "No connectat"
+
+#: src/lib/sensors.py:936
+#, python-format
+msgid "Can't open %s/temperature"
+msgstr "No s'ha pogut obrir %s/temperature"
+
+#: src/lib/sensors.py:938
+msgid "Can't open folder /proc/acpi/thermal_zone/"
+msgstr "No s'ha pogut obrir la carpeta /proc/acpi/thermal_zone/"
+
+#: src/lib/sensors.py:954 src/lib/sensors.py:965
+#, python-format
+msgid "Can't open %s"
+msgstr "No s'ha pogut obrir %s"
+
+#: src/lib/sensors.py:980
+msgid "Error during hddtemp drives search"
+msgstr "Error en cercar les unitats hddtemp"
+
+#: src/lib/sensors.py:982 src/lib/sensors.py:1059
+msgid "Hddtemp not installed"
+msgstr "No s'ha instal·lat l'hddtemp"
+
+#: src/lib/sensors.py:1012
+#, python-format
+msgid "can't read temperature in: %s"
+msgstr "No es pot llegir la temperatura"
+
+#: src/lib/sensors.py:1026 src/lib/sensors.py:1042
+#, python-format
+msgid "Can't read value from %s"
+msgstr "No es pot llegir el valor de %s"
+
+#: src/lib/services.py:61
+msgid "No name set in ScreenletService.__init__!"
+msgstr "Cap nom configurat a ScreenletService.__init__!"
+
+#: src/lib/services.py:145
+#, python-format
+msgid "Trying to access invalid instance \"%s\"."
+msgstr "Intentant accedir a la instància invàlida \"%s\"."
+
+#: src/lib/services.py:147
+#, python-format
+msgid "Trying to access invalid option \"%s\"."
+msgstr "Intentant accedir a l'opció invàlida \"%s\"."
+
+#. TODO: also check for correct type (Screenlet-subclass)!!
+#: src/lib/session.py:72
+msgid ""
+"ScreenletSession.__init__ has to be called with a\n"
+"\t\t\t valid Screenlet-classobject as first argument!"
+msgstr ""
+"ScreenletSession.__init__ ha de ser cridat amb un\n"
+"\t\t\t Screenlet-classobject vàlid com a primer argument!"

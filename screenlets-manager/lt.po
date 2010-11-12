@@ -1,0 +1,617 @@
+# Lithuanian translation for screenlets
+# Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
+# This file is distributed under the same license as the screenlets package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: screenlets\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2010-11-02 05:16+0900\n"
+"PO-Revision-Date: 2008-07-04 10:31+0000\n"
+"Last-Translator: Saulius Pranckevičius <Unknown>\n"
+"Language-Team: Lithuanian <lt@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2010-11-12 07:28+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
+
+#: src/share/screenlets-manager/screenlets-daemon.py:88
+msgid "Screenlets daemon"
+msgstr ""
+
+#. create top menuitems
+#. name/version of this app
+#: src/share/screenlets-manager/screenlets-daemon.py:141
+#: src/share/screenlets-manager/screenlets-manager.py:49
+#: src/share/screenlets-manager/screenlets-manager.py:1315
+msgid "Screenlets Manager"
+msgstr "Darbastalio valdiklių tvarkytuvė"
+
+#: src/share/screenlets-manager/screenlets-daemon.py:143
+#: src/share/screenlets-manager/screenlets-manager.py:907
+msgid "Install Screenlet"
+msgstr "Įdiegti valdiklį"
+
+#: src/share/screenlets-manager/screenlets-daemon.py:144
+msgid "Get more Screenlets"
+msgstr "Gauti daugiau"
+
+#: src/share/screenlets-manager/screenlets-daemon.py:150
+msgid "Launch Screenlet"
+msgstr "Paleisti valdiklį"
+
+#. create the bottom menuitems
+#: src/share/screenlets-manager/screenlets-daemon.py:166
+msgid "Close all Screenlets"
+msgstr "Užverti visus valdiklius"
+
+#: src/share/screenlets-manager/screenlets-daemon.py:167
+msgid "Restart all Screenlets"
+msgstr ""
+
+#: src/share/screenlets-manager/screenlets-daemon.py:170
+msgid "Quit the Screenlets"
+msgstr ""
+
+#: src/share/screenlets-manager/screenlets-daemon.py:227
+#: src/share/screenlets-manager/screenlets-manager.py:607
+msgid ""
+"This application is released under the GNU General Public License v3 (or, at "
+"your option, any later version). You can find the full text of the license "
+"under http://www.gnu.org/licenses/gpl.txt. By using, editing and/or "
+"distributing this software you agree to the terms and conditions of this "
+"license. Thank you for using free software!"
+msgstr ""
+"Ši programa išleista su GNU General Public Licencija v3 (arba,jūsų atvėju, "
+"naujesne versija). Jūs galite rasti pilną licencijos tekstą "
+"http://www.gnu.org/licenses/gpl.txt. Keičiant ar kitaip naudojant šią "
+"programinę įrangą jūs sutinkate su šios licencijos terminais ir sąlygomis. "
+"Ačių, kad naudojatės laisva programine įranga!"
+
+#: src/share/screenlets-manager/screenlets-daemon.py:259
+msgid "Install a Screenlet"
+msgstr "Įdiegti valdiklį"
+
+#: src/share/screenlets-manager/screenlets-manager.py:100
+msgid ""
+"Important! You are running this application as root user, almost all "
+"functionality is disabled. You can use this to install screenlets into the "
+"system-wide path."
+msgstr ""
+"Dėmesio! Jūs valdote šią programą kaip pagrindinis (root) vartotojas, beveik "
+"visas funkcionalumas yra išjungtas. Jūs galite tuo pasinaudoti norėdami "
+"įdiegti valdiklių į sistemos aplanką(us)."
+
+#: src/share/screenlets-manager/screenlets-manager.py:101
+msgid "Warning!"
+msgstr "Įspėjimas!"
+
+#: src/share/screenlets-manager/screenlets-manager.py:132
+msgid ""
+"Unable to connect or launch daemon. Some values may be displayed incorrectly."
+msgstr ""
+"Negalima įjungti arba paleisti tarnybos. Kai kurios reikšmės gali būti "
+"neteisingai parodytos."
+
+#: src/share/screenlets-manager/screenlets-manager.py:132 src/lib/utils.py:100
+#: src/lib/utils.py:104 src/lib/utils.py:526 src/lib/utils.py:530
+msgid "Error"
+msgstr "Klaida"
+
+#. delete the file
+#: src/share/screenlets-manager/screenlets-manager.py:162
+#, python-format
+msgid ""
+"Do you really want to permanently uninstall and delete the %sScreenlet from "
+"your system?"
+msgstr ""
+
+#: src/share/screenlets-manager/screenlets-manager.py:162
+msgid "Delete Screenlet"
+msgstr "Ištrinti valdiklį"
+
+#: src/share/screenlets-manager/screenlets-manager.py:167
+msgid "Do you also want to remove the Screenlet configuration files?"
+msgstr "Ar taip pat norite pašalinti valdiklio konfigūravimo failus?"
+
+#: src/share/screenlets-manager/screenlets-manager.py:173
+msgid "Can't delete system-wide screenlets."
+msgstr "Negalima ištrinti valdiklių, kurie yra sistemos aplankuose."
+
+#: src/share/screenlets-manager/screenlets-manager.py:273
+#, python-format
+msgid "Do you really want to reset the %sScreenlet configuration?"
+msgstr ""
+
+#: src/share/screenlets-manager/screenlets-manager.py:273
+msgid "Reset Screenlet"
+msgstr "Atstatyti valdiklį"
+
+#: src/share/screenlets-manager/screenlets-manager.py:360
+msgid "Launch/Add"
+msgstr "Paleisti/Įdėti"
+
+#: src/share/screenlets-manager/screenlets-manager.py:364
+#: src/share/screenlets-manager/screenlets-manager.py:912
+msgid "Install"
+msgstr "Įdiegti"
+
+#. but2.set_image(gtk.image_new_from_stock(gtk.STOCK_ADD,
+#. gtk.ICON_SIZE_BUTTON))
+#: src/share/screenlets-manager/screenlets-manager.py:367
+msgid "Uninstall"
+msgstr "Išdiegti"
+
+#. but3.set_image(gtk.image_new_from_stock(gtk.STOCK_DELETE,
+#. gtk.ICON_SIZE_BUTTON))
+#: src/share/screenlets-manager/screenlets-manager.py:371
+msgid "Reset Screenlet Config"
+msgstr "Atstatyti konfigūraciją"
+
+#. but4.set_image(gtk.image_new_from_stock(gtk.STOCK_CLEAR,
+#. gtk.ICON_SIZE_BUTTON))
+#: src/share/screenlets-manager/screenlets-manager.py:375
+msgid "Install New Theme"
+msgstr "Įdiegti naują temą"
+
+#. but5.set_image(gtk.image_new_from_stock(gtk.STOCK_ADD,
+#. gtk.ICON_SIZE_BUTTON))
+#: src/share/screenlets-manager/screenlets-manager.py:379
+msgid "Re-Start All"
+msgstr "Paleisti visus iš naujo"
+
+#. but6.set_image(gtk.image_new_from_stock(gtk.STOCK_REFRESH,
+#. gtk.ICON_SIZE_BUTTON))
+#: src/share/screenlets-manager/screenlets-manager.py:383
+msgid "Close All"
+msgstr "Užverti visus"
+
+#. but7.set_image(gtk.image_new_from_stock(gtk.STOCK_REMOVE,
+#. gtk.ICON_SIZE_BUTTON))
+#: src/share/screenlets-manager/screenlets-manager.py:387
+msgid "Options"
+msgstr "Nuostatos"
+
+#: src/share/screenlets-manager/screenlets-manager.py:389
+msgid "Create Desktop Shortcut"
+msgstr "Sukurti piktogr. darbastalyje"
+
+#: src/share/screenlets-manager/screenlets-manager.py:421
+msgid "Launch/add a new instance of the selected Screenlet ..."
+msgstr "Paleisti/Įdėti naują išrinkto valdiklio pavyzdį ..."
+
+#: src/share/screenlets-manager/screenlets-manager.py:422
+msgid ""
+"Install a new Screenlet, SuperKaramba or Web Widget or Web Application  ..."
+msgstr ""
+"Įdiegti naują valdiklį, Superkarambą ar Interneto valdiklį ar aplikaciją ..."
+
+#: src/share/screenlets-manager/screenlets-manager.py:423
+msgid "Permanently uninstall/delete the currently selected Screenlet ..."
+msgstr "Pašalinti valdiklį ..."
+
+#: src/share/screenlets-manager/screenlets-manager.py:424
+msgid ""
+"Reset this Screenlet configuration (will only work if screenlet isnt running)"
+msgstr ""
+"Atstatyti šio valdiklio konfigūraciją (veiks tik jei valdiklis nepaleistas)"
+
+#: src/share/screenlets-manager/screenlets-manager.py:425
+msgid "Install new theme for this screenlet"
+msgstr "Įdiegti naują temą šiam valdikliui"
+
+#: src/share/screenlets-manager/screenlets-manager.py:426
+msgid "Restart all screenlets that have auto start at login"
+msgstr ""
+"Paleisti iš naujo visus valdiklis, kurie pasileidžia įjungus kompiuterį"
+
+#: src/share/screenlets-manager/screenlets-manager.py:427
+msgid "Close all Screenlets running"
+msgstr "Užverti visus paleistus valdiklius"
+
+#: src/share/screenlets-manager/screenlets-manager.py:428
+msgid "New Screenlets Options/Properties"
+msgstr "Naujų valdiklių nustatymai"
+
+#: src/share/screenlets-manager/screenlets-manager.py:429
+msgid "Create a Desktop shortcut for this Screenlet"
+msgstr ""
+
+#: src/share/screenlets-manager/screenlets-manager.py:448
+msgid "All Screenlets"
+msgstr "Visi valdikliai"
+
+#: src/share/screenlets-manager/screenlets-manager.py:449
+msgid "Running Screenlets"
+msgstr "Paleisti valdikliai"
+
+#: src/share/screenlets-manager/screenlets-manager.py:450
+msgid "Autostart Screenlets"
+msgstr "Automatiškai paleidžiami valdikliai"
+
+#: src/share/screenlets-manager/screenlets-manager.py:451
+msgid "Only native Screenlets"
+msgstr "Originalūs valdikliai"
+
+#: src/share/screenlets-manager/screenlets-manager.py:452
+msgid "Only third party"
+msgstr "Tik \"trečiųjų šalių\""
+
+#: src/share/screenlets-manager/screenlets-manager.py:478
+msgid "Get more screenlets"
+msgstr "Gauti daugiau"
+
+#: src/share/screenlets-manager/screenlets-manager.py:484
+msgid "Show info about this dialog ..."
+msgstr "Rodyti informaciją apie šį langą ..."
+
+#: src/share/screenlets-manager/screenlets-manager.py:485
+msgid "Download more screenlets ..."
+msgstr "Parsisiųsti daugiau valdiklių ..."
+
+#: src/share/screenlets-manager/screenlets-manager.py:486
+msgid "Close this dialog ..."
+msgstr "Užverti šį langą ..."
+
+#. create checkboxes
+#: src/share/screenlets-manager/screenlets-manager.py:520
+msgid "Start/Stop"
+msgstr "Paleisti/Sustabdyti"
+
+#: src/share/screenlets-manager/screenlets-manager.py:521
+msgid "Auto start on login"
+msgstr "Auto paleidimas"
+
+#: src/share/screenlets-manager/screenlets-manager.py:522
+msgid "Show daemon in tray"
+msgstr "Rodyti tarnybą dėkle"
+
+#: src/share/screenlets-manager/screenlets-manager.py:643
+#, python-format
+msgid "Invalid string: %s."
+msgstr "Negaliojanti reikšmė: %s"
+
+#: src/share/screenlets-manager/screenlets-manager.py:680
+msgid "Install a Screenlet or SuperKaramba theme"
+msgstr "Įdiegti valdiklio arba SuperKaramba temą"
+
+#: src/share/screenlets-manager/screenlets-manager.py:722
+msgid "Install a new theme for the selected Screenlet"
+msgstr "Įdiegti naują temą parinktam valdikliui"
+
+#: src/share/screenlets-manager/screenlets-manager.py:750
+msgid ""
+"You are about to install a theme in root mode. Continue only if you have "
+"gksudo installed, do you wish to continue?"
+msgstr ""
+"Jūs ruošiatės įdiegti temą pagrindinio vartotojo (root) režime. Tęskite tik "
+"turėdami įdiegtą gksudo paketą, ar norite tęsti?"
+
+#: src/share/screenlets-manager/screenlets-manager.py:767
+msgid "Error Found"
+msgstr "Rasta Klaida"
+
+#: src/share/screenlets-manager/screenlets-manager.py:772
+msgid ""
+"Theme install error 1 found - Theme not installed , maybe a package error "
+msgstr ""
+"Rasta 1 temos įdiegimo klaida - tema neįdiegta, galbūt pakete yra su klaida "
+
+#: src/share/screenlets-manager/screenlets-manager.py:783
+msgid ""
+"This package seams to contain a full Screenlet and not just a theme, please "
+"use the screenlet install instead"
+msgstr ""
+"Šis paketas susideda ne vien iš temos, bet ir iš valdiklio, prašome naudoti "
+"valdiklių įdiegimą."
+
+#: src/share/screenlets-manager/screenlets-manager.py:795
+msgid "This package doesnt seem to contain a theme"
+msgstr "Paketas nesusideda iš temos"
+
+#: src/share/screenlets-manager/screenlets-manager.py:816
+#, python-format
+msgid "Theme installed , please restart %s"
+msgstr "Tema įdiegta , prašome paleisti iš naujo %s"
+
+#: src/share/screenlets-manager/screenlets-manager.py:821
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
+msgstr "Rasta 2 temos įdiegimo klaidos - tema neįdiegta arba jau įdiegta"
+
+#: src/share/screenlets-manager/screenlets-manager.py:908
+msgid "Install SuperKaramba Theme"
+msgstr ""
+
+#: src/share/screenlets-manager/screenlets-manager.py:909
+msgid "Convert Web Widget"
+msgstr ""
+
+#: src/share/screenlets-manager/screenlets-manager.py:910
+#: src/share/screenlets-manager/screenlets-manager.py:1017
+msgid "Install Web Application"
+msgstr "Įdiegti Interneto aplikaciją"
+
+#: src/share/screenlets-manager/screenlets-manager.py:930
+msgid "New screenlets atributes.."
+msgstr ""
+
+#: src/share/screenlets-manager/screenlets-manager.py:931
+msgid "Lock"
+msgstr "Užrakintas"
+
+#: src/share/screenlets-manager/screenlets-manager.py:932
+msgid "Sticky"
+msgstr "Lipnus"
+
+#: src/share/screenlets-manager/screenlets-manager.py:933
+msgid "Widget"
+msgstr "Valdiklis"
+
+#: src/share/screenlets-manager/screenlets-manager.py:934
+msgid "Keep above"
+msgstr "Virš langų"
+
+#: src/share/screenlets-manager/screenlets-manager.py:936
+msgid "Keep below"
+msgstr "Po langais"
+
+#: src/share/screenlets-manager/screenlets-manager.py:937
+msgid "Show buttons"
+msgstr "Rodyti mygtukus"
+
+#: src/share/screenlets-manager/screenlets-manager.py:969
+msgid "New Screenlets atributes"
+msgstr "Nauji valdiklių atributai"
+
+#: src/share/screenlets-manager/screenlets-manager.py:1007
+msgid "Web Application Url"
+msgstr "Interneto aplikacijos adresas"
+
+#: src/share/screenlets-manager/screenlets-manager.py:1008
+msgid "Web Application Name"
+msgstr "Interneto aplikacijos pavadinimas"
+
+#. found_path != None:
+#: src/share/screenlets-manager/screenlets-manager.py:1040
+#: src/share/screenlets-manager/screenlets-manager.py:1123
+msgid ""
+"There is already a screenlet with that name installed\n"
+"Do you wish to continue?"
+msgstr ""
+"Jau įdiegtas valdiklis su tokiu pavadinimu\n"
+"Ar norite tęsti?"
+
+#: src/share/screenlets-manager/screenlets-manager.py:1061
+msgid "Web Application was successfully installed"
+msgstr "Interneto aplikacija sėkmingai įdiegta"
+
+#: src/share/screenlets-manager/screenlets-manager.py:1063
+msgid "Error installing!!!"
+msgstr "Klaida įdiegiant!!!"
+
+#: src/share/screenlets-manager/screenlets-manager.py:1064
+#: src/share/screenlets-manager/screenlets-manager.py:1149
+msgid "Please specify a name for the widget"
+msgstr "Prašome parinkti pavadinimą šiam valdikliui"
+
+#: src/share/screenlets-manager/screenlets-manager.py:1065
+#: src/share/screenlets-manager/screenlets-manager.py:1150
+msgid "No HTML code found"
+msgstr "Nerastas HTML kodas"
+
+#: src/share/screenlets-manager/screenlets-manager.py:1069
+msgid "Convert any webpage widget into a Screenlet."
+msgstr "Pakeisti bet kurį internetinį valdiklį į darbastalio valdiklį."
+
+#: src/share/screenlets-manager/screenlets-manager.py:1070
+msgid "Step 1 : Find the widget you want to convert"
+msgstr "Pirmas žingsnis: Surasti valdiklį kurį norite pakeisti."
+
+#: src/share/screenlets-manager/screenlets-manager.py:1071
+msgid "Step 2 : Copy and Paste the HTML from the widget in the box below"
+msgstr ""
+"Antras žingsnis: Į valdiklio eilutę žemiau, nukopijuoti ir įklijuoti HTML "
+"kodą"
+
+#: src/share/screenlets-manager/screenlets-manager.py:1072
+msgid "Step 3 : Give it a name in the box below and click on Ok to convert"
+msgstr ""
+"Trečias žingsnis: Eilutėje žemiau duoti jam pavadinimą ir paspausti Gerai."
+
+#: src/share/screenlets-manager/screenlets-manager.py:1073
+msgid "The name of the widget"
+msgstr "Valdiklio pavadinimas"
+
+#: src/share/screenlets-manager/screenlets-manager.py:1097
+msgid "Widget converter"
+msgstr "Valdiklio keitiklis"
+
+#: src/share/screenlets-manager/screenlets-manager.py:1145
+msgid "Widget was successfully converted"
+msgstr "Valdiklis sėkmingai pakeistas"
+
+#: src/share/screenlets-manager/screenlets-manager.py:1148
+msgid "Error converting!!!"
+msgstr "Konvertavimo klaida!!!"
+
+#: src/share/screenlets-manager/screenlets-manager.py:1278
+msgid "Screenlets-Manager must now be restarted"
+msgstr "Darbastalio valdiklių tvarkytuvė turi būti paleista iš naujo"
+
+#. + constants
+#: src/share/screenlets-manager/screenlets-packager.py:31
+msgid ""
+"Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
+"Usage: screenlets-packager <path> [options]"
+msgstr ""
+
+#: src/share/screenlets-manager/screenlets-packager.py:70
+#, python-format
+msgid "The specified path \"%s\" does not exist."
+msgstr "Apibrėžtas kelias \"%s \" neegzistuoja."
+
+#: src/share/screenlets-manager/screenlets-packager.py:71
+#, python-format
+msgid "Found path \"%s\"."
+msgstr "rastas kelias \"%s\"."
+
+#: src/share/screenlets-manager/screenlets-packager.py:77
+msgid "Failed to extract screenlet name from path."
+msgstr "Nepavyko ištraukti valdiklio pavadinimo iš nurodyto kelio."
+
+#: src/share/screenlets-manager/screenlets-packager.py:78
+#, python-format
+msgid "Screenlet name is %s."
+msgstr "Valdiklio pavadinimas yra %s."
+
+#: src/share/screenlets-manager/screenlets-packager.py:82
+#, python-format
+msgid "No screenlet-file \"%sScreenlet.py\" found in the given path."
+msgstr "Nerastas valdiklio failas \"%sScreenlet.py\" duotame kelyje."
+
+#: src/share/screenlets-manager/screenlets-packager.py:83
+#, python-format
+msgid "Found %sScreenlet.py in path."
+msgstr "Rastas %sScreenlet.py nurodytame kelyje."
+
+#: src/share/screenlets-manager/screenlets-packager.py:93
+#, python-format
+msgid "Successfully imported module: %s"
+msgstr "Modulis sėkmingai įkeltas: %s"
+
+#: src/share/screenlets-manager/screenlets-packager.py:99
+msgid "Unable to import class from module."
+msgstr "Negalima importuoti klasės iš modulio."
+
+#: src/share/screenlets-manager/screenlets-packager.py:101
+msgid "The class inside the module is no subclass of screenlets.Screenlet."
+msgstr "Klasė modulyje nėra valdiklių subklasės. Valdiklis."
+
+#: src/share/screenlets-manager/screenlets-packager.py:102
+#, python-format
+msgid "Successfully got class from module: %s"
+msgstr "Sėkmingai gauta klasė iš modulio: %s"
+
+#: src/share/screenlets-manager/screenlets-packager.py:126
+#, python-format
+msgid "Failed to create package info in \"%s\" (no permission?)."
+msgstr "Nepavyko sukurti paketo informacijos \"%s\" (nėra leidimo?)."
+
+#: src/share/screenlets-manager/screenlets-packager.py:127
+msgid "Created package info file."
+msgstr "Sukurtas paketo informacijos failas."
+
+#: src/share/screenlets-manager/screenlets-packager.py:143
+msgid "Cleaned up and finished."
+msgstr "Išvalyta ir baigta."
+
+#: src/lib/install.py:56
+msgid ""
+"This type of karamba theme is not supported yet\n"
+" Only older versions can be used"
+msgstr ""
+"Šis karambos temos tipas vis dar nepalaikomas\n"
+" Gali būti naudojamos tik senesnės versijos"
+
+#: src/lib/install.py:112
+msgid "Archive is damaged or unsupported, use only tar, bz2 or gz."
+msgstr ""
+"Archyvas sugadintas arba nepalaikomas, naudokite tik tar, bz2 arba gz."
+
+#. check if screenlet is already installed
+#. found_path = screenlets.utils.find_first_screenlet_path(name)
+#. found_path != None:
+#: src/lib/install.py:126
+#, python-format
+msgid ""
+"The %(slet)sScreenlet is already installed in '%(dir)s'.\n"
+"Do you wish to continue?"
+msgstr ""
+
+#: src/lib/install.py:126 src/lib/install.py:192
+#, python-format
+msgid "Install %s"
+msgstr "Įdiegti %s"
+
+#: src/lib/install.py:129
+#, python-format
+msgid "%sScreenlet is already installed"
+msgstr "Valdiklis %s jau įdiegtas"
+
+#. dir missing
+#: src/lib/install.py:136
+msgid ""
+"Invalid archive. Archive must contain a directory with the screenlet's name."
+msgstr ""
+"Neteisingas archyvas. Archyvas turi susidėti iš aplanko su valdiklio "
+"pavadinimu."
+
+#: src/lib/install.py:148
+msgid "Compatibility for this karamba theme is not yet implemented"
+msgstr "Suderinamumas šiai karamba temai dar nėra įgyvendintas"
+
+#: src/lib/install.py:175
+msgid "Karamba theme was successfully installed"
+msgstr "Karamba tema sėkmingai įdiegta"
+
+#: src/lib/install.py:177
+msgid ""
+"Invalid archive. Archive does not contain a screenlet or a valid karamba "
+"theme."
+msgstr ""
+"Negaliojantis archyvas. Archyvas neturi savyje valdiklio arba tinkamos "
+"karamba temos."
+
+#: src/lib/install.py:192
+#, python-format
+msgid ""
+"%s was not packaged with the screenlet packager. Do you wish to continue and "
+"try to install it?"
+msgstr ""
+"%s nebuvo supakuotas su Screenlet packager. Ar norite tęsti ir bandyti jį "
+"įdiegti?"
+
+#: src/lib/install.py:195
+msgid "This package was not packaged with the screenlet packager."
+msgstr "Šis paketas nebuvo supakuotas su Screenlet packager."
+
+#. set msg/result
+#: src/lib/install.py:204
+#, python-format
+msgid "The %sScreenlet has been succesfully installed."
+msgstr "Valdiklis %s buvo sėkmingai įdiegtas."
+
+#. create autostart directory, if not existent
+#: src/lib/utils.py:99 src/lib/utils.py:526
+msgid ""
+"There is no existing autostart directory for your user account yet. Do you "
+"want me to automatically create it for you?"
+msgstr ""
+"Dar nėra jokio egzistuojančio auto-paleidimo aplanko jūsų vartotojui . Ar "
+"norite, kad jis būtu automatiškai sukurtas?"
+
+#: src/lib/utils.py:104 src/lib/utils.py:530
+#, python-format
+msgid ""
+"Automatic creation failed. Please manually create the directory:\n"
+"%s"
+msgstr ""
+"Automatinis sukūrimas nepavyko. Prašome rankiniu būdu sukurti aplanką:\n"
+"%s"
+
+#: src/lib/utils.py:107 src/lib/utils.py:533
+#, python-format
+msgid ""
+"Please manually create the directory:\n"
+"%s"
+msgstr ""
+"Prašome rankiniu būdu sukurti aplanką:\n"
+"%s"
+
+#: src/lib/utils.py:562
+#, python-format
+msgid "Failed to add %sScreenlet."
+msgstr "Nepavyko pridėti %svaldiklio."

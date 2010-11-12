@@ -89,7 +89,7 @@ try:
 	sl_module = __import__(sl_name + 'Screenlet')
 	sys.path.remove(path)
 except Exception, ex:
-	die(_("Unable to import module '%s' from %s. (%s)") % (sl_name, path, ex))
+	die(_("Unable to import module '%(name)s' from %(path)s. (%(error)s)") % {"name":sl_name, "path":path, "error":ex})
 msg(_('Successfully imported module: %s') % str(sl_module))
 
 # lookup screenlet class

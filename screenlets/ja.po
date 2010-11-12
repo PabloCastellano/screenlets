@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: screenlets\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-11-02 05:16+0900\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-11-12 18:22+0900\n"
 "PO-Revision-Date: 2010-10-26 06:47+0000\n"
 "Last-Translator: kawaji <jiro.kawada@gmail.com>\n"
 "Language-Team: Japanese <ja@li.org>\n"
@@ -18,198 +18,198 @@ msgstr ""
 "X-Launchpad-Export-Date: 2010-11-12 07:28+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
-#. the third party screenlets download site
-#: src/lib/__init__.py:100
+#. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
+#: src/lib/__init__.py:98
 msgid "http://www.screenlets.org/index.php/Get_more_screenlets"
 msgstr ""
 
-#: src/lib/__init__.py:201
+#: src/lib/__init__.py:197
 msgid "Error while loading ScreenletTheme in: "
 msgstr ""
 
 #. default meta-info for Screenlets
-#: src/lib/__init__.py:616
+#: src/lib/__init__.py:608
 msgid "No name set for this Screenlet"
 msgstr "この Screenlet の名前は未記載"
 
-#: src/lib/__init__.py:618
+#: src/lib/__init__.py:610
 msgid "No author defined for this Screenlet"
 msgstr "この Screenlet の作者は未記載"
 
-#: src/lib/__init__.py:619
+#: src/lib/__init__.py:611
 msgid "No info set for this Screenlet"
 msgstr "この Screenlet の情報は未記載"
 
-#: src/lib/__init__.py:731
+#: src/lib/__init__.py:719
 msgid "The basic settings for this Screenlet-instance."
 msgstr "この Screenlet インスタンスの基本設定"
 
-#: src/lib/__init__.py:746
+#: src/lib/__init__.py:734
 msgid "X-Position"
 msgstr "X 位置"
 
-#: src/lib/__init__.py:746
+#: src/lib/__init__.py:734
 msgid "The X-position of this Screenlet ..."
 msgstr "この Screenlet の X 位置..."
 
-#: src/lib/__init__.py:749
+#: src/lib/__init__.py:737
 msgid "Y-Position"
 msgstr "Y 位置"
 
-#: src/lib/__init__.py:749
+#: src/lib/__init__.py:737
 msgid "The Y-position of this Screenlet ..."
 msgstr "この Screenlet の Y 位置..."
 
-#: src/lib/__init__.py:752
+#: src/lib/__init__.py:740
 msgid "Width"
 msgstr "幅"
 
-#: src/lib/__init__.py:752
+#: src/lib/__init__.py:740
 msgid "The width of this Screenlet ..."
 msgstr "この Screenlet の幅..."
 
-#: src/lib/__init__.py:755
+#: src/lib/__init__.py:743
 msgid "Height"
 msgstr "高さ"
 
-#: src/lib/__init__.py:755
+#: src/lib/__init__.py:743
 msgid "The height of this Screenlet ..."
 msgstr "この Screenlet の高さ..."
 
-#: src/lib/__init__.py:758
+#: src/lib/__init__.py:746
 msgid "Scale"
 msgstr "スケール"
 
-#: src/lib/__init__.py:758
+#: src/lib/__init__.py:746
 msgid "The scale-factor of this Screenlet ..."
 msgstr "この Screenlet の拡縮率..."
 
-#: src/lib/__init__.py:761
+#: src/lib/__init__.py:749
 msgid "Opacity"
 msgstr "不透明度"
 
-#: src/lib/__init__.py:761
+#: src/lib/__init__.py:749
 msgid "The opacity of the Screenlet window ..."
 msgstr "この Screenlet ウィンドウの不透明度..."
 
-#: src/lib/__init__.py:764
+#: src/lib/__init__.py:752
 msgid "Stick to Desktop"
 msgstr "デスクトップに付着"
 
-#: src/lib/__init__.py:765
+#: src/lib/__init__.py:753
 msgid "Show this Screenlet on all workspaces ..."
 msgstr "この Screenlet を全てのワークスペースで表示..."
 
-#: src/lib/__init__.py:767
+#: src/lib/__init__.py:755
 msgid "Treat as Widget"
 msgstr "ウィジェットとして扱う"
 
-#: src/lib/__init__.py:768
+#: src/lib/__init__.py:756
 msgid "Treat this Screenlet as a \"Widget\" ..."
 msgstr "この Screenlet を\"ウィジェット\"として扱う..."
 
-#: src/lib/__init__.py:776
+#: src/lib/__init__.py:764
 msgid "Lock position"
 msgstr "位置の固定"
 
-#: src/lib/__init__.py:777
+#: src/lib/__init__.py:765
 msgid "Stop the screenlet from being moved..."
 msgstr "Screenlet が移動されるのを防止..."
 
 #. add "Keep above"-menuitem
-#: src/lib/__init__.py:779 src/lib/__init__.py:1086
+#: src/lib/__init__.py:767 src/lib/__init__.py:1066
 msgid "Keep above"
 msgstr "常に最前面"
 
-#: src/lib/__init__.py:780
+#: src/lib/__init__.py:768
 msgid "Keep this Screenlet above other windows ..."
 msgstr "この Screenlet を常に他ウィンドウの手前に表示..."
 
 #. add "Keep Below"-menuitem
-#: src/lib/__init__.py:782 src/lib/__init__.py:1093
+#: src/lib/__init__.py:770 src/lib/__init__.py:1073
 msgid "Keep below"
 msgstr "常に最後面"
 
-#: src/lib/__init__.py:783
+#: src/lib/__init__.py:771
 msgid "Keep this Screenlet below other windows ..."
 msgstr "この Screenlet を常に他ウィンドウの背後に表示..."
 
-#: src/lib/__init__.py:785
+#: src/lib/__init__.py:773
 msgid "Draw button controls"
 msgstr "操作ボタンの描画"
 
-#: src/lib/__init__.py:786
+#: src/lib/__init__.py:774
 msgid "Draw buttons in top right corner"
 msgstr "右上隅にボタンを描画"
 
-#: src/lib/__init__.py:788
+#: src/lib/__init__.py:776
 msgid "Skip Pager"
 msgstr "ページャー省略"
 
-#: src/lib/__init__.py:789
+#: src/lib/__init__.py:777
 msgid "Set this Screenlet to show/hide in pagers ..."
 msgstr "この Screenlet をページャーに表示するか否かの設定..."
 
-#: src/lib/__init__.py:791
+#: src/lib/__init__.py:779
 msgid "Skip Taskbar"
 msgstr "タスクバー省略"
 
-#: src/lib/__init__.py:792
+#: src/lib/__init__.py:780
 msgid "Set this Screenlet to show/hide in taskbars ..."
 msgstr "この Screenlet をタスクバーに表示するか否かの設定..."
 
-#: src/lib/__init__.py:794
+#: src/lib/__init__.py:782
 msgid "Resize on mouse scroll"
 msgstr "マウスのスクロールでサイズを変更"
 
-#: src/lib/__init__.py:796
+#: src/lib/__init__.py:784
 msgid "Ignore requirements"
 msgstr ""
 
-#: src/lib/__init__.py:797
+#: src/lib/__init__.py:785
 msgid "Set this Screenlet to ignore/demand DEB requirements ..."
 msgstr ""
 
-#: src/lib/__init__.py:801
+#: src/lib/__init__.py:789
 msgid "Allow overriding Options"
 msgstr "オプションの書き換え許可"
 
-#: src/lib/__init__.py:802
+#: src/lib/__init__.py:790
 msgid "Allow themes to override options in this screenlet ..."
 msgstr "テーマによるこの Screenlet のオプション設定値の書き換えを許可..."
 
-#: src/lib/__init__.py:804
+#: src/lib/__init__.py:792
 msgid "Ask on Override"
 msgstr "書き換え時に確認を求める"
 
-#: src/lib/__init__.py:805
+#: src/lib/__init__.py:793
 msgid "Show a confirmation-dialog when a theme wants to override "
 msgstr "テーマが設定値の書き換えを要求するときは確認ダイアログを表示 "
 
-#: src/lib/__init__.py:806
+#: src/lib/__init__.py:794
 msgid "the current options of this Screenlet ..."
 msgstr "この Screenlet の現在のオプション..."
 
 #. version of the deb package
-#: src/lib/__init__.py:998
+#: src/lib/__init__.py:979
 msgid "(?)"
 msgstr ""
 
-#: src/lib/__init__.py:1001
+#: src/lib/__init__.py:982
 #, python-format
 msgid ""
 "\n"
-"%s %s required, NOT INSTALLED!"
+"%(package)s %(version)s required, NOT INSTALLED!"
 msgstr ""
 
-#: src/lib/__init__.py:1004
+#: src/lib/__init__.py:985
 #, python-format
 msgid ""
 "\n"
-"%s (%s) installed, req %s."
+"%(package)s %(version)s installed, req %(required)s."
 msgstr ""
 
-#: src/lib/__init__.py:1007
+#: src/lib/__init__.py:987
 #, python-format
 msgid ""
 "Requirements for the Screenlet are not satisfied! Use the package manager of "
@@ -219,62 +219,62 @@ msgid ""
 "%s"
 msgstr ""
 
-#: src/lib/__init__.py:1029
+#: src/lib/__init__.py:1009
 msgid "Size"
 msgstr "サイズ"
 
-#: src/lib/__init__.py:1044
+#: src/lib/__init__.py:1024
 msgid "Theme"
 msgstr "テーマ"
 
-#: src/lib/__init__.py:1059
+#: src/lib/__init__.py:1039
 msgid "Window"
 msgstr "ウィンドウ"
 
 #. add "lock"-menuitem
-#: src/lib/__init__.py:1065
+#: src/lib/__init__.py:1045
 msgid "Lock"
 msgstr "位置固定"
 
 #. add "Sticky"-menuitem
-#: src/lib/__init__.py:1072
+#: src/lib/__init__.py:1052
 msgid "Sticky"
 msgstr "スティッキー"
 
 #. add "Widget"-menuitem
-#: src/lib/__init__.py:1079
+#: src/lib/__init__.py:1059
 msgid "Widget"
 msgstr "ウィジェット"
 
-#: src/lib/__init__.py:1103
+#: src/lib/__init__.py:1083
 msgid "Properties..."
 msgstr "プロパティ..."
 
-#: src/lib/__init__.py:1106
+#: src/lib/__init__.py:1086
 msgid "Info..."
 msgstr "情報..."
 
-#: src/lib/__init__.py:1110
+#: src/lib/__init__.py:1090
 #, python-format
 msgid "Add one more %s"
 msgstr ""
 
-#: src/lib/__init__.py:1113
+#: src/lib/__init__.py:1093
 #, python-format
 msgid "Delete this %s"
 msgstr ""
 
-#: src/lib/__init__.py:1117
+#: src/lib/__init__.py:1097
 #, python-format
 msgid "Quit this %s"
 msgstr ""
 
-#: src/lib/__init__.py:1120
+#: src/lib/__init__.py:1100
 #, python-format
 msgid "Quit all %ss"
 msgstr ""
 
-#: src/lib/__init__.py:1372
+#: src/lib/__init__.py:1351
 msgid ""
 "This theme wants to override your settings for this Screenlet. Do you want "
 "to allow that?"
@@ -282,21 +282,13 @@ msgstr ""
 "このテーマはこの Sceenlet の設定値の書き換えを要求しています。書き換えを許可"
 "しますか？"
 
-#: src/lib/__init__.py:1500
-msgid "Updating input shape"
-msgstr ""
-
-#: src/lib/__init__.py:1508
-msgid "Updating window shape"
-msgstr ""
-
-#: src/lib/__init__.py:1606
+#: src/lib/__init__.py:1553
 #, python-format
 msgid "To quit all %s's, use 'Quit' instead. "
 msgstr ""
 "全ての %s を終了させるには、削除の代わりに '終了' を使用してください。 "
 
-#: src/lib/__init__.py:1607
+#: src/lib/__init__.py:1554
 #, python-format
 msgid "Really delete this %s and its settings?"
 msgstr "この %s とその設定を本当に削除しますか？"
@@ -345,16 +337,16 @@ msgstr ""
 msgid "Edit Options"
 msgstr "オプション編集"
 
-#: src/lib/options.py:851
+#: src/lib/options.py:855
 msgid "About "
 msgstr "詳細情報 "
 
-#: src/lib/options.py:863
+#: src/lib/options.py:867
 msgid "Options "
 msgstr "オプション "
 
 #. create info-text list
-#: src/lib/options.py:870
+#: src/lib/options.py:874
 msgid ""
 "Themes allow you to easily switch the appearance of your Screenlets. On this "
 "page you find a list of all available themes for this Screenlet."
@@ -362,43 +354,43 @@ msgstr ""
 "Screenlet の外観はテーマによって簡単に切り替えられます。この Screenlet に使用"
 "可能な全テーマのリストがこのページに掲載されています。"
 
-#: src/lib/options.py:899
+#: src/lib/options.py:903
 msgid "Themes "
 msgstr "テーマ "
 
-#: src/lib/options.py:912
+#: src/lib/options.py:916
 msgid "no info available"
 msgstr "取得可能情報なし"
 
-#: src/lib/options.py:1003
+#: src/lib/options.py:1007
 msgid "Choose File"
 msgstr "ファイル選択"
 
-#: src/lib/options.py:1012
+#: src/lib/options.py:1016
 msgid "Choose Directory"
 msgstr "ディレクトリ選択"
 
-#: src/lib/options.py:1038
+#: src/lib/options.py:1042
 msgid "Choose Image"
 msgstr "画像選択"
 
-#: src/lib/options.py:1105
+#: src/lib/options.py:1109
 msgid "Open List-Editor ..."
 msgstr "リスト編集を開く..."
 
-#: src/lib/options.py:1126
+#: src/lib/options.py:1130
 msgid "Apply username/password ..."
 msgstr "ユーザー名/パスワードを適用..."
 
-#: src/lib/options.py:1127
+#: src/lib/options.py:1131
 msgid "Enter username here ..."
 msgstr "ここにユーザー名を入力..."
 
-#: src/lib/options.py:1128
+#: src/lib/options.py:1132
 msgid "Enter password here ..."
 msgstr "ここにパスワードを入力..."
 
-#: src/lib/options.py:1183
+#: src/lib/options.py:1187
 msgid "Apply"
 msgstr "適用"
 
@@ -439,39 +431,38 @@ msgstr "/proc/net/dev が開けません"
 msgid "Can't open /proc/net/wireless"
 msgstr "/proc/net/wireless が開けません"
 
-#: src/lib/sensors.py:616 src/lib/sensors.py:629 src/lib/sensors.py:645
-#: src/lib/sensors.py:658
+#: src/lib/sensors.py:598 src/lib/sensors.py:611
 msgid "Not connected"
 msgstr "未接続"
 
-#: src/lib/sensors.py:936
+#: src/lib/sensors.py:886
 #, python-format
 msgid "Can't open %s/temperature"
 msgstr "%s/temperature が開けません"
 
-#: src/lib/sensors.py:938
+#: src/lib/sensors.py:888
 msgid "Can't open folder /proc/acpi/thermal_zone/"
 msgstr "フォルダ /proc/acpi/thermal_zone/ が開けません"
 
-#: src/lib/sensors.py:954 src/lib/sensors.py:965
+#: src/lib/sensors.py:904 src/lib/sensors.py:915
 #, python-format
 msgid "Can't open %s"
 msgstr "%s が開けません"
 
-#: src/lib/sensors.py:980
+#: src/lib/sensors.py:930
 msgid "Error during hddtemp drives search"
 msgstr "Hddtemp のドライブ検索中にエラー"
 
-#: src/lib/sensors.py:982 src/lib/sensors.py:1059
+#: src/lib/sensors.py:932 src/lib/sensors.py:1009
 msgid "Hddtemp not installed"
 msgstr "Hddtemp が未インストール"
 
-#: src/lib/sensors.py:1012
+#: src/lib/sensors.py:962
 #, python-format
 msgid "can't read temperature in: %s"
 msgstr "%s から温度を取得できませんでした"
 
-#: src/lib/sensors.py:1026 src/lib/sensors.py:1042
+#: src/lib/sensors.py:976 src/lib/sensors.py:992
 #, python-format
 msgid "Can't read value from %s"
 msgstr "%s から値が読み取れません"

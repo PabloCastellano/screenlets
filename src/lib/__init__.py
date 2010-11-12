@@ -94,7 +94,7 @@ TRANSLATORS = "Special thanks for translators\nFull Translator list on https://t
 # the application website
 WEBSITE = 'http://www.screenlets.org'
 
-# the third party screenlets download site
+# The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
 THIRD_PARTY_DOWNLOAD = _("http://www.screenlets.org/index.php/Get_more_screenlets")
 
 
@@ -979,11 +979,10 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 				version = _("(?)")
 			installed_version = os.popen(commandstr % package).readline().replace('\n', '')
 			if len(installed_version) < 1:
-				req_feedback += _("\n%s %s required, NOT INSTALLED!") % (package, version)
+				req_feedback += _("\n%(package)s %(version)s required, NOT INSTALLED!") % {"package":package, "version":version}
 				fail = True
 			else:
-				req_feedback += _("\n%s (%s) installed, req %s." % (package, installed_version, version))
-
+				req_feedback += _("\n%(package)s %(version)s installed, req %(required)s.") % {"package":package, "version":installed_version, "required":version}
 		if fail:
 			screenlets.show_message (self,_("Requirements for the Screenlet are not satisfied! Use the package manager of your system to install required packages.\n\nREQUIREMENTS:\n%s") % req_feedback, "Requirements not satisfied")
 	

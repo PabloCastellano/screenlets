@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: screenlets\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-11-02 05:16+0900\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-11-12 18:22+0900\n"
 "PO-Revision-Date: 2010-10-26 06:54+0000\n"
 "Last-Translator: Ketil Wendelbo Aanensen <ketil.w.aanensen@gmail.com>\n"
 "Language-Team: Norwegian Bokmal <nb@li.org>\n"
@@ -18,198 +18,198 @@ msgstr ""
 "X-Launchpad-Export-Date: 2010-11-12 07:28+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
-#. the third party screenlets download site
-#: src/lib/__init__.py:100
+#. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
+#: src/lib/__init__.py:98
 msgid "http://www.screenlets.org/index.php/Get_more_screenlets"
 msgstr ""
 
-#: src/lib/__init__.py:201
+#: src/lib/__init__.py:197
 msgid "Error while loading ScreenletTheme in: "
 msgstr "Feil ved lasting av ScreenletTheme i: "
 
 #. default meta-info for Screenlets
-#: src/lib/__init__.py:616
+#: src/lib/__init__.py:608
 msgid "No name set for this Screenlet"
 msgstr "Ingen navn gitt for denne Screenlet"
 
-#: src/lib/__init__.py:618
+#: src/lib/__init__.py:610
 msgid "No author defined for this Screenlet"
 msgstr "Ingen forfatter gitt for denne Screenlet"
 
-#: src/lib/__init__.py:619
+#: src/lib/__init__.py:611
 msgid "No info set for this Screenlet"
 msgstr "Ingen info gitt for denne Screenlet"
 
-#: src/lib/__init__.py:731
+#: src/lib/__init__.py:719
 msgid "The basic settings for this Screenlet-instance."
 msgstr "Grunnleggende innstillinger for dette Screenlet-tilfellet"
 
-#: src/lib/__init__.py:746
+#: src/lib/__init__.py:734
 msgid "X-Position"
 msgstr "X-posisjon"
 
-#: src/lib/__init__.py:746
+#: src/lib/__init__.py:734
 msgid "The X-position of this Screenlet ..."
 msgstr "X-posisjonen for denne Screenlet ..."
 
-#: src/lib/__init__.py:749
+#: src/lib/__init__.py:737
 msgid "Y-Position"
 msgstr "Y-posisjon"
 
-#: src/lib/__init__.py:749
+#: src/lib/__init__.py:737
 msgid "The Y-position of this Screenlet ..."
 msgstr "Y-posisjonen for denne Screenlet ..."
 
-#: src/lib/__init__.py:752
+#: src/lib/__init__.py:740
 msgid "Width"
 msgstr "Bredde"
 
-#: src/lib/__init__.py:752
+#: src/lib/__init__.py:740
 msgid "The width of this Screenlet ..."
 msgstr "Bredden på denne Screenlet ..."
 
-#: src/lib/__init__.py:755
+#: src/lib/__init__.py:743
 msgid "Height"
 msgstr "Høyde"
 
-#: src/lib/__init__.py:755
+#: src/lib/__init__.py:743
 msgid "The height of this Screenlet ..."
 msgstr "Høyden på denne Screenlet ..."
 
-#: src/lib/__init__.py:758
+#: src/lib/__init__.py:746
 msgid "Scale"
 msgstr "Størrelse"
 
-#: src/lib/__init__.py:758
+#: src/lib/__init__.py:746
 msgid "The scale-factor of this Screenlet ..."
 msgstr "Størrelsesfaktor for denne Screenlet ..."
 
-#: src/lib/__init__.py:761
+#: src/lib/__init__.py:749
 msgid "Opacity"
 msgstr "Dekkevne"
 
-#: src/lib/__init__.py:761
+#: src/lib/__init__.py:749
 msgid "The opacity of the Screenlet window ..."
 msgstr "Screenlet-vinduets dekkevne ..."
 
-#: src/lib/__init__.py:764
+#: src/lib/__init__.py:752
 msgid "Stick to Desktop"
 msgstr "Klistre til skrivebord"
 
-#: src/lib/__init__.py:765
+#: src/lib/__init__.py:753
 msgid "Show this Screenlet on all workspaces ..."
 msgstr "Vis denne Screenlet på alle arbeidsområder ..."
 
-#: src/lib/__init__.py:767
+#: src/lib/__init__.py:755
 msgid "Treat as Widget"
 msgstr "Behandle som miniprogram (widget)"
 
-#: src/lib/__init__.py:768
+#: src/lib/__init__.py:756
 msgid "Treat this Screenlet as a \"Widget\" ..."
 msgstr "Behandle denne Screenlet som miniprogram (widget)"
 
-#: src/lib/__init__.py:776
+#: src/lib/__init__.py:764
 msgid "Lock position"
 msgstr "Lås posisjon"
 
-#: src/lib/__init__.py:777
+#: src/lib/__init__.py:765
 msgid "Stop the screenlet from being moved..."
 msgstr "Hindre Screenlet i å bli flyttet ..."
 
 #. add "Keep above"-menuitem
-#: src/lib/__init__.py:779 src/lib/__init__.py:1086
+#: src/lib/__init__.py:767 src/lib/__init__.py:1066
 msgid "Keep above"
 msgstr "Hold over"
 
-#: src/lib/__init__.py:780
+#: src/lib/__init__.py:768
 msgid "Keep this Screenlet above other windows ..."
 msgstr "Holde denne Screenlet over andre vinduer ..."
 
 #. add "Keep Below"-menuitem
-#: src/lib/__init__.py:782 src/lib/__init__.py:1093
+#: src/lib/__init__.py:770 src/lib/__init__.py:1073
 msgid "Keep below"
 msgstr "Hold under"
 
-#: src/lib/__init__.py:783
+#: src/lib/__init__.py:771
 msgid "Keep this Screenlet below other windows ..."
 msgstr "Hold denne Screenlet under andre vinduer ..."
 
-#: src/lib/__init__.py:785
+#: src/lib/__init__.py:773
 msgid "Draw button controls"
 msgstr "Tegn knappekontroller"
 
-#: src/lib/__init__.py:786
+#: src/lib/__init__.py:774
 msgid "Draw buttons in top right corner"
 msgstr "Tegn knapper i øvre høyre hjørne"
 
-#: src/lib/__init__.py:788
+#: src/lib/__init__.py:776
 msgid "Skip Pager"
 msgstr "Hopp over skrivebordsoversikt"
 
-#: src/lib/__init__.py:789
+#: src/lib/__init__.py:777
 msgid "Set this Screenlet to show/hide in pagers ..."
 msgstr "La denne Screenlet vises/skjules i skrivebordsoversikter ..."
 
-#: src/lib/__init__.py:791
+#: src/lib/__init__.py:779
 msgid "Skip Taskbar"
 msgstr "Hopp over oppgavelinje"
 
-#: src/lib/__init__.py:792
+#: src/lib/__init__.py:780
 msgid "Set this Screenlet to show/hide in taskbars ..."
 msgstr "La denne Screenlet vises/skjules i oppgavelinjer ..."
 
-#: src/lib/__init__.py:794
+#: src/lib/__init__.py:782
 msgid "Resize on mouse scroll"
 msgstr "Endre størrelse ved muserulling"
 
-#: src/lib/__init__.py:796
+#: src/lib/__init__.py:784
 msgid "Ignore requirements"
 msgstr ""
 
-#: src/lib/__init__.py:797
+#: src/lib/__init__.py:785
 msgid "Set this Screenlet to ignore/demand DEB requirements ..."
 msgstr ""
 
-#: src/lib/__init__.py:801
+#: src/lib/__init__.py:789
 msgid "Allow overriding Options"
 msgstr "Tillat overstyrende valg"
 
-#: src/lib/__init__.py:802
+#: src/lib/__init__.py:790
 msgid "Allow themes to override options in this screenlet ..."
 msgstr "La temaer overstyre valgene for denne Screenlet ..."
 
-#: src/lib/__init__.py:804
+#: src/lib/__init__.py:792
 msgid "Ask on Override"
 msgstr "Spør ved overstyring"
 
-#: src/lib/__init__.py:805
+#: src/lib/__init__.py:793
 msgid "Show a confirmation-dialog when a theme wants to override "
 msgstr "Vis en bekreftelsesdialog når et tema ønsker å overstyre "
 
-#: src/lib/__init__.py:806
+#: src/lib/__init__.py:794
 msgid "the current options of this Screenlet ..."
 msgstr "nåværende valg for denne Screenlet ..."
 
 #. version of the deb package
-#: src/lib/__init__.py:998
+#: src/lib/__init__.py:979
 msgid "(?)"
 msgstr ""
 
-#: src/lib/__init__.py:1001
+#: src/lib/__init__.py:982
 #, python-format
 msgid ""
 "\n"
-"%s %s required, NOT INSTALLED!"
+"%(package)s %(version)s required, NOT INSTALLED!"
 msgstr ""
 
-#: src/lib/__init__.py:1004
+#: src/lib/__init__.py:985
 #, python-format
 msgid ""
 "\n"
-"%s (%s) installed, req %s."
+"%(package)s %(version)s installed, req %(required)s."
 msgstr ""
 
-#: src/lib/__init__.py:1007
+#: src/lib/__init__.py:987
 #, python-format
 msgid ""
 "Requirements for the Screenlet are not satisfied! Use the package manager of "
@@ -219,62 +219,62 @@ msgid ""
 "%s"
 msgstr ""
 
-#: src/lib/__init__.py:1029
+#: src/lib/__init__.py:1009
 msgid "Size"
 msgstr "Størrelse"
 
-#: src/lib/__init__.py:1044
+#: src/lib/__init__.py:1024
 msgid "Theme"
 msgstr "Tema"
 
-#: src/lib/__init__.py:1059
+#: src/lib/__init__.py:1039
 msgid "Window"
 msgstr "Vindu"
 
 #. add "lock"-menuitem
-#: src/lib/__init__.py:1065
+#: src/lib/__init__.py:1045
 msgid "Lock"
 msgstr "Lås"
 
 #. add "Sticky"-menuitem
-#: src/lib/__init__.py:1072
+#: src/lib/__init__.py:1052
 msgid "Sticky"
 msgstr "Klistre"
 
 #. add "Widget"-menuitem
-#: src/lib/__init__.py:1079
+#: src/lib/__init__.py:1059
 msgid "Widget"
 msgstr "Miniprogram (widget)"
 
-#: src/lib/__init__.py:1103
+#: src/lib/__init__.py:1083
 msgid "Properties..."
 msgstr "Egenskaper..."
 
-#: src/lib/__init__.py:1106
+#: src/lib/__init__.py:1086
 msgid "Info..."
 msgstr "Info..."
 
-#: src/lib/__init__.py:1110
+#: src/lib/__init__.py:1090
 #, python-format
 msgid "Add one more %s"
 msgstr ""
 
-#: src/lib/__init__.py:1113
+#: src/lib/__init__.py:1093
 #, python-format
 msgid "Delete this %s"
 msgstr ""
 
-#: src/lib/__init__.py:1117
+#: src/lib/__init__.py:1097
 #, python-format
 msgid "Quit this %s"
 msgstr ""
 
-#: src/lib/__init__.py:1120
+#: src/lib/__init__.py:1100
 #, python-format
 msgid "Quit all %ss"
 msgstr ""
 
-#: src/lib/__init__.py:1372
+#: src/lib/__init__.py:1351
 msgid ""
 "This theme wants to override your settings for this Screenlet. Do you want "
 "to allow that?"
@@ -282,20 +282,12 @@ msgstr ""
 "Dette temaet ønsker å overstyre dine innstillinger for denne Screenlet. Vil "
 "du tillate dette?"
 
-#: src/lib/__init__.py:1500
-msgid "Updating input shape"
-msgstr ""
-
-#: src/lib/__init__.py:1508
-msgid "Updating window shape"
-msgstr ""
-
-#: src/lib/__init__.py:1606
+#: src/lib/__init__.py:1553
 #, python-format
 msgid "To quit all %s's, use 'Quit' instead. "
 msgstr "For å avslutte alle %s-er, bruk 'Avslutt' i stedet. "
 
-#: src/lib/__init__.py:1607
+#: src/lib/__init__.py:1554
 #, python-format
 msgid "Really delete this %s and its settings?"
 msgstr "Virkelig slette denne %s og dets innstillinger?"
@@ -346,16 +338,16 @@ msgstr "Ugyldig valgnode funnet i \"%s\"."
 msgid "Edit Options"
 msgstr "Endre innstillinger"
 
-#: src/lib/options.py:851
+#: src/lib/options.py:855
 msgid "About "
 msgstr "Om "
 
-#: src/lib/options.py:863
+#: src/lib/options.py:867
 msgid "Options "
 msgstr "Valg "
 
 #. create info-text list
-#: src/lib/options.py:870
+#: src/lib/options.py:874
 msgid ""
 "Themes allow you to easily switch the appearance of your Screenlets. On this "
 "page you find a list of all available themes for this Screenlet."
@@ -363,43 +355,43 @@ msgstr ""
 "Temaer lar deg enkelt bytte utseendet på dine Screenlets. På denne siden "
 "finner du en liste over alle tilgjengelige temaer for denne Screenlet."
 
-#: src/lib/options.py:899
+#: src/lib/options.py:903
 msgid "Themes "
 msgstr "Tema "
 
-#: src/lib/options.py:912
+#: src/lib/options.py:916
 msgid "no info available"
 msgstr "ingen info tilgjengelig"
 
-#: src/lib/options.py:1003
+#: src/lib/options.py:1007
 msgid "Choose File"
 msgstr "Velg fil"
 
-#: src/lib/options.py:1012
+#: src/lib/options.py:1016
 msgid "Choose Directory"
 msgstr "Velg katalog"
 
-#: src/lib/options.py:1038
+#: src/lib/options.py:1042
 msgid "Choose Image"
 msgstr "Velg bilde"
 
-#: src/lib/options.py:1105
+#: src/lib/options.py:1109
 msgid "Open List-Editor ..."
 msgstr "Åpne listeredigerer ..."
 
-#: src/lib/options.py:1126
+#: src/lib/options.py:1130
 msgid "Apply username/password ..."
 msgstr "Bruk brukernavn/passord ..."
 
-#: src/lib/options.py:1127
+#: src/lib/options.py:1131
 msgid "Enter username here ..."
 msgstr "Skriv inn brukernavn her ..."
 
-#: src/lib/options.py:1128
+#: src/lib/options.py:1132
 msgid "Enter password here ..."
 msgstr "Skriv inn passord her ..."
 
-#: src/lib/options.py:1183
+#: src/lib/options.py:1187
 msgid "Apply"
 msgstr "Bruk"
 
@@ -440,39 +432,38 @@ msgstr "Kan ikke åpne /proc/net/dev"
 msgid "Can't open /proc/net/wireless"
 msgstr "Kan ikke åpne /proc/net/wireless"
 
-#: src/lib/sensors.py:616 src/lib/sensors.py:629 src/lib/sensors.py:645
-#: src/lib/sensors.py:658
+#: src/lib/sensors.py:598 src/lib/sensors.py:611
 msgid "Not connected"
 msgstr "Ikke tilkoblet"
 
-#: src/lib/sensors.py:936
+#: src/lib/sensors.py:886
 #, python-format
 msgid "Can't open %s/temperature"
 msgstr "Kan ikke åpne %s/temperature"
 
-#: src/lib/sensors.py:938
+#: src/lib/sensors.py:888
 msgid "Can't open folder /proc/acpi/thermal_zone/"
 msgstr "Kan ikke åpne katalog /proc/acpi/thermal_zone/"
 
-#: src/lib/sensors.py:954 src/lib/sensors.py:965
+#: src/lib/sensors.py:904 src/lib/sensors.py:915
 #, python-format
 msgid "Can't open %s"
 msgstr "Kan ikke åpne %s"
 
-#: src/lib/sensors.py:980
+#: src/lib/sensors.py:930
 msgid "Error during hddtemp drives search"
 msgstr "Feil ved søking av hddtemp stasjoner"
 
-#: src/lib/sensors.py:982 src/lib/sensors.py:1059
+#: src/lib/sensors.py:932 src/lib/sensors.py:1009
 msgid "Hddtemp not installed"
 msgstr "Hddtemp er ikke installert"
 
-#: src/lib/sensors.py:1012
+#: src/lib/sensors.py:962
 #, python-format
 msgid "can't read temperature in: %s"
 msgstr "Kan ikke lese temperatur i: %s"
 
-#: src/lib/sensors.py:1026 src/lib/sensors.py:1042
+#: src/lib/sensors.py:976 src/lib/sensors.py:992
 #, python-format
 msgid "Can't read value from %s"
 msgstr "Kan ikke lese verdi fra %s"

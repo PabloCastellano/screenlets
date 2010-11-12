@@ -6,212 +6,212 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: screenlets\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-11-02 05:16+0900\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-11-12 18:22+0900\n"
 "PO-Revision-Date: 2010-04-05 16:23+0000\n"
 "Last-Translator: Jochen Kemnade <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2010-11-12 07:28+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
-"Language: de\n"
 
-#. the third party screenlets download site
-#: src/lib/__init__.py:100
+#. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
+#: src/lib/__init__.py:98
 msgid "http://www.screenlets.org/index.php/Get_more_screenlets"
 msgstr ""
 
-#: src/lib/__init__.py:201
+#: src/lib/__init__.py:197
 msgid "Error while loading ScreenletTheme in: "
 msgstr "Fehler beim Laden von ScreenletTheme in: "
 
 #. default meta-info for Screenlets
-#: src/lib/__init__.py:616
+#: src/lib/__init__.py:608
 msgid "No name set for this Screenlet"
 msgstr "Für dieses Screenlet ist kein Name vorhanden"
 
-#: src/lib/__init__.py:618
+#: src/lib/__init__.py:610
 msgid "No author defined for this Screenlet"
 msgstr "Für dieses Screenlet wurde kein Autor definiert"
 
-#: src/lib/__init__.py:619
+#: src/lib/__init__.py:611
 msgid "No info set for this Screenlet"
 msgstr "Für dieses Screenlet ist keine Info vorhanden"
 
-#: src/lib/__init__.py:731
+#: src/lib/__init__.py:719
 msgid "The basic settings for this Screenlet-instance."
 msgstr "Die grundlegenden Einstellungen dieser Screenlet-Instanz"
 
-#: src/lib/__init__.py:746
+#: src/lib/__init__.py:734
 msgid "X-Position"
 msgstr "X-Position"
 
-#: src/lib/__init__.py:746
+#: src/lib/__init__.py:734
 msgid "The X-position of this Screenlet ..."
 msgstr "Die X-Position dieses Screenlets ..."
 
-#: src/lib/__init__.py:749
+#: src/lib/__init__.py:737
 msgid "Y-Position"
 msgstr "Y-Position"
 
-#: src/lib/__init__.py:749
+#: src/lib/__init__.py:737
 msgid "The Y-position of this Screenlet ..."
 msgstr "Die Y-Position dieses Screenlets ..."
 
-#: src/lib/__init__.py:752
+#: src/lib/__init__.py:740
 msgid "Width"
 msgstr "Breite"
 
-#: src/lib/__init__.py:752
+#: src/lib/__init__.py:740
 msgid "The width of this Screenlet ..."
 msgstr "Die Breite dieses Screenlets ..."
 
-#: src/lib/__init__.py:755
+#: src/lib/__init__.py:743
 msgid "Height"
 msgstr "Höhe"
 
-#: src/lib/__init__.py:755
+#: src/lib/__init__.py:743
 msgid "The height of this Screenlet ..."
 msgstr "Die Höhe dieses Screenlets ..."
 
-#: src/lib/__init__.py:758
+#: src/lib/__init__.py:746
 msgid "Scale"
 msgstr "Skalierung"
 
-#: src/lib/__init__.py:758
+#: src/lib/__init__.py:746
 msgid "The scale-factor of this Screenlet ..."
 msgstr "Der Skalierungsfaktor dieses Screenlets ..."
 
-#: src/lib/__init__.py:761
+#: src/lib/__init__.py:749
 msgid "Opacity"
 msgstr "Deckkraft"
 
-#: src/lib/__init__.py:761
+#: src/lib/__init__.py:749
 msgid "The opacity of the Screenlet window ..."
 msgstr "Die Deckkraft des Screenlet-Fensters ..."
 
-#: src/lib/__init__.py:764
+#: src/lib/__init__.py:752
 msgid "Stick to Desktop"
 msgstr "Hefte an Desktop"
 
-#: src/lib/__init__.py:765
+#: src/lib/__init__.py:753
 msgid "Show this Screenlet on all workspaces ..."
 msgstr "Dieses Screenlet auf allen Arbeitsflächen anzeigen ..."
 
-#: src/lib/__init__.py:767
+#: src/lib/__init__.py:755
 msgid "Treat as Widget"
 msgstr "Als Widget behandeln"
 
-#: src/lib/__init__.py:768
+#: src/lib/__init__.py:756
 msgid "Treat this Screenlet as a \"Widget\" ..."
 msgstr "Dieses Screenlet als \"Widget\" behandeln ..."
 
-#: src/lib/__init__.py:776
+#: src/lib/__init__.py:764
 msgid "Lock position"
 msgstr "Feste Position"
 
-#: src/lib/__init__.py:777
+#: src/lib/__init__.py:765
 msgid "Stop the screenlet from being moved..."
 msgstr "Bewegen des Screenlets (bei gedrückter Maustaste) unterbinden ..."
 
 #. add "Keep above"-menuitem
-#: src/lib/__init__.py:779 src/lib/__init__.py:1086
+#: src/lib/__init__.py:767 src/lib/__init__.py:1066
 msgid "Keep above"
 msgstr "Im Vordergrund"
 
-#: src/lib/__init__.py:780
+#: src/lib/__init__.py:768
 msgid "Keep this Screenlet above other windows ..."
 msgstr "Dieses Screenlet über allen anderen Fenstern anordnen ..."
 
 #. add "Keep Below"-menuitem
-#: src/lib/__init__.py:782 src/lib/__init__.py:1093
+#: src/lib/__init__.py:770 src/lib/__init__.py:1073
 msgid "Keep below"
 msgstr "Im Hintergrund"
 
-#: src/lib/__init__.py:783
+#: src/lib/__init__.py:771
 msgid "Keep this Screenlet below other windows ..."
 msgstr "Dieses Screenlet unter allen anderen Fenstern anordnen ..."
 
-#: src/lib/__init__.py:785
+#: src/lib/__init__.py:773
 msgid "Draw button controls"
 msgstr "Zeige Steuerknöpfe"
 
-#: src/lib/__init__.py:786
+#: src/lib/__init__.py:774
 msgid "Draw buttons in top right corner"
 msgstr "Zeichne Buttons im rechten oberen Eck"
 
-#: src/lib/__init__.py:788
+#: src/lib/__init__.py:776
 msgid "Skip Pager"
 msgstr "Übergehe Pager"
 
-#: src/lib/__init__.py:789
+#: src/lib/__init__.py:777
 msgid "Set this Screenlet to show/hide in pagers ..."
 msgstr "Dieses Screenlet in Pagern nicht anzeigen ..."
 
-#: src/lib/__init__.py:791
+#: src/lib/__init__.py:779
 msgid "Skip Taskbar"
 msgstr "Übergehe Taskleiste"
 
-#: src/lib/__init__.py:792
+#: src/lib/__init__.py:780
 msgid "Set this Screenlet to show/hide in taskbars ..."
 msgstr "Dieses Screenlet nicht in der Taskleiste anzeigen ..."
 
-#: src/lib/__init__.py:794
+#: src/lib/__init__.py:782
 msgid "Resize on mouse scroll"
 msgstr "Größenänderung durch Scrollen"
 
-#: src/lib/__init__.py:796
+#: src/lib/__init__.py:784
 msgid "Ignore requirements"
 msgstr ""
 
-#: src/lib/__init__.py:797
+#: src/lib/__init__.py:785
 msgid "Set this Screenlet to ignore/demand DEB requirements ..."
 msgstr ""
 
-#: src/lib/__init__.py:801
+#: src/lib/__init__.py:789
 msgid "Allow overriding Options"
 msgstr "Erlaube Optionen zu überschreiben"
 
-#: src/lib/__init__.py:802
+#: src/lib/__init__.py:790
 msgid "Allow themes to override options in this screenlet ..."
 msgstr "Erlaube es Themen, Optionen in diesem Screenlet zu überschreiben ..."
 
-#: src/lib/__init__.py:804
+#: src/lib/__init__.py:792
 msgid "Ask on Override"
 msgstr "Frage bei Überschreiben"
 
-#: src/lib/__init__.py:805
+#: src/lib/__init__.py:793
 msgid "Show a confirmation-dialog when a theme wants to override "
 msgstr "Einen Bestätigungsdialog zeigen, wenn ein Thema Optionen in diesem "
 
-#: src/lib/__init__.py:806
+#: src/lib/__init__.py:794
 msgid "the current options of this Screenlet ..."
 msgstr "Screenlet überschreiben möchte ..."
 
 #. version of the deb package
-#: src/lib/__init__.py:998
+#: src/lib/__init__.py:979
 msgid "(?)"
 msgstr "(?)"
 
-#: src/lib/__init__.py:1001
-#, python-format
+#: src/lib/__init__.py:982
+#, fuzzy, python-format
 msgid ""
 "\n"
-"%s %s required, NOT INSTALLED!"
+"%(package)s %(version)s required, NOT INSTALLED!"
 msgstr ""
 "\n"
 "%s %s benötigt, NICHT INSTALLIERT!"
 
-#: src/lib/__init__.py:1004
+#: src/lib/__init__.py:985
 #, python-format
 msgid ""
 "\n"
-"%s (%s) installed, req %s."
+"%(package)s %(version)s installed, req %(required)s."
 msgstr ""
 
-#: src/lib/__init__.py:1007
+#: src/lib/__init__.py:987
 #, python-format
 msgid ""
 "Requirements for the Screenlet are not satisfied! Use the package manager of "
@@ -226,62 +226,62 @@ msgstr ""
 "ANFORDERUNGEN:\n"
 "%s"
 
-#: src/lib/__init__.py:1029
+#: src/lib/__init__.py:1009
 msgid "Size"
 msgstr "Grösse"
 
-#: src/lib/__init__.py:1044
+#: src/lib/__init__.py:1024
 msgid "Theme"
 msgstr "Thema"
 
-#: src/lib/__init__.py:1059
+#: src/lib/__init__.py:1039
 msgid "Window"
 msgstr "Fenster"
 
 #. add "lock"-menuitem
-#: src/lib/__init__.py:1065
+#: src/lib/__init__.py:1045
 msgid "Lock"
 msgstr "Sperren"
 
 #. add "Sticky"-menuitem
-#: src/lib/__init__.py:1072
+#: src/lib/__init__.py:1052
 msgid "Sticky"
 msgstr "Hafte am Desktop"
 
 #. add "Widget"-menuitem
-#: src/lib/__init__.py:1079
+#: src/lib/__init__.py:1059
 msgid "Widget"
 msgstr "Widget"
 
-#: src/lib/__init__.py:1103
+#: src/lib/__init__.py:1083
 msgid "Properties..."
 msgstr "Eigenschaften..."
 
-#: src/lib/__init__.py:1106
+#: src/lib/__init__.py:1086
 msgid "Info..."
 msgstr "Info..."
 
-#: src/lib/__init__.py:1110
+#: src/lib/__init__.py:1090
 #, python-format
 msgid "Add one more %s"
 msgstr "Noch ein %s hinzufügen"
 
-#: src/lib/__init__.py:1113
+#: src/lib/__init__.py:1093
 #, python-format
 msgid "Delete this %s"
 msgstr "Dieses %s löschen"
 
-#: src/lib/__init__.py:1117
+#: src/lib/__init__.py:1097
 #, python-format
 msgid "Quit this %s"
 msgstr "Dieses %s beenden"
 
-#: src/lib/__init__.py:1120
+#: src/lib/__init__.py:1100
 #, python-format
 msgid "Quit all %ss"
 msgstr "Alle %ss beenden"
 
-#: src/lib/__init__.py:1372
+#: src/lib/__init__.py:1351
 msgid ""
 "This theme wants to override your settings for this Screenlet. Do you want "
 "to allow that?"
@@ -289,20 +289,12 @@ msgstr ""
 "Dieses Thema möchte die Einstellungen des Screenlets überschreiben. Möchten "
 "Sie das zulassen?"
 
-#: src/lib/__init__.py:1500
-msgid "Updating input shape"
-msgstr ""
-
-#: src/lib/__init__.py:1508
-msgid "Updating window shape"
-msgstr "Fenster-Form aktualisieren"
-
-#: src/lib/__init__.py:1606
+#: src/lib/__init__.py:1553
 #, python-format
 msgid "To quit all %s's, use 'Quit' instead. "
 msgstr "Um alle %ss zu entfernen, wählen Sie stattdessen 'Beenden'. "
 
-#: src/lib/__init__.py:1607
+#: src/lib/__init__.py:1554
 #, python-format
 msgid "Really delete this %s and its settings?"
 msgstr "Wollen Sie dieses %s und all seine Einstellungen löschen?"
@@ -327,8 +319,7 @@ msgstr "Ungültiges XML in der Metadaten-Datei (oder fehlende Datei): \"%s\"."
 #: src/lib/options.py:469
 #, python-format
 msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
-msgstr ""
-"Fehlender oder ungültiger Wurzelknoten in der Metadaten-Datei: \"%s\"."
+msgstr "Fehlender oder ungültiger Wurzelknoten in der Metadaten-Datei: \"%s\"."
 
 #. we only allow groups in the first level (groups need children)
 #: src/lib/options.py:478
@@ -354,16 +345,16 @@ msgstr "Ungültiger Optionen-Knoten gefunden in \"%s\"."
 msgid "Edit Options"
 msgstr "Einstellungen bearbeiten"
 
-#: src/lib/options.py:851
+#: src/lib/options.py:855
 msgid "About "
 msgstr "Über "
 
-#: src/lib/options.py:863
+#: src/lib/options.py:867
 msgid "Options "
 msgstr "Einstellungen "
 
 #. create info-text list
-#: src/lib/options.py:870
+#: src/lib/options.py:874
 msgid ""
 "Themes allow you to easily switch the appearance of your Screenlets. On this "
 "page you find a list of all available themes for this Screenlet."
@@ -372,43 +363,43 @@ msgstr ""
 "zu ändern. Auf dieser Seite sehen Sie eine Liste aller für dieses Screenlet "
 "installierten Themen."
 
-#: src/lib/options.py:899
+#: src/lib/options.py:903
 msgid "Themes "
 msgstr "Themen "
 
-#: src/lib/options.py:912
+#: src/lib/options.py:916
 msgid "no info available"
 msgstr "keine Information verfügbar"
 
-#: src/lib/options.py:1003
+#: src/lib/options.py:1007
 msgid "Choose File"
 msgstr "Datei auswählen"
 
-#: src/lib/options.py:1012
+#: src/lib/options.py:1016
 msgid "Choose Directory"
 msgstr "Verzeichnis wählen"
 
-#: src/lib/options.py:1038
+#: src/lib/options.py:1042
 msgid "Choose Image"
 msgstr "Bild auswählen"
 
-#: src/lib/options.py:1105
+#: src/lib/options.py:1109
 msgid "Open List-Editor ..."
 msgstr "Listen-Editor öffnen ..."
 
-#: src/lib/options.py:1126
+#: src/lib/options.py:1130
 msgid "Apply username/password ..."
 msgstr "Username/Passwort anwenden ..."
 
-#: src/lib/options.py:1127
+#: src/lib/options.py:1131
 msgid "Enter username here ..."
 msgstr "Usernamen hier eingeben ..."
 
-#: src/lib/options.py:1128
+#: src/lib/options.py:1132
 msgid "Enter password here ..."
 msgstr "Passwort hier eingeben ..."
 
-#: src/lib/options.py:1183
+#: src/lib/options.py:1187
 msgid "Apply"
 msgstr "Anwenden"
 
@@ -449,39 +440,38 @@ msgstr "Kann /proc/net/dev nicht öffnen"
 msgid "Can't open /proc/net/wireless"
 msgstr "Kann /proc/net/wireless nicht öffnen"
 
-#: src/lib/sensors.py:616 src/lib/sensors.py:629 src/lib/sensors.py:645
-#: src/lib/sensors.py:658
+#: src/lib/sensors.py:598 src/lib/sensors.py:611
 msgid "Not connected"
 msgstr "Nicht verbunden"
 
-#: src/lib/sensors.py:936
+#: src/lib/sensors.py:886
 #, python-format
 msgid "Can't open %s/temperature"
 msgstr "Kann %s/temperature nicht öffnen"
 
-#: src/lib/sensors.py:938
+#: src/lib/sensors.py:888
 msgid "Can't open folder /proc/acpi/thermal_zone/"
 msgstr "Kann Ordner /proc/acpi/thermal_zone/ nicht öffnen"
 
-#: src/lib/sensors.py:954 src/lib/sensors.py:965
+#: src/lib/sensors.py:904 src/lib/sensors.py:915
 #, python-format
 msgid "Can't open %s"
 msgstr "Kann %s nicht öffnen"
 
-#: src/lib/sensors.py:980
+#: src/lib/sensors.py:930
 msgid "Error during hddtemp drives search"
 msgstr "Fehler während der hddtemp-Laufwerksuche"
 
-#: src/lib/sensors.py:982 src/lib/sensors.py:1059
+#: src/lib/sensors.py:932 src/lib/sensors.py:1009
 msgid "Hddtemp not installed"
 msgstr "Hddtemp nicht installiert"
 
-#: src/lib/sensors.py:1012
+#: src/lib/sensors.py:962
 #, python-format
 msgid "can't read temperature in: %s"
 msgstr "Kann Temperatur nicht lesen in: %s"
 
-#: src/lib/sensors.py:1026 src/lib/sensors.py:1042
+#: src/lib/sensors.py:976 src/lib/sensors.py:992
 #, python-format
 msgid "Can't read value from %s"
 msgstr "Kann Wert von %s nicht lesen"
@@ -509,23 +499,21 @@ msgstr ""
 "ScreenletSession.__init__ muß mit einem\n"
 "\t\t\t gültigen Screenlet-Classobject mit erstem Argument aufgerufen werden!"
 
-#, python-format
+#~ msgid "Updating window shape"
+#~ msgstr "Fenster-Form aktualisieren"
+
 #~ msgid "Error while creating image from file: %s"
 #~ msgstr "Fehler beim Erstellen eines Abbildes der Datei: %s"
 
-#, python-format
 #~ msgid "Error: file %s not found."
 #~ msgstr "Fehler: Datei %s nicht gefunden."
 
-#, python-format
 #~ msgid "XML-Error: %s"
 #~ msgstr "XML-Fehler: %s"
 
-#, python-format
 #~ msgid "Exception: %s"
 #~ msgstr "Fehler: %s"
 
-#, python-format
 #~ msgid "An error occured with desktop-file: %s"
 #~ msgstr "Ein Fehler trat auf bei der Desktop-Datei: %s"
 
@@ -535,7 +523,6 @@ msgstr ""
 #~ msgid "Override: "
 #~ msgstr "Überschreibe: "
 
-#, python-format
 #~ msgid "WARNING: Option '%s' not found or protected."
 #~ msgstr "WARNUNG: Option '%s' nicht gefunden oder geschützt."
 
@@ -590,22 +577,18 @@ msgstr ""
 #~ msgid "Temporary file didn't exist - nothing to remove."
 #~ msgstr "Temporäre Datei war nicht vorhanden - nichts zu löschen."
 
-#, python-format
 #~ msgid "CachingBackend: <#%s> removed!"
 #~ msgstr "CachingBackend: <#%s> gelöscht!"
 
 #~ msgid "CachingBackend: Loading instances from cache"
 #~ msgstr "CachingBackend: Lade Instanzen aus dem Cache"
 
-#, python-format
 #~ msgid "CachingBackend: Loading <%s>"
 #~ msgstr "CachingBackend: Lade <%s>"
 
-#, python-format
 #~ msgid "Error while loading options: %s"
 #~ msgstr "Fehler beim Laden der Optionen: %s"
 
-#, python-format
 #~ msgid "Queue-element <%s> not found (already removed?)!"
 #~ msgstr "Wartelisten-Element <%s> nicht gefunden (bereits gelöscht?)!"
 
@@ -615,7 +598,6 @@ msgstr ""
 #~ msgid "error while saving config: %s%s"
 #~ msgstr "Fehler beim Speichern der Konfiguration: %s%s"
 
-#, python-format
 #~ msgid "Error during on_import - option: %s."
 #~ msgstr "Fehler während on_import - option: %s."
 
@@ -624,34 +606,27 @@ msgstr ""
 #~ "Warnung: Kein Standard-Schlüsselbund gefunden, Speicherung ist nicht "
 #~ "dauerhaft!"
 
-#, python-format
 #~ msgid "ERROR: Unable to read password from keyring: %s"
 #~ msgstr "FEHLER: Kann Passwort nicht vom Schlüssebund lesen: %s"
 
-#, python-format
 #~ msgid "Options: Error - group %s not defined."
 #~ msgstr "Optionen: Fehler - Gruppe %s nicht definiert."
 
-#, python-format
 #~ msgid "PRESS: %s"
 #~ msgstr "DRÜCKE: %s"
 
-#, python-format
 #~ msgid "Path %s not found."
 #~ msgstr "Pfad %s nicht gefunden"
 
-#, python-format
 #~ msgid "active theme is: %s"
 #~ msgstr "aktives Thema ist: %s"
 
 #~ msgid "unsupported type ''"
 #~ msgstr "nicht unterstützter Typ ''"
 
-#, python-format
 #~ msgid "OptionsDialog: Unknown option type: %s"
 #~ msgstr "OptionsDialog: Unbekannter Optionstyp: %s"
 
-#, python-format
 #~ msgid "Changed: %s"
 #~ msgstr "Geändert: %s"
 
@@ -673,23 +648,21 @@ msgstr ""
 #~ msgid "CPUSensor: Failed to open /proc/stat. Sensor stopped."
 #~ msgstr "CPUSensor: Kann /proc/stat nicht öffnen. Sensor gestoppt."
 
-#, python-format
 #~ msgid "TEST: %s"
 #~ msgstr "TEST: %s"
 
-#, python-format
 #~ msgid "DEBUG: %s"
 #~ msgstr "FEHLERSUCHE: %s"
 
 #~ msgid "Cannot get/set protected options through service."
 #~ msgstr "Kann geschützte Optionen nicht über den Dienst holen/festlegen."
 
-#, python-format
 #~ msgid "Error in screenlets.services.get_service_by_name: %s"
 #~ msgstr "Fehler in screenlets.services.get_service_by_name: %s"
 
 #~ msgid "Unable to init backend - settings will not be saved!"
-#~ msgstr "Kann Backend nicht starten - Einstellungen werden nicht gespeichert!"
+#~ msgstr ""
+#~ "Kann Backend nicht starten - Einstellungen werden nicht gespeichert!"
 
 #~ msgid "Creating new instance: "
 #~ msgstr "Erstelle neue Instanz: "
@@ -698,11 +671,9 @@ msgstr ""
 #~ msgstr ""
 #~ "ID ist nicht festgelegt oder wird bereits benutzt - erstelle eine Neue!"
 
-#, python-format
 #~ msgid "File: %s"
 #~ msgstr "Datei: %s"
 
-#, python-format
 #~ msgid "Set options in %s"
 #~ msgstr "Setze Optionen in %s"
 
@@ -713,50 +684,42 @@ msgstr ""
 #~ msgid "Removing last instance from session"
 #~ msgstr "Entferne letzte Instanz der Sitzung"
 
-#, python-format
 #~ msgid "TODO: remove self.path: %s"
 #~ msgstr "TODO: Entferne self.path: %s"
 
-#, python-format
 #~ msgid "Failed to remove session dir '%s' - not empty?"
 #~ msgstr "Kann Sitzungsverzeichnis '%s' nicht löschen - nicht leer?"
 
-#, python-format
 #~ msgid "Found a running session of %s, adding new instance by service."
 #~ msgstr ""
-#~ "Laufende Sitzung von %s gefunden, füge neue Instanz durch den Dienst hinzu."
+#~ "Laufende Sitzung von %s gefunden, füge neue Instanz durch den Dienst "
+#~ "hinzu."
 
-#, python-format
 #~ msgid "Adding new instance through: %s"
 #~ msgstr "Füge neue Instanz hinzu durch: %s"
 
-#, python-format
 #~ msgid "Loading instances in: %s"
 #~ msgstr "Lade Instanzen in: %s"
 
-#, python-format
 #~ msgid "Restored instances from session '%s' ..."
 #~ msgstr "Instanzen wiederhergestellt aus der Sitzung: '%s' ..."
 
 #~ msgid "No instance(s) found in session-path, creating new one."
 #~ msgstr "Keine Instanz(en) im Sitzungspfad gefunden, erstelle eine Neue."
 
-#, python-format
 #~ msgid "Failed creating instance of: %s"
 #~ msgstr "Erstellen der Instanz fehlgeschlagen: %s"
 
 #~ msgid "Creating new entry for %s in %s"
 #~ msgstr "Erstelle neuen Eintrag für %s in %s"
 
-#, python-format
 #~ msgid ""
-#~ "Error: Unable to create temp directory %s - screenlets-manager will not work "
-#~ "properly."
+#~ "Error: Unable to create temp directory %s - screenlets-manager will not "
+#~ "work properly."
 #~ msgstr ""
-#~ "Fehler: Kann temporäres Verzeichnis %s nicht erstellen - screenlets-manager "
-#~ "wird nicht richig arbeiten."
+#~ "Fehler: Kann temporäres Verzeichnis %s nicht erstellen - screenlets-"
+#~ "manager wird nicht richig arbeiten."
 
-#, python-format
 #~ msgid "Failed to unregister from daemon: %s"
 #~ msgstr "Abmeldung vom Daemon fehlgeschlagen: %s"
 
@@ -768,16 +731,15 @@ msgstr ""
 
 #~ msgid "Error global tempfile not found. Some error before?"
 #~ msgstr ""
-#~ "Fehler: Globale, temporäre Datei nicht gefunden. Bereits im Vorfeld Fehler?"
+#~ "Fehler: Globale, temporäre Datei nicht gefunden. Bereits im Vorfeld "
+#~ "Fehler?"
 
-#, python-format
 #~ msgid "Deleting global tempfile %s"
 #~ msgstr "Lösche globale temporäre Datei %s"
 
 #~ msgid "Error: Failed to delete global tempfile"
 #~ msgstr "Fehler: Löschen der globalen, temporären Datei fehlgeschlagen."
 
-#, python-format
 #~ msgid ""
 #~ "Screenlet '%s' has been interrupted by keyboard. TODO: make this an event"
 #~ msgstr ""
@@ -787,11 +749,9 @@ msgstr ""
 #~ msgid "LISTED PATH NOT EXISTS: "
 #~ msgstr "GELISTETER PFAD EXISTIERT NICHT: "
 
-#, python-format
 #~ msgid "File %s not found"
 #~ msgstr "Datei %s nicht gefunden"
 
-#, python-format
 #~ msgid "Section %s not found!"
 #~ msgstr "Sektion %s nicht gefunden!"
 

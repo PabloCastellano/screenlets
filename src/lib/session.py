@@ -69,8 +69,7 @@ class ScreenletSession (object):
 		# check type
 		if not screenlet_classobj.__name__.endswith('Screenlet'):
 			# TODO: also check for correct type (Screenlet-subclass)!!
-			raise Exception(_("""ScreenletSession.__init__ has to be called with a
-			 valid Screenlet-classobject as first argument!"""))
+			raise Exception("ScreenletSession.__init__ has to be called with a valid Screenlet-classobject as first argument!")
 		# init props
 		self.name 		= name
 		self.screenlet 	= screenlet_classobj

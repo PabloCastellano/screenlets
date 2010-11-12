@@ -194,7 +194,7 @@ class ScreenletTheme (dict):
 		self.option_overrides = {}
 		self.loaded = self.__load_all()
 		if self.loaded == False:
-			raise Exception(_("Error while loading ScreenletTheme in: ") + path)
+			raise Exception("Error while loading ScreenletTheme in: " + path)
 	
 	def __getattr__ (self, name):
 		if name in ("width", "height"):

@@ -58,7 +58,7 @@ class ScreenletService (dbus.service.Object):
 	def __init__ (self, screenlet, name, id=None):
 		# check types and vals
 		if name == '':
-			raise Exception(_('No name set in ScreenletService.__init__!'));
+			raise Exception('No name set in ScreenletService.__init__!');
 		# init props
 		self.screenlet	= screenlet
 		self.name		= name
@@ -142,9 +142,9 @@ class ScreenletService (dbus.service.Object):
 		instance with the given id will be accessed. """
 		sl = self.screenlet.session.get_instance_by_id(id)
 		if sl == None:
-			raise Exception(_('Trying to access invalid instance "%s".') % id)
+			raise Exception('Trying to access invalid instance "%s".' % id)
 		if sl.get_option_by_name(attrib) == None:
-			raise Exception(_('Trying to access invalid option "%s".') % attrib)
+			raise Exception('Trying to access invalid option "%s".' % attrib)
 		else:
 			try:
 				o = sl.get_option_by_name(attrib)

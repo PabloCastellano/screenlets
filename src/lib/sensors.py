@@ -383,7 +383,7 @@ def mem_get_usage():
 		meminfo_file.close()
 		return int((100*(int(meminfo['MemTotal'])-int(meminfo['Cached']) - int(meminfo['Buffers']) - int(meminfo['MemFree'])))/int(meminfo['MemTotal']))
 	except:
-		print(_("Can't parse /proc/meminfo"))
+		print("Can't parse /proc/meminfo")
 		return 0
 
 def mem_get_total():
@@ -546,7 +546,7 @@ def net_get_updown():
 	
 		return (newNetUp/1024), (newNetDown/1024)
 	except:
-		print(_("Can't open /proc/net/dev"))
+		print("Can't open /proc/net/dev")
 		return 0,0
 
 
@@ -583,7 +583,7 @@ def wir_get_interfaces():
 				interfaces.append(line[:colon].strip())
 		return interfaces
 	except:
-		print(_("Can't open /proc/net/wireless"))
+		print("Can't open /proc/net/wireless")
 		return []
 
 def wir_get_stats (interface):
@@ -883,9 +883,9 @@ def sensors_get_sensors_list():
 				val = tmp[0].replace('temperature:','').replace('C','').strip()
 				output.append('acpi temperature '+entry+': '+val+'C')
 			except:
-				print(_("Can't open %s/temperature") % path+entry)
+				print("Can't open %s/temperature" % path+entry)
 	except:
-		print(_("Can't open folder /proc/acpi/thermal_zone/"))
+		print("Can't open folder /proc/acpi/thermal_zone/")
 
 	#recherche des senseurs IBM
 	path = "/proc/acpi/ibm/thermal"
@@ -901,7 +901,7 @@ def sensors_get_sensors_list():
 				output.append('ibm temperature '+str(pos)+': '+i+'C')
 			pos = pos+1
 	except:
-		print(_("Can't open %s") % path)
+		print("Can't open %s" % path)
 	
 	path = "/proc/acpi/ibm/fan"
 	try:
@@ -912,7 +912,7 @@ def sensors_get_sensors_list():
 			if i.startswith('speed:'):
 				output.append('ibm fan: '+i.split(':')[1].strip()+' RPM')
 	except:
-		print(_("Can't open %s") % path)
+		print("Can't open %s" % path)
 		
 		#recherche des temperatures de disque
 	res = commands.getstatusoutput("netcat 127.0.0.1 7634")
@@ -927,9 +927,9 @@ def sensors_get_sensors_list():
 					lst = i.split('|')
 					output.append("hddtemp sensor "+lst[0]+": "+lst[2]+" "+lst[3])
 		except:
-			print(_('Error during hddtemp drives search'))
+			print('Error during hddtemp drives search')
 	else:
-		print(_('Hddtemp not installed'))
+		print('Hddtemp not installed')
 		return output
 
 
@@ -959,7 +959,7 @@ def sensors_get_sensor_value(sensorName):
 			
 			return val+'C'
 		except:
-			print(_("can't read temperature in: %s") % path)
+			print("can't read temperature in: %s" % path)
 			return 'Error'
 
 	elif sensorName.startswith('ibm temperature'):
@@ -973,7 +973,7 @@ def sensors_get_sensor_value(sensorName):
 			val = int(sensorName.split(' ')[2])
 			return lst[val]+'C'
 		except:
-			print(_("Can't read value from %s") % path)
+			print("Can't read value from %s" % path)
 			return 'None'
 		
 	elif sensorName.startswith('ibm fan'):
@@ -989,7 +989,7 @@ def sensors_get_sensor_value(sensorName):
 					return i.split(':')[1].strip()+' RPM'
 			return 'None'
 		except:
-			print(_("Can't read value from %s") % path)
+			print("Can't read value from %s" % path)
 			return 'None'
 
 	elif sensorName.startswith('hddtemp sensor '):
@@ -1006,7 +1006,7 @@ def sensors_get_sensor_value(sensorName):
 						lst = i.split('|')
 						return lst[0]+": "+lst[2]+" "+lst[3]
 		else:
-			print(_('Hddtemp not installed'))
+			print('Hddtemp not installed')
 			return ''
 
 	

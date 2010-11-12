@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-12 18:22+0900\n"
+"POT-Creation-Date: 2010-11-12 19:39+0900\n"
 "PO-Revision-Date: 2010-10-24 21:36+0000\n"
 "Last-Translator: Svetoslav Stefanov <svetlisashkov@yahoo.com>\n"
 "Language-Team: Bulgarian <bg@li.org>\n"
@@ -22,10 +22,6 @@ msgstr ""
 #: src/lib/__init__.py:98
 msgid "http://www.screenlets.org/index.php/Get_more_screenlets"
 msgstr ""
-
-#: src/lib/__init__.py:197
-msgid "Error while loading ScreenletTheme in: "
-msgstr "Грешка при зареждане на темата на джаджата в: "
 
 #. default meta-info for Screenlets
 #: src/lib/__init__.py:608
@@ -290,46 +286,6 @@ msgstr "За да спрете всички %s's, използвайте 'Изх
 msgid "Really delete this %s and its settings?"
 msgstr "Наистина ли да се изтрие тази %s и настройките и?"
 
-#: src/lib/options.py:233
-msgid "GnomeKeyring is not available!!"
-msgstr "GnomeKeyring не е наличен!!!"
-
-#: src/lib/options.py:239
-msgid "No keyrings found. Please create one first!"
-msgstr "Не са открити ключодържатели. Моля първо създайте един!"
-
-#: src/lib/options.py:271
-msgid "Illegal value in AccountOption.on_import."
-msgstr "Неправилна стойност в AccountOption.on_import."
-
-#: src/lib/options.py:465
-#, python-format
-msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
-msgstr "Невалиден XML във файла с метаданни (или липсващ файл): \"%s\"."
-
-#: src/lib/options.py:469
-#, python-format
-msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
-msgstr ""
-
-#. we only allow groups in the first level (groups need children)
-#: src/lib/options.py:478
-#, python-format
-msgid ""
-"Error in metadata-file \"%s\" - only <group>-tags allowed in first level. "
-"Groups must contain at least one <info>-element."
-msgstr ""
-
-#: src/lib/options.py:484
-#, python-format
-msgid "No name for group defined in \"%s\"."
-msgstr "В \"%s\" не е определено име за групата."
-
-#: src/lib/options.py:500
-#, python-format
-msgid "Invalid option-node found in \"%s\"."
-msgstr ""
-
 #: src/lib/options.py:653
 msgid "Edit Options"
 msgstr "Редактиране на настройките"
@@ -412,77 +368,71 @@ msgstr "Не може да се определи версията на GNOME"
 msgid "Failed to open /proc/version"
 msgstr "Грешка при отваряне на /proc/version"
 
-#: src/lib/sensors.py:386
-msgid "Can't parse /proc/meminfo"
-msgstr "Не може да се обработи /proc/meminfo"
-
 #: src/lib/sensors.py:529
 msgid "Cannot get ip"
 msgstr "Не може да се определи IP адресът"
-
-#: src/lib/sensors.py:549
-msgid "Can't open /proc/net/dev"
-msgstr "Грешка при отваряне на /proc/net/dev"
-
-#: src/lib/sensors.py:586
-msgid "Can't open /proc/net/wireless"
-msgstr "Грешка при отваряне на /proc/net/wireless"
 
 #: src/lib/sensors.py:598 src/lib/sensors.py:611
 msgid "Not connected"
 msgstr "Без връзка"
 
-#: src/lib/sensors.py:886
-#, python-format
-msgid "Can't open %s/temperature"
-msgstr "Не може да се отвори %s/temperature"
+#~ msgid "Error while loading ScreenletTheme in: "
+#~ msgstr "Грешка при зареждане на темата на джаджата в: "
 
-#: src/lib/sensors.py:888
-msgid "Can't open folder /proc/acpi/thermal_zone/"
-msgstr "Грешка при отваряне на /proc/acpi/thermal_zone/"
+#~ msgid "GnomeKeyring is not available!!"
+#~ msgstr "GnomeKeyring не е наличен!!!"
 
-#: src/lib/sensors.py:904 src/lib/sensors.py:915
-#, python-format
-msgid "Can't open %s"
-msgstr "Грешка при отваряне на %s"
+#~ msgid "No keyrings found. Please create one first!"
+#~ msgstr "Не са открити ключодържатели. Моля първо създайте един!"
 
-#: src/lib/sensors.py:930
-msgid "Error during hddtemp drives search"
-msgstr ""
+#~ msgid "Illegal value in AccountOption.on_import."
+#~ msgstr "Неправилна стойност в AccountOption.on_import."
 
-#: src/lib/sensors.py:932 src/lib/sensors.py:1009
-msgid "Hddtemp not installed"
-msgstr "Не е инсталиран Hddtemp"
+#~ msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
+#~ msgstr "Невалиден XML във файла с метаданни (или липсващ файл): \"%s\"."
 
-#: src/lib/sensors.py:962
-#, python-format
-msgid "can't read temperature in: %s"
-msgstr "не може да се прочете температурата в: %s"
+#~ msgid "No name for group defined in \"%s\"."
+#~ msgstr "В \"%s\" не е определено име за групата."
 
-#: src/lib/sensors.py:976 src/lib/sensors.py:992
-#, python-format
-msgid "Can't read value from %s"
-msgstr "Не може да се прочете стойността от %s"
+#~ msgid "Can't parse /proc/meminfo"
+#~ msgstr "Не може да се обработи /proc/meminfo"
 
-#: src/lib/services.py:61
-msgid "No name set in ScreenletService.__init__!"
-msgstr "В ScreenletService.__init__ няма зададено име!"
+#~ msgid "Can't open /proc/net/dev"
+#~ msgstr "Грешка при отваряне на /proc/net/dev"
 
-#: src/lib/services.py:145
-#, python-format
-msgid "Trying to access invalid instance \"%s\"."
-msgstr "Опит за достъп до невалидно копие \"%s\"."
+#~ msgid "Can't open /proc/net/wireless"
+#~ msgstr "Грешка при отваряне на /proc/net/wireless"
 
-#: src/lib/services.py:147
-#, python-format
-msgid "Trying to access invalid option \"%s\"."
-msgstr "Опит за достъп до невалидна настройка \"%s\"."
+#~ msgid "Can't open %s/temperature"
+#~ msgstr "Не може да се отвори %s/temperature"
 
-#. TODO: also check for correct type (Screenlet-subclass)!!
-#: src/lib/session.py:72
-msgid ""
-"ScreenletSession.__init__ has to be called with a\n"
-"\t\t\t valid Screenlet-classobject as first argument!"
-msgstr ""
-"ScreenletSession.__init__ трябва да се извиква с\n"
-"\t\t\t валиден Screenlet-classobject като първи аргумент!"
+#~ msgid "Can't open folder /proc/acpi/thermal_zone/"
+#~ msgstr "Грешка при отваряне на /proc/acpi/thermal_zone/"
+
+#~ msgid "Can't open %s"
+#~ msgstr "Грешка при отваряне на %s"
+
+#~ msgid "Hddtemp not installed"
+#~ msgstr "Не е инсталиран Hddtemp"
+
+#~ msgid "can't read temperature in: %s"
+#~ msgstr "не може да се прочете температурата в: %s"
+
+#~ msgid "Can't read value from %s"
+#~ msgstr "Не може да се прочете стойността от %s"
+
+#~ msgid "No name set in ScreenletService.__init__!"
+#~ msgstr "В ScreenletService.__init__ няма зададено име!"
+
+#~ msgid "Trying to access invalid instance \"%s\"."
+#~ msgstr "Опит за достъп до невалидно копие \"%s\"."
+
+#~ msgid "Trying to access invalid option \"%s\"."
+#~ msgstr "Опит за достъп до невалидна настройка \"%s\"."
+
+#~ msgid ""
+#~ "ScreenletSession.__init__ has to be called with a\n"
+#~ "\t\t\t valid Screenlet-classobject as first argument!"
+#~ msgstr ""
+#~ "ScreenletSession.__init__ трябва да се извиква с\n"
+#~ "\t\t\t валиден Screenlet-classobject като първи аргумент!"

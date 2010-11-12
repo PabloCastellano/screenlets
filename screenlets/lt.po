@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-12 18:22+0900\n"
+"POT-Creation-Date: 2010-11-12 19:39+0900\n"
 "PO-Revision-Date: 2009-11-20 22:39+0000\n"
 "Last-Translator: Vaidas Nargėlas <Unknown>\n"
 "Language-Team: Lithuanian <lt@li.org>\n"
@@ -22,10 +22,6 @@ msgstr ""
 #: src/lib/__init__.py:98
 msgid "http://www.screenlets.org/index.php/Get_more_screenlets"
 msgstr ""
-
-#: src/lib/__init__.py:197
-msgid "Error while loading ScreenletTheme in: "
-msgstr "Klaida įkeliant valdiklio temą į: "
 
 #. default meta-info for Screenlets
 #: src/lib/__init__.py:608
@@ -290,48 +286,6 @@ msgstr "Išeiti iš visų %s's, naudokite 'Išeiti'. "
 msgid "Really delete this %s and its settings?"
 msgstr "Tikrai ištrinti %s ir jo nustatymus?"
 
-#: src/lib/options.py:233
-msgid "GnomeKeyring is not available!!"
-msgstr "GnomeKeyring neprieinamas!!"
-
-#: src/lib/options.py:239
-msgid "No keyrings found. Please create one first!"
-msgstr "Nerasta raktinė. Prašome ją sukurti!"
-
-#: src/lib/options.py:271
-msgid "Illegal value in AccountOption.on_import."
-msgstr "Nelegali reikšmė AccountOption.on_import."
-
-#: src/lib/options.py:465
-#, python-format
-msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
-msgstr "Neteisingas XML metaduomenų faile (arba failas nerastas): \"%s\"."
-
-#: src/lib/options.py:469
-#, python-format
-msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
-msgstr "Nerastas arba neteisingas šakninis mazgas metaduomenų faile: \"%s\"."
-
-#. we only allow groups in the first level (groups need children)
-#: src/lib/options.py:478
-#, python-format
-msgid ""
-"Error in metadata-file \"%s\" - only <group>-tags allowed in first level. "
-"Groups must contain at least one <info>-element."
-msgstr ""
-"Klaida metaduomenų faile \"%s\" - tik <group>-gairės leidžiamos pirmam "
-"lygyje. Grupė turi susidėti iš bent vieno <info>-elemento."
-
-#: src/lib/options.py:484
-#, python-format
-msgid "No name for group defined in \"%s\"."
-msgstr "Neapibrėžtas grupės pavadinimas \"%s\"."
-
-#: src/lib/options.py:500
-#, python-format
-msgid "Invalid option-node found in \"%s\"."
-msgstr "Neteisinga savybė-mazgas rasta \"%s\"."
-
 #: src/lib/options.py:653
 msgid "Edit Options"
 msgstr "Keisti savybes"
@@ -414,77 +368,88 @@ msgstr "Negalima gauti GNOME versijos"
 msgid "Failed to open /proc/version"
 msgstr "Nepavyko atvert /proc/version"
 
-#: src/lib/sensors.py:386
-msgid "Can't parse /proc/meminfo"
-msgstr "Negalima išanalizuoti /proc/meminfo"
-
 #: src/lib/sensors.py:529
 msgid "Cannot get ip"
 msgstr "Negalima gauti IP"
-
-#: src/lib/sensors.py:549
-msgid "Can't open /proc/net/dev"
-msgstr "Nepavyko atverti /proc/net/dev"
-
-#: src/lib/sensors.py:586
-msgid "Can't open /proc/net/wireless"
-msgstr "Nepavyko atverti /proc/net/wireless"
 
 #: src/lib/sensors.py:598 src/lib/sensors.py:611
 msgid "Not connected"
 msgstr "Neprijungta"
 
-#: src/lib/sensors.py:886
-#, python-format
-msgid "Can't open %s/temperature"
-msgstr "Negalima atverti %s/temperature"
+#~ msgid "Error while loading ScreenletTheme in: "
+#~ msgstr "Klaida įkeliant valdiklio temą į: "
 
-#: src/lib/sensors.py:888
-msgid "Can't open folder /proc/acpi/thermal_zone/"
-msgstr "Negalima atverti aplanko /proc/acpi/thermal_zone/"
+#~ msgid "GnomeKeyring is not available!!"
+#~ msgstr "GnomeKeyring neprieinamas!!"
 
-#: src/lib/sensors.py:904 src/lib/sensors.py:915
-#, python-format
-msgid "Can't open %s"
-msgstr "Negalima atverti %s"
+#~ msgid "No keyrings found. Please create one first!"
+#~ msgstr "Nerasta raktinė. Prašome ją sukurti!"
 
-#: src/lib/sensors.py:930
-msgid "Error during hddtemp drives search"
-msgstr "Klaida per hddtemp laikmenų paiešką"
+#~ msgid "Illegal value in AccountOption.on_import."
+#~ msgstr "Nelegali reikšmė AccountOption.on_import."
 
-#: src/lib/sensors.py:932 src/lib/sensors.py:1009
-msgid "Hddtemp not installed"
-msgstr "Hddtemp neįdiegtas"
+#~ msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
+#~ msgstr "Neteisingas XML metaduomenų faile (arba failas nerastas): \"%s\"."
 
-#: src/lib/sensors.py:962
-#, python-format
-msgid "can't read temperature in: %s"
-msgstr "negalima nuskaityti temperatūros: %s"
+#~ msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
+#~ msgstr ""
+#~ "Nerastas arba neteisingas šakninis mazgas metaduomenų faile: \"%s\"."
 
-#: src/lib/sensors.py:976 src/lib/sensors.py:992
-#, python-format
-msgid "Can't read value from %s"
-msgstr "Negalima nuskaityti reikšmės %s"
+#~ msgid ""
+#~ "Error in metadata-file \"%s\" - only <group>-tags allowed in first level. "
+#~ "Groups must contain at least one <info>-element."
+#~ msgstr ""
+#~ "Klaida metaduomenų faile \"%s\" - tik <group>-gairės leidžiamos pirmam "
+#~ "lygyje. Grupė turi susidėti iš bent vieno <info>-elemento."
 
-#: src/lib/services.py:61
-msgid "No name set in ScreenletService.__init__!"
-msgstr "Nenustatytas pavadinimas ScreenletService.__init__!"
+#~ msgid "No name for group defined in \"%s\"."
+#~ msgstr "Neapibrėžtas grupės pavadinimas \"%s\"."
 
-#: src/lib/services.py:145
-#, python-format
-msgid "Trying to access invalid instance \"%s\"."
-msgstr "Bandoma gauti prieiga prie neteisingo objekto \"%s\"."
+#~ msgid "Invalid option-node found in \"%s\"."
+#~ msgstr "Neteisinga savybė-mazgas rasta \"%s\"."
 
-#: src/lib/services.py:147
-#, python-format
-msgid "Trying to access invalid option \"%s\"."
-msgstr "Bandoma gauti prieiga prie neteisingos savybės \"%s\"."
+#~ msgid "Can't parse /proc/meminfo"
+#~ msgstr "Negalima išanalizuoti /proc/meminfo"
 
-#. TODO: also check for correct type (Screenlet-subclass)!!
-#: src/lib/session.py:72
-msgid ""
-"ScreenletSession.__init__ has to be called with a\n"
-"\t\t\t valid Screenlet-classobject as first argument!"
-msgstr ""
-"ScreenletSession.__init__ turi būti iškviestas su\n"
-"\t\t\t teisingu Screenlet-classobject kaip pirmu argumentu!"
+#~ msgid "Can't open /proc/net/dev"
+#~ msgstr "Nepavyko atverti /proc/net/dev"
+
+#~ msgid "Can't open /proc/net/wireless"
+#~ msgstr "Nepavyko atverti /proc/net/wireless"
+
+#~ msgid "Can't open %s/temperature"
+#~ msgstr "Negalima atverti %s/temperature"
+
+#~ msgid "Can't open folder /proc/acpi/thermal_zone/"
+#~ msgstr "Negalima atverti aplanko /proc/acpi/thermal_zone/"
+
+#~ msgid "Can't open %s"
+#~ msgstr "Negalima atverti %s"
+
+#~ msgid "Error during hddtemp drives search"
+#~ msgstr "Klaida per hddtemp laikmenų paiešką"
+
+#~ msgid "Hddtemp not installed"
+#~ msgstr "Hddtemp neįdiegtas"
+
+#~ msgid "can't read temperature in: %s"
+#~ msgstr "negalima nuskaityti temperatūros: %s"
+
+#~ msgid "Can't read value from %s"
+#~ msgstr "Negalima nuskaityti reikšmės %s"
+
+#~ msgid "No name set in ScreenletService.__init__!"
+#~ msgstr "Nenustatytas pavadinimas ScreenletService.__init__!"
+
+#~ msgid "Trying to access invalid instance \"%s\"."
+#~ msgstr "Bandoma gauti prieiga prie neteisingo objekto \"%s\"."
+
+#~ msgid "Trying to access invalid option \"%s\"."
+#~ msgstr "Bandoma gauti prieiga prie neteisingos savybės \"%s\"."
+
+#~ msgid ""
+#~ "ScreenletSession.__init__ has to be called with a\n"
+#~ "\t\t\t valid Screenlet-classobject as first argument!"
+#~ msgstr ""
+#~ "ScreenletSession.__init__ turi būti iškviestas su\n"
+#~ "\t\t\t teisingu Screenlet-classobject kaip pirmu argumentu!"

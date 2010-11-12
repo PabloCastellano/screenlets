@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-12 18:22+0900\n"
+"POT-Creation-Date: 2010-11-12 19:39+0900\n"
 "PO-Revision-Date: 2008-11-27 13:53+0000\n"
 "Last-Translator: Vyacheslav Kurenyshev <Unknown>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -22,10 +22,6 @@ msgstr ""
 #: src/lib/__init__.py:98
 msgid "http://www.screenlets.org/index.php/Get_more_screenlets"
 msgstr ""
-
-#: src/lib/__init__.py:197
-msgid "Error while loading ScreenletTheme in: "
-msgstr "Ошибка во время загрузки темы в: "
 
 #. default meta-info for Screenlets
 #: src/lib/__init__.py:608
@@ -299,49 +295,6 @@ msgstr "Чтобы закрыть все %s, используйте 'Закры�
 msgid "Really delete this %s and its settings?"
 msgstr "действительно удалить %s и все его настройки?"
 
-#: src/lib/options.py:233
-msgid "GnomeKeyring is not available!!"
-msgstr "GnomeKeyring не доступен"
-
-#: src/lib/options.py:239
-msgid "No keyrings found. Please create one first!"
-msgstr "Не найдено ни одного бумажника. Пожалуйста, сначала создайте бумажник!"
-
-#: src/lib/options.py:271
-msgid "Illegal value in AccountOption.on_import."
-msgstr "Некорректное значение в AccountOption.on_import."
-
-#: src/lib/options.py:465
-#, python-format
-msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
-msgstr "Некорректный XML в файле метаданных (или файл отсутствует): \"%s\"."
-
-#: src/lib/options.py:469
-#, python-format
-msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
-msgstr "Отсутствует или неправильный корневой узел в файле метаданных: \"%s\"."
-
-#. we only allow groups in the first level (groups need children)
-#: src/lib/options.py:478
-#, python-format
-msgid ""
-"Error in metadata-file \"%s\" - only <group>-tags allowed in first level. "
-"Groups must contain at least one <info>-element."
-msgstr ""
-"Ошибка в файле метаданных: \"%s\" - только <group>-теги можно использовать "
-"на первом уровне. Группы должны содержать по крайней мере один <info>-"
-"элемент."
-
-#: src/lib/options.py:484
-#, python-format
-msgid "No name for group defined in \"%s\"."
-msgstr "Нет названия для группы, определенной в \"%s\"."
-
-#: src/lib/options.py:500
-#, python-format
-msgid "Invalid option-node found in \"%s\"."
-msgstr "В \"%s\" обнаружен неверный узел настроек."
-
 #: src/lib/options.py:653
 msgid "Edit Options"
 msgstr "Изменить Настройки"
@@ -424,80 +377,93 @@ msgstr "Невозможно получить версию Gnome"
 msgid "Failed to open /proc/version"
 msgstr "Не удалось открыть /proc/version"
 
-#: src/lib/sensors.py:386
-msgid "Can't parse /proc/meminfo"
-msgstr "Не возможно проанализировать /proc/meminfo"
-
 #: src/lib/sensors.py:529
 msgid "Cannot get ip"
 msgstr "Невозможно получить IP"
-
-#: src/lib/sensors.py:549
-msgid "Can't open /proc/net/dev"
-msgstr "Невозможно открыть /proc/net/dev"
-
-#: src/lib/sensors.py:586
-msgid "Can't open /proc/net/wireless"
-msgstr "Невозможно открыть /proc/net/wireless"
 
 #: src/lib/sensors.py:598 src/lib/sensors.py:611
 msgid "Not connected"
 msgstr "Не подключено"
 
-#: src/lib/sensors.py:886
-#, python-format
-msgid "Can't open %s/temperature"
-msgstr "Невозможно открыть %s/temperature"
+#~ msgid "Error while loading ScreenletTheme in: "
+#~ msgstr "Ошибка во время загрузки темы в: "
 
-#: src/lib/sensors.py:888
-msgid "Can't open folder /proc/acpi/thermal_zone/"
-msgstr "Невозможно открыть папку /proc/acpi/thermal_zone/"
+#~ msgid "GnomeKeyring is not available!!"
+#~ msgstr "GnomeKeyring не доступен"
 
-#: src/lib/sensors.py:904 src/lib/sensors.py:915
-#, python-format
-msgid "Can't open %s"
-msgstr "Невозможно открыть %s"
+#~ msgid "No keyrings found. Please create one first!"
+#~ msgstr ""
+#~ "Не найдено ни одного бумажника. Пожалуйста, сначала создайте бумажник!"
 
-#: src/lib/sensors.py:930
-msgid "Error during hddtemp drives search"
-msgstr "Ошибка во время определения температуры дисков"
+#~ msgid "Illegal value in AccountOption.on_import."
+#~ msgstr "Некорректное значение в AccountOption.on_import."
 
-#: src/lib/sensors.py:932 src/lib/sensors.py:1009
-msgid "Hddtemp not installed"
-msgstr "Hddtemp не установлен"
+#~ msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
+#~ msgstr "Некорректный XML в файле метаданных (или файл отсутствует): \"%s\"."
 
-#: src/lib/sensors.py:962
-#, python-format
-msgid "can't read temperature in: %s"
-msgstr "невозможно прочесть температуру для: %s"
+#~ msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
+#~ msgstr ""
+#~ "Отсутствует или неправильный корневой узел в файле метаданных: \"%s\"."
 
-#: src/lib/sensors.py:976 src/lib/sensors.py:992
-#, python-format
-msgid "Can't read value from %s"
-msgstr "Невозможно получить значение из %s"
+#~ msgid ""
+#~ "Error in metadata-file \"%s\" - only <group>-tags allowed in first level. "
+#~ "Groups must contain at least one <info>-element."
+#~ msgstr ""
+#~ "Ошибка в файле метаданных: \"%s\" - только <group>-теги можно "
+#~ "использовать на первом уровне. Группы должны содержать по крайней мере "
+#~ "один <info>-элемент."
 
-#: src/lib/services.py:61
-msgid "No name set in ScreenletService.__init__!"
-msgstr "Нет названия в ScreenletService.__init__!"
+#~ msgid "No name for group defined in \"%s\"."
+#~ msgstr "Нет названия для группы, определенной в \"%s\"."
 
-#: src/lib/services.py:145
-#, python-format
-msgid "Trying to access invalid instance \"%s\"."
-msgstr "Попытка доступиться к недействительному экземпляру \"%s\"."
+#~ msgid "Invalid option-node found in \"%s\"."
+#~ msgstr "В \"%s\" обнаружен неверный узел настроек."
 
-#: src/lib/services.py:147
-#, python-format
-msgid "Trying to access invalid option \"%s\"."
-msgstr "Попытка доступиться к недействительной опции \"%s\"."
+#~ msgid "Can't parse /proc/meminfo"
+#~ msgstr "Не возможно проанализировать /proc/meminfo"
 
-#. TODO: also check for correct type (Screenlet-subclass)!!
-#: src/lib/session.py:72
-msgid ""
-"ScreenletSession.__init__ has to be called with a\n"
-"\t\t\t valid Screenlet-classobject as first argument!"
-msgstr ""
-"Функция ScreenletSession.__init__ должна быть вызвана с\n"
-"\t\t\t правильным Screenlet-classobject для первого аргумента!"
+#~ msgid "Can't open /proc/net/dev"
+#~ msgstr "Невозможно открыть /proc/net/dev"
+
+#~ msgid "Can't open /proc/net/wireless"
+#~ msgstr "Невозможно открыть /proc/net/wireless"
+
+#~ msgid "Can't open %s/temperature"
+#~ msgstr "Невозможно открыть %s/temperature"
+
+#~ msgid "Can't open folder /proc/acpi/thermal_zone/"
+#~ msgstr "Невозможно открыть папку /proc/acpi/thermal_zone/"
+
+#~ msgid "Can't open %s"
+#~ msgstr "Невозможно открыть %s"
+
+#~ msgid "Error during hddtemp drives search"
+#~ msgstr "Ошибка во время определения температуры дисков"
+
+#~ msgid "Hddtemp not installed"
+#~ msgstr "Hddtemp не установлен"
+
+#~ msgid "can't read temperature in: %s"
+#~ msgstr "невозможно прочесть температуру для: %s"
+
+#~ msgid "Can't read value from %s"
+#~ msgstr "Невозможно получить значение из %s"
+
+#~ msgid "No name set in ScreenletService.__init__!"
+#~ msgstr "Нет названия в ScreenletService.__init__!"
+
+#~ msgid "Trying to access invalid instance \"%s\"."
+#~ msgstr "Попытка доступиться к недействительному экземпляру \"%s\"."
+
+#~ msgid "Trying to access invalid option \"%s\"."
+#~ msgstr "Попытка доступиться к недействительной опции \"%s\"."
+
+#~ msgid ""
+#~ "ScreenletSession.__init__ has to be called with a\n"
+#~ "\t\t\t valid Screenlet-classobject as first argument!"
+#~ msgstr ""
+#~ "Функция ScreenletSession.__init__ должна быть вызвана с\n"
+#~ "\t\t\t правильным Screenlet-classobject для первого аргумента!"
 
 #~ msgid "Error while creating image from file: %s"
 #~ msgstr "Ошибка во время создания изображения из файла: %s"

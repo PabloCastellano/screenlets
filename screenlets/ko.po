@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-12 18:22+0900\n"
+"POT-Creation-Date: 2010-11-12 19:39+0900\n"
 "PO-Revision-Date: 2010-03-29 16:37+0000\n"
 "Last-Translator: Bundo <bundo@bundo.biz>\n"
 "Language-Team: Korean <ko@li.org>\n"
@@ -22,10 +22,6 @@ msgstr ""
 #: src/lib/__init__.py:98
 msgid "http://www.screenlets.org/index.php/Get_more_screenlets"
 msgstr ""
-
-#: src/lib/__init__.py:197
-msgid "Error while loading ScreenletTheme in: "
-msgstr "스크린렛츠 테마를 불러오는 동안 오류 발생: "
 
 #. default meta-info for Screenlets
 #: src/lib/__init__.py:608
@@ -291,46 +287,6 @@ msgstr "모든 %s's 종료, '종료' 대신에 사용. "
 msgid "Really delete this %s and its settings?"
 msgstr "정말 이 %s와 이 설정을 삭제하겠습니까?"
 
-#: src/lib/options.py:233
-msgid "GnomeKeyring is not available!!"
-msgstr "GnomeKeyring을 사용할 수 없습니다!!"
-
-#: src/lib/options.py:239
-msgid "No keyrings found. Please create one first!"
-msgstr "keyrings 찾을 수 없음. 먼저 작성하시기 바랍니다!"
-
-#: src/lib/options.py:271
-msgid "Illegal value in AccountOption.on_import."
-msgstr "AccountOption.on_import에  잘못된 값."
-
-#: src/lib/options.py:465
-#, python-format
-msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
-msgstr "메타 데이터 파일에 잘못된 XML (또는 파일 없음) : \"%s\"."
-
-#: src/lib/options.py:469
-#, python-format
-msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
-msgstr ""
-
-#. we only allow groups in the first level (groups need children)
-#: src/lib/options.py:478
-#, python-format
-msgid ""
-"Error in metadata-file \"%s\" - only <group>-tags allowed in first level. "
-"Groups must contain at least one <info>-element."
-msgstr ""
-
-#: src/lib/options.py:484
-#, python-format
-msgid "No name for group defined in \"%s\"."
-msgstr ""
-
-#: src/lib/options.py:500
-#, python-format
-msgid "Invalid option-node found in \"%s\"."
-msgstr ""
-
 #: src/lib/options.py:653
 msgid "Edit Options"
 msgstr "설정 편집"
@@ -413,75 +369,64 @@ msgstr "그놈버전을 가져올 수 없습니다."
 msgid "Failed to open /proc/version"
 msgstr "/proc/version 열기 실패"
 
-#: src/lib/sensors.py:386
-msgid "Can't parse /proc/meminfo"
-msgstr "/proc/meminfo 열기 실패"
-
 #: src/lib/sensors.py:529
 msgid "Cannot get ip"
 msgstr "ip 얻어오기 실패"
-
-#: src/lib/sensors.py:549
-msgid "Can't open /proc/net/dev"
-msgstr "/proc/net/dev 열기 실패"
-
-#: src/lib/sensors.py:586
-msgid "Can't open /proc/net/wireless"
-msgstr "/proc/net/wireless 열기 실패"
 
 #: src/lib/sensors.py:598 src/lib/sensors.py:611
 msgid "Not connected"
 msgstr "연결되지 않았음"
 
-#: src/lib/sensors.py:886
-#, python-format
-msgid "Can't open %s/temperature"
-msgstr "%s/temperature 열수 없습니다."
+#~ msgid "Error while loading ScreenletTheme in: "
+#~ msgstr "스크린렛츠 테마를 불러오는 동안 오류 발생: "
 
-#: src/lib/sensors.py:888
-msgid "Can't open folder /proc/acpi/thermal_zone/"
-msgstr "/proc/acpi/thermal_zone/ 폴더를 열 수 없습니다."
+#~ msgid "GnomeKeyring is not available!!"
+#~ msgstr "GnomeKeyring을 사용할 수 없습니다!!"
 
-#: src/lib/sensors.py:904 src/lib/sensors.py:915
-#, python-format
-msgid "Can't open %s"
-msgstr "%s를 열 수 없습니다."
+#~ msgid "No keyrings found. Please create one first!"
+#~ msgstr "keyrings 찾을 수 없음. 먼저 작성하시기 바랍니다!"
 
-#: src/lib/sensors.py:930
-msgid "Error during hddtemp drives search"
-msgstr "hddtemp가 드라이브를 검색하는 동안 오류"
+#~ msgid "Illegal value in AccountOption.on_import."
+#~ msgstr "AccountOption.on_import에  잘못된 값."
 
-#: src/lib/sensors.py:932 src/lib/sensors.py:1009
-msgid "Hddtemp not installed"
-msgstr "Hddtemp가 설치 되지 않았습니다"
+#~ msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
+#~ msgstr "메타 데이터 파일에 잘못된 XML (또는 파일 없음) : \"%s\"."
 
-#: src/lib/sensors.py:962
-#, python-format
-msgid "can't read temperature in: %s"
-msgstr "온도를 읽을 수없습니다: %s"
+#~ msgid "Can't parse /proc/meminfo"
+#~ msgstr "/proc/meminfo 열기 실패"
 
-#: src/lib/sensors.py:976 src/lib/sensors.py:992
-#, python-format
-msgid "Can't read value from %s"
-msgstr "%s에서 값을 읽을 수없습니다"
+#~ msgid "Can't open /proc/net/dev"
+#~ msgstr "/proc/net/dev 열기 실패"
 
-#: src/lib/services.py:61
-msgid "No name set in ScreenletService.__init__!"
-msgstr "ScreenletService.__init__ 설정 이름이 없음!"
+#~ msgid "Can't open /proc/net/wireless"
+#~ msgstr "/proc/net/wireless 열기 실패"
 
-#: src/lib/services.py:145
-#, python-format
-msgid "Trying to access invalid instance \"%s\"."
-msgstr "잘못된 인스턴스에 액세스하려하는중 \"%s\"."
+#~ msgid "Can't open %s/temperature"
+#~ msgstr "%s/temperature 열수 없습니다."
 
-#: src/lib/services.py:147
-#, python-format
-msgid "Trying to access invalid option \"%s\"."
-msgstr "잘못된 옵션을 사용하려고 하는중 \"%s\"."
+#~ msgid "Can't open folder /proc/acpi/thermal_zone/"
+#~ msgstr "/proc/acpi/thermal_zone/ 폴더를 열 수 없습니다."
 
-#. TODO: also check for correct type (Screenlet-subclass)!!
-#: src/lib/session.py:72
-msgid ""
-"ScreenletSession.__init__ has to be called with a\n"
-"\t\t\t valid Screenlet-classobject as first argument!"
-msgstr ""
+#~ msgid "Can't open %s"
+#~ msgstr "%s를 열 수 없습니다."
+
+#~ msgid "Error during hddtemp drives search"
+#~ msgstr "hddtemp가 드라이브를 검색하는 동안 오류"
+
+#~ msgid "Hddtemp not installed"
+#~ msgstr "Hddtemp가 설치 되지 않았습니다"
+
+#~ msgid "can't read temperature in: %s"
+#~ msgstr "온도를 읽을 수없습니다: %s"
+
+#~ msgid "Can't read value from %s"
+#~ msgstr "%s에서 값을 읽을 수없습니다"
+
+#~ msgid "No name set in ScreenletService.__init__!"
+#~ msgstr "ScreenletService.__init__ 설정 이름이 없음!"
+
+#~ msgid "Trying to access invalid instance \"%s\"."
+#~ msgstr "잘못된 인스턴스에 액세스하려하는중 \"%s\"."
+
+#~ msgid "Trying to access invalid option \"%s\"."
+#~ msgstr "잘못된 옵션을 사용하려고 하는중 \"%s\"."

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-12 18:22+0900\n"
+"POT-Creation-Date: 2010-11-12 19:39+0900\n"
 "PO-Revision-Date: 2010-09-05 12:32+0000\n"
 "Last-Translator: David Planella <david.planella@ubuntu.com>\n"
 "Language-Team: Catalan <ca@li.org>\n"
@@ -22,10 +22,6 @@ msgstr ""
 #: src/lib/__init__.py:98
 msgid "http://www.screenlets.org/index.php/Get_more_screenlets"
 msgstr ""
-
-#: src/lib/__init__.py:197
-msgid "Error while loading ScreenletTheme in: "
-msgstr "Error en carregar el tema de l'Screenlet a: "
 
 #. default meta-info for Screenlets
 #: src/lib/__init__.py:608
@@ -294,50 +290,6 @@ msgstr "Per tancar tots els %s, utilitzeu \"Tanca\". "
 msgid "Really delete this %s and its settings?"
 msgstr "Voleu eliminar aquest %s i la seva configuració?"
 
-#: src/lib/options.py:233
-msgid "GnomeKeyring is not available!!"
-msgstr "El GnomeKeyring no està disponible."
-
-#: src/lib/options.py:239
-msgid "No keyrings found. Please create one first!"
-msgstr "No s'ha trobat cap anell de claus. Creeu-ne una."
-
-#: src/lib/options.py:271
-msgid "Illegal value in AccountOption.on_import."
-msgstr "Valor il·legal a l'AccountOption.on_import."
-
-#: src/lib/options.py:465
-#, python-format
-msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
-msgstr "XML invàlid al fitxer de metadata (o no existeix el fitxer): \"%s\"."
-
-#: src/lib/options.py:469
-#, python-format
-msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
-msgstr ""
-"No s'ha trobat el node arrel del fitxer de metadata o és invàlid: \"%s\"."
-
-#. we only allow groups in the first level (groups need children)
-#: src/lib/options.py:478
-#, python-format
-msgid ""
-"Error in metadata-file \"%s\" - only <group>-tags allowed in first level. "
-"Groups must contain at least one <info>-element."
-msgstr ""
-"Error al fitxer de metadata \"%s\" - només les etiquetes de  grup són "
-"permeses en el primer nivell. Els grups han de contenir com a mínim un "
-"element d'informació."
-
-#: src/lib/options.py:484
-#, python-format
-msgid "No name for group defined in \"%s\"."
-msgstr "No s'ha trobat nom per al grup definit a \"%s\"."
-
-#: src/lib/options.py:500
-#, python-format
-msgid "Invalid option-node found in \"%s\"."
-msgstr "S'ha trobat una opció de node invàlida a \"%s\"."
-
 #: src/lib/options.py:653
 msgid "Edit Options"
 msgstr "Opcions d'edició"
@@ -421,77 +373,90 @@ msgstr "No s'ha pogut obtenir la versió del Gnome"
 msgid "Failed to open /proc/version"
 msgstr "No s'ha pogut obrir el fitxer /proc/version"
 
-#: src/lib/sensors.py:386
-msgid "Can't parse /proc/meminfo"
-msgstr "No s'ha pogut analitzar el fitxer /proc/meminfo"
-
 #: src/lib/sensors.py:529
 msgid "Cannot get ip"
 msgstr "No s'ha pogut obtenir la ip"
-
-#: src/lib/sensors.py:549
-msgid "Can't open /proc/net/dev"
-msgstr "No s'ha pogut obrir el fitxer /proc/net/dev"
-
-#: src/lib/sensors.py:586
-msgid "Can't open /proc/net/wireless"
-msgstr "No s'ha pogut obrir el fitxer /proc/net/wireless"
 
 #: src/lib/sensors.py:598 src/lib/sensors.py:611
 msgid "Not connected"
 msgstr "No connectat"
 
-#: src/lib/sensors.py:886
-#, python-format
-msgid "Can't open %s/temperature"
-msgstr "No s'ha pogut obrir %s/temperature"
+#~ msgid "Error while loading ScreenletTheme in: "
+#~ msgstr "Error en carregar el tema de l'Screenlet a: "
 
-#: src/lib/sensors.py:888
-msgid "Can't open folder /proc/acpi/thermal_zone/"
-msgstr "No s'ha pogut obrir la carpeta /proc/acpi/thermal_zone/"
+#~ msgid "GnomeKeyring is not available!!"
+#~ msgstr "El GnomeKeyring no està disponible."
 
-#: src/lib/sensors.py:904 src/lib/sensors.py:915
-#, python-format
-msgid "Can't open %s"
-msgstr "No s'ha pogut obrir %s"
+#~ msgid "No keyrings found. Please create one first!"
+#~ msgstr "No s'ha trobat cap anell de claus. Creeu-ne una."
 
-#: src/lib/sensors.py:930
-msgid "Error during hddtemp drives search"
-msgstr "Error en cercar les unitats hddtemp"
+#~ msgid "Illegal value in AccountOption.on_import."
+#~ msgstr "Valor il·legal a l'AccountOption.on_import."
 
-#: src/lib/sensors.py:932 src/lib/sensors.py:1009
-msgid "Hddtemp not installed"
-msgstr "No s'ha instal·lat l'hddtemp"
+#~ msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
+#~ msgstr ""
+#~ "XML invàlid al fitxer de metadata (o no existeix el fitxer): \"%s\"."
 
-#: src/lib/sensors.py:962
-#, python-format
-msgid "can't read temperature in: %s"
-msgstr "No es pot llegir la temperatura"
+#~ msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
+#~ msgstr ""
+#~ "No s'ha trobat el node arrel del fitxer de metadata o és invàlid: \"%s\"."
 
-#: src/lib/sensors.py:976 src/lib/sensors.py:992
-#, python-format
-msgid "Can't read value from %s"
-msgstr "No es pot llegir el valor de %s"
+#~ msgid ""
+#~ "Error in metadata-file \"%s\" - only <group>-tags allowed in first level. "
+#~ "Groups must contain at least one <info>-element."
+#~ msgstr ""
+#~ "Error al fitxer de metadata \"%s\" - només les etiquetes de  grup són "
+#~ "permeses en el primer nivell. Els grups han de contenir com a mínim un "
+#~ "element d'informació."
 
-#: src/lib/services.py:61
-msgid "No name set in ScreenletService.__init__!"
-msgstr "Cap nom configurat a ScreenletService.__init__!"
+#~ msgid "No name for group defined in \"%s\"."
+#~ msgstr "No s'ha trobat nom per al grup definit a \"%s\"."
 
-#: src/lib/services.py:145
-#, python-format
-msgid "Trying to access invalid instance \"%s\"."
-msgstr "Intentant accedir a la instància invàlida \"%s\"."
+#~ msgid "Invalid option-node found in \"%s\"."
+#~ msgstr "S'ha trobat una opció de node invàlida a \"%s\"."
 
-#: src/lib/services.py:147
-#, python-format
-msgid "Trying to access invalid option \"%s\"."
-msgstr "Intentant accedir a l'opció invàlida \"%s\"."
+#~ msgid "Can't parse /proc/meminfo"
+#~ msgstr "No s'ha pogut analitzar el fitxer /proc/meminfo"
 
-#. TODO: also check for correct type (Screenlet-subclass)!!
-#: src/lib/session.py:72
-msgid ""
-"ScreenletSession.__init__ has to be called with a\n"
-"\t\t\t valid Screenlet-classobject as first argument!"
-msgstr ""
-"ScreenletSession.__init__ ha de ser cridat amb un\n"
-"\t\t\t Screenlet-classobject vàlid com a primer argument!"
+#~ msgid "Can't open /proc/net/dev"
+#~ msgstr "No s'ha pogut obrir el fitxer /proc/net/dev"
+
+#~ msgid "Can't open /proc/net/wireless"
+#~ msgstr "No s'ha pogut obrir el fitxer /proc/net/wireless"
+
+#~ msgid "Can't open %s/temperature"
+#~ msgstr "No s'ha pogut obrir %s/temperature"
+
+#~ msgid "Can't open folder /proc/acpi/thermal_zone/"
+#~ msgstr "No s'ha pogut obrir la carpeta /proc/acpi/thermal_zone/"
+
+#~ msgid "Can't open %s"
+#~ msgstr "No s'ha pogut obrir %s"
+
+#~ msgid "Error during hddtemp drives search"
+#~ msgstr "Error en cercar les unitats hddtemp"
+
+#~ msgid "Hddtemp not installed"
+#~ msgstr "No s'ha instal·lat l'hddtemp"
+
+#~ msgid "can't read temperature in: %s"
+#~ msgstr "No es pot llegir la temperatura"
+
+#~ msgid "Can't read value from %s"
+#~ msgstr "No es pot llegir el valor de %s"
+
+#~ msgid "No name set in ScreenletService.__init__!"
+#~ msgstr "Cap nom configurat a ScreenletService.__init__!"
+
+#~ msgid "Trying to access invalid instance \"%s\"."
+#~ msgstr "Intentant accedir a la instància invàlida \"%s\"."
+
+#~ msgid "Trying to access invalid option \"%s\"."
+#~ msgstr "Intentant accedir a l'opció invàlida \"%s\"."
+
+#~ msgid ""
+#~ "ScreenletSession.__init__ has to be called with a\n"
+#~ "\t\t\t valid Screenlet-classobject as first argument!"
+#~ msgstr ""
+#~ "ScreenletSession.__init__ ha de ser cridat amb un\n"
+#~ "\t\t\t Screenlet-classobject vàlid com a primer argument!"

@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-12 19:39+0900\n"
-"PO-Revision-Date: 2010-11-11 15:55+0000\n"
-"Last-Translator: megabyte <Unknown>\n"
+"PO-Revision-Date: 2010-11-12 13:57+0000\n"
+"Last-Translator: tabbernuk <boamaod@gmail.com>\n"
 "Language-Team: Dutch <nl@li.org>\n"
-"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-12 07:28+0000\n"
+"X-Launchpad-Export-Date: 2010-11-13 04:47+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: nl\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
 #: src/lib/__init__.py:98
@@ -378,8 +378,22 @@ msgstr "Er is een fout opgetreden bij het ophalen van het IP-adres"
 msgid "Not connected"
 msgstr "Niet verbonden"
 
-#~ msgid "Error while loading ScreenletTheme in: "
-#~ msgstr "Fout tijdens het laden van het ScreenletThema in: "
+#~ msgid "Can't parse /proc/meminfo"
+#~ msgstr "Er is een fout opgetreden bij het inladen van /proc/meminfo"
+
+#~ msgid "Can't open /proc/net/wireless"
+#~ msgstr "Er is een fout opgetreden bij het inladen van /proc/net/wireless"
+
+#~ msgid "Can't open /proc/net/dev"
+#~ msgstr "Er is een fout opgetreden bij het inladen van /proc/net/dev"
+
+#~ msgid "Can't open folder /proc/acpi/thermal_zone/"
+#~ msgstr ""
+#~ "Er is een fout opgetreden bij het inladen van /proc/acpi/thermal_zone/"
+
+#, python-format
+#~ msgid "Can't open %s/temperature"
+#~ msgstr "Er is een fout opgetreden bij het inladen van %s/temperature"
 
 #~ msgid "GnomeKeyring is not available!!"
 #~ msgstr "GnomeKeyring is niet beschikbaar!!"
@@ -387,61 +401,40 @@ msgstr "Niet verbonden"
 #~ msgid "No keyrings found. Please create one first!"
 #~ msgstr "Geen sleutels gevonden. Maak er eerst een."
 
-#~ msgid "Illegal value in AccountOption.on_import."
-#~ msgstr "Ongeldige waarde in AccountOption.on_import"
-
-#~ msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
-#~ msgstr "Ongeldige XML in metadata-bestand (of ontbrekend bestand): \"%s\"."
-
-#~ msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
-#~ msgstr "Missende of ongeldige rootnode in metadata-bestand: \"%s\"."
-
-#~ msgid ""
-#~ "Error in metadata-file \"%s\" - only <group>-tags allowed in first level. "
-#~ "Groups must contain at least one <info>-element."
-#~ msgstr ""
-#~ "Fout in metadata-bestand \"%s\" - alleen <groep>-tags toegestaan in "
-#~ "eerste niveau. Groepen moeten te minste één <info>-element bevatten."
-
+#, python-format
 #~ msgid "No name for group defined in \"%s\"."
 #~ msgstr "Geen naam voor groep gedefinieerd in \"%s\"."
 
-#~ msgid "Invalid option-node found in \"%s\"."
-#~ msgstr "Ongeldige optie-node gevonden in \"%s\"."
-
-#~ msgid "Can't parse /proc/meminfo"
-#~ msgstr "Er is een fout opgetreden bij het inladen van /proc/meminfo"
-
-#~ msgid "Can't open /proc/net/dev"
-#~ msgstr "Er is een fout opgetreden bij het inladen van /proc/net/dev"
-
-#~ msgid "Can't open /proc/net/wireless"
-#~ msgstr "Er is een fout opgetreden bij het inladen van /proc/net/wireless"
-
-#~ msgid "Can't open %s/temperature"
-#~ msgstr "Er is een fout opgetreden bij het inladen van %s/temperature"
-
-#~ msgid "Can't open folder /proc/acpi/thermal_zone/"
-#~ msgstr ""
-#~ "Er is een fout opgetreden bij het inladen van /proc/acpi/thermal_zone/"
-
+#, python-format
 #~ msgid "Can't open %s"
 #~ msgstr "Kan %s niet openen"
 
 #~ msgid "Error during hddtemp drives search"
 #~ msgstr "Fout bij zoeken naar hddtemp drives"
 
-#~ msgid "Hddtemp not installed"
-#~ msgstr "Hddtemp niet geïnstalleerd"
-
+#, python-format
 #~ msgid "can't read temperature in: %s"
 #~ msgstr "kan de temperatuur niet lezen in: %s"
 
+#~ msgid "No name set in ScreenletService.__init__!"
+#~ msgstr "Geen naam ingesteld in ScreenletService.__init__!"
+
+#~ msgid "Hddtemp not installed"
+#~ msgstr "Hddtemp niet geïnstalleerd"
+
+#, python-format
 #~ msgid "Can't read value from %s"
 #~ msgstr "Kan de waarde van %s niet lezen"
 
-#~ msgid "No name set in ScreenletService.__init__!"
-#~ msgstr "Geen naam ingesteld in ScreenletService.__init__!"
+#~ msgid "Error while loading ScreenletTheme in: "
+#~ msgstr "Fout tijdens het laden van het ScreenletThema in: "
+
+#~ msgid "Illegal value in AccountOption.on_import."
+#~ msgstr "Ongeldige waarde in AccountOption.on_import"
+
+#, python-format
+#~ msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
+#~ msgstr "Ongeldige XML in metadata-bestand (of ontbrekend bestand): \"%s\"."
 
 #~ msgid ""
 #~ "ScreenletSession.__init__ has to be called with a\n"
@@ -449,3 +442,19 @@ msgstr "Niet verbonden"
 #~ msgstr ""
 #~ "Screenlet_sessiont.__init__ moet aangeroepen worden met een\n"
 #~ "\t\t\t geldig Screenlet-klasse object als eerste argument!"
+
+#, python-format
+#~ msgid ""
+#~ "Error in metadata-file \"%s\" - only <group>-tags allowed in first level. "
+#~ "Groups must contain at least one <info>-element."
+#~ msgstr ""
+#~ "Fout in metadata-bestand \"%s\" - alleen <groep>-tags toegestaan in eerste "
+#~ "niveau. Groepen moeten te minste één <info>-element bevatten."
+
+#, python-format
+#~ msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
+#~ msgstr "Missende of ongeldige rootnode in metadata-bestand: \"%s\"."
+
+#, python-format
+#~ msgid "Invalid option-node found in \"%s\"."
+#~ msgstr "Ongeldige optie-node gevonden in \"%s\"."

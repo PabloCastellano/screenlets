@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-12 18:14+0900\n"
-"PO-Revision-Date: 2010-10-25 22:37+0000\n"
+"POT-Creation-Date: 2010-11-12 19:39+0900\n"
+"PO-Revision-Date: 2010-11-12 14:07+0000\n"
 "Last-Translator: Vladimir Sharshov <vsharshov@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
-"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-12 07:28+0000\n"
+"X-Launchpad-Export-Date: 2010-11-13 04:48+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: ru\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
 msgid "Screenlets daemon"
@@ -313,7 +313,8 @@ msgid "Theme installed , please restart %s"
 msgstr "Тема установлена, пожалуйста, перезапустите %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:824
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr "Ошибка 2 при установке темы - Тема не установлена или уже сущетсвует"
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
@@ -473,9 +474,9 @@ msgid "Found %sScreenlet.py in path."
 msgstr "В каталоге обнаружен %sScreenlet.py"
 
 #: src/share/screenlets-manager/screenlets-packager.py:92
-#, fuzzy, python-format
+#, python-format
 msgid "Unable to import module '%(name)s' from %(path)s. (%(error)s)"
-msgstr "Невозможно импортировать модуль '%s' из %s. (%s)"
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-packager.py:93
 #, python-format
@@ -616,6 +617,73 @@ msgstr ""
 msgid "Failed to add %sScreenlet."
 msgstr "Не удалось добавть скринлет %s."
 
+#~ msgid "ScreenletsDaemon: registered %s"
+#~ msgstr "Демон Screenlets (Скринлеты): зарегистрирован %s"
+
+#~ msgid "screenletsDaemon: unregistered %s"
+#~ msgstr "Демон Screenlets (Скринлеты): незарегистрирован %s"
+
+#~ msgid "Invalid archive. Archive does not contain a screenlet."
+#~ msgstr "Неправильный архив. Архив не содержит скринлет."
+
+#~ msgid "Archive damaged or unsuported, only tar , bz2 or gz."
+#~ msgstr ""
+#~ "Архив поврежден или неподдерживается. Поддерживаются только следующие "
+#~ "форматы: tar, bz2, gz."
+
+#~ msgid "ScreenletsDaemon running ..."
+#~ msgstr "Демон Screenlets (Скринлеты) запущен..."
+
+#~ msgid "Exception in ScreenletsDaemon: %s"
+#~ msgstr "Исключение (ошибка) в демоне Screenlets (Скринлеты): %s"
+
+#~ msgid "ScreenletsDaemon has been shut down ..."
+#~ msgstr "Демон Screenlets (Скринлеты) был остановлен..."
+
+#~ msgid "It looks like you are running %s"
+#~ msgstr "Кажется у Вас запущено %s"
+
+#~ msgid "Installing %s"
+#~ msgstr "Устанавливается %s"
+
+#~ msgid "Create autostarter for: Screenlets Daemon"
+#~ msgstr "Создание автозапуска для: демона Screenlets (Скринлеты)"
+
+#~ msgid "Create autostarter for: %s/%sScreenlet.py"
+#~ msgstr "Создание элемента автозапуска для: %s/%sScreenlet.py"
+
+#~ msgid "Removed duplicate entry"
+#~ msgstr "Убрана вторичная запись."
+
+#~ msgid "Delete autostarter for %s."
+#~ msgstr "Удаление элемента автозапуска для %s."
+
+#~ msgid "DAEMON FOUND - Ending timeout"
+#~ msgstr "Демон найден - таймаут завершения"
+
+#~ msgid "checking for running daemon again ..."
+#~ msgstr "проверяем еще раз, что демон запущен..."
+
+#~ msgid "Error in ScreenletsManager.connect_daemon: %s"
+#~ msgstr "Ошибка в менеджере скринлетов. ScreenletsManager.connect_daemon: %s"
+
+#~ msgid "Error: Unable to connect/launch daemon."
+#~ msgstr "Ошибка: Невозможно соединиться/запустить демон."
+
+#~ msgid "Trying to launching screenlets-daemon ..."
+#~ msgstr "Попытка запуска демона Screenlets (Скринлеты)"
+
+#~ msgid "Starter already exists."
+#~ msgstr "Элемент автозапуска уже создан."
+
+#~ msgid "Please install screenlets from folders without strange characters"
+#~ msgstr ""
+#~ "Пожалуйста, устанавливайте скринлеты из папок, пути которых не содержат "
+#~ "\"странных\" символов."
+
+#~ msgid "Data dropped ..."
+#~ msgstr "Данные сброшены ..."
+
 #~ msgid ""
 #~ "You are about to install a theme in root mode. Continue only if you have "
 #~ "gksudo installed, do you wish to continue?"
@@ -624,67 +692,23 @@ msgstr "Не удалось добавть скринлет %s."
 #~ "Продолжайте только, если установлено приложение gksudo. Вы уверены, что "
 #~ "хотите продолжить?"
 
-#~ msgid "ScreenletsDaemon: registered %s"
-#~ msgstr "Демон Screenlets (Скринлеты): зарегистрирован %s"
-
-#~ msgid "screenletsDaemon: unregistered %s"
-#~ msgstr "Демон Screenlets (Скринлеты): незарегистрирован %s"
-
-#~ msgid "ScreenletsDaemon running ..."
-#~ msgstr "Демон Screenlets (Скринлеты) запущен..."
-
-#~ msgid "ScreenletsDaemon has been shut down ..."
-#~ msgstr "Демон Screenlets (Скринлеты) был остановлен..."
-
-#~ msgid "Exception in ScreenletsDaemon: %s"
-#~ msgstr "Исключение (ошибка) в демоне Screenlets (Скринлеты): %s"
-
-#~ msgid "Trying to launching screenlets-daemon ..."
-#~ msgstr "Попытка запуска демона Screenlets (Скринлеты)"
-
-#~ msgid "checking for running daemon again ..."
-#~ msgstr "проверяем еще раз, что демон запущен..."
-
-#~ msgid "DAEMON FOUND - Ending timeout"
-#~ msgstr "Демон найден - таймаут завершения"
-
-#~ msgid "Error: Unable to connect/launch daemon."
-#~ msgstr "Ошибка: Невозможно соединиться/запустить демон."
-
-#~ msgid "Data dropped ..."
-#~ msgstr "Данные сброшены ..."
-
-#~ msgid "Please install screenlets from folders without strange characters"
-#~ msgstr ""
-#~ "Пожалуйста, устанавливайте скринлеты из папок, пути которых не содержат "
-#~ "\"странных\" символов."
-
-#~ msgid "Installing %s"
-#~ msgstr "Устанавливается %s"
-
 #~ msgid "list contains themes folder"
 #~ msgstr "список содержит папку с темами"
 
 #~ msgid "list contains the screenlet name folder"
 #~ msgstr "список содержит имя папки скринлета"
 
-#~ msgid "only contains the themes folders"
-#~ msgstr "Содержит только темы"
-
-#~ msgid "Create desktop shortcut for: %s/%sScreenlet.py"
-#~ msgstr "Создать ярлык на рабочем столе для: %s/%sScreenlet.py"
-
-#~ msgid "Failed to create autostarter for %s."
-#~ msgstr "Не удалось создать элемент автозапуска для %s"
+#~ msgid "Quit %s"
+#~ msgstr "Выйти из %s"
 
 #~ msgid "Launch %s"
 #~ msgstr "Запустить %s"
 
-#~ msgid "Quit %s"
-#~ msgstr "Выйти из %s"
-
 #~ msgid "Quit!"
 #~ msgstr "Выход!"
+
+#~ msgid "closing %s"
+#~ msgstr "закрытие %s"
 
 #~ msgid "OK."
 #~ msgstr "OK."
@@ -699,34 +723,11 @@ msgstr "Не удалось добавть скринлет %s."
 #~ msgid "Auto-create autostart dir ..."
 #~ msgstr "Автоматическое создание папки автозапуска ..."
 
-#~ msgid "Removed duplicate entry"
-#~ msgstr "Убрана вторичная запись."
+#~ msgid "Failed to create autostarter for %s."
+#~ msgstr "Не удалось создать элемент автозапуска для %s"
 
-#~ msgid "Create autostarter for: %s/%sScreenlet.py"
-#~ msgstr "Создание элемента автозапуска для: %s/%sScreenlet.py"
+#~ msgid "only contains the themes folders"
+#~ msgstr "Содержит только темы"
 
-#~ msgid "Starter already exists."
-#~ msgstr "Элемент автозапуска уже создан."
-
-#~ msgid "Delete autostarter for %s."
-#~ msgstr "Удаление элемента автозапуска для %s."
-
-#~ msgid "Error in ScreenletsManager.connect_daemon: %s"
-#~ msgstr "Ошибка в менеджере скринлетов. ScreenletsManager.connect_daemon: %s"
-
-#~ msgid "Create autostarter for: Screenlets Daemon"
-#~ msgstr "Создание автозапуска для: демона Screenlets (Скринлеты)"
-
-#~ msgid "Archive damaged or unsuported, only tar , bz2 or gz."
-#~ msgstr ""
-#~ "Архив поврежден или неподдерживается. Поддерживаются только следующие "
-#~ "форматы: tar, bz2, gz."
-
-#~ msgid "Invalid archive. Archive does not contain a screenlet."
-#~ msgstr "Неправильный архив. Архив не содержит скринлет."
-
-#~ msgid "It looks like you are running %s"
-#~ msgstr "Кажется у Вас запущено %s"
-
-#~ msgid "closing %s"
-#~ msgstr "закрытие %s"
+#~ msgid "Create desktop shortcut for: %s/%sScreenlet.py"
+#~ msgstr "Создать ярлык на рабочем столе для: %s/%sScreenlet.py"

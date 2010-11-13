@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-12 18:14+0900\n"
-"PO-Revision-Date: 2010-10-25 22:47+0000\n"
+"POT-Creation-Date: 2010-11-12 19:39+0900\n"
+"PO-Revision-Date: 2010-11-12 14:11+0000\n"
 "Last-Translator: kawaji <jiro.kawada@gmail.com>\n"
 "Language-Team: Japanese <ja@li.org>\n"
-"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-12 07:28+0000\n"
+"X-Launchpad-Export-Date: 2010-11-13 04:48+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: ja\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
 msgid "Screenlets daemon"
@@ -76,9 +76,8 @@ msgid ""
 "functionality is disabled. You can use this to install screenlets into the "
 "system-wide path."
 msgstr ""
-"重要！あなたはこのアプリケーションを root ユーザーとして実行していて、ほとん"
-"ど全ての機能は無効になっています。各種 Screenlet をシステム全般のパスにインス"
-"トールするためにこれを使用出来ます。"
+"重要！あなたはこのアプリケーションを root ユーザーとして実行していて、ほとんど全ての機能は無効になっています。各種 Screenlet "
+"をシステム全般のパスにインストールするためにこれを使用出来ます。"
 
 #: src/share/screenlets-manager/screenlets-manager.py:101
 msgid "Warning!"
@@ -87,9 +86,7 @@ msgstr "警告！"
 #: src/share/screenlets-manager/screenlets-manager.py:132
 msgid ""
 "Unable to connect or launch daemon. Some values may be displayed incorrectly."
-msgstr ""
-"デーモンへの接続や起動が出来ません。正しく表示されていない値がいくつかあるか"
-"もしれません。"
+msgstr "デーモンへの接続や起動が出来ません。正しく表示されていない値がいくつかあるかもしれません。"
 
 #: src/share/screenlets-manager/screenlets-manager.py:132 src/lib/utils.py:100
 #: src/lib/utils.py:104 src/lib/utils.py:545 src/lib/utils.py:549
@@ -181,9 +178,7 @@ msgstr "選択した Screenlet の新しいインスタンスを起動/追加...
 #: src/share/screenlets-manager/screenlets-manager.py:420
 msgid ""
 "Install a new Screenlet, SuperKaramba or Web Widget or Web Application  ..."
-msgstr ""
-"新しい Screenlet や SuperKaramba または Web ウィジェットや Web アプリーション"
-"をインストール..."
+msgstr "新しい Screenlet や SuperKaramba または Web ウィジェットや Web アプリーションをインストール..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:421
 msgid "Permanently uninstall/delete the currently selected Screenlet ..."
@@ -192,8 +187,7 @@ msgstr "現在選択中の Screenlet を完全にアンインストール/削除
 #: src/share/screenlets-manager/screenlets-manager.py:422
 msgid ""
 "Reset this Screenlet configuration (will only work if screenlet isnt running)"
-msgstr ""
-"この Screenlet の設定をリセット（Screenlet が未実行の場合のみ働きます）"
+msgstr "この Screenlet の設定をリセット（Screenlet が未実行の場合のみ働きます）"
 
 #: src/share/screenlets-manager/screenlets-manager.py:423
 msgid "Install new theme for this screenlet"
@@ -284,17 +278,14 @@ msgstr "エラー発見"
 #: src/share/screenlets-manager/screenlets-manager.py:773
 msgid ""
 "Theme install error 1 found - Theme not installed , maybe a package error "
-msgstr ""
-"テーマインストールエラー 1 発見 - テーマは未インストール、パッケージエラーの"
-"可能性 "
+msgstr "テーマインストールエラー 1 発見 - テーマは未インストール、パッケージエラーの可能性 "
 
 #: src/share/screenlets-manager/screenlets-manager.py:784
 msgid ""
 "This package seams to contain a full Screenlet and not just a theme, please "
 "use the screenlet install instead"
 msgstr ""
-"このパッケージにはテーマだけではなく完全な Screenlet が含まれているようです。"
-"Screenlet のインストールを代わりに使用してください。"
+"このパッケージにはテーマだけではなく完全な Screenlet が含まれているようです。Screenlet のインストールを代わりに使用してください。"
 
 #: src/share/screenlets-manager/screenlets-manager.py:796
 msgid "This package doesnt seem to contain a theme"
@@ -306,10 +297,9 @@ msgid "Theme installed , please restart %s"
 msgstr "テーマがインストールされました。%s を再スタートしてください。"
 
 #: src/share/screenlets-manager/screenlets-manager.py:824
-msgid "Theme install error 2 found - Theme not installed or already installed"
-msgstr ""
-"テーマインストールエラー 2 発見 - テーマは未インストールまたはインストール済"
-"み"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
+msgstr "テーマインストールエラー 2 発見 - テーマは未インストールまたはインストール済み"
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
 msgid "Install SuperKaramba Theme"
@@ -457,8 +447,7 @@ msgstr "Screenlet 名は %s です。"
 #: src/share/screenlets-manager/screenlets-packager.py:82
 #, python-format
 msgid "No screenlet-file \"%sScreenlet.py\" found in the given path."
-msgstr ""
-"与えられたパスで Screenletファイル \"%sScreenlet.py\" が見つかりません。"
+msgstr "与えられたパスで Screenletファイル \"%sScreenlet.py\" が見つかりません。"
 
 #: src/share/screenlets-manager/screenlets-packager.py:83
 #, python-format
@@ -466,9 +455,9 @@ msgid "Found %sScreenlet.py in path."
 msgstr "パスで %sScreenlet.py 発見。"
 
 #: src/share/screenlets-manager/screenlets-packager.py:92
-#, fuzzy, python-format
+#, python-format
 msgid "Unable to import module '%(name)s' from %(path)s. (%(error)s)"
-msgstr "モジュールからクラスをインポート出来ません。"
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-packager.py:93
 #, python-format
@@ -511,8 +500,7 @@ msgstr ""
 
 #: src/lib/install.py:113
 msgid "Archive is damaged or unsupported, use only tar, bz2 or gz."
-msgstr ""
-"書庫は壊れているか未対応形式です。tar, bz2 または gz のみ使用してください。"
+msgstr "書庫は壊れているか未対応形式です。tar, bz2 または gz のみ使用してください。"
 
 #. check if screenlet is already installed
 #. found_path = screenlets.utils.find_first_screenlet_path(name)
@@ -538,9 +526,7 @@ msgstr "%sScreenlet はすでにインストール済み"
 #: src/lib/install.py:137
 msgid ""
 "Invalid archive. Archive must contain a directory with the screenlet's name."
-msgstr ""
-"不正な書庫です。書庫には Screenlet の名前の付いたディレクトリが含まれている必"
-"要があります。"
+msgstr "不正な書庫です。書庫には Screenlet の名前の付いたディレクトリが含まれている必要があります。"
 
 #: src/lib/install.py:149
 msgid "Compatibility for this karamba theme is not yet implemented"
@@ -554,23 +540,18 @@ msgstr "Karamba テーマのインストールに成功しました"
 msgid ""
 "Invalid archive. Archive does not contain a screenlet or a valid karamba "
 "theme."
-msgstr ""
-"不正な書庫。書庫には Screenlet または適正な Karemba テーマが含まれていませ"
-"ん。"
+msgstr "不正な書庫。書庫には Screenlet または適正な Karemba テーマが含まれていません。"
 
 #: src/lib/install.py:193
 #, python-format
 msgid ""
 "%s was not packaged with the screenlet packager. Do you wish to continue and "
 "try to install it?"
-msgstr ""
-"%s は Screenlet パッケージャによってパッケージされていません。このまま続けて"
-"インストールを試行しますか？"
+msgstr "%s は Screenlet パッケージャによってパッケージされていません。このまま続けてインストールを試行しますか？"
 
 #: src/lib/install.py:196
 msgid "This package was not packaged with the screenlet packager."
-msgstr ""
-"このパッケージは Screenlet パッケージャによってパッケージされていません。"
+msgstr "このパッケージは Screenlet パッケージャによってパッケージされていません。"
 
 #. set msg/result
 #: src/lib/install.py:205
@@ -583,9 +564,7 @@ msgstr "%sScreenlet のインストールに成功しました。"
 msgid ""
 "There is no existing autostart directory for your user account yet. Do you "
 "want me to automatically create it for you?"
-msgstr ""
-"あなたのユーザーアカウント用の autostart ディレクトリがまだありません。自動的"
-"に作成しますか？"
+msgstr "あなたのユーザーアカウント用の autostart ディレクトリがまだありません。自動的に作成しますか？"
 
 #: src/lib/utils.py:104 src/lib/utils.py:549
 #, python-format
@@ -610,13 +589,6 @@ msgstr ""
 msgid "Failed to add %sScreenlet."
 msgstr "%sScreenlet 追加に失敗。"
 
-#~ msgid ""
-#~ "You are about to install a theme in root mode. Continue only if you have "
-#~ "gksudo installed, do you wish to continue?"
-#~ msgstr ""
-#~ "root モードでテーマをインストールしようとしています。gksudo をインストール"
-#~ "済みの場合にのみ続行してください。続行しますか？"
-
 #~ msgid "ScreenletsDaemon running ..."
 #~ msgstr "ScreenletsDaemon 実行中..."
 
@@ -625,6 +597,28 @@ msgstr "%sScreenlet 追加に失敗。"
 
 #~ msgid "Exception in ScreenletsDaemon: %s"
 #~ msgstr "ScreenletsDaemon に例外: %s"
+
+#~ msgid "It looks like you are running %s"
+#~ msgstr "%s を実行中のように見えます"
+
+#~ msgid "Installing %s"
+#~ msgstr "%s インストール中"
+
+#~ msgid ""
+#~ "The %sScreenlet is already installed in '%s'.\n"
+#~ "Do you wish to continue?"
+#~ msgstr ""
+#~ "%sScreenlet はすでに '%s' にインストールされています。\n"
+#~ "続行しますか？"
+
+#~ msgid "Auto-create autostart dir ..."
+#~ msgstr "autostart ディレクトリの自動作成..."
+
+#~ msgid "Failed to create autostarter for %s."
+#~ msgstr "%s の autostarter の作成に失敗。"
+
+#~ msgid "Starter already exists."
+#~ msgstr "Starter はすでに存在。"
 
 #~ msgid "Trying to launching screenlets-daemon ..."
 #~ msgstr "Screenlets-daemon の起動を試行中..."
@@ -638,13 +632,22 @@ msgstr "%sScreenlet 追加に失敗。"
 #~ msgid "Error: Unable to connect/launch daemon."
 #~ msgstr "エラー: デーモンへの接続や起動が出来ません。"
 
-#~ msgid "Please install screenlets from folders without strange characters"
-#~ msgstr ""
-#~ "未知の文字が使用されていないフォルダから Screenlet をインストールしてくだ"
-#~ "さい"
+#~ msgid "Error in ScreenletsManager.connect_daemon: %s"
+#~ msgstr "ScreenletsManager.connect_daemon にエラー: %s"
 
-#~ msgid "Installing %s"
-#~ msgstr "%s インストール中"
+#~ msgid "Removed duplicate entry"
+#~ msgstr "重複エントリーを削除しました"
+
+#~ msgid "Delete autostarter for %s."
+#~ msgstr "%s の autostarter を削除。"
+
+#~ msgid "Please install screenlets from folders without strange characters"
+#~ msgstr "未知の文字が使用されていないフォルダから Screenlet をインストールしてください"
+
+#~ msgid ""
+#~ "You are about to install a theme in root mode. Continue only if you have "
+#~ "gksudo installed, do you wish to continue?"
+#~ msgstr "root モードでテーマをインストールしようとしています。gksudo をインストール済みの場合にのみ続行してください。続行しますか？"
 
 #~ msgid "list contains themes folder"
 #~ msgstr "リストにはテーマフォルダが含まれています"
@@ -655,8 +658,8 @@ msgstr "%sScreenlet 追加に失敗。"
 #~ msgid "only contains the themes folders"
 #~ msgstr "テーマフォルダのみ含まれています"
 
-#~ msgid "Failed to create autostarter for %s."
-#~ msgstr "%s の autostarter の作成に失敗。"
+#~ msgid "closing %s"
+#~ msgstr "%s を閉じています"
 
 #~ msgid "Launch %s"
 #~ msgstr "%s の起動"
@@ -670,38 +673,8 @@ msgstr "%sScreenlet 追加に失敗。"
 #~ msgid "OK."
 #~ msgstr "OK."
 
-#~ msgid ""
-#~ "The %sScreenlet is already installed in '%s'.\n"
-#~ "Do you wish to continue?"
-#~ msgstr ""
-#~ "%sScreenlet はすでに '%s' にインストールされています。\n"
-#~ "続行しますか？"
-
-#~ msgid "Auto-create autostart dir ..."
-#~ msgstr "autostart ディレクトリの自動作成..."
-
-#~ msgid "Removed duplicate entry"
-#~ msgstr "重複エントリーを削除しました"
-
-#~ msgid "Starter already exists."
-#~ msgstr "Starter はすでに存在。"
-
-#~ msgid "Delete autostarter for %s."
-#~ msgstr "%s の autostarter を削除。"
-
-#~ msgid "Error in ScreenletsManager.connect_daemon: %s"
-#~ msgstr "ScreenletsManager.connect_daemon にエラー: %s"
-
-#~ msgid "Archive damaged or unsuported, only tar , bz2 or gz."
-#~ msgstr ""
-#~ "書庫は壊れているか未対応形式です。tar , bz2 または gz にのみ対応していま"
-#~ "す。"
-
 #~ msgid "Invalid archive. Archive does not contain a screenlet."
 #~ msgstr "不正な書庫です。書庫に Screenlet が含まれていません。"
 
-#~ msgid "It looks like you are running %s"
-#~ msgstr "%s を実行中のように見えます"
-
-#~ msgid "closing %s"
-#~ msgstr "%s を閉じています"
+#~ msgid "Archive damaged or unsuported, only tar , bz2 or gz."
+#~ msgstr "書庫は壊れているか未対応形式です。tar , bz2 または gz にのみ対応しています。"

@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-12 18:14+0900\n"
-"PO-Revision-Date: 2010-11-02 02:42+0000\n"
+"POT-Creation-Date: 2010-11-12 19:39+0900\n"
+"PO-Revision-Date: 2010-11-12 21:27+0000\n"
 "Last-Translator: tabbernuk <boamaod@gmail.com>\n"
 "Language-Team: Estonian <gnome-et@lists.linux.ee>\n"
-"Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-04 05:18+0000\n"
+"X-Launchpad-Export-Date: 2010-11-13 04:48+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: et\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
 msgid "Screenlets daemon"
@@ -209,8 +209,7 @@ msgstr "Paigalda sellele töölauavidinale uus teema"
 #: src/share/screenlets-manager/screenlets-manager.py:424
 msgid "Restart all screenlets that have auto start at login"
 msgstr ""
-"Taaskäivita kõik töölauavidinad, mida sisselogimisel automaatselt "
-"käivitatakse"
+"Taaskäivita kõik sisselogimisel automaatselt käivitatavad töölauavidinad"
 
 #: src/share/screenlets-manager/screenlets-manager.py:425
 msgid "Close all Screenlets running"
@@ -242,7 +241,7 @@ msgstr "Sisseehitatud vidinad"
 
 #: src/share/screenlets-manager/screenlets-manager.py:450
 msgid "Only third party"
-msgstr "Kasutaja lisatud vidinad"
+msgstr "Käsitsi paigaldatud vidinad"
 
 #: src/share/screenlets-manager/screenlets-manager.py:476
 msgid "Get more screenlets"
@@ -271,7 +270,7 @@ msgstr "Isekäivitumine sisenemisel"
 
 #: src/share/screenlets-manager/screenlets-manager.py:520
 msgid "Show daemon in tray"
-msgstr "Haldurit näidatakse salves"
+msgstr "Haldurit näidatakse teatealal"
 
 #: src/share/screenlets-manager/screenlets-manager.py:650
 #, python-format
@@ -294,16 +293,16 @@ msgstr "Leitud viga"
 msgid ""
 "Theme install error 1 found - Theme not installed , maybe a package error "
 msgstr ""
-"Leitud teema paigaldamise viga 1 - Teema pole paigaldatud , võimalik et paki "
-"viga "
+"Tõrge teema paigaldamisel. Teema jäeti võimaliku pakendamisvea tõttu "
+"paigaldamata. "
 
 #: src/share/screenlets-manager/screenlets-manager.py:784
 msgid ""
 "This package seams to contain a full Screenlet and not just a theme, please "
 "use the screenlet install instead"
 msgstr ""
-"Selles pakis paistab olevat terve töölauavidin, aga mitte ainult teema, "
-"seega kasuta selle asemel töölauavidinate paigaldajat"
+"Selles pakis paistab olevat terve töölauavidin, aga mitte ainult teema. "
+"Kasuta paigaldamiseks töölauavidinate paigaldajat!"
 
 #: src/share/screenlets-manager/screenlets-manager.py:796
 msgid "This package doesnt seem to contain a theme"
@@ -315,10 +314,11 @@ msgid "Theme installed , please restart %s"
 msgstr "Teema paigaldatud, palun taaskäivita %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:824
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
-"Leitud teema paigaldamise viga 2 - Teema pole paigaldatud või on juba "
-"paigaldatud"
+"Tõrge teema paigaldamisel. Teema jäeti paigaldamata, kuid võib olla juba "
+"varem paigaldatud."
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
 msgid "Install SuperKaramba Theme"
@@ -394,7 +394,7 @@ msgstr "Viga paigaldamisel!!!"
 #: src/share/screenlets-manager/screenlets-manager.py:1068
 #: src/share/screenlets-manager/screenlets-manager.py:1153
 msgid "Please specify a name for the widget"
-msgstr "Palun täpsusta vidina nime"
+msgstr "Palun määra vidinale nimi"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1069
 #: src/share/screenlets-manager/screenlets-manager.py:1154
@@ -426,7 +426,7 @@ msgstr "Vidina nimi"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1101
 msgid "Widget converter"
-msgstr "Vidina teisendaja"
+msgstr "Vidinateisendaja"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1149
 msgid "Widget was successfully converted"
@@ -446,6 +446,8 @@ msgid ""
 "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
 "Usage: screenlets-packager <path> [options]"
 msgstr ""
+"Screenletide pakendaja - (c) RYX (Rico Pfaus) 2007\n"
+"Kasutus: screenlets-packager <asukoht> [võtmed]"
 
 #: src/share/screenlets-manager/screenlets-packager.py:70
 #, python-format
@@ -477,9 +479,10 @@ msgid "Found %sScreenlet.py in path."
 msgstr "Asukohast leiti %sScreenlet."
 
 #: src/share/screenlets-manager/screenlets-packager.py:92
-#, fuzzy, python-format
+#, python-format
 msgid "Unable to import module '%(name)s' from %(path)s. (%(error)s)"
-msgstr "Ei suuda importida moodulist klassi."
+msgstr ""
+"Mooduli '%(name)s' importimine asukohast %(path)s ebaõnnestus (%(error)s)"
 
 #: src/share/screenlets-manager/screenlets-packager.py:93
 #, python-format
@@ -492,7 +495,8 @@ msgstr "Ei suuda importida moodulist klassi."
 
 #: src/share/screenlets-manager/screenlets-packager.py:101
 msgid "The class inside the module is no subclass of screenlets.Screenlet."
-msgstr "Moodulis sisalduv klass ei ole screenlets.Screenlet klassi alamklass."
+msgstr ""
+"Moodulis sisalduv klass ei ole screenlets.Screenlet klassi alamklass."
 
 #: src/share/screenlets-manager/screenlets-packager.py:102
 #, python-format
@@ -502,7 +506,8 @@ msgstr "Leitud klass moodulist %s"
 #: src/share/screenlets-manager/screenlets-packager.py:126
 #, python-format
 msgid "Failed to create package info in \"%s\" (no permission?)."
-msgstr "Paketiinfo tekitamine kataloogis \"%s\" ebaõnnestus (õigused puudu?)."
+msgstr ""
+"Paketiinfo tekitamine kataloogis \"%s\" ebaõnnestus (õigused puudu?)."
 
 #: src/share/screenlets-manager/screenlets-packager.py:127
 msgid "Created package info file."
@@ -620,85 +625,60 @@ msgstr ""
 msgid "Failed to add %sScreenlet."
 msgstr "%sScreenlet'i lisamine ebaõnnestus."
 
-#~ msgid ""
-#~ "You are about to install a theme in root mode. Continue only if you have "
-#~ "gksudo installed, do you wish to continue?"
-#~ msgstr ""
-#~ "Sa hakkad paigaldama teemat juurkasutajana. Jätka ainult siis kui sul on "
-#~ "gksudo paigaldatud, kas jätkata?"
-
 #~ msgid "ScreenletsDaemon: registered %s"
 #~ msgstr "ScreenletsDaemon: registreeritud %s"
-
-#~ msgid "screenletsDaemon: unregistered %s"
-#~ msgstr "screenletsDaemon: maha kantud %s"
 
 #~ msgid "ScreenletsDaemon running ..."
 #~ msgstr "ScreenletsDaemon käib ..."
 
-#~ msgid "ScreenletsDaemon has been shut down ..."
-#~ msgstr "ScreenletsDaemon on suletud ..."
+#~ msgid "screenletsDaemon: unregistered %s"
+#~ msgstr "screenletsDaemon: maha kantud %s"
 
 #~ msgid "Exception in ScreenletsDaemon: %s"
 #~ msgstr "Erand ScreenletsDaemonis: %s"
 
-#~ msgid "Trying to launching screenlets-daemon ..."
-#~ msgstr "Üritamas käivitada screenlets-daemon'it ..."
+#~ msgid "ScreenletsDaemon has been shut down ..."
+#~ msgstr "ScreenletsDaemon on suletud ..."
 
-#~ msgid "checking for running daemon again ..."
-#~ msgstr "uuesti kontrollimas deemoni töösolekut ..."
+#~ msgid "It looks like you are running %s"
+#~ msgstr "Paistab, et sul töötab %s"
 
-#~ msgid "DAEMON FOUND - Ending timeout"
-#~ msgstr "DEEMON LEITUD - Aegumise peatamine"
+#~ msgid "Archive damaged or unsuported, only tar , bz2 or gz."
+#~ msgstr "Arhiiv vigane või toetatamata, võib olla ainult tar, bz2 või gz."
 
-#~ msgid "Error: Unable to connect/launch daemon."
-#~ msgstr "Viga: Ei õnnestu deemonit ühendada/käivitada"
-
-#~ msgid "Error while loading screenlets metadata for \"%s\"."
-#~ msgstr "Tõrge vidinate metaandmete laadimisel \"%s\" jaoks."
-
-#~ msgid "Data dropped ..."
-#~ msgstr "Andmed kaotatud ..."
-
-#~ msgid "Please install screenlets from folders without strange characters"
+#~ msgid ""
+#~ "The %sScreenlet is already installed in '%s'.\n"
+#~ "Do you wish to continue?"
 #~ msgstr ""
-#~ "Palun paigalda vidinad kataloogidest, mis ei sisalda ebatavalisi tähemärke"
+#~ "%sScreenlet on juba paigaldatud kataloogis '%s'.\n"
+#~ "Kas jätkata?"
 
 #~ msgid "Installing %s"
 #~ msgstr "%s paigaldamine"
 
-#~ msgid "list contains themes folder"
-#~ msgstr "nimekiri sisaldab teemade kataloogi"
+#~ msgid "checking for running daemon again ..."
+#~ msgstr "uuesti kontrollimas deemoni töösolekut ..."
 
-#~ msgid "list contains the screenlet name folder"
-#~ msgstr "nimekiri sisaldab töölauavidina nimede kataloogi"
+#~ msgid "Trying to launching screenlets-daemon ..."
+#~ msgstr "Üritamas käivitada screenlets-daemon'it ..."
 
-#~ msgid "only contains the themes folders"
-#~ msgstr "sisaldab ainult teemade katalooge"
+#~ msgid "Starter already exists."
+#~ msgstr "Käivitaja on juba olemas."
 
 #~ msgid "Failed to create autostarter for %s."
 #~ msgstr "Automaatkäivitaja tekitamine %s jaoks ebaõnnestus."
 
-#~ msgid "Launch %s"
-#~ msgstr "Käivita %s"
+#~ msgid "Create autostarter for: Screenlets Daemon"
+#~ msgstr "Screenlets deemonile automaatkäivitaja tekitamine"
 
-#~ msgid "Quit %s"
-#~ msgstr "Sulge %s"
+#~ msgid "DAEMON FOUND - Ending timeout"
+#~ msgstr "DEEMON LEITUD - Aegumise peatamine"
 
-#~ msgid "Quit!"
-#~ msgstr "Sulge!"
-
-#~ msgid "OK."
-#~ msgstr "OK."
-
-#~ msgid "Auto-create autostart dir ..."
-#~ msgstr "Automaatkäivituse kataloogi loomine..."
+#~ msgid "Create autostarter for: %s/%sScreenlet.py"
+#~ msgstr "Tekita sellele automaatkäivitaja: %s/%sScreenlet.py"
 
 #~ msgid "Removed duplicate entry"
 #~ msgstr "Topeltsissekanne eemaldatud"
-
-#~ msgid "Starter already exists."
-#~ msgstr "Käivitaja on juba olemas."
 
 #~ msgid "Delete autostarter for %s."
 #~ msgstr "Kustuta %s automaatkäivitaja."
@@ -706,8 +686,52 @@ msgstr "%sScreenlet'i lisamine ebaõnnestus."
 #~ msgid "Error in ScreenletsManager.connect_daemon: %s"
 #~ msgstr "ScreenletsManager.connect_daemon viga: %s"
 
-#~ msgid "Create autostarter for: Screenlets Daemon"
-#~ msgstr "Screenlets deemonile automaatkäivitaja tekitamine"
+#~ msgid "Error: Unable to connect/launch daemon."
+#~ msgstr "Viga: Ei õnnestu deemonit ühendada/käivitada"
+
+#~ msgid "Data dropped ..."
+#~ msgstr "Andmed kaotatud ..."
+
+#~ msgid ""
+#~ "You are about to install a theme in root mode. Continue only if you have "
+#~ "gksudo installed, do you wish to continue?"
+#~ msgstr ""
+#~ "Sa hakkad paigaldama teemat juurkasutajana. Jätka ainult siis kui sul on "
+#~ "gksudo paigaldatud, kas jätkata?"
+
+#~ msgid "list contains themes folder"
+#~ msgstr "nimekiri sisaldab teemade kataloogi"
+
+#~ msgid "only contains the themes folders"
+#~ msgstr "sisaldab ainult teemade katalooge"
+
+#~ msgid "closing %s"
+#~ msgstr "sulgemas %s"
+
+#~ msgid "Quit %s"
+#~ msgstr "Sulge %s"
+
+#~ msgid "Launch %s"
+#~ msgstr "Käivita %s"
+
+#~ msgid "Quit!"
+#~ msgstr "Sulge!"
+
+#~ msgid "OK."
+#~ msgstr "OK."
+
+#~ msgid "Error while loading screenlets metadata for \"%s\"."
+#~ msgstr "Tõrge vidinate metaandmete laadimisel \"%s\" jaoks."
+
+#~ msgid "Please install screenlets from folders without strange characters"
+#~ msgstr ""
+#~ "Palun paigalda vidinad kataloogidest, mis ei sisalda ebatavalisi tähemärke"
+
+#~ msgid "list contains the screenlet name folder"
+#~ msgstr "nimekiri sisaldab töölauavidina nimede kataloogi"
+
+#~ msgid "Auto-create autostart dir ..."
+#~ msgstr "Automaatkäivituse kataloogi loomine..."
 
 #~ msgid "File %s not found"
 #~ msgstr "Faili %s ei leitud"
@@ -718,41 +742,21 @@ msgstr "%sScreenlet'i lisamine ebaõnnestus."
 #~ msgid "Create desktop shortcut for: %s/%sScreenlet.py"
 #~ msgstr "Tekita töölaual otsetee: %s/%sScreenlet.py"
 
-#~ msgid ""
-#~ "The %sScreenlet is already installed in '%s'.\n"
-#~ "Do you wish to continue?"
-#~ msgstr ""
-#~ "%sScreenlet on juba paigaldatud kataloogis '%s'.\n"
-#~ "Kas jätkata?"
-
-#~ msgid "Create autostarter for: %s/%sScreenlet.py"
-#~ msgstr "Tekita sellele automaatkäivitaja: %s/%sScreenlet.py"
-
-#~ msgid "Archive damaged or unsuported, only tar , bz2 or gz."
-#~ msgstr "Arhiiv vigane või toetatamata, võib olla ainult tar, bz2 või gz."
-
 #~ msgid "Invalid archive. Archive does not contain a screenlet."
 #~ msgstr "Vigane arhiiv. Arhiiv ei sisalda töölauavidin'i."
 
-#~ msgid "It looks like you are running %s"
-#~ msgstr "Paistab, et sul töötab %s"
-
-#~ msgid "closing %s"
-#~ msgstr "sulgemas %s"
-
 #~ msgid ""
 #~ "Screenlets is a widget framework that consists of small owner-drawn "
-#~ "applications (written in Python, a very simple object-oriented "
-#~ "programming-language) that can be described as 'the virtual "
-#~ "representation of things lying/standing around on your desk'. Sticknotes, "
-#~ "clocks, rulers, ... the possibilities are endless. Screenlet also tries "
-#~ "to include some compatibility with other widget frameworks,like web "
-#~ "widgets and super karamba themes"
+#~ "applications (written in Python, a very simple object-oriented programming-"
+#~ "language) that can be described as 'the virtual representation of things "
+#~ "lying/standing around on your desk'. Sticknotes, clocks, rulers, ... the "
+#~ "possibilities are endless. Screenlet also tries to include some "
+#~ "compatibility with other widget frameworks,like web widgets and super "
+#~ "karamba themes"
 #~ msgstr ""
 #~ "Screenlets on töölauavidinate raamistik, mis koosneb miniatuursetest "
 #~ "rakendustest (kirjutatud Pythonis, väga lihtsas objekt-orienteeritud "
-#~ "programmeerimiskeeles), mida võib nimetada 'sinu töölaual vedelevate "
-#~ "asjade virtuaalseks esituseks'. Märkmepaberid, kellad, joonlauad --- "
-#~ "võimalusi on lõputult. Screenlets raamistik püüab seejuures ühilduda ka "
-#~ "mõnede teiste vidinaraamistikega nagu nt Web Widgets ja Super Karamba "
-#~ "teemad."
+#~ "programmeerimiskeeles), mida võib nimetada 'sinu töölaual vedelevate asjade "
+#~ "virtuaalseks esituseks'. Märkmepaberid, kellad, joonlauad --- võimalusi on "
+#~ "lõputult. Screenlets raamistik püüab seejuures ühilduda ka mõnede teiste "
+#~ "vidinaraamistikega nagu nt Web Widgets ja Super Karamba teemad."

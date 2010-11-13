@@ -5,18 +5,18 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: screenlets 0.1.3\n"
+"Project-Id-Version: screenlets-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-12 18:14+0900\n"
-"PO-Revision-Date: 2009-10-19 23:10+0000\n"
+"POT-Creation-Date: 2010-11-12 19:39+0900\n"
+"PO-Revision-Date: 2010-11-12 14:08+0000\n"
 "Last-Translator: André Gondim <andregondim@ubuntu.com>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
-"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-12 07:28+0000\n"
+"X-Launchpad-Export-Date: 2010-11-13 04:48+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: pt_BR\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
 msgid "Screenlets daemon"
@@ -115,7 +115,8 @@ msgstr "Apagar Screenlet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:165
 msgid "Do you also want to remove the Screenlet configuration files?"
-msgstr "Você também deseja remover os arquivos de configuração do Screenlet ?"
+msgstr ""
+"Você também deseja remover os arquivos de configuração do Screenlet ?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:169
 msgid "Can't delete system-wide screenlets."
@@ -311,7 +312,8 @@ msgid "Theme installed , please restart %s"
 msgstr "Tema instalado, por favor reinicie o screenlet %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:824
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Instalação de temas, erro 2 encontrado - Tema não instalado ou já instalado"
 
@@ -471,9 +473,9 @@ msgid "Found %sScreenlet.py in path."
 msgstr "Encontrado %sScreenlet.py no local."
 
 #: src/share/screenlets-manager/screenlets-packager.py:92
-#, fuzzy, python-format
+#, python-format
 msgid "Unable to import module '%(name)s' from %(path)s. (%(error)s)"
-msgstr "Não foi possível importar o módulo '%s' de %s (%s)"
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-packager.py:93
 #, python-format
@@ -486,7 +488,8 @@ msgstr "Não foi possível importar a classe do módulo."
 
 #: src/share/screenlets-manager/screenlets-packager.py:101
 msgid "The class inside the module is no subclass of screenlets.Screenlet."
-msgstr "A classe dentro do módulo não é uma subclasse de screenlets.Screenlet."
+msgstr ""
+"A classe dentro do módulo não é uma subclasse de screenlets.Screenlet."
 
 #: src/share/screenlets-manager/screenlets-packager.py:102
 #, python-format
@@ -613,48 +616,31 @@ msgstr ""
 msgid "Failed to add %sScreenlet."
 msgstr "Falha ao adicionar %s Screenlet"
 
+#~ msgid "Installing %s"
+#~ msgstr "Instalando %s"
+
+#~ msgid ""
+#~ "The %sScreenlet is already installed in '%s'.\n"
+#~ "Do you wish to continue?"
+#~ msgstr ""
+#~ "O %sScreenlet já foi instalado em '%s'.\n"
+#~ "Deseja continuar?"
+
+#~ msgid "Trying to launching screenlets-daemon ..."
+#~ msgstr "Tentando iniciar screenlets-daemon ..."
+
+#~ msgid "Error in ScreenletsManager.connect_daemon: %s"
+#~ msgstr "Erro em ScreenletsManager.connect_daemon: %s"
+
+#~ msgid "Please install screenlets from folders without strange characters"
+#~ msgstr "Por favor instale screenlets de pastas sem caracteres estranhos"
+
 #~ msgid ""
 #~ "You are about to install a theme in root mode. Continue only if you have "
 #~ "gksudo installed, do you wish to continue?"
 #~ msgstr ""
 #~ "Você está prestes a instalar um Screenlet como root. Continue somente se "
 #~ "possuir gksudo instalado. Deseja continuar?"
-
-#~ msgid "ScreenletsDaemon: registered %s"
-#~ msgstr "ServiçoScreenlets: %s registrado"
-
-#~ msgid "screenletsDaemon: unregistered %s"
-#~ msgstr "ServiçoScreenlets: registro de %s removido"
-
-#~ msgid "ScreenletsDaemon running ..."
-#~ msgstr "ServiçoScreenlets iniciado ..."
-
-#~ msgid "ScreenletsDaemon has been shut down ..."
-#~ msgstr "ServiçoScreenlets foi desativado ..."
-
-#~ msgid "Exception in ScreenletsDaemon: %s"
-#~ msgstr "Erro no ServiçoScreenlets: %s"
-
-#~ msgid "Trying to launching screenlets-daemon ..."
-#~ msgstr "Tentando iniciar screenlets-daemon ..."
-
-#~ msgid "checking for running daemon again ..."
-#~ msgstr "checando novamente se há outro serviço ativo ..."
-
-#~ msgid "DAEMON FOUND - Ending timeout"
-#~ msgstr "SERVIÇO ENCONTRADO - Encerrando tempo de espera"
-
-#~ msgid "Error: Unable to connect/launch daemon."
-#~ msgstr "Erro: impossível conectar/iniciar serviço."
-
-#~ msgid "Data dropped ..."
-#~ msgstr "Dados ignorados ..."
-
-#~ msgid "Please install screenlets from folders without strange characters"
-#~ msgstr "Por favor instale screenlets de pastas sem caracteres estranhos"
-
-#~ msgid "Installing %s"
-#~ msgstr "Instalando %s"
 
 #~ msgid "list contains themes folder"
 #~ msgstr "lista contém a pasta de temas"
@@ -665,11 +651,11 @@ msgstr "Falha ao adicionar %s Screenlet"
 #~ msgid "only contains the themes folders"
 #~ msgstr "contém somente as pastas de temas"
 
+#~ msgid "closing %s"
+#~ msgstr "fechando %s"
+
 #~ msgid "Create desktop shortcut for: %s/%sScreenlet.py"
 #~ msgstr "Criar atalho na Área de Trabalho para: %s/%sScreenlet.py"
-
-#~ msgid "Launch %s"
-#~ msgstr "Iniciar %s"
 
 #~ msgid "Quit %s"
 #~ msgstr "Fechar %s"
@@ -680,42 +666,59 @@ msgstr "Falha ao adicionar %s Screenlet"
 #~ msgid "OK."
 #~ msgstr "OK."
 
-#~ msgid ""
-#~ "The %sScreenlet is already installed in '%s'.\n"
-#~ "Do you wish to continue?"
-#~ msgstr ""
-#~ "O %sScreenlet já foi instalado em '%s'.\n"
-#~ "Deseja continuar?"
+#~ msgid "screenletsDaemon: unregistered %s"
+#~ msgstr "ServiçoScreenlets: registro de %s removido"
 
-#~ msgid "Auto-create autostart dir ..."
-#~ msgstr "Auto-criar diretório de inicialização automática ..."
+#~ msgid "ScreenletsDaemon: registered %s"
+#~ msgstr "ServiçoScreenlets: %s registrado"
 
-#~ msgid "Removed duplicate entry"
-#~ msgstr "Entrada duplicada removida"
+#~ msgid "ScreenletsDaemon running ..."
+#~ msgstr "ServiçoScreenlets iniciado ..."
 
-#~ msgid "Create autostarter for: %s/%sScreenlet.py"
-#~ msgstr "Criar inicializador automático para: %s/%sScreenlet.py"
+#~ msgid "Exception in ScreenletsDaemon: %s"
+#~ msgstr "Erro no ServiçoScreenlets: %s"
 
-#~ msgid "Starter already exists."
-#~ msgstr "Inicializador já existe."
-
-#~ msgid "Delete autostarter for %s."
-#~ msgstr "Remover inicializador automático para %s."
-
-#~ msgid "Error in ScreenletsManager.connect_daemon: %s"
-#~ msgstr "Erro em ScreenletsManager.connect_daemon: %s"
-
-#~ msgid "Create autostarter for: Screenlets Daemon"
-#~ msgstr "Criar inicializador automático para: Serviço Screenlets"
-
-#~ msgid "Archive damaged or unsuported, only tar , bz2 or gz."
-#~ msgstr "Arquivo corrompido ou não suportado, somente tar, bz2 ou gz."
+#~ msgid "ScreenletsDaemon has been shut down ..."
+#~ msgstr "ServiçoScreenlets foi desativado ..."
 
 #~ msgid "Invalid archive. Archive does not contain a screenlet."
 #~ msgstr "Arquivo inválido. O arquivo não contém um screenlet."
 
+#~ msgid "Archive damaged or unsuported, only tar , bz2 or gz."
+#~ msgstr "Arquivo corrompido ou não suportado, somente tar, bz2 ou gz."
+
 #~ msgid "It looks like you are running %s"
 #~ msgstr "Parece que você está rodando o screenlet %s"
 
-#~ msgid "closing %s"
-#~ msgstr "fechando %s"
+#~ msgid "Starter already exists."
+#~ msgstr "Inicializador já existe."
+
+#~ msgid "Auto-create autostart dir ..."
+#~ msgstr "Auto-criar diretório de inicialização automática ..."
+
+#~ msgid "Create autostarter for: Screenlets Daemon"
+#~ msgstr "Criar inicializador automático para: Serviço Screenlets"
+
+#~ msgid "Create autostarter for: %s/%sScreenlet.py"
+#~ msgstr "Criar inicializador automático para: %s/%sScreenlet.py"
+
+#~ msgid "Removed duplicate entry"
+#~ msgstr "Entrada duplicada removida"
+
+#~ msgid "Delete autostarter for %s."
+#~ msgstr "Remover inicializador automático para %s."
+
+#~ msgid "checking for running daemon again ..."
+#~ msgstr "checando novamente se há outro serviço ativo ..."
+
+#~ msgid "Error: Unable to connect/launch daemon."
+#~ msgstr "Erro: impossível conectar/iniciar serviço."
+
+#~ msgid "DAEMON FOUND - Ending timeout"
+#~ msgstr "SERVIÇO ENCONTRADO - Encerrando tempo de espera"
+
+#~ msgid "Data dropped ..."
+#~ msgstr "Dados ignorados ..."
+
+#~ msgid "Launch %s"
+#~ msgstr "Iniciar %s"

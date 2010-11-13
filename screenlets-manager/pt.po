@@ -5,18 +5,18 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: screenlets 0.1.3\n"
+"Project-Id-Version: screenlets-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-12 18:14+0900\n"
-"PO-Revision-Date: 2008-06-02 11:40+0000\n"
-"Last-Translator: Excentrik <Unknown>\n"
+"POT-Creation-Date: 2010-11-12 19:39+0900\n"
+"PO-Revision-Date: 2010-11-12 14:08+0000\n"
+"Last-Translator: tabbernuk <boamaod@gmail.com>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
-"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-12 07:28+0000\n"
+"X-Launchpad-Export-Date: 2010-11-13 04:48+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: pt\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
 msgid "Screenlets daemon"
@@ -314,7 +314,8 @@ msgid "Theme installed , please restart %s"
 msgstr "Tema instalado, por favor reinicie %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:824
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Encontrado erro número 2 da instalação de temas - O tema não foi instalado "
 "ou talvez já instalado"
@@ -410,7 +411,8 @@ msgstr "Passo 1: Encontrar a Widget que deseja converter"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1075
 msgid "Step 2 : Copy and Paste the HTML from the widget in the box below"
-msgstr "Passo 2: Copiar e colar o código HTML da Widget para a caixa em baixo"
+msgstr ""
+"Passo 2: Copiar e colar o código HTML da Widget para a caixa em baixo"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1076
 msgid "Step 3 : Give it a name in the box below and click on Ok to convert"
@@ -476,9 +478,9 @@ msgid "Found %sScreenlet.py in path."
 msgstr "Encontrado %sScreenlet.py no caminho."
 
 #: src/share/screenlets-manager/screenlets-packager.py:92
-#, fuzzy, python-format
+#, python-format
 msgid "Unable to import module '%(name)s' from %(path)s. (%(error)s)"
-msgstr "Impossível importar módulo '%s' de %s. (%s)"
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-packager.py:93
 #, python-format
@@ -491,7 +493,8 @@ msgstr "Não foi possível importar class do módulo."
 
 #: src/share/screenlets-manager/screenlets-packager.py:101
 msgid "The class inside the module is no subclass of screenlets.Screenlet."
-msgstr "A classe dentro do módulo não é uma subclasse de screenlets.Screenlet."
+msgstr ""
+"A classe dentro do módulo não é uma subclasse de screenlets.Screenlet."
 
 #: src/share/screenlets-manager/screenlets-packager.py:102
 #, python-format
@@ -619,18 +622,20 @@ msgstr ""
 msgid "Failed to add %sScreenlet."
 msgstr "Falhou ao adicionar %sScreenlet"
 
-#~ msgid ""
-#~ "You are about to install a theme in root mode. Continue only if you have "
-#~ "gksudo installed, do you wish to continue?"
-#~ msgstr ""
-#~ "Está prestes a instalar um tema em modo super-utilizador. Continue apenas "
-#~ "se tiver gksudo instalado. Deseja continuar?"
+#~ msgid "Installing %s"
+#~ msgstr "A instalar %s"
 
 #~ msgid "ScreenletsDaemon: registered %s"
 #~ msgstr "ServiçoScreenlets: carregou %s"
 
 #~ msgid "screenletsDaemon: unregistered %s"
 #~ msgstr "ServiçoScreenlets: descarregou %s"
+
+#~ msgid "Archive damaged or unsuported, only tar , bz2 or gz."
+#~ msgstr "Ficheiro danificado ou não suportado, apenas tar, bz2 ou gz."
+
+#~ msgid "Invalid archive. Archive does not contain a screenlet."
+#~ msgstr "Arquivo inválido. O arquivo não contém um screenlet."
 
 #~ msgid "ScreenletsDaemon running ..."
 #~ msgstr "ServiçoScreenlets a correr...."
@@ -640,6 +645,28 @@ msgstr "Falhou ao adicionar %sScreenlet"
 
 #~ msgid "Exception in ScreenletsDaemon: %s"
 #~ msgstr "Excepção no ServiçoScreenlets: %s"
+
+#~ msgid "It looks like you are running %s"
+#~ msgstr "Parece que está a correr o %s"
+
+#~ msgid ""
+#~ "The %sScreenlet is already installed in '%s'.\n"
+#~ "Do you wish to continue?"
+#~ msgstr ""
+#~ "O %sScreenlet já está instalado em '%s'.\n"
+#~ "Deseja continuar?"
+
+#~ msgid "Auto-create autostart dir ..."
+#~ msgstr "Criar directório de início automático automaticamente ..."
+
+#~ msgid "Create autostarter for: Screenlets Daemon"
+#~ msgstr "A criar iniciador automático para: Serviço Screenlets"
+
+#~ msgid "Failed to create autostarter for %s."
+#~ msgstr "Falhou a criação de início automático para %s."
+
+#~ msgid "Starter already exists."
+#~ msgstr "Iniciador já existe."
 
 #~ msgid "Trying to launching screenlets-daemon ..."
 #~ msgstr "A tentar iniciar serviço-screenlets ..."
@@ -653,15 +680,30 @@ msgstr "Falhou ao adicionar %sScreenlet"
 #~ msgid "Error: Unable to connect/launch daemon."
 #~ msgstr "Erro: impossível comunicar/iniciar serviço."
 
+#~ msgid "Error in ScreenletsManager.connect_daemon: %s"
+#~ msgstr "Erro no GestorScreenlets.serviço_ligação: %s"
+
+#~ msgid "Removed duplicate entry"
+#~ msgstr "Entrada duplicada removida"
+
+#~ msgid "Create autostarter for: %s/%sScreenlet.py"
+#~ msgstr "A criar iniciador automático para: %s/%sScreenlet.py"
+
+#~ msgid "Delete autostarter for %s."
+#~ msgstr "Remover início automático para %s."
+
 #~ msgid "Data dropped ..."
 #~ msgstr "Dados ignorados ..."
 
 #~ msgid "Please install screenlets from folders without strange characters"
-#~ msgstr ""
-#~ "Por favor instale screenlets de directórios sem caracteres estranhos"
+#~ msgstr "Por favor instale screenlets de directórios sem caracteres estranhos"
 
-#~ msgid "Installing %s"
-#~ msgstr "A instalar %s"
+#~ msgid ""
+#~ "You are about to install a theme in root mode. Continue only if you have "
+#~ "gksudo installed, do you wish to continue?"
+#~ msgstr ""
+#~ "Está prestes a instalar um tema em modo super-utilizador. Continue apenas se "
+#~ "tiver gksudo instalado. Deseja continuar?"
 
 #~ msgid "list contains themes folder"
 #~ msgstr "lista contém directório dos temas"
@@ -675,8 +717,8 @@ msgstr "Falhou ao adicionar %sScreenlet"
 #~ msgid "Create desktop shortcut for: %s/%sScreenlet.py"
 #~ msgstr "Criar um Atalho no Ambiente de Trabalho para: %s/%sScreenlet.py"
 
-#~ msgid "Failed to create autostarter for %s."
-#~ msgstr "Falhou a criação de início automático para %s."
+#~ msgid "closing %s"
+#~ msgstr "A fechar %s"
 
 #~ msgid "Launch %s"
 #~ msgstr "Iniciar %s"
@@ -689,43 +731,3 @@ msgstr "Falhou ao adicionar %sScreenlet"
 
 #~ msgid "OK."
 #~ msgstr "Aceitar."
-
-#~ msgid ""
-#~ "The %sScreenlet is already installed in '%s'.\n"
-#~ "Do you wish to continue?"
-#~ msgstr ""
-#~ "O %sScreenlet já está instalado em '%s'.\n"
-#~ "Deseja continuar?"
-
-#~ msgid "Auto-create autostart dir ..."
-#~ msgstr "Criar directório de início automático automaticamente ..."
-
-#~ msgid "Removed duplicate entry"
-#~ msgstr "Entrada duplicada removida"
-
-#~ msgid "Create autostarter for: %s/%sScreenlet.py"
-#~ msgstr "A criar iniciador automático para: %s/%sScreenlet.py"
-
-#~ msgid "Starter already exists."
-#~ msgstr "Iniciador já existe."
-
-#~ msgid "Delete autostarter for %s."
-#~ msgstr "Remover início automático para %s."
-
-#~ msgid "Error in ScreenletsManager.connect_daemon: %s"
-#~ msgstr "Erro no GestorScreenlets.serviço_ligação: %s"
-
-#~ msgid "Create autostarter for: Screenlets Daemon"
-#~ msgstr "A criar iniciador automático para: Serviço Screenlets"
-
-#~ msgid "Archive damaged or unsuported, only tar , bz2 or gz."
-#~ msgstr "Ficheiro danificado ou não suportado, apenas tar, bz2 ou gz."
-
-#~ msgid "Invalid archive. Archive does not contain a screenlet."
-#~ msgstr "Arquivo inválido. O arquivo não contém um screenlet."
-
-#~ msgid "It looks like you are running %s"
-#~ msgstr "Parece que está a correr o %s"
-
-#~ msgid "closing %s"
-#~ msgstr "A fechar %s"

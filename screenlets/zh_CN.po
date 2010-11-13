@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-12 19:39+0900\n"
-"PO-Revision-Date: 2008-11-05 15:51+0000\n"
+"PO-Revision-Date: 2010-11-12 13:42+0000\n"
 "Last-Translator: bt4wang <bt4wang@gmail.com>\n"
 "Language-Team: Simplified Chinese <zh_CN@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-12 07:28+0000\n"
+"X-Launchpad-Export-Date: 2010-11-13 04:47+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: \n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
 #: src/lib/__init__.py:98
@@ -303,9 +303,7 @@ msgstr "选项 "
 msgid ""
 "Themes allow you to easily switch the appearance of your Screenlets. On this "
 "page you find a list of all available themes for this Screenlet."
-msgstr ""
-"主题允许你方便地更换 Screenlet 的外观。此页面中列出了所有此 Screenlet 可用的"
-"主题。"
+msgstr "主题允许你方便地更换 Screenlet 的外观。此页面中列出了所有此 Screenlet 可用的主题。"
 
 #: src/lib/options.py:903
 msgid "Themes "
@@ -376,9 +374,6 @@ msgstr "无法获得 ip"
 msgid "Not connected"
 msgstr "未连接"
 
-#~ msgid "Error while loading ScreenletTheme in: "
-#~ msgstr "加载 Screenlet 主题时出错，位于： "
-
 #~ msgid "GnomeKeyring is not available!!"
 #~ msgstr "GnomeKeyring 不可用！！"
 
@@ -388,27 +383,27 @@ msgstr "未连接"
 #~ msgid "Illegal value in AccountOption.on_import."
 #~ msgstr "AccountOption.on_import 值非法。"
 
-#~ msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
-#~ msgstr "元数据文件中存在非法 XML（或者文件不存在）：“%s”。"
-
-#~ msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
-#~ msgstr "元数据文件中丢失或者存在非法根节点：“%s”。"
-
-#~ msgid ""
-#~ "Error in metadata-file \"%s\" - only <group>-tags allowed in first level. "
-#~ "Groups must contain at least one <info>-element."
-#~ msgstr ""
-#~ "元数据文件错误“%s”－第一级之允许 <group> 标签。组（group）必须至少包含一"
-#~ "个 <info> 元素。"
-
+#, python-format
 #~ msgid "No name for group defined in \"%s\"."
 #~ msgstr "“%s”中定义的组未命名。"
 
+#, python-format
+#~ msgid ""
+#~ "Error in metadata-file \"%s\" - only <group>-tags allowed in first level. "
+#~ "Groups must contain at least one <info>-element."
+#~ msgstr "元数据文件错误“%s”－第一级之允许 <group> 标签。组（group）必须至少包含一个 <info> 元素。"
+
+#, python-format
+#~ msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
+#~ msgstr "元数据文件中丢失或者存在非法根节点：“%s”。"
+
+#, python-format
+#~ msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
+#~ msgstr "元数据文件中存在非法 XML（或者文件不存在）：“%s”。"
+
+#, python-format
 #~ msgid "Invalid option-node found in \"%s\"."
 #~ msgstr "“%s”中 option 节点无效。"
-
-#~ msgid "Can't parse /proc/meminfo"
-#~ msgstr "无法解析 /proc/meminfo"
 
 #~ msgid "Can't open /proc/net/dev"
 #~ msgstr "无法打开 /proc/net/dev"
@@ -416,35 +411,33 @@ msgstr "未连接"
 #~ msgid "Can't open /proc/net/wireless"
 #~ msgstr "无法打开 /proc/net/wireless"
 
-#~ msgid "Can't open %s/temperature"
-#~ msgstr "无法打开 %s/temperature"
+#~ msgid "Error during hddtemp drives search"
+#~ msgstr "查找 hddtemp 驱动出错"
+
+#, python-format
+#~ msgid "Can't open %s"
+#~ msgstr "无法打开 %s"
 
 #~ msgid "Can't open folder /proc/acpi/thermal_zone/"
 #~ msgstr "无法打开 /proc/acpi/thermal_zone/"
 
-#~ msgid "Can't open %s"
-#~ msgstr "无法打开 %s"
-
-#~ msgid "Error during hddtemp drives search"
-#~ msgstr "查找 hddtemp 驱动出错"
+#, python-format
+#~ msgid "can't read temperature in: %s"
+#~ msgstr "无法读取温度：%s"
 
 #~ msgid "Hddtemp not installed"
 #~ msgstr "hddtemp 未安装"
 
-#~ msgid "can't read temperature in: %s"
-#~ msgstr "无法读取温度：%s"
-
+#, python-format
 #~ msgid "Can't read value from %s"
 #~ msgstr "无法从 %s 中读取数值"
 
+#, python-format
+#~ msgid "Can't open %s/temperature"
+#~ msgstr "无法打开 %s/temperature"
+
 #~ msgid "No name set in ScreenletService.__init__!"
 #~ msgstr "ScreenletService.__init__ 未命名！"
-
-#~ msgid "Trying to access invalid instance \"%s\"."
-#~ msgstr "尝试访问无效实例“%s”。"
-
-#~ msgid "Trying to access invalid option \"%s\"."
-#~ msgstr "尝试无效选项“%s”。"
 
 #~ msgid ""
 #~ "ScreenletSession.__init__ has to be called with a\n"
@@ -452,3 +445,17 @@ msgstr "未连接"
 #~ msgstr ""
 #~ "ScreenletSession.__init__ 调用方式\n"
 #~ "\t\t\t 以合法的 Screenlet-classobject 作为第一个参量！"
+
+#, python-format
+#~ msgid "Trying to access invalid option \"%s\"."
+#~ msgstr "尝试无效选项“%s”。"
+
+#, python-format
+#~ msgid "Trying to access invalid instance \"%s\"."
+#~ msgstr "尝试访问无效实例“%s”。"
+
+#~ msgid "Can't parse /proc/meminfo"
+#~ msgstr "无法解析 /proc/meminfo"
+
+#~ msgid "Error while loading ScreenletTheme in: "
+#~ msgstr "加载 Screenlet 主题时出错，位于： "

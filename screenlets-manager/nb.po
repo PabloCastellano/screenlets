@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-12 18:14+0900\n"
-"PO-Revision-Date: 2010-10-25 22:46+0000\n"
+"POT-Creation-Date: 2010-11-12 19:39+0900\n"
+"PO-Revision-Date: 2010-11-12 14:08+0000\n"
 "Last-Translator: Ketil Wendelbo Aanensen <ketil.w.aanensen@gmail.com>\n"
 "Language-Team: Norwegian Bokmal <nb@li.org>\n"
-"Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-12 07:28+0000\n"
+"X-Launchpad-Export-Date: 2010-11-13 04:48+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: nb\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
 msgid "Screenlets daemon"
@@ -66,10 +66,10 @@ msgid ""
 "license. Thank you for using free software!"
 msgstr ""
 "Dette programmet er publisert under GNU Genereal Public lisensen v3 (eller, "
-"om du ønsker, enhver senere versjon). Du kan finne hele teksten på http://"
-"www.gnu.org/licenses/gpl.txt. Ved å bruke, redigere og/eller distribuere "
-"denne programvaren aksepterer du vilkårene i denne lisensen. Takk for at du "
-"bruker fri programvare!"
+"om du ønsker, enhver senere versjon). Du kan finne hele teksten på "
+"http://www.gnu.org/licenses/gpl.txt. Ved å bruke, redigere og/eller "
+"distribuere denne programvaren aksepterer du vilkårene i denne lisensen. "
+"Takk for at du bruker fri programvare!"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:251
 msgid "Install a Screenlet"
@@ -312,7 +312,8 @@ msgid "Theme installed , please restart %s"
 msgstr "Tema installert. Vennligst start %s på nytt"
 
 #: src/share/screenlets-manager/screenlets-manager.py:824
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Temainstalleringsfeil 2 funnet - Tema ikke installert eller allerede "
 "installert"
@@ -471,9 +472,9 @@ msgid "Found %sScreenlet.py in path."
 msgstr "Fant %sScreenlet.py i stien."
 
 #: src/share/screenlets-manager/screenlets-packager.py:92
-#, fuzzy, python-format
+#, python-format
 msgid "Unable to import module '%(name)s' from %(path)s. (%(error)s)"
-msgstr "Ikke i stand til å importere modul '%s' fra %s. (%s)"
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-packager.py:93
 #, python-format
@@ -486,7 +487,8 @@ msgstr "Ikke i stand til å importere klasse fra modul."
 
 #: src/share/screenlets-manager/screenlets-packager.py:101
 msgid "The class inside the module is no subclass of screenlets.Screenlet."
-msgstr "Klassen inne i modulen er ikke en underklasse av screenlets.Screenlet."
+msgstr ""
+"Klassen inne i modulen er ikke en underklasse av screenlets.Screenlet."
 
 #: src/share/screenlets-manager/screenlets-packager.py:102
 #, python-format
@@ -611,49 +613,89 @@ msgstr ""
 msgid "Failed to add %sScreenlet."
 msgstr "Klarte ikke å legge til %sScreenlet"
 
-#~ msgid ""
-#~ "You are about to install a theme in root mode. Continue only if you have "
-#~ "gksudo installed, do you wish to continue?"
-#~ msgstr ""
-#~ "Du er i ferd med å installere et tema i superbrukermodus. Fortsett kun "
-#~ "hvis du har gksudo installert. Ønsker du å fortsette?"
-
 #~ msgid "ScreenletsDaemon: registered %s"
 #~ msgstr "ScreenletsDaemon: registrert %s"
-
-#~ msgid "screenletsDaemon: unregistered %s"
-#~ msgstr "screenletsDaemon: uregistrert %s"
 
 #~ msgid "ScreenletsDaemon running ..."
 #~ msgstr "ScreenletsDaemon kjører ..."
 
-#~ msgid "ScreenletsDaemon has been shut down ..."
-#~ msgstr "ScreenletsDaemon har blitt avsluttet ..."
+#~ msgid "screenletsDaemon: unregistered %s"
+#~ msgstr "screenletsDaemon: uregistrert %s"
 
 #~ msgid "Exception in ScreenletsDaemon: %s"
 #~ msgstr "Unntak i ScreenletsDaemon: %s"
 
+#~ msgid "ScreenletsDaemon has been shut down ..."
+#~ msgstr "ScreenletsDaemon har blitt avsluttet ..."
+
+#~ msgid "Invalid archive. Archive does not contain a screenlet."
+#~ msgstr "Ugyldig arkiv. Arkiv inneholder ikke en Screenlet"
+
+#~ msgid "It looks like you are running %s"
+#~ msgstr "Det ser ut til at du kjører %s"
+
+#~ msgid ""
+#~ "The %sScreenlet is already installed in '%s'.\n"
+#~ "Do you wish to continue?"
+#~ msgstr ""
+#~ "%sScreenlet er allerede installert i '%s'.\n"
+#~ "Ønsker du å fortsette?"
+
+#~ msgid "Installing %s"
+#~ msgstr "Installerer %s"
+
+#~ msgid "Archive damaged or unsuported, only tar , bz2 or gz."
+#~ msgstr "Arkiv skadet eller ikke støttet; kun tar, bz2 eller gz."
+
+#~ msgid "Create autostarter for: Screenlets Daemon"
+#~ msgstr "Lag autostarter for: Screenlets-Nisse"
+
 #~ msgid "Trying to launching screenlets-daemon ..."
 #~ msgstr "Prøver å kjøre screenlets-daemon ..."
 
-#~ msgid "checking for running daemon again ..."
-#~ msgstr "sjekker for kjørende nisse igjen ..."
+#~ msgid "Starter already exists."
+#~ msgstr "Starter eksisterer allerede."
+
+#~ msgid "Auto-create autostart dir ..."
+#~ msgstr "Lag automatisk autostart-katalog"
+
+#~ msgid "Failed to create autostarter for %s."
+#~ msgstr "Kunne ikke lage autostarter for %s."
+
+#~ msgid "Create autostarter for: %s/%sScreenlet.py"
+#~ msgstr "Lag autostarter for: %s/%sScreenlet.py"
+
+#~ msgid "Removed duplicate entry"
+#~ msgstr "Fjernet duplikatoppføring"
+
+#~ msgid "Delete autostarter for %s."
+#~ msgstr "Slett autostarter for %s."
 
 #~ msgid "DAEMON FOUND - Ending timeout"
 #~ msgstr "NISSE FUNNET - Avslutter tidsavbrudd"
 
+#~ msgid "checking for running daemon again ..."
+#~ msgstr "sjekker for kjørende nisse igjen ..."
+
+#~ msgid "Error in ScreenletsManager.connect_daemon: %s"
+#~ msgstr "Feil i ScreenletsManager.connect_daemon: %s"
+
 #~ msgid "Error: Unable to connect/launch daemon."
 #~ msgstr "Feil: Ikke i stand til å koble til/ starte nisse."
-
-#~ msgid "Data dropped ..."
-#~ msgstr "Data droppet ..."
 
 #~ msgid "Please install screenlets from folders without strange characters"
 #~ msgstr ""
 #~ "Vennligst installer screenlet-er fra kataloger uten merkelige symboler"
 
-#~ msgid "Installing %s"
-#~ msgstr "Installerer %s"
+#~ msgid "Data dropped ..."
+#~ msgstr "Data droppet ..."
+
+#~ msgid ""
+#~ "You are about to install a theme in root mode. Continue only if you have "
+#~ "gksudo installed, do you wish to continue?"
+#~ msgstr ""
+#~ "Du er i ferd med å installere et tema i superbrukermodus. Fortsett kun hvis "
+#~ "du har gksudo installert. Ønsker du å fortsette?"
 
 #~ msgid "list contains themes folder"
 #~ msgstr "liste inneholdet temakatalog"
@@ -664,60 +706,20 @@ msgstr "Klarte ikke å legge til %sScreenlet"
 #~ msgid "only contains the themes folders"
 #~ msgstr "inneholder kun temakatalogene"
 
-#~ msgid "Create desktop shortcut for: %s/%sScreenlet.py"
-#~ msgstr "Lag skrivebordssnarvei for: %s/%sScreenlet.py"
-
-#~ msgid "Failed to create autostarter for %s."
-#~ msgstr "Kunne ikke lage autostarter for %s."
+#~ msgid "Quit %s"
+#~ msgstr "Avslutt %s"
 
 #~ msgid "Launch %s"
 #~ msgstr "Start %s"
 
-#~ msgid "Quit %s"
-#~ msgstr "Avslutt %s"
+#~ msgid "OK."
+#~ msgstr "OK."
 
 #~ msgid "Quit!"
 #~ msgstr "Avslutt!"
 
-#~ msgid "OK."
-#~ msgstr "OK."
-
-#~ msgid ""
-#~ "The %sScreenlet is already installed in '%s'.\n"
-#~ "Do you wish to continue?"
-#~ msgstr ""
-#~ "%sScreenlet er allerede installert i '%s'.\n"
-#~ "Ønsker du å fortsette?"
-
-#~ msgid "Auto-create autostart dir ..."
-#~ msgstr "Lag automatisk autostart-katalog"
-
-#~ msgid "Removed duplicate entry"
-#~ msgstr "Fjernet duplikatoppføring"
-
-#~ msgid "Create autostarter for: %s/%sScreenlet.py"
-#~ msgstr "Lag autostarter for: %s/%sScreenlet.py"
-
-#~ msgid "Starter already exists."
-#~ msgstr "Starter eksisterer allerede."
-
-#~ msgid "Delete autostarter for %s."
-#~ msgstr "Slett autostarter for %s."
-
-#~ msgid "Error in ScreenletsManager.connect_daemon: %s"
-#~ msgstr "Feil i ScreenletsManager.connect_daemon: %s"
-
-#~ msgid "Create autostarter for: Screenlets Daemon"
-#~ msgstr "Lag autostarter for: Screenlets-Nisse"
-
-#~ msgid "Archive damaged or unsuported, only tar , bz2 or gz."
-#~ msgstr "Arkiv skadet eller ikke støttet; kun tar, bz2 eller gz."
-
-#~ msgid "Invalid archive. Archive does not contain a screenlet."
-#~ msgstr "Ugyldig arkiv. Arkiv inneholder ikke en Screenlet"
-
-#~ msgid "It looks like you are running %s"
-#~ msgstr "Det ser ut til at du kjører %s"
-
 #~ msgid "closing %s"
 #~ msgstr "lukker %s"
+
+#~ msgid "Create desktop shortcut for: %s/%sScreenlet.py"
+#~ msgstr "Lag skrivebordssnarvei for: %s/%sScreenlet.py"

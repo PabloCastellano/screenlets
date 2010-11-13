@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-12 18:14+0900\n"
-"PO-Revision-Date: 2008-07-04 10:31+0000\n"
-"Last-Translator: Saulius Pranckevičius <Unknown>\n"
+"POT-Creation-Date: 2010-11-12 19:39+0900\n"
+"PO-Revision-Date: 2010-11-12 13:32+0000\n"
+"Last-Translator: tabbernuk <boamaod@gmail.com>\n"
 "Language-Team: Lithuanian <lt@li.org>\n"
-"Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-12 07:28+0000\n"
+"X-Launchpad-Export-Date: 2010-11-13 04:48+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: lt\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
 msgid "Screenlets daemon"
@@ -66,10 +66,10 @@ msgid ""
 "license. Thank you for using free software!"
 msgstr ""
 "Ši programa išleista su GNU General Public Licencija v3 (arba,jūsų atvėju, "
-"naujesne versija). Jūs galite rasti pilną licencijos tekstą http://www.gnu."
-"org/licenses/gpl.txt. Keičiant ar kitaip naudojant šią programinę įrangą jūs "
-"sutinkate su šios licencijos terminais ir sąlygomis. Ačių, kad naudojatės "
-"laisva programine įranga!"
+"naujesne versija). Jūs galite rasti pilną licencijos tekstą "
+"http://www.gnu.org/licenses/gpl.txt. Keičiant ar kitaip naudojant šią "
+"programinę įrangą jūs sutinkate su šios licencijos terminais ir sąlygomis. "
+"Ačių, kad naudojatės laisva programine įranga!"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:251
 msgid "Install a Screenlet"
@@ -310,7 +310,8 @@ msgid "Theme installed , please restart %s"
 msgstr "Tema įdiegta , prašome paleisti iš naujo %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:824
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr "Rasta 2 temos įdiegimo klaidos - tema neįdiegta arba jau įdiegta"
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
@@ -470,9 +471,9 @@ msgid "Found %sScreenlet.py in path."
 msgstr "Rastas %sScreenlet.py nurodytame kelyje."
 
 #: src/share/screenlets-manager/screenlets-packager.py:92
-#, fuzzy, python-format
+#, python-format
 msgid "Unable to import module '%(name)s' from %(path)s. (%(error)s)"
-msgstr "Negalima importuoti klasės iš modulio."
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-packager.py:93
 #, python-format
@@ -515,7 +516,8 @@ msgstr ""
 
 #: src/lib/install.py:113
 msgid "Archive is damaged or unsupported, use only tar, bz2 or gz."
-msgstr "Archyvas sugadintas arba nepalaikomas, naudokite tik tar, bz2 arba gz."
+msgstr ""
+"Archyvas sugadintas arba nepalaikomas, naudokite tik tar, bz2 arba gz."
 
 #. check if screenlet is already installed
 #. found_path = screenlets.utils.find_first_screenlet_path(name)
@@ -616,5 +618,5 @@ msgstr "Nepavyko pridėti %svaldiklio."
 #~ "You are about to install a theme in root mode. Continue only if you have "
 #~ "gksudo installed, do you wish to continue?"
 #~ msgstr ""
-#~ "Jūs ruošiatės įdiegti temą pagrindinio vartotojo (root) režime. Tęskite "
-#~ "tik turėdami įdiegtą gksudo paketą, ar norite tęsti?"
+#~ "Jūs ruošiatės įdiegti temą pagrindinio vartotojo (root) režime. Tęskite tik "
+#~ "turėdami įdiegtą gksudo paketą, ar norite tęsti?"

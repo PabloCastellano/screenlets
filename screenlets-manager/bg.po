@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-12 18:14+0900\n"
-"PO-Revision-Date: 2010-10-24 21:18+0000\n"
+"POT-Creation-Date: 2010-11-12 19:39+0900\n"
+"PO-Revision-Date: 2010-11-12 13:39+0000\n"
 "Last-Translator: Svetoslav Stefanov <svetlisashkov@yahoo.com>\n"
 "Language-Team: Bulgarian <bg@li.org>\n"
-"Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-12 07:28+0000\n"
+"X-Launchpad-Export-Date: 2010-11-13 04:47+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: bg\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
 msgid "Screenlets daemon"
@@ -308,7 +308,8 @@ msgid "Theme installed , please restart %s"
 msgstr "Темата е инсталиране, моля рестартирайте %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:824
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Получи се грешка 2 при инсталиране на темата - темата не е инсталирана или "
 "вече е инсталирана"
@@ -409,7 +410,8 @@ msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:1076
 msgid "Step 3 : Give it a name in the box below and click on Ok to convert"
-msgstr "Стъпка 3: Въведете име в полето по-долу и цъкнете ОК за преобразуване"
+msgstr ""
+"Стъпка 3: Въведете име в полето по-долу и цъкнете ОК за преобразуване"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1077
 msgid "The name of the widget"
@@ -468,9 +470,9 @@ msgid "Found %sScreenlet.py in path."
 msgstr "В зададения път е открит файлът %sScreenlet.py."
 
 #: src/share/screenlets-manager/screenlets-packager.py:92
-#, fuzzy, python-format
+#, python-format
 msgid "Unable to import module '%(name)s' from %(path)s. (%(error)s)"
-msgstr "Не може да се внесе клас от модула."
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-packager.py:93
 #, python-format

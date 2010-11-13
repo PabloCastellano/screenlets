@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-12 19:39+0900\n"
-"PO-Revision-Date: 2008-10-02 16:44+0000\n"
-"Last-Translator: databio <Unknown>\n"
+"PO-Revision-Date: 2010-11-12 10:06+0000\n"
+"Last-Translator: tabbernuk <boamaod@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
-"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-12 07:28+0000\n"
+"X-Launchpad-Export-Date: 2010-11-13 04:47+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: es\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
 #: src/lib/__init__.py:98
@@ -175,7 +175,8 @@ msgstr "Sobrescribir opciones"
 
 #: src/lib/__init__.py:790
 msgid "Allow themes to override options in this screenlet ..."
-msgstr "Define si se pueden sobrescribir las opciones de tema en el screenlet."
+msgstr ""
+"Define si se pueden sobrescribir las opciones de tema en el screenlet."
 
 #: src/lib/__init__.py:792
 msgid "Ask on Override"
@@ -197,13 +198,11 @@ msgid "(?)"
 msgstr "(?)"
 
 #: src/lib/__init__.py:982
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "\n"
 "%(package)s %(version)s required, NOT INSTALLED!"
 msgstr ""
-"\n"
-"%s %s requerido, NO ESTA INSTALADO!"
 
 #: src/lib/__init__.py:985
 #, python-format
@@ -387,107 +386,26 @@ msgstr "No se puede conseguir tu ip."
 msgid "Not connected"
 msgstr "No conectado"
 
-#~ msgid "Error while loading ScreenletTheme in: "
-#~ msgstr "Error al cargar ScreenletTheme en: "
+#~ msgid "CachingBackend: Loading instances from cache"
+#~ msgstr "CachingBackend: Cargando instancia desde el cache"
 
-#~ msgid "GnomeKeyring is not available!!"
-#~ msgstr "¡El anillo de contraseñas de gnome no está disponible!"
+#~ msgid "CachingBackend: Saving <#%s> :) ..."
+#~ msgstr "CachingBackend: Guardando <#%s> :) ..."
 
-#~ msgid "No keyrings found. Please create one first!"
-#~ msgstr "No existe ningun anillo de contraseñas. Por favor, crea uno primero"
+#~ msgid "CachingBackend: Loading <%s>"
+#~ msgstr "CachingBackend: Cargando <%s>"
 
-#~ msgid "Illegal value in AccountOption.on_import."
-#~ msgstr "Valor incorrectol en AccountOption.on_import."
+#~ msgid "Error while loading options: %s"
+#~ msgstr "Error al cargar opciones: %s"
 
-#~ msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
-#~ msgstr "Archivo XML en metadata incorrecto o no existe \"%s\"."
+#~ msgid "CachingBackend: <#%s> removed!"
+#~ msgstr "CachingBackend: <#%s> removido!"
 
-#~ msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
-#~ msgstr "No existe o es invalido el rootnode en metadata-file: \"%s\"."
+#~ msgid "GConfBackend: initializing"
+#~ msgstr "GConfBackend: iniciando"
 
-#~ msgid ""
-#~ "Error in metadata-file \"%s\" - only <group>-tags allowed in first level. "
-#~ "Groups must contain at least one <info>-element."
-#~ msgstr ""
-#~ "Error en metadata-file \"%s\" -  las etiquetas <group> solamente son "
-#~ "permitidas en el primer nivel. Las agrupaciones deben contener al menos "
-#~ "un elemento <info>."
-
-#~ msgid "No name for group defined in \"%s\"."
-#~ msgstr "Ningun nombre o grupo definido en \"%s\""
-
-#~ msgid "Invalid option-node found in \"%s\"."
-#~ msgstr "Invalida option-node encontrada en \"%s\""
-
-#~ msgid "Can't parse /proc/meminfo"
-#~ msgstr "No se puede leer /proc/meminfo"
-
-#~ msgid "Can't open /proc/net/dev"
-#~ msgstr "No es posible abrir /proc/net/dev"
-
-#~ msgid "Can't open /proc/net/wireless"
-#~ msgstr "No es posible abrir /proc/net/wireless"
-
-#~ msgid "Can't open %s/temperature"
-#~ msgstr "No se puede abrir %s/temperature"
-
-#~ msgid "Can't open folder /proc/acpi/thermal_zone/"
-#~ msgstr "No se puede abrir la carpeta /proc/acpi/thermal_zone/"
-
-#~ msgid "Can't open %s"
-#~ msgstr "No se puede abrir %s"
-
-#~ msgid "Error during hddtemp drives search"
-#~ msgstr "Error al buscar discos duros con hddtemp."
-
-#~ msgid "Hddtemp not installed"
-#~ msgstr "Hddtemp no está instalado"
-
-#~ msgid "can't read temperature in: %s"
-#~ msgstr "no se puede leer la temperatura en: %s"
-
-#~ msgid "Can't read value from %s"
-#~ msgstr "No se puede leer el valor desde %s"
-
-#~ msgid "No name set in ScreenletService.__init__!"
-#~ msgstr "Ningun nombre configurado en ScreenletService.__init__!"
-
-#~ msgid "Trying to access invalid instance \"%s\"."
-#~ msgstr "Probando a acceder. Iinstancia invalida \"%s\"."
-
-#~ msgid "Trying to access invalid option \"%s\"."
-#~ msgstr "Probando a acceder. Opción invalida \"%s\""
-
-#~ msgid ""
-#~ "ScreenletSession.__init__ has to be called with a\n"
-#~ "\t\t\t valid Screenlet-classobject as first argument!"
-#~ msgstr ""
-#~ "ScreenletSession.__init__ debe ser llamado con un \n"
-#~ "\t\t\t Screenlet-classobject valido como primer argumento!"
-
-#~ msgid "Error while creating image from file: %s"
-#~ msgstr "Error al crear imagen desde archivo: %s"
-
-#~ msgid "Error: file %s not found."
-#~ msgstr "Error: archivo %s no encontrado."
-
-#~ msgid "XML-Error: %s"
-#~ msgstr "XML-Error: %s"
-
-#~ msgid "Exception: %s"
-#~ msgstr "Excepción: %s"
-
-#~ msgid "An error occured with desktop-file: %s"
-#~ msgstr "Un error ha ocurrido con el archivo del escritorio: %s"
-
-#~ msgid "Error while creating menu."
-#~ msgstr "Error al crear menu."
-
-#~ msgid "Override: "
-#~ msgstr "Sobrescribir: "
-
-#~ msgid "WARNING: Option '%s' not found or protected."
-#~ msgstr "ADVERTENCIA: Opción '%s' no encontrada o protegida."
+#~ msgid "Version: "
+#~ msgstr "Versión: "
 
 #~ msgid "theme.conf loaded: "
 #~ msgstr "theme.conf cargado: "
@@ -498,11 +416,55 @@ msgstr "No conectado"
 #~ msgid "Author: "
 #~ msgstr "Autor: "
 
-#~ msgid "Version: "
-#~ msgstr "Versión: "
-
 #~ msgid "Info: "
 #~ msgstr "Info: "
+
+#~ msgid "Error while loading ScreenletTheme in: "
+#~ msgstr "Error al cargar ScreenletTheme en: "
+
+#~ msgid "error while saving config: %s%s"
+#~ msgstr "error al guardar configuración: %s%s"
+
+#~ msgid "WARNING: Option '%s' not found or protected."
+#~ msgstr "ADVERTENCIA: Opción '%s' no encontrada o protegida."
+
+#~ msgid "File %s not found"
+#~ msgstr "Archivo %s no encontrado"
+
+#~ msgid "Exception: %s"
+#~ msgstr "Excepción: %s"
+
+#~ msgid "Error while creating menu."
+#~ msgstr "Error al crear menu."
+
+#~ msgid "Section %s not found!"
+#~ msgstr "Sección %s no encontrada!"
+
+#~ msgid "Error while creating image from file: %s"
+#~ msgstr "Error al crear imagen desde archivo: %s"
+
+#~ msgid "XML-Error: %s"
+#~ msgstr "XML-Error: %s"
+
+#~ msgid "Error: file %s not found."
+#~ msgstr "Error: archivo %s no encontrado."
+
+#~ msgid "GConf python module not found. GConf settings backend is disabled."
+#~ msgstr ""
+#~ "No se ha encontrado el módulo GConf de Python. El soporte de GConf ha sido "
+#~ "deshabilitado"
+
+#~ msgid "Queue-element <%s> not found (already removed?)!"
+#~ msgstr "Queue-element <%s> no encontrado (¿ya borrado?)!"
+
+#~ msgid "Temporary file didn't exist - nothing to remove."
+#~ msgstr "El archivo temporal no existe - no se borrará nada."
+
+#~ msgid "Saved option %s%s/%s = %s"
+#~ msgstr "Opción guardada %s%s/%s = %s"
+
+#~ msgid "Override: "
+#~ msgstr "Sobrescribir: "
 
 #~ msgid "theme.conf found! Loading option-overrides."
 #~ msgstr "theme.conf encontrando! Sobrescribiendo opciones por defecto."
@@ -513,14 +475,22 @@ msgstr "No conectado"
 #~ msgid "FOUND: "
 #~ msgstr "ENCONTRADO: "
 
+#~ msgid "Cancel delete_event"
+#~ msgstr "Cancelar delete_event"
+
 #~ msgid "Quit all %ss ..."
 #~ msgstr "Cerrar todos los %ss"
 
 #~ msgid "Error while loading theme: "
 #~ msgstr "Error al cargar el tema: "
 
-#~ msgid "Cancel delete_event"
-#~ msgstr "Cancelar delete_event"
+#~ msgid "Warning: No default keyring found, storage is not permanent!"
+#~ msgstr ""
+#~ "Aviso: No hay ningun anillo de contraseñas por defecto, los datos no se "
+#~ "almacenaran permanentemente."
+
+#~ msgid "Error: Cannot set missing or non-boolean value '"
+#~ msgstr "Error: No se puede aplicar el valor '"
 
 #~ msgid "Start drag"
 #~ msgstr "Inicio del arrastrado"
@@ -528,69 +498,63 @@ msgstr "No conectado"
 #~ msgid "End drag"
 #~ msgstr "Arrastrado terminado"
 
+#~ msgid "No keyrings found. Please create one first!"
+#~ msgstr "No existe ningun anillo de contraseñas. Por favor, crea uno primero"
+
+#~ msgid "GnomeKeyring is not available!!"
+#~ msgstr "¡El anillo de contraseñas de gnome no está disponible!"
+
 #~ msgid "Quitting current screenlet instance"
 #~ msgstr "Cerrando esta instancia del screenlet."
-
-#~ msgid "Error: Cannot set missing or non-boolean value '"
-#~ msgstr "Error: No se puede aplicar el valor '"
-
-#~ msgid "GConf python module not found. GConf settings backend is disabled."
-#~ msgstr ""
-#~ "No se ha encontrado el módulo GConf de Python. El soporte de GConf ha "
-#~ "sido deshabilitado"
-
-#~ msgid "GConfBackend: initializing"
-#~ msgstr "GConfBackend: iniciando"
-
-#~ msgid "Saved option %s%s/%s = %s"
-#~ msgstr "Opción guardada %s%s/%s = %s"
-
-#~ msgid "Temporary file didn't exist - nothing to remove."
-#~ msgstr "El archivo temporal no existe - no se borrará nada."
-
-#~ msgid "CachingBackend: <#%s> removed!"
-#~ msgstr "CachingBackend: <#%s> removido!"
-
-#~ msgid "CachingBackend: Loading instances from cache"
-#~ msgstr "CachingBackend: Cargando instancia desde el cache"
-
-#~ msgid "CachingBackend: Loading <%s>"
-#~ msgstr "CachingBackend: Cargando <%s>"
-
-#~ msgid "Error while loading options: %s"
-#~ msgstr "Error al cargar opciones: %s"
-
-#~ msgid "Queue-element <%s> not found (already removed?)!"
-#~ msgstr "Queue-element <%s> no encontrado (¿ya borrado?)!"
-
-#~ msgid "CachingBackend: Saving <#%s> :) ..."
-#~ msgstr "CachingBackend: Guardando <#%s> :) ..."
-
-#~ msgid "error while saving config: %s%s"
-#~ msgstr "error al guardar configuración: %s%s"
-
-#~ msgid "Error during on_import - option: %s."
-#~ msgstr "Error en on_import - opción: %s"
-
-#~ msgid "Warning: No default keyring found, storage is not permanent!"
-#~ msgstr ""
-#~ "Aviso: No hay ningun anillo de contraseñas por defecto, los datos no se "
-#~ "almacenaran permanentemente."
 
 #~ msgid "ERROR: Unable to read password from keyring: %s"
 #~ msgstr "ERROR: No se ha podido leer las contraseñas del anillo: %s"
 
-#~ msgid "Options: Error - group %s not defined."
-#~ msgstr "Opciones: Error- grupo %s no definido."
+#~ msgid "Error during on_import - option: %s."
+#~ msgstr "Error en on_import - opción: %s"
 
 #~ msgid "PRESS: %s"
 #~ msgstr "PULSADO: %s"
 
+#~ msgid "Options: Error - group %s not defined."
+#~ msgstr "Opciones: Error- grupo %s no definido."
+
+#, python-format
+#~ msgid "No name for group defined in \"%s\"."
+#~ msgstr "Ningun nombre o grupo definido en \"%s\""
+
+#, python-format
+#~ msgid ""
+#~ "Error in metadata-file \"%s\" - only <group>-tags allowed in first level. "
+#~ "Groups must contain at least one <info>-element."
+#~ msgstr ""
+#~ "Error en metadata-file \"%s\" -  las etiquetas <group> solamente son "
+#~ "permitidas en el primer nivel. Las agrupaciones deben contener al menos un "
+#~ "elemento <info>."
+
+#~ msgid "Illegal value in AccountOption.on_import."
+#~ msgstr "Valor incorrectol en AccountOption.on_import."
+
+#, python-format
+#~ msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
+#~ msgstr "Archivo XML en metadata incorrecto o no existe \"%s\"."
+
+#, python-format
+#~ msgid "Invalid option-node found in \"%s\"."
+#~ msgstr "Invalida option-node encontrada en \"%s\""
+
 #~ msgid "Path %s not found."
 #~ msgstr "Dirección %s no encontrada"
 
+#, python-format
+#~ msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
+#~ msgstr "No existe o es invalido el rootnode en metadata-file: \"%s\"."
+
 #~ msgid "active theme is: %s"
 #~ msgstr "el tema activo es: %s"
+
+#~ msgid "%s days, %s hours and %s minutes"
+#~ msgstr "%s dias, %s horas y %s minutos"
 
 #~ msgid "unsupported type ''"
 #~ msgstr "tipo no soportado \""
@@ -607,48 +571,88 @@ msgstr "No conectado"
 #~ msgid "Failed to open /proc/cpuinfo"
 #~ msgstr "Error al abrir /proc/cpuinfo"
 
-#~ msgid "%s days, %s hours and %s minutes"
-#~ msgstr "%s dias, %s horas y %s minutos"
-
 #~ msgid "Failed to open /proc/uptime"
 #~ msgstr "Error al abrir /proc/uptime"
 
-#~ msgid "Error getting distro name"
-#~ msgstr "Error al obtener el nombre de la distribución"
+#~ msgid "Error during hddtemp drives search"
+#~ msgstr "Error al buscar discos duros con hddtemp."
 
-#~ msgid "CPUSensor: Failed to open /proc/stat. Sensor stopped."
-#~ msgstr "CPUSensor: Error al abrir /proc/stat. El sensor ha sido detenido."
+#, python-format
+#~ msgid "Can't open %s"
+#~ msgstr "No se puede abrir %s"
 
-#~ msgid "TEST: %s"
-#~ msgstr "TEST: %s"
+#~ msgid "Can't open folder /proc/acpi/thermal_zone/"
+#~ msgstr "No se puede abrir la carpeta /proc/acpi/thermal_zone/"
 
-#~ msgid "DEBUG: %s"
-#~ msgstr "DEBUG: %s"
+#~ msgid "Hddtemp not installed"
+#~ msgstr "Hddtemp no está instalado"
 
-#~ msgid "Cannot get/set protected options through service."
-#~ msgstr "No se puede conseguir las opciones protegidas del servicio."
+#~ msgid "Can't open /proc/net/dev"
+#~ msgstr "No es posible abrir /proc/net/dev"
+
+#, python-format
+#~ msgid "Can't open %s/temperature"
+#~ msgstr "No se puede abrir %s/temperature"
+
+#~ msgid "Can't open /proc/net/wireless"
+#~ msgstr "No es posible abrir /proc/net/wireless"
+
+#~ msgid "Can't parse /proc/meminfo"
+#~ msgstr "No se puede leer /proc/meminfo"
+
+#, python-format
+#~ msgid "can't read temperature in: %s"
+#~ msgstr "no se puede leer la temperatura en: %s"
+
+#~ msgid "No name set in ScreenletService.__init__!"
+#~ msgstr "Ningun nombre configurado en ScreenletService.__init__!"
+
+#, python-format
+#~ msgid "Trying to access invalid option \"%s\"."
+#~ msgstr "Probando a acceder. Opción invalida \"%s\""
 
 #~ msgid "Error in screenlets.services.get_service_by_name: %s"
 #~ msgstr "Error en screenlets.services.get_service_by_name: %s"
 
-#~ msgid "Unable to init backend - settings will not be saved!"
-#~ msgstr ""
-#~ "Error al iniciar el backend - las configuraciones no serán guardadas!"
+#~ msgid "CPUSensor: Failed to open /proc/stat. Sensor stopped."
+#~ msgstr "CPUSensor: Error al abrir /proc/stat. El sensor ha sido detenido."
 
-#~ msgid "Creating new instance: "
-#~ msgstr "Creando una instancia nueva: "
+#, python-format
+#~ msgid "Trying to access invalid instance \"%s\"."
+#~ msgstr "Probando a acceder. Iinstancia invalida \"%s\"."
+
+#~ msgid "Cannot get/set protected options through service."
+#~ msgstr "No se puede conseguir las opciones protegidas del servicio."
+
+#~ msgid "DEBUG: %s"
+#~ msgstr "DEBUG: %s"
+
+#, python-format
+#~ msgid "Can't read value from %s"
+#~ msgstr "No se puede leer el valor desde %s"
+
+#~ msgid "TEST: %s"
+#~ msgstr "TEST: %s"
 
 #~ msgid "ID is unset or already in use - creating new one!"
 #~ msgstr "ID no está configurado o ya está en uso - creando uno nuevo!"
 
-#~ msgid "File: %s"
-#~ msgstr "Archivo: %s"
-
-#~ msgid "Set options in %s"
-#~ msgstr "Aplicando opciones en %s"
-
 #~ msgid "Failed to remove INI-file for instance (not critical)."
 #~ msgstr "Error al borrar INI-file de instancia (no crítico)."
+
+#~ msgid "Creating new instance: "
+#~ msgstr "Creando una instancia nueva: "
+
+#~ msgid ""
+#~ "ScreenletSession.__init__ has to be called with a\n"
+#~ "\t\t\t valid Screenlet-classobject as first argument!"
+#~ msgstr ""
+#~ "ScreenletSession.__init__ debe ser llamado con un \n"
+#~ "\t\t\t Screenlet-classobject valido como primer argumento!"
+
+#~ msgid "Unable to init backend - settings will not be saved!"
+#~ msgstr ""
+#~ "Error al iniciar el backend - las configuraciones no serán guardadas!"
 
 #~ msgid "Removing last instance from session"
 #~ msgstr "Borrando la última instancia de la sesión"
@@ -656,25 +660,26 @@ msgstr "No conectado"
 #~ msgid "TODO: remove self.path: %s"
 #~ msgstr "TODO: borrar self.path: %s"
 
-#~ msgid "Failed to remove session dir '%s' - not empty?"
-#~ msgstr "Error al borrar sesion '%s' - no esta vacio?"
+#~ msgid "File: %s"
+#~ msgstr "Archivo: %s"
+
+#~ msgid "Set options in %s"
+#~ msgstr "Aplicando opciones en %s"
 
 #~ msgid "Removing instance from session but staying alive"
 #~ msgstr "Borrando la instancia de la sesion, pero siguiendo viva."
 
-#~ msgid "Found a running session of %s, adding new instance by service."
-#~ msgstr ""
-#~ "Encontrada una sesión corriendo de %s, añadiendo una nueva instancia al "
-#~ "servicio."
+#~ msgid "Failed to remove session dir '%s' - not empty?"
+#~ msgstr "Error al borrar sesion '%s' - no esta vacio?"
 
-#~ msgid "Adding new instance through: %s"
-#~ msgstr "Añadiendo una nueva instancia: %s"
+#~ msgid "Restored instances from session '%s' ..."
+#~ msgstr "Recargando instancias de la sesion '%s' ..."
 
 #~ msgid "Loading instances in: %s"
 #~ msgstr "Cargando instancias en: %s"
 
-#~ msgid "Restored instances from session '%s' ..."
-#~ msgstr "Recargando instancias de la sesion '%s' ..."
+#~ msgid "Adding new instance through: %s"
+#~ msgstr "Añadiendo una nueva instancia: %s"
 
 #~ msgid "No instance(s) found in session-path, creating new one."
 #~ msgstr ""
@@ -686,12 +691,32 @@ msgstr "No conectado"
 #~ msgid "Creating new entry for %s in %s"
 #~ msgstr "Creando una nueva entrada de %s en %s"
 
-#~ msgid ""
-#~ "Error: Unable to create temp directory %s - screenlets-manager will not "
-#~ "work properly."
+#~ msgid "Found a running session of %s, adding new instance by service."
 #~ msgstr ""
-#~ "Error: Imposible crear el directorio temporal %s - screenlets-manager no "
-#~ "funcionará bien."
+#~ "Encontrada una sesión corriendo de %s, añadiendo una nueva instancia al "
+#~ "servicio."
+
+#~ msgid "An error occured with desktop-file: %s"
+#~ msgstr "Un error ha ocurrido con el archivo del escritorio: %s"
+
+#~ msgid "LISTED PATH NOT EXISTS: "
+#~ msgstr "La direcion listada no existe: "
+
+#~ msgid "Notify: No DBus running or notifications-daemon unavailable."
+#~ msgstr ""
+#~ "Nota: No hay ningun demonio de notificaciones, o DBus no esta corriendo"
+
+#~ msgid "Error: Failed to delete global tempfile"
+#~ msgstr "Error: Fallo al borrar \"tempfile\""
+
+#~ msgid ""
+#~ "Screenlet '%s' has been interrupted by keyboard. TODO: make this an event"
+#~ msgstr ""
+#~ "El Screenlet '%s' ha sido interrumpido por la pulsacion de una tecla. TODO: "
+#~ "make this an event"
+
+#~ msgid "Deleting global tempfile %s"
+#~ msgstr "Borrando tempfile global %s"
 
 #~ msgid "Failed to unregister from daemon: %s"
 #~ msgstr "Error la des-registrar desde el demonio: %s"
@@ -706,30 +731,15 @@ msgstr "No conectado"
 #~ msgstr ""
 #~ "El tempfile global no ha sido encontrado. Algun error ha ocurrido antes?"
 
-#~ msgid "Deleting global tempfile %s"
-#~ msgstr "Borrando tempfile global %s"
-
-#~ msgid "Error: Failed to delete global tempfile"
-#~ msgstr "Error: Fallo al borrar \"tempfile\""
-
 #~ msgid ""
-#~ "Screenlet '%s' has been interrupted by keyboard. TODO: make this an event"
+#~ "Error: Unable to create temp directory %s - screenlets-manager will not work "
+#~ "properly."
 #~ msgstr ""
-#~ "El Screenlet '%s' ha sido interrumpido por la pulsacion de una tecla. "
-#~ "TODO: make this an event"
+#~ "Error: Imposible crear el directorio temporal %s - screenlets-manager no "
+#~ "funcionará bien."
 
-#~ msgid "LISTED PATH NOT EXISTS: "
-#~ msgstr "La direcion listada no existe: "
-
-#~ msgid "File %s not found"
-#~ msgstr "Archivo %s no encontrado"
-
-#~ msgid "Section %s not found!"
-#~ msgstr "Sección %s no encontrada!"
-
-#~ msgid "Notify: No DBus running or notifications-daemon unavailable."
-#~ msgstr ""
-#~ "Nota: No hay ningun demonio de notificaciones, o DBus no esta corriendo"
+#~ msgid "Error getting distro name"
+#~ msgstr "Error al obtener el nombre de la distribución"
 
 #~ msgid "UPDATING SHAPE"
 #~ msgstr "ACTUALIZANDO MASCARA::"
@@ -747,8 +757,8 @@ msgstr "No conectado"
 #~ "Error: Unable to create temp entry - screenlets-manager will not work "
 #~ "properly."
 #~ msgstr ""
-#~ "Error: No se pude crear la entrada de  \"temp\" - screenlets-manager "
-#~ "puede no funcionar apropiadamente."
+#~ "Error: No se pude crear la entrada de  \"temp\" - screenlets-manager puede "
+#~ "no funcionar apropiadamente."
 
 #~ msgid "Screenlet has been killed. TODO: make this an event"
 #~ msgstr "Screenlet ha sido matado. TODO: make this an event"

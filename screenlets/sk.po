@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-12 19:39+0900\n"
-"PO-Revision-Date: 2009-05-06 16:30+0000\n"
-"Last-Translator: milboy <Unknown>\n"
+"PO-Revision-Date: 2010-11-12 13:53+0000\n"
+"Last-Translator: tabbernuk <boamaod@gmail.com>\n"
 "Language-Team: Slovak <sk@li.org>\n"
-"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-12 07:28+0000\n"
+"X-Launchpad-Export-Date: 2010-11-13 04:47+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: sk\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
 #: src/lib/__init__.py:98
@@ -388,66 +388,73 @@ msgstr "Nepripojený"
 #~ msgid "No keyrings found. Please create one first!"
 #~ msgstr "Nenájdená kľúčenka. Prosím najskôr ju vytvor!"
 
-#~ msgid "Illegal value in AccountOption.on_import."
-#~ msgstr "Nesprávna hodnota v Nastavení užívateľa.on_import."
+#, python-format
+#~ msgid "No name for group defined in \"%s\"."
+#~ msgstr "Žiadny názov skupiny nie je nastavený v \"%s\"."
 
-#~ msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
-#~ msgstr "Neplatné XML v meta súbore (alebo chýbajúce): \"%s\"."
-
-#~ msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
-#~ msgstr "Chýbajúci alebo nesprávny rootnode v metadata-súbore: \"%s\"."
-
+#, python-format
 #~ msgid ""
 #~ "Error in metadata-file \"%s\" - only <group>-tags allowed in first level. "
 #~ "Groups must contain at least one <info>-element."
 #~ msgstr ""
-#~ "Chyba v metadata-súbore \"%s\" -iba tagy <group> sú povolené v prvej "
-#~ "úrovni. Skupiny musia obsahovať aspoň jeden prvok <info>."
+#~ "Chyba v metadata-súbore \"%s\" -iba tagy <group> sú povolené v prvej úrovni. "
+#~ "Skupiny musia obsahovať aspoň jeden prvok <info>."
 
-#~ msgid "No name for group defined in \"%s\"."
-#~ msgstr "Žiadny názov skupiny nie je nastavený v \"%s\"."
+#~ msgid "Illegal value in AccountOption.on_import."
+#~ msgstr "Nesprávna hodnota v Nastavení užívateľa.on_import."
 
+#, python-format
+#~ msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
+#~ msgstr "Chýbajúci alebo nesprávny rootnode v metadata-súbore: \"%s\"."
+
+#, python-format
+#~ msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
+#~ msgstr "Neplatné XML v meta súbore (alebo chýbajúce): \"%s\"."
+
+#, python-format
 #~ msgid "Invalid option-node found in \"%s\"."
 #~ msgstr "Neplatné nastavenie nájdené v \"%s\"."
-
-#~ msgid "Can't parse /proc/meminfo"
-#~ msgstr "Nemôžem otvoriť /proc/meminfo"
-
-#~ msgid "Can't open /proc/net/dev"
-#~ msgstr "Nemôžem otvoriť /proc/net/dev"
 
 #~ msgid "Can't open /proc/net/wireless"
 #~ msgstr "Nemôžem otvoriť /proc/net/wireless"
 
-#~ msgid "Can't open %s/temperature"
-#~ msgstr "Nemôžem otvoriť %s/temperature"
+#~ msgid "Can't open /proc/net/dev"
+#~ msgstr "Nemôžem otvoriť /proc/net/dev"
+
+#, python-format
+#~ msgid "Can't open %s"
+#~ msgstr "Nemôžem otvoriť %s"
 
 #~ msgid "Can't open folder /proc/acpi/thermal_zone/"
 #~ msgstr "Nemôžem otvoriť priečinok /proc/acpi/thermal_zone/"
 
-#~ msgid "Can't open %s"
-#~ msgstr "Nemôžem otvoriť %s"
+#, python-format
+#~ msgid "Can't open %s/temperature"
+#~ msgstr "Nemôžem otvoriť %s/temperature"
+
+#~ msgid "Can't parse /proc/meminfo"
+#~ msgstr "Nemôžem otvoriť /proc/meminfo"
 
 #~ msgid "Error during hddtemp drives search"
 #~ msgstr "Chyba počas hľadania zariadenia hddtemp"
 
-#~ msgid "Hddtemp not installed"
-#~ msgstr "Hddtemp nie je nainštalovaný"
-
+#, python-format
 #~ msgid "can't read temperature in: %s"
 #~ msgstr "Nemôžem prečítať teplotu v: %s"
 
-#~ msgid "Can't read value from %s"
-#~ msgstr "Nemôžem prečítať hodnotu z %s"
+#~ msgid "Hddtemp not installed"
+#~ msgstr "Hddtemp nie je nainštalovaný"
 
 #~ msgid "No name set in ScreenletService.__init__!"
 #~ msgstr "Nie je nastavený žiadny nazov v ScreenletService.__init__!"
 
+#, python-format
 #~ msgid "Trying to access invalid instance \"%s\"."
 #~ msgstr "Pokus o prístup k neplatnému prípadu \"%s\"."
 
-#~ msgid "Trying to access invalid option \"%s\"."
-#~ msgstr "Pokus o prístup k neplatnému nastaveniu \"%s\"."
+#, python-format
+#~ msgid "Can't read value from %s"
+#~ msgstr "Nemôžem prečítať hodnotu z %s"
 
 #~ msgid ""
 #~ "ScreenletSession.__init__ has to be called with a\n"
@@ -455,3 +462,7 @@ msgstr "Nepripojený"
 #~ msgstr ""
 #~ "ScreenletSession.__init__ má byť nazvaný\n"
 #~ "\t\t\t platný Screenlet-classobject ako prvý argument!"
+
+#, python-format
+#~ msgid "Trying to access invalid option \"%s\"."
+#~ msgstr "Pokus o prístup k neplatnému nastaveniu \"%s\"."

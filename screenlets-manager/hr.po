@@ -5,18 +5,18 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: screenlets 0.1.3\n"
+"Project-Id-Version: screenlets-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-12 18:14+0900\n"
-"PO-Revision-Date: 2008-05-21 17:20+0000\n"
-"Last-Translator: Igor Vatavuk <Unknown>\n"
+"POT-Creation-Date: 2010-11-12 19:39+0900\n"
+"PO-Revision-Date: 2010-11-12 14:13+0000\n"
+"Last-Translator: tabbernuk <boamaod@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
-"Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-12 07:28+0000\n"
+"X-Launchpad-Export-Date: 2010-11-13 04:48+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: hr\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
 msgid "Screenlets daemon"
@@ -187,8 +187,8 @@ msgstr "Pokreni/dodaj novu instancu odabranog Screenleta ..."
 msgid ""
 "Install a new Screenlet, SuperKaramba or Web Widget or Web Application  ..."
 msgstr ""
-"Instaliraj novi Screenlet, SuperKaramba ili Web widget ili Web "
-"aplikaciju  ..."
+"Instaliraj novi Screenlet, SuperKaramba ili Web widget ili Web aplikaciju  "
+"..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:421
 msgid "Permanently uninstall/delete the currently selected Screenlet ..."
@@ -312,7 +312,8 @@ msgid "Theme installed , please restart %s"
 msgstr "Tema je instalirana , molim vas ponovno pokrenite %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:824
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Pronađena je greška 2 prilikom instaliranja teme - Tema nije instalirana ili "
 "je već ranije instalirana"
@@ -472,9 +473,9 @@ msgid "Found %sScreenlet.py in path."
 msgstr "Pronađen %sScreenlet.py na putanji."
 
 #: src/share/screenlets-manager/screenlets-packager.py:92
-#, fuzzy, python-format
+#, python-format
 msgid "Unable to import module '%(name)s' from %(path)s. (%(error)s)"
-msgstr "Nije moguće uvesti modul '%s' iz %s. (%s)"
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-packager.py:93
 #, python-format
@@ -517,7 +518,8 @@ msgstr ""
 
 #: src/lib/install.py:113
 msgid "Archive is damaged or unsupported, use only tar, bz2 or gz."
-msgstr "Arhiva je oštećena ili nije podržana, koristite samo tar, bz2 ili gz."
+msgstr ""
+"Arhiva je oštećena ili nije podržana, koristite samo tar, bz2 ili gz."
 
 #. check if screenlet is already installed
 #. found_path = screenlets.utils.find_first_screenlet_path(name)
@@ -611,75 +613,32 @@ msgstr ""
 msgid "Failed to add %sScreenlet."
 msgstr "Nije uspjelo dodavanje %s Screenleta."
 
-#~ msgid ""
-#~ "You are about to install a theme in root mode. Continue only if you have "
-#~ "gksudo installed, do you wish to continue?"
-#~ msgstr ""
-#~ "Instalirat ćete temu kao root korisnik. Nastavite samo ako imate "
-#~ "instaliran gksudo, želite li nastaviti?"
-
 #~ msgid "ScreenletsDaemon: registered %s"
 #~ msgstr "ScreenletsDaemon: registriran %s"
 
 #~ msgid "screenletsDaemon: unregistered %s"
 #~ msgstr "screenletsDaemon: neregistriran %s"
 
+#~ msgid "Invalid archive. Archive does not contain a screenlet."
+#~ msgstr "Nevaljala arhiva. Arhiva ne sadrži screenlet."
+
+#~ msgid "Archive damaged or unsuported, only tar , bz2 or gz."
+#~ msgstr "Arhiva je oštećena ili nije podržana, samo .tar, .bz2 ili .gz."
+
 #~ msgid "ScreenletsDaemon running ..."
 #~ msgstr "ScreenletsDaemon je pokrenut ..."
-
-#~ msgid "ScreenletsDaemon has been shut down ..."
-#~ msgstr "ScreenletsDaemon je ugašen ..."
 
 #~ msgid "Exception in ScreenletsDaemon: %s"
 #~ msgstr "Iznimka u ScreenletsDaemon: %s"
 
-#~ msgid "Trying to launching screenlets-daemon ..."
-#~ msgstr "Pokretanje screenlets-daemona ..."
+#~ msgid "ScreenletsDaemon has been shut down ..."
+#~ msgstr "ScreenletsDaemon je ugašen ..."
 
-#~ msgid "checking for running daemon again ..."
-#~ msgstr "provjeravanje pokrenutih daemona opet ..."
-
-#~ msgid "DAEMON FOUND - Ending timeout"
-#~ msgstr "DAEMON PRONAĐEN - Završavanje timeouta"
-
-#~ msgid "Error: Unable to connect/launch daemon."
-#~ msgstr "Greška: Nije moguće spojiti se/pokrenuti daemon."
-
-#~ msgid "Data dropped ..."
-#~ msgstr "Podaci odbačeni ..."
-
-#~ msgid "Please install screenlets from folders without strange characters"
-#~ msgstr "Molim vas instalirajte screenlete iz mape bez čudnih znakova"
+#~ msgid "It looks like you are running %s"
+#~ msgstr "Izgleda da je pokrenut %s"
 
 #~ msgid "Installing %s"
 #~ msgstr "Instaliram %s"
-
-#~ msgid "list contains themes folder"
-#~ msgstr "lista sadrži mapu tema"
-
-#~ msgid "list contains the screenlet name folder"
-#~ msgstr "lista sadrži mapu s imenom screenleta"
-
-#~ msgid "only contains the themes folders"
-#~ msgstr "samo sadrži mapu tema"
-
-#~ msgid "Create desktop shortcut for: %s/%sScreenlet.py"
-#~ msgstr "Stvori prečac na radnoj površini za: %s/%sScreenlet.py"
-
-#~ msgid "Failed to create autostarter for %s."
-#~ msgstr "Neuspjelo stvaranje autostartera za %s."
-
-#~ msgid "Launch %s"
-#~ msgstr "Pokreni %s"
-
-#~ msgid "Quit %s"
-#~ msgstr "Završi %s"
-
-#~ msgid "Quit!"
-#~ msgstr "Završi!"
-
-#~ msgid "OK."
-#~ msgstr "U redu."
 
 #~ msgid ""
 #~ "The %sScreenlet is already installed in '%s'.\n"
@@ -691,32 +650,75 @@ msgstr "Nije uspjelo dodavanje %s Screenleta."
 #~ msgid "Auto-create autostart dir ..."
 #~ msgstr "Automatski stvori autostart mapu ..."
 
-#~ msgid "Removed duplicate entry"
-#~ msgstr "Izbrisan dupli unos"
+#~ msgid "Create autostarter for: Screenlets Daemon"
+#~ msgstr "Stvori autostarter za: Screenlets Daemon"
+
+#~ msgid "Failed to create autostarter for %s."
+#~ msgstr "Neuspjelo stvaranje autostartera za %s."
 
 #~ msgid "Create autostarter for: %s/%sScreenlet.py"
 #~ msgstr "Stvori autostarter za: %s/%sScreenlet.py"
 
-#~ msgid "Starter already exists."
-#~ msgstr "Starter već postoji."
+#~ msgid "Removed duplicate entry"
+#~ msgstr "Izbrisan dupli unos"
 
 #~ msgid "Delete autostarter for %s."
 #~ msgstr "Izbriši autostarter za %s."
 
+#~ msgid "DAEMON FOUND - Ending timeout"
+#~ msgstr "DAEMON PRONAĐEN - Završavanje timeouta"
+
+#~ msgid "checking for running daemon again ..."
+#~ msgstr "provjeravanje pokrenutih daemona opet ..."
+
 #~ msgid "Error in ScreenletsManager.connect_daemon: %s"
 #~ msgstr "Greška u ScreenletsManager.connect_daemon: %s"
 
-#~ msgid "Create autostarter for: Screenlets Daemon"
-#~ msgstr "Stvori autostarter za: Screenlets Daemon"
+#~ msgid "Error: Unable to connect/launch daemon."
+#~ msgstr "Greška: Nije moguće spojiti se/pokrenuti daemon."
 
-#~ msgid "Archive damaged or unsuported, only tar , bz2 or gz."
-#~ msgstr "Arhiva je oštećena ili nije podržana, samo .tar, .bz2 ili .gz."
+#~ msgid "Trying to launching screenlets-daemon ..."
+#~ msgstr "Pokretanje screenlets-daemona ..."
 
-#~ msgid "Invalid archive. Archive does not contain a screenlet."
-#~ msgstr "Nevaljala arhiva. Arhiva ne sadrži screenlet."
+#~ msgid "Starter already exists."
+#~ msgstr "Starter već postoji."
 
-#~ msgid "It looks like you are running %s"
-#~ msgstr "Izgleda da je pokrenut %s"
+#~ msgid "Please install screenlets from folders without strange characters"
+#~ msgstr "Molim vas instalirajte screenlete iz mape bez čudnih znakova"
+
+#~ msgid "Data dropped ..."
+#~ msgstr "Podaci odbačeni ..."
+
+#~ msgid "list contains the screenlet name folder"
+#~ msgstr "lista sadrži mapu s imenom screenleta"
+
+#~ msgid "list contains themes folder"
+#~ msgstr "lista sadrži mapu tema"
+
+#~ msgid "only contains the themes folders"
+#~ msgstr "samo sadrži mapu tema"
+
+#~ msgid "Quit %s"
+#~ msgstr "Završi %s"
+
+#~ msgid "Launch %s"
+#~ msgstr "Pokreni %s"
+
+#~ msgid "Quit!"
+#~ msgstr "Završi!"
 
 #~ msgid "closing %s"
 #~ msgstr "zatvaranje %s"
+
+#~ msgid "OK."
+#~ msgstr "U redu."
+
+#~ msgid ""
+#~ "You are about to install a theme in root mode. Continue only if you have "
+#~ "gksudo installed, do you wish to continue?"
+#~ msgstr ""
+#~ "Instalirat ćete temu kao root korisnik. Nastavite samo ako imate instaliran "
+#~ "gksudo, želite li nastaviti?"
+
+#~ msgid "Create desktop shortcut for: %s/%sScreenlet.py"
+#~ msgstr "Stvori prečac na radnoj površini za: %s/%sScreenlet.py"

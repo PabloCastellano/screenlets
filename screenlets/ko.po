@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-12 19:39+0900\n"
-"PO-Revision-Date: 2010-03-29 16:37+0000\n"
+"PO-Revision-Date: 2010-11-12 13:58+0000\n"
 "Last-Translator: Bundo <bundo@bundo.biz>\n"
 "Language-Team: Korean <ko@li.org>\n"
-"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-12 07:28+0000\n"
+"X-Launchpad-Export-Date: 2010-11-13 04:47+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: ko\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
 #: src/lib/__init__.py:98
@@ -274,8 +274,7 @@ msgstr ""
 msgid ""
 "This theme wants to override your settings for this Screenlet. Do you want "
 "to allow that?"
-msgstr ""
-"이 테마는 당신의 이 스크린렛츠설정을 덥어 버립니다. 계속 따라 하시겠습니까?"
+msgstr "이 테마는 당신의 이 스크린렛츠설정을 덥어 버립니다. 계속 따라 하시겠습니까?"
 
 #: src/lib/__init__.py:1553
 #, python-format
@@ -304,9 +303,7 @@ msgstr "설정 "
 msgid ""
 "Themes allow you to easily switch the appearance of your Screenlets. On this "
 "page you find a list of all available themes for this Screenlet."
-msgstr ""
-"스크린렛츠의 모양은 테마로 쉽게 전환할 수 있습니다. 이 스크린렛츠에서 사용 가"
-"능한 모든 주제 목록이 페이지에 게재됩니다."
+msgstr "스크린렛츠의 모양은 테마로 쉽게 전환할 수 있습니다. 이 스크린렛츠에서 사용 가능한 모든 주제 목록이 페이지에 게재됩니다."
 
 #: src/lib/options.py:903
 msgid "Themes "
@@ -389,44 +386,51 @@ msgstr "연결되지 않았음"
 #~ msgid "Illegal value in AccountOption.on_import."
 #~ msgstr "AccountOption.on_import에  잘못된 값."
 
-#~ msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
-#~ msgstr "메타 데이터 파일에 잘못된 XML (또는 파일 없음) : \"%s\"."
-
-#~ msgid "Can't parse /proc/meminfo"
-#~ msgstr "/proc/meminfo 열기 실패"
+#~ msgid "Can't open /proc/net/wireless"
+#~ msgstr "/proc/net/wireless 열기 실패"
 
 #~ msgid "Can't open /proc/net/dev"
 #~ msgstr "/proc/net/dev 열기 실패"
 
-#~ msgid "Can't open /proc/net/wireless"
-#~ msgstr "/proc/net/wireless 열기 실패"
-
-#~ msgid "Can't open %s/temperature"
-#~ msgstr "%s/temperature 열수 없습니다."
+#, python-format
+#~ msgid "Can't open %s"
+#~ msgstr "%s를 열 수 없습니다."
 
 #~ msgid "Can't open folder /proc/acpi/thermal_zone/"
 #~ msgstr "/proc/acpi/thermal_zone/ 폴더를 열 수 없습니다."
 
-#~ msgid "Can't open %s"
-#~ msgstr "%s를 열 수 없습니다."
+#, python-format
+#~ msgid "Can't open %s/temperature"
+#~ msgstr "%s/temperature 열수 없습니다."
+
+#~ msgid "Can't parse /proc/meminfo"
+#~ msgstr "/proc/meminfo 열기 실패"
 
 #~ msgid "Error during hddtemp drives search"
 #~ msgstr "hddtemp가 드라이브를 검색하는 동안 오류"
 
-#~ msgid "Hddtemp not installed"
-#~ msgstr "Hddtemp가 설치 되지 않았습니다"
-
+#, python-format
 #~ msgid "can't read temperature in: %s"
 #~ msgstr "온도를 읽을 수없습니다: %s"
 
-#~ msgid "Can't read value from %s"
-#~ msgstr "%s에서 값을 읽을 수없습니다"
+#~ msgid "Hddtemp not installed"
+#~ msgstr "Hddtemp가 설치 되지 않았습니다"
 
 #~ msgid "No name set in ScreenletService.__init__!"
 #~ msgstr "ScreenletService.__init__ 설정 이름이 없음!"
 
+#, python-format
 #~ msgid "Trying to access invalid instance \"%s\"."
 #~ msgstr "잘못된 인스턴스에 액세스하려하는중 \"%s\"."
 
+#, python-format
+#~ msgid "Can't read value from %s"
+#~ msgstr "%s에서 값을 읽을 수없습니다"
+
+#, python-format
 #~ msgid "Trying to access invalid option \"%s\"."
 #~ msgstr "잘못된 옵션을 사용하려고 하는중 \"%s\"."
+
+#, python-format
+#~ msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
+#~ msgstr "메타 데이터 파일에 잘못된 XML (또는 파일 없음) : \"%s\"."

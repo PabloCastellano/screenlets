@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-12 19:39+0900\n"
-"PO-Revision-Date: 2008-08-30 08:28+0000\n"
+"PO-Revision-Date: 2010-11-12 14:04+0000\n"
 "Last-Translator: Yannis Kaskamanidis <ttnfy17@yahoo.gr>\n"
 "Language-Team: Greek <el@li.org>\n"
-"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-12 07:28+0000\n"
+"X-Launchpad-Export-Date: 2010-11-13 04:47+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: el\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
 #: src/lib/__init__.py:98
@@ -390,35 +390,47 @@ msgstr "Δεν συνδέθηκε"
 #~ msgid "Error while loading ScreenletTheme in: "
 #~ msgstr "Σφάλμα κατά τη φόρτωση Θέματος Screenlet στο: "
 
-#~ msgid "GnomeKeyring is not available!!"
-#~ msgstr "Το GnomeKeyring δεν είναι διαθέσιμο!"
-
 #~ msgid "No keyrings found. Please create one first!"
 #~ msgstr "Δεν βρέθηκαν κλειδοθήκες κωδικών. Παρακαλώ δημιουργήστε μία!"
 
 #~ msgid "Illegal value in AccountOption.on_import."
 #~ msgstr "Αθέμιτη τιμή στην εισαγωγή_AccountOption.on."
 
+#, python-format
+#~ msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
+#~ msgstr "Απών ή λανθασμένος ριζικός κόμβος στο αρχείο μεταδεδομένων: \"%s\"."
+
+#, python-format
 #~ msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
 #~ msgstr ""
 #~ "Λανθασμένο XML στο αρχείο μεταδεδομένων (ή λείπει το αρχείο): \"%s\"."
 
-#~ msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
-#~ msgstr "Απών ή λανθασμένος ριζικός κόμβος στο αρχείο μεταδεδομένων: \"%s\"."
+#~ msgid "GnomeKeyring is not available!!"
+#~ msgstr "Το GnomeKeyring δεν είναι διαθέσιμο!"
 
+#, python-format
 #~ msgid ""
 #~ "Error in metadata-file \"%s\" - only <group>-tags allowed in first level. "
 #~ "Groups must contain at least one <info>-element."
 #~ msgstr ""
-#~ "Σφάλμα στο αρχείο μεταδεδομένων \"%s\" - μόνον ετικέτα <ομάδα>- "
-#~ "επιτρέπεται στο πρώτο επίπεδο. Οι ομάδες θα πρέπει να περιέχουν το "
-#~ "λιγότερο ένα στοιχείο <πληροφορία>-."
+#~ "Σφάλμα στο αρχείο μεταδεδομένων \"%s\" - μόνον ετικέτα <ομάδα>- επιτρέπεται "
+#~ "στο πρώτο επίπεδο. Οι ομάδες θα πρέπει να περιέχουν το λιγότερο ένα στοιχείο "
+#~ "<πληροφορία>-."
 
+#, python-format
 #~ msgid "No name for group defined in \"%s\"."
 #~ msgstr "Δεν καθορίστηκε όνομα για την ομάδα στο \"%s\"."
 
+#, python-format
 #~ msgid "Invalid option-node found in \"%s\"."
 #~ msgstr "Βρέθηκε λανθασμένος κόμβος επιλογών στο \"%s\"."
+
+#, python-format
+#~ msgid "Can't open %s/temperature"
+#~ msgstr "Αδυναμία ανοίγματος %s/temperature"
+
+#~ msgid "Can't open /proc/net/wireless"
+#~ msgstr "Αδυναμία ανοίγματος /proc/net/wireless"
 
 #~ msgid "Can't parse /proc/meminfo"
 #~ msgstr "Αδυναμία ανάλυσης /proc/meminfo"
@@ -426,38 +438,29 @@ msgstr "Δεν συνδέθηκε"
 #~ msgid "Can't open /proc/net/dev"
 #~ msgstr "Αδυναμία ανοίγματος /proc/net/dev"
 
-#~ msgid "Can't open /proc/net/wireless"
-#~ msgstr "Αδυναμία ανοίγματος /proc/net/wireless"
+#~ msgid "Error during hddtemp drives search"
+#~ msgstr "Σφάλμα κατά τη διάρκεια αναζήτησης οδηγών hddtemp"
 
-#~ msgid "Can't open %s/temperature"
-#~ msgstr "Αδυναμία ανοίγματος %s/temperature"
+#, python-format
+#~ msgid "Can't open %s"
+#~ msgstr "Αδυναμία ανοίγματος %s"
 
 #~ msgid "Can't open folder /proc/acpi/thermal_zone/"
 #~ msgstr "Αδυναμία ανοίγματος φακέλου /proc/acpi/thermal_zone/"
 
-#~ msgid "Can't open %s"
-#~ msgstr "Αδυναμία ανοίγματος %s"
-
-#~ msgid "Error during hddtemp drives search"
-#~ msgstr "Σφάλμα κατά τη διάρκεια αναζήτησης οδηγών hddtemp"
+#, python-format
+#~ msgid "can't read temperature in: %s"
+#~ msgstr "αδυναμία ανάγνωσης θερμοκρασίας στο: %s"
 
 #~ msgid "Hddtemp not installed"
 #~ msgstr "To Hddtemp δεν εγκαταστάθηκε"
 
-#~ msgid "can't read temperature in: %s"
-#~ msgstr "αδυναμία ανάγνωσης θερμοκρασίας στο: %s"
-
-#~ msgid "Can't read value from %s"
-#~ msgstr "Αδυναμία ανάγνωσης τιμής από %s"
-
 #~ msgid "No name set in ScreenletService.__init__!"
 #~ msgstr "Δεν καθορίστηκε όνομα στο ScreenletService.__init__!"
 
-#~ msgid "Trying to access invalid instance \"%s\"."
-#~ msgstr "Προσπάθεια πρόσβασης σε μη έγκυρο στιγμιότυπο \"%s\"."
-
-#~ msgid "Trying to access invalid option \"%s\"."
-#~ msgstr "Προσπάθεια πρόσβασης σε μη έγκυρη επιλογή \"%s\"."
+#, python-format
+#~ msgid "Can't read value from %s"
+#~ msgstr "Αδυναμία ανάγνωσης τιμής από %s"
 
 #~ msgid ""
 #~ "ScreenletSession.__init__ has to be called with a\n"
@@ -465,3 +468,11 @@ msgstr "Δεν συνδέθηκε"
 #~ msgstr ""
 #~ "Το ScreenletSession.__init__ πρέπει να κληθεί με ένα\n"
 #~ "\t\t\t έγκυρο Screenlet-classobject ως πρώτη παράμετρο!"
+
+#, python-format
+#~ msgid "Trying to access invalid option \"%s\"."
+#~ msgstr "Προσπάθεια πρόσβασης σε μη έγκυρη επιλογή \"%s\"."
+
+#, python-format
+#~ msgid "Trying to access invalid instance \"%s\"."
+#~ msgstr "Προσπάθεια πρόσβασης σε μη έγκυρο στιγμιότυπο \"%s\"."

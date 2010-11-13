@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-12 19:39+0900\n"
-"PO-Revision-Date: 2008-11-25 11:04+0000\n"
+"PO-Revision-Date: 2010-11-12 13:52+0000\n"
 "Last-Translator: Dejan Dežman <159643@gmail.com>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
-"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-12 07:28+0000\n"
+"X-Launchpad-Export-Date: 2010-11-13 04:47+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: sl\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
 #: src/lib/__init__.py:98
@@ -374,38 +374,42 @@ msgstr "Ne morem dobiti IP naslova"
 msgid "Not connected"
 msgstr "Brez povezave"
 
-#~ msgid "Error while loading ScreenletTheme in: "
-#~ msgstr "Napaka med nalaganjem ScreenletTheme v: "
-
 #~ msgid "GnomeKeyring is not available!!"
 #~ msgstr "GnomeKeyring ni na voljo!!"
 
 #~ msgid "Illegal value in AccountOption.on_import."
 #~ msgstr "Nepravilna vrednost v AccountOption.on_import."
 
+#, python-format
 #~ msgid "No name for group defined in \"%s\"."
 #~ msgstr "V \"%s\" ni definirano nobeno ime ali skupina."
 
-#~ msgid "Can't parse /proc/meminfo"
-#~ msgstr "Ne morem sparsati /proc/meminfo"
-
-#~ msgid "Can't open /proc/net/dev"
-#~ msgstr "Ne morem odpreti /proc/net/dev"
+#~ msgid "Error while loading ScreenletTheme in: "
+#~ msgstr "Napaka med nalaganjem ScreenletTheme v: "
 
 #~ msgid "Can't open /proc/net/wireless"
 #~ msgstr "Ne morem odpreti /proc/net/wireless"
 
+#~ msgid "Can't open /proc/net/dev"
+#~ msgstr "Ne morem odpreti /proc/net/dev"
+
+#, python-format
 #~ msgid "Can't open %s/temperature"
 #~ msgstr "Ne morem odpreti %s/temperature"
+
+#~ msgid "Can't parse /proc/meminfo"
+#~ msgstr "Ne morem sparsati /proc/meminfo"
+
+#, python-format
+#~ msgid "Can't open %s"
+#~ msgstr "Ne morem odpreti %s"
 
 #~ msgid "Can't open folder /proc/acpi/thermal_zone/"
 #~ msgstr "Ne morem odpreti mape /proc/acpi/thermal_zone/"
 
-#~ msgid "Can't open %s"
-#~ msgstr "Ne morem odpreti %s"
-
 #~ msgid "Hddtemp not installed"
 #~ msgstr "Hddtemp ni inštaliran"
 
+#, python-format
 #~ msgid "Can't read value from %s"
 #~ msgstr "Ne morem prebrati vrednosti iz %s"

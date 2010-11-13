@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-12 19:39+0900\n"
-"PO-Revision-Date: 2009-10-11 03:49+0000\n"
+"PO-Revision-Date: 2010-11-12 09:59+0000\n"
 "Last-Translator: Miro Glavić <glavicmiro@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
-"Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-12 07:28+0000\n"
+"X-Launchpad-Export-Date: 2010-11-13 04:47+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: hr\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
 #: src/lib/__init__.py:98
@@ -379,62 +379,11 @@ msgstr "Nije moguće pročitati ip"
 msgid "Not connected"
 msgstr "Nije povezano"
 
-#~ msgid "GnomeKeyring is not available!!"
-#~ msgstr "GnomeKeyring nije dostupan!!"
-
-#~ msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
-#~ msgstr "Nevaljali XML u metadata-datoteci (ili nedostaje datoteka): \"%s\"."
-
-#~ msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
-#~ msgstr "Nedostaje ili nije valjan korijen u metadata-datoteci: \"%s\"."
-
-#~ msgid "No name for group defined in \"%s\"."
-#~ msgstr "Nema imena grupe definiranog u \"%s\"."
-
-#~ msgid "Can't open /proc/net/dev"
-#~ msgstr "Nije moguće otvoriti /proc/net/dev"
-
-#~ msgid "Can't open /proc/net/wireless"
-#~ msgstr "Nije moguće otvoriti /proc/net/wireless"
-
-#~ msgid "Can't open %s/temperature"
-#~ msgstr "Nije moguće otvoriti %s/temperature"
-
-#~ msgid "Can't open folder /proc/acpi/thermal_zone/"
-#~ msgstr "Nije moguće otvoriti mapu /proc/acpi/thermal_zone/"
-
-#~ msgid "Can't open %s"
-#~ msgstr "Nije moguće otvoriti %s"
-
-#~ msgid "Error during hddtemp drives search"
-#~ msgstr "Greška prilikom hddtemp pretrage diskova"
-
-#~ msgid "Hddtemp not installed"
-#~ msgstr "Hddtemp nije instaliran"
-
-#~ msgid "can't read temperature in: %s"
-#~ msgstr "Nije moguće pročitati temperaturu: %s"
-
-#~ msgid "Can't read value from %s"
-#~ msgstr "Nije moguće pročitati vrijednost %s"
-
-#~ msgid "No name set in ScreenletService.__init__!"
-#~ msgstr "Nije postavljeno ime u ScreenletService.__init__!"
-
-#~ msgid "Trying to access invalid instance \"%s\"."
-#~ msgstr "Pokušaj pristupa nevažećoj instanci \"%s\"."
-
-#~ msgid "Trying to access invalid option \"%s\"."
-#~ msgstr "Pokušaj pristupa nevažećoj opciji \"%s\"."
-
-#~ msgid "Error while creating image from file: %s"
-#~ msgstr "Greška prilikom stvaranja slike iz datoteke: %s"
-
 #~ msgid "Error: file %s not found."
 #~ msgstr "Greška: datoteka %s nije pronađena."
 
-#~ msgid "XML-Error: %s"
-#~ msgstr "XML-Greška: %s"
+#~ msgid "Error while creating menu."
+#~ msgstr "Greška prilikom stvaranja izbornika."
 
 #~ msgid "Exception: %s"
 #~ msgstr "Iznimka: %s"
@@ -442,20 +391,70 @@ msgstr "Nije povezano"
 #~ msgid "An error occured with desktop-file: %s"
 #~ msgstr "Dogodila se greška s desktop-datotekom: %s"
 
-#~ msgid "Error while creating menu."
-#~ msgstr "Greška prilikom stvaranja izbornika."
+#~ msgid "XML-Error: %s"
+#~ msgstr "XML-Greška: %s"
 
-#~ msgid "Override: "
-#~ msgstr "Zaobilaženje: "
+#~ msgid "File %s not found"
+#~ msgstr "Datoteka %s nije pronađena"
 
-#~ msgid "theme.conf loaded: "
-#~ msgstr "theme.conf učitan: "
+#~ msgid "Notify: No DBus running or notifications-daemon unavailable."
+#~ msgstr "Obavjest: DBus nije pokrenut ili nije dostupan notifications-daemon."
 
-#~ msgid "Name: "
-#~ msgstr "Ime: "
+#~ msgid "Section %s not found!"
+#~ msgstr "Sekcija %s nije pronađena!"
 
-#~ msgid "Author: "
-#~ msgstr "Autor: "
+#~ msgid "LISTED PATH NOT EXISTS: "
+#~ msgstr "IZLISTANA PUTANJA NE POSTOJI: "
+
+#~ msgid ""
+#~ "Screenlet '%s' has been interrupted by keyboard. TODO: make this an event"
+#~ msgstr "Screenlet '%s' je prekinut tipkovnicom."
+
+#~ msgid "Error while creating image from file: %s"
+#~ msgstr "Greška prilikom stvaranja slike iz datoteke: %s"
+
+#, python-format
+#~ msgid "can't read temperature in: %s"
+#~ msgstr "Nije moguće pročitati temperaturu: %s"
+
+#~ msgid "No name set in ScreenletService.__init__!"
+#~ msgstr "Nije postavljeno ime u ScreenletService.__init__!"
+
+#~ msgid "CPUSensor: Failed to open /proc/stat. Sensor stopped."
+#~ msgstr "CPUSensor: Neuspjelo otvaranje /proc/stat. Senzor zaustavljen."
+
+#~ msgid "DEBUG: %s"
+#~ msgstr "DEBUG: %s"
+
+#, python-format
+#~ msgid "Can't read value from %s"
+#~ msgstr "Nije moguće pročitati vrijednost %s"
+
+#~ msgid "TEST: %s"
+#~ msgstr "TEST: %s"
+
+#~ msgid "Can't open /proc/net/wireless"
+#~ msgstr "Nije moguće otvoriti /proc/net/wireless"
+
+#~ msgid "Can't open /proc/net/dev"
+#~ msgstr "Nije moguće otvoriti /proc/net/dev"
+
+#~ msgid "Error during hddtemp drives search"
+#~ msgstr "Greška prilikom hddtemp pretrage diskova"
+
+#, python-format
+#~ msgid "Can't open %s"
+#~ msgstr "Nije moguće otvoriti %s"
+
+#~ msgid "Can't open folder /proc/acpi/thermal_zone/"
+#~ msgstr "Nije moguće otvoriti mapu /proc/acpi/thermal_zone/"
+
+#, python-format
+#~ msgid "Can't open %s/temperature"
+#~ msgstr "Nije moguće otvoriti %s/temperature"
+
+#~ msgid "Hddtemp not installed"
+#~ msgstr "Hddtemp nije instaliran"
 
 #~ msgid "Version: "
 #~ msgstr "Inačica: "
@@ -463,20 +462,86 @@ msgstr "Nije povezano"
 #~ msgid "Info: "
 #~ msgstr "Info: "
 
-#~ msgid "theme.conf found! Loading option-overrides."
-#~ msgstr "theme.conf pronađen! Učitavanje postavki-zaobilaženja."
+#~ msgid "Name: "
+#~ msgstr "Ime: "
 
-#~ msgid "LOAD NEW THEME: "
-#~ msgstr "UČITAVANJE NOVE TEME: "
-
-#~ msgid "FOUND: "
-#~ msgstr "PRONAĐEN: "
+#~ msgid "Author: "
+#~ msgstr "Autor: "
 
 #~ msgid "Quit all %ss ..."
 #~ msgstr "Zatvori sve %se ..."
 
+#~ msgid "theme.conf found! Loading option-overrides."
+#~ msgstr "theme.conf pronađen! Učitavanje postavki-zaobilaženja."
+
+#~ msgid "theme.conf loaded: "
+#~ msgstr "theme.conf učitan: "
+
+#~ msgid "Deleting global tempfile %s"
+#~ msgstr "Brisanje globalne temp datoteke %s"
+
+#~ msgid "FOUND: "
+#~ msgstr "PRONAĐEN: "
+
 #~ msgid "Error while loading theme: "
 #~ msgstr "Greška prilikom učitavanja teme: "
+
+#~ msgid "Temporary file didn't exist - nothing to remove."
+#~ msgstr "Privremena datoteka ne postoji - ništa za ukloniti."
+
+#~ msgid "Saved option %s%s/%s = %s"
+#~ msgstr "Spremljena postavka %s%s/%s = %s"
+
+#~ msgid "error while saving config: %s%s"
+#~ msgstr "greška prilikom spremanja konfiguracije: %s%s"
+
+#~ msgid "Error while loading options: %s"
+#~ msgstr "Greška prilikom učitavanja postavki: %s"
+
+#~ msgid "active theme is: %s"
+#~ msgstr "aktivna tema je: %s"
+
+#, python-format
+#~ msgid "No name for group defined in \"%s\"."
+#~ msgstr "Nema imena grupe definiranog u \"%s\"."
+
+#, python-format
+#~ msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
+#~ msgstr "Nedostaje ili nije valjan korijen u metadata-datoteci: \"%s\"."
+
+#, python-format
+#~ msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
+#~ msgstr "Nevaljali XML u metadata-datoteci (ili nedostaje datoteka): \"%s\"."
+
+#~ msgid "Options: Error - group %s not defined."
+#~ msgstr "Postavke: Greška - grupa %s nije definirana."
+
+#~ msgid "Path %s not found."
+#~ msgstr "Putanja %s nije pronađena."
+
+#~ msgid "%s days, %s hours and %s minutes"
+#~ msgstr "%s dana, %s sati i %s minuta"
+
+#~ msgid "Error getting distro name"
+#~ msgstr "Greška pri dobavljanju imena distribucije"
+
+#~ msgid "Creating new instance: "
+#~ msgstr "Stvaranje nove instance: "
+
+#~ msgid "Set options in %s"
+#~ msgstr "Postavi postavke u %s"
+
+#~ msgid "File: %s"
+#~ msgstr "Datoteka: %s"
+
+#~ msgid "Entry not found. Will (obviously) not be removed."
+#~ msgstr "Unos nije pronađen i bit će uklonjen."
+
+#~ msgid "Override: "
+#~ msgstr "Zaobilaženje: "
+
+#~ msgid "LOAD NEW THEME: "
+#~ msgstr "UČITAVANJE NOVE TEME: "
 
 #~ msgid "Start drag"
 #~ msgstr "Početak povlačenja"
@@ -487,29 +552,8 @@ msgstr "Nije povezano"
 #~ msgid "Quitting current screenlet instance"
 #~ msgstr "Zatvaram trenutnu instancu screenleta"
 
-#~ msgid "Saved option %s%s/%s = %s"
-#~ msgstr "Spremljena postavka %s%s/%s = %s"
-
-#~ msgid "Temporary file didn't exist - nothing to remove."
-#~ msgstr "Privremena datoteka ne postoji - ništa za ukloniti."
-
-#~ msgid "Error while loading options: %s"
-#~ msgstr "Greška prilikom učitavanja postavki: %s"
-
-#~ msgid "error while saving config: %s%s"
-#~ msgstr "greška prilikom spremanja konfiguracije: %s%s"
-
-#~ msgid "Options: Error - group %s not defined."
-#~ msgstr "Postavke: Greška - grupa %s nije definirana."
-
 #~ msgid "PRESS: %s"
 #~ msgstr "PRITISNUT: %s"
-
-#~ msgid "Path %s not found."
-#~ msgstr "Putanja %s nije pronađena."
-
-#~ msgid "active theme is: %s"
-#~ msgstr "aktivna tema je: %s"
 
 #~ msgid "unsupported type ''"
 #~ msgstr "nepodržan tip ''"
@@ -517,41 +561,17 @@ msgstr "Nije povezano"
 #~ msgid "Changed: %s"
 #~ msgstr "Promijenjen: %s"
 
-#~ msgid "Failed to open /proc/stat"
-#~ msgstr "Neuspjelo otvaranje /proc/stat"
+#~ msgid "Failed to open /proc/uptime"
+#~ msgstr "Neuspjelo otvaranje /proc/uptime"
 
 #~ msgid "Failed to open /proc/cpuinfo"
 #~ msgstr "Neuspjelo otvaranje /proc/cpuinfo"
 
-#~ msgid "%s days, %s hours and %s minutes"
-#~ msgstr "%s dana, %s sati i %s minuta"
-
-#~ msgid "Failed to open /proc/uptime"
-#~ msgstr "Neuspjelo otvaranje /proc/uptime"
-
-#~ msgid "Error getting distro name"
-#~ msgstr "Greška pri dobavljanju imena distribucije"
-
-#~ msgid "CPUSensor: Failed to open /proc/stat. Sensor stopped."
-#~ msgstr "CPUSensor: Neuspjelo otvaranje /proc/stat. Senzor zaustavljen."
-
-#~ msgid "TEST: %s"
-#~ msgstr "TEST: %s"
-
-#~ msgid "DEBUG: %s"
-#~ msgstr "DEBUG: %s"
-
-#~ msgid "Creating new instance: "
-#~ msgstr "Stvaranje nove instance: "
+#~ msgid "Failed to open /proc/stat"
+#~ msgstr "Neuspjelo otvaranje /proc/stat"
 
 #~ msgid "ID is unset or already in use - creating new one!"
 #~ msgstr "ID nije postavljen ili se već koristi - stvaranje novog!"
-
-#~ msgid "File: %s"
-#~ msgstr "Datoteka: %s"
-
-#~ msgid "Set options in %s"
-#~ msgstr "Postavi postavke u %s"
 
 #~ msgid "Failed creating instance of: %s"
 #~ msgstr "Neuspjelo stvaranje instance: %s"
@@ -559,28 +579,16 @@ msgstr "Nije povezano"
 #~ msgid "Creating new entry for %s in %s"
 #~ msgstr "Stvaranje novog unosa za %s u %s"
 
-#~ msgid "Entry not found. Will (obviously) not be removed."
-#~ msgstr "Unos nije pronađen i bit će uklonjen."
+#~ msgid "GnomeKeyring is not available!!"
+#~ msgstr "GnomeKeyring nije dostupan!!"
 
-#~ msgid "Deleting global tempfile %s"
-#~ msgstr "Brisanje globalne temp datoteke %s"
+#, python-format
+#~ msgid "Trying to access invalid option \"%s\"."
+#~ msgstr "Pokušaj pristupa nevažećoj opciji \"%s\"."
 
-#~ msgid ""
-#~ "Screenlet '%s' has been interrupted by keyboard. TODO: make this an event"
-#~ msgstr "Screenlet '%s' je prekinut tipkovnicom."
-
-#~ msgid "LISTED PATH NOT EXISTS: "
-#~ msgstr "IZLISTANA PUTANJA NE POSTOJI: "
-
-#~ msgid "File %s not found"
-#~ msgstr "Datoteka %s nije pronađena"
-
-#~ msgid "Section %s not found!"
-#~ msgstr "Sekcija %s nije pronađena!"
-
-#~ msgid "Notify: No DBus running or notifications-daemon unavailable."
-#~ msgstr ""
-#~ "Obavjest: DBus nije pokrenut ili nije dostupan notifications-daemon."
+#, python-format
+#~ msgid "Trying to access invalid instance \"%s\"."
+#~ msgstr "Pokušaj pristupa nevažećoj instanci \"%s\"."
 
 #~ msgid "UPDATING SHAPE"
 #~ msgstr "AŽURIRAM OBLIK"

@@ -8,20 +8,20 @@ msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-12 19:39+0900\n"
-"PO-Revision-Date: 2010-11-12 13:51+0000\n"
-"Last-Translator: tabbernuk <boamaod@gmail.com>\n"
+"PO-Revision-Date: 2010-11-14 10:41+0000\n"
+"Last-Translator: Ali Demirtas <Unknown>\n"
 "Language-Team: Turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-13 04:47+0000\n"
+"X-Launchpad-Export-Date: 2010-11-15 04:55+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "Language: tr\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
 #: src/lib/__init__.py:98
 msgid "http://www.screenlets.org/index.php/Get_more_screenlets"
-msgstr ""
+msgstr "http://www.screenlets.org/index.php/Get_more_screenlets"
 
 #. default meta-info for Screenlets
 #: src/lib/__init__.py:608
@@ -160,11 +160,11 @@ msgstr "Fare kaydırma ile boyutlandır"
 
 #: src/lib/__init__.py:784
 msgid "Ignore requirements"
-msgstr ""
+msgstr "Gereksinimleri yoksay"
 
 #: src/lib/__init__.py:785
 msgid "Set this Screenlet to ignore/demand DEB requirements ..."
-msgstr ""
+msgstr "Bu Screenlet kabul etme/DEB talep gereksinimlerini belirle..."
 
 #: src/lib/__init__.py:789
 msgid "Allow overriding Options"
@@ -176,7 +176,7 @@ msgstr "Temaların bu screenlet'in ayarlarının üstüne yazmasına izin ver ..
 
 #: src/lib/__init__.py:792
 msgid "Ask on Override"
-msgstr ""
+msgstr "İstekleri geçersiz kıl"
 
 #: src/lib/__init__.py:793
 msgid "Show a confirmation-dialog when a theme wants to override "
@@ -189,7 +189,7 @@ msgstr "Bu Screenletin geçerli ayarları"
 #. version of the deb package
 #: src/lib/__init__.py:979
 msgid "(?)"
-msgstr ""
+msgstr "(?)"
 
 #: src/lib/__init__.py:982
 #, python-format
@@ -197,6 +197,8 @@ msgid ""
 "\n"
 "%(package)s %(version)s required, NOT INSTALLED!"
 msgstr ""
+"\n"
+"%(package)s %(version)s sürümü gerekli, KURULU DEĞİL!"
 
 #: src/lib/__init__.py:985
 #, python-format
@@ -204,6 +206,8 @@ msgid ""
 "\n"
 "%(package)s %(version)s installed, req %(required)s."
 msgstr ""
+"\n"
+"%(package)s %(version)s kurulmuş, %(required)s gerekli."
 
 #: src/lib/__init__.py:987
 #, python-format
@@ -214,6 +218,11 @@ msgid ""
 "REQUIREMENTS:\n"
 "%s"
 msgstr ""
+"Screenlet için gerekli şartlar sağlanmamış! Gerekli paketleri yüklemek için "
+"sistem paket yöneticisini kullanın.\n"
+"\n"
+"GEREKLİLER:\n"
+"%s"
 
 #: src/lib/__init__.py:1009
 msgid "Size"
@@ -253,22 +262,22 @@ msgstr "Bilgi..."
 #: src/lib/__init__.py:1090
 #, python-format
 msgid "Add one more %s"
-msgstr ""
+msgstr "%s bir daha Ekle"
 
 #: src/lib/__init__.py:1093
 #, python-format
 msgid "Delete this %s"
-msgstr ""
+msgstr "%s Sil"
 
 #: src/lib/__init__.py:1097
 #, python-format
 msgid "Quit this %s"
-msgstr ""
+msgstr "%s Kapat"
 
 #: src/lib/__init__.py:1100
 #, python-format
 msgid "Quit all %ss"
-msgstr ""
+msgstr "%ss Tamamını Kapat"
 
 #: src/lib/__init__.py:1351
 msgid ""
@@ -281,7 +290,7 @@ msgstr ""
 #: src/lib/__init__.py:1553
 #, python-format
 msgid "To quit all %s's, use 'Quit' instead. "
-msgstr ""
+msgstr "Bütün %s'leri kapatmak için, 'Çıkış' ı kullanın. "
 
 #: src/lib/__init__.py:1554
 #, python-format
@@ -352,7 +361,7 @@ msgstr "Uygula"
 #: src/lib/sensors.py:168
 #, python-format
 msgid "%(days)s days, %(hours)s hours and %(minutes)s minutes"
-msgstr ""
+msgstr "%(days)s gün, %(hours)s saat ve %(minutes)s dakika"
 
 #: src/lib/sensors.py:288
 msgid "Can't get kernel version"

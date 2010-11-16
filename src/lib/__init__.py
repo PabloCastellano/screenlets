@@ -44,6 +44,7 @@ try:
 	import rsvg
 except ImportError: print 'No module RSVG , graphics will not be so good'
 import os
+import subprocess
 import glob
 import gettext
 import math
@@ -609,7 +610,7 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 	__version__	= '0.0'
 	__author__	= _('No author defined for this Screenlet')
 	__desc__	= _('No info set for this Screenlet')
-	__requires__	= []		# still unused
+	__requires__	= []
 	#__target_version__ = '0.0.0'
 	#__backend_version__ = '0.0.1'
 	
@@ -963,26 +964,44 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 		req_feedback = ""
 		fail = False
 
+#		operators=['>', '=', '<']
+
 		commandstr = 'apt-cache policy %s 2>/dev/null | sed -n "2 p" | grep -v ":[ \t]*([a-z \t]*)" | sed -r -e "s/(\s*[^\s]+:\s*)(.*)/\\2/"'
 		for req in self.__requires__:
-			if req.find(' ') != -1:
-				pos = req.find(' ')
-				package = req[:pos]
-				version = req[pos+1:]
-			elif req.find('(') != -1:
+			operator = None
+#			req = req.replace(' ', '')
+			if req.find('(') != -1:
+				# package version is specified with an operator (no logical operators supported yet!)
 				pos = req.find('(')
-				package = req[:pos]
-				version = req[pos:]
+				package = req[:pos].strip()
+				version_str = req[pos+1:]
+				version_str = version_str[:version_str.find(')')]
+				while version_str.find('  ') != -1:
+					version_str = req.replace('  ', ' ')
+				res = version_str.split(' ')
+				version = res[1]
+				operator = res[0]
 			else:
+				# when only package name is specified
 				package = req
-				# version of the deb package
-				version = _("(?)")
+				# version of the deb package if unspecified
+				version = _("?")
+
 			installed_version = os.popen(commandstr % package).readline().replace('\n', '')
+
 			if len(installed_version) < 1:
 				req_feedback += _("\n%(package)s %(version)s required, NOT INSTALLED!") % {"package":package, "version":version}
 				fail = True
 			else:
 				req_feedback += _("\n%(package)s %(version)s installed, req %(required)s.") % {"package":package, "version":installed_version, "required":version}
+				# will fail only if dpkg says that version is too old
+				# otherwise it's responsibility of developer to provide
+				# correct version id and operator (won't detect problems with these)
+				if operator is not None:
+					comp_command = "dpkg --compare-versions \"" + installed_version + "\" \"" + operator + "\" \"" + version + "\""
+#					print comp_command
+					if subprocess.call(comp_command, shell=True) != 0:
+						fail = True
 		if fail:
 			screenlets.show_message (self,_("Requirements for the Screenlet are not satisfied! Use the package manager of your system to install required packages.\n\nREQUIREMENTS:\n%s") % req_feedback, "Requirements not satisfied")
 	

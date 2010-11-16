@@ -23,6 +23,7 @@ import urllib
 gettext.textdomain('screenlets')
 gettext.bindtextdomain('screenlets', screenlets.INSTALL_PREFIX +  '/share/locale')
 import gobject
+from distutils.version import LooseVersion
 try:
 	import gnomevfs
 except:
@@ -200,7 +201,8 @@ def find_first_screenlet_path (screenlet_name):
 		path_and_version = []
 		for version_path in available_versions_paths:
 			path_and_version.append({'version': get_screenlet_metadata_by_path(version_path)['version'], 'path': version_path})
-		sorted_versions = sorted(path_and_version, key=lambda x: x["version"], reverse=True)
+
+		sorted_versions = sorted(path_and_version, key=lambda x: LooseVersion(x["version"]), reverse=True)
 		return sorted_versions[0]['path']
 
 	# nothing found

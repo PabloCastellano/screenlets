@@ -62,15 +62,10 @@ def write_conf_file(path, contents):
 		raise Exception
 
 # + constants
-USAGE				= _("""Screenlets debianizer - (c) Guido Tabbernuk 2010
-Usage: screenlets-debianizer [-c] <path> [debuild keys or anything you like]
+USAGE = _("""Screenlets debianizer - (c) Guido Tabbernuk 2010
+Usage: screenlets-debianizer <path> [debuild keys or anything you like]
 Caution!!!   You need lot of packages installed in your system as well as a bzr user set up to build a deb!
-
-OPTIONS:
-\t-c | --compatibility
-\t\tMake a hackish DEB which is compatible
-\t\twith Screenlets 0.1.2 or even less.""")
-
+""")
 
 # + globals (make commandline options from these)
 # surpress any output if true
@@ -81,8 +76,11 @@ def msg (str):
 	if not quiet:
 		print str
 
+def err (str):
+	sys.stderr.write('Error: ' + str)
+
 def die (str):
-	msg('Error: ' + str)
+	err (str)
 	sys.exit(1)
 
 
@@ -95,11 +93,6 @@ arg_start = 1
 if argc < 2:
 	die(USAGE)
 else:
-	
-	if sys.argv[arg_start] == "-c" or sys.argv[arg_start] == "--compatibility":
-		arg_start += 1
-		compatibility_mode = True
-		print "Compatibility mode is on."
 	path = sys.argv[arg_start]
 	if path[-1] == '/':
 		path = path[:-1]
@@ -233,54 +226,11 @@ binary: binary-indep binary-arch
 
 compat = """5"""
 
-Makefile = """SYSTEM_SCREENLETS_DIR = $(DESTDIR)/usr/share/screenlets-indiv
+Makefile = """SYSTEM_SCREENLETS_DIR = $(DESTDIR)/usr/share/screenlets
 
 install:
 	mkdir -p $(SYSTEM_SCREENLETS_DIR)
 	cp -r screenlet/* $(SYSTEM_SCREENLETS_DIR)"""
-
-
-# these are be usable for backward compatibility, but are not really needed now
-
-postinst = """#!/bin/sh
-set -e
-
-if [ "$1" = "configure" ]; then
-
-	if [ ! -n "$SUDO_USER" ] || [ ! -d "/home/$SUDO_USER/.screenlets" ]; then
-		echo "Internal error!"
-		exit 1
-	fi
-
-	SCREENLET_HOME="/home/$SUDO_USER/.screenlets/%s"
-	SCREENLET_DEB="/usr/share/screenlets-indiv/%s"
-
-	if [ ! -L "$SCREENLET_HOME" ]; then
-		ln --symbolic $SCREENLET_DEB $SCREENLET_HOME
-		if [ $? -ne 0 ]; then
-			echo "Screenlet already installed in $SCREENLET_HOME!"
-		fi
-	fi
-
-fi""" % (sl_name, sl_name)
-
-prerm = """#!/bin/sh
-set -e
-
-if [ "$1" = "remove" ] || [ "$1" = "deconfigure" ]; then
-
-	if [ ! -n "$SUDO_USER" ] || [ ! -d "/home/$SUDO_USER/.screenlets" ]; then
-		echo "Internal error!"
-		exit 1
-	fi
-
-	SCREENLET_HOME="/home/$SUDO_USER/.screenlets/%s"
-
-	if [ -L "$SCREENLET_HOME" ]; then
-		rm $SCREENLET_HOME || true
-	fi
-
-fi""" % sl_name
 
 #print "=========================================================="
 #print control
@@ -296,11 +246,6 @@ try:
 	write_conf_file('/tmp/%s/debian/changelog' % deb_name, changelog)
 	write_conf_file('/tmp/%s/debian/compat' % deb_name, compat)
 	write_conf_file('/tmp/%s/debian/rules' % deb_name, rules)
-
-	# these are be used for backwards compatibility with ubuntu repo screenlets version
-	if compatibility_mode:
-		write_conf_file('/tmp/%s/debian/postinst' % deb_name, postinst)
-		write_conf_file('/tmp/%s/debian/prerm' % deb_name, prerm)
 
 	os.system('cp -r %s /tmp/%s/screenlet' % (path, deb_name) )
 

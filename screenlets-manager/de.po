@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: screenlets-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-12 19:39+0900\n"
+"POT-Creation-Date: 2010-11-17 14:51+0900\n"
 "PO-Revision-Date: 2010-11-12 14:17+0000\n"
 "Last-Translator: tabbernuk <boamaod@gmail.com>\n"
 "Language-Team: German <de@li.org>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2010-11-13 04:48+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
-"Language: de\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
 msgid "Screenlets daemon"
@@ -96,8 +96,8 @@ msgstr ""
 "Daemon kann nicht erreicht oder gestartet werden. Einige Werte könnten "
 "falsch dargestellt werden."
 
-#: src/share/screenlets-manager/screenlets-manager.py:132 src/lib/utils.py:100
-#: src/lib/utils.py:104 src/lib/utils.py:545 src/lib/utils.py:549
+#: src/share/screenlets-manager/screenlets-manager.py:132 src/lib/utils.py:101
+#: src/lib/utils.py:105 src/lib/utils.py:547 src/lib/utils.py:551
 msgid "Error"
 msgstr "Fehler"
 
@@ -314,8 +314,7 @@ msgid "Theme installed , please restart %s"
 msgstr "Thema installiert, bitte starten Sie %s neu"
 
 #: src/share/screenlets-manager/screenlets-manager.py:824
-msgid ""
-"Theme install error 2 found - Theme not installed or already installed"
+msgid "Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Themeninstallations-Fehler 2 gefunden - Thema nicht oder bereits installiert."
 
@@ -410,8 +409,7 @@ msgstr "Schritt 1: Finde das zu konvertierende Screenlet."
 
 #: src/share/screenlets-manager/screenlets-manager.py:1075
 msgid "Step 2 : Copy and Paste the HTML from the widget in the box below"
-msgstr ""
-"Schritt 2: Füge den HTML-Code des Widgets in das folgende Textfeld ein"
+msgstr "Schritt 2: Füge den HTML-Code des Widgets in das folgende Textfeld ein"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1076
 msgid "Step 3 : Give it a name in the box below and click on Ok to convert"
@@ -467,8 +465,7 @@ msgstr "Screenlet-Name ist %s."
 #: src/share/screenlets-manager/screenlets-packager.py:82
 #, python-format
 msgid "No screenlet-file \"%sScreenlet.py\" found in the given path."
-msgstr ""
-"Keine Screenlet-Datei \"%sScreenlet.py\" im angegebenen Pfad gefunden."
+msgstr "Keine Screenlet-Datei \"%sScreenlet.py\" im angegebenen Pfad gefunden."
 
 #: src/share/screenlets-manager/screenlets-packager.py:83
 #, python-format
@@ -592,7 +589,7 @@ msgid "The %sScreenlet has been succesfully installed."
 msgstr "Das %sScreenlet wurde erfolgreich installiert."
 
 #. create autostart directory, if not existent
-#: src/lib/utils.py:99 src/lib/utils.py:545
+#: src/lib/utils.py:100 src/lib/utils.py:547
 msgid ""
 "There is no existing autostart directory for your user account yet. Do you "
 "want me to automatically create it for you?"
@@ -600,7 +597,7 @@ msgstr ""
 "Es existiert kein Autostart-Verzeichnis für Ihr Benutzerkonto. Möchten Sie, "
 "dass ich automatisch eines für Sie erstelle?"
 
-#: src/lib/utils.py:104 src/lib/utils.py:549
+#: src/lib/utils.py:105 src/lib/utils.py:551
 #, python-format
 msgid ""
 "Automatic creation failed. Please manually create the directory:\n"
@@ -610,7 +607,7 @@ msgstr ""
 "manuell.\n"
 "%s"
 
-#: src/lib/utils.py:107 src/lib/utils.py:552
+#: src/lib/utils.py:108 src/lib/utils.py:554
 #, python-format
 msgid ""
 "Please manually create the directory:\n"
@@ -619,7 +616,7 @@ msgstr ""
 "Bitte erstellen Sie das Verzeichnis manuell.\n"
 "%s"
 
-#: src/lib/utils.py:581
+#: src/lib/utils.py:583
 #, python-format
 msgid "Failed to add %sScreenlet."
 msgstr "Kann %sScreenlet nicht hinzufügen."

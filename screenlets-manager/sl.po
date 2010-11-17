@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-12 19:39+0900\n"
+"POT-Creation-Date: 2010-11-17 14:51+0900\n"
 "PO-Revision-Date: 2010-11-12 13:12+0000\n"
 "Last-Translator: tabbernuk <boamaod@gmail.com>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2010-11-13 04:48+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
-"Language: sl\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
 msgid "Screenlets daemon"
@@ -86,8 +86,8 @@ msgid ""
 "Unable to connect or launch daemon. Some values may be displayed incorrectly."
 msgstr ""
 
-#: src/share/screenlets-manager/screenlets-manager.py:132 src/lib/utils.py:100
-#: src/lib/utils.py:104 src/lib/utils.py:545 src/lib/utils.py:549
+#: src/share/screenlets-manager/screenlets-manager.py:132 src/lib/utils.py:101
+#: src/lib/utils.py:105 src/lib/utils.py:547 src/lib/utils.py:551
 msgid "Error"
 msgstr "Napaka"
 
@@ -294,8 +294,7 @@ msgid "Theme installed , please restart %s"
 msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:824
-msgid ""
-"Theme install error 2 found - Theme not installed or already installed"
+msgid "Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
@@ -493,8 +492,7 @@ msgstr ""
 
 #: src/lib/install.py:113
 msgid "Archive is damaged or unsupported, use only tar, bz2 or gz."
-msgstr ""
-"Arhiv je poškodovan ali nepodprt, uporabite le arhive tar, bz2 ali gz."
+msgstr "Arhiv je poškodovan ali nepodprt, uporabite le arhive tar, bz2 ali gz."
 
 #. check if screenlet is already installed
 #. found_path = screenlets.utils.find_first_screenlet_path(name)
@@ -554,20 +552,20 @@ msgid "The %sScreenlet has been succesfully installed."
 msgstr "%sScreenlet je bil uspešno nameščen."
 
 #. create autostart directory, if not existent
-#: src/lib/utils.py:99 src/lib/utils.py:545
+#: src/lib/utils.py:100 src/lib/utils.py:547
 msgid ""
 "There is no existing autostart directory for your user account yet. Do you "
 "want me to automatically create it for you?"
 msgstr ""
 
-#: src/lib/utils.py:104 src/lib/utils.py:549
+#: src/lib/utils.py:105 src/lib/utils.py:551
 #, python-format
 msgid ""
 "Automatic creation failed. Please manually create the directory:\n"
 "%s"
 msgstr ""
 
-#: src/lib/utils.py:107 src/lib/utils.py:552
+#: src/lib/utils.py:108 src/lib/utils.py:554
 #, python-format
 msgid ""
 "Please manually create the directory:\n"
@@ -576,7 +574,7 @@ msgstr ""
 "Prosimo, ročno ustvarite mapo:\n"
 "%s"
 
-#: src/lib/utils.py:581
+#: src/lib/utils.py:583
 #, python-format
 msgid "Failed to add %sScreenlet."
 msgstr "Neuspelo dodajanje %sScreenleta."

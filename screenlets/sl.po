@@ -7,205 +7,205 @@ msgid ""
 msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-12 19:39+0900\n"
+"POT-Creation-Date: 2010-11-17 14:51+0900\n"
 "PO-Revision-Date: 2010-11-12 13:52+0000\n"
 "Last-Translator: Dejan Dežman <159643@gmail.com>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2010-11-13 04:47+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
-"Language: sl\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
-#: src/lib/__init__.py:98
+#: src/lib/__init__.py:99
 msgid "http://www.screenlets.org/index.php/Get_more_screenlets"
 msgstr ""
 
 #. default meta-info for Screenlets
-#: src/lib/__init__.py:608
+#: src/lib/__init__.py:609
 msgid "No name set for this Screenlet"
 msgstr "Ni imena za Screenlet"
 
-#: src/lib/__init__.py:610
+#: src/lib/__init__.py:611
 msgid "No author defined for this Screenlet"
 msgstr "Ni avtorja za Screenlet"
 
-#: src/lib/__init__.py:611
+#: src/lib/__init__.py:612
 msgid "No info set for this Screenlet"
 msgstr "Ni informacij za Screenlet"
 
-#: src/lib/__init__.py:719
+#: src/lib/__init__.py:720
 msgid "The basic settings for this Screenlet-instance."
 msgstr "Osnovne nastavitve za to Screenlet-instanco"
 
-#: src/lib/__init__.py:734
+#: src/lib/__init__.py:735
 msgid "X-Position"
 msgstr "X-Pozicija"
 
-#: src/lib/__init__.py:734
+#: src/lib/__init__.py:735
 msgid "The X-position of this Screenlet ..."
 msgstr "X-pozicija za ta Screenlet ..."
 
-#: src/lib/__init__.py:737
+#: src/lib/__init__.py:738
 msgid "Y-Position"
 msgstr "Y-Pozicija"
 
-#: src/lib/__init__.py:737
+#: src/lib/__init__.py:738
 msgid "The Y-position of this Screenlet ..."
 msgstr "Y-pozicija tega Screenlet-a ..."
 
-#: src/lib/__init__.py:740
+#: src/lib/__init__.py:741
 msgid "Width"
 msgstr "Širina"
 
-#: src/lib/__init__.py:740
+#: src/lib/__init__.py:741
 msgid "The width of this Screenlet ..."
 msgstr "Širina Screenlet-a ..."
 
-#: src/lib/__init__.py:743
+#: src/lib/__init__.py:744
 msgid "Height"
 msgstr "Višina"
 
-#: src/lib/__init__.py:743
+#: src/lib/__init__.py:744
 msgid "The height of this Screenlet ..."
 msgstr "Višina tega Screenlet-a ..."
 
-#: src/lib/__init__.py:746
+#: src/lib/__init__.py:747
 msgid "Scale"
 msgstr "Merilo"
 
-#: src/lib/__init__.py:746
+#: src/lib/__init__.py:747
 msgid "The scale-factor of this Screenlet ..."
 msgstr "Mera Screenlet-a ..."
 
-#: src/lib/__init__.py:749
+#: src/lib/__init__.py:750
 msgid "Opacity"
 msgstr "Prekrivnost"
 
-#: src/lib/__init__.py:749
+#: src/lib/__init__.py:750
 msgid "The opacity of the Screenlet window ..."
 msgstr "Prekrivnost okna Screenlet-a ..."
 
-#: src/lib/__init__.py:752
+#: src/lib/__init__.py:753
 msgid "Stick to Desktop"
 msgstr "Drži se namizja"
 
-#: src/lib/__init__.py:753
+#: src/lib/__init__.py:754
 msgid "Show this Screenlet on all workspaces ..."
 msgstr ""
 
-#: src/lib/__init__.py:755
+#: src/lib/__init__.py:756
 msgid "Treat as Widget"
 msgstr "Obravnavaj kot Widget"
 
-#: src/lib/__init__.py:756
+#: src/lib/__init__.py:757
 msgid "Treat this Screenlet as a \"Widget\" ..."
 msgstr "Obravnavaj Screenlet kot \"Widget\" ..."
 
-#: src/lib/__init__.py:764
+#: src/lib/__init__.py:765
 msgid "Lock position"
 msgstr "Zakleni položaj"
 
-#: src/lib/__init__.py:765
+#: src/lib/__init__.py:766
 msgid "Stop the screenlet from being moved..."
 msgstr "Onemogoči premikanje Screenlet-a ..."
 
 #. add "Keep above"-menuitem
-#: src/lib/__init__.py:767 src/lib/__init__.py:1066
+#: src/lib/__init__.py:768 src/lib/__init__.py:1085
 msgid "Keep above"
 msgstr "Ohrani nad"
 
-#: src/lib/__init__.py:768
+#: src/lib/__init__.py:769
 msgid "Keep this Screenlet above other windows ..."
 msgstr "Obdrži ta Screenlet nad ostalimi okni ..."
 
 #. add "Keep Below"-menuitem
-#: src/lib/__init__.py:770 src/lib/__init__.py:1073
+#: src/lib/__init__.py:771 src/lib/__init__.py:1092
 msgid "Keep below"
 msgstr "Ohrani pod"
 
-#: src/lib/__init__.py:771
+#: src/lib/__init__.py:772
 msgid "Keep this Screenlet below other windows ..."
 msgstr "Ohrani ta Screenlet pod ostalimi okni ..."
 
-#: src/lib/__init__.py:773
+#: src/lib/__init__.py:774
 msgid "Draw button controls"
 msgstr "Prikaži kontrolne gumbe"
 
-#: src/lib/__init__.py:774
+#: src/lib/__init__.py:775
 msgid "Draw buttons in top right corner"
 msgstr "Prikaži gumbe v zgornjem desnem kotu"
 
-#: src/lib/__init__.py:776
+#: src/lib/__init__.py:777
 msgid "Skip Pager"
 msgstr "Ne prikaži v Pager-ju"
 
-#: src/lib/__init__.py:777
+#: src/lib/__init__.py:778
 msgid "Set this Screenlet to show/hide in pagers ..."
 msgstr ""
 
-#: src/lib/__init__.py:779
+#: src/lib/__init__.py:780
 msgid "Skip Taskbar"
 msgstr "Ne prikaži v opravilni vrstici"
 
-#: src/lib/__init__.py:780
+#: src/lib/__init__.py:781
 msgid "Set this Screenlet to show/hide in taskbars ..."
 msgstr ""
 
-#: src/lib/__init__.py:782
+#: src/lib/__init__.py:783
 msgid "Resize on mouse scroll"
 msgstr "Spremeni velikost z vrtenjem miškinega kolesca"
 
-#: src/lib/__init__.py:784
+#: src/lib/__init__.py:785
 msgid "Ignore requirements"
 msgstr ""
 
-#: src/lib/__init__.py:785
+#: src/lib/__init__.py:786
 msgid "Set this Screenlet to ignore/demand DEB requirements ..."
 msgstr ""
 
-#: src/lib/__init__.py:789
+#: src/lib/__init__.py:790
 msgid "Allow overriding Options"
 msgstr ""
 
-#: src/lib/__init__.py:790
+#: src/lib/__init__.py:791
 msgid "Allow themes to override options in this screenlet ..."
 msgstr "Temam dovoli spreminjanje nastavitev Screenlet-a"
 
-#: src/lib/__init__.py:792
+#: src/lib/__init__.py:793
 msgid "Ask on Override"
 msgstr ""
 
-#: src/lib/__init__.py:793
+#: src/lib/__init__.py:794
 msgid "Show a confirmation-dialog when a theme wants to override "
 msgstr ""
 
-#: src/lib/__init__.py:794
+#: src/lib/__init__.py:795
 msgid "the current options of this Screenlet ..."
 msgstr "trenutne nastavitve Screenlet-a ..."
 
-#. version of the deb package
-#: src/lib/__init__.py:979
-msgid "(?)"
+#. version of the deb package if unspecified
+#: src/lib/__init__.py:988
+msgid "?"
 msgstr ""
 
-#: src/lib/__init__.py:982
+#: src/lib/__init__.py:993
 #, python-format
 msgid ""
 "\n"
 "%(package)s %(version)s required, NOT INSTALLED!"
 msgstr ""
 
-#: src/lib/__init__.py:985
+#: src/lib/__init__.py:996
 #, python-format
 msgid ""
 "\n"
 "%(package)s %(version)s installed, req %(required)s."
 msgstr ""
 
-#: src/lib/__init__.py:987
+#: src/lib/__init__.py:1006
 #, python-format
 msgid ""
 "Requirements for the Screenlet are not satisfied! Use the package manager of "
@@ -215,73 +215,73 @@ msgid ""
 "%s"
 msgstr ""
 
-#: src/lib/__init__.py:1009
+#: src/lib/__init__.py:1028
 msgid "Size"
 msgstr "Velikost"
 
-#: src/lib/__init__.py:1024
+#: src/lib/__init__.py:1043
 msgid "Theme"
 msgstr "Tema"
 
-#: src/lib/__init__.py:1039
+#: src/lib/__init__.py:1058
 msgid "Window"
 msgstr "Okno"
 
 #. add "lock"-menuitem
-#: src/lib/__init__.py:1045
+#: src/lib/__init__.py:1064
 msgid "Lock"
 msgstr "Zakleni"
 
 #. add "Sticky"-menuitem
-#: src/lib/__init__.py:1052
+#: src/lib/__init__.py:1071
 msgid "Sticky"
 msgstr "Lepljivo"
 
 #. add "Widget"-menuitem
-#: src/lib/__init__.py:1059
+#: src/lib/__init__.py:1078
 msgid "Widget"
 msgstr "Gradnik"
 
-#: src/lib/__init__.py:1083
+#: src/lib/__init__.py:1102
 msgid "Properties..."
 msgstr "Lastnosti..."
 
-#: src/lib/__init__.py:1086
+#: src/lib/__init__.py:1105
 msgid "Info..."
 msgstr "Informacije ..."
 
-#: src/lib/__init__.py:1090
+#: src/lib/__init__.py:1109
 #, python-format
 msgid "Add one more %s"
 msgstr ""
 
-#: src/lib/__init__.py:1093
+#: src/lib/__init__.py:1112
 #, python-format
 msgid "Delete this %s"
 msgstr ""
 
-#: src/lib/__init__.py:1097
+#: src/lib/__init__.py:1116
 #, python-format
 msgid "Quit this %s"
 msgstr ""
 
-#: src/lib/__init__.py:1100
+#: src/lib/__init__.py:1119
 #, python-format
 msgid "Quit all %ss"
 msgstr ""
 
-#: src/lib/__init__.py:1351
+#: src/lib/__init__.py:1370
 msgid ""
 "This theme wants to override your settings for this Screenlet. Do you want "
 "to allow that?"
 msgstr "Tema bi rada spremenila vaše nastavitve Screenlet-a. Ji dovolite?"
 
-#: src/lib/__init__.py:1553
+#: src/lib/__init__.py:1572
 #, python-format
 msgid "To quit all %s's, use 'Quit' instead. "
 msgstr "Za končanje vseh %s-ov, raje uporabite 'Končaj'. "
 
-#: src/lib/__init__.py:1554
+#: src/lib/__init__.py:1573
 #, python-format
 msgid "Really delete this %s and its settings?"
 msgstr "Zares želite izbrisati %s in njegove nastavitve?"
@@ -380,7 +380,6 @@ msgstr "Brez povezave"
 #~ msgid "Illegal value in AccountOption.on_import."
 #~ msgstr "Nepravilna vrednost v AccountOption.on_import."
 
-#, python-format
 #~ msgid "No name for group defined in \"%s\"."
 #~ msgstr "V \"%s\" ni definirano nobeno ime ali skupina."
 
@@ -393,14 +392,12 @@ msgstr "Brez povezave"
 #~ msgid "Can't open /proc/net/dev"
 #~ msgstr "Ne morem odpreti /proc/net/dev"
 
-#, python-format
 #~ msgid "Can't open %s/temperature"
 #~ msgstr "Ne morem odpreti %s/temperature"
 
 #~ msgid "Can't parse /proc/meminfo"
 #~ msgstr "Ne morem sparsati /proc/meminfo"
 
-#, python-format
 #~ msgid "Can't open %s"
 #~ msgstr "Ne morem odpreti %s"
 
@@ -410,6 +407,5 @@ msgstr "Brez povezave"
 #~ msgid "Hddtemp not installed"
 #~ msgstr "Hddtemp ni inštaliran"
 
-#, python-format
 #~ msgid "Can't read value from %s"
 #~ msgstr "Ne morem prebrati vrednosti iz %s"

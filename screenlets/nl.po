@@ -7,205 +7,205 @@ msgid ""
 msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-12 19:39+0900\n"
+"POT-Creation-Date: 2010-11-17 14:51+0900\n"
 "PO-Revision-Date: 2010-11-12 13:57+0000\n"
 "Last-Translator: tabbernuk <boamaod@gmail.com>\n"
 "Language-Team: Dutch <nl@li.org>\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2010-11-13 04:47+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
-"Language: nl\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
-#: src/lib/__init__.py:98
+#: src/lib/__init__.py:99
 msgid "http://www.screenlets.org/index.php/Get_more_screenlets"
 msgstr ""
 
 #. default meta-info for Screenlets
-#: src/lib/__init__.py:608
+#: src/lib/__init__.py:609
 msgid "No name set for this Screenlet"
 msgstr "Geen naam ingesteld voor deze Screenlet"
 
-#: src/lib/__init__.py:610
+#: src/lib/__init__.py:611
 msgid "No author defined for this Screenlet"
 msgstr "Geen auteur gegeven voor deze Screenlet"
 
-#: src/lib/__init__.py:611
+#: src/lib/__init__.py:612
 msgid "No info set for this Screenlet"
 msgstr "Geen info ingesteld voor deze Screenlet"
 
-#: src/lib/__init__.py:719
+#: src/lib/__init__.py:720
 msgid "The basic settings for this Screenlet-instance."
 msgstr "De basis-instellingen voor deze Screenlet instantie."
 
-#: src/lib/__init__.py:734
+#: src/lib/__init__.py:735
 msgid "X-Position"
 msgstr "X coördinaat"
 
-#: src/lib/__init__.py:734
+#: src/lib/__init__.py:735
 msgid "The X-position of this Screenlet ..."
 msgstr "De X coördinaat van deze Screenlet"
 
-#: src/lib/__init__.py:737
+#: src/lib/__init__.py:738
 msgid "Y-Position"
 msgstr "Y coördinaat"
 
-#: src/lib/__init__.py:737
+#: src/lib/__init__.py:738
 msgid "The Y-position of this Screenlet ..."
 msgstr "De Y coördinaat van deze Screenlet"
 
-#: src/lib/__init__.py:740
+#: src/lib/__init__.py:741
 msgid "Width"
 msgstr "Breedte"
 
-#: src/lib/__init__.py:740
+#: src/lib/__init__.py:741
 msgid "The width of this Screenlet ..."
 msgstr "De breedte van deze Screenlet"
 
-#: src/lib/__init__.py:743
+#: src/lib/__init__.py:744
 msgid "Height"
 msgstr "Hoogte"
 
-#: src/lib/__init__.py:743
+#: src/lib/__init__.py:744
 msgid "The height of this Screenlet ..."
 msgstr "De hoogte van deze Screenlet ..."
 
-#: src/lib/__init__.py:746
+#: src/lib/__init__.py:747
 msgid "Scale"
 msgstr "Schaal"
 
-#: src/lib/__init__.py:746
+#: src/lib/__init__.py:747
 msgid "The scale-factor of this Screenlet ..."
 msgstr "De vergrotingsfactor van deze Screenlet ..."
 
-#: src/lib/__init__.py:749
+#: src/lib/__init__.py:750
 msgid "Opacity"
 msgstr "Ondoorzichtigheid"
 
-#: src/lib/__init__.py:749
+#: src/lib/__init__.py:750
 msgid "The opacity of the Screenlet window ..."
 msgstr "De ondoorzichtigheid van het Screenlet venster ..."
 
-#: src/lib/__init__.py:752
+#: src/lib/__init__.py:753
 msgid "Stick to Desktop"
 msgstr "Op het bureaublad plakken"
 
-#: src/lib/__init__.py:753
+#: src/lib/__init__.py:754
 msgid "Show this Screenlet on all workspaces ..."
 msgstr "Dit Screenlet op alle werkruimtes tonen ..."
 
-#: src/lib/__init__.py:755
+#: src/lib/__init__.py:756
 msgid "Treat as Widget"
 msgstr "Als een Widget behandelen"
 
-#: src/lib/__init__.py:756
+#: src/lib/__init__.py:757
 msgid "Treat this Screenlet as a \"Widget\" ..."
 msgstr "Behandel dit Screenlet als een \"Widget\" ..."
 
-#: src/lib/__init__.py:764
+#: src/lib/__init__.py:765
 msgid "Lock position"
 msgstr "Positie vastzetten"
 
-#: src/lib/__init__.py:765
+#: src/lib/__init__.py:766
 msgid "Stop the screenlet from being moved..."
 msgstr "Verhinder dat deze Screenlet verplaatst wordt ..."
 
 #. add "Keep above"-menuitem
-#: src/lib/__init__.py:767 src/lib/__init__.py:1066
+#: src/lib/__init__.py:768 src/lib/__init__.py:1085
 msgid "Keep above"
 msgstr "Zichtbaar houden"
 
-#: src/lib/__init__.py:768
+#: src/lib/__init__.py:769
 msgid "Keep this Screenlet above other windows ..."
 msgstr "Houd dit Screenlet boven alle vensters ..."
 
 #. add "Keep Below"-menuitem
-#: src/lib/__init__.py:770 src/lib/__init__.py:1073
+#: src/lib/__init__.py:771 src/lib/__init__.py:1092
 msgid "Keep below"
 msgstr "Naar achtergrond"
 
-#: src/lib/__init__.py:771
+#: src/lib/__init__.py:772
 msgid "Keep this Screenlet below other windows ..."
 msgstr "Houd dit Screenlet achter alle schermen"
 
-#: src/lib/__init__.py:773
+#: src/lib/__init__.py:774
 msgid "Draw button controls"
 msgstr "Toon instelknoppen"
 
-#: src/lib/__init__.py:774
+#: src/lib/__init__.py:775
 msgid "Draw buttons in top right corner"
 msgstr "Teken de knoppen rechtsboven"
 
-#: src/lib/__init__.py:776
+#: src/lib/__init__.py:777
 msgid "Skip Pager"
 msgstr "Skip Pager"
 
-#: src/lib/__init__.py:777
+#: src/lib/__init__.py:778
 msgid "Set this Screenlet to show/hide in pagers ..."
 msgstr "Laat dit Screenlet wel/niet zien in pagers ..."
 
-#: src/lib/__init__.py:779
+#: src/lib/__init__.py:780
 msgid "Skip Taskbar"
 msgstr "Skip Taakbalk"
 
-#: src/lib/__init__.py:780
+#: src/lib/__init__.py:781
 msgid "Set this Screenlet to show/hide in taskbars ..."
 msgstr "Toon/verberg dit Screenlet in taakbalken ..."
 
-#: src/lib/__init__.py:782
+#: src/lib/__init__.py:783
 msgid "Resize on mouse scroll"
 msgstr "Verander afmetingen met muiswiel"
 
-#: src/lib/__init__.py:784
+#: src/lib/__init__.py:785
 msgid "Ignore requirements"
 msgstr ""
 
-#: src/lib/__init__.py:785
+#: src/lib/__init__.py:786
 msgid "Set this Screenlet to ignore/demand DEB requirements ..."
 msgstr ""
 
-#: src/lib/__init__.py:789
+#: src/lib/__init__.py:790
 msgid "Allow overriding Options"
 msgstr "Sta het overrulen van Opties toe"
 
-#: src/lib/__init__.py:790
+#: src/lib/__init__.py:791
 msgid "Allow themes to override options in this screenlet ..."
 msgstr "Sta thema's toe opties van dit screenlet te overrulen ..."
 
-#: src/lib/__init__.py:792
+#: src/lib/__init__.py:793
 msgid "Ask on Override"
 msgstr "Vraag toestemming bij overrulen"
 
-#: src/lib/__init__.py:793
+#: src/lib/__init__.py:794
 msgid "Show a confirmation-dialog when a theme wants to override "
 msgstr "Toon een bevestigingsdialoog als een thema wil overrulen "
 
-#: src/lib/__init__.py:794
+#: src/lib/__init__.py:795
 msgid "the current options of this Screenlet ..."
 msgstr "de huidige opties van dit Screenlet ..."
 
-#. version of the deb package
-#: src/lib/__init__.py:979
-msgid "(?)"
+#. version of the deb package if unspecified
+#: src/lib/__init__.py:988
+msgid "?"
 msgstr ""
 
-#: src/lib/__init__.py:982
+#: src/lib/__init__.py:993
 #, python-format
 msgid ""
 "\n"
 "%(package)s %(version)s required, NOT INSTALLED!"
 msgstr ""
 
-#: src/lib/__init__.py:985
+#: src/lib/__init__.py:996
 #, python-format
 msgid ""
 "\n"
 "%(package)s %(version)s installed, req %(required)s."
 msgstr ""
 
-#: src/lib/__init__.py:987
+#: src/lib/__init__.py:1006
 #, python-format
 msgid ""
 "Requirements for the Screenlet are not satisfied! Use the package manager of "
@@ -215,74 +215,74 @@ msgid ""
 "%s"
 msgstr ""
 
-#: src/lib/__init__.py:1009
+#: src/lib/__init__.py:1028
 msgid "Size"
 msgstr "Grootte"
 
-#: src/lib/__init__.py:1024
+#: src/lib/__init__.py:1043
 msgid "Theme"
 msgstr "Thema"
 
-#: src/lib/__init__.py:1039
+#: src/lib/__init__.py:1058
 msgid "Window"
 msgstr "Venster"
 
 #. add "lock"-menuitem
-#: src/lib/__init__.py:1045
+#: src/lib/__init__.py:1064
 msgid "Lock"
 msgstr "Zet vast"
 
 #. add "Sticky"-menuitem
-#: src/lib/__init__.py:1052
+#: src/lib/__init__.py:1071
 msgid "Sticky"
 msgstr "Vastgeplakt"
 
 #. add "Widget"-menuitem
-#: src/lib/__init__.py:1059
+#: src/lib/__init__.py:1078
 msgid "Widget"
 msgstr "Widget"
 
-#: src/lib/__init__.py:1083
+#: src/lib/__init__.py:1102
 msgid "Properties..."
 msgstr "Eigenschappen ..."
 
-#: src/lib/__init__.py:1086
+#: src/lib/__init__.py:1105
 msgid "Info..."
 msgstr "Info..."
 
-#: src/lib/__init__.py:1090
+#: src/lib/__init__.py:1109
 #, python-format
 msgid "Add one more %s"
 msgstr ""
 
-#: src/lib/__init__.py:1093
+#: src/lib/__init__.py:1112
 #, python-format
 msgid "Delete this %s"
 msgstr ""
 
-#: src/lib/__init__.py:1097
+#: src/lib/__init__.py:1116
 #, python-format
 msgid "Quit this %s"
 msgstr ""
 
-#: src/lib/__init__.py:1100
+#: src/lib/__init__.py:1119
 #, python-format
 msgid "Quit all %ss"
 msgstr ""
 
-#: src/lib/__init__.py:1351
+#: src/lib/__init__.py:1370
 msgid ""
 "This theme wants to override your settings for this Screenlet. Do you want "
 "to allow that?"
 msgstr ""
 "Dit thema wil je instellingen voor dit Screenlet overrulen. Vind je dat goed?"
 
-#: src/lib/__init__.py:1553
+#: src/lib/__init__.py:1572
 #, python-format
 msgid "To quit all %s's, use 'Quit' instead. "
 msgstr "Gebruik 'Quit' om alle %s's te beëindigen. "
 
-#: src/lib/__init__.py:1554
+#: src/lib/__init__.py:1573
 #, python-format
 msgid "Really delete this %s and its settings?"
 msgstr "Bent u zeker dat u dit %s en alle instellingen wilt verwijderen?"
@@ -391,7 +391,6 @@ msgstr "Niet verbonden"
 #~ msgstr ""
 #~ "Er is een fout opgetreden bij het inladen van /proc/acpi/thermal_zone/"
 
-#, python-format
 #~ msgid "Can't open %s/temperature"
 #~ msgstr "Er is een fout opgetreden bij het inladen van %s/temperature"
 
@@ -401,18 +400,15 @@ msgstr "Niet verbonden"
 #~ msgid "No keyrings found. Please create one first!"
 #~ msgstr "Geen sleutels gevonden. Maak er eerst een."
 
-#, python-format
 #~ msgid "No name for group defined in \"%s\"."
 #~ msgstr "Geen naam voor groep gedefinieerd in \"%s\"."
 
-#, python-format
 #~ msgid "Can't open %s"
 #~ msgstr "Kan %s niet openen"
 
 #~ msgid "Error during hddtemp drives search"
 #~ msgstr "Fout bij zoeken naar hddtemp drives"
 
-#, python-format
 #~ msgid "can't read temperature in: %s"
 #~ msgstr "kan de temperatuur niet lezen in: %s"
 
@@ -422,7 +418,6 @@ msgstr "Niet verbonden"
 #~ msgid "Hddtemp not installed"
 #~ msgstr "Hddtemp niet geïnstalleerd"
 
-#, python-format
 #~ msgid "Can't read value from %s"
 #~ msgstr "Kan de waarde van %s niet lezen"
 
@@ -432,7 +427,6 @@ msgstr "Niet verbonden"
 #~ msgid "Illegal value in AccountOption.on_import."
 #~ msgstr "Ongeldige waarde in AccountOption.on_import"
 
-#, python-format
 #~ msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
 #~ msgstr "Ongeldige XML in metadata-bestand (of ontbrekend bestand): \"%s\"."
 
@@ -443,18 +437,15 @@ msgstr "Niet verbonden"
 #~ "Screenlet_sessiont.__init__ moet aangeroepen worden met een\n"
 #~ "\t\t\t geldig Screenlet-klasse object als eerste argument!"
 
-#, python-format
 #~ msgid ""
 #~ "Error in metadata-file \"%s\" - only <group>-tags allowed in first level. "
 #~ "Groups must contain at least one <info>-element."
 #~ msgstr ""
-#~ "Fout in metadata-bestand \"%s\" - alleen <groep>-tags toegestaan in eerste "
-#~ "niveau. Groepen moeten te minste één <info>-element bevatten."
+#~ "Fout in metadata-bestand \"%s\" - alleen <groep>-tags toegestaan in "
+#~ "eerste niveau. Groepen moeten te minste één <info>-element bevatten."
 
-#, python-format
 #~ msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
 #~ msgstr "Missende of ongeldige rootnode in metadata-bestand: \"%s\"."
 
-#, python-format
 #~ msgid "Invalid option-node found in \"%s\"."
 #~ msgstr "Ongeldige optie-node gevonden in \"%s\"."

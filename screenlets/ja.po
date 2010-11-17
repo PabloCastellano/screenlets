@@ -7,205 +7,205 @@ msgid ""
 msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-12 19:39+0900\n"
+"POT-Creation-Date: 2010-11-17 14:51+0900\n"
 "PO-Revision-Date: 2010-11-12 09:51+0000\n"
 "Last-Translator: kawaji <jiro.kawada@gmail.com>\n"
 "Language-Team: Japanese <ja@li.org>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2010-11-13 04:47+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
-"Language: ja\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
-#: src/lib/__init__.py:98
+#: src/lib/__init__.py:99
 msgid "http://www.screenlets.org/index.php/Get_more_screenlets"
 msgstr ""
 
 #. default meta-info for Screenlets
-#: src/lib/__init__.py:608
+#: src/lib/__init__.py:609
 msgid "No name set for this Screenlet"
 msgstr "この Screenlet の名前は未記載"
 
-#: src/lib/__init__.py:610
+#: src/lib/__init__.py:611
 msgid "No author defined for this Screenlet"
 msgstr "この Screenlet の作者は未記載"
 
-#: src/lib/__init__.py:611
+#: src/lib/__init__.py:612
 msgid "No info set for this Screenlet"
 msgstr "この Screenlet の情報は未記載"
 
-#: src/lib/__init__.py:719
+#: src/lib/__init__.py:720
 msgid "The basic settings for this Screenlet-instance."
 msgstr "この Screenlet インスタンスの基本設定"
 
-#: src/lib/__init__.py:734
+#: src/lib/__init__.py:735
 msgid "X-Position"
 msgstr "X 位置"
 
-#: src/lib/__init__.py:734
+#: src/lib/__init__.py:735
 msgid "The X-position of this Screenlet ..."
 msgstr "この Screenlet の X 位置..."
 
-#: src/lib/__init__.py:737
+#: src/lib/__init__.py:738
 msgid "Y-Position"
 msgstr "Y 位置"
 
-#: src/lib/__init__.py:737
+#: src/lib/__init__.py:738
 msgid "The Y-position of this Screenlet ..."
 msgstr "この Screenlet の Y 位置..."
 
-#: src/lib/__init__.py:740
+#: src/lib/__init__.py:741
 msgid "Width"
 msgstr "幅"
 
-#: src/lib/__init__.py:740
+#: src/lib/__init__.py:741
 msgid "The width of this Screenlet ..."
 msgstr "この Screenlet の幅..."
 
-#: src/lib/__init__.py:743
+#: src/lib/__init__.py:744
 msgid "Height"
 msgstr "高さ"
 
-#: src/lib/__init__.py:743
+#: src/lib/__init__.py:744
 msgid "The height of this Screenlet ..."
 msgstr "この Screenlet の高さ..."
 
-#: src/lib/__init__.py:746
+#: src/lib/__init__.py:747
 msgid "Scale"
 msgstr "スケール"
 
-#: src/lib/__init__.py:746
+#: src/lib/__init__.py:747
 msgid "The scale-factor of this Screenlet ..."
 msgstr "この Screenlet の拡縮率..."
 
-#: src/lib/__init__.py:749
+#: src/lib/__init__.py:750
 msgid "Opacity"
 msgstr "不透明度"
 
-#: src/lib/__init__.py:749
+#: src/lib/__init__.py:750
 msgid "The opacity of the Screenlet window ..."
 msgstr "この Screenlet ウィンドウの不透明度..."
 
-#: src/lib/__init__.py:752
+#: src/lib/__init__.py:753
 msgid "Stick to Desktop"
 msgstr "デスクトップに付着"
 
-#: src/lib/__init__.py:753
+#: src/lib/__init__.py:754
 msgid "Show this Screenlet on all workspaces ..."
 msgstr "この Screenlet を全てのワークスペースで表示..."
 
-#: src/lib/__init__.py:755
+#: src/lib/__init__.py:756
 msgid "Treat as Widget"
 msgstr "ウィジェットとして扱う"
 
-#: src/lib/__init__.py:756
+#: src/lib/__init__.py:757
 msgid "Treat this Screenlet as a \"Widget\" ..."
 msgstr "この Screenlet を\"ウィジェット\"として扱う..."
 
-#: src/lib/__init__.py:764
+#: src/lib/__init__.py:765
 msgid "Lock position"
 msgstr "位置の固定"
 
-#: src/lib/__init__.py:765
+#: src/lib/__init__.py:766
 msgid "Stop the screenlet from being moved..."
 msgstr "Screenlet が移動されるのを防止..."
 
 #. add "Keep above"-menuitem
-#: src/lib/__init__.py:767 src/lib/__init__.py:1066
+#: src/lib/__init__.py:768 src/lib/__init__.py:1085
 msgid "Keep above"
 msgstr "常に最前面"
 
-#: src/lib/__init__.py:768
+#: src/lib/__init__.py:769
 msgid "Keep this Screenlet above other windows ..."
 msgstr "この Screenlet を常に他ウィンドウの手前に表示..."
 
 #. add "Keep Below"-menuitem
-#: src/lib/__init__.py:770 src/lib/__init__.py:1073
+#: src/lib/__init__.py:771 src/lib/__init__.py:1092
 msgid "Keep below"
 msgstr "常に最後面"
 
-#: src/lib/__init__.py:771
+#: src/lib/__init__.py:772
 msgid "Keep this Screenlet below other windows ..."
 msgstr "この Screenlet を常に他ウィンドウの背後に表示..."
 
-#: src/lib/__init__.py:773
+#: src/lib/__init__.py:774
 msgid "Draw button controls"
 msgstr "操作ボタンの描画"
 
-#: src/lib/__init__.py:774
+#: src/lib/__init__.py:775
 msgid "Draw buttons in top right corner"
 msgstr "右上隅にボタンを描画"
 
-#: src/lib/__init__.py:776
+#: src/lib/__init__.py:777
 msgid "Skip Pager"
 msgstr "ページャー省略"
 
-#: src/lib/__init__.py:777
+#: src/lib/__init__.py:778
 msgid "Set this Screenlet to show/hide in pagers ..."
 msgstr "この Screenlet をページャーに表示するか否かの設定..."
 
-#: src/lib/__init__.py:779
+#: src/lib/__init__.py:780
 msgid "Skip Taskbar"
 msgstr "タスクバー省略"
 
-#: src/lib/__init__.py:780
+#: src/lib/__init__.py:781
 msgid "Set this Screenlet to show/hide in taskbars ..."
 msgstr "この Screenlet をタスクバーに表示するか否かの設定..."
 
-#: src/lib/__init__.py:782
+#: src/lib/__init__.py:783
 msgid "Resize on mouse scroll"
 msgstr "マウスのスクロールでサイズを変更"
 
-#: src/lib/__init__.py:784
+#: src/lib/__init__.py:785
 msgid "Ignore requirements"
 msgstr ""
 
-#: src/lib/__init__.py:785
+#: src/lib/__init__.py:786
 msgid "Set this Screenlet to ignore/demand DEB requirements ..."
 msgstr ""
 
-#: src/lib/__init__.py:789
+#: src/lib/__init__.py:790
 msgid "Allow overriding Options"
 msgstr "オプションの書き換え許可"
 
-#: src/lib/__init__.py:790
+#: src/lib/__init__.py:791
 msgid "Allow themes to override options in this screenlet ..."
 msgstr "テーマによるこの Screenlet のオプション設定値の書き換えを許可..."
 
-#: src/lib/__init__.py:792
+#: src/lib/__init__.py:793
 msgid "Ask on Override"
 msgstr "書き換え時に確認を求める"
 
-#: src/lib/__init__.py:793
+#: src/lib/__init__.py:794
 msgid "Show a confirmation-dialog when a theme wants to override "
 msgstr "テーマが設定値の書き換えを要求するときは確認ダイアログを表示 "
 
-#: src/lib/__init__.py:794
+#: src/lib/__init__.py:795
 msgid "the current options of this Screenlet ..."
 msgstr "この Screenlet の現在のオプション..."
 
-#. version of the deb package
-#: src/lib/__init__.py:979
-msgid "(?)"
+#. version of the deb package if unspecified
+#: src/lib/__init__.py:988
+msgid "?"
 msgstr ""
 
-#: src/lib/__init__.py:982
+#: src/lib/__init__.py:993
 #, python-format
 msgid ""
 "\n"
 "%(package)s %(version)s required, NOT INSTALLED!"
 msgstr ""
 
-#: src/lib/__init__.py:985
+#: src/lib/__init__.py:996
 #, python-format
 msgid ""
 "\n"
 "%(package)s %(version)s installed, req %(required)s."
 msgstr ""
 
-#: src/lib/__init__.py:987
+#: src/lib/__init__.py:1006
 #, python-format
 msgid ""
 "Requirements for the Screenlet are not satisfied! Use the package manager of "
@@ -215,73 +215,76 @@ msgid ""
 "%s"
 msgstr ""
 
-#: src/lib/__init__.py:1009
+#: src/lib/__init__.py:1028
 msgid "Size"
 msgstr "サイズ"
 
-#: src/lib/__init__.py:1024
+#: src/lib/__init__.py:1043
 msgid "Theme"
 msgstr "テーマ"
 
-#: src/lib/__init__.py:1039
+#: src/lib/__init__.py:1058
 msgid "Window"
 msgstr "ウィンドウ"
 
 #. add "lock"-menuitem
-#: src/lib/__init__.py:1045
+#: src/lib/__init__.py:1064
 msgid "Lock"
 msgstr "位置固定"
 
 #. add "Sticky"-menuitem
-#: src/lib/__init__.py:1052
+#: src/lib/__init__.py:1071
 msgid "Sticky"
 msgstr "スティッキー"
 
 #. add "Widget"-menuitem
-#: src/lib/__init__.py:1059
+#: src/lib/__init__.py:1078
 msgid "Widget"
 msgstr "ウィジェット"
 
-#: src/lib/__init__.py:1083
+#: src/lib/__init__.py:1102
 msgid "Properties..."
 msgstr "プロパティ..."
 
-#: src/lib/__init__.py:1086
+#: src/lib/__init__.py:1105
 msgid "Info..."
 msgstr "情報..."
 
-#: src/lib/__init__.py:1090
+#: src/lib/__init__.py:1109
 #, python-format
 msgid "Add one more %s"
 msgstr ""
 
-#: src/lib/__init__.py:1093
+#: src/lib/__init__.py:1112
 #, python-format
 msgid "Delete this %s"
 msgstr ""
 
-#: src/lib/__init__.py:1097
+#: src/lib/__init__.py:1116
 #, python-format
 msgid "Quit this %s"
 msgstr ""
 
-#: src/lib/__init__.py:1100
+#: src/lib/__init__.py:1119
 #, python-format
 msgid "Quit all %ss"
 msgstr ""
 
-#: src/lib/__init__.py:1351
+#: src/lib/__init__.py:1370
 msgid ""
 "This theme wants to override your settings for this Screenlet. Do you want "
 "to allow that?"
-msgstr "このテーマはこの Sceenlet の設定値の書き換えを要求しています。書き換えを許可しますか？"
+msgstr ""
+"このテーマはこの Sceenlet の設定値の書き換えを要求しています。書き換えを許可"
+"しますか？"
 
-#: src/lib/__init__.py:1553
+#: src/lib/__init__.py:1572
 #, python-format
 msgid "To quit all %s's, use 'Quit' instead. "
-msgstr "全ての %s を終了させるには、削除の代わりに '終了' を使用してください。 "
+msgstr ""
+"全ての %s を終了させるには、削除の代わりに '終了' を使用してください。 "
 
-#: src/lib/__init__.py:1554
+#: src/lib/__init__.py:1573
 #, python-format
 msgid "Really delete this %s and its settings?"
 msgstr "この %s とその設定を本当に削除しますか？"
@@ -304,7 +307,8 @@ msgid ""
 "Themes allow you to easily switch the appearance of your Screenlets. On this "
 "page you find a list of all available themes for this Screenlet."
 msgstr ""
-"Screenlet の外観はテーマによって簡単に切り替えられます。この Screenlet に使用可能な全テーマのリストがこのページに掲載されています。"
+"Screenlet の外観はテーマによって簡単に切り替えられます。この Screenlet に使用"
+"可能な全テーマのリストがこのページに掲載されています。"
 
 #: src/lib/options.py:903
 msgid "Themes "
@@ -439,7 +443,9 @@ msgstr "未接続"
 #~ msgstr "現在の Screenlet インスタンスを終了中"
 
 #~ msgid "GConf python module not found. GConf settings backend is disabled."
-#~ msgstr "GConf python モジュールが見つかりません。Gconf 設定バックエンドは無効にされます。"
+#~ msgstr ""
+#~ "GConf python モジュールが見つかりません。Gconf 設定バックエンドは無効にさ"
+#~ "れます。"
 
 #~ msgid "GConfBackend: initializing"
 #~ msgstr "GConfバックエンド: 開始中"
@@ -478,7 +484,9 @@ msgstr "未接続"
 #~ msgstr "keyring が1つも見つかりません。まず最初に作成してください！"
 
 #~ msgid "Warning: No default keyring found, storage is not permanent!"
-#~ msgstr "警告: デフォルトの keyring が見つかりません。ストレージがパーマネントではありません！"
+#~ msgstr ""
+#~ "警告: デフォルトの keyring が見つかりません。ストレージがパーマネントでは"
+#~ "ありません！"
 
 #~ msgid "ERROR: Unable to read password from keyring: %s"
 #~ msgstr "エラー: keyring からパスワードが読み取れません: %s"
@@ -486,7 +494,6 @@ msgstr "未接続"
 #~ msgid "Options: Error - group %s not defined."
 #~ msgstr "オプション: エラー - グループ %s 未定義。"
 
-#, python-format
 #~ msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
 #~ msgstr "メタデータファイルに不正な XML（またはファイル不存在）: \"%s\"."
 
@@ -532,14 +539,12 @@ msgstr "未接続"
 #~ msgid "Can't open /proc/net/wireless"
 #~ msgstr "/proc/net/wireless が開けません"
 
-#, python-format
 #~ msgid "Can't open %s/temperature"
 #~ msgstr "%s/temperature が開けません"
 
 #~ msgid "Can't open folder /proc/acpi/thermal_zone/"
 #~ msgstr "フォルダ /proc/acpi/thermal_zone/ が開けません"
 
-#, python-format
 #~ msgid "Can't open %s"
 #~ msgstr "%s が開けません"
 
@@ -549,7 +554,6 @@ msgstr "未接続"
 #~ msgid "Hddtemp not installed"
 #~ msgstr "Hddtemp が未インストール"
 
-#, python-format
 #~ msgid "Can't read value from %s"
 #~ msgstr "%s から値が読み取れません"
 
@@ -568,11 +572,9 @@ msgstr "未接続"
 #~ msgid "Cannot get/set protected options through service."
 #~ msgstr "被保護オプションの読み取りや設定がサービスを通して出来ません。"
 
-#, python-format
 #~ msgid "Trying to access invalid instance \"%s\"."
 #~ msgstr "不正なインスタンス \"%s\" にアクセスを試みています。"
 
-#, python-format
 #~ msgid "Trying to access invalid option \"%s\"."
 #~ msgstr "不正なオプション \"%s\" にアクセスを試みています。"
 
@@ -598,9 +600,11 @@ msgstr "未接続"
 #~ msgstr "インスタンスの作成に失敗: %s"
 
 #~ msgid ""
-#~ "Error: Unable to create temp directory %s - screenlets-manager will not work "
-#~ "properly."
-#~ msgstr "エラー: 一時ディレクトリ %s 作成不可 - この場合 Screenlets マネージャは正しく働きません。"
+#~ "Error: Unable to create temp directory %s - screenlets-manager will not "
+#~ "work properly."
+#~ msgstr ""
+#~ "エラー: 一時ディレクトリ %s 作成不可 - この場合 Screenlets マネージャは正"
+#~ "しく働きません。"
 
 #~ msgid "Entry not found. Will (obviously) not be removed."
 #~ msgstr "エントリーが見つかりません。（当然ながら）削除されません。"
@@ -613,7 +617,9 @@ msgstr "未接続"
 
 #~ msgid ""
 #~ "Screenlet '%s' has been interrupted by keyboard. TODO: make this an event"
-#~ msgstr "Screenlet '%s' がキーボードに割り込まれました。TODO: これをイベントにします"
+#~ msgstr ""
+#~ "Screenlet '%s' がキーボードに割り込まれました。TODO: これをイベントにしま"
+#~ "す"
 
 #~ msgid "LISTED PATH NOT EXISTS: "
 #~ msgstr "リストされたパスが不存在: "
@@ -627,7 +633,6 @@ msgstr "未接続"
 #~ msgid "Notify: No DBus running or notifications-daemon unavailable."
 #~ msgstr "通知: DBus 未稼働または notifications-daemon 利用不可。"
 
-#, python-format
 #~ msgid "can't read temperature in: %s"
 #~ msgstr "%s から温度を取得できませんでした"
 
@@ -643,7 +648,9 @@ msgstr "未接続"
 #~ msgid ""
 #~ "Error: Unable to create temp entry - screenlets-manager will not work "
 #~ "properly."
-#~ msgstr "エラー: temp エントリーの作成不可 - screenlets-manager  は正常に働きません。"
+#~ msgstr ""
+#~ "エラー: temp エントリーの作成不可 - screenlets-manager  は正常に働きませ"
+#~ "ん。"
 
 #~ msgid "Screenlet has been killed. TODO: make this an event"
 #~ msgstr "Screenlet が停止されました。TODO: これをイベントにします"

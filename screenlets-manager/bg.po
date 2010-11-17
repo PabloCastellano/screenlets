@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-12 19:39+0900\n"
+"POT-Creation-Date: 2010-11-17 14:51+0900\n"
 "PO-Revision-Date: 2010-11-12 13:39+0000\n"
 "Last-Translator: Svetoslav Stefanov <svetlisashkov@yahoo.com>\n"
 "Language-Team: Bulgarian <bg@li.org>\n"
+"Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2010-11-13 04:47+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
-"Language: bg\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
 msgid "Screenlets daemon"
@@ -91,8 +91,8 @@ msgstr ""
 "Невъзможност да връзка или зареждане на демона. Възможно е някои стойности "
 "да не са показани правилно."
 
-#: src/share/screenlets-manager/screenlets-manager.py:132 src/lib/utils.py:100
-#: src/lib/utils.py:104 src/lib/utils.py:545 src/lib/utils.py:549
+#: src/share/screenlets-manager/screenlets-manager.py:132 src/lib/utils.py:101
+#: src/lib/utils.py:105 src/lib/utils.py:547 src/lib/utils.py:551
 msgid "Error"
 msgstr "Грешка"
 
@@ -308,8 +308,7 @@ msgid "Theme installed , please restart %s"
 msgstr "Темата е инсталиране, моля рестартирайте %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:824
-msgid ""
-"Theme install error 2 found - Theme not installed or already installed"
+msgid "Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Получи се грешка 2 при инсталиране на темата - темата не е инсталирана или "
 "вече е инсталирана"
@@ -410,8 +409,7 @@ msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:1076
 msgid "Step 3 : Give it a name in the box below and click on Ok to convert"
-msgstr ""
-"Стъпка 3: Въведете име в полето по-долу и цъкнете ОК за преобразуване"
+msgstr "Стъпка 3: Въведете име в полето по-долу и цъкнете ОК за преобразуване"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1077
 msgid "The name of the widget"
@@ -580,7 +578,7 @@ msgid "The %sScreenlet has been succesfully installed."
 msgstr "Джаджата %s беше инсталирана успешно."
 
 #. create autostart directory, if not existent
-#: src/lib/utils.py:99 src/lib/utils.py:545
+#: src/lib/utils.py:100 src/lib/utils.py:547
 msgid ""
 "There is no existing autostart directory for your user account yet. Do you "
 "want me to automatically create it for you?"
@@ -588,7 +586,7 @@ msgstr ""
 "Във вашия потребителски профил все още не съществува папка за автоматично "
 "зареждане. Желаете автоматично създаване на такава?"
 
-#: src/lib/utils.py:104 src/lib/utils.py:549
+#: src/lib/utils.py:105 src/lib/utils.py:551
 #, python-format
 msgid ""
 "Automatic creation failed. Please manually create the directory:\n"
@@ -597,7 +595,7 @@ msgstr ""
 "Автоматичното създаване е неуспешно. Моля ръчно създайте папката:\n"
 "%s"
 
-#: src/lib/utils.py:107 src/lib/utils.py:552
+#: src/lib/utils.py:108 src/lib/utils.py:554
 #, python-format
 msgid ""
 "Please manually create the directory:\n"
@@ -606,7 +604,7 @@ msgstr ""
 "Моля ръчно създайте папката:\n"
 "%s"
 
-#: src/lib/utils.py:581
+#: src/lib/utils.py:583
 #, python-format
 msgid "Failed to add %sScreenlet."
 msgstr "Джаджата %s не можа да се добави"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-12 19:39+0900\n"
+"POT-Creation-Date: 2010-11-17 14:51+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -85,8 +85,8 @@ msgid ""
 "Unable to connect or launch daemon. Some values may be displayed incorrectly."
 msgstr ""
 
-#: src/share/screenlets-manager/screenlets-manager.py:132 src/lib/utils.py:100
-#: src/lib/utils.py:104 src/lib/utils.py:545 src/lib/utils.py:549
+#: src/share/screenlets-manager/screenlets-manager.py:132 src/lib/utils.py:101
+#: src/lib/utils.py:105 src/lib/utils.py:547 src/lib/utils.py:551
 msgid "Error"
 msgstr ""
 
@@ -551,27 +551,27 @@ msgid "The %sScreenlet has been succesfully installed."
 msgstr ""
 
 #. create autostart directory, if not existent
-#: src/lib/utils.py:99 src/lib/utils.py:545
+#: src/lib/utils.py:100 src/lib/utils.py:547
 msgid ""
 "There is no existing autostart directory for your user account yet. Do you "
 "want me to automatically create it for you?"
 msgstr ""
 
-#: src/lib/utils.py:104 src/lib/utils.py:549
+#: src/lib/utils.py:105 src/lib/utils.py:551
 #, python-format
 msgid ""
 "Automatic creation failed. Please manually create the directory:\n"
 "%s"
 msgstr ""
 
-#: src/lib/utils.py:107 src/lib/utils.py:552
+#: src/lib/utils.py:108 src/lib/utils.py:554
 #, python-format
 msgid ""
 "Please manually create the directory:\n"
 "%s"
 msgstr ""
 
-#: src/lib/utils.py:581
+#: src/lib/utils.py:583
 #, python-format
 msgid "Failed to add %sScreenlet."
 msgstr ""

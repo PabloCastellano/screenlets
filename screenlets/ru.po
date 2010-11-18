@@ -8,37 +8,37 @@ msgstr ""
 "Project-Id-Version: screenlets\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-17 14:51+0900\n"
-"PO-Revision-Date: 2010-11-12 14:22+0000\n"
-"Last-Translator: tabbernuk <boamaod@gmail.com>\n"
+"PO-Revision-Date: 2010-11-17 23:58+0000\n"
+"Last-Translator: Ushakov Maxim <msincster@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
-"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-13 04:47+0000\n"
+"X-Launchpad-Export-Date: 2010-11-18 04:42+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: ru\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
 #: src/lib/__init__.py:99
 msgid "http://www.screenlets.org/index.php/Get_more_screenlets"
-msgstr ""
+msgstr "http://www.screenlets.org/index.php/Get_more_screenlets"
 
 #. default meta-info for Screenlets
 #: src/lib/__init__.py:609
 msgid "No name set for this Screenlet"
-msgstr "Имя Скринлета не задано"
+msgstr "Не задано имя скринлета"
 
 #: src/lib/__init__.py:611
 msgid "No author defined for this Screenlet"
-msgstr "Автор этого Скринлета не указан"
+msgstr "Не указан автор этого скринлета"
 
 #: src/lib/__init__.py:612
 msgid "No info set for this Screenlet"
-msgstr "Информация об этом Скринлете не указана"
+msgstr "Не указана информация об этом скринлете"
 
 #: src/lib/__init__.py:720
 msgid "The basic settings for this Screenlet-instance."
-msgstr "Основные настройки для этого скринлета."
+msgstr "Базовые настройки этого экземпляра скринлета"
 
 #: src/lib/__init__.py:735
 msgid "X-Position"
@@ -46,7 +46,7 @@ msgstr "Х-координата"
 
 #: src/lib/__init__.py:735
 msgid "The X-position of this Screenlet ..."
-msgstr "X-координата для этого Скринлета ..."
+msgstr "X-координата этого скринлета ..."
 
 #: src/lib/__init__.py:738
 msgid "Y-Position"
@@ -54,7 +54,7 @@ msgstr "Y-координата"
 
 #: src/lib/__init__.py:738
 msgid "The Y-position of this Screenlet ..."
-msgstr "Y-координата для этого Скринлета ..."
+msgstr "Y-координата этого скринлета ..."
 
 #: src/lib/__init__.py:741
 msgid "Width"
@@ -62,7 +62,7 @@ msgstr "Ширина"
 
 #: src/lib/__init__.py:741
 msgid "The width of this Screenlet ..."
-msgstr "Ширина этого Скринлета ..."
+msgstr "Ширина этого скринлета ..."
 
 #: src/lib/__init__.py:744
 msgid "Height"
@@ -70,7 +70,7 @@ msgstr "Высота"
 
 #: src/lib/__init__.py:744
 msgid "The height of this Screenlet ..."
-msgstr "Высота этого Скринлета ..."
+msgstr "Высота этого скринлета ..."
 
 #: src/lib/__init__.py:747
 msgid "Scale"
@@ -78,7 +78,7 @@ msgstr "Масштаб"
 
 #: src/lib/__init__.py:747
 msgid "The scale-factor of this Screenlet ..."
-msgstr "Масштаб этого Скринлета ..."
+msgstr "Масштаб этого скринлета ..."
 
 #: src/lib/__init__.py:750
 msgid "Opacity"
@@ -90,11 +90,11 @@ msgstr "Прозрачность окна скринлета ..."
 
 #: src/lib/__init__.py:753
 msgid "Stick to Desktop"
-msgstr "Прикрепить к Рабочему Столу"
+msgstr "Прикрепить на рабочий стол"
 
 #: src/lib/__init__.py:754
 msgid "Show this Screenlet on all workspaces ..."
-msgstr "Показывать этот скринлет на всех рабочих местах"
+msgstr "Показывать этот скринлет на всех рабочих столах ..."
 
 #: src/lib/__init__.py:756
 msgid "Treat as Widget"
@@ -119,7 +119,7 @@ msgstr "Всегда наверху"
 
 #: src/lib/__init__.py:769
 msgid "Keep this Screenlet above other windows ..."
-msgstr "Закрепить Скринлет поверх остальных окон ..."
+msgstr "Закрепить этот скринлет поверх остальных окон ..."
 
 #. add "Keep Below"-menuitem
 #: src/lib/__init__.py:771 src/lib/__init__.py:1092
@@ -128,7 +128,7 @@ msgstr "Всегда снизу"
 
 #: src/lib/__init__.py:772
 msgid "Keep this Screenlet below other windows ..."
-msgstr "ЗакрепитьСкринлет под остальными окнами ..."
+msgstr "Закрепить скринлет под остальными окнами ..."
 
 #: src/lib/__init__.py:774
 msgid "Draw button controls"
@@ -144,16 +144,15 @@ msgstr "Не отображать в переключателе раб. мест
 
 #: src/lib/__init__.py:778
 msgid "Set this Screenlet to show/hide in pagers ..."
-msgstr "Включить/выключить отображение Скринлета на переключателе рабочих мест"
+msgstr "Отображение на переключателе рабочих мест ..."
 
 #: src/lib/__init__.py:780
 msgid "Skip Taskbar"
-msgstr "Не отображать в списке окон"
+msgstr "Не отображать в панели задач"
 
 #: src/lib/__init__.py:781
 msgid "Set this Screenlet to show/hide in taskbars ..."
-msgstr ""
-"Включить/выключить отображение Скринлета в списке окон (на панели задач)"
+msgstr "Отображение в панели задач..."
 
 #: src/lib/__init__.py:783
 msgid "Resize on mouse scroll"
@@ -173,7 +172,7 @@ msgstr "Разрешить изменение настроек"
 
 #: src/lib/__init__.py:791
 msgid "Allow themes to override options in this screenlet ..."
-msgstr "Разрешить темам изменять настройки этого Скринлета ..."
+msgstr "Разрешить темам изменять настройки этого скринлета ..."
 
 #: src/lib/__init__.py:793
 msgid "Ask on Override"
@@ -186,12 +185,12 @@ msgstr ""
 
 #: src/lib/__init__.py:795
 msgid "the current options of this Screenlet ..."
-msgstr "текущие настройки этого Скринлета ..."
+msgstr "текущие настройки этого скринлета ..."
 
 #. version of the deb package if unspecified
 #: src/lib/__init__.py:988
 msgid "?"
-msgstr ""
+msgstr "?"
 
 #: src/lib/__init__.py:993
 #, python-format
@@ -199,6 +198,8 @@ msgid ""
 "\n"
 "%(package)s %(version)s required, NOT INSTALLED!"
 msgstr ""
+"\n"
+"Зависит от %(package)s %(version)s, НЕ УСТАНОВЛЕН!"
 
 #: src/lib/__init__.py:996
 #, python-format
@@ -206,6 +207,8 @@ msgid ""
 "\n"
 "%(package)s %(version)s installed, req %(required)s."
 msgstr ""
+"\n"
+"%(package)s %(version)s установлен, зависимости %(required)s."
 
 #: src/lib/__init__.py:1006
 #, python-format
@@ -216,10 +219,10 @@ msgid ""
 "REQUIREMENTS:\n"
 "%s"
 msgstr ""
-"Зависимости для Screenlet не удовлетворены! Используйте ваш системный "
-"менеджер пакетов для установки требуемых пакетов.\n"
+"Зависимости для скринлета не удовлетворены! Установите при помощи менеджера "
+"пакетов требуемые пакеты.\n"
 "\n"
-"ТРЕБОВАНИЯ:\n"
+"Необходимо установить:\n"
 "%s"
 
 #: src/lib/__init__.py:1028
@@ -260,28 +263,28 @@ msgstr "Сведения..."
 #: src/lib/__init__.py:1109
 #, python-format
 msgid "Add one more %s"
-msgstr ""
+msgstr "Добавить еще один %s"
 
 #: src/lib/__init__.py:1112
 #, python-format
 msgid "Delete this %s"
-msgstr ""
+msgstr "Удалить %s"
 
 #: src/lib/__init__.py:1116
 #, python-format
 msgid "Quit this %s"
-msgstr ""
+msgstr "Закрыть %s"
 
 #: src/lib/__init__.py:1119
 #, python-format
 msgid "Quit all %ss"
-msgstr ""
+msgstr "Закрыть все %ss"
 
 #: src/lib/__init__.py:1370
 msgid ""
 "This theme wants to override your settings for this Screenlet. Do you want "
 "to allow that?"
-msgstr "Данная Тема пытается изменить настройки Скринлета. Разрешить?"
+msgstr "Данная тема пытается изменить настройки скринлета. Разрешить?"
 
 #: src/lib/__init__.py:1572
 #, python-format
@@ -295,11 +298,11 @@ msgstr "действительно удалить %s и все его настр
 
 #: src/lib/options.py:653
 msgid "Edit Options"
-msgstr "Изменить Настройки"
+msgstr "Изменить настройки"
 
 #: src/lib/options.py:855
 msgid "About "
-msgstr "О "
+msgstr "О программе "
 
 #: src/lib/options.py:867
 msgid "Options "
@@ -328,7 +331,7 @@ msgstr "Выберите файл"
 
 #: src/lib/options.py:1016
 msgid "Choose Directory"
-msgstr "Выберите директорию"
+msgstr "Выберите каталог"
 
 #: src/lib/options.py:1042
 msgid "Choose Image"
@@ -357,7 +360,7 @@ msgstr "Применить"
 #: src/lib/sensors.py:168
 #, python-format
 msgid "%(days)s days, %(hours)s hours and %(minutes)s minutes"
-msgstr ""
+msgstr "%(days)s дней, %(hours)s часов и %(minutes)s минут"
 
 #: src/lib/sensors.py:288
 msgid "Can't get kernel version"
@@ -381,10 +384,7 @@ msgstr "Невозможно получить IP"
 
 #: src/lib/sensors.py:598 src/lib/sensors.py:611
 msgid "Not connected"
-msgstr "Не подключено"
-
-#~ msgid "(?)"
-#~ msgstr "(?)"
+msgstr "Не подключен"
 
 #~ msgid "Version: "
 #~ msgstr "Версия: "
@@ -482,18 +482,22 @@ msgstr "Не подключено"
 #~ msgid "Can't open folder /proc/acpi/thermal_zone/"
 #~ msgstr "Невозможно открыть папку /proc/acpi/thermal_zone/"
 
+#, python-format
 #~ msgid "Can't open %s/temperature"
 #~ msgstr "Невозможно открыть %s/temperature"
 
 #~ msgid "Hddtemp not installed"
 #~ msgstr "Hddtemp не установлен"
 
+#, python-format
 #~ msgid "Can't open %s"
 #~ msgstr "Невозможно открыть %s"
 
+#, python-format
 #~ msgid "can't read temperature in: %s"
 #~ msgstr "невозможно прочесть температуру для: %s"
 
+#, python-format
 #~ msgid "Can't read value from %s"
 #~ msgstr "Невозможно получить значение из %s"
 
@@ -529,8 +533,8 @@ msgstr "Не подключено"
 
 #~ msgid "GConf python module not found. GConf settings backend is disabled."
 #~ msgstr ""
-#~ "Модуль GConf для Python не найден. GConf не будет использоваться в "
-#~ "качестве хранилища настроек."
+#~ "Модуль GConf для Python не найден. GConf не будет использоваться в качестве "
+#~ "хранилища настроек."
 
 #~ msgid "Saved option %s%s/%s = %s"
 #~ msgstr "Сохраненные параметры %s%s/%s = %s"
@@ -550,6 +554,7 @@ msgstr "Не подключено"
 #~ msgid "Error during on_import - option: %s."
 #~ msgstr "Ошибка"
 
+#, python-format
 #~ msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
 #~ msgstr "Некорректный XML в файле метаданных (или файл отсутствует): \"%s\"."
 
@@ -578,20 +583,23 @@ msgstr "Не подключено"
 #~ msgstr ""
 #~ "Не найдено ни одного бумажника. Пожалуйста, сначала создайте бумажник!"
 
+#, python-format
 #~ msgid "No name for group defined in \"%s\"."
 #~ msgstr "Нет названия для группы, определенной в \"%s\"."
 
+#, python-format
 #~ msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
 #~ msgstr ""
 #~ "Отсутствует или неправильный корневой узел в файле метаданных: \"%s\"."
 
+#, python-format
 #~ msgid ""
 #~ "Error in metadata-file \"%s\" - only <group>-tags allowed in first level. "
 #~ "Groups must contain at least one <info>-element."
 #~ msgstr ""
-#~ "Ошибка в файле метаданных: \"%s\" - только <group>-теги можно "
-#~ "использовать на первом уровне. Группы должны содержать по крайней мере "
-#~ "один <info>-элемент."
+#~ "Ошибка в файле метаданных: \"%s\" - только <group>-теги можно использовать "
+#~ "на первом уровне. Группы должны содержать по крайней мере один <info>-"
+#~ "элемент."
 
 #~ msgid "Error during hddtemp drives search"
 #~ msgstr "Ошибка во время определения температуры дисков"
@@ -599,12 +607,15 @@ msgstr "Не подключено"
 #~ msgid "No name set in ScreenletService.__init__!"
 #~ msgstr "Нет названия в ScreenletService.__init__!"
 
+#, python-format
 #~ msgid "Trying to access invalid option \"%s\"."
 #~ msgstr "Попытка доступиться к недействительной опции \"%s\"."
 
+#, python-format
 #~ msgid "Trying to access invalid instance \"%s\"."
 #~ msgstr "Попытка доступиться к недействительному экземпляру \"%s\"."
 
+#, python-format
 #~ msgid "Invalid option-node found in \"%s\"."
 #~ msgstr "В \"%s\" обнаружен неверный узел настроек."
 
@@ -620,5 +631,7 @@ msgstr "Не подключено"
 
 #~ msgid "Warning - Buttons will not be shown until screenlet is restarted"
 #~ msgstr ""
-#~ "Внимание - Кнопки не будут отображаться, пока Скринлет не будет "
-#~ "перезагружен"
+#~ "Внимание - Кнопки не будут отображаться, пока Скринлет не будет перезагружен"
+
+#~ msgid "(?)"
+#~ msgstr "(?)"

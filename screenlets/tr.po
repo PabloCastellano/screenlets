@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2010-11-15 08:22+0000\n"
 "Last-Translator: Screenlets Dev Team <screenlets-dev@lists.launchpad.net>\n"
 "Language-Team: Turkish <tr@li.org>\n"
-"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-16 05:03+0000\n"
+"X-Launchpad-Export-Date: 2010-11-18 04:42+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: tr\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
 #: src/lib/__init__.py:99
@@ -387,12 +387,10 @@ msgstr "IP alınamadı"
 msgid "Not connected"
 msgstr "Bağlı değil"
 
-#~ msgid "(?)"
-#~ msgstr "(?)"
-
 #~ msgid "Error while loading ScreenletTheme in: "
 #~ msgstr "Hata screenlet teması yüklenemiyor: "
 
+#, python-format
 #~ msgid "Can't open %s"
 #~ msgstr "%s açılamadı"
 
@@ -405,6 +403,7 @@ msgstr "Bağlı değil"
 #~ msgid "No keyrings found. Please create one first!"
 #~ msgstr "Anahtarlık bulunamadı. Lütfen önce bir tane yaratın!"
 
+#, python-format
 #~ msgid "No name for group defined in \"%s\"."
 #~ msgstr "\"%s\"de tanımlanmış grup için isim yok."
 
@@ -426,17 +425,25 @@ msgstr "Bağlı değil"
 #~ msgid "Can't open folder /proc/acpi/thermal_zone/"
 #~ msgstr "/proc/acpi/thermal_zone/ dizini açılamadı"
 
+#, python-format
 #~ msgid "can't read temperature in: %s"
 #~ msgstr "%s'teki sıcaklık değeri okunamıyor"
 
+#, python-format
 #~ msgid "Can't open %s/temperature"
 #~ msgstr "%s/temperature açılamadı"
 
+#, python-format
 #~ msgid "Can't read value from %s"
 #~ msgstr "%s'teki değer okunamıyor"
 
+#, python-format
 #~ msgid "Trying to access invalid option \"%s\"."
 #~ msgstr "Geçersiz ayara erişilmeye çalışıldı: \"%s\""
 
+#, python-format
 #~ msgid "Trying to access invalid instance \"%s\"."
 #~ msgstr "Geçersiz nesneye erişilmeye çalışıldı: \"%s\""
+
+#~ msgid "(?)"
+#~ msgstr "(?)"

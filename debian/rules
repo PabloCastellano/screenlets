@@ -12,6 +12,9 @@ override_dh_clean:
  	rm -fR build/locale
 	dh_clean
 
+override_dh_gconf:
+	dh_gconf --priority=15
+
 get-orig-source:
 	dh_testdir
 	uscan --force-download --verbose --repack

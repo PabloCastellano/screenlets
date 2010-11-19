@@ -11,6 +11,8 @@ screenlets (0.1.3~bzr523+dev~maverick1ubuntu1) UNRELEASED; urgency=low
    - Convert to dh7.
   * debian/screenlets.manpages:
    - Add the manpages.
+  * debian/screenlets.gconf-defaults & postinst
+   - Use dh_gconf instead of postinst.
 
  -- Julien Lavergne <gilir@ubuntu.com>  Fri, 19 Nov 2010 16:32:00 +0100
 

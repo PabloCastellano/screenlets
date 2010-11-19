@@ -9,6 +9,8 @@ screenlets (0.1.3~bzr523+dev~maverick1ubuntu1) UNRELEASED; urgency=low
    - Switch to format 3.0 (quilt) and remove the README.source.
   * debian/rules
    - Convert to dh7.
+  * debian/screenlets.manpages:
+   - Add the manpages.
 
  -- Julien Lavergne <gilir@ubuntu.com>  Fri, 19 Nov 2010 16:32:00 +0100
 

@@ -1478,6 +1478,34 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 		if self.window.window:
 			self.window.window.shape_combine_mask(None,0,0)	
 
+		w = self.window.allocation.width
+		h = self.window.allocation.height
+		
+		# if 0 return to avoid crashing
+		if w==0 or h==0: return False
+		# if size changed, recreate shape bitmap
+		if w != self.__shape_bitmap_width or h != self.__shape_bitmap_height:
+			self.__shape_bitmap = screenlets.create_empty_bitmap(w, h)
+			self.__shape_bitmap_width = w
+			self.__shape_bitmap_height = h
+			
+		# create context
+		ctx = self.__shape_bitmap.cairo_create()
+		self.clear_cairo_context(ctx)
+		
+		# shape the window acording if the window is composited  or not
+		if self.window.is_composited():
+			log.debug(_("Updating input shape"))
+			self.on_draw_shape(ctx)
+			self.main_view.set_shape(self.__shape_bitmap, True)
+		else:
+			try:
+				self.on_draw_shape(ctx)
+			except:
+				self.on_draw(ctx)
+			log.debug(_("Updating window shape"))
+			self.main_view.set_shape(self.__shape_bitmap, False)
+
 	def update_shape (self):
 		"""Update window shape (only call this when shape has changed
 		because it is very ressource intense if ran too often)."""
@@ -1561,6 +1589,10 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 				(pixmap,mask) = self.__shape_bitmap.render_pixmap_and_mask(255)
 				# apply new mask to window
 				self.window.shape_combine_mask(mask)
+
+	def redraw_canvas_and_update_shape (self):
+		self.redraw_canvas()
+		self.update_shape()
 
 	# ----------------------------------------------------------------------
 	# Screenlet's event-handler dummies

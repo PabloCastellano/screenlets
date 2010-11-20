@@ -1,40 +1,19 @@
 #!/usr/bin/make -f
 #export DH_VERBOSE=1
-include /usr/share/cdbs/1/rules/debhelper.mk
 
-DEB_PYTHON_SYSTEM=pysupport
+%:
+	dh $@
 
-include /usr/share/cdbs/1/class/python-distutils.mk
-include /usr/share/quilt/quilt.make
+override_dh_auto_install:
+	dh_auto_install --buildsystem=python_distutils
+	find debian/tmp/usr/share/screenlets-manager/ -name "*.png" -perm 755 | xargs chmod 644
 
-DEB_PYTHON_MODULE_PACKAGE := screenlets
-DEB_PYTHON_SETUP_CMD := setup.py
-
-DEB_INSTALL_MANPAGES_screenlets := debian/screenlets-manager.1 debian/screenlets-packager.1 debian/screenlets-debianizer.1 debian/screenletsd.1 debian/screenlets.1 debian/screenlets-daemon.1
-DEB_INSTALL_CHANGELOGS_ALL := CHANGELOG
-
-build/screenlets::
-# $(QUILT_STAMPFN)
-
-#Build docs in docs/html
-#build/screenlets::
-#	PYTHONPATH=build/lib/ epydoc --html --output=docs/html --name="Screenlets 0.0.14" screenlets screenlets.backend screenlets.options screenlets.utils screenlets.session screenlets.services screenlets.sensors
-
-install/screenlets::
-#	rm debian/tmp/usr/share/screenlets/ClearRss/feedparser.py
-#	rm debian/tmp/usr/share/screenlets/FeedReader/feedparser.py
-#	rmdir debian/tmp/usr/share/screenlets/WallpaperClock/wallpapers
-
-binary-install/screenlets::
-	dh_icons -pscreenlets
-
-binary-predeb/screenlets::
-	find debian/screenlets/usr/share/screenlets-manager/ -name "*.png" -perm 755 | xargs chmod 644
-
-clean::
-#	unpatch
-#	rm -fR docs/html
+override_dh_clean:
 	rm -fR build/locale
+	dh_clean
+
+override_dh_gconf:
+	dh_gconf --priority=15
 
 get-orig-source:
 	dh_testdir

@@ -8,3 +8,4 @@ You can obtain this using a composite manager like :
 - xfwm4 (>= 4.2.0)
 - compiz
 - metacity (>= 2.21.4)
+- mutter

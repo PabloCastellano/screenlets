@@ -8,19 +8,19 @@ msgstr ""
 "Project-Id-Version: screenlets-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-17 14:51+0900\n"
-"PO-Revision-Date: 2010-11-12 14:14+0000\n"
-"Last-Translator: Doubi <jeminscris@free.fr>\n"
+"PO-Revision-Date: 2010-11-18 17:50+0000\n"
+"Last-Translator: gilles chaon <Unknown>\n"
 "Language-Team: French <fr@li.org>\n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-13 04:48+0000\n"
+"X-Launchpad-Export-Date: 2010-11-19 04:45+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: fr\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
 msgid "Screenlets daemon"
-msgstr ""
+msgstr "Démon Screenlets"
 
 #. create top menuitems
 #. name/version of this app
@@ -50,7 +50,7 @@ msgstr "Fermer tous les Screenlets"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:144
 msgid "Restart all Screenlets"
-msgstr ""
+msgstr "Redémarrez entièrement Screenlets"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:147
 msgid "Quit the Screenlets"
@@ -67,10 +67,10 @@ msgid ""
 msgstr ""
 "Cette application est publiée sous la GNU General Public License v3 (ou, "
 "selon votre version, toute autre version plus ancienne). Vous pouvez trouver "
-"le texte complet de cette licence à l'adresse suivante http://www.gnu.org/"
-"licenses/gpl.txt. En utilisant, éditant et/ou distribuant ce logiciel vous "
-"êtes d'accord avec les termes et les conditions de cette licence. Merci "
-"d'utiliser des logiciels libres!"
+"le texte complet de cette licence à l'adresse suivante "
+"http://www.gnu.org/licenses/gpl.txt. En utilisant, éditant et/ou distribuant "
+"ce logiciel vous êtes d'accord avec les termes et les conditions de cette "
+"licence. Merci d'utiliser des logiciels libres!"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:251
 msgid "Install a Screenlet"
@@ -109,6 +109,8 @@ msgid ""
 "Do you really want to permanently uninstall and delete the %sScreenlet from "
 "your system?"
 msgstr ""
+"Voulez-vous vraiment désinstaller et supprimer le %sScreenlet de votre "
+"système ?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:160
 msgid "Delete Screenlet"
@@ -194,7 +196,8 @@ msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:421
 msgid "Permanently uninstall/delete the currently selected Screenlet ..."
-msgstr "Désinstaller/Supprimer définitivement le Screenlet courant sélectionné"
+msgstr ""
+"Désinstaller/Supprimer définitivement le Screenlet courant sélectionné"
 
 #: src/share/screenlets-manager/screenlets-manager.py:422
 msgid ""
@@ -314,14 +317,15 @@ msgid "Theme installed , please restart %s"
 msgstr "Thème installé , veuillez redémarrer %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:824
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Erreur 2 trouvée lors de l'installation du thème - Le thème n'est pas ou est "
 "déjà installé"
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
 msgid "Install SuperKaramba Theme"
-msgstr ""
+msgstr "Installer un thème SuperKaramba"
 
 #: src/share/screenlets-manager/screenlets-manager.py:912
 msgid "Convert Web Widget"
@@ -479,7 +483,7 @@ msgstr "Trouver %sScreenlet.py dans le chemin"
 #: src/share/screenlets-manager/screenlets-packager.py:92
 #, python-format
 msgid "Unable to import module '%(name)s' from %(path)s. (%(error)s)"
-msgstr ""
+msgstr "Impossible d'importer le module '%(name)s' de %(path)s. (%(error)s)"
 
 #: src/share/screenlets-manager/screenlets-packager.py:93
 #, python-format
@@ -539,6 +543,8 @@ msgid ""
 "The %(slet)sScreenlet is already installed in '%(dir)s'.\n"
 "Do you wish to continue?"
 msgstr ""
+"Le %(slet)sScreenlet est déjà installé dans '%(dir)s'.\n"
+"Voulez-vous continuer ?"
 
 #: src/lib/install.py:127 src/lib/install.py:193
 #, python-format

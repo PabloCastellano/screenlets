@@ -3,12 +3,11 @@ Section: gnome
 Priority: optional
 Maintainer: Julien Lavergne <julien.lavergne@gmail.com>
 Uploaders: Python Applications Packaging Team <python-apps-team@lists.alioth.debian.org>
-Build-Depends: 	debhelper (>= 5.0.51~), 
-		cdbs (>= 0.4.43),
-		quilt,
-		python-dev (>= 2.3.5-11)
-Build-Depends-Indep:	python-support (>= 0.6.0),
-			doc-base
+Build-Depends: 	debhelper (>= 7.0.50~),
+                cdbs (>= 0.4.43),
+                python-dev (>= 2.3.5-11)
+Build-Depends-Indep: python-support (>= 0.6.0),
+                     doc-base
 Standards-Version: 3.8.2
 Homepage: http://www.screenlets.org/index.php/Screenlets_Stayinalive
 Vcs-Svn: svn://svn.debian.org/python-apps/packages/screenlets/trunk
@@ -17,29 +16,22 @@ XS-Python-Version: all
 
 Package: screenlets
 Architecture: all
-Depends: 	${misc:Depends}, 
-		${python:Depends},
-		python-gtk2,
-		python-gnome2,
- 		python-dbus, 
-		python-xdg,
-		python-rsvg | python-gnome2-desktop,
-		python-wnck | python-gnome2-desktop
-Recommends: 	screenlets-pack-basic,
-		gnome-keyring,
-		python-feedparser,
-		python-gmenu,
-		python-gtkmozembed | python-gnome2-extras (<< 2.19),
-		iceweasel | firefox,
-		python-imaging,
-		python-evolution | python-gnome2-desktop,
-		python-gnomekeyring | python-gnome2-desktop,
-		metacity (>= 2.21.4) | xcompmgr | compiz | xfwm4 (>= 4.2)
-Suggests:	screenlets-pack-all,
-		evolution,
-		tomboy,
-		gnome-orca,
-		xfconf (>= 4.5.93)
+Depends: ${misc:Depends},
+         ${python:Depends},
+         python-gobject,
+         python-gtk2,
+         python-gnome2,
+         python-dbus,
+         python-cairo,
+         python-wnck | python-gnome2-desktop,
+         python-gst0.10,
+         python-xdg,
+         python-gconf
+Recommends: python-gtkmozembed | python-gnome2-extras (<< 2.19),
+            python-evolution | python-gnome2-desktop,
+            metacity (>= 2.21.4) | xcompmgr | compiz | xfwm4 (>= 4.2) | mutter,
+            screenlets-pack-basic,
+Suggests:	screenlets-pack-all
 XB-Python-Version: ${python:Versions}
 Description: Widget-like mini-applications for GNOME
  Screenlets are small owner-drawn applications (written in Python) that can be

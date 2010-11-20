@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-17 14:51+0900\n"
-"PO-Revision-Date: 2010-11-12 10:02+0000\n"
-"Last-Translator: tabbernuk <boamaod@gmail.com>\n"
+"PO-Revision-Date: 2010-11-18 17:31+0000\n"
+"Last-Translator: gilles chaon <Unknown>\n"
 "Language-Team: French <fr@li.org>\n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-13 04:47+0000\n"
+"X-Launchpad-Export-Date: 2010-11-19 04:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: fr\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
 #: src/lib/__init__.py:99
@@ -163,11 +163,11 @@ msgstr "Redimensionner au defilement de la souris"
 
 #: src/lib/__init__.py:785
 msgid "Ignore requirements"
-msgstr ""
+msgstr "Ignorer des dépendances"
 
 #: src/lib/__init__.py:786
 msgid "Set this Screenlet to ignore/demand DEB requirements ..."
-msgstr ""
+msgstr "Utiliser ce Screenlet pour ignorer/demander des dépendances DEB ..."
 
 #: src/lib/__init__.py:790
 msgid "Allow overriding Options"
@@ -201,6 +201,8 @@ msgid ""
 "\n"
 "%(package)s %(version)s required, NOT INSTALLED!"
 msgstr ""
+"\n"
+"%(package)s %(version)s nécessaires, ne sont pas installés !"
 
 #: src/lib/__init__.py:996
 #, python-format
@@ -218,6 +220,12 @@ msgid ""
 "REQUIREMENTS:\n"
 "%s"
 msgstr ""
+"Des dépendances relatives à Screenlet ne sont pas satisfaites ! Utilisez le "
+"gestionnaire de paquets de votre système pour installer les paquets "
+"nécessaires.\n"
+"\n"
+"DEPENDANCES :\n"
+"%s"
 
 #: src/lib/__init__.py:1028
 msgid "Size"
@@ -257,12 +265,12 @@ msgstr "Info..."
 #: src/lib/__init__.py:1109
 #, python-format
 msgid "Add one more %s"
-msgstr ""
+msgstr "Ajouter encore %s"
 
 #: src/lib/__init__.py:1112
 #, python-format
 msgid "Delete this %s"
-msgstr ""
+msgstr "Supprimer ce %s"
 
 #: src/lib/__init__.py:1116
 #, python-format
@@ -357,7 +365,7 @@ msgstr "Appliquer"
 #: src/lib/sensors.py:168
 #, python-format
 msgid "%(days)s days, %(hours)s hours and %(minutes)s minutes"
-msgstr ""
+msgstr "%(days)s jours, %(hours)s heures et %(minutes)s minutes"
 
 #: src/lib/sensors.py:288
 msgid "Can't get kernel version"
@@ -449,12 +457,14 @@ msgstr "Non connecté"
 #~ msgid "Can't open /proc/net/dev"
 #~ msgstr "Impossible d'ouvrir /proc/net/dev"
 
+#, python-format
 #~ msgid "Can't open %s"
 #~ msgstr "Impossible d'ouvrir %s"
 
 #~ msgid "Can't open folder /proc/acpi/thermal_zone/"
 #~ msgstr "Impossible d'ouvrir le dossier /proc/acpi/thermal_zone/"
 
+#, python-format
 #~ msgid "can't read temperature in: %s"
 #~ msgstr "Impossible de lire la température dans: %s"
 
@@ -495,12 +505,14 @@ msgstr "Non connecté"
 #~ msgid "error while saving config: %s%s"
 #~ msgstr "Erreur lors de la sauvegarde de la configuration: %s%s"
 
+#, python-format
 #~ msgid "No name for group defined in \"%s\"."
 #~ msgstr "Pas de nom pour le groupe défini dans \"%s\"."
 
 #~ msgid "Path %s not found."
 #~ msgstr "Chemin %s non trouvé."
 
+#, python-format
 #~ msgid "Can't open %s/temperature"
 #~ msgstr "Impossible d'ouvrir %s/temperature"
 
@@ -546,6 +558,7 @@ msgstr "Non connecté"
 #~ msgid "unsupported type ''"
 #~ msgstr "type '' non supporté"
 
+#, python-format
 #~ msgid "Can't read value from %s"
 #~ msgstr "Ne peut pas lire la valeur depuis %s"
 
@@ -566,13 +579,12 @@ msgstr "Non connecté"
 
 #~ msgid "GConf python module not found. GConf settings backend is disabled."
 #~ msgstr ""
-#~ "Module python GConf non trouvé. Le backend de réglages GConf est "
-#~ "désactivé."
+#~ "Module python GConf non trouvé. Le backend de réglages GConf est désactivé."
 
 #~ msgid "Warning: No default keyring found, storage is not permanent!"
 #~ msgstr ""
-#~ "Avertissement : pas de trousseau de clés par défaut trouvé, le stockage "
-#~ "est non permanent !"
+#~ "Avertissement : pas de trousseau de clés par défaut trouvé, le stockage est "
+#~ "non permanent !"
 
 #~ msgid "PRESS: %s"
 #~ msgstr "APPUYER : %s"
@@ -580,30 +592,33 @@ msgstr "Non connecté"
 #~ msgid "Changed: %s"
 #~ msgstr "Changé : %s"
 
+#, python-format
 #~ msgid ""
 #~ "Error in metadata-file \"%s\" - only <group>-tags allowed in first level. "
 #~ "Groups must contain at least one <info>-element."
 #~ msgstr ""
-#~ "Erreur dans le fichier métadonnées \"%s\" - seules les balises <group> "
-#~ "sont autorisées dans le premier niveau. Les groupes doivent contenir au "
-#~ "moins un élément <info>."
+#~ "Erreur dans le fichier métadonnées \"%s\" - seules les balises <group> sont "
+#~ "autorisées dans le premier niveau. Les groupes doivent contenir au moins un "
+#~ "élément <info>."
 
 #~ msgid "Illegal value in AccountOption.on_import."
 #~ msgstr "Valeur illégale dans AccontOption.on_import."
 
+#, python-format
 #~ msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
 #~ msgstr ""
 #~ "Noeud racine manquant ou invalide dans le fichier métadonnées : \"%s\"."
 
+#, python-format
 #~ msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
 #~ msgstr ""
 #~ "XML invalide dans le fichier metadonnées (ou fichier manquant) : \"%s\"."
 
 #~ msgid "ERROR: Unable to read password from keyring: %s"
 #~ msgstr ""
-#~ "ERREUR : Impossible de lire le mot de passe depuis le trousseau de clés : "
-#~ "%s"
+#~ "ERREUR : Impossible de lire le mot de passe depuis le trousseau de clés : %s"
 
+#, python-format
 #~ msgid "Invalid option-node found in \"%s\"."
 #~ msgstr "Noeud option invalide trouvé dans \"%s\"."
 
@@ -618,8 +633,8 @@ msgstr "Non connecté"
 
 #~ msgid "Unable to init backend - settings will not be saved!"
 #~ msgstr ""
-#~ "Impossible d'initialiser la backend - les réglages ne seront pas "
-#~ "sauvegardés !"
+#~ "Impossible d'initialiser la backend - les réglages ne seront pas sauvegardés "
+#~ "!"
 
 #~ msgid ""
 #~ "ScreenletSession.__init__ has to be called with a\n"
@@ -637,9 +652,11 @@ msgstr "Non connecté"
 #~ msgid "Removing last instance from session"
 #~ msgstr "Enlèvement de la dernière instance de la session"
 
+#, python-format
 #~ msgid "Trying to access invalid option \"%s\"."
 #~ msgstr "Essai d'accés à l'option invalide \"%s\"."
 
+#, python-format
 #~ msgid "Trying to access invalid instance \"%s\"."
 #~ msgstr "Essai d'accés à l'instance invalide \"%s\"."
 
@@ -654,8 +671,7 @@ msgstr "Non connecté"
 
 #~ msgid "Found a running session of %s, adding new instance by service."
 #~ msgstr ""
-#~ "Trouvé une session en cours de %s, ajout d'une nouvelle instance par "
-#~ "service."
+#~ "Trouvé une session en cours de %s, ajout d'une nouvelle instance par service."
 
 #~ msgid "Failed creating instance of: %s"
 #~ msgstr "Impossible de créer l'instance de : %s"
@@ -669,11 +685,11 @@ msgstr "Non connecté"
 #~ msgstr "Impossible de désenregister du démon : %s"
 
 #~ msgid ""
-#~ "Error: Unable to create temp directory %s - screenlets-manager will not "
-#~ "work properly."
+#~ "Error: Unable to create temp directory %s - screenlets-manager will not work "
+#~ "properly."
 #~ msgstr ""
-#~ "Erreur : impossible de créer répertoire temporaire %s - screenlets-"
-#~ "manager ne fonctionnera pas correctement."
+#~ "Erreur : impossible de créer répertoire temporaire %s - screenlets-manager "
+#~ "ne fonctionnera pas correctement."
 
 #~ msgid "Notify: No DBus running or notifications-daemon unavailable."
 #~ msgstr ""
@@ -692,8 +708,7 @@ msgstr "Non connecté"
 #~ msgid ""
 #~ "Screenlet '%s' has been interrupted by keyboard. TODO: make this an event"
 #~ msgstr ""
-#~ "Screenlet \"%s\" a été interrompu par clavier. TODO : en faire un "
-#~ "évènement."
+#~ "Screenlet \"%s\" a été interrompu par clavier. TODO : en faire un évènement."
 
 #~ msgid "Entry not found. Will (obviously) not be removed."
 #~ msgstr "Entrée non trouvée. Ne sera (évidemment) pas enlevée."

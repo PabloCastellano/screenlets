@@ -6,7 +6,7 @@ screenlets (0.1.3~bzr523+dev~maverick1ubuntu1) UNRELEASED; urgency=low
   * README.Debian :
    - Mention mutter as a composite manager.
   * debian/format & README.source:
-   - Switch to format 3.0 (quilt) and remove the README.source.
+   - Remove the README.source.
   * debian/rules
    - Convert to dh7.
   * debian/screenlets.manpages:

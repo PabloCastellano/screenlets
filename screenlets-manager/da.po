@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2010-11-12 14:18+0000\n"
 "Last-Translator: tabbernuk <boamaod@gmail.com>\n"
 "Language-Team: Danish <da@li.org>\n"
-"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-13 04:47+0000\n"
+"X-Launchpad-Export-Date: 2010-11-26 04:43+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: da\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
 msgid "Screenlets daemon"
@@ -66,10 +66,10 @@ msgid ""
 "license. Thank you for using free software!"
 msgstr ""
 "Dette program er frigivet under GNU General Public License v3 (eller, efter "
-"dit valgt, en senere version). Du kan finde licensens fulde ordlyd på http://"
-"www.gnu.org/licenses/gpl.txt. Ved at bruge, ændre og/eller distribuere denne "
-"software accepterer du licensens vilkår og betingelser. Tak fordi du bruger "
-"fri software!"
+"dit valgt, en senere version). Du kan finde licensens fulde ordlyd på "
+"http://www.gnu.org/licenses/gpl.txt. Ved at bruge, ændre og/eller "
+"distribuere denne software accepterer du licensens vilkår og betingelser. "
+"Tak fordi du bruger fri software!"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:251
 msgid "Install a Screenlet"
@@ -187,8 +187,8 @@ msgstr "Start/tilføj en ny instans af den valgte Screenlet ..."
 msgid ""
 "Install a new Screenlet, SuperKaramba or Web Widget or Web Application  ..."
 msgstr ""
-"Installer en ny Screenlet, SuperKaramba eller Web Widget eller Web "
-"Program ..."
+"Installer en ny Screenlet, SuperKaramba eller Web Widget eller Web Program "
+"..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:421
 msgid "Permanently uninstall/delete the currently selected Screenlet ..."
@@ -311,7 +311,8 @@ msgid "Theme installed , please restart %s"
 msgstr "Tema installeret, genstart venligst %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:824
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Tema installation fejl 2 fundet - Tema ikke installeret eller allerede "
 "installeret"
@@ -407,7 +408,8 @@ msgstr "Punkt 1 : Find den widget du ønsker at konvertere"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1075
 msgid "Step 2 : Copy and Paste the HTML from the widget in the box below"
-msgstr "Punkt 2 : Kopier og indsæt HTML koden fra widgeten i boksen nedenunder"
+msgstr ""
+"Punkt 2 : Kopier og indsæt HTML koden fra widgeten i boksen nedenunder"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1076
 msgid "Step 3 : Give it a name in the box below and click on Ok to convert"
@@ -497,7 +499,8 @@ msgstr "Fik klasse fra modul: %s"
 #: src/share/screenlets-manager/screenlets-packager.py:126
 #, python-format
 msgid "Failed to create package info in \"%s\" (no permission?)."
-msgstr "Fejlede under oprettelse af pakke info i \"%s\" (ingen rettigheder?)."
+msgstr ""
+"Fejlede under oprettelse af pakke info i \"%s\" (ingen rettigheder?)."
 
 #: src/share/screenlets-manager/screenlets-packager.py:127
 msgid "Created package info file."
@@ -639,5 +642,5 @@ msgstr "Tilføjelsen af %sScreenlet fejlede."
 #~ "You are about to install a theme in root mode. Continue only if you have "
 #~ "gksudo installed, do you wish to continue?"
 #~ msgstr ""
-#~ "Du er ved at installer et tema med root-rettigheder. Fortsæt kun hvis du "
-#~ "har gksudo installeret, ønsker du at fortsætte?"
+#~ "Du er ved at installer et tema med root-rettigheder. Fortsæt kun hvis du har "
+#~ "gksudo installeret, ønsker du at fortsætte?"

@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2010-11-12 14:22+0000\n"
 "Last-Translator: odanizinho <o_danizinho@hotmail.com>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
-"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-13 04:47+0000\n"
+"X-Launchpad-Export-Date: 2010-11-26 04:43+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: pt_BR\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
 #: src/lib/__init__.py:99
@@ -485,9 +485,11 @@ msgstr "Desconectado"
 #~ msgid "Illegal value in AccountOption.on_import."
 #~ msgstr "Valor ilegal em AccountOption.on_import"
 
+#, python-format
 #~ msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
 #~ msgstr "'rootnode' inválido ou inexistente no arquivo de metadados: \"%s\"."
 
+#, python-format
 #~ msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
 #~ msgstr ""
 #~ "XML inválido no arquivo de metadados (ou arquivo não existe): \"%s\"."
@@ -510,9 +512,11 @@ msgstr "Desconectado"
 #~ msgid "active theme is: %s"
 #~ msgstr "tema ativo é: %s"
 
+#, python-format
 #~ msgid "No name for group defined in \"%s\"."
 #~ msgstr "Nenhum nome para o grupo definido em \"%s\"."
 
+#, python-format
 #~ msgid ""
 #~ "Error in metadata-file \"%s\" - only <group>-tags allowed in first level. "
 #~ "Groups must contain at least one <info>-element."
@@ -521,6 +525,7 @@ msgstr "Desconectado"
 #~ "<group> no primeiro nível. Grupos têm que conter pelo menos um elemento "
 #~ "<info>."
 
+#, python-format
 #~ msgid "Invalid option-node found in \"%s\"."
 #~ msgstr "'option-node' inválido encontrado em \"%s\"."
 
@@ -557,6 +562,7 @@ msgstr "Desconectado"
 #~ msgid "Can't open /proc/net/dev"
 #~ msgstr "Impossível ler /proc/net/dev"
 
+#, python-format
 #~ msgid "Can't open %s"
 #~ msgstr "Impossível abrir %s"
 
@@ -566,12 +572,14 @@ msgstr "Desconectado"
 #~ msgid "Error during hddtemp drives search"
 #~ msgstr "Erro durante a procura de drives hddtemp"
 
+#, python-format
 #~ msgid "Can't open %s/temperature"
 #~ msgstr "Impossível abrir %s/temperature"
 
 #~ msgid "Can't parse /proc/meminfo"
 #~ msgstr "Impossível ler /proc/meminfo"
 
+#, python-format
 #~ msgid "can't read temperature in: %s"
 #~ msgstr "Impossível ler temperatura em: %s"
 
@@ -581,12 +589,14 @@ msgstr "Desconectado"
 #~ msgid "No name set in ScreenletService.__init__!"
 #~ msgstr "Sem conjunto nome em ScreenletService.__init__!"
 
+#, python-format
 #~ msgid "Trying to access invalid option \"%s\"."
 #~ msgstr "Tentando acessar uma opção inválida \"%s\"."
 
 #~ msgid "CPUSensor: Failed to open /proc/stat. Sensor stopped."
 #~ msgstr "CPUSensor: Impossível ler /proc/stat. Sensor parado."
 
+#, python-format
 #~ msgid "Trying to access invalid instance \"%s\"."
 #~ msgstr "Tentando acessar uma instância inválida \"%s\"."
 
@@ -596,6 +606,7 @@ msgstr "Desconectado"
 #~ msgid "DEBUG: %s"
 #~ msgstr "Depurar: %s"
 
+#, python-format
 #~ msgid "Can't read value from %s"
 #~ msgstr "Impossível ler valor de %s"
 
@@ -653,15 +664,14 @@ msgstr "Desconectado"
 
 #~ msgid "Found a running session of %s, adding new instance by service."
 #~ msgstr ""
-#~ "Encontrada uma sessão já em execução de %s, adicionando uma nova "
-#~ "instãncia por serviço."
+#~ "Encontrada uma sessão já em execução de %s, adicionando uma nova instãncia "
+#~ "por serviço."
 
 #~ msgid "Failed creating instance of: %s"
 #~ msgstr "Falha na criação da instância de: %s"
 
 #~ msgid "No instance(s) found in session-path, creating new one."
-#~ msgstr ""
-#~ "Nenhuma instância encontrada no caminho da sessão, criando uma nova."
+#~ msgstr "Nenhuma instância encontrada no caminho da sessão, criando uma nova."
 
 #~ msgid "Deleting global tempfile %s"
 #~ msgstr "Removendo arquivo temporário global %s"
@@ -683,11 +693,11 @@ msgstr "Desconectado"
 #~ msgstr "Criando uma nova entrada para %s em %s"
 
 #~ msgid ""
-#~ "Error: Unable to create temp directory %s - screenlets-manager will not "
-#~ "work properly."
+#~ "Error: Unable to create temp directory %s - screenlets-manager will not work "
+#~ "properly."
 #~ msgstr ""
-#~ "Erro: Impossível criar diretório temporário %s - o Gerenciador de "
-#~ "Screenlets não trabalhará corretamente."
+#~ "Erro: Impossível criar diretório temporário %s - o Gerenciador de Screenlets "
+#~ "não trabalhará corretamente."
 
 #~ msgid "File %s not found"
 #~ msgstr "Arquivo %s não encontrado"
@@ -709,8 +719,7 @@ msgstr "Desconectado"
 #~ msgid ""
 #~ "Screenlet '%s' has been interrupted by keyboard. TODO: make this an event"
 #~ msgstr ""
-#~ "O Screenlet '%s' foi interrompido pelo teclado. TODO: tornar isto um "
-#~ "evento"
+#~ "O Screenlet '%s' foi interrompido pelo teclado. TODO: tornar isto um evento"
 
 #~ msgid "Quitting current screenlet instance"
 #~ msgstr "Fechando instância atual deste screenlet"
@@ -731,8 +740,8 @@ msgstr "Desconectado"
 #~ "Error: Unable to create temp entry - screenlets-manager will not work "
 #~ "properly."
 #~ msgstr ""
-#~ "Erro: impossível criar entrada temporária - o Gerenciador de Screenlets "
-#~ "não irá trabalhar corretamente."
+#~ "Erro: impossível criar entrada temporária - o Gerenciador de Screenlets não "
+#~ "irá trabalhar corretamente."
 
 #~ msgid "Screenlet has been killed. TODO: make this an event"
 #~ msgstr "Screenlet foi terminado. TODO: tornar isto um evento"

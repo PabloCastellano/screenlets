@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2010-11-12 10:11+0000\n"
 "Last-Translator: Miro Glavić <glavicmiro@gmail.com>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
-"Language: bs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-13 04:47+0000\n"
+"X-Launchpad-Export-Date: 2010-11-26 04:43+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: bs\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
 #: src/lib/__init__.py:99
@@ -380,5 +380,6 @@ msgstr "Nije povezan"
 #~ msgid "Error: file %s not found."
 #~ msgstr "Greska: Datoteka %s nije pronadjena"
 
+#, python-format
 #~ msgid "Can't open %s"
 #~ msgstr "Nemoguće otvoriti %s"

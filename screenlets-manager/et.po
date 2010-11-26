@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2010-11-13 08:34+0000\n"
 "Last-Translator: tabbernuk <boamaod@gmail.com>\n"
 "Language-Team: Estonian <gnome-et@lists.linux.ee>\n"
-"Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-14 05:00+0000\n"
+"X-Launchpad-Export-Date: 2010-11-26 04:43+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: et\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
 msgid "Screenlets daemon"
@@ -314,7 +314,8 @@ msgid "Theme installed , please restart %s"
 msgstr "Teema paigaldatud, palun taaskäivita %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:824
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Tõrge teema paigaldamisel. Teema jäeti paigaldamata, kuid võib olla juba "
 "varem paigaldatud."
@@ -494,7 +495,8 @@ msgstr "Ei suuda importida moodulist klassi."
 
 #: src/share/screenlets-manager/screenlets-packager.py:101
 msgid "The class inside the module is no subclass of screenlets.Screenlet."
-msgstr "Moodulis sisalduv klass ei ole screenlets.Screenlet klassi alamklass."
+msgstr ""
+"Moodulis sisalduv klass ei ole screenlets.Screenlet klassi alamklass."
 
 #: src/share/screenlets-manager/screenlets-packager.py:102
 #, python-format
@@ -504,7 +506,8 @@ msgstr "Leitud klass moodulist %s"
 #: src/share/screenlets-manager/screenlets-packager.py:126
 #, python-format
 msgid "Failed to create package info in \"%s\" (no permission?)."
-msgstr "Paketiinfo tekitamine kataloogis \"%s\" ebaõnnestus (õigused puudu?)."
+msgstr ""
+"Paketiinfo tekitamine kataloogis \"%s\" ebaõnnestus (õigused puudu?)."
 
 #: src/share/screenlets-manager/screenlets-packager.py:127
 msgid "Created package info file."
@@ -744,17 +747,16 @@ msgstr "%sScreenlet'i lisamine ebaõnnestus."
 
 #~ msgid ""
 #~ "Screenlets is a widget framework that consists of small owner-drawn "
-#~ "applications (written in Python, a very simple object-oriented "
-#~ "programming-language) that can be described as 'the virtual "
-#~ "representation of things lying/standing around on your desk'. Sticknotes, "
-#~ "clocks, rulers, ... the possibilities are endless. Screenlet also tries "
-#~ "to include some compatibility with other widget frameworks,like web "
-#~ "widgets and super karamba themes"
+#~ "applications (written in Python, a very simple object-oriented programming-"
+#~ "language) that can be described as 'the virtual representation of things "
+#~ "lying/standing around on your desk'. Sticknotes, clocks, rulers, ... the "
+#~ "possibilities are endless. Screenlet also tries to include some "
+#~ "compatibility with other widget frameworks,like web widgets and super "
+#~ "karamba themes"
 #~ msgstr ""
 #~ "Screenlets on töölauavidinate raamistik, mis koosneb miniatuursetest "
 #~ "rakendustest (kirjutatud Pythonis, väga lihtsas objekt-orienteeritud "
-#~ "programmeerimiskeeles), mida võib nimetada 'sinu töölaual vedelevate "
-#~ "asjade virtuaalseks esituseks'. Märkmepaberid, kellad, joonlauad --- "
-#~ "võimalusi on lõputult. Screenlets raamistik püüab seejuures ühilduda ka "
-#~ "mõnede teiste vidinaraamistikega nagu nt Web Widgets ja Super Karamba "
-#~ "teemad."
+#~ "programmeerimiskeeles), mida võib nimetada 'sinu töölaual vedelevate asjade "
+#~ "virtuaalseks esituseks'. Märkmepaberid, kellad, joonlauad --- võimalusi on "
+#~ "lõputult. Screenlets raamistik püüab seejuures ühilduda ka mõnede teiste "
+#~ "vidinaraamistikega nagu nt Web Widgets ja Super Karamba teemad."

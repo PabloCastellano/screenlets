@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2010-11-12 13:04+0000\n"
 "Last-Translator: tabbernuk <boamaod@gmail.com>\n"
 "Language-Team: Traditional Chinese <zh_TW@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-13 04:48+0000\n"
+"X-Launchpad-Export-Date: 2010-11-26 04:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: \n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
 msgid "Screenlets daemon"
@@ -65,10 +65,9 @@ msgid ""
 "distributing this software you agree to the terms and conditions of this "
 "license. Thank you for using free software!"
 msgstr ""
-"此應用程式是基於「自由軟件協會（GNU General Public License v3）」下發布的。您"
-"可以在「http://www.gnu.org/licenses/gpl.txt」頁面檢視「許可證(license)」。在"
-"使用，編輯或散布此應用程式時，您必須遵守頁面中「許可正(license)」的項目與條"
-"件。感謝您使用此自由軟體！"
+"此應用程式是基於「自由軟件協會（GNU General Public License "
+"v3）」下發布的。您可以在「http://www.gnu.org/licenses/gpl.txt」頁面檢視「許可證(license)」。在使用，編輯或散"
+"布此應用程式時，您必須遵守頁面中「許可正(license)」的項目與條件。感謝您使用此自由軟體！"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:251
 msgid "Install a Screenlet"
@@ -80,8 +79,7 @@ msgid ""
 "functionality is disabled. You can use this to install screenlets into the "
 "system-wide path."
 msgstr ""
-"重要！！你現在以 Root 權限執行這個程式，幾乎所有的功能已禁用。你可以利用此權"
-"限把 Screenlets 安裝到 system-wide 路徑。"
+"重要！！你現在以 Root 權限執行這個程式，幾乎所有的功能已禁用。你可以利用此權限把 Screenlets 安裝到 system-wide 路徑。"
 
 #: src/share/screenlets-manager/screenlets-manager.py:101
 msgid "Warning!"
@@ -182,8 +180,7 @@ msgstr "執行或新增一個所選Screenlet的新實體.."
 #: src/share/screenlets-manager/screenlets-manager.py:420
 msgid ""
 "Install a new Screenlet, SuperKaramba or Web Widget or Web Application  ..."
-msgstr ""
-"安裝一個新的Screenlet、SuperKaramba、網路小工具(Web Widget)或網路應用程式..."
+msgstr "安裝一個新的Screenlet、SuperKaramba、網路小工具(Web Widget)或網路應用程式..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:421
 msgid "Permanently uninstall/delete the currently selected Screenlet ..."
@@ -301,7 +298,8 @@ msgid "Theme installed , please restart %s"
 msgstr "主題以安裝，請重新啟動%s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:824
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr "找到主題安裝錯誤2：主題沒有安裝或已經安裝"
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
@@ -595,6 +593,4 @@ msgstr "新增 %sScreenlet 失敗。"
 #~ msgid ""
 #~ "You are about to install a theme in root mode. Continue only if you have "
 #~ "gksudo installed, do you wish to continue?"
-#~ msgstr ""
-#~ "你即將在root模式安裝一個主題。只有在你已經安裝gksudo的情況下才能繼續，你想"
-#~ "要繼續嗎？"
+#~ msgstr "你即將在root模式安裝一個主題。只有在你已經安裝gksudo的情況下才能繼續，你想要繼續嗎？"

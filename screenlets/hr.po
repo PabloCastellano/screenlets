@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2010-11-12 09:59+0000\n"
 "Last-Translator: Miro Glavić <glavicmiro@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
-"Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-13 04:47+0000\n"
+"X-Launchpad-Export-Date: 2010-11-26 04:43+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: hr\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
 #: src/lib/__init__.py:99
@@ -398,8 +398,7 @@ msgstr "Nije povezano"
 #~ msgstr "Datoteka %s nije pronađena"
 
 #~ msgid "Notify: No DBus running or notifications-daemon unavailable."
-#~ msgstr ""
-#~ "Obavjest: DBus nije pokrenut ili nije dostupan notifications-daemon."
+#~ msgstr "Obavjest: DBus nije pokrenut ili nije dostupan notifications-daemon."
 
 #~ msgid "Section %s not found!"
 #~ msgstr "Sekcija %s nije pronađena!"
@@ -414,6 +413,7 @@ msgstr "Nije povezano"
 #~ msgid "Error while creating image from file: %s"
 #~ msgstr "Greška prilikom stvaranja slike iz datoteke: %s"
 
+#, python-format
 #~ msgid "can't read temperature in: %s"
 #~ msgstr "Nije moguće pročitati temperaturu: %s"
 
@@ -426,6 +426,7 @@ msgstr "Nije povezano"
 #~ msgid "DEBUG: %s"
 #~ msgstr "DEBUG: %s"
 
+#, python-format
 #~ msgid "Can't read value from %s"
 #~ msgstr "Nije moguće pročitati vrijednost %s"
 
@@ -441,12 +442,14 @@ msgstr "Nije povezano"
 #~ msgid "Error during hddtemp drives search"
 #~ msgstr "Greška prilikom hddtemp pretrage diskova"
 
+#, python-format
 #~ msgid "Can't open %s"
 #~ msgstr "Nije moguće otvoriti %s"
 
 #~ msgid "Can't open folder /proc/acpi/thermal_zone/"
 #~ msgstr "Nije moguće otvoriti mapu /proc/acpi/thermal_zone/"
 
+#, python-format
 #~ msgid "Can't open %s/temperature"
 #~ msgstr "Nije moguće otvoriti %s/temperature"
 
@@ -498,12 +501,15 @@ msgstr "Nije povezano"
 #~ msgid "active theme is: %s"
 #~ msgstr "aktivna tema je: %s"
 
+#, python-format
 #~ msgid "No name for group defined in \"%s\"."
 #~ msgstr "Nema imena grupe definiranog u \"%s\"."
 
+#, python-format
 #~ msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
 #~ msgstr "Nedostaje ili nije valjan korijen u metadata-datoteci: \"%s\"."
 
+#, python-format
 #~ msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
 #~ msgstr "Nevaljali XML u metadata-datoteci (ili nedostaje datoteka): \"%s\"."
 
@@ -576,9 +582,11 @@ msgstr "Nije povezano"
 #~ msgid "GnomeKeyring is not available!!"
 #~ msgstr "GnomeKeyring nije dostupan!!"
 
+#, python-format
 #~ msgid "Trying to access invalid option \"%s\"."
 #~ msgstr "Pokušaj pristupa nevažećoj opciji \"%s\"."
 
+#, python-format
 #~ msgid "Trying to access invalid instance \"%s\"."
 #~ msgstr "Pokušaj pristupa nevažećoj instanci \"%s\"."
 

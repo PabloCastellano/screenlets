@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2010-11-12 14:08+0000\n"
 "Last-Translator: Ketil Wendelbo Aanensen <ketil.w.aanensen@gmail.com>\n"
 "Language-Team: Norwegian Bokmal <nb@li.org>\n"
-"Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-13 04:48+0000\n"
+"X-Launchpad-Export-Date: 2010-11-26 04:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: nb\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
 msgid "Screenlets daemon"
@@ -66,10 +66,10 @@ msgid ""
 "license. Thank you for using free software!"
 msgstr ""
 "Dette programmet er publisert under GNU Genereal Public lisensen v3 (eller, "
-"om du ønsker, enhver senere versjon). Du kan finne hele teksten på http://"
-"www.gnu.org/licenses/gpl.txt. Ved å bruke, redigere og/eller distribuere "
-"denne programvaren aksepterer du vilkårene i denne lisensen. Takk for at du "
-"bruker fri programvare!"
+"om du ønsker, enhver senere versjon). Du kan finne hele teksten på "
+"http://www.gnu.org/licenses/gpl.txt. Ved å bruke, redigere og/eller "
+"distribuere denne programvaren aksepterer du vilkårene i denne lisensen. "
+"Takk for at du bruker fri programvare!"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:251
 msgid "Install a Screenlet"
@@ -312,7 +312,8 @@ msgid "Theme installed , please restart %s"
 msgstr "Tema installert. Vennligst start %s på nytt"
 
 #: src/share/screenlets-manager/screenlets-manager.py:824
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Temainstalleringsfeil 2 funnet - Tema ikke installert eller allerede "
 "installert"
@@ -486,7 +487,8 @@ msgstr "Ikke i stand til å importere klasse fra modul."
 
 #: src/share/screenlets-manager/screenlets-packager.py:101
 msgid "The class inside the module is no subclass of screenlets.Screenlet."
-msgstr "Klassen inne i modulen er ikke en underklasse av screenlets.Screenlet."
+msgstr ""
+"Klassen inne i modulen er ikke en underklasse av screenlets.Screenlet."
 
 #: src/share/screenlets-manager/screenlets-packager.py:102
 #, python-format
@@ -692,8 +694,8 @@ msgstr "Klarte ikke å legge til %sScreenlet"
 #~ "You are about to install a theme in root mode. Continue only if you have "
 #~ "gksudo installed, do you wish to continue?"
 #~ msgstr ""
-#~ "Du er i ferd med å installere et tema i superbrukermodus. Fortsett kun "
-#~ "hvis du har gksudo installert. Ønsker du å fortsette?"
+#~ "Du er i ferd med å installere et tema i superbrukermodus. Fortsett kun hvis "
+#~ "du har gksudo installert. Ønsker du å fortsette?"
 
 #~ msgid "list contains themes folder"
 #~ msgstr "liste inneholdet temakatalog"

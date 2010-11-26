@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2010-11-12 14:13+0000\n"
 "Last-Translator: tabbernuk <boamaod@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
-"Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-13 04:48+0000\n"
+"X-Launchpad-Export-Date: 2010-11-26 04:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: hr\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
 msgid "Screenlets daemon"
@@ -187,8 +187,8 @@ msgstr "Pokreni/dodaj novu instancu odabranog Screenleta ..."
 msgid ""
 "Install a new Screenlet, SuperKaramba or Web Widget or Web Application  ..."
 msgstr ""
-"Instaliraj novi Screenlet, SuperKaramba ili Web widget ili Web "
-"aplikaciju  ..."
+"Instaliraj novi Screenlet, SuperKaramba ili Web widget ili Web aplikaciju  "
+"..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:421
 msgid "Permanently uninstall/delete the currently selected Screenlet ..."
@@ -312,7 +312,8 @@ msgid "Theme installed , please restart %s"
 msgstr "Tema je instalirana , molim vas ponovno pokrenite %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:824
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Pronađena je greška 2 prilikom instaliranja teme - Tema nije instalirana ili "
 "je već ranije instalirana"
@@ -517,7 +518,8 @@ msgstr ""
 
 #: src/lib/install.py:113
 msgid "Archive is damaged or unsupported, use only tar, bz2 or gz."
-msgstr "Arhiva je oštećena ili nije podržana, koristite samo tar, bz2 ili gz."
+msgstr ""
+"Arhiva je oštećena ili nije podržana, koristite samo tar, bz2 ili gz."
 
 #. check if screenlet is already installed
 #. found_path = screenlets.utils.find_first_screenlet_path(name)
@@ -715,8 +717,8 @@ msgstr "Nije uspjelo dodavanje %s Screenleta."
 #~ "You are about to install a theme in root mode. Continue only if you have "
 #~ "gksudo installed, do you wish to continue?"
 #~ msgstr ""
-#~ "Instalirat ćete temu kao root korisnik. Nastavite samo ako imate "
-#~ "instaliran gksudo, želite li nastaviti?"
+#~ "Instalirat ćete temu kao root korisnik. Nastavite samo ako imate instaliran "
+#~ "gksudo, želite li nastaviti?"
 
 #~ msgid "Create desktop shortcut for: %s/%sScreenlet.py"
 #~ msgstr "Stvori prečac na radnoj površini za: %s/%sScreenlet.py"

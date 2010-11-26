@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2010-11-12 09:51+0000\n"
 "Last-Translator: kawaji <jiro.kawada@gmail.com>\n"
 "Language-Team: Japanese <ja@li.org>\n"
-"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-13 04:47+0000\n"
+"X-Launchpad-Export-Date: 2010-11-26 04:43+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: ja\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
 #: src/lib/__init__.py:99
@@ -274,15 +274,12 @@ msgstr ""
 msgid ""
 "This theme wants to override your settings for this Screenlet. Do you want "
 "to allow that?"
-msgstr ""
-"このテーマはこの Sceenlet の設定値の書き換えを要求しています。書き換えを許可"
-"しますか？"
+msgstr "このテーマはこの Sceenlet の設定値の書き換えを要求しています。書き換えを許可しますか？"
 
 #: src/lib/__init__.py:1572
 #, python-format
 msgid "To quit all %s's, use 'Quit' instead. "
-msgstr ""
-"全ての %s を終了させるには、削除の代わりに '終了' を使用してください。 "
+msgstr "全ての %s を終了させるには、削除の代わりに '終了' を使用してください。 "
 
 #: src/lib/__init__.py:1573
 #, python-format
@@ -307,8 +304,7 @@ msgid ""
 "Themes allow you to easily switch the appearance of your Screenlets. On this "
 "page you find a list of all available themes for this Screenlet."
 msgstr ""
-"Screenlet の外観はテーマによって簡単に切り替えられます。この Screenlet に使用"
-"可能な全テーマのリストがこのページに掲載されています。"
+"Screenlet の外観はテーマによって簡単に切り替えられます。この Screenlet に使用可能な全テーマのリストがこのページに掲載されています。"
 
 #: src/lib/options.py:903
 msgid "Themes "
@@ -443,9 +439,7 @@ msgstr "未接続"
 #~ msgstr "現在の Screenlet インスタンスを終了中"
 
 #~ msgid "GConf python module not found. GConf settings backend is disabled."
-#~ msgstr ""
-#~ "GConf python モジュールが見つかりません。Gconf 設定バックエンドは無効にさ"
-#~ "れます。"
+#~ msgstr "GConf python モジュールが見つかりません。Gconf 設定バックエンドは無効にされます。"
 
 #~ msgid "GConfBackend: initializing"
 #~ msgstr "GConfバックエンド: 開始中"
@@ -484,9 +478,7 @@ msgstr "未接続"
 #~ msgstr "keyring が1つも見つかりません。まず最初に作成してください！"
 
 #~ msgid "Warning: No default keyring found, storage is not permanent!"
-#~ msgstr ""
-#~ "警告: デフォルトの keyring が見つかりません。ストレージがパーマネントでは"
-#~ "ありません！"
+#~ msgstr "警告: デフォルトの keyring が見つかりません。ストレージがパーマネントではありません！"
 
 #~ msgid "ERROR: Unable to read password from keyring: %s"
 #~ msgstr "エラー: keyring からパスワードが読み取れません: %s"
@@ -494,6 +486,7 @@ msgstr "未接続"
 #~ msgid "Options: Error - group %s not defined."
 #~ msgstr "オプション: エラー - グループ %s 未定義。"
 
+#, python-format
 #~ msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
 #~ msgstr "メタデータファイルに不正な XML（またはファイル不存在）: \"%s\"."
 
@@ -539,12 +532,14 @@ msgstr "未接続"
 #~ msgid "Can't open /proc/net/wireless"
 #~ msgstr "/proc/net/wireless が開けません"
 
+#, python-format
 #~ msgid "Can't open %s/temperature"
 #~ msgstr "%s/temperature が開けません"
 
 #~ msgid "Can't open folder /proc/acpi/thermal_zone/"
 #~ msgstr "フォルダ /proc/acpi/thermal_zone/ が開けません"
 
+#, python-format
 #~ msgid "Can't open %s"
 #~ msgstr "%s が開けません"
 
@@ -554,6 +549,7 @@ msgstr "未接続"
 #~ msgid "Hddtemp not installed"
 #~ msgstr "Hddtemp が未インストール"
 
+#, python-format
 #~ msgid "Can't read value from %s"
 #~ msgstr "%s から値が読み取れません"
 
@@ -572,9 +568,11 @@ msgstr "未接続"
 #~ msgid "Cannot get/set protected options through service."
 #~ msgstr "被保護オプションの読み取りや設定がサービスを通して出来ません。"
 
+#, python-format
 #~ msgid "Trying to access invalid instance \"%s\"."
 #~ msgstr "不正なインスタンス \"%s\" にアクセスを試みています。"
 
+#, python-format
 #~ msgid "Trying to access invalid option \"%s\"."
 #~ msgstr "不正なオプション \"%s\" にアクセスを試みています。"
 
@@ -600,11 +598,9 @@ msgstr "未接続"
 #~ msgstr "インスタンスの作成に失敗: %s"
 
 #~ msgid ""
-#~ "Error: Unable to create temp directory %s - screenlets-manager will not "
-#~ "work properly."
-#~ msgstr ""
-#~ "エラー: 一時ディレクトリ %s 作成不可 - この場合 Screenlets マネージャは正"
-#~ "しく働きません。"
+#~ "Error: Unable to create temp directory %s - screenlets-manager will not work "
+#~ "properly."
+#~ msgstr "エラー: 一時ディレクトリ %s 作成不可 - この場合 Screenlets マネージャは正しく働きません。"
 
 #~ msgid "Entry not found. Will (obviously) not be removed."
 #~ msgstr "エントリーが見つかりません。（当然ながら）削除されません。"
@@ -617,9 +613,7 @@ msgstr "未接続"
 
 #~ msgid ""
 #~ "Screenlet '%s' has been interrupted by keyboard. TODO: make this an event"
-#~ msgstr ""
-#~ "Screenlet '%s' がキーボードに割り込まれました。TODO: これをイベントにしま"
-#~ "す"
+#~ msgstr "Screenlet '%s' がキーボードに割り込まれました。TODO: これをイベントにします"
 
 #~ msgid "LISTED PATH NOT EXISTS: "
 #~ msgstr "リストされたパスが不存在: "
@@ -633,6 +627,7 @@ msgstr "未接続"
 #~ msgid "Notify: No DBus running or notifications-daemon unavailable."
 #~ msgstr "通知: DBus 未稼働または notifications-daemon 利用不可。"
 
+#, python-format
 #~ msgid "can't read temperature in: %s"
 #~ msgstr "%s から温度を取得できませんでした"
 
@@ -648,9 +643,7 @@ msgstr "未接続"
 #~ msgid ""
 #~ "Error: Unable to create temp entry - screenlets-manager will not work "
 #~ "properly."
-#~ msgstr ""
-#~ "エラー: temp エントリーの作成不可 - screenlets-manager  は正常に働きませ"
-#~ "ん。"
+#~ msgstr "エラー: temp エントリーの作成不可 - screenlets-manager  は正常に働きません。"
 
 #~ msgid "Screenlet has been killed. TODO: make this an event"
 #~ msgstr "Screenlet が停止されました。TODO: これをイベントにします"

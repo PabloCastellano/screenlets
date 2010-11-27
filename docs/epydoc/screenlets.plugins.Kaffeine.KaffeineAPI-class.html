@@ -34,7 +34,7 @@
       <th class="navbar" align="right" width="100%">
         <table border="0" cellpadding="0" cellspacing="0">
           <tr><th class="navbar" align="center"
-            >Screenlets 0.1.2</th>
+            >Screenlets 0.1.3</th>
           </tr></table></th>
   </tr>
 </table>
@@ -62,15 +62,24 @@
   </tr>
 </table>
 <!-- ==================== CLASS DESCRIPTION ==================== -->
-<h1 class="epydoc">Class KaffeineAPI</h1><span class="codelink"><a href="screenlets.plugins.Kaffeine-pysrc.html#KaffeineAPI">source&nbsp;code</a></span><br /><br />
+<h1 class="epydoc">Class KaffeineAPI</h1><p class="nomargin-top"><span class="codelink"><a href="screenlets.plugins.Kaffeine-pysrc.html#KaffeineAPI">source&nbsp;code</a></span></p>
 <pre class="base-tree">
+              object --+    
+                       |    
 <a href="screenlets.plugins.GenericPlayer.GenericAPI-class.html">GenericPlayer.GenericAPI</a> --+
                            |
                           <strong class="uidshort">KaffeineAPI</strong>
 </pre>
 
 <hr />
-<!-- ==================== INSTANCE METHODS ==================== -->
+<hr />
+<div class="fields">      <p><strong>Version:</strong>
+        0.0
+      </p>
+      <p><strong>Author:</strong>
+        Whise (Helder Fraga)
+      </p>
+</div><!-- ==================== INSTANCE METHODS ==================== -->
 <a name="section-InstanceMethods"></a>
 <table class="summary" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
@@ -94,7 +103,8 @@
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td><span class="summary-sig"><a href="screenlets.plugins.Kaffeine.KaffeineAPI-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
-        <span class="summary-sig-arg">session_bus</span>)</span></td>
+        <span class="summary-sig-arg">session_bus</span>)</span><br />
+      x.__init__(...) initializes x; see x.__class__.__doc__ for signature</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="screenlets.plugins.Kaffeine-pysrc.html#KaffeineAPI.__init__">source&nbsp;code</a></span>
             
@@ -299,6 +309,24 @@
       
     </td>
   </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__format__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    </td>
+  </tr>
 </table>
 <!-- ==================== CLASS VARIABLES ==================== -->
 <a name="section-ClassVariables"></a>
@@ -328,20 +356,6 @@
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="__version__"></a><span class="summary-name">__version__</span> = <code title="'0.0'">'0.0'</code>
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-        <a name="__author__"></a><span class="summary-name">__author__</span> = <code title="'Whise (Helder Fraga)'"><code class="variable-quote">'</code><code class="variable-string">Whise (Helder Fraga)</code><code class="variable-quote">'</code></code>
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
         <a name="__desc__"></a><span class="summary-name">__desc__</span> = <code title="'Kaffeine API to a Music Player'"><code class="variable-quote">'</code><code class="variable-string">Kaffeine API to a Music Player</code><code class="variable-quote">'</code></code>
     </td>
   </tr>
@@ -349,14 +363,16 @@
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="playerAPI"></a><span class="summary-name">playerAPI</span> = <code title="None">None</code>
+        <a name="playerAPI"></a><span class="summary-name">playerAPI</span> = <code title="None">None</code><br />
+      hash(x)
     </td>
   </tr>
 <tr class="private">
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="__timeout"></a><span class="summary-name">__timeout</span> = <code title="None">None</code>
+        <a name="__timeout"></a><span class="summary-name">__timeout</span> = <code title="None">None</code><br />
+      hash(x)
     </td>
   </tr>
 <tr class="private">
@@ -370,20 +386,47 @@
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="callbackFn"></a><span class="summary-name">callbackFn</span> = <code title="None">None</code>
+        <a name="callbackFn"></a><span class="summary-name">callbackFn</span> = <code title="None">None</code><br />
+      hash(x)
     </td>
   </tr>
 <tr class="private">
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="__curplaying"></a><span class="summary-name">__curplaying</span> = <code title="None">None</code>
+        <a name="__curplaying"></a><span class="summary-name">__curplaying</span> = <code title="None">None</code><br />
+      hash(x)
     </td>
   </tr>
   <tr>
     <td colspan="2" class="summary">
     <p class="indent-wrapped-lines"><b>Inherited from <code><a href="screenlets.plugins.GenericPlayer.GenericAPI-class.html">GenericPlayer.GenericAPI</a></code></b>:
       <code><a href="screenlets.plugins.GenericPlayer.GenericAPI-class.html#session_bus">session_bus</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
       </p>
     </td>
   </tr>
@@ -420,12 +463,14 @@
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets.plugins.Kaffeine-pysrc.html#KaffeineAPI.__init__">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  
+  <p>x.__init__(...) initializes x; see x.__class__.__doc__ for 
+  signature</p>
   <dl class="fields">
     <dt>Overrides:
-      <a href="screenlets.plugins.GenericPlayer.GenericAPI-class.html#__init__">GenericPlayer.GenericAPI.__init__</a>
+        object.__init__
+        <dd><em class="note">(inherited documentation)</em></dd>
     </dt>
   </dl>
 </td></tr></table>
@@ -443,12 +488,12 @@
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets.plugins.Kaffeine-pysrc.html#KaffeineAPI.is_active">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   
   <dl class="fields">
     <dt>Overrides:
-      <a href="screenlets.plugins.GenericPlayer.GenericAPI-class.html#is_active">GenericPlayer.GenericAPI.is_active</a>
+        <a href="screenlets.plugins.GenericPlayer.GenericAPI-class.html#is_active">GenericPlayer.GenericAPI.is_active</a>
     </dt>
   </dl>
 </td></tr></table>
@@ -465,12 +510,12 @@
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets.plugins.Kaffeine-pysrc.html#KaffeineAPI.connect">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   
   <dl class="fields">
     <dt>Overrides:
-      <a href="screenlets.plugins.GenericPlayer.GenericAPI-class.html#connect">GenericPlayer.GenericAPI.connect</a>
+        <a href="screenlets.plugins.GenericPlayer.GenericAPI-class.html#connect">GenericPlayer.GenericAPI.connect</a>
     </dt>
   </dl>
 </td></tr></table>
@@ -487,12 +532,12 @@
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets.plugins.Kaffeine-pysrc.html#KaffeineAPI.get_title">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   
   <dl class="fields">
     <dt>Overrides:
-      <a href="screenlets.plugins.GenericPlayer.GenericAPI-class.html#get_title">GenericPlayer.GenericAPI.get_title</a>
+        <a href="screenlets.plugins.GenericPlayer.GenericAPI-class.html#get_title">GenericPlayer.GenericAPI.get_title</a>
     </dt>
   </dl>
 </td></tr></table>
@@ -509,12 +554,12 @@
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets.plugins.Kaffeine-pysrc.html#KaffeineAPI.get_album">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   
   <dl class="fields">
     <dt>Overrides:
-      <a href="screenlets.plugins.GenericPlayer.GenericAPI-class.html#get_album">GenericPlayer.GenericAPI.get_album</a>
+        <a href="screenlets.plugins.GenericPlayer.GenericAPI-class.html#get_album">GenericPlayer.GenericAPI.get_album</a>
     </dt>
   </dl>
 </td></tr></table>
@@ -531,12 +576,12 @@
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets.plugins.Kaffeine-pysrc.html#KaffeineAPI.get_artist">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   
   <dl class="fields">
     <dt>Overrides:
-      <a href="screenlets.plugins.GenericPlayer.GenericAPI-class.html#get_artist">GenericPlayer.GenericAPI.get_artist</a>
+        <a href="screenlets.plugins.GenericPlayer.GenericAPI-class.html#get_artist">GenericPlayer.GenericAPI.get_artist</a>
     </dt>
   </dl>
 </td></tr></table>
@@ -553,12 +598,12 @@
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets.plugins.Kaffeine-pysrc.html#KaffeineAPI.get_cover_path">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   
   <dl class="fields">
     <dt>Overrides:
-      <a href="screenlets.plugins.GenericPlayer.GenericAPI-class.html#get_cover_path">GenericPlayer.GenericAPI.get_cover_path</a>
+        <a href="screenlets.plugins.GenericPlayer.GenericAPI-class.html#get_cover_path">GenericPlayer.GenericAPI.get_cover_path</a>
     </dt>
   </dl>
 </td></tr></table>
@@ -575,12 +620,12 @@
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets.plugins.Kaffeine-pysrc.html#KaffeineAPI.is_playing">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   
   <dl class="fields">
     <dt>Overrides:
-      <a href="screenlets.plugins.GenericPlayer.GenericAPI-class.html#is_playing">GenericPlayer.GenericAPI.is_playing</a>
+        <a href="screenlets.plugins.GenericPlayer.GenericAPI-class.html#is_playing">GenericPlayer.GenericAPI.is_playing</a>
     </dt>
   </dl>
 </td></tr></table>
@@ -597,12 +642,12 @@
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets.plugins.Kaffeine-pysrc.html#KaffeineAPI.play_pause">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   
   <dl class="fields">
     <dt>Overrides:
-      <a href="screenlets.plugins.GenericPlayer.GenericAPI-class.html#play_pause">GenericPlayer.GenericAPI.play_pause</a>
+        <a href="screenlets.plugins.GenericPlayer.GenericAPI-class.html#play_pause">GenericPlayer.GenericAPI.play_pause</a>
     </dt>
   </dl>
 </td></tr></table>
@@ -619,12 +664,12 @@
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets.plugins.Kaffeine-pysrc.html#KaffeineAPI.next">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   
   <dl class="fields">
     <dt>Overrides:
-      <a href="screenlets.plugins.GenericPlayer.GenericAPI-class.html#next">GenericPlayer.GenericAPI.next</a>
+        <a href="screenlets.plugins.GenericPlayer.GenericAPI-class.html#next">GenericPlayer.GenericAPI.next</a>
     </dt>
   </dl>
 </td></tr></table>
@@ -641,12 +686,12 @@
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets.plugins.Kaffeine-pysrc.html#KaffeineAPI.previous">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   
   <dl class="fields">
     <dt>Overrides:
-      <a href="screenlets.plugins.GenericPlayer.GenericAPI-class.html#previous">GenericPlayer.GenericAPI.previous</a>
+        <a href="screenlets.plugins.GenericPlayer.GenericAPI-class.html#previous">GenericPlayer.GenericAPI.previous</a>
     </dt>
   </dl>
 </td></tr></table>
@@ -664,12 +709,12 @@
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets.plugins.Kaffeine-pysrc.html#KaffeineAPI.register_change_callback">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   
   <dl class="fields">
     <dt>Overrides:
-      <a href="screenlets.plugins.GenericPlayer.GenericAPI-class.html#register_change_callback">GenericPlayer.GenericAPI.register_change_callback</a>
+        <a href="screenlets.plugins.GenericPlayer.GenericAPI-class.html#register_change_callback">GenericPlayer.GenericAPI.register_change_callback</a>
     </dt>
   </dl>
 </td></tr></table>
@@ -699,17 +744,18 @@
       <th class="navbar" align="right" width="100%">
         <table border="0" cellpadding="0" cellspacing="0">
           <tr><th class="navbar" align="center"
-            >Screenlets 0.1.2</th>
+            >Screenlets 0.1.3</th>
           </tr></table></th>
   </tr>
 </table>
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0beta1 on Wed Jun  4 18:52:58 2008
+    Generated by Epydoc 3.0.1 on Sat Nov 27 22:48:25 2010
     </td>
     <td align="right" class="footer">
-      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
     </td>
   </tr>
 </table>
@@ -720,9 +766,8 @@
   // javascript is turned off then we want them to be
   // visible); but by default, we want to hide them.  So hide
   // them unless we have a cookie that says to show them.
-  checkCookie()
+  checkCookie();
   // -->
 </script>
-  
 </body>
 </html>

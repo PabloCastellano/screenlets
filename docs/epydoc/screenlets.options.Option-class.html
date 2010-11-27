@@ -34,7 +34,7 @@
       <th class="navbar" align="right" width="100%">
         <table border="0" cellpadding="0" cellspacing="0">
           <tr><th class="navbar" align="center"
-            >Screenlets 0.1.2</th>
+            >Screenlets 0.1.3</th>
           </tr></table></th>
   </tr>
 </table>
@@ -61,34 +61,26 @@
   </tr>
 </table>
 <!-- ==================== CLASS DESCRIPTION ==================== -->
-<h1 class="epydoc">Class Option</h1><span class="codelink"><a href="screenlets.options-pysrc.html#Option">source&nbsp;code</a></span><br /><br />
+<h1 class="epydoc">Class Option</h1><p class="nomargin-top"><span class="codelink"><a href="screenlets.options-pysrc.html#Option">source&nbsp;code</a></span></p>
 <pre class="base-tree">
-     object --+    
-              |    
-gobject.GObject --+
-                  |
-                 <strong class="uidshort">Option</strong>
+object --+    
+         |    
+??.GObject --+
+             |
+            <strong class="uidshort">Option</strong>
 </pre>
 
 <dl><dt>Known Subclasses:</dt>
 <dd>
-    <a href="screenlets.options.AccountOption-class.html">AccountOption</a>,
-    <a href="screenlets.options.BoolOption-class.html">BoolOption</a>,
-    <a href="screenlets.options.ColorOption-class.html">ColorOption</a>,
-    <a href="screenlets.options.DirectoryOption-class.html">DirectoryOption</a>,
-    <a href="screenlets.options.FileOption-class.html">FileOption</a>,
-    <a href="screenlets.options.IntOption-class.html">IntOption</a>,
-    <a href="screenlets.options.FontOption-class.html">FontOption</a>,
-    <a href="screenlets.options.ImageOption-class.html">ImageOption</a>,
-    <a href="screenlets.options.ListOption-class.html">ListOption</a>,
-    <a href="screenlets.options.StringOption-class.html">StringOption</a>
+      <ul class="subclass-list">
+<li><a href="screenlets.options.AccountOption-class.html">AccountOption</a></li><li>, <a href="screenlets.options.BoolOption-class.html">BoolOption</a></li><li>, <a href="screenlets.options.ColorOption-class.html">ColorOption</a></li><li>, <a href="screenlets.options.DirectoryOption-class.html">DirectoryOption</a></li><li>, <a href="screenlets.options.FileOption-class.html">FileOption</a></li><li>, <a href="screenlets.options.IntOption-class.html">IntOption</a></li><li>, <a href="screenlets.options.FontOption-class.html">FontOption</a></li><li>, <a href="screenlets.options.ImageOption-class.html">ImageOption</a></li><li>, <a href="screenlets.options.ListOption-class.html">ListOption</a></li><li>, <a href="screenlets.options.StringOption-class.html">StringOption</a></li>  </ul>
 </dd></dl>
 
 <hr />
-An Option stores information about a certain object-attribute. It 
+<p>An Option stores information about a certain object-attribute. It 
   doesn't carry information about the value or the object it belongs to - 
   it is only a one-way data-storage for describing how to handle 
-  attributes.<br /><br />
+  attributes.</p>
 
 <!-- ==================== INSTANCE METHODS ==================== -->
 <a name="section-InstanceMethods"></a>
@@ -171,8 +163,10 @@ An Option stores information about a certain object-attribute. It
   </tr>
   <tr>
     <td colspan="2" class="summary">
-    <p class="indent-wrapped-lines"><b>Inherited from <code>gobject.GObject</code></b>:
+    <p class="indent-wrapped-lines"><b>Inherited from <code><i>unreachable</i>.GObject</code></b>:
       <code>__cmp__</code>,
+      <code>__copy__</code>,
+      <code>__deepcopy__</code>,
       <code>__delattr__</code>,
       <code>__gdoc__</code>,
       <code>__gobject_init__</code>,
@@ -209,10 +203,13 @@ An Option stores information about a certain object-attribute. It
       <code>weak_ref</code>
       </p>
     <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__format__</code>,
       <code>__getattribute__</code>,
       <code>__reduce__</code>,
       <code>__reduce_ex__</code>,
-      <code>__str__</code>
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
       </p>
     </td>
   </tr>
@@ -246,7 +243,7 @@ bject.TYPE_OBJECT,)))">dict(option_changed= (gobject.SIGNAL_RUN_FIRST,<code clas
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="__gtype__"></a><span class="summary-name">__gtype__</span> = <code title="&lt;GType screenlets+options+Option (140195744)&gt;">&lt;GType screenlets+options+Option (140195744)&gt;</code>
+        <a name="__gtype__"></a><span class="summary-name">__gtype__</span> = <code title="&lt;GType screenlets+options+Option (158026632)&gt;">&lt;GType screenlets+options+Option (158026632)&gt;</code>
     </td>
   </tr>
 </table>
@@ -269,7 +266,7 @@ bject.TYPE_OBJECT,)))">dict(option_changed= (gobject.SIGNAL_RUN_FIRST,<code clas
 </tr>
   <tr>
     <td colspan="2" class="summary">
-    <p class="indent-wrapped-lines"><b>Inherited from <code>gobject.GObject</code></b>:
+    <p class="indent-wrapped-lines"><b>Inherited from <code><i>unreachable</i>.GObject</code></b>:
       <code>__grefcount__</code>
       </p>
     <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
@@ -318,12 +315,12 @@ bject.TYPE_OBJECT,)))">dict(option_changed= (gobject.SIGNAL_RUN_FIRST,<code clas
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets.options-pysrc.html#Option.__init__">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  Creates a new Option with the given information.
+  <p>Creates a new Option with the given information.</p>
   <dl class="fields">
     <dt>Overrides:
-      gobject.GObject.__init__
+        object.__init__
     </dt>
   </dl>
 </td></tr></table>
@@ -341,10 +338,10 @@ bject.TYPE_OBJECT,)))">dict(option_changed= (gobject.SIGNAL_RUN_FIRST,<code clas
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets.options-pysrc.html#Option.on_import">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  Callback - called when an option gets imported from a string. This 
-  function MUST return the string-value converted to the required type!
+  <p>Callback - called when an option gets imported from a string. This 
+  function MUST return the string-value converted to the required type!</p>
   <dl class="fields">
   </dl>
 </td></tr></table>
@@ -362,12 +359,12 @@ bject.TYPE_OBJECT,)))">dict(option_changed= (gobject.SIGNAL_RUN_FIRST,<code clas
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets.options-pysrc.html#Option.on_export">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  Callback - called when an option gets exported to a string. The 
+  <p>Callback - called when an option gets exported to a string. The 
   value-argument needs to be converted to a string that can be imported by 
   the on_import-handler. This handler MUST return the value converted to a 
-  string!
+  string!</p>
   <dl class="fields">
   </dl>
 </td></tr></table>
@@ -435,17 +432,18 @@ bject.TYPE_OBJECT,)))
       <th class="navbar" align="right" width="100%">
         <table border="0" cellpadding="0" cellspacing="0">
           <tr><th class="navbar" align="center"
-            >Screenlets 0.1.2</th>
+            >Screenlets 0.1.3</th>
           </tr></table></th>
   </tr>
 </table>
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0beta1 on Wed Jun  4 18:52:58 2008
+    Generated by Epydoc 3.0.1 on Sat Nov 27 22:48:24 2010
     </td>
     <td align="right" class="footer">
-      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
     </td>
   </tr>
 </table>
@@ -456,9 +454,8 @@ bject.TYPE_OBJECT,)))
   // javascript is turned off then we want them to be
   // visible); but by default, we want to hide them.  So hide
   // them unless we have a cookie that says to show them.
-  checkCookie()
+  checkCookie();
   // -->
 </script>
-  
 </body>
 </html>

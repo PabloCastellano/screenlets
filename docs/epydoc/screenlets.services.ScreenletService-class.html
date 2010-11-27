@@ -34,7 +34,7 @@
       <th class="navbar" align="right" width="100%">
         <table border="0" cellpadding="0" cellspacing="0">
           <tr><th class="navbar" align="center"
-            >Screenlets 0.1.2</th>
+            >Screenlets 0.1.3</th>
           </tr></table></th>
   </tr>
 </table>
@@ -61,7 +61,7 @@
   </tr>
 </table>
 <!-- ==================== CLASS DESCRIPTION ==================== -->
-<h1 class="epydoc">Class ScreenletService</h1><span class="codelink"><a href="screenlets.services-pysrc.html#ScreenletService">source&nbsp;code</a></span><br /><br />
+<h1 class="epydoc">Class ScreenletService</h1><p class="nomargin-top"><span class="codelink"><a href="screenlets.services-pysrc.html#ScreenletService">source&nbsp;code</a></span></p>
 <pre class="base-tree">
             object --+        
                      |        
@@ -73,11 +73,11 @@ dbus.service.Interface --+
 </pre>
 
 <hr />
-The ScreenletService contains the boilerplate code for creating new 
+<p>The ScreenletService contains the boilerplate code for creating new 
   dbus-objects for Screenlets. Subclasses can easily implement new 
   functions to allow controlling and managing Screenlets through DBus in 
   any way imaginable. This class should implement the default actions 
-  available for all screenlets - add, delete, get, set, (move?)<br /><br />
+  available for all screenlets - add, delete, get, set, (move?)</p>
 
 <!-- ==================== NESTED CLASSES ==================== -->
 <a name="section-NestedClasses"></a>
@@ -131,7 +131,8 @@ The ScreenletService contains the boilerplate code for creating new
         <span class="summary-sig-arg">screenlet</span>,
         <span class="summary-sig-arg">name</span>,
         <span class="summary-sig-arg">id</span>=<span class="summary-sig-default">None</span>)</span><br />
-      Constructor.</td>
+      Constructor. Either conn or bus_name is required; object_path
+is also required.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="screenlets.services-pysrc.html#ScreenletService.__init__">source&nbsp;code</a></span>
             
@@ -203,8 +204,7 @@ The ScreenletService contains the boilerplate code for creating new
           <td><span class="summary-sig"><a href="screenlets.services.ScreenletService-class.html#get" class="summary-sig-name">get</a>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">id</span>,
         <span class="summary-sig-arg">attrib</span>)</span><br />
-      Ask the assigned Screenlet to return the given attribute's 
-      value.</td>
+      Ask the assigned Screenlet to return the given attribute's value.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="screenlets.services-pysrc.html#ScreenletService.get">source&nbsp;code</a></span>
             
@@ -221,8 +221,8 @@ The ScreenletService contains the boilerplate code for creating new
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td><span class="summary-sig"><a href="screenlets.services.ScreenletService-class.html#get_first_instance" class="summary-sig-name">get_first_instance</a>(<span class="summary-sig-arg">self</span>)</span><br />
-      Get the ID of the first existing instance of the assigned 
-      Screenlet (within the screenlet's active session).</td>
+      Get the ID of the first existing instance of the assigned Screenlet 
+      (within the screenlet's active session).</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="screenlets.services-pysrc.html#ScreenletService.get_first_instance">source&nbsp;code</a></span>
             
@@ -277,8 +277,7 @@ The ScreenletService contains the boilerplate code for creating new
         <span class="summary-sig-arg">id</span>,
         <span class="summary-sig-arg">attrib</span>,
         <span class="summary-sig-arg">value</span>)</span><br />
-      Ask the assigned Screenlet to set the given attribute to 
-      'value'.</td>
+      Ask the assigned Screenlet to set the given attribute to 'value'.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="screenlets.services-pysrc.html#ScreenletService.set">source&nbsp;code</a></span>
             
@@ -297,7 +296,7 @@ The ScreenletService contains the boilerplate code for creating new
           <td><span class="summary-sig"><a href="screenlets.services.ScreenletService-class.html#instance_added" class="summary-sig-name">instance_added</a>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">*args</span>,
         <span class="summary-sig-arg">**keywords</span>)</span><br />
-      This signal gets emitted whenever a new instance of the assigned 
+      This signal gets emitted whenever a new instance of the assigned
 Screenlet gets added.</td>
           <td align="right" valign="top">
             
@@ -343,12 +342,15 @@ Screenlet gets removed.</td>
       </p></div>
     <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
       <code>__delattr__</code>,
+      <code>__format__</code>,
       <code>__getattribute__</code>,
       <code>__hash__</code>,
       <code>__new__</code>,
       <code>__reduce__</code>,
       <code>__reduce_ex__</code>,
-      <code>__setattr__</code>
+      <code>__setattr__</code>,
+      <code>__sizeof__</code>,
+      <code>__subclasshook__</code>
       </p>
     </td>
   </tr>
@@ -399,35 +401,6 @@ Screenlet gets removed.</td>
       </p>
     <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>dbus.service.Interface</code></b> (private):
       <code>_dbus_class_table</code>
-      </p></div>
-    </td>
-  </tr>
-</table>
-<!-- ==================== INSTANCE VARIABLES ==================== -->
-<a name="section-InstanceVariables"></a>
-<table class="summary" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr bgcolor="#70b0f0" class="table-header">
-  <td colspan="2" class="table-header">
-    <table border="0" cellpadding="0" cellspacing="0" width="100%">
-      <tr valign="top">
-        <td align="left"><span class="table-header">Instance Variables</span></td>
-        <td align="right" valign="top"
-         ><span class="options">[<a href="#section-InstanceVariables"
-         class="privatelink" onclick="toggle_private();"
-         >hide private</a>]</span></td>
-      </tr>
-    </table>
-  </td>
-</tr>
-  <tr>
-    <td colspan="2" class="summary">
-    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>dbus.service.Object</code></b> (private):
-      <code>_connection</code>,
-      <code>_fallback</code>,
-      <code>_locations</code>,
-      <code>_locations_lock</code>,
-      <code>_object_path</code>
       </p></div>
     </td>
   </tr>
@@ -496,40 +469,31 @@ Screenlet gets removed.</td>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets.services-pysrc.html#ScreenletService.__init__">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  <pre class="literalblock">
-Constructor. Either conn or bus_name is required; object_path
+  Constructor. Either conn or bus_name is required; object_path
 is also required.
-
-:Parameters:
-    `conn` : dbus.connection.Connection or None
-        The connection on which to export this object.
-
-        If None, use the Bus associated with the given ``bus_name``.
-        If there is no ``bus_name`` either, the object is not
-        initially available on any Connection.
-
-        For backwards compatibility, if an instance of
-        dbus.service.BusName is passed as the first parameter,
-        this is equivalent to passing its associated Bus as
-        ``conn``, and passing the BusName itself as ``bus_name``.
-
-    `object_path` : str or None
-        A D-Bus object path at which to make this Object available
-        immediately. If this is not None, a `conn` or `bus_name` must
-        also be provided.
-
-    `bus_name` : dbus.service.BusName or None
-        Represents a well-known name claimed by this process. A
-        reference to the BusName object will be held by this
-        Object, preventing the name from being released during this
-        Object's lifetime (unless it's released manually).
-
-</pre>
   <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><p><strong class="pname"><code>conn</code></strong> - The connection on which to export this object.</p>
+<p>If None, use the Bus associated with the given <tt class="rst-docutils literal">bus_name</tt>.
+If there is no <tt class="rst-docutils literal">bus_name</tt> either, the object is not
+initially available on any Connection.</p>
+<p>For backwards compatibility, if an instance of
+dbus.service.BusName is passed as the first parameter,
+this is equivalent to passing its associated Bus as
+<tt class="rst-docutils literal">conn</tt>, and passing the BusName itself as <tt class="rst-docutils literal">bus_name</tt>.</p></li>
+        <li><strong class="pname"><code>object_path</code></strong> - A D-Bus object path at which to make this Object available
+immediately. If this is not None, a <code class="link">conn</code> or <code class="link">bus_name</code> must
+also be provided.</li>
+        <li><strong class="pname"><code>bus_name</code></strong> - Represents a well-known name claimed by this process. A
+reference to the BusName object will be held by this
+Object, preventing the name from being released during this
+Object's lifetime (unless it's released manually).</li>
+    </ul></dd>
     <dt>Overrides:
-      dbus.service.Object.__init__
+        object.__init__
         <dd><em class="note">(inherited documentation)</em></dd>
     </dt>
   </dl>
@@ -547,7 +511,7 @@ is also required.
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets.services-pysrc.html#ScreenletService.test">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   
   <dl class="fields">
@@ -571,9 +535,9 @@ is also required.
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets.services-pysrc.html#ScreenletService.debug">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  Dump a string to the console.
+  <p>Dump a string to the console.</p>
   <dl class="fields">
     <dt>Decorators:</dt>
     <dd><ul class="nomargin-top">
@@ -595,13 +559,13 @@ is also required.
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets.services-pysrc.html#ScreenletService.add">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  Ask the assigned Screenlet to add a new instance of itself to its 
+  <p>Ask the assigned Screenlet to add a new instance of itself to its 
   session. The new Screenlet will have the ID defined by 'id'. The ID of 
   the new instance is returned, so you can auto-generate an ID by passing 
   an empty string. The function returns None if adding a new instance 
-  failed for some reason.
+  failed for some reason.</p>
   <dl class="fields">
     <dt>Decorators:</dt>
     <dd><ul class="nomargin-top">
@@ -624,13 +588,13 @@ is also required.
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets.services-pysrc.html#ScreenletService.get">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  Ask the assigned Screenlet to return the given attribute's value. If 
+  <p>Ask the assigned Screenlet to return the given attribute's value. If 
   'id' is defined, the instance with the given id will be accessed, else 
   the main instance is used. Protected attributes are not returned by this 
   function. TODO: Throw exception on error? ... could be abused to crash 
-  the app
+  the app</p>
   <dl class="fields">
     <dt>Decorators:</dt>
     <dd><ul class="nomargin-top">
@@ -651,10 +615,10 @@ is also required.
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets.services-pysrc.html#ScreenletService.get_first_instance">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  Get the ID of the first existing instance of the assigned Screenlet 
-  (within the screenlet's active session).
+  <p>Get the ID of the first existing instance of the assigned Screenlet 
+  (within the screenlet's active session).</p>
   <dl class="fields">
     <dt>Decorators:</dt>
     <dd><ul class="nomargin-top">
@@ -675,10 +639,10 @@ is also required.
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets.services-pysrc.html#ScreenletService.list_instances">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  Return a list with IDs of all existing instances of the assigned 
-  Screenlet (within the screenlet's active session).
+  <p>Return a list with IDs of all existing instances of the assigned 
+  Screenlet (within the screenlet's active session).</p>
   <dl class="fields">
     <dt>Decorators:</dt>
     <dd><ul class="nomargin-top">
@@ -699,10 +663,10 @@ is also required.
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets.services-pysrc.html#ScreenletService.quit">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  Quit all instances of the screenlet. Similar to selecting Quit from 
-  the menu.
+  <p>Quit all instances of the screenlet. Similar to selecting Quit from 
+  the menu.</p>
   <dl class="fields">
     <dt>Decorators:</dt>
     <dd><ul class="nomargin-top">
@@ -726,10 +690,10 @@ is also required.
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets.services-pysrc.html#ScreenletService.set">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  Ask the assigned Screenlet to set the given attribute to 'value'. The 
-  instance with the given id will be accessed.
+  <p>Ask the assigned Screenlet to set the given attribute to 'value'. The 
+  instance with the given id will be accessed.</p>
   <dl class="fields">
     <dt>Decorators:</dt>
     <dd><ul class="nomargin-top">
@@ -752,13 +716,10 @@ is also required.
   </td><td align="right" valign="top"
     >&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  <pre class="literalblock">
-This signal gets emitted whenever a new instance of the assigned 
+  This signal gets emitted whenever a new instance of the assigned
 Screenlet gets added.
-
-</pre>
   <dl class="fields">
     <dt>Decorators:</dt>
     <dd><ul class="nomargin-top">
@@ -781,13 +742,10 @@ Screenlet gets added.
   </td><td align="right" valign="top"
     >&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  <pre class="literalblock">
-This signal gets emitted whenever an instance of the assigned
+  This signal gets emitted whenever an instance of the assigned
 Screenlet gets removed.
-
-</pre>
   <dl class="fields">
     <dt>Decorators:</dt>
     <dd><ul class="nomargin-top">
@@ -821,17 +779,18 @@ Screenlet gets removed.
       <th class="navbar" align="right" width="100%">
         <table border="0" cellpadding="0" cellspacing="0">
           <tr><th class="navbar" align="center"
-            >Screenlets 0.1.2</th>
+            >Screenlets 0.1.3</th>
           </tr></table></th>
   </tr>
 </table>
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0beta1 on Wed Jun  4 18:52:58 2008
+    Generated by Epydoc 3.0.1 on Sat Nov 27 22:48:25 2010
     </td>
     <td align="right" class="footer">
-      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
     </td>
   </tr>
 </table>
@@ -842,9 +801,8 @@ Screenlet gets removed.
   // javascript is turned off then we want them to be
   // visible); but by default, we want to hide them.  So hide
   // them unless we have a cookie that says to show them.
-  checkCookie()
+  checkCookie();
   // -->
 </script>
-  
 </body>
 </html>

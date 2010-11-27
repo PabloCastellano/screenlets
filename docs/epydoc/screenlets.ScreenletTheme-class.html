@@ -34,7 +34,7 @@
       <th class="navbar" align="right" width="100%">
         <table border="0" cellpadding="0" cellspacing="0">
           <tr><th class="navbar" align="center"
-            >Screenlets 0.1.2</th>
+            >Screenlets 0.1.3</th>
           </tr></table></th>
   </tr>
 </table>
@@ -60,7 +60,7 @@
   </tr>
 </table>
 <!-- ==================== CLASS DESCRIPTION ==================== -->
-<h1 class="epydoc">Class ScreenletTheme</h1><span class="codelink"><a href="screenlets-pysrc.html#ScreenletTheme">source&nbsp;code</a></span><br /><br />
+<h1 class="epydoc">Class ScreenletTheme</h1><p class="nomargin-top"><span class="codelink"><a href="screenlets-pysrc.html#ScreenletTheme">source&nbsp;code</a></span></p>
 <pre class="base-tree">
 object --+    
          |    
@@ -70,13 +70,13 @@ object --+
 </pre>
 
 <hr />
-ScreenletThemes are simple storages that allow loading files as 
+<p>ScreenletThemes are simple storages that allow loading files as 
   svg-handles within a theme-directory. Each Screenlet can have its own 
   theme-directory. It is up to the Screenlet-developer if he wants to let 
   his Screenlet support themes or not. Themes are turned off by default - 
   if your Screenlet uses Themes, just set the attribute 'theme_name' to the
   name of the theme's dir you want to use. TODO: remove 
-  dict-inheritance<br /><br />
+  dict-inheritance</p>
 
 <hr />
 <div class="fields">      <p><strong>Version:</strong>
@@ -104,14 +104,16 @@ ScreenletThemes are simple storages that allow loading files as
 </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type"><pre class="literalblock">
+new empty dictionary
+
+</pre></span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td><span class="summary-sig"><a href="screenlets.ScreenletTheme-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">path</span>)</span><br />
-      x.__init__(...) initializes x; see x.__class__.__doc__ for 
-      signature</td>
+      x.__init__(...) initializes x; see x.__class__.__doc__ for signature</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="screenlets-pysrc.html#ScreenletTheme.__init__">source&nbsp;code</a></span>
             
@@ -481,8 +483,7 @@ ScreenletThemes are simple storages that allow loading files as
         <tr>
           <td><span class="summary-sig"><a name="load_conf"></a><span class="summary-sig-name">load_conf</span>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">filename</span>)</span><br />
-      Load a config-file from this theme's dir and save vars in 
-      list.</td>
+      Load a config-file from this theme's dir and save vars in list.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="screenlets-pysrc.html#ScreenletTheme.load_conf">source&nbsp;code</a></span>
             
@@ -534,7 +535,7 @@ ScreenletThemes are simple storages that allow loading files as
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="screenlets.ScreenletTheme-class.html#__load_all" class="summary-sig-name">__load_all</a>(<span class="summary-sig-arg">self</span>)</span><br />
+          <td><span class="summary-sig"><a href="screenlets.ScreenletTheme-class.html#__load_all" class="summary-sig-name" onclick="show_private();">__load_all</a>(<span class="summary-sig-arg">self</span>)</span><br />
       Load all files in the theme's path.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="screenlets-pysrc.html#ScreenletTheme.__load_all">source&nbsp;code</a></span>
@@ -628,7 +629,6 @@ ScreenletThemes are simple storages that allow loading files as
       <code>__getattribute__</code>,
       <code>__getitem__</code>,
       <code>__gt__</code>,
-      <code>__hash__</code>,
       <code>__iter__</code>,
       <code>__le__</code>,
       <code>__len__</code>,
@@ -637,6 +637,7 @@ ScreenletThemes are simple storages that allow loading files as
       <code>__new__</code>,
       <code>__repr__</code>,
       <code>__setitem__</code>,
+      <code>__sizeof__</code>,
       <code>clear</code>,
       <code>copy</code>,
       <code>fromkeys</code>,
@@ -655,10 +656,12 @@ ScreenletThemes are simple storages that allow loading files as
       </p>
     <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
       <code>__delattr__</code>,
+      <code>__format__</code>,
       <code>__reduce__</code>,
       <code>__reduce_ex__</code>,
       <code>__setattr__</code>,
-      <code>__str__</code>
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
       </p>
     </td>
   </tr>
@@ -733,28 +736,39 @@ ScreenletThemes are simple storages that allow loading files as
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="p_fdesc"></a><span class="summary-name">p_fdesc</span> = <code title="None">None</code>
+        <a name="p_fdesc"></a><span class="summary-name">p_fdesc</span> = <code title="None">None</code><br />
+      hash(x)
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="p_layout"></a><span class="summary-name">p_layout</span> = <code title="None">None</code>
+        <a name="p_layout"></a><span class="summary-name">p_layout</span> = <code title="None">None</code><br />
+      hash(x)
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="tooltip"></a><span class="summary-name">tooltip</span> = <code title="None">None</code>
+        <a name="tooltip"></a><span class="summary-name">tooltip</span> = <code title="None">None</code><br />
+      hash(x)
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="notify"></a><span class="summary-name">notify</span> = <code title="None">None</code>
+        <a name="notify"></a><span class="summary-name">notify</span> = <code title="None">None</code><br />
+      hash(x)
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>dict</code></b>:
+      <code>__hash__</code>
+      </p>
     </td>
   </tr>
 </table>
@@ -815,18 +829,17 @@ ScreenletThemes are simple storages that allow loading files as
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets-pysrc.html#ScreenletTheme.__init__">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  x.__init__(...) initializes x; see x.__class__.__doc__ for 
-  signature
+  <p>x.__init__(...) initializes x; see x.__class__.__doc__ for 
+  signature</p>
   <dl class="fields">
-    <dt>Returns:</dt>
-        <dd><pre class="literalblock">
+    <dt>Returns: <pre class="literalblock">
 new empty dictionary
 
-</pre></dd>
+</pre></dt>
     <dt>Overrides:
-      dict.__init__
+        object.__init__
         <dd><em class="note">(inherited documentation)</em></dd>
     </dt>
   </dl>
@@ -847,7 +860,7 @@ new empty dictionary
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets-pysrc.html#ScreenletTheme.show_tooltip">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
   
   <dl class="fields">
@@ -870,10 +883,10 @@ new empty dictionary
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets-pysrc.html#ScreenletTheme.__load_all">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  Load all files in the theme's path. Currently only loads SVGs and 
-  PNGs.
+  <p>Load all files in the theme's path. Currently only loads SVGs and 
+  PNGs.</p>
   <dl class="fields">
   </dl>
 </td></tr></table>
@@ -890,10 +903,10 @@ new empty dictionary
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets-pysrc.html#ScreenletTheme.free">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  Deletes the Theme's contents and frees all rsvg-handles. TODO: freeing
-  rsvg-handles does NOT work for some reason
+  <p>Deletes the Theme's contents and frees all rsvg-handles. TODO: freeing
+  rsvg-handles does NOT work for some reason</p>
   <dl class="fields">
   </dl>
 </td></tr></table>
@@ -912,14 +925,14 @@ new empty dictionary
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets-pysrc.html#ScreenletTheme.render">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  Render an image from within this theme to the given context. This 
+  <p>Render an image from within this theme to the given context. This 
   function can EITHER use png OR svg images, so it is possible to create 
   themes using both image-formats when a Screenlet uses this function for 
   drawing its images. The image name has to be defined without the 
   extension and the function will automatically select the available one 
-  (SVG is prefered over PNG).
+  (SVG is prefered over PNG).</p>
   <dl class="fields">
   </dl>
 </td></tr></table>
@@ -949,17 +962,18 @@ new empty dictionary
       <th class="navbar" align="right" width="100%">
         <table border="0" cellpadding="0" cellspacing="0">
           <tr><th class="navbar" align="center"
-            >Screenlets 0.1.2</th>
+            >Screenlets 0.1.3</th>
           </tr></table></th>
   </tr>
 </table>
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0beta1 on Wed Jun  4 18:52:57 2008
+    Generated by Epydoc 3.0.1 on Sat Nov 27 22:48:24 2010
     </td>
     <td align="right" class="footer">
-      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
     </td>
   </tr>
 </table>
@@ -970,9 +984,8 @@ new empty dictionary
   // javascript is turned off then we want them to be
   // visible); but by default, we want to hide them.  So hide
   // them unless we have a cookie that says to show them.
-  checkCookie()
+  checkCookie();
   // -->
 </script>
-  
 </body>
 </html>

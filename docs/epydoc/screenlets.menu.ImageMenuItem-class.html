@@ -34,7 +34,7 @@
       <th class="navbar" align="right" width="100%">
         <table border="0" cellpadding="0" cellspacing="0">
           <tr><th class="navbar" align="center"
-            >Screenlets 0.1.2</th>
+            >Screenlets 0.1.3</th>
           </tr></table></th>
   </tr>
 </table>
@@ -61,11 +61,11 @@
   </tr>
 </table>
 <!-- ==================== CLASS DESCRIPTION ==================== -->
-<h1 class="epydoc">Class ImageMenuItem</h1><span class="codelink"><a href="screenlets.menu-pysrc.html#ImageMenuItem">source&nbsp;code</a></span><br /><br />
+<h1 class="epydoc">Class ImageMenuItem</h1><p class="nomargin-top"><span class="codelink"><a href="screenlets.menu-pysrc.html#ImageMenuItem">source&nbsp;code</a></span></p>
 <pre class="base-tree">
         object --+                                
                  |                                
-   gobject.GObject --+                            
+        ??.GObject --+                            
                      |                            
             gtk.Object --+                        
                          |                        
@@ -89,6 +89,12 @@ gobject.GInterface --+   |
                                      |            
                               gtk.Item --+        
                                          |        
+                        object --+       |        
+                                 |       |        
+                gobject.GInterface --+   |        
+                                     |   |        
+                       gtk.Activatable --+        
+                                         |        
                               gtk.MenuItem --+    
                                              |    
                              gtk.ImageMenuItem --+
@@ -97,9 +103,9 @@ gobject.GInterface --+   |
 </pre>
 
 <hr />
-A menuitem with a custom image and label. To set the image to a 
+<p>A menuitem with a custom image and label. To set the image to a 
   non-stock image, just create the menuitem without an image and then set 
-  the image with the appropriate method.<br /><br />
+  the image with the appropriate method.</p>
 
 <!-- ==================== INSTANCE METHODS ==================== -->
 <a name="section-InstanceMethods"></a>
@@ -197,7 +203,7 @@ A menuitem with a custom image and label. To set the image to a
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="set_label"></a><span class="summary-sig-name">set_label</span>(<span class="summary-sig-arg">self</span>,
+          <td><span class="summary-sig"><a href="screenlets.menu.ImageMenuItem-class.html#set_label" class="summary-sig-name">set_label</a>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">text</span>)</span><br />
       Set the label's text.</td>
           <td align="right" valign="top">
@@ -231,8 +237,14 @@ A menuitem with a custom image and label. To set the image to a
   <tr>
     <td colspan="2" class="summary">
     <p class="indent-wrapped-lines"><b>Inherited from <code>gtk.ImageMenuItem</code></b>:
+      <code>__iter__</code>,
+      <code>get_always_show_image</code>,
       <code>get_image</code>,
-      <code>set_image</code>
+      <code>get_use_stock</code>,
+      <code>set_accel_group</code>,
+      <code>set_always_show_image</code>,
+      <code>set_image</code>,
+      <code>set_use_stock</code>
       </p>
     <p class="indent-wrapped-lines"><b>Inherited from <code>gtk.MenuItem</code></b>:
       <code>activate</code>,
@@ -240,14 +252,18 @@ A menuitem with a custom image and label. To set the image to a
       <code>do_activate</code>,
       <code>do_activate_item</code>,
       <code>do_toggle_size_allocate</code>,
+      <code>get_accel_path</code>,
+      <code>get_label</code>,
       <code>get_right_justified</code>,
       <code>get_submenu</code>,
+      <code>get_use_underline</code>,
       <code>remove_submenu</code>,
       <code>right_justify</code>,
       <code>select</code>,
       <code>set_accel_path</code>,
       <code>set_right_justified</code>,
       <code>set_submenu</code>,
+      <code>set_use_underline</code>,
       <code>toggle_size_allocate</code>,
       <code>toggle_size_request</code>
       </p>
@@ -261,7 +277,6 @@ A menuitem with a custom image and label. To set the image to a
       <code>get_child</code>
       </p>
     <p class="indent-wrapped-lines"><b>Inherited from <code>gtk.Container</code></b>:
-      <code>__iter__</code>,
       <code>__len__</code>,
       <code>__nonzero__</code>,
       <code>add</code>,
@@ -287,6 +302,7 @@ A menuitem with a custom image and label. To set the image to a
       <code>get_border_width</code>,
       <code>get_children</code>,
       <code>get_focus_chain</code>,
+      <code>get_focus_child</code>,
       <code>get_focus_hadjustment</code>,
       <code>get_focus_vadjustment</code>,
       <code>get_resize_mode</code>,
@@ -415,6 +431,9 @@ A menuitem with a custom image and label. To set the image to a
       <code>get_activate_signal</code>,
       <code>get_allocation</code>,
       <code>get_ancestor</code>,
+      <code>get_app_paintable</code>,
+      <code>get_can_default</code>,
+      <code>get_can_focus</code>,
       <code>get_child_requisition</code>,
       <code>get_child_visible</code>,
       <code>get_clipboard</code>,
@@ -422,9 +441,12 @@ A menuitem with a custom image and label. To set the image to a
       <code>get_composite_name</code>,
       <code>get_direction</code>,
       <code>get_display</code>,
+      <code>get_double_buffered</code>,
       <code>get_events</code>,
       <code>get_extension_events</code>,
       <code>get_has_tooltip</code>,
+      <code>get_has_window</code>,
+      <code>get_mapped</code>,
       <code>get_modifier_style</code>,
       <code>get_name</code>,
       <code>get_no_show_all</code>,
@@ -432,20 +454,32 @@ A menuitem with a custom image and label. To set the image to a
       <code>get_parent</code>,
       <code>get_parent_window</code>,
       <code>get_pointer</code>,
+      <code>get_realized</code>,
+      <code>get_receives_default</code>,
+      <code>get_requisition</code>,
       <code>get_root_window</code>,
       <code>get_screen</code>,
+      <code>get_sensitive</code>,
       <code>get_settings</code>,
       <code>get_size_request</code>,
+      <code>get_snapshot</code>,
+      <code>get_state</code>,
       <code>get_style</code>,
       <code>get_tooltip_markup</code>,
       <code>get_tooltip_text</code>,
       <code>get_tooltip_window</code>,
       <code>get_toplevel</code>,
+      <code>get_visible</code>,
       <code>get_visual</code>,
+      <code>get_window</code>,
       <code>grab_add</code>,
       <code>grab_default</code>,
       <code>grab_focus</code>,
       <code>grab_remove</code>,
+      <code>has_default</code>,
+      <code>has_focus</code>,
+      <code>has_grab</code>,
+      <code>has_rc_style</code>,
       <code>has_screen</code>,
       <code>hide</code>,
       <code>hide_all</code>,
@@ -454,8 +488,12 @@ A menuitem with a custom image and label. To set the image to a
       <code>intersect</code>,
       <code>is_ancestor</code>,
       <code>is_composited</code>,
+      <code>is_drawable</code>,
       <code>is_focus</code>,
+      <code>is_sensitive</code>,
+      <code>is_toplevel</code>,
       <code>keynav_failed</code>,
+      <code>list_accel_closures</code>,
       <code>list_mnemonic_labels</code>,
       <code>map</code>,
       <code>menu_get_for_attach_widget</code>,
@@ -490,8 +528,12 @@ A menuitem with a custom image and label. To set the image to a
       <code>selection_owner_set</code>,
       <code>selection_remove_all</code>,
       <code>send_expose</code>,
+      <code>send_focus_change</code>,
       <code>set_activate_signal</code>,
+      <code>set_allocation</code>,
       <code>set_app_paintable</code>,
+      <code>set_can_default</code>,
+      <code>set_can_focus</code>,
       <code>set_child_visible</code>,
       <code>set_colormap</code>,
       <code>set_composite_name</code>,
@@ -499,10 +541,15 @@ A menuitem with a custom image and label. To set the image to a
       <code>set_double_buffered</code>,
       <code>set_events</code>,
       <code>set_extension_events</code>,
+      <code>set_has_tooltip</code>,
+      <code>set_has_window</code>,
+      <code>set_mapped</code>,
       <code>set_name</code>,
       <code>set_no_show_all</code>,
       <code>set_parent</code>,
       <code>set_parent_window</code>,
+      <code>set_realized</code>,
+      <code>set_receives_default</code>,
       <code>set_redraw_on_allocate</code>,
       <code>set_scroll_adjustments</code>,
       <code>set_sensitive</code>,
@@ -515,12 +562,15 @@ A menuitem with a custom image and label. To set the image to a
       <code>set_tooltip_window</code>,
       <code>set_uposition</code>,
       <code>set_usize</code>,
+      <code>set_visible</code>,
+      <code>set_window</code>,
       <code>shape_combine_mask</code>,
       <code>show</code>,
       <code>show_all</code>,
       <code>show_now</code>,
       <code>size_allocate</code>,
       <code>size_request</code>,
+      <code>style_attach</code>,
       <code>style_get_property</code>,
       <code>thaw_child_notify</code>,
       <code>translate_coordinates</code>,
@@ -537,8 +587,10 @@ A menuitem with a custom image and label. To set the image to a
       <code>set_flags</code>,
       <code>unset_flags</code>
       </p>
-    <p class="indent-wrapped-lines"><b>Inherited from <code>gobject.GObject</code></b>:
+    <p class="indent-wrapped-lines"><b>Inherited from <code><i>unreachable</i>.GObject</code></b>:
       <code>__cmp__</code>,
+      <code>__copy__</code>,
+      <code>__deepcopy__</code>,
       <code>__delattr__</code>,
       <code>__gdoc__</code>,
       <code>__gobject_init__</code>,
@@ -588,11 +640,24 @@ A menuitem with a custom image and label. To set the image to a
       <code>get_internal_child</code>,
       <code>parser_finished</code>
       </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>gtk.Activatable</code></b>:
+      <code>do_set_related_action</code>,
+      <code>do_sync_action_properties</code>,
+      <code>do_update</code>,
+      <code>get_related_action</code>,
+      <code>get_use_action_appearance</code>,
+      <code>set_related_action</code>,
+      <code>set_use_action_appearance</code>,
+      <code>sync_action_properties</code>
+      </p>
     <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__format__</code>,
       <code>__getattribute__</code>,
       <code>__reduce__</code>,
       <code>__reduce_ex__</code>,
-      <code>__str__</code>
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
       </p>
     </td>
   </tr>
@@ -656,12 +721,13 @@ A menuitem with a custom image and label. To set the image to a
       <code>allocation</code>,
       <code>name</code>,
       <code>parent</code>,
+      <code>requisition</code>,
       <code>saved_state</code>,
       <code>state</code>,
       <code>style</code>,
       <code>window</code>
       </p>
-    <p class="indent-wrapped-lines"><b>Inherited from <code>gobject.GObject</code></b>:
+    <p class="indent-wrapped-lines"><b>Inherited from <code><i>unreachable</i>.GObject</code></b>:
       <code>__grefcount__</code>
       </p>
     <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
@@ -703,13 +769,36 @@ A menuitem with a custom image and label. To set the image to a
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets.menu-pysrc.html#ImageMenuItem.__init__">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  stock: a stock image or 'none'. label: text to set as the label or 
-  None.
+  <p>stock: a stock image or 'none'. label: text to set as the label or 
+  None.</p>
   <dl class="fields">
     <dt>Overrides:
-      gtk.ImageMenuItem.__init__
+        object.__init__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="set_label"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">set_label</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">text</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="screenlets.menu-pysrc.html#ImageMenuItem.set_label">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Set the label's text.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        gtk.MenuItem.set_label
     </dt>
   </dl>
 </td></tr></table>
@@ -739,17 +828,18 @@ A menuitem with a custom image and label. To set the image to a
       <th class="navbar" align="right" width="100%">
         <table border="0" cellpadding="0" cellspacing="0">
           <tr><th class="navbar" align="center"
-            >Screenlets 0.1.2</th>
+            >Screenlets 0.1.3</th>
           </tr></table></th>
   </tr>
 </table>
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0beta1 on Wed Jun  4 18:52:57 2008
+    Generated by Epydoc 3.0.1 on Sat Nov 27 22:48:24 2010
     </td>
     <td align="right" class="footer">
-      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
     </td>
   </tr>
 </table>
@@ -760,9 +850,8 @@ A menuitem with a custom image and label. To set the image to a
   // javascript is turned off then we want them to be
   // visible); but by default, we want to hide them.  So hide
   // them unless we have a cookie that says to show them.
-  checkCookie()
+  checkCookie();
   // -->
 </script>
-  
 </body>
 </html>

@@ -34,7 +34,7 @@
       <th class="navbar" align="right" width="100%">
         <table border="0" cellpadding="0" cellspacing="0">
           <tr><th class="navbar" align="center"
-            >Screenlets 0.1.2</th>
+            >Screenlets 0.1.3</th>
           </tr></table></th>
   </tr>
 </table>
@@ -60,30 +60,34 @@
   </tr>
 </table>
 <!-- ==================== CLASS DESCRIPTION ==================== -->
-<h1 class="epydoc">Class Screenlet</h1><span class="codelink"><a href="screenlets-pysrc.html#Screenlet">source&nbsp;code</a></span><br /><br />
+<h1 class="epydoc">Class Screenlet</h1><p class="nomargin-top"><span class="codelink"><a href="screenlets-pysrc.html#Screenlet">source&nbsp;code</a></span></p>
 <pre class="base-tree">
              object --+    
                       |    
-        gobject.GObject --+
+             ??.GObject --+
                           |
+             object --+   |
+                      |   |
 <a href="screenlets.options.EditableOptions-class.html">options.EditableOptions</a> --+
                           |
+             object --+   |
+                      |   |
         <a href="screenlets.drawing.Drawing-class.html">drawing.Drawing</a> --+
                           |
                          <strong class="uidshort">Screenlet</strong>
 </pre>
 
 <hr />
-A Screenlet is a (i.e. contains a) shaped gtk-window that is fully 
+<p>A Screenlet is a (i.e. contains a) shaped gtk-window that is fully 
   invisible by default. Subclasses of Screenlet can render their 
-  owner-drawn graphics on fully transparent background.<br /><br />
+  owner-drawn graphics on fully transparent background.</p>
 
 <hr />
 <div class="fields">      <p><strong>Version:</strong>
         0.0
       </p>
       <p><strong>Author:</strong>
-        Nenhum autor definido para este Screenlet
+        Autor puudub
       </p>
 </div><!-- ==================== INSTANCE METHODS ==================== -->
 <a name="section-InstanceMethods"></a>
@@ -118,7 +122,7 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
         <span class="summary-sig-arg">is_sticky</span>=<span class="summary-sig-default">False</span>,
         <span class="summary-sig-arg">uses_theme</span>=<span class="summary-sig-default">True</span>,
         <span class="summary-sig-arg">draw_buttons</span>=<span class="summary-sig-default">True</span>,
-        <span class="summary-sig-arg">path</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">/home/helder/sl112/screenlets</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">path</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">/home/mp/Uuskood/screenlets</code><code class="variable-quote">'</code></span>,
         <span class="summary-sig-arg">drag_drop</span>=<span class="summary-sig-default">False</span>,
         <span class="summary-sig-arg">session</span>=<span class="summary-sig-default">None</span>,
         <span class="summary-sig-arg">enable_saving</span>=<span class="summary-sig-default">True</span>,
@@ -162,8 +166,25 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
+          <td><span class="summary-sig"><a name="check_requirements"></a><span class="summary-sig-name">check_requirements</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Checks if required DEB packages are installed</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="screenlets-pysrc.html#Screenlet.check_requirements">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
           <td><span class="summary-sig"><a href="screenlets.Screenlet-class.html#add_default_menuitems" class="summary-sig-name">add_default_menuitems</a>(<span class="summary-sig-arg">self</span>,
-        <span class="summary-sig-arg">flags</span>=<span class="summary-sig-default">507</span>)</span><br />
+        <span class="summary-sig-arg">flags</span>=<span class="summary-sig-default">1531</span>)</span><br />
       Appends the default menu-items to self.menu.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="screenlets-pysrc.html#Screenlet.add_default_menuitems">source&nbsp;code</a></span>
@@ -274,7 +295,7 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td><span class="summary-sig"><a name="close"></a><span class="summary-sig-name">close</span>(<span class="summary-sig-arg">self</span>)</span><br />
-      Close this Screenlet TODO: send close-notify instead of destroying
+      Close this Screenlet TODO: send close-notify instead of destroying 
       window?</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="screenlets-pysrc.html#Screenlet.close">source&nbsp;code</a></span>
@@ -328,8 +349,7 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
         <tr>
           <td><span class="summary-sig"><a name="find_theme"></a><span class="summary-sig-name">find_theme</span>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">name</span>)</span><br />
-      Find the first occurence of a theme and return its global 
-      path.</td>
+      Find the best occurence of a theme and return its global path.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="screenlets-pysrc.html#Screenlet.find_theme">source&nbsp;code</a></span>
             
@@ -398,7 +418,7 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
         <tr>
           <td><span class="summary-sig"><a name="get_available_themes"></a><span class="summary-sig-name">get_available_themes</span>(<span class="summary-sig-arg">self</span>)</span><br />
       Returns a list with the names of all available themes in this 
-      Screenlet's theme-directory.</td>
+      Screenlet's theme-directories.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="screenlets-pysrc.html#Screenlet.get_available_themes">source&nbsp;code</a></span>
             
@@ -501,8 +521,8 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
         <tr>
           <td><span class="summary-sig"><a href="screenlets.Screenlet-class.html#register_service" class="summary-sig-name">register_service</a>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">service_classobj</span>)</span><br />
-      Register or create the given ScreenletService-(sub)class as the 
-      new service for this Screenlet.</td>
+      Register or create the given ScreenletService-(sub)class as the new 
+      service for this Screenlet.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="screenlets-pysrc.html#Screenlet.register_service">source&nbsp;code</a></span>
             
@@ -520,8 +540,8 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
         <tr>
           <td><span class="summary-sig"><a name="set_is_widget"></a><span class="summary-sig-name">set_is_widget</span>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">value</span>)</span><br />
-      Set this window to be treated as a Widget (only supported by 
-      compiz using the widget-plugin yet)</td>
+      Set this window to be treated as a Widget (only supported by compiz 
+      using the widget-plugin yet)</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="screenlets-pysrc.html#Screenlet.set_is_widget">source&nbsp;code</a></span>
             
@@ -593,8 +613,8 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
         <span class="summary-sig-arg">y</span>,
         <span class="summary-sig-arg">width</span>,
         <span class="summary-sig-arg">height</span>)</span><br />
-      Redraw the given Rectangle (x, y, width, height) within the 
-      current Screenlet's window.</td>
+      Redraw the given Rectangle (x, y, width, height) within the current 
+      Screenlet's window.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="screenlets-pysrc.html#Screenlet.redraw_canvas_area">source&nbsp;code</a></span>
             
@@ -611,8 +631,7 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td><span class="summary-sig"><a name="remove_shape"></a><span class="summary-sig-name">remove_shape</span>(<span class="summary-sig-arg">self</span>)</span><br />
-      Removed shaped window , in case the nom composited shape has been 
-      set</td>
+      Removed shaped window , in case the nom composited shape has been set</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="screenlets-pysrc.html#Screenlet.remove_shape">source&nbsp;code</a></span>
             
@@ -629,8 +648,8 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td><span class="summary-sig"><a name="update_shape"></a><span class="summary-sig-name">update_shape</span>(<span class="summary-sig-arg">self</span>)</span><br />
-      Update window shape (only call this when shape has changed because
-      it is very ressource intense if ran too often).</td>
+      Update window shape (only call this when shape has changed because it
+      is very ressource intense if ran too often).</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="screenlets-pysrc.html#Screenlet.update_shape">source&nbsp;code</a></span>
             
@@ -847,8 +866,8 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
         <tr>
           <td><span class="summary-sig"><a name="on_draw"></a><span class="summary-sig-name">on_draw</span>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">ctx</span>)</span><br />
-      Callback for drawing the Screenlet's window - override in 
-      subclasses to implement your own drawing.</td>
+      Callback for drawing the Screenlet's window - override in subclasses 
+      to implement your own drawing.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="screenlets-pysrc.html#Screenlet.on_draw">source&nbsp;code</a></span>
             
@@ -866,8 +885,8 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
         <tr>
           <td><span class="summary-sig"><a name="on_draw_shape"></a><span class="summary-sig-name">on_draw_shape</span>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">ctx</span>)</span><br />
-      Callback for drawing the Screenlet's shape - override in 
-      subclasses to draw the window's input-shape-mask.</td>
+      Callback for drawing the Screenlet's shape - override in subclasses 
+      to draw the window's input-shape-mask.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="screenlets-pysrc.html#Screenlet.on_draw_shape">source&nbsp;code</a></span>
             
@@ -978,8 +997,7 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td><span class="summary-sig"><a name="on_load_theme"></a><span class="summary-sig-name">on_load_theme</span>(<span class="summary-sig-arg">self</span>)</span><br />
-      Called when the theme is reloaded (after loading, before 
-      redraw).</td>
+      Called when the theme is reloaded (after loading, before redraw).</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="screenlets-pysrc.html#Screenlet.on_load_theme">source&nbsp;code</a></span>
             
@@ -1087,8 +1105,7 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
         <tr>
           <td><span class="summary-sig"><a href="screenlets.Screenlet-class.html#on_mouse_up" class="summary-sig-name">on_mouse_up</a>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">event</span>)</span><br />
-      Called when a buttonrelease-event occured in Screenlet's 
-      window.</td>
+      Called when a buttonrelease-event occured in Screenlet's window.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="screenlets-pysrc.html#Screenlet.on_mouse_up">source&nbsp;code</a></span>
             
@@ -1208,8 +1225,7 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
         <tr>
           <td><span class="summary-sig"><a name="on_switch_widget_state"></a><span class="summary-sig-name">on_switch_widget_state</span>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">state</span>)</span><br />
-      Called when the Screenlet enters/leaves 
-      &quot;Widget&quot;-state.</td>
+      Called when the Screenlet enters/leaves &quot;Widget&quot;-state.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="screenlets-pysrc.html#Screenlet.on_switch_widget_state">source&nbsp;code</a></span>
             
@@ -1771,8 +1787,10 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
   </tr>
   <tr>
     <td colspan="2" class="summary">
-    <p class="indent-wrapped-lines"><b>Inherited from <code>gobject.GObject</code></b>:
+    <p class="indent-wrapped-lines"><b>Inherited from <code><i>unreachable</i>.GObject</code></b>:
       <code>__cmp__</code>,
+      <code>__copy__</code>,
+      <code>__deepcopy__</code>,
       <code>__delattr__</code>,
       <code>__gdoc__</code>,
       <code>__gobject_init__</code>,
@@ -1806,17 +1824,12 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
       <code>thaw_notify</code>,
       <code>weak_ref</code>
       </p>
-    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
-      <code>__getattribute__</code>,
-      <code>__reduce__</code>,
-      <code>__reduce_ex__</code>,
-      <code>__str__</code>
-      </p>
     <p class="indent-wrapped-lines"><b>Inherited from <code><a href="screenlets.options.EditableOptions-class.html">options.EditableOptions</a></code></b>:
       <code><a href="screenlets.options.EditableOptions-class.html#add_option">add_option</a></code>,
       <code><a href="screenlets.options.EditableOptions-class.html#add_options_from_file">add_options_from_file</a></code>,
       <code><a href="screenlets.options.EditableOptions-class.html#add_options_group">add_options_group</a></code>,
       <code><a href="screenlets.options.EditableOptions-class.html#disable_option">disable_option</a></code>,
+      <code><a href="screenlets.options.EditableOptions-class.html#enable_option">enable_option</a></code>,
       <code><a href="screenlets.options.EditableOptions-class.html#export_options_as_list">export_options_as_list</a></code>,
       <code><a href="screenlets.options.EditableOptions-class.html#get_option_by_name">get_option_by_name</a></code>,
       <code><a href="screenlets.options.EditableOptions-class.html#remove_option">remove_option</a></code>
@@ -1840,6 +1853,15 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
       <code><a href="screenlets.drawing.Drawing-class.html#get_text_line">get_text_line</a></code>,
       <code><a href="screenlets.drawing.Drawing-class.html#get_text_line_count">get_text_line_count</a></code>,
       <code><a href="screenlets.drawing.Drawing-class.html#get_text_width">get_text_width</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__format__</code>,
+      <code>__getattribute__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
       </p>
     </td>
   </tr>
@@ -1865,14 +1887,14 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="__name__"></a><span class="summary-name">__name__</span> = <code title="'Nenhum conjunto nome para este Screenlet'"><code class="variable-quote">'</code><code class="variable-string">Nenhum conjunto nome para este Screenlet</code><code class="variable-quote">'</code></code>
+        <a name="__name__"></a><span class="summary-name">__name__</span> = <code title="'Informatsioon puudub'"><code class="variable-quote">'</code><code class="variable-string">Informatsioon puudub</code><code class="variable-quote">'</code></code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="screenlets.Screenlet-class.html#__desc__" class="summary-name">__desc__</a> = <code title="'Nenhumas informa\xc3\xa7\xc3\xb5es definidas para este Screenlet'"><code class="variable-quote">'</code><code class="variable-string">Nenhumas informa\xc3\xa7\xc3\xb5es definidas para </code><code class="variable-ellipsis">...</code></code>
+        <a name="__desc__"></a><span class="summary-name">__desc__</span> = <code title="'Informatsioon puudub'"><code class="variable-quote">'</code><code class="variable-string">Informatsioon puudub</code><code class="variable-quote">'</code></code>
     </td>
   </tr>
 <tr>
@@ -1893,14 +1915,16 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="window"></a><span class="summary-name">window</span> = <code title="None">None</code>
+        <a name="window"></a><span class="summary-name">window</span> = <code title="None">None</code><br />
+      hash(x)
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="theme"></a><span class="summary-name">theme</span> = <code title="None">None</code>
+        <a name="theme"></a><span class="summary-name">theme</span> = <code title="None">None</code><br />
+      hash(x)
     </td>
   </tr>
 <tr>
@@ -1928,7 +1952,8 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="menu"></a><span class="summary-name">menu</span> = <code title="None">None</code>
+        <a name="menu"></a><span class="summary-name">menu</span> = <code title="None">None</code><br />
+      hash(x)
     </td>
   </tr>
 <tr>
@@ -1970,7 +1995,8 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="p_context"></a><span class="summary-name">p_context</span> = <code title="None">None</code>
+        <a name="p_context"></a><span class="summary-name">p_context</span> = <code title="None">None</code><br />
+      hash(x)
     </td>
   </tr>
 <tr>
@@ -2124,6 +2150,13 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
+        <a name="ignore_requirements"></a><span class="summary-name">ignore_requirements</span> = <code title="False">False</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
         <a name="resize_on_scroll"></a><span class="summary-name">resize_on_scroll</span> = <code title="True">True</code>
     </td>
   </tr>
@@ -2145,7 +2178,8 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="gtk_icon_theme"></a><span class="summary-name">gtk_icon_theme</span> = <code title="None">None</code>
+        <a name="gtk_icon_theme"></a><span class="summary-name">gtk_icon_theme</span> = <code title="None">None</code><br />
+      hash(x)
     </td>
   </tr>
 <tr class="private">
@@ -2166,63 +2200,72 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="p_fdesc"></a><span class="summary-name">p_fdesc</span> = <code title="None">None</code>
+        <a name="p_fdesc"></a><span class="summary-name">p_fdesc</span> = <code title="None">None</code><br />
+      hash(x)
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="p_layout"></a><span class="summary-name">p_layout</span> = <code title="None">None</code>
+        <a name="p_layout"></a><span class="summary-name">p_layout</span> = <code title="None">None</code><br />
+      hash(x)
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="tooltip"></a><span class="summary-name">tooltip</span> = <code title="None">None</code>
+        <a name="tooltip"></a><span class="summary-name">tooltip</span> = <code title="None">None</code><br />
+      hash(x)
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="notify"></a><span class="summary-name">notify</span> = <code title="None">None</code>
+        <a name="notify"></a><span class="summary-name">notify</span> = <code title="None">None</code><br />
+      hash(x)
     </td>
   </tr>
 <tr class="private">
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="__mi_keep_above"></a><span class="summary-name">__mi_keep_above</span> = <code title="None">None</code>
+        <a name="__mi_keep_above"></a><span class="summary-name">__mi_keep_above</span> = <code title="None">None</code><br />
+      hash(x)
     </td>
   </tr>
 <tr class="private">
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="__mi_keep_below"></a><span class="summary-name">__mi_keep_below</span> = <code title="None">None</code>
+        <a name="__mi_keep_below"></a><span class="summary-name">__mi_keep_below</span> = <code title="None">None</code><br />
+      hash(x)
     </td>
   </tr>
 <tr class="private">
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="__mi_widget"></a><span class="summary-name">__mi_widget</span> = <code title="None">None</code>
+        <a name="__mi_widget"></a><span class="summary-name">__mi_widget</span> = <code title="None">None</code><br />
+      hash(x)
     </td>
   </tr>
 <tr class="private">
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="__mi_sticky"></a><span class="summary-name">__mi_sticky</span> = <code title="None">None</code>
+        <a name="__mi_sticky"></a><span class="summary-name">__mi_sticky</span> = <code title="None">None</code><br />
+      hash(x)
     </td>
   </tr>
 <tr class="private">
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="__mi_lock"></a><span class="summary-name">__mi_lock</span> = <code title="None">None</code>
+        <a name="__mi_lock"></a><span class="summary-name">__mi_lock</span> = <code title="None">None</code><br />
+      hash(x)
     </td>
   </tr>
 <tr>
@@ -2237,7 +2280,7 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="__gtype__"></a><span class="summary-name">__gtype__</span> = <code title="&lt;GType screenlets+Screenlet (140285104)&gt;">&lt;GType screenlets+Screenlet (140285104)&gt;</code>
+        <a name="__gtype__"></a><span class="summary-name">__gtype__</span> = <code title="&lt;GType screenlets+Screenlet (158372376)&gt;">&lt;GType screenlets+Screenlet (158372376)&gt;</code>
     </td>
   </tr>
 </table>
@@ -2260,7 +2303,7 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
 </tr>
   <tr>
     <td colspan="2" class="summary">
-    <p class="indent-wrapped-lines"><b>Inherited from <code>gobject.GObject</code></b>:
+    <p class="indent-wrapped-lines"><b>Inherited from <code><i>unreachable</i>.GObject</code></b>:
       <code>__grefcount__</code>
       </p>
     <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
@@ -2304,7 +2347,7 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
         <span class="sig-arg">is_sticky</span>=<span class="sig-default">False</span>,
         <span class="sig-arg">uses_theme</span>=<span class="sig-default">True</span>,
         <span class="sig-arg">draw_buttons</span>=<span class="sig-default">True</span>,
-        <span class="sig-arg">path</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">/home/helder/sl112/screenlets</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">path</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">/home/mp/Uuskood/screenlets</code><code class="variable-quote">'</code></span>,
         <span class="sig-arg">drag_drop</span>=<span class="sig-default">False</span>,
         <span class="sig-arg">session</span>=<span class="sig-default">None</span>,
         <span class="sig-arg">enable_saving</span>=<span class="sig-default">True</span>,
@@ -2318,12 +2361,12 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets-pysrc.html#Screenlet.__init__">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  Constructor - should only be subclassed
+  <p>Constructor - should only be subclassed</p>
   <dl class="fields">
     <dt>Overrides:
-      gobject.GObject.__init__
+        object.__init__
     </dt>
   </dl>
 </td></tr></table>
@@ -2342,12 +2385,12 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets-pysrc.html#Screenlet.__setattr__">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  x.__setattr__('name', value) &lt;==&gt; x.name = value
+  <p>x.__setattr__('name', value) &lt;==&gt; x.name = value</p>
   <dl class="fields">
     <dt>Overrides:
-      gobject.GObject.__setattr__
+        object.__setattr__
         <dd><em class="note">(inherited documentation)</em></dd>
     </dt>
   </dl>
@@ -2361,15 +2404,15 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
   <h3 class="epydoc"><span class="sig"><span class="sig-name">add_default_menuitems</span>(<span class="sig-arg">self</span>,
-        <span class="sig-arg">flags</span>=<span class="sig-default">507</span>)</span>
+        <span class="sig-arg">flags</span>=<span class="sig-default">1531</span>)</span>
   </h3>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets-pysrc.html#Screenlet.add_default_menuitems">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  Appends the default menu-items to self.menu. You can add on OR'ed flag
-  with DefaultMenuItems you want to add.
+  <p>Appends the default menu-items to self.menu. You can add on OR'ed flag
+  with DefaultMenuItems you want to add.</p>
   <dl class="fields">
   </dl>
 </td></tr></table>
@@ -2389,11 +2432,11 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets-pysrc.html#Screenlet.add_menuitem">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  Simple way to add menuitems to a right-click menu. This function wraps
+  <p>Simple way to add menuitems to a right-click menu. This function wraps
   screenlets.menu.add_menuitem. For backwards compatibility, the order of 
-  the parameters to this function is switched.
+  the parameters to this function is switched.</p>
   <dl class="fields">
   </dl>
 </td></tr></table>
@@ -2410,11 +2453,11 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets-pysrc.html#Screenlet.create_drag_icon">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  Create drag-icon and -mask for drag-operation. Returns a 2-tuple with 
+  <p>Create drag-icon and -mask for drag-operation. Returns a 2-tuple with 
   the icon and the mask. To supply your own icon you can use the 
-  on_create_drag_icon-handler and return the icon/mask as 2-tuple.
+  on_create_drag_icon-handler and return the icon/mask as 2-tuple.</p>
   <dl class="fields">
   </dl>
 </td></tr></table>
@@ -2431,11 +2474,11 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets-pysrc.html#Screenlet.get_short_name">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  Return the short name of this screenlet. This returns the classname of
+  <p>Return the short name of this screenlet. This returns the classname of
   the screenlet without trailing &quot;Screenlet&quot;. Please always use 
-  this function if you want to retrieve the short name of a Screenlet.
+  this function if you want to retrieve the short name of a Screenlet.</p>
   <dl class="fields">
   </dl>
 </td></tr></table>
@@ -2452,10 +2495,10 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets-pysrc.html#Screenlet.get_theme_dir">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  Return the name of this screenlet's personal theme-dir. (Only returns 
-  the dir under the screenlet's location
+  <p>Return the name of this screenlet's personal theme-dir. (Only returns 
+  the dir under the screenlet's location</p>
   <dl class="fields">
   </dl>
 </td></tr></table>
@@ -2473,11 +2516,11 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets-pysrc.html#Screenlet.load_theme">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  Load a theme for this Screenlet from the given path. NOTE: load_theme 
+  <p>Load a theme for this Screenlet from the given path. NOTE: load_theme 
   does NOT call redraw_canvas and update_shape!!!!! To do all in one call, 
-  set the attribute self.theme_name instead.
+  set the attribute self.theme_name instead.</p>
   <dl class="fields">
   </dl>
 </td></tr></table>
@@ -2495,12 +2538,12 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets-pysrc.html#Screenlet.register_service">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  Register or create the given ScreenletService-(sub)class as the new 
+  <p>Register or create the given ScreenletService-(sub)class as the new 
   service for this Screenlet. If self is not the first instance in the 
   current session, the service from the first instance will be used instead
-  and no new service is created.
+  and no new service is created.</p>
   <dl class="fields">
   </dl>
 </td></tr></table>
@@ -2517,10 +2560,10 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets-pysrc.html#Screenlet.redraw_canvas">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  Redraw the entire Screenlet's window area. TODO: store window 
-  alloaction in class and change when size changes.
+  <p>Redraw the entire Screenlet's window area. TODO: store window 
+  alloaction in class and change when size changes.</p>
   <dl class="fields">
   </dl>
 </td></tr></table>
@@ -2537,10 +2580,10 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets-pysrc.html#Screenlet.update_shape_non_composited">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  TEST: This function is intended to shape the window whenever no 
-  composited environment can be found. (NOT WORKING YET!!!!)
+  <p>TEST: This function is intended to shape the window whenever no 
+  composited environment can be found. (NOT WORKING YET!!!!)</p>
   <dl class="fields">
   </dl>
 </td></tr></table>
@@ -2557,10 +2600,10 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets-pysrc.html#Screenlet.on_delete">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  Called when the Screenlet gets deleted. Return True to cancel. TODO: 
-  sometimes not properly called
+  <p>Called when the Screenlet gets deleted. Return True to cancel. TODO: 
+  sometimes not properly called</p>
   <dl class="fields">
   </dl>
 </td></tr></table>
@@ -2577,10 +2620,10 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets-pysrc.html#Screenlet.on_create_drag_icon">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  Called when the screenlet's drag-icon is created. You can supply your 
-  own icon and mask by returning them as a 2-tuple.
+  <p>Called when the screenlet's drag-icon is created. You can supply your 
+  own icon and mask by returning them as a 2-tuple.</p>
   <dl class="fields">
   </dl>
 </td></tr></table>
@@ -2597,11 +2640,11 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets-pysrc.html#Screenlet.on_init">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  Called when the Screenlet's options have been applied and the 
+  <p>Called when the Screenlet's options have been applied and the 
   screenlet finished its initialization. If you want to have your Screenlet
-  do things on startup you should use this handler.
+  do things on startup you should use this handler.</p>
   <dl class="fields">
   </dl>
 </td></tr></table>
@@ -2619,10 +2662,10 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets-pysrc.html#Screenlet.on_mouse_down">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  Called when a buttonpress-event occured in Screenlet's window. 
-  Returning True causes the event to be not further propagated.
+  <p>Called when a buttonpress-event occured in Screenlet's window. 
+  Returning True causes the event to be not further propagated.</p>
   <dl class="fields">
   </dl>
 </td></tr></table>
@@ -2640,10 +2683,10 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets-pysrc.html#Screenlet.on_mouse_up">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  Called when a buttonrelease-event occured in Screenlet's window. 
-  Returning True causes the event to be not further propagated.
+  <p>Called when a buttonrelease-event occured in Screenlet's window. 
+  Returning True causes the event to be not further propagated.</p>
   <dl class="fields">
   </dl>
 </td></tr></table>
@@ -2660,9 +2703,9 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets-pysrc.html#Screenlet.on_quit">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  Callback for handling destroy-event. Perform your cleanup here!
+  <p>Callback for handling destroy-event. Perform your cleanup here!</p>
   <dl class="fields">
   </dl>
 </td></tr></table>
@@ -2686,24 +2729,6 @@ A Screenlet is a (i.e. contains a) shaped gtk-window that is fully
   </td>
 </tr>
 </table>
-<a name="__desc__"></a>
-<div>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <h3 class="epydoc">__desc__</h3>
-  
-  <dl class="fields">
-  </dl>
-  <dl class="fields">
-    <dt>Value:</dt>
-      <dd><table><tr><td><pre class="variable">
-<code class="variable-quote">'</code><code class="variable-string">Nenhumas informa\xc3\xa7\xc3\xb5es definidas para este Screenlet</code><code class="variable-quote">'</code>
-</pre></td></tr></table>
-</dd>
-  </dl>
-</td></tr></table>
-</div>
 <a name="__gsignals__"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
@@ -2748,17 +2773,18 @@ dict(screenlet_removed= (gobject.SIGNAL_RUN_FIRST, gobject.TYPE_NONE, <span clas
       <th class="navbar" align="right" width="100%">
         <table border="0" cellpadding="0" cellspacing="0">
           <tr><th class="navbar" align="center"
-            >Screenlets 0.1.2</th>
+            >Screenlets 0.1.3</th>
           </tr></table></th>
   </tr>
 </table>
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0beta1 on Wed Jun  4 18:52:57 2008
+    Generated by Epydoc 3.0.1 on Sat Nov 27 22:48:24 2010
     </td>
     <td align="right" class="footer">
-      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
     </td>
   </tr>
 </table>
@@ -2769,9 +2795,8 @@ dict(screenlet_removed= (gobject.SIGNAL_RUN_FIRST, gobject.TYPE_NONE, <span clas
   // javascript is turned off then we want them to be
   // visible); but by default, we want to hide them.  So hide
   // them unless we have a cookie that says to show them.
-  checkCookie()
+  checkCookie();
   // -->
 </script>
-  
 </body>
 </html>

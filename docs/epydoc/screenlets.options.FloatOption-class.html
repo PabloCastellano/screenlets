@@ -34,7 +34,7 @@
       <th class="navbar" align="right" width="100%">
         <table border="0" cellpadding="0" cellspacing="0">
           <tr><th class="navbar" align="center"
-            >Screenlets 0.1.2</th>
+            >Screenlets 0.1.3</th>
           </tr></table></th>
   </tr>
 </table>
@@ -61,21 +61,21 @@
   </tr>
 </table>
 <!-- ==================== CLASS DESCRIPTION ==================== -->
-<h1 class="epydoc">Class FloatOption</h1><span class="codelink"><a href="screenlets.options-pysrc.html#FloatOption">source&nbsp;code</a></span><br /><br />
+<h1 class="epydoc">Class FloatOption</h1><p class="nomargin-top"><span class="codelink"><a href="screenlets.options-pysrc.html#FloatOption">source&nbsp;code</a></span></p>
 <pre class="base-tree">
-     object --+            
-              |            
-gobject.GObject --+        
-                  |        
-             <a href="screenlets.options.Option-class.html">Option</a> --+    
-                      |    
-              <a href="screenlets.options.IntOption-class.html">IntOption</a> --+
-                          |
-                         <strong class="uidshort">FloatOption</strong>
+object --+            
+         |            
+??.GObject --+        
+             |        
+        <a href="screenlets.options.Option-class.html">Option</a> --+    
+                 |    
+         <a href="screenlets.options.IntOption-class.html">IntOption</a> --+
+                     |
+                    <strong class="uidshort">FloatOption</strong>
 </pre>
 
 <hr />
-An Option for values of type float.<br /><br />
+<p>An Option for values of type float.</p>
 
 <!-- ==================== INSTANCE METHODS ==================== -->
 <a name="section-InstanceMethods"></a>
@@ -107,7 +107,8 @@ An Option for values of type float.<br /><br />
         <span class="summary-sig-arg">label</span>,
         <span class="summary-sig-arg">desc</span>,
         <span class="summary-sig-arg">digits</span>=<span class="summary-sig-default">1</span>,
-        <span class="summary-sig-arg">**keyword_args</span>)</span></td>
+        <span class="summary-sig-arg">**keyword_args</span>)</span><br />
+      Creates a new Option with the given information.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="screenlets.options-pysrc.html#FloatOption.__init__">source&nbsp;code</a></span>
             
@@ -140,8 +141,10 @@ An Option for values of type float.<br /><br />
     <p class="indent-wrapped-lines"><b>Inherited from <code><a href="screenlets.options.Option-class.html">Option</a></code></b>:
       <code><a href="screenlets.options.Option-class.html#on_export">on_export</a></code>
       </p>
-    <p class="indent-wrapped-lines"><b>Inherited from <code>gobject.GObject</code></b>:
+    <p class="indent-wrapped-lines"><b>Inherited from <code><i>unreachable</i>.GObject</code></b>:
       <code>__cmp__</code>,
+      <code>__copy__</code>,
+      <code>__deepcopy__</code>,
       <code>__delattr__</code>,
       <code>__gdoc__</code>,
       <code>__gobject_init__</code>,
@@ -178,10 +181,13 @@ An Option for values of type float.<br /><br />
       <code>weak_ref</code>
       </p>
     <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__format__</code>,
       <code>__getattribute__</code>,
       <code>__reduce__</code>,
       <code>__reduce_ex__</code>,
-      <code>__str__</code>
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
       </p>
     </td>
   </tr>
@@ -231,7 +237,7 @@ An Option for values of type float.<br /><br />
 </tr>
   <tr>
     <td colspan="2" class="summary">
-    <p class="indent-wrapped-lines"><b>Inherited from <code>gobject.GObject</code></b>:
+    <p class="indent-wrapped-lines"><b>Inherited from <code><i>unreachable</i>.GObject</code></b>:
       <code>__grefcount__</code>
       </p>
     <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
@@ -278,12 +284,13 @@ An Option for values of type float.<br /><br />
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets.options-pysrc.html#FloatOption.__init__">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  
+  <p>Creates a new Option with the given information.</p>
   <dl class="fields">
     <dt>Overrides:
-      <a href="screenlets.options.IntOption-class.html#__init__">IntOption.__init__</a>
+        object.__init__
+        <dd><em class="note">(inherited documentation)</em></dd>
     </dt>
   </dl>
 </td></tr></table>
@@ -301,12 +308,12 @@ An Option for values of type float.<br /><br />
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="screenlets.options-pysrc.html#FloatOption.on_import">source&nbsp;code</a></span>&nbsp;
     </td>
-  </table>
+  </tr></table>
   
-  Called when FloatOption gets imported. Converts str to float.
+  <p>Called when FloatOption gets imported. Converts str to float.</p>
   <dl class="fields">
     <dt>Overrides:
-      <a href="screenlets.options.IntOption-class.html#on_import">IntOption.on_import</a>
+        <a href="screenlets.options.Option-class.html#on_import">Option.on_import</a>
     </dt>
   </dl>
 </td></tr></table>
@@ -336,17 +343,18 @@ An Option for values of type float.<br /><br />
       <th class="navbar" align="right" width="100%">
         <table border="0" cellpadding="0" cellspacing="0">
           <tr><th class="navbar" align="center"
-            >Screenlets 0.1.2</th>
+            >Screenlets 0.1.3</th>
           </tr></table></th>
   </tr>
 </table>
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0beta1 on Wed Jun  4 18:52:57 2008
+    Generated by Epydoc 3.0.1 on Sat Nov 27 22:48:24 2010
     </td>
     <td align="right" class="footer">
-      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
     </td>
   </tr>
 </table>
@@ -357,9 +365,8 @@ An Option for values of type float.<br /><br />
   // javascript is turned off then we want them to be
   // visible); but by default, we want to hide them.  So hide
   // them unless we have a cookie that says to show them.
-  checkCookie()
+  checkCookie();
   // -->
 </script>
-  
 </body>
 </html>

@@ -134,6 +134,8 @@ DAEMON_IFACE = 'org.screenlets.ScreenletsDaemon'
 
 DEBUG_MODE		= True
 
+DEBIAN = subprocess.call("which dpkg", shell=True)==0
+
 #-------------------------------------------------------------------------------
 # CLASSES
 #-------------------------------------------------------------------------------
@@ -1293,7 +1295,7 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 		self.window.hide()
 		self.window.move(self.x, self.y)
 
-		if not self.ignore_requirements:
+		if DEBIAN and not self.ignore_requirements:
 			self.check_requirements()
 
 		self.window.show()	

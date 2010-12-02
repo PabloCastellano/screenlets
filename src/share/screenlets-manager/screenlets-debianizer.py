@@ -200,7 +200,7 @@ binary-arch: build install
 	dh_installexamples
 #	dh_install
 #	dh_installmenu
-#	dh_installdebconf	
+#	dh_installdebconf
 #	dh_installlogrotate
 #	dh_installemacsen
 #	dh_installpam
@@ -259,7 +259,7 @@ except:
 
 msg(_('Created all the files needed.'))
 
-msg(_('Debianizing...'))
+msg(_('Debianizing: %s (%s)') % (deb_name, deb_version) )
 
 deb_arguments = " ".join(map(str, arguments))
 

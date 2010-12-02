@@ -692,6 +692,8 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 		self.id				= id
 		self.session 		= session
 		self.service		= None
+		self.__desc__		= self.__doc__
+
 		# if we have an id and a service-class, register our service
 		if self.id and service_class:
 			self.register_service(service_class)

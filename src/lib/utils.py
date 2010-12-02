@@ -154,6 +154,18 @@ def delete_autostarter ( name):
 			os.system('rm %s%s' % (chr(34)+DIR_AUTOSTART,f+chr(34)))
 			print 'Removed duplicate entry'
 
+def get_screenlet_linux_name_by_class_path(path):
+	"""Returns screenlet name on form 'foobar-screenlet' by main screenlet class file path."""
+	return path.lower().replace(".py", "").split("/")[path.count("/")].replace("screenlet", "-screenlet")
+
+def get_screenlet_linux_name_by_class_name(name):
+	"""Returns screenlet name on form 'foobar-screenlet' by screenlet class name."""
+	return name.lower().replace("screenlet", "-screenlet")
+
+def get_screenlet_linux_name_by_short_class_name(name):
+	"""Returns screenlet name on form 'foobar-screenlet' by shortened screenlet class name."""
+	return name.lower() + "-screenlet"
+
 def _contains_path (string):
 	"""Internal function: Returns true if the given string contains one of the
 	Screenlets paths."""
@@ -171,17 +183,6 @@ def create_user_dir ():
 		except:
 			print 'coulnt create user dir'
 
-def get_screenlet_linux_name_by_class_path(path):
-	"""Returns screenlet name on form 'foobar-screenlet' by main screenlet class file path."""
-	return path.lower().replace(".py", "").split("/")[path.count("/")].replace("screenlet", "-screenlet")
-
-def get_screenlet_linux_name_by_class_name(name):
-	"""Returns screenlet name on form 'foobar-screenlet' by screenlet class name."""
-	return name.lower().replace("screenlet", "-screenlet")
-
-def get_screenlet_linux_name_by_short_class_name(name):
-	"""Returns screenlet name on form 'foobar-screenlet' by shortened screenlet class name."""
-	return name.lower() + "-screenlet"
 
 def find_first_screenlet_path (screenlet_name):
 	"""Scan the Screenlets paths for the occurence of screenlet "name" with the
@@ -272,8 +273,9 @@ def get_screenlet_metadata_by_path (path):
 			if len(requires) > 0:
 				cleaned = requires.split('[')[1].replace("'", "").replace('"', '').replace('\n', '').replace('\t', '')
 				requires1 = "".join(cleaned.split()).split(",")
+
 		return {'name'	: name1, 
-			'info'		: info1, 
+			'info'		: gettext.dgettext(get_screenlet_linux_name_by_class_name(name1), info1), 
 			'author'	: author1, 
 			'version'	: version1,
 			'requires'	: requires1
@@ -287,7 +289,7 @@ def get_screenlet_metadata_by_path (path):
 			cls = getattr(slmod, classname)
 			sys.path.remove(path)
 			return {'name'	: cls.__name__, 
-				'info'		: cls.__desc__, 
+				'info'		: gettext.dgettext(get_screenlet_linux_name_by_class_name(cls.__name__), cls.__desc__), 
 				'author'	: cls.__author__, 
 				'version'	: cls.__version__,
 				'requires'	: cls.__requires__

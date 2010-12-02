@@ -230,7 +230,8 @@ Makefile = """SYSTEM_SCREENLETS_DIR = $(DESTDIR)/usr/share/screenlets
 
 install:
 	mkdir -p $(SYSTEM_SCREENLETS_DIR)
-	cp -r screenlet/* $(SYSTEM_SCREENLETS_DIR)"""
+	cp -r screenlet/* $(SYSTEM_SCREENLETS_DIR)
+	for file in $$(ls -1 po/); do mkdir -p $(DESTDIR)/usr/share/locale/$${file%.po}/LC_MESSAGES; msgfmt -v -o $(DESTDIR)/usr/share/locale/$${file%.po}/LC_MESSAGES/lipik-screenlet.mo po/$$file; done"""
 
 #print "=========================================================="
 #print control
@@ -247,7 +248,11 @@ try:
 	write_conf_file('/tmp/%s/debian/compat' % deb_name, compat)
 	write_conf_file('/tmp/%s/debian/rules' % deb_name, rules)
 
-	os.system('cp -r %s /tmp/%s/screenlet' % (path, deb_name) )
+	os.system('cp -r %s /tmp/%s/screenlet' % (path, deb_name))
+
+	if os.path.exists("/tmp/%s/screenlet/%s/po" % (deb_name, sl_name)):
+		os.system('mv /tmp/%s/screenlet/%s/po /tmp/%s' % (deb_name, sl_name, deb_name))
+		os.system('rm /tmp/%s/po/*.pot' % (deb_name))
 
 except:
 	die(_('Failed to create file (no permissions?).'))

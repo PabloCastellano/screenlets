@@ -171,6 +171,17 @@ def create_user_dir ():
 		except:
 			print 'coulnt create user dir'
 
+def get_screenlet_linux_name_by_class_path(path):
+	"""Returns screenlet name on form 'foobar-screenlet' by main screenlet class file path."""
+	return path.lower().replace(".py", "").split("/")[path.count("/")].replace("screenlet", "-screenlet")
+
+def get_screenlet_linux_name_by_class_name(name):
+	"""Returns screenlet name on form 'foobar-screenlet' by screenlet class name."""
+	return name.lower().replace("screenlet", "-screenlet")
+
+def get_screenlet_linux_name_by_short_class_name(name):
+	"""Returns screenlet name on form 'foobar-screenlet' by shortened screenlet class name."""
+	return name.lower() + "-screenlet"
 
 def find_first_screenlet_path (screenlet_name):
 	"""Scan the Screenlets paths for the occurence of screenlet "name" with the

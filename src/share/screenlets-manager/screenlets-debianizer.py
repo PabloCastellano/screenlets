@@ -144,7 +144,7 @@ if not issubclass(sl_class, screenlets.Screenlet):
 msg(_('Successfully got class from module: %s') % str(sl_class))
 
 # create a debian control file
-deb_name = sl_class.__name__.lower().replace("screenlet", "-screenlet")
+deb_name = screenlets.utils.get_screenlet_linux_name_by_class_name(sl_class.__name__)
 deb_requires = ", ".join(map(str, sl_class.__requires__))
 deb_packager = os.popen("bzr whoami").readline().replace('\n', '')
 deb_desc = " "

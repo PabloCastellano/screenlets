@@ -1499,7 +1499,7 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 		
 		# shape the window acording if the window is composited  or not
 		if self.window.is_composited():
-			log.debug(_("Updating input shape"))
+#			log.debug(_("Updating input shape"))
 			self.on_draw_shape(ctx)
 			self.main_view.set_shape(self.__shape_bitmap, True)
 		else:
@@ -1507,7 +1507,7 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 				self.on_draw_shape(ctx)
 			except:
 				self.on_draw(ctx)
-			log.debug(_("Updating window shape"))
+#			log.debug(_("Updating window shape"))
 			self.main_view.set_shape(self.__shape_bitmap, False)
 
 	def update_shape (self):

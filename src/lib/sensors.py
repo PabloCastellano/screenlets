@@ -18,6 +18,7 @@ import time
 import os
 import subprocess
 import gtk
+import socket # for gethostname()
 # translation stuff
 gettext.textdomain('screenlets')
 gettext.bindtextdomain('screenlets', screenlets.INSTALL_PREFIX +  '/share/locale')
@@ -42,28 +43,23 @@ def _(s):
 # (written by Helder Fraga aka Whise
 def cpu_get_load (processor_number=0):
 	"""Calculates the system load."""
-	try:
-		f = open("/proc/stat", "r")
-		tmp = f.readlines(2000)
-		f.close()
-	except:
-		print "Failed to open /proc/stat"
-		return None
-	if processor_number == 0 : sufix = ''
-	else: sufix = str(processor_number -1)
+        f = open("/proc/stat", "r")
+        tmp = f.readlines(2000)
+        f.close()
+
+	if processor_number == 0 : 
+            suffix = ''
+	else: 
+            suffix = str(processor_number - 1)
 	line = tmp[processor_number]
 
-	if line.startswith("cpu%s"% (sufix)):
-		cuse = float( line.split()[1] )
-		cn = float( line.split()[2] )
-		csys = float( line.split()[3])
-		if sufix == '':
-			load = cuse + cn
+	if line.startswith("cpu%s"% (suffix)):
+                (junk, cuse, cn, csys, tail) = line.split(None, 4)
+		if suffix == '':
+			return int(cuse) + int(csys) + int(cn)
 		else:
-			load = cuse + csys + cn
-		#load = int(load / .update_interval)
-		return load
-	return None
+			return int(cuse) + int(cn)
+ 		return load
 
 def cpu_get_cpu_name():
 	"""Returns Cpu Name"""
@@ -105,11 +101,11 @@ def cpu_get_nb_cpu ():
 	except:
 		print "Failed to open /proc/stat"
 		return None
-	nb = 0
+	nb = -1 #even one processor has two lines starting with "cpu" in /proc/stat file 
 	for line in tmp:
 		if line.startswith("cpu"):
 			nb = nb+1
-	return nb -1
+	return nb
 
 def cpu_get_current_freq():
 	"""Returns Cpu frequency"""
@@ -191,45 +187,29 @@ def sys_get_uptime():
 
 def sys_get_username():
 	"""Returns username"""
-	res = commands.getstatusoutput('whoami')
-	if res[0]==0:
-		return res[1].strip()
-	return ''
+	return os.getlogin()
 
-
-# written by Hendrik Kaju
 def sys_get_hostname ():
 	"""Get hostname"""
-	try:
-		f = open("/proc/sys/kernel/hostname", "r")
-		hostname = f.readline(100)
-		f.close()
-		return hostname
-	except:
-		print "Failed to open /proc/sys/kernel/hostname"
-	return 'Error'
+	return socket.gethostname()
 
 # written by Hendrik Kaju
 def sys_get_average_load ():
-	"""Get average load (as 3-tuple with floats)."""
-	try:
-		f = open("/proc/loadavg", "r")
-		data = f.readline(100)
-		f.close()
-		load1 = str(float( data.split()[0] ))[:4]
-		load2 = str(float( data.split()[1] ))[:4]
-		load3 = str(float( data.split()[2] ))[:4]
-		return load1+ ','+ load2 +','+ load3
-	except:
-		print "Failed to open /proc/loadavg"
-	return 'Error'
+	"""Get average load (as comma-separated string)"""
+	f = open("/proc/loadavg", "r")
+	data = f.readline(100)
+	f.close()
+	data = data.rsplit(' ', 2)[0]
+	data = data.replace(' ', ',')
+	return data
 	
 def sys_get_distrib_name():
 	try:
-		if os.path.exists('/etc/lsb-release') and str(commands.getoutput('cat /etc/lsb-release')).lower().find('ubuntu') != -1:
+		if os.path.exists('/etc/debian_version') and str(commands.getoutput('cat /etc/lsb-release')).lower().find('ubuntu') != -1:
 			return str(commands.getoutput('cat /etc/issue')).replace('\\n','').replace('\l','').replace('\r','').strip()
-
-		elif os.path.exists('/etc/lsb-release'):
+		elif os.path.exists('/etc/pld-release'):
+			return str(commands.getoutput('cat /etc/pld-release'))
+		elif os.path.exists('/etc/debian_version'):
 			return 'Debian ' + str(commands.getoutput('cat /etc/debian_version'))
 		elif os.path.exists('/etc/mandriva-release'):
 			return 'Mandriva ' + str(commands.getoutput("cat /etc/mandriva-release | sed -e 's/[A-Za-z ]* release //'"))
@@ -266,26 +246,23 @@ def sys_get_distroshort ():
 
 def sys_get_desktop_enviroment():
 	""" shows kde or gnome or xface"""
-        if os.environ.get('KDE_FULL_SESSION') == 'true':
-            desktop_environment = 'kde'
-        elif os.environ.get('GNOME_DESKTOP_SESSION_ID'):
-            desktop_environment = 'gnome'
-        else:
-            try:
-		import commands
-                info = commands.getoutput('xprop -root _DT_SAVE_MODE')
-                if ' = "xfce4"' in info:
-                    desktop_environment = 'xfce'
-            except (OSError, RuntimeError):
-                pass
+	if os.environ.get('KDE_FULL_SESSION') == 'true':
+		desktop_environment = 'kde'
+	elif os.environ.get('GNOME_DESKTOP_SESSION_ID'):
+		desktop_environment = 'gnome'
+	else:
+		try:
+			import commands
+			info = commands.getoutput('xprop -root _DT_SAVE_MODE')
+			if ' = "xfce4"' in info:
+				desktop_environment = 'xfce'
+		except (OSError, RuntimeError):
+			pass
 	return desktop_environment
 
 def sys_get_kernel_version():
 	"""Returns kernel version"""
-	res = commands.getstatusoutput('uname -r')
-	if res[0]==0:
-		return res[1].strip()
-	return _("Can't get kernel version")
+	return os.uname()[2]
 
 def sys_get_kde_version():
 	"""Returns kde version"""
@@ -307,22 +284,14 @@ def sys_get_gnome_version():
 				return i[8:].strip()
 	return _("Can't get Gnome version")
 
-# by whise
 def sys_get_linux_version ():
 	"""Get linux version string."""
-	try:
-		f = open("/proc/version", "r")
-		data = f.readline(200)[:-1]
-		f.close()
-		return data
-	except:
-		return _("Failed to open /proc/version")
+	return ' '.join(os.uname())
 
-# by whise
 # TODO: return dict and parse the output of cpuinfo (function does not much yet)
 def sys_get_full_info ():	
 	"""Get cpu info from /proc/cpuinfo."""
-	return commands.getoutput("cat /proc/cpuinfo")
+	return open('/proc/cpuinfo').read()
 
 def sys_get_window_manager():
 	"""Returns window manager name"""
@@ -351,97 +320,68 @@ def sys_get_window_manager():
 ###########################################
 
 
-def mem_get_freemem ():# written by Hendrik Kaju
+def _get_meminfo():
+	"""Helper function for mem_get_* functions"""
+	meminfo_file = open('/proc/meminfo')
+	meminfo = {}
+	for l in meminfo_file:
+                if l.startswith('MemTotal') or l.startswith('MemFree') or l.startswith('Cached') or l.startswith('Buffers'):
+                        c = l.index(':')
+			meminfo[l[:c]] = int(l[c+1:22])
+		if len(meminfo) >= 4:
+			break
+	meminfo_file.close()
+	return meminfo
+
+
+def mem_get_freemem ():
 	"""Get free memory."""
-	cached = commands.getoutput("""cat /proc/meminfo | grep Cached | awk 'BEGIN {FS=":"} {print $2}' | awk '{print $1, $9}'""")
-	buffers = commands.getoutput("""cat /proc/meminfo | grep Buffers | awk 'BEGIN {FS=":"} {print $2}' | awk '{print $1, $9}'""")
-	free = commands.getoutput("""cat /proc/meminfo | grep MemFree | awk 'BEGIN {FS=":"} {print $2}' | awk '{print $1, $9}'""")
-	return int(cached.split()[0])/1024 + int(buffers)/1024 + int(free)/1024
+	meminfo = _get_meminfo()
+	return (meminfo['Cached'] + meminfo['Buffers'] + meminfo['MemFree']) / 1024
 
 
-def mem_get_usedmem ():# written by Hendrik Kaju
+def mem_get_usedmem ():
 	"""Get used memory."""
-	total = commands.getoutput("""cat /proc/meminfo | grep MemTotal | awk 'BEGIN {FS=":"} {print $2}' | awk '{print $1, $9}'""")
-	cached = commands.getoutput("""cat /proc/meminfo | grep Cached | awk 'BEGIN {FS=":"} {print $2}' | awk '{print $1, $9}'""")
-	buffers = commands.getoutput("""cat /proc/meminfo | grep Buffers | awk 'BEGIN {FS=":"} {print $2}' | awk '{print $1, $9}'""")
-	free = commands.getoutput("""cat /proc/meminfo | grep MemFree | awk 'BEGIN {FS=":"} {print $2}' | awk '{print $1, $9}'""")
-	return int(total)/1024 - int(cached.split()[0])/1024 - \
-		int(buffers)/1024 - int(free)/1024
+	meminfo = _get_meminfo()
+	return (meminfo['MemTotal'] - meminfo['Cached'] - meminfo['Buffers'] - meminfo['MemFree']) / 1024
 
 def mem_get_usage():
 	"""Returns memory usage"""
-	try:
-		meminfo_file = open('/proc/meminfo')
-		meminfo = {}
-		for x in meminfo_file:
-		    	try:
-				(key,value,junk) = x.split(None, 2)
-				key = key[:-1] 
-				meminfo[key] = int(value)
-			except:
-				pass
-		meminfo_file.close()
-		return int((100*(int(meminfo['MemTotal'])-int(meminfo['Cached']) - int(meminfo['Buffers']) - int(meminfo['MemFree'])))/int(meminfo['MemTotal']))
-	except:
-		print("Can't parse /proc/meminfo")
-		return 0
+	meminfo = _get_meminfo()
+	return int(round((100*(meminfo['MemTotal'] - meminfo['Cached'] - meminfo['Buffers'] - meminfo['MemFree']) / meminfo['MemTotal'] )))
 
 def mem_get_total():
-	try:
-		meminfo_file = open('/proc/meminfo')
-		meminfo = {}
-		for x in meminfo_file:
-		    	try:
-				(key,value,junk) = x.split(None, 2)
-				key = key[:-1] 
-				meminfo[key] = int(value)
-			except:
-				pass
-		meminfo_file.close()
-		return int(meminfo['MemTotal'])/1024
-	except:
-		print("Can't parse /proc/meminfo")
-		return 0
+	meminfo = _get_meminfo()['MemTotal'] / 1024
+	return meminfo
+
+def _get_swapinfo():
+	"""Helper function for mem_get_*swap functions"""
+	meminfo_file = open('/proc/meminfo')
+	meminfo = {}
+	for l in meminfo_file:
+                if l.startswith('SwapTotal') or l.startswith('SwapFree') or l.startswith('SwapCached'):
+                        c = l.index(':')
+			meminfo[l[:c]] = int(l[c+1:22])
+		if len(meminfo) >= 3:
+			break
+	meminfo_file.close()
+	return meminfo
 
 def mem_get_usedswap():
 	"""Returns used swap"""
-	try:
-		meminfo_file = open('/proc/meminfo')
-		meminfo = {}
-		for x in meminfo_file:
-			try:
-				(key,value,junk) = x.split(None, 2)
-				key = key[:-1]
-				meminfo[key] = int(value)
-			except:
-				pass
-		meminfo_file.close()
-		if(meminfo['SwapTotal']==0):
-			return 0
-		return int((100*(int(meminfo['SwapTotal'])-int(meminfo['SwapCached']) - int(meminfo['SwapFree'])))/int(meminfo['SwapTotal']))
-	except:
-		print("Can't parse /proc/meminfo")
-		return 0
+	swapinfo = _get_swapinfo()
+	if(swapinfo['SwapTotal']==0):
+ 		return 0
+	return int(round((100*(swapinfo['SwapTotal'] - swapinfo['SwapCached'] - swapinfo['SwapFree']) / swapinfo['SwapTotal'] )))
+
 
 def mem_get_totalswap():
 	"""Returns total swap"""
-	try:
-		meminfo_file = open('/proc/meminfo')
-		meminfo = {}
-		for x in meminfo_file:
-			try:
-				(key,value,junk) = x.split(None, 2)
-				key = key[:-1]
-				meminfo[key] = int(value)
-			except:
-				pass
-		meminfo_file.close()
-		if(meminfo['SwapTotal']==0):
-			return 0
-		return int(meminfo['SwapTotal'])/1024
-	except:
-		print("Can't parse /proc/meminfo")
-		return 0
+	swapinfo = _get_swapinfo()
+	if(swapinfo['SwapTotal']==0):
+ 		return 0
+	return swapinfo['SwapTotal']/1024
+
 
 ###########################################
 #                                         #
@@ -515,16 +455,18 @@ def disk_get_disk_list():
 
 def net_get_ip(): # by Whise
 	"""Returns ip if it can"""
-	ip = commands.getoutput("ifconfig")
-	x = 0
+	command = 'ifconfig'
+	command_path=os.popen("whereis -b "+command+" | sed 's/"+command+": //g'").readlines()
+	command_string = ''.join(command_path)[:-1]
+	ip = commands.getoutput("LANG=\"\" "+command_string)
 	while True:
-		ip = ip[ip.find("inet adr:"):]
-		ip = ip[9:]
-		ipc = ip[:ip.find(chr(32))]
+		ip = ip[ip.find("inet "):]
+		if len(ip) < 7:
+			break
+		ip = ip[ip.find(":")+1:]
+		ipc = ip[:ip.find(" ")]
 		if ipc != '127.0.0.1' and ipc != None and ipc !='1': 
-			
 			return ipc
-			
 
 	return _('Cannot get ip')
 
@@ -551,11 +493,15 @@ def net_get_updown():
 
 
 def net_get_activity (device):
-	"""This will return the total download and upload this session. As 2-tuple
-	with floats)."""
-	data = commands.getoutput("cat /proc/net/dev")
-	data = data[data.find(device + ":") + 5:]
-	return (float(data.split()[0]), float(data.split()[8]))
+	"""This will return the total download and upload this
+	session, as a 2-tuple with floats."""
+	prefix = '%6s:' % device
+	net = open('/proc/net/dev')
+	for line in net:
+		if line.startswith(prefix):
+			data = line[7:].split()
+			net.close()
+			return (float(data[0]), float(data[8]))
 
 
 def net_get_connections ():
@@ -586,12 +532,33 @@ def wir_get_interfaces():
 		print("Can't open /proc/net/wireless")
 		return []
 
+def get_wireless_stats (interface):
+	return wir_get_stats (interface)
+
 def wir_get_stats (interface):
 	"""Returns wireless stats as dict."""
 	stats = {}
-	iwcfd = os.popen("iwconfig " + interface)
+	#We're going to use 'iwconfig' to get information about wireless device
+	command = 'iwconfig'
+	#We need ful path, just in case user doesn't have 'iwconfig' in the search path
+	command_path=os.popen("whereis -b "+command+" | sed 's/"+command+": //g'").readlines()
+	#command_path is a list so it has to be converted
+	command_string = ''.join(command_path)[:-1] + ' ' + interface
+	iwcfd = os.popen(command_string)
 	iwconfig = iwcfd.read(1024)
 	iwcfd.close()
+	#TODO error check in case there is no iwconfig
+
+	command = 'ifconfig'
+	command_path=os.popen("whereis -b "+command+" | sed 's/"+command+": //g'").readlines()
+	command_string = ''.join(command_path)[:-1] + ' ' + interface
+
+	ip = commands.getoutput("LANG=\"\" "+command_string)
+	ip = ip[ip.find("inet"):]
+	ip = ip[ip.find(":")+1:]
+	ip = ip[:ip.find(" ")]
+	stats['local_ip'] = ip
+
 	essid = iwconfig[iwconfig.find('ESSID:"')+7:]
 	stats['essid'] = essid[:essid.find('"')]
 	if stats['essid'].strip()[:stats['essid'].strip().find("  ")] == "unassociated":
@@ -732,6 +699,7 @@ def bat_get_data(name):
 		total = 0
 		current = 0
 		full = 0
+		rate = 0
 		state = ''
 		present = True
 		for line in data:
@@ -752,9 +720,11 @@ def bat_get_data(name):
 				current = int(line.split(':')[1].strip().split(' ')[0])
 			elif line.startswith('charging state:'):
 				state = line.split(':')[1].strip().split(' ')[0]
-		return total, current, full, state, present
+			elif line.startswith('present rate:'):
+				rate = line.split(':')[1].strip().split(' ')[0]
+		return total, current, full, state, present, rate
 	except:
-		return 0, 0, 0, '', False
+		return 0, 0, 0, '', False, 0
 
 def bat_get_value(line):
 	"""Returns battery value"""
@@ -1170,8 +1140,8 @@ class MemorySensor (Sensor):
 	def on_update (self):
 		"""Called on each interval. Calculates the load and updates the
 		internal values."""
-		self._freemem = get_freemem()
-		self._usedmem = get_usedmem()
+		self._freemem = mem_get_freemem()
+		self._usedmem = mem_get_usedmem()
 		return True
 	
 
@@ -1182,7 +1152,7 @@ class NetSensor (Sensor):
 		given interval (default is 1000ms)."""
 		Sensor.__init__(self, interval)
 		self._device = device
-		self._downloaded, self._uploaded	= get_net_activity(device)
+		self._downloaded, self._uploaded	= net_get_activity(device)
 		self._last_down, self._last_up		= self._downloaded, self._uploaded
 		
 	# + public functions
@@ -1208,12 +1178,12 @@ class NetSensor (Sensor):
 	def on_update (self):
 		"""Called on each interval. Calculates the load and updates the
 		internal values."""
-		d, u = get_net_activity(self._device)
+		d, u = net_get_activity(self._device)
 		self._last_up		= self._uploaded
 		self._last_down		= self._downloaded
 		self._downloaded	= int(d)
 		self._uploaded		= int(u)
-		#print get_net_activity(self._device)
+		#print net_get_activity(self._device)
 		return True
 
 
@@ -1221,11 +1191,11 @@ class NetSensor (Sensor):
 if __name__ == '__main__':
 	
 	# some tests
-	print get_hostname()
-	print get_net_activity('eth0')
-	print get_linux_version()
-	print get_kernel()
-	print get_cpu_info()
+	print sys_get_hostname()
+	print net_get_activity('eth0')
+	print sys_get_linux_version()
+	print sys_get_kernel_version()
+	print sys_get_full_info()
 	
 	# callbacks which get notified about updates of sensor's values
 	def handle_cpusensor_updated (cs):

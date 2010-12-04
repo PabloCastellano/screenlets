@@ -900,7 +900,7 @@ def sensors_get_sensors_list():
 			print('Error during hddtemp drives search')
 	else:
 		print('Hddtemp not installed')
-		return output
+	return output
 
 
 def sensors_get_sensor_value(sensorName):

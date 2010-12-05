@@ -342,6 +342,7 @@ def list_available_screenlets ():
 					pass
 		except OSError: # Raised by os.listdir: the directory doesn't exist
 			pass
+	sls.sort()
 	return sls
 
 import session

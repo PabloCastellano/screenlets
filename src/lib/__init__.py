@@ -134,7 +134,7 @@ DAEMON_IFACE = 'org.screenlets.ScreenletsDaemon'
 
 DEBUG_MODE		= True
 
-DEBIAN = subprocess.call("which dpkg", shell=True)==0
+DEBIAN = subprocess.call("which dpkg >/dev/null", shell=True)==0
 
 #-------------------------------------------------------------------------------
 # CLASSES

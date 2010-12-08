@@ -231,7 +231,7 @@ Makefile = """SYSTEM_SCREENLETS_DIR = $(DESTDIR)/usr/share/screenlets
 install:
 	mkdir -p $(SYSTEM_SCREENLETS_DIR)
 	cp -r screenlet/* $(SYSTEM_SCREENLETS_DIR)
-	for file in $$(ls -1 po/); do mkdir -p $(DESTDIR)/usr/share/locale/$${file%.po}/LC_MESSAGES; msgfmt -v -o $(DESTDIR)/usr/share/locale/$${file%.po}/LC_MESSAGES/lipik-screenlet.mo po/$$file; done"""
+	for file in $$(ls -1 po/); do mkdir -p $(DESTDIR)/usr/share/locale/$${file%.po}/LC_MESSAGES; msgfmt -v -o $(DESTDIR)/usr/share/locale/$${file%.po}/LC_MESSAGES/""" + deb_name + ".mo po/$$file; done"
 
 #print "=========================================================="
 #print control

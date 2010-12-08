@@ -13,8 +13,9 @@ import screenlets
 from screenlets import utils
 import os
 import gettext
+
 gettext.textdomain('screenlets')
-gettext.bindtextdomain('screenlets', '/usr/share/locale')
+gettext.bindtextdomain('screenlets', screenlets.INSTALL_PREFIX +  '/share/locale')
 
 
 # stub for gettext

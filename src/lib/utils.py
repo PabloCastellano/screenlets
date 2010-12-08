@@ -166,6 +166,22 @@ def get_screenlet_linux_name_by_short_class_name(name):
 	"""Returns screenlet name on form 'foobar-screenlet' by shortened screenlet class name."""
 	return name.lower() + "-screenlet"
 
+def get_translator(path):
+	"""Returns translator by screenlet class path from __file__."""
+	mo_domain = get_screenlet_linux_name_by_class_path(path)
+
+	t = gettext.translation(mo_domain, screenlets.INSTALL_PREFIX +  '/share/locale', fallback = True)
+
+	if not isinstance(t, gettext.GNUTranslations):
+		cut_path_here = path.rfind('/')
+		if cut_path_here > 0:
+			screenlet_dir = path[0:cut_path_here]
+		else:
+			screenlet_dir = os.getcwd()
+		mo_dir = screenlet_dir + "/mo"
+		t = gettext.translation(mo_domain, mo_dir, fallback = True)
+	return t.lgettext
+
 def _contains_path (string):
 	"""Internal function: Returns true if the given string contains one of the
 	Screenlets paths."""

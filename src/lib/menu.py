@@ -17,9 +17,10 @@ import xml.dom.minidom
 from xml.dom.minidom import Node
 import os
 import gettext
+import screenlets
 
 gettext.textdomain('screenlets')
-gettext.bindtextdomain('screenlets', '/usr/share/locale')
+gettext.bindtextdomain('screenlets', screenlets.INSTALL_PREFIX +  '/share/locale')
 
 def _(s):
 	return gettext.gettext(s)

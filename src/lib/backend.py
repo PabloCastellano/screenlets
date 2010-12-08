@@ -20,9 +20,10 @@ import os
 import gtk
 import gobject
 import gettext
+import screenlets
 
 gettext.textdomain('screenlets')
-gettext.bindtextdomain('screenlets', '/usr/share/locale')
+gettext.bindtextdomain('screenlets', screenlets.INSTALL_PREFIX +  '/share/locale')
 
 def _(s):
 	return gettext.gettext(s)

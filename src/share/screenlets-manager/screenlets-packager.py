@@ -11,9 +11,8 @@
 # A small app to package a screenlet into an easily distributible archive
 # Useful for screenlet-developers ..
 #
-# (c) RYX (Rico Pfaus) 2007 and Whise Helder Fraga
-# <helder.fraga@hotmail.com>
-#
+# (c) RYX (Rico Pfaus) 2007 and Whise Helder Fraga <helder.fraga@hotmail.com>
+# Updated by Guido Tabbernuk <boamaod@gmail.com> 2010
 
 import sys, os
 from datetime import datetime
@@ -37,7 +36,7 @@ PACKAGE_INFO_FILE	= 'Screenlet.package'
 # surpress any output if true
 quiet		= False
 # exclude these from archive
-excludes	= ['*.pyo', '*.pyc', '*~', '*.bak']
+excludes	= ['*.pyo', '*.pyc', '*~', '*.bak', '*.po', 'po']
 
 
 # + functions
@@ -101,6 +100,13 @@ if not issubclass(sl_class, screenlets.Screenlet):
 	die(_('The class inside the module is no subclass of screenlets.Screenlet.'))
 msg(_('Successfully got class from module: %s') % str(sl_class))
 
+tmpbase = "/tmp/" + os.popen("uuidgen").read().replace("\n", "")
+tmpdir = tmpbase + "/" + sl_name
+
+os.system('mkdir -p ' + tmpdir)
+
+os.system('cp -r %s %s' % (path, tmpbase))
+
 # create a file with the package-info inside the screenlet's dir
 meta = """[Screenlet Package]
 Name=%s
@@ -114,7 +120,7 @@ Created=%s
 	datetime.now().strftime("%Y/%m/%d"))
 fail=False
 try:
-	f = open('%s/%s' % (path, PACKAGE_INFO_FILE), 'w')
+	f = open('%s/%s' % (tmpdir, PACKAGE_INFO_FILE), 'w')
 	if f:
 		f.write(meta)
 		f.close()
@@ -126,20 +132,22 @@ if fail:
 	die(_('Failed to create package info in "%s" (no permission?).') % path)
 msg(_('Created package info file.'))
 
+# add the translations from po directory
+linux_name = screenlets.utils.get_screenlet_linux_name_by_class_name(sl_class.__name__)
+
+os.system('cd ' + tmpdir + ' && for file in $(ls -1 po/ | grep -v .pot); do mkdir -p mo/${file%.po}/LC_MESSAGES; msgfmt -v -o mo/${file%.po}/LC_MESSAGES/' + linux_name + '.mo po/$file; done')
+
 # cd into path, package the whole stuff up into an archive and save it to our pwd
 pwd			= os.getcwd()
 excl		= ''
 pkgname		= '%sScreenlet-%s.tar.gz' % (sl_name, sl_class.__version__)
 for e in excludes:
 	excl += ' --exclude=' + e
-os.system('cd %s && cd .. && tar cfz %s/%s %s %s' % (path, pwd, pkgname, 
+os.system('cd %s && tar cfz %s/%s %s %s' % (tmpbase, pwd, pkgname, 
 	sl_name, excl))
 
-# finally "inject" the package info, waiting in '/tmp'
-#os.system('tar --add-file=/tmp/%s %s' % (PACKAGE_INFO_FILE, pkgname))
-
 # remove the metadata file
-os.system('rm %s/%s' % (path, PACKAGE_INFO_FILE))
+os.system('rm -r %s' % (tmpbase))
 msg(_('Cleaned up and finished.'))
 
 # OK

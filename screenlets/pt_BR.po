@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: screenlets\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-17 14:51+0900\n"
-"PO-Revision-Date: 2010-11-12 14:22+0000\n"
-"Last-Translator: odanizinho <o_danizinho@hotmail.com>\n"
+"PO-Revision-Date: 2010-12-13 23:24+0000\n"
+"Last-Translator: tjack <Unknown>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-12-10 04:44+0000\n"
+"X-Launchpad-Export-Date: 2010-12-14 04:45+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "Language: pt_BR\n"
 
@@ -160,11 +160,11 @@ msgstr "Redimencionar com a roda do mouse"
 
 #: src/lib/__init__.py:785
 msgid "Ignore requirements"
-msgstr ""
+msgstr "Ignorar requisitos"
 
 #: src/lib/__init__.py:786
 msgid "Set this Screenlet to ignore/demand DEB requirements ..."
-msgstr ""
+msgstr "Este Screenlet irá ignorar/pedir requisitos DEB ..."
 
 #: src/lib/__init__.py:790
 msgid "Allow overriding Options"
@@ -189,7 +189,7 @@ msgstr "as opções atuais deste Screenlet ..."
 #. version of the deb package if unspecified
 #: src/lib/__init__.py:988
 msgid "?"
-msgstr ""
+msgstr "?"
 
 #: src/lib/__init__.py:993
 #, python-format
@@ -197,6 +197,8 @@ msgid ""
 "\n"
 "%(package)s %(version)s required, NOT INSTALLED!"
 msgstr ""
+"\n"
+"%(package)s versão %(version)s requerido, NÃO INSTALADO!"
 
 #: src/lib/__init__.py:996
 #, python-format
@@ -204,6 +206,8 @@ msgid ""
 "\n"
 "%(package)s %(version)s installed, req %(required)s."
 msgstr ""
+"\n"
+"%(package)s versão %(version)s instalado, requisitado por %(required)s."
 
 #: src/lib/__init__.py:1006
 #, python-format
@@ -214,6 +218,11 @@ msgid ""
 "REQUIREMENTS:\n"
 "%s"
 msgstr ""
+"Requisitos para o Screenlet não satisfeitos! Use o gerenciador de pacotes de "
+"seu sistema para instalar os pacotes requeridos.\n"
+"\n"
+"REQUISITOS:\n"
+"%s"
 
 #: src/lib/__init__.py:1028
 msgid "Size"
@@ -253,22 +262,22 @@ msgstr "Informações..."
 #: src/lib/__init__.py:1109
 #, python-format
 msgid "Add one more %s"
-msgstr ""
+msgstr "Adicionar mais um %s"
 
 #: src/lib/__init__.py:1112
 #, python-format
 msgid "Delete this %s"
-msgstr ""
+msgstr "Deletar este %s"
 
 #: src/lib/__init__.py:1116
 #, python-format
 msgid "Quit this %s"
-msgstr ""
+msgstr "Fechar este %s"
 
 #: src/lib/__init__.py:1119
 #, python-format
 msgid "Quit all %ss"
-msgstr ""
+msgstr "Fechar todos os %ss"
 
 #: src/lib/__init__.py:1370
 msgid ""
@@ -352,7 +361,7 @@ msgstr "Aplicar"
 #: src/lib/sensors.py:168
 #, python-format
 msgid "%(days)s days, %(hours)s hours and %(minutes)s minutes"
-msgstr ""
+msgstr "%(days)s dias, %(hours)s horas e %(minutes)s minutos"
 
 #: src/lib/sensors.py:288
 msgid "Can't get kernel version"

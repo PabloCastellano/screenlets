@@ -1291,7 +1291,7 @@ class ScreenletsManager(object):
 		gtk.main()
 		
 import os
-proc = os.popen("""ps axo "%p,%a" | grep "screenlets-manager.py" | grep -v grep|cut -d',' -f1""").read()
+proc = os.popen("""ps axo "%p,%a" | grep "python.*screenlets-manager.py" | grep -v grep|cut -d',' -f1""").read()
 procs = proc.split('\n')
 import sys
 import wnck

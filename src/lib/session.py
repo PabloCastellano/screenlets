@@ -95,7 +95,7 @@ class ScreenletSession (object):
 		# WORKAROUND: connect to daemon (ideally the daemon should watch the 
 		#             tmpfile for changes!!)
 		#check for daemon
-		proc = os.popen("""ps axo "%p,%a" | grep "screenlets-daemon.py" | grep -v grep|cut -d',' -f1""").read()
+		proc = os.popen("""ps axo "%p,%a" | grep "python.*screenlets-daemon.py" | grep -v grep|cut -d',' -f1""").read()
 	
 		procs = proc.split('\n')
 		if len(procs) <= 1:

@@ -283,7 +283,7 @@ class ScreenletsDaemon (dbus.service.Object):
 if __name__ == '__main__':
 	# check for running daemon
 	import os
-	proc = os.popen("""ps axo "%p,%a" | grep "screenlets-daemon.py" | grep -v grep|cut -d',' -f1""").read()
+	proc = os.popen("""ps axo "%p,%a" | grep "python.*screenlets-daemon.py" | grep -v grep|cut -d',' -f1""").read()
 	procs = proc.split('\n')
 	if len(procs) > 2:
 		print "daemon already started"

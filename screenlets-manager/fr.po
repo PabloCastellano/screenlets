@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: screenlets-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-17 14:51+0900\n"
-"PO-Revision-Date: 2010-11-19 07:13+0000\n"
-"Last-Translator: Screenlets Dev Team <screenlets-dev@lists.launchpad.net>\n"
+"PO-Revision-Date: 2010-12-17 11:25+0000\n"
+"Last-Translator: Pierre Slamich <pierre.slamich@gmail.com>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-12-10 04:44+0000\n"
+"X-Launchpad-Export-Date: 2010-12-18 04:43+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "Language: fr\n"
 
@@ -128,7 +128,7 @@ msgstr "Impossible de supprimer le screenlet au niveau système."
 #: src/share/screenlets-manager/screenlets-manager.py:269
 #, python-format
 msgid "Do you really want to reset the %sScreenlet configuration?"
-msgstr ""
+msgstr "Voulez-vous vraiment reinitialiser la configuration de %sScreenlet ?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:269
 msgid "Reset Screenlet"
@@ -329,7 +329,7 @@ msgstr "Installer un thème SuperKaramba"
 
 #: src/share/screenlets-manager/screenlets-manager.py:912
 msgid "Convert Web Widget"
-msgstr ""
+msgstr "Convertir un Widget Web"
 
 #: src/share/screenlets-manager/screenlets-manager.py:913
 #: src/share/screenlets-manager/screenlets-manager.py:1020
@@ -449,6 +449,8 @@ msgid ""
 "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
 "Usage: screenlets-packager <path> [options]"
 msgstr ""
+"Empaqueteur de Screenlets - (c) RYX (Rico Pfaus) 2007\n"
+"Utilisation: screenlets-packager <chemin> [options]"
 
 #: src/share/screenlets-manager/screenlets-packager.py:70
 #, python-format

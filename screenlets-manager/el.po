@@ -8,19 +8,19 @@ msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-17 14:51+0900\n"
-"PO-Revision-Date: 2010-11-12 13:37+0000\n"
-"Last-Translator: Yannis Kaskamanidis <ttnfy17@yahoo.gr>\n"
+"PO-Revision-Date: 2010-12-22 13:35+0000\n"
+"Last-Translator: Mixalis Zisis <Unknown>\n"
 "Language-Team: Greek <el@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-12-10 04:44+0000\n"
+"X-Launchpad-Export-Date: 2010-12-23 04:49+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "Language: el\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
 msgid "Screenlets daemon"
-msgstr ""
+msgstr "Δαίμονας Screenlets"
 
 #. create top menuitems
 #. name/version of this app
@@ -50,11 +50,11 @@ msgstr "Κλείσιμο όλων των Screenlets"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:144
 msgid "Restart all Screenlets"
-msgstr ""
+msgstr "Επανεκκίνηση όλων των Screenlets"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:147
 msgid "Quit the Screenlets"
-msgstr ""
+msgstr "Έξοδος από τα Screenlets"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:219
 #: src/share/screenlets-manager/screenlets-manager.py:605
@@ -110,6 +110,8 @@ msgid ""
 "Do you really want to permanently uninstall and delete the %sScreenlet from "
 "your system?"
 msgstr ""
+"Θέλετε πραγματικά να απεγκαταστήσετε μόνιμα και να διαγράψετε το Screenlet "
+"%s από το σύστημά σας;"
 
 #: src/share/screenlets-manager/screenlets-manager.py:160
 msgid "Delete Screenlet"
@@ -127,6 +129,7 @@ msgstr "Αδυναμία διαγραφής καθολικών screenlets του
 #, python-format
 msgid "Do you really want to reset the %sScreenlet configuration?"
 msgstr ""
+"Θέλετε πραγματικά να επαναφέρετε τις αρχικές ρυθμίσεις του %sScreenlet;"
 
 #: src/share/screenlets-manager/screenlets-manager.py:269
 msgid "Reset Screenlet"
@@ -324,11 +327,11 @@ msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
 msgid "Install SuperKaramba Theme"
-msgstr ""
+msgstr "Εγκατάσταση του Θέματος SuperKaramba"
 
 #: src/share/screenlets-manager/screenlets-manager.py:912
 msgid "Convert Web Widget"
-msgstr ""
+msgstr "Μετατροπή του Web Widget"
 
 #: src/share/screenlets-manager/screenlets-manager.py:913
 #: src/share/screenlets-manager/screenlets-manager.py:1020
@@ -449,6 +452,8 @@ msgid ""
 "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
 "Usage: screenlets-packager <path> [options]"
 msgstr ""
+"Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
+"Χρήση: screenlets-packager <path> [options]"
 
 #: src/share/screenlets-manager/screenlets-packager.py:70
 #, python-format
@@ -484,6 +489,7 @@ msgstr "Βρέθηκε το %sScreenlet.py στη διαδρομή."
 #, python-format
 msgid "Unable to import module '%(name)s' from %(path)s. (%(error)s)"
 msgstr ""
+"Αδυναμία εισαγωγής του αρθρώματος '%(name)s' από %(path)s. (%(error)s)"
 
 #: src/share/screenlets-manager/screenlets-packager.py:93
 #, python-format
@@ -541,6 +547,8 @@ msgid ""
 "The %(slet)sScreenlet is already installed in '%(dir)s'.\n"
 "Do you wish to continue?"
 msgstr ""
+"Τα %(slet)sScreenlet είναι ήδη εγκατεστημένα στο '%(dir)s'.\n"
+"Θέλετε να συνεχίσετε?"
 
 #: src/lib/install.py:127 src/lib/install.py:193
 #, python-format
@@ -628,9 +636,124 @@ msgstr ""
 msgid "Failed to add %sScreenlet."
 msgstr "Αποτυχία προσθήκης %sScreenlets."
 
+#~ msgid "screenletsDaemon: unregistered %s"
+#~ msgstr "ScreenletsDaemon: μη καταχωρημένα %s"
+
+#~ msgid "ScreenletsDaemon: registered %s"
+#~ msgstr "ScreenletsDaemon: καταχωρημένα %s"
+
+#~ msgid "ScreenletsDaemon running ..."
+#~ msgstr "Ο δαίμονας των Screenlets εκτελείται..."
+
+#~ msgid "Exception in ScreenletsDaemon: %s"
+#~ msgstr "Εξαίρεση στον δαίμονα των Screenlets: %s"
+
+#~ msgid "ScreenletsDaemon has been shut down ..."
+#~ msgstr "Ο δαίμονας των Screenlets έχει τερματιστεί..."
+
+#~ msgid "Invalid archive. Archive does not contain a screenlet."
+#~ msgstr "Μη έγκυρο αρχείο. Δεν περιέχει κανένα screenlet"
+
+#~ msgid "Archive damaged or unsuported, only tar , bz2 or gz."
+#~ msgstr ""
+#~ "Κατεστραμμένο ή μη υποστηριζόμενο αρχείο, μόνον αρχεία tar, bz2 ή gz."
+
+#~ msgid "It looks like you are running %s"
+#~ msgstr "Φαίνεται σαν να εκτελείτε %s"
+
+#~ msgid ""
+#~ "The %sScreenlet is already installed in '%s'.\n"
+#~ "Do you wish to continue?"
+#~ msgstr ""
+#~ "Το %sScreenlet είναι ήδη εγκατεστημένο στο '%s'.\n"
+#~ "Θέλετε να συνεχίσετε;"
+
+#~ msgid "Installing %s"
+#~ msgstr "Εγκατάσταση %s"
+
+#~ msgid "Trying to launching screenlets-daemon ..."
+#~ msgstr "Προσπάθεια φόρτωσης του δαίμονα των screenlets..."
+
+#~ msgid "Starter already exists."
+#~ msgstr "Ο εκκινητής υπάρχει ήδη."
+
+#~ msgid "Auto-create autostart dir ..."
+#~ msgstr "Αυτόματη δημιουργία καταλόγου αυτόματης εκκίνησης..."
+
+#~ msgid "Create autostarter for: Screenlets Daemon"
+#~ msgstr "Δημιουργία αυτόματου εκκινητή για: Δαίμονα των Screenlets"
+
+#~ msgid "Failed to create autostarter for %s."
+#~ msgstr "Αποτυχία δημιουργίας αυτόματου εκκινητή για %s."
+
+#~ msgid "Create autostarter for: %s/%sScreenlet.py"
+#~ msgstr "Δημιουργία αυτόματου εκκινητή για: %s/%sScreenlet.py"
+
+#~ msgid "Removed duplicate entry"
+#~ msgstr "Αφαιρέθηκε μια διπλή καταχώρηση"
+
+#~ msgid "Delete autostarter for %s."
+#~ msgstr "Διαγραφή αυτόματου εκκινητή για %s."
+
+#~ msgid "DAEMON FOUND - Ending timeout"
+#~ msgstr "Ο ΔΑΙΜΟΝΑΣ ΒΡΕΘΗΚΕ - Λήξη χρόνου"
+
+#~ msgid "checking for running daemon again ..."
+#~ msgstr "έλεγχος για την εκτέλεση του δαίμονα και πάλι..."
+
+#~ msgid "Error in ScreenletsManager.connect_daemon: %s"
+#~ msgstr "Σφάλμα στον Διαχειριστή των Screenlets.connect_daemon: %s"
+
+#~ msgid "Error: Unable to connect/launch daemon."
+#~ msgstr "Σφάλμα: Αδυναμία σύνδεσης/φόρτωσης του δαίμονα."
+
+#~ msgid "Please install screenlets from folders without strange characters"
+#~ msgstr ""
+#~ "Παρακαλώ εγκαταστήστε screenlets από φακέλους χωρίς παράξενους χαρακτήρες"
+
+#~ msgid "Data dropped ..."
+#~ msgstr "Απορριφθέντα δεδομένα..."
+
 #~ msgid ""
 #~ "You are about to install a theme in root mode. Continue only if you have "
 #~ "gksudo installed, do you wish to continue?"
 #~ msgstr ""
 #~ "Πρόκειται να εγκαταστήσετε ένα θέμα σε λειτουργία root. Συνεχίστε μόνον εάν "
 #~ "έχετε εγκατεστημένο το gksudo. Θέλετε να συνεχίσετε;"
+
+#~ msgid "list contains themes folder"
+#~ msgstr "η λίστα περιέχει φάκελο των θεμάτων"
+
+#~ msgid "list contains the screenlet name folder"
+#~ msgstr "η λίστα περιέχει το όνομα φακέλου του screenlet"
+
+#~ msgid "only contains the themes folders"
+#~ msgstr "περιέχει μόνον τους φακέλους των θεμάτων"
+
+#~ msgid "Create desktop shortcut for: %s/%sScreenlet.py"
+#~ msgstr "Δημιουργία συντόμευσης επιφάνειας εργασίας για: %s/%sScreenlet.py"
+
+#~ msgid "closing %s"
+#~ msgstr "κλείσιμο %s"
+
+#~ msgid "Quit %s"
+#~ msgstr "Έξοδος %s"
+
+#~ msgid "Launch %s"
+#~ msgstr "Εκτέλεση %s"
+
+#~ msgid "Quit!"
+#~ msgstr "Έξοδος!"
+
+#~ msgid ""
+#~ "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
+#~ "Usage: %s <path> [options]"
+#~ msgstr ""
+#~ "Συσκευαστής των screenlets - - (c) RYX (Rico Pfaus) 2007\n"
+#~ "Χρήση: %s <path> [επιλογές]"
+
+#~ msgid "OK."
+#~ msgstr "Εντάξει."
+
+#~ msgid "Unable to import module '%s' from %s. (%s)"
+#~ msgstr "Αδυναμία εισαγωγής του αρθρώματος '%s' από το %s. (%s)"

@@ -24,6 +24,7 @@ Depends: ${misc:Depends},
          python-dbus,
          python-cairo,
          python-wnck | python-gnome2-desktop,
+         python-rsvg | python-gnome2-desktop,
          python-gst0.10,
          python-xdg,
          python-gconf

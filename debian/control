@@ -24,12 +24,12 @@ Depends: ${misc:Depends},
          python-dbus,
          python-cairo,
          python-wnck | python-gnome2-desktop,
-         python-rsvg | python-gnome2-desktop,
          python-gst0.10,
          python-xdg,
          python-gconf
 Recommends: python-gtkmozembed | python-gnome2-extras (<< 2.19),
             python-evolution | python-gnome2-desktop,
+            python-rsvg | python-gnome2-desktop,
             metacity (>= 2.21.4) | xcompmgr | compiz | xfwm4 (>= 4.2) | mutter,
             screenlets-pack-basic,
 Suggests:	screenlets-pack-all

@@ -8,20 +8,20 @@ msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-17 14:51+0900\n"
-"PO-Revision-Date: 2010-11-12 09:57+0000\n"
-"Last-Translator: Kőrösi Krisztián <koeroesi86@gmail.com>\n"
+"PO-Revision-Date: 2010-12-26 17:52+0000\n"
+"Last-Translator: Papp Bence <papp.bence89@gmail.com>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-12-10 04:43+0000\n"
+"X-Launchpad-Export-Date: 2010-12-27 04:31+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "Language: hu\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
 #: src/lib/__init__.py:99
 msgid "http://www.screenlets.org/index.php/Get_more_screenlets"
-msgstr ""
+msgstr "http://www.screenlets.org/index.php/Get_more_screenlets"
 
 #. default meta-info for Screenlets
 #: src/lib/__init__.py:609
@@ -30,15 +30,15 @@ msgstr "Nincs név beállítva ennél a Screenletnél"
 
 #: src/lib/__init__.py:611
 msgid "No author defined for this Screenlet"
-msgstr "Nincs meghatározva szerző ennél a Screenletnél."
+msgstr "Nincs meghatározva szerző ennél a Screenletnél"
 
 #: src/lib/__init__.py:612
 msgid "No info set for this Screenlet"
-msgstr "Nincs információ megadva ennél a Screenletnél."
+msgstr "Nincs információ megadva ennél a Screenletnél"
 
 #: src/lib/__init__.py:720
 msgid "The basic settings for this Screenlet-instance."
-msgstr "Az alap beállítosok ehhez a Screenlet-példához."
+msgstr "Az alap beállítások ehhez a Screenlet-példához."
 
 #: src/lib/__init__.py:735
 msgid "X-Position"
@@ -54,7 +54,7 @@ msgstr "Y-pozíció"
 
 #: src/lib/__init__.py:738
 msgid "The Y-position of this Screenlet ..."
-msgstr "A Screenlet Y-pozicója ..."
+msgstr "A Screenlet Y-pozícója ..."
 
 #: src/lib/__init__.py:741
 msgid "Width"
@@ -78,7 +78,7 @@ msgstr "Méretarány"
 
 #: src/lib/__init__.py:747
 msgid "The scale-factor of this Screenlet ..."
-msgstr "A méretarány szorzója ennek a Screenlet-nek"
+msgstr "A méretarány szorzója ennek a Screenletnek ..."
 
 #: src/lib/__init__.py:750
 msgid "Opacity"
@@ -94,23 +94,23 @@ msgstr "Hozzátapad az Asztalhoz"
 
 #: src/lib/__init__.py:754
 msgid "Show this Screenlet on all workspaces ..."
-msgstr "Mutassa ezt a Screenletet az összes munkateürleten ..."
+msgstr "Mutassa ezt a Screenletet az összes munkaterületen ..."
 
 #: src/lib/__init__.py:756
 msgid "Treat as Widget"
-msgstr "Kezelje Felületi elemként"
+msgstr "Kezelje Widgetként"
 
 #: src/lib/__init__.py:757
 msgid "Treat this Screenlet as a \"Widget\" ..."
-msgstr "\"Felületi elemként\" kezeli ezt a Screenletet ..."
+msgstr "\"Widgetként\" kezeli ezt a Screenletet ..."
 
 #: src/lib/__init__.py:765
 msgid "Lock position"
-msgstr "Pozició Zárolása"
+msgstr "Pozíció zárolása"
 
 #: src/lib/__init__.py:766
 msgid "Stop the screenlet from being moved..."
-msgstr "A Screenlet megállítása mozgatás közben..."
+msgstr "A Screenlet megállítása mozgatása közben..."
 
 #. add "Keep above"-menuitem
 #: src/lib/__init__.py:768 src/lib/__init__.py:1085
@@ -144,7 +144,7 @@ msgstr "Ablaklista mellőzése"
 
 #: src/lib/__init__.py:778
 msgid "Set this Screenlet to show/hide in pagers ..."
-msgstr "A Screenlet megjelenítése/elrejtése az ablaklistából"
+msgstr "A Screenlet megjelenítése/elrejtése az ablaklistából ..."
 
 #: src/lib/__init__.py:780
 msgid "Skip Taskbar"
@@ -152,7 +152,7 @@ msgstr "Tálca kihagyása"
 
 #: src/lib/__init__.py:781
 msgid "Set this Screenlet to show/hide in taskbars ..."
-msgstr "A Screenletet megjeleníti/elrejti a tálcáról..."
+msgstr "A Screenletet megjeleníti/elrejti a tálcáról ..."
 
 #: src/lib/__init__.py:783
 msgid "Resize on mouse scroll"
@@ -160,19 +160,19 @@ msgstr "Egér görgetésre átméreteződik"
 
 #: src/lib/__init__.py:785
 msgid "Ignore requirements"
-msgstr ""
+msgstr "Függőségek mellőzése"
 
 #: src/lib/__init__.py:786
 msgid "Set this Screenlet to ignore/demand DEB requirements ..."
-msgstr ""
+msgstr "A Screenlet mellőzi/kéri a DEB függőségeket"
 
 #: src/lib/__init__.py:790
 msgid "Allow overriding Options"
-msgstr "Felülírás engedélyezése"
+msgstr "Felülírás opció engedélyezése"
 
 #: src/lib/__init__.py:791
 msgid "Allow themes to override options in this screenlet ..."
-msgstr "Engedélyezi a témának a screenlet beállításainak felülírását ..."
+msgstr "Engedélyezi a témának a Screenlet beállításainak felülírását ..."
 
 #: src/lib/__init__.py:793
 msgid "Ask on Override"
@@ -180,16 +180,16 @@ msgstr "Rákérdez felülíráskor"
 
 #: src/lib/__init__.py:794
 msgid "Show a confirmation-dialog when a theme wants to override "
-msgstr "Egy ablak jelenik meg ha egy téma felül akar írni "
+msgstr "Egy igazoló ablak jelenik meg, ha egy téma felül akar írni "
 
 #: src/lib/__init__.py:795
 msgid "the current options of this Screenlet ..."
-msgstr "A screenlet aktuális beállításai ..."
+msgstr "a Screenlet aktuális beállításai ..."
 
 #. version of the deb package if unspecified
 #: src/lib/__init__.py:988
 msgid "?"
-msgstr ""
+msgstr "?"
 
 #: src/lib/__init__.py:993
 #, python-format
@@ -197,6 +197,8 @@ msgid ""
 "\n"
 "%(package)s %(version)s required, NOT INSTALLED!"
 msgstr ""
+"\n"
+"%(package)s %(version)s szükséges, NINCS TELEPÍTVE!"
 
 #: src/lib/__init__.py:996
 #, python-format
@@ -204,6 +206,8 @@ msgid ""
 "\n"
 "%(package)s %(version)s installed, req %(required)s."
 msgstr ""
+"\n"
+"%(package)s %(version)s telepítve, %(required)s kérte."
 
 #: src/lib/__init__.py:1006
 #, python-format
@@ -214,6 +218,11 @@ msgid ""
 "REQUIREMENTS:\n"
 "%s"
 msgstr ""
+"A Screenlet függőségei nincsenek teljesítve! Használja a rendszere "
+"csomagkezelőjét, hogy telepítse a szükséges csomagokat.\n"
+"\n"
+"FÜGGŐSÉGEK:\n"
+"%s"
 
 #: src/lib/__init__.py:1028
 msgid "Size"
@@ -240,7 +249,7 @@ msgstr "Ragadós"
 #. add "Widget"-menuitem
 #: src/lib/__init__.py:1078
 msgid "Widget"
-msgstr "Felületi elem"
+msgstr "Widget"
 
 #: src/lib/__init__.py:1102
 msgid "Properties..."
@@ -253,28 +262,29 @@ msgstr "Infó..."
 #: src/lib/__init__.py:1109
 #, python-format
 msgid "Add one more %s"
-msgstr ""
+msgstr "Még egy hozzáadása %s"
 
 #: src/lib/__init__.py:1112
 #, python-format
 msgid "Delete this %s"
-msgstr ""
+msgstr "Törli ezt %s"
 
 #: src/lib/__init__.py:1116
 #, python-format
 msgid "Quit this %s"
-msgstr ""
+msgstr "Kilépés ebből %s"
 
 #: src/lib/__init__.py:1119
 #, python-format
 msgid "Quit all %ss"
-msgstr ""
+msgstr "Kilépés az összesből %ss"
 
 #: src/lib/__init__.py:1370
 msgid ""
 "This theme wants to override your settings for this Screenlet. Do you want "
 "to allow that?"
-msgstr "A téma felül akarja írni a Screenlet beállításai. Engedélyezi ezt?"
+msgstr ""
+"A téma felül akarja írni az ön Screenlet beállításait. Engedélyezi ezt?"
 
 #: src/lib/__init__.py:1572
 #, python-format
@@ -304,7 +314,7 @@ msgid ""
 "Themes allow you to easily switch the appearance of your Screenlets. On this "
 "page you find a list of all available themes for this Screenlet."
 msgstr ""
-"A témák segítenek s Screenletek kinézetének váltásában. Ebben a listában "
+"A témák segítenek a Screenletek kinézetének váltásában. Ebben a listában "
 "megtalálod ennek a Screenletnek minden elérhető kinézetét."
 
 #: src/lib/options.py:903
@@ -313,27 +323,27 @@ msgstr "Témák "
 
 #: src/lib/options.py:916
 msgid "no info available"
-msgstr "Nincs megadott információ"
+msgstr "nincs elérhető információ"
 
 #: src/lib/options.py:1007
 msgid "Choose File"
-msgstr "Fájl Választás"
+msgstr "Válasszon fájlt"
 
 #: src/lib/options.py:1016
 msgid "Choose Directory"
-msgstr "Könyvtár Választás"
+msgstr "Válasszon mappát"
 
 #: src/lib/options.py:1042
 msgid "Choose Image"
-msgstr "Kép Választás"
+msgstr "Válasszon képet"
 
 #: src/lib/options.py:1109
 msgid "Open List-Editor ..."
-msgstr "Lista-szerkesztő megnyitása"
+msgstr "Lista-szerkesztő megnyitása ..."
 
 #: src/lib/options.py:1130
 msgid "Apply username/password ..."
-msgstr "Engedély felhasználónév/jelszó"
+msgstr "Felhasználónév/jelszó alkalmazása ..."
 
 #: src/lib/options.py:1131
 msgid "Enter username here ..."
@@ -350,7 +360,7 @@ msgstr "Alkalmaz"
 #: src/lib/sensors.py:168
 #, python-format
 msgid "%(days)s days, %(hours)s hours and %(minutes)s minutes"
-msgstr ""
+msgstr "%(days)s nap, %(hours)s óra és %(minutes)s perc"
 
 #: src/lib/sensors.py:288
 msgid "Can't get kernel version"
@@ -370,17 +380,20 @@ msgstr "Nem tudtam megnyitni: /proc/version"
 
 #: src/lib/sensors.py:529
 msgid "Cannot get ip"
-msgstr "Nem tudom megállípítani az ip-t"
+msgstr "Nem tudtam megállapítani az ip-t"
 
 #: src/lib/sensors.py:598 src/lib/sensors.py:611
 msgid "Not connected"
-msgstr "Nincs kapcsolat"
+msgstr "Nincs kapcsolódva"
 
 #~ msgid "Version: "
 #~ msgstr "Verzió: "
 
 #~ msgid "Info: "
 #~ msgstr "Információ: "
+
+#~ msgid "Failed to load theme.conf"
+#~ msgstr "Sikertelen a téma.conf betöltése"
 
 #~ msgid "Name: "
 #~ msgstr "Név: "
@@ -453,6 +466,57 @@ msgstr "Nincs kapcsolat"
 #~ msgid "Error while creating image from file: %s"
 #~ msgstr "Hiba a kép létrehozása közben: %s"
 
+#~ msgid "Override: "
+#~ msgstr "Felülír: "
+
+#~ msgid "Screenlet: Set theme %s"
+#~ msgstr "Screenlet: Téma beállítva %s"
+
+#~ msgid "theme.conf found! Loading option-overrides."
+#~ msgstr "A theme.conf megtalálva! A beállítások felülírása."
+
+#~ msgid "Quit this %s ..."
+#~ msgstr "Kilépés ebből: %s ..."
+
+#~ msgid "Delete Screenlet ..."
+#~ msgstr "Screenlet Törlése ..."
+
+#~ msgid "An error occured with desktop-file: %s"
+#~ msgstr "Hiba lépett fel egy helyi fájllal: %s"
+
+#~ msgid "Start drag"
+#~ msgstr "Cipelés indítása"
+
+#~ msgid "End drag"
+#~ msgstr "Cipelés befejezése"
+
+#~ msgid "Cancel delete_event"
+#~ msgstr "Törlés visszavonása"
+
+#~ msgid "CachingBackend: Loading instances from cache"
+#~ msgstr "CachingBackend: Kérelmek betöltése a cache-ből"
+
+#~ msgid "Error: Cannot set missing or non-boolean value '"
+#~ msgstr "Hiba: Nem lehet beállítani hiányos, vagy nem logikai érték mmiatt '"
+
+#~ msgid "Quitting current screenlet instance"
+#~ msgstr "Kilépés az aktuális Screenlet-ből"
+
+#~ msgid "CachingBackend: Loading <%s>"
+#~ msgstr "CachingBackend: <%s> betöltése"
+
+#~ msgid "Error while loading options: %s"
+#~ msgstr "Hiba a következő beállításainak betöltésénél: %s"
+
+#~ msgid "Temporary file didn't exist - nothing to remove."
+#~ msgstr "Ideiglenes fájl nem található - nincs mit eltávolítani."
+
+#~ msgid "CachingBackend: <#%s> removed!"
+#~ msgstr "CachingBackend: <#%s> eltávolítva!"
+
+#~ msgid "GConfBackend: initializing"
+#~ msgstr "GconfBackend: betöltés"
+
 #~ msgid "No keyrings found. Please create one first!"
 #~ msgstr "Nem található billentyűparancs. Először hozz létre egyet!"
 
@@ -463,8 +527,37 @@ msgstr "Nincs kapcsolat"
 #~ msgid "GnomeKeyring is not available!!"
 #~ msgstr "GnomeKeyring nem elérhető"
 
+#~ msgid "ERROR: Unable to read password from keyring: %s"
+#~ msgstr "HIBA: Nem lehet beolvasni a billentyűparancs jelszavát: %s"
+
+#~ msgid "Options: Error - group %s not defined."
+#~ msgstr "Beállítások: Hiba - a %s csoport nem definiált."
+
 #~ msgid "Illegal value in AccountOption.on_import."
 #~ msgstr "Érvénytelen érték az AccountOption.on_import-ban."
+
+#~ msgid "Warning: No default keyring found, storage is not permanent!"
+#~ msgstr ""
+#~ "Figyelmeztetés: Nincs alapértelmezett billentyűparancs, a tároló nem "
+#~ "folyamatos!"
+
+#~ msgid "Error during on_import - option: %s."
+#~ msgstr "Hiba a beállítás importálásánál: %s"
+
+#~ msgid "Queue-element <%s> not found (already removed?)!"
+#~ msgstr "A sorbaállított <%s> nem található (talán törölve lett?!) !"
+
+#~ msgid "CachingBackend: Saving <#%s> :) ..."
+#~ msgstr "CachingBackend: <#%s> mentése..."
+
+#~ msgid "PRESS: %s"
+#~ msgstr "Nyomd meg: %s"
+
+#~ msgid "Failed to open /proc/sys/kernel/hostname"
+#~ msgstr "Nem tudtam megnyitni: /proc/sys/kernel/hostname"
+
+#~ msgid "Changed: %s"
+#~ msgstr "Módosítva: %s"
 
 #, python-format
 #~ msgid "No name for group defined in \"%s\"."
@@ -486,11 +579,26 @@ msgstr "Nincs kapcsolat"
 #~ msgid "Invalid option-node found in \"%s\"."
 #~ msgstr "Érvénytelen beállítás a \"%s\"-ben"
 
+#~ msgid "Path %s not found."
+#~ msgstr "Az elérési út nem található: %s"
+
+#~ msgid "OptionsDialog: Unknown option type: %s"
+#~ msgstr "OptionsDialog: Ismeretlen beállítás típus: %s"
+
 #~ msgid "Can't open /proc/net/dev"
 #~ msgstr "Nem tudtam megnyitni: /proc/net/dev"
 
+#~ msgid "Failed to open /proc/loadavg"
+#~ msgstr "Nem tudtam megnyitni: /proc/loadavg"
+
+#~ msgid "Failed to open /proc/swaps"
+#~ msgstr "Nem tudtam megnyitni: /proc/swaps"
+
 #~ msgid "Can't parse /proc/meminfo"
 #~ msgstr "Nem tudtam elemezni: /proc/meminfo"
+
+#~ msgid "Error getting distro name"
+#~ msgstr "Hiba a disztró nevének betöltésénél"
 
 #~ msgid "Can't open /proc/net/wireless"
 #~ msgstr "Nem tudtam megnyitni: /proc/net/wireless"
@@ -523,12 +631,29 @@ msgstr "Nincs kapcsolat"
 #~ msgid "No name set in ScreenletService.__init__!"
 #~ msgstr "Nincs név beállítva a ScreenletService.__init__-ben!"
 
+#~ msgid "CPUSensor: Failed to open /proc/stat. Sensor stopped."
+#~ msgstr ""
+#~ "CPUSensor: Sikertelen megnyitása a /proc/stat-nak. Az érzékelő le van "
+#~ "állítva."
+
+#~ msgid "Error in screenlets.session.connect_daemon: %s"
+#~ msgstr "Hiba a screenlets.session.connect_daemon-ban: %s"
+
+#~ msgid "Creating new instance: "
+#~ msgstr "Új folyamat létrehozása: "
+
+#~ msgid "Unable to init backend - settings will not be saved!"
+#~ msgstr "Sikertelen a felület betöltése - a beállítások nem lesznek mentve!"
+
 #~ msgid ""
 #~ "ScreenletSession.__init__ has to be called with a\n"
 #~ "\t\t\t valid Screenlet-classobject as first argument!"
 #~ msgstr ""
 #~ "ScreenletSession.__init__ meg kell hogy legyen nyitva\n"
 #~ "\t\t\t érvényes Screenlet-classobject mint első argumentum!"
+
+#~ msgid "Error in screenlets.services.get_service_by_name: %s"
+#~ msgstr "Hiba a screenlets.services.get_service_by_name-ben: %s"
 
 #, python-format
 #~ msgid "Trying to access invalid option \"%s\"."
@@ -537,6 +662,130 @@ msgstr "Nincs kapcsolat"
 #, python-format
 #~ msgid "Trying to access invalid instance \"%s\"."
 #~ msgstr "Érvénytelen folyamathoz próbáltam hozzáférni: %s"
+
+#~ msgid "Cannot get/set protected options through service."
+#~ msgstr "Nem sikerült betölteni/beállítani a védett beállításokat."
+
+#~ msgid "DEBUG: %s"
+#~ msgstr "HIBAELHÁRÍTÁS: %s"
+
+#~ msgid "TEST: %s"
+#~ msgstr "TESZT: %s"
+
+#~ msgid "ID is unset or already in use - creating new one!"
+#~ msgstr "ID nincs beállítva, vagy már hasznlatban van - új létrehozása!"
+
+#~ msgid "Failed to remove INI-file for instance (not critical)."
+#~ msgstr "Sikertelen INI fájl eltávolítás (nem kritikus)."
+
+#~ msgid "Removing instance from session but staying alive"
+#~ msgstr "Munkafolyamat eltávolítása a munkamenetből, de ébren maradás"
+
+#~ msgid "TODO: remove self.path: %s"
+#~ msgstr "TODO: self.path eltávolítás: %s"
+
+#~ msgid "Removing last instance from session"
+#~ msgstr "Utolsó futás eltávolítása a munkafolyamatokból"
+
+#~ msgid "Adding new instance through: %s"
+#~ msgstr "Hozzáadok egy új folyamatot: %s"
+
+#~ msgid "Found a running session of %s, adding new instance by service."
+#~ msgstr "Futó munkamenetét találtam a %s-nek, hozzáadok egy újat."
+
+#~ msgid "File: %s"
+#~ msgstr "Fájl: %s"
+
+#~ msgid "Set options in %s"
+#~ msgstr "Beállítás a %s-ben"
+
+#~ msgid "Failed to remove session dir '%s' - not empty?"
+#~ msgstr "Nem sikerült eltávolítani a '%s' könyvtárat - nem üres?"
+
+#~ msgid "No global tempdir found, creating new one."
+#~ msgstr "Nincs globális ideiglenes tároló, csinálok egyet."
+
+#~ msgid "Screenlet has already been added to %s"
+#~ msgstr "Screenlet már hozzáadva a %s-hez"
+
+#~ msgid "Restored instances from session '%s' ..."
+#~ msgstr "Folyamatok visszaállítva a '%s' munkamenetből..."
+
+#~ msgid "Unable to open %s"
+#~ msgstr "%s megnyitása sikertelen"
+
+#~ msgid "Failed creating instance of: %s"
+#~ msgstr "Sikertelen folyamat létrehozás: %s"
+
+#~ msgid "No instance(s) found in session-path, creating new one."
+#~ msgstr "Nem találtam folyamatot a munkamenetben tárolva, újat készítek."
+
+#~ msgid "Loading instances in: %s"
+#~ msgstr "Folyamatok betöltése: %s"
+
+#~ msgid "Temp directory %s created."
+#~ msgstr "Ideiglenes mappa létrehozva: %s"
+
+#~ msgid "Creating new entry for %s in %s"
+#~ msgstr "Új elem hozzáadása a %s-hoz a %s-ben"
+
+#~ msgid ""
+#~ "Error: Unable to create temp directory %s - screenlets-manager will not work "
+#~ "properly."
+#~ msgstr ""
+#~ "Hiba: Nem sikerült ideiglenes mappát csinálnom %s-ben - screenlets-manager "
+#~ "nem fog megfelelően működni."
+
+#~ msgid "Failed to create instance of '%s'!"
+#~ msgstr "Nem sikerült a folyamatot létrehozni: %s!"
+
+#~ msgid "Deleting global tempfile %s"
+#~ msgstr "Ideiglenes fájl (%s) törlése"
+
+#~ msgid "Error: Failed to delete global tempfile"
+#~ msgstr "Hiba az ideiglenes fájl megnyitása közben"
+
+#~ msgid "Failed to unregister from daemon: %s"
+#~ msgstr "Nem sikerült leregisztrálni a démonról: %s"
+
+#~ msgid "Removing entry for %s from global tempfile %s"
+#~ msgstr "%s elem eltávolítása a globális ideiglenes %s fájlból"
+
+#~ msgid "Entry not found. Will (obviously) not be removed."
+#~ msgstr "Elem nem található. Ezek szerint nem lesz eltávolítva."
+
+#~ msgid "Error global tempfile not found. Some error before?"
+#~ msgstr "Nem találtam ideiglenes fájlt. Volt ez előtt hiba?"
+
+#~ msgid ""
+#~ "Screenlet '%s' has been interrupted by keyboard. TODO: make this an event"
+#~ msgstr ""
+#~ "A '%s' Screenlet meg lett szakítva a billentyűzettel. TODO: eseménnyé "
+#~ "alakítom"
+
+#~ msgid "No more screenlets running."
+#~ msgstr "Nincs több futó screenlet."
+
+#~ msgid "No screenlets running?"
+#~ msgstr "Nem fut egy screenlet sem?"
+
+#~ msgid "Notify: No DBus running or notifications-daemon unavailable."
+#~ msgstr "Értesítés: DBus nem fut, vagy a notifications-daemon nem elérhető."
+
+#~ msgid "Section %s not found!"
+#~ msgstr "%s csoport nem található!"
+
+#~ msgid "LISTED PATH NOT EXISTS: "
+#~ msgstr "A listázott elérési út nem létezik: "
+
+#~ msgid "Unable to load '%s' from %s: %s "
+#~ msgstr "Nem sikerült betölteni a '%s'-t a %s-ből: %s "
+
+#~ msgid "Exception in ScreenletSession: "
+#~ msgstr "Kivétel a ScreenletSession-ben: "
+
+#~ msgid "File %s not found"
+#~ msgstr "A %s fájl nem található"
 
 #~ msgid "UPDATING SHAPE"
 #~ msgstr "ALAKZAT FRISSÜL"

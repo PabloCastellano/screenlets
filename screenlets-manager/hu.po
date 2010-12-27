@@ -8,19 +8,19 @@ msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-17 14:51+0900\n"
-"PO-Revision-Date: 2010-11-12 14:13+0000\n"
-"Last-Translator: Barnabas <szekeresbarnabas@gmail.com>\n"
+"PO-Revision-Date: 2010-12-26 17:19+0000\n"
+"Last-Translator: Papp Bence <papp.bence89@gmail.com>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-12-10 04:44+0000\n"
+"X-Launchpad-Export-Date: 2010-12-27 04:31+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "Language: hu\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
 msgid "Screenlets daemon"
-msgstr ""
+msgstr "Screenlets daemon"
 
 #. create top menuitems
 #. name/version of this app
@@ -28,7 +28,7 @@ msgstr ""
 #: src/share/screenlets-manager/screenlets-manager.py:49
 #: src/share/screenlets-manager/screenlets-manager.py:1312
 msgid "Screenlets Manager"
-msgstr "Screenlets Beállításkezelő"
+msgstr "Screenlet Beállításkezelő"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:132
 #: src/share/screenlets-manager/screenlets-manager.py:910
@@ -50,7 +50,7 @@ msgstr "Összes Screenlet Bezárása"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:144
 msgid "Restart all Screenlets"
-msgstr ""
+msgstr "Összes Screenlet Újraindítása"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:147
 msgid "Quit the Screenlets"
@@ -65,15 +65,15 @@ msgid ""
 "distributing this software you agree to the terms and conditions of this "
 "license. Thank you for using free software!"
 msgstr ""
-"A program GNU General Public Licensz verzió 3 szerint lett kiadva (vagy "
-"annál késöbbi verzió). Meg találja a teljes szöveget a liszencben a "
-"következő címen http://www.gnu.org/licenses/gpl.txt.  A program szabadon "
-"felhasználható, terjeszthető és módosítható a liszenc szerint. Köszönjük, "
-"hogy szabad szoftvert használ."
+"A program GNU General Public License 3. verzió szerint lett kiadva (vagy "
+"annál későbbi verzió). Megtalálja a teljes szöveget a licenszben a következő "
+"címen http://www.gnu.org/licenses/gpl.txt.  A program szabadon "
+"felhasználható, terjeszthető és/vagy módosítható a licensz feltételei és "
+"kikötései szerint. Köszönjük, hogy szabad szoftvert használ!"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:251
 msgid "Install a Screenlet"
-msgstr "Screenlet telepítése"
+msgstr "Screenlet Telepítése"
 
 #: src/share/screenlets-manager/screenlets-manager.py:100
 msgid ""
@@ -105,14 +105,16 @@ msgid ""
 "Do you really want to permanently uninstall and delete the %sScreenlet from "
 "your system?"
 msgstr ""
+"Biztos benne, hogy véglegesen eltávolítja és törli a %sScreenletet a "
+"rendszeréről?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:160
 msgid "Delete Screenlet"
-msgstr "Screenlet törlése"
+msgstr "Screenlet Törlése"
 
 #: src/share/screenlets-manager/screenlets-manager.py:165
 msgid "Do you also want to remove the Screenlet configuration files?"
-msgstr "Elszeretné távolítani a Screenlet beállító fájlját?"
+msgstr "Elszeretné távolítani a Screenlet beállító fájljait is?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:169
 msgid "Can't delete system-wide screenlets."
@@ -121,11 +123,11 @@ msgstr "Az alap screenletek nem törölhetőek."
 #: src/share/screenlets-manager/screenlets-manager.py:269
 #, python-format
 msgid "Do you really want to reset the %sScreenlet configuration?"
-msgstr ""
+msgstr "Biztos benne, hogy újraindítja a %sScreenlet konfigurációt?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:269
 msgid "Reset Screenlet"
-msgstr "Screenlet újraindítása"
+msgstr "Screenlet Újraindítása"
 
 #: src/share/screenlets-manager/screenlets-manager.py:358
 msgid "Launch/Add"
@@ -184,8 +186,7 @@ msgstr "Betölt/Hozzáad egy új példányt a kiválasztott Screenletből..."
 msgid ""
 "Install a new Screenlet, SuperKaramba or Web Widget or Web Application  ..."
 msgstr ""
-"Új Screenlet, SuperKaramba, Webes Felületi Elem vagy Webes Alkalmazás "
-"telepítése ..."
+"Új Screenlet, SuperKaramba, Webes Widget vagy Webes Alkalmazás telepítése ..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:421
 msgid "Permanently uninstall/delete the currently selected Screenlet ..."
@@ -211,11 +212,11 @@ msgstr "Az összes futó Screenlet bezárása"
 
 #: src/share/screenlets-manager/screenlets-manager.py:426
 msgid "New Screenlets Options/Properties"
-msgstr "Új screenlet beállítása/tulajdonságai"
+msgstr "Új Screenlet Beállításai/Tulajdonságai"
 
 #: src/share/screenlets-manager/screenlets-manager.py:427
 msgid "Create a Desktop shortcut for this Screenlet"
-msgstr "Inditóikon készítese a Screenlethez"
+msgstr "Inditóikon készítese ehez  a Screenlethez"
 
 #: src/share/screenlets-manager/screenlets-manager.py:446
 msgid "All Screenlets"
@@ -235,7 +236,7 @@ msgstr "Csak az alap Screenletek"
 
 #: src/share/screenlets-manager/screenlets-manager.py:450
 msgid "Only third party"
-msgstr "Csak a mástól számarzók"
+msgstr "Csak a mástól származók (third party)"
 
 #: src/share/screenlets-manager/screenlets-manager.py:476
 msgid "Get more screenlets"
@@ -247,7 +248,7 @@ msgstr "A program információi ..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:483
 msgid "Download more screenlets ..."
-msgstr "Több screenlet letöltése"
+msgstr "Több Screenlet letöltése..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:484
 msgid "Close this dialog ..."
@@ -260,7 +261,7 @@ msgstr "Indít/Leállít"
 
 #: src/share/screenlets-manager/screenlets-manager.py:519
 msgid "Auto start on login"
-msgstr "Automata indulás bejelentkezéskor"
+msgstr "Automatikus indulás bejelentkezéskor"
 
 #: src/share/screenlets-manager/screenlets-manager.py:520
 msgid "Show daemon in tray"
@@ -269,7 +270,7 @@ msgstr "Daemon mutatása a tálcán"
 #: src/share/screenlets-manager/screenlets-manager.py:650
 #, python-format
 msgid "Invalid string: %s."
-msgstr "Érvénytelen karakterlánc: %s"
+msgstr "Érvénytelen karakterlánc: %s."
 
 #: src/share/screenlets-manager/screenlets-manager.py:685
 msgid "Install a Screenlet or SuperKaramba theme"
@@ -294,12 +295,12 @@ msgid ""
 "This package seams to contain a full Screenlet and not just a theme, please "
 "use the screenlet install instead"
 msgstr ""
-"Úgy tűnik ez a csomag egy Screenletet tartalmaz és nem egy témát, erre "
+"Úgy tűnik ez a csomag egy Screenletet tartalmaz és nem egy témát, kérlek "
 "használd a Screenlet telepítőt"
 
 #: src/share/screenlets-manager/screenlets-manager.py:796
 msgid "This package doesnt seem to contain a theme"
-msgstr "Új tünik ez a csomag nem tartalmaz témát"
+msgstr "Úgy tűnik ez a csomag nem tartalmaz témát"
 
 #: src/share/screenlets-manager/screenlets-manager.py:819
 #, python-format
@@ -314,11 +315,11 @@ msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
 msgid "Install SuperKaramba Theme"
-msgstr ""
+msgstr "SuperKaramba Téma Telepítése"
 
 #: src/share/screenlets-manager/screenlets-manager.py:912
 msgid "Convert Web Widget"
-msgstr ""
+msgstr "Web Widget Konvertálása"
 
 #: src/share/screenlets-manager/screenlets-manager.py:913
 #: src/share/screenlets-manager/screenlets-manager.py:1020
@@ -327,7 +328,7 @@ msgstr "Webes Alkalmazás telepítése"
 
 #: src/share/screenlets-manager/screenlets-manager.py:933
 msgid "New screenlets atributes.."
-msgstr "Az új felületi elem tulajdonságai..."
+msgstr "Az új Screenlet tulajdonságai..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:934
 msgid "Lock"
@@ -339,7 +340,7 @@ msgstr "Ragadós"
 
 #: src/share/screenlets-manager/screenlets-manager.py:936
 msgid "Widget"
-msgstr "Felületi elem"
+msgstr "Widget"
 
 #: src/share/screenlets-manager/screenlets-manager.py:937
 msgid "Keep above"
@@ -355,7 +356,7 @@ msgstr "Gombok mutatása"
 
 #: src/share/screenlets-manager/screenlets-manager.py:972
 msgid "New Screenlets atributes"
-msgstr "Az új felületi elem tulajdonságai"
+msgstr "Az új Screenlet tulajdonságai"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1010
 msgid "Web Application Url"
@@ -363,7 +364,7 @@ msgstr "Webes Alkalmazás URL"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1011
 msgid "Web Application Name"
-msgstr "Webes Alkalmazás neve"
+msgstr "Webes Alkalmazás Neve"
 
 #. found_path != None:
 #: src/share/screenlets-manager/screenlets-manager.py:1043
@@ -372,7 +373,7 @@ msgid ""
 "There is already a screenlet with that name installed\n"
 "Do you wish to continue?"
 msgstr ""
-"Már egy screenlet telepítve van ezen a néven\n"
+"Már egy Screenlet telepítve van ezen a néven\n"
 "Mégis folytatja?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1064
@@ -386,41 +387,42 @@ msgstr "Telepítési hiba!!!"
 #: src/share/screenlets-manager/screenlets-manager.py:1068
 #: src/share/screenlets-manager/screenlets-manager.py:1153
 msgid "Please specify a name for the widget"
-msgstr "Adjon nevet a felületi elemnek"
+msgstr "Adjon nevet a widgetnek"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1069
 #: src/share/screenlets-manager/screenlets-manager.py:1154
 msgid "No HTML code found"
-msgstr "Nincs HTML kód találat"
+msgstr "Nem található HTML kód"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1073
 msgid "Convert any webpage widget into a Screenlet."
-msgstr "Más honlap felületi elemek Screenletté konvertálása"
+msgstr "Más weblap widget Screenletté konvertálása"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1074
 msgid "Step 1 : Find the widget you want to convert"
-msgstr "1. Lépés: Találjon egy konvertálni szánt felületi elemet"
+msgstr "1. Lépés: Találjon egy konvertálni szánt wigdetet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1075
 msgid "Step 2 : Copy and Paste the HTML from the widget in the box below"
-msgstr "Másolja és illessze be a felületi elem HTML kódját a lenti dobozba"
+msgstr "2 Lépés: Másolja és illessze be a widget HTML kódját a lenti dobozba"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1076
 msgid "Step 3 : Give it a name in the box below and click on Ok to convert"
 msgstr ""
-"Írja be a kívánt nevet a lenti dobozba és nyomjon az OK-ra a konvertáláshoz"
+"3 Lépés: Írja be a kívánt nevet a lenti dobozba és kattintson az OK-ra a "
+"konvertáláshoz"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1077
 msgid "The name of the widget"
-msgstr "A felületi elem neve"
+msgstr "A widget neve"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1101
 msgid "Widget converter"
-msgstr "Felületi elem konvertáló"
+msgstr "Widget konvertáló"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1149
 msgid "Widget was successfully converted"
-msgstr "A felületi elem konvertálása sikeres"
+msgstr "A widget konvertálása sikeres"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1152
 msgid "Error converting!!!"
@@ -428,7 +430,7 @@ msgstr "Konvertálási hiba!!!"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1275
 msgid "Screenlets-Manager must now be restarted"
-msgstr "A ScreenletsBeállításkezelő újraindul"
+msgstr "A Screenlet-Beállításkezelő most újraindul"
 
 #. + constants
 #: src/share/screenlets-manager/screenlets-packager.py:31
@@ -436,6 +438,8 @@ msgid ""
 "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
 "Usage: screenlets-packager <path> [options]"
 msgstr ""
+"Screenlet csomagoló - (c) RYX (Rico Pfaus) 2007\n"
+"Használat: screenlets-packager <útvonal> [opciók]"
 
 #: src/share/screenlets-manager/screenlets-packager.py:70
 #, python-format
@@ -454,13 +458,13 @@ msgstr "Nem sikerült a név kinyerése az útvonalból."
 #: src/share/screenlets-manager/screenlets-packager.py:78
 #, python-format
 msgid "Screenlet name is %s."
-msgstr "A screenlet neve %s."
+msgstr "A Screenlet neve %s."
 
 #: src/share/screenlets-manager/screenlets-packager.py:82
 #, python-format
 msgid "No screenlet-file \"%sScreenlet.py\" found in the given path."
 msgstr ""
-"A \"%sScreenlet.py\" screenlet fájl nem található a megadott útvonalon."
+"A \"%sScreenlet.py\" Screenlet fájl nem található a megadott útvonalon."
 
 #: src/share/screenlets-manager/screenlets-packager.py:83
 #, python-format
@@ -471,6 +475,7 @@ msgstr "A %sScreenlet.py fájl megtalálva."
 #, python-format
 msgid "Unable to import module '%(name)s' from %(path)s. (%(error)s)"
 msgstr ""
+"A '%(name)s' modul innen %(path)s importálása sikertelen.  (%(error)s)"
 
 #: src/share/screenlets-manager/screenlets-packager.py:93
 #, python-format
@@ -479,7 +484,7 @@ msgstr "A %s modul sikeresen betöltve"
 
 #: src/share/screenlets-manager/screenlets-packager.py:99
 msgid "Unable to import class from module."
-msgstr "Sikertelen osztály importálás a modulból."
+msgstr "Sikertelen az osztály importálása a modulból."
 
 #: src/share/screenlets-manager/screenlets-packager.py:101
 msgid "The class inside the module is no subclass of screenlets.Screenlet."
@@ -499,11 +504,11 @@ msgstr ""
 
 #: src/share/screenlets-manager/screenlets-packager.py:127
 msgid "Created package info file."
-msgstr "A csomag infó fájlának elkészítése."
+msgstr "A csomag infó fájljának elkészítése."
 
 #: src/share/screenlets-manager/screenlets-packager.py:143
 msgid "Cleaned up and finished."
-msgstr "A müvelet befejeződőtt."
+msgstr "Takarítva és a művelet befejezve."
 
 #: src/lib/install.py:57
 msgid ""
@@ -517,7 +522,7 @@ msgstr ""
 msgid "Archive is damaged or unsupported, use only tar, bz2 or gz."
 msgstr ""
 "Az archívum sérült vagy nem támogatott, használjon tar, bz2 vagy gz "
-"formátumot"
+"formátumot."
 
 #. check if screenlet is already installed
 #. found_path = screenlets.utils.find_first_screenlet_path(name)
@@ -528,6 +533,8 @@ msgid ""
 "The %(slet)sScreenlet is already installed in '%(dir)s'.\n"
 "Do you wish to continue?"
 msgstr ""
+"A %(slet)sScreenlet már telepítve van ide '%(dir)s'.\n"
+"Szeretné folytatni?"
 
 #: src/lib/install.py:127 src/lib/install.py:193
 #, python-format
@@ -544,12 +551,12 @@ msgstr "%sScreenlet már telepítve van"
 msgid ""
 "Invalid archive. Archive must contain a directory with the screenlet's name."
 msgstr ""
-"Helytelen archívum. Az archívumnak tartalmazni kell egy, a  screenletről "
-"elnevezett mappát."
+"Helytelen archívum. Az archívumnak tartalmazni kell a Screenlet nevét tároló "
+"mappát."
 
 #: src/lib/install.py:149
 msgid "Compatibility for this karamba theme is not yet implemented"
-msgstr "Még nincs kompatibilitás az ilyen karamba témákkal"
+msgstr "Még nem kompatibilis az ilyen karamba témákkal"
 
 #: src/lib/install.py:176
 msgid "Karamba theme was successfully installed"
@@ -560,7 +567,7 @@ msgid ""
 "Invalid archive. Archive does not contain a screenlet or a valid karamba "
 "theme."
 msgstr ""
-"Nem megfelelő archívum. Nem tartalmaz valós screenlet vagy karamba témát."
+"Nem megfelelő archívum. Nem tartalmaz valós Screenlet vagy karamba témát."
 
 #: src/lib/install.py:193
 #, python-format
@@ -568,12 +575,12 @@ msgid ""
 "%s was not packaged with the screenlet packager. Do you wish to continue and "
 "try to install it?"
 msgstr ""
-"%s nem a screenlet csomagolóval lett csomagolva. Mégis kívánja folytatni és "
+"%s nem a Screenlet csomagolóval lett csomagolva. Mégis kívánja folytatni és "
 "megpróbálni telepíteni?"
 
 #: src/lib/install.py:196
 msgid "This package was not packaged with the screenlet packager."
-msgstr "A csomag nem a screenlet csomagolóval lett csomagolva"
+msgstr "A csomag nem a Screenlet csomagolóval lett csomagolva."
 
 #. set msg/result
 #: src/lib/install.py:205
@@ -587,7 +594,7 @@ msgid ""
 "There is no existing autostart directory for your user account yet. Do you "
 "want me to automatically create it for you?"
 msgstr ""
-"Még nincs automata indító ehhez a felhasználóhoz. Szeretné, hogy "
+"Még nincs automatikus indítás mappa ehhez a felhasználóhoz. Szeretné, hogy "
 "automatikusan készüljön egy?"
 
 #: src/lib/utils.py:105 src/lib/utils.py:551
@@ -596,7 +603,8 @@ msgid ""
 "Automatic creation failed. Please manually create the directory:\n"
 "%s"
 msgstr ""
-"Az automata indító készítése sikertelen. Kérem készítse el saját kezűleg:\n"
+"Az automatikus létrehozás nem sikerült. Kérem saját kezűleg hozza létre a "
+"könyvtárat:\n"
 "%s"
 
 #: src/lib/utils.py:108 src/lib/utils.py:554
@@ -605,13 +613,13 @@ msgid ""
 "Please manually create the directory:\n"
 "%s"
 msgstr ""
-"Kérem készítse el saját kezűleg:\n"
+"Kérem saját kezűleg hozza létre a könyvtárat:\n"
 "%s"
 
 #: src/lib/utils.py:583
 #, python-format
 msgid "Failed to add %sScreenlet."
-msgstr "%sScreenlet hozzáadása sikertelen"
+msgstr "%sScreenlet hozzáadása sikertelen."
 
 #~ msgid "ScreenletsDaemon running ..."
 #~ msgstr "ScreenletsDaemon fut ..."
@@ -635,9 +643,100 @@ msgstr "%sScreenlet hozzáadása sikertelen"
 #~ msgid "Installing %s"
 #~ msgstr "Telepítés %s"
 
+#~ msgid "It looks like you are running %s"
+#~ msgstr "Úgy tünik fut a %s"
+
+#~ msgid "Starter already exists."
+#~ msgstr "Az indító már létezik."
+
+#~ msgid "Failed to create autostarter for %s."
+#~ msgstr "A %s automata indítójának készítése sikertelen."
+
+#~ msgid "Removed duplicate entry"
+#~ msgstr "Duplikált bejegyzés eltávolítva"
+
+#~ msgid "Launch %s"
+#~ msgstr "%s indítása"
+
+#~ msgid "Quit!"
+#~ msgstr "Kilépés!"
+
+#~ msgid "Create desktop shortcut for: %s/%sScreenlet.py"
+#~ msgstr "Indítóikon készítes a %s%sScreenlet.py számára"
+
+#~ msgid "Quit %s"
+#~ msgstr "%s bezárása"
+
+#~ msgid ""
+#~ "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
+#~ "Usage: %s <path> [options]"
+#~ msgstr ""
+#~ "Screenlet csomagoló - (c) RYX (Rico Pfaus) 2007\n"
+#~ "Használat: %s <elérési útvonal> [beállítások]"
+
+#~ msgid "closing %s"
+#~ msgstr "%s bezárása"
+
+#~ msgid "Unable to import module '%s' from %s. (%s)"
+#~ msgstr "Nem lehet importálni a '%s' modult a %s helyről. (%s)"
+
+#~ msgid "OK."
+#~ msgstr "OK."
+
+#~ msgid "Trying to launching screenlets-daemon ..."
+#~ msgstr "Kísérlet a screenlets-daemon betöltésésre"
+
+#~ msgid "Auto-create autostart dir ..."
+#~ msgstr "Automata indító készítése ..."
+
+#~ msgid "Create autostarter for: Screenlets Daemon"
+#~ msgstr "Automata indító készítése a ScreenletsDaemonnak"
+
+#~ msgid "Delete autostarter for %s."
+#~ msgstr "A %s automata indítója törölve"
+
+#~ msgid "DAEMON FOUND - Ending timeout"
+#~ msgstr "Daemon Megtalálva - Kilépés időtúllépés miatt"
+
+#~ msgid "Please install screenlets from folders without strange characters"
+#~ msgstr "Ne telepítsen screenletet furcsa karakterekkel ellátott könyvtárból"
+
+#~ msgid "screenletsDaemon: unregistered %s"
+#~ msgstr "ScreenletsDaemon: %s bejegyzés törölve"
+
+#~ msgid "Exception in ScreenletsDaemon: %s"
+#~ msgstr "Kifogás a ScreenletsDaemonban: %s"
+
+#~ msgid "Create autostarter for: %s/%sScreenlet.py"
+#~ msgstr "Automata indító készítése a %s%sScreenlety.py számára"
+
+#~ msgid "Error: Unable to connect/launch daemon."
+#~ msgstr "Hiba: Nem sikerült elindítani a daemont."
+
 #~ msgid ""
 #~ "You are about to install a theme in root mode. Continue only if you have "
 #~ "gksudo installed, do you wish to continue?"
 #~ msgstr ""
 #~ "Root módban szeretne témát telepíteni. Csak akkor folytassa ha a gksudo fel "
 #~ "van telepítve, akarja folytatni?"
+
+#~ msgid "list contains themes folder"
+#~ msgstr "a lista a témákat tartalmazza"
+
+#~ msgid "list contains the screenlet name folder"
+#~ msgstr "a lista a screenletek nevét tartalmazza"
+
+#~ msgid "only contains the themes folders"
+#~ msgstr "a lista csak a témákat tartalmazza"
+
+#~ msgid "Data dropped ..."
+#~ msgstr "Az adat elveszett ..."
+
+#~ msgid "checking for running daemon again ..."
+#~ msgstr "futó daemonok újbóli ellenőrzése...."
+
+#~ msgid "Error in ScreenletsManager.connect_daemon: %s"
+#~ msgstr "Screenlet Beállításkezelő hiba:  %s daemonhoz_kapcsolodas"
+
+#~ msgid "ScreenletsDaemon: registered %s"
+#~ msgstr "ScreenletsDaemon: %s bejegyezve"

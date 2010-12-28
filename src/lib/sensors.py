@@ -59,7 +59,7 @@ def cpu_get_load (processor_number=0):
 			return int(cuse) + int(csys) + int(cn)
 		else:
 			return int(cuse) + int(cn)
- 		return load
+	return None
 
 def cpu_get_cpu_name():
 	"""Returns Cpu Name"""
@@ -327,7 +327,8 @@ def _get_meminfo():
 	for l in meminfo_file:
                 if l.startswith('MemTotal') or l.startswith('MemFree') or l.startswith('Cached') or l.startswith('Buffers'):
                         c = l.index(':')
-			meminfo[l[:c]] = int(l[c+1:22])
+                        e = l.index('kB')
+			meminfo[l[:c]] = int(l[c+1:e])
 		if len(meminfo) >= 4:
 			break
 	meminfo_file.close()
@@ -361,7 +362,8 @@ def _get_swapinfo():
 	for l in meminfo_file:
                 if l.startswith('SwapTotal') or l.startswith('SwapFree') or l.startswith('SwapCached'):
                         c = l.index(':')
-			meminfo[l[:c]] = int(l[c+1:22])
+                        e = l.index('kB')
+			meminfo[l[:c]] = int(l[c+1:e])
 		if len(meminfo) >= 3:
 			break
 	meminfo_file.close()
@@ -1195,8 +1197,12 @@ if __name__ == '__main__':
 	print net_get_activity('eth0')
 	print sys_get_linux_version()
 	print sys_get_kernel_version()
-	print sys_get_full_info()
-	
+#	print sys_get_full_info()
+	print 'CPU0: %i%%' % cpu_get_load (0)
+	print 'USED RAM: %i MB' % mem_get_usedmem()
+	print 'FREE RAM: %i MB' % mem_get_freemem()
+	print sensors_get_sensor_value('hddtemp sensor /dev/sda')
+	sys.exit(0)
 	# callbacks which get notified about updates of sensor's values
 	def handle_cpusensor_updated (cs):
 		print 'CPU0: %i%%' % cs.get_load()

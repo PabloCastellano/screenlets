@@ -37,8 +37,8 @@ class Drawing(object):
 		ctx.restore()
 		return extents[2]
 
-	def get_text_width(self, ctx, text, font):
-		"""Returns the pixel width of a given text"""
+	def get_text_height(self, ctx, text, font):
+		"""Returns the pixel height of a given text"""
 		ctx.save()
 		if self.p_layout == None :
 	
@@ -53,7 +53,7 @@ class Drawing(object):
 		self.p_layout.set_text(text)
 		extents, lextents = self.p_layout.get_pixel_extents()
 		ctx.restore()
-		return extents[2]
+		return extents[3]
 
 	def get_text_line_count(self, ctx, text, font):
 		"""Returns the line count of a given text"""

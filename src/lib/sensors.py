@@ -964,11 +964,11 @@ def sensors_get_sensor_value(sensorName):
 			print("Can't read value from %s" % path)
 			return 'None'
 
-	elif sensorName.startswith('hddtemp sensor '):
+	elif sensorName.startswith('hddtemp sensor'):
 		res = commands.getstatusoutput("netcat 127.0.0.1 7634")
 		if res[0] != 0:
 			res = commands.getstatusoutput("nc 127.0.0.1 7634")
-		name = sensorName[15:]
+		name = sensorName[sensorName.rfind(' ')+1:]
 		if res[0] == 0:
 			hddtemp_data = res[1].lstrip('|').rstrip('|')
 			sol = hddtemp_data.split('||')
@@ -976,7 +976,10 @@ def sensors_get_sensor_value(sensorName):
 				if len(i)>1:
 					if i.startswith(name):
 						lst = i.split('|')
-						return lst[0]+": "+lst[2]+" "+lst[3]
+						if sensorName.startswith('hddtemp sensor-numeric'):
+							return int(lst[2])
+						else:
+							return lst[0]+": "+lst[2]+" "+lst[3]
 		else:
 			print('Hddtemp not installed')
 			return ''
@@ -1192,6 +1195,12 @@ class NetSensor (Sensor):
 # TEST:
 if __name__ == '__main__':
 	
+	old_cpu = cpu_get_load(0)
+	time.sleep(1)
+	new_cpu = cpu_get_load(0)
+	print 'CPU0: %i%%' % (new_cpu-old_cpu)
+	sys.exit(0)
+
 	# some tests
 	print sys_get_hostname()
 	print net_get_activity('eth0')

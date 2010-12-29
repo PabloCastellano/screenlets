@@ -17,6 +17,7 @@ import commands
 import time
 import os
 import subprocess
+import multiprocessing # for processor count
 import gtk
 import socket # for gethostname()
 # translation stuff
@@ -42,7 +43,7 @@ def _(s):
 # calculate cpu-usage by values from /proc/stat
 # (written by Helder Fraga aka Whise
 def cpu_get_load (processor_number=0):
-	"""Calculates the system load."""
+	"""Calculates the system load. Processor nr 0 is the average of all processors."""
         f = open("/proc/stat", "r")
         tmp = f.readlines(2000)
         f.close()
@@ -53,10 +54,10 @@ def cpu_get_load (processor_number=0):
             suffix = str(processor_number - 1)
 	line = tmp[processor_number]
 
-	if line.startswith("cpu%s"% (suffix)):
+	if line.startswith("cpu%s "% (suffix)):
                 (junk, cuse, cn, csys, tail) = line.split(None, 4)
 		if suffix == '':
-			return int(cuse) + int(csys) + int(cn)
+			return (int(cuse) + int(csys) + int(cn)) / multiprocessing.cpu_count()
 		else:
 			return int(cuse) + int(cn)
 	return None

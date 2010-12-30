@@ -64,8 +64,8 @@ class ListenAPI(GenericAPI):
 		#return self.playerAPI.get_artist()
 
 	def get_cover_path(self):
-		return os.environ['HOME']+"/.listen/cover/"+\
-			string.lower(self.get_artist()+"+"+self.get_album()+".jpg")
+		return os.environ['HOME']+"/.cache/listen/cover/"+\
+			string.lower(self.get_album()+".jpg")
 		#return self.playerAPI.get_cover_path()
 
 	def is_playing(self):

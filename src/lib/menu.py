@@ -39,6 +39,51 @@ def add_image_menuitem (menu, stock, label=None, callback=None, cb_data=None):
 	a callback, and add the menuitem to menu."""
 	item = ImageMenuItem(stock, label)
 	return add_menuitem_with_item(menu, item, callback, cb_data)
+
+def add_submenuitem (root_menu, label, lst, images=None, image_size=(22,22), callback=None, prefix=None):
+		"""Convenience function to add submenuitems to a right-click menu through a list.
+		
+		images is an optional list of filenames to be used as an image in each menuitem.
+		Each item in the list should either be a string or None. (If an item is None, gtk's
+		no-image icon will be used.)
+		 
+		If callback is not None, each menuitem will be connected to callback with it's
+		label as callback data. If prefix exists, prefix will be prefixed to the label's
+		name in the callback data.
+		
+		Returns the new submenu."""
+		root_item = gtk.MenuItem(label)
+		root_menu.append(root_item)
+		root_item.show()
+		
+		menu = gtk.Menu()
+		root_item.set_submenu(menu)
+		
+		i = 0
+		for name in lst:
+			# if this menu contains _some_ images
+			if images is not None:
+				item = ImageMenuItem(label=name)
+				# if there's an image for this specific item then use it
+				if images[i] is not None:
+					pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(images[i], *image_size)
+					item.set_image_from_pixbuf(pixbuf)
+				# if there isn't an image then cause gtk to use the generic broken-img icon
+				else:
+					item.set_image_from_file('')
+			# if this menu doesn't contain _any_ images
+			else:
+				item = gtk.MenuItem(name)
+			if callback is not None:
+				if prefix is not None:
+					item.connect("activate", callback, prefix+name)
+				else:
+					item.connect("activate", callback, name)
+			item.show()
+			menu.append(item)
+			i += 1
+
+		return menu
 	
 def add_menuitem_with_item (menu, item, callback=None, cb_data=None):
 	"""Convenience function to add a menuitem to a menu

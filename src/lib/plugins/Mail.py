@@ -45,7 +45,7 @@ def get_KMail_num():
 
 def get_GMail_Num(login, password):
 	"""This output the number of messages of gmail box"""
-	f = os.popen("wget --no-check-certificate -qO - https://" + login + ":" + password + "@mail.google.com/mail/feed/atom")
+	f = os.popen("wget --no-check-certificate -qO - https://%s:%s@mail.google.com/mail/feed/atom" % (urllib.pathname2url(login), urllib.pathname2url(password)))
 	a = f.read()
 	f.close()
 	match = re.search("<fullcount>([0-9]+)</fullcount>", a)

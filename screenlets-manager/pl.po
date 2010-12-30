@@ -8,19 +8,19 @@ msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-17 14:51+0900\n"
-"PO-Revision-Date: 2010-11-12 13:31+0000\n"
-"Last-Translator: Przemysław Firszt <przemo@firszt.eu>\n"
+"PO-Revision-Date: 2010-12-29 16:50+0000\n"
+"Last-Translator: Adam Czabara <kolofaza@o2.pl>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-12-10 04:44+0000\n"
+"X-Launchpad-Export-Date: 2010-12-30 04:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "Language: pl\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
 msgid "Screenlets daemon"
-msgstr ""
+msgstr "Usługa Screenlets"
 
 #. create top menuitems
 #. name/version of this app
@@ -50,11 +50,11 @@ msgstr "Zamknij wszystkie screenlety"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:144
 msgid "Restart all Screenlets"
-msgstr ""
+msgstr "Resetuj wszystkie Screenlets"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:147
 msgid "Quit the Screenlets"
-msgstr ""
+msgstr "Zamknij Screenlets"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:219
 #: src/share/screenlets-manager/screenlets-manager.py:605
@@ -109,7 +109,7 @@ msgstr "Błąd"
 msgid ""
 "Do you really want to permanently uninstall and delete the %sScreenlet from "
 "your system?"
-msgstr ""
+msgstr "Na pewno odinstalować i całkowicie usunąć %sScreenlet z systemu?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:160
 msgid "Delete Screenlet"
@@ -126,7 +126,7 @@ msgstr "Nie mogę usunąć screenletów z katalogu systemowego."
 #: src/share/screenlets-manager/screenlets-manager.py:269
 #, python-format
 msgid "Do you really want to reset the %sScreenlet configuration?"
-msgstr ""
+msgstr "Na pewno zresetować konfigurację %sScreenlet?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:269
 msgid "Reset Screenlet"
@@ -323,11 +323,11 @@ msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
 msgid "Install SuperKaramba Theme"
-msgstr ""
+msgstr "Instalacja motywu SuperKaramba"
 
 #: src/share/screenlets-manager/screenlets-manager.py:912
 msgid "Convert Web Widget"
-msgstr ""
+msgstr "Konwersja widgetu strony www"
 
 #: src/share/screenlets-manager/screenlets-manager.py:913
 #: src/share/screenlets-manager/screenlets-manager.py:1020
@@ -444,6 +444,8 @@ msgid ""
 "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
 "Usage: screenlets-packager <path> [options]"
 msgstr ""
+"Screenlets paker - (c) RYX (Rico Pfaus) 2007\n"
+"Użycie: screenlets-packager <path> [options]"
 
 #: src/share/screenlets-manager/screenlets-packager.py:70
 #, python-format
@@ -478,7 +480,7 @@ msgstr "Znaleziono %sScreenlet.py w ścieżce."
 #: src/share/screenlets-manager/screenlets-packager.py:92
 #, python-format
 msgid "Unable to import module '%(name)s' from %(path)s. (%(error)s)"
-msgstr ""
+msgstr "Nie można zaimportować modułu '%(name)s' z %(path)s. (%(error)s)"
 
 #: src/share/screenlets-manager/screenlets-packager.py:93
 #, python-format
@@ -534,6 +536,8 @@ msgid ""
 "The %(slet)sScreenlet is already installed in '%(dir)s'.\n"
 "Do you wish to continue?"
 msgstr ""
+"The %(slet)sScreenlet jest już zainstalowany w '%(dir)s'.\n"
+"Kontynuować?"
 
 #: src/lib/install.py:127 src/lib/install.py:193
 #, python-format
@@ -620,9 +624,122 @@ msgstr ""
 msgid "Failed to add %sScreenlet."
 msgstr "Nie udało się dodać screenletu %s"
 
+#~ msgid "ScreenletsDaemon has been shut down ..."
+#~ msgstr "ScreenletsDaemon został wyłączony..."
+
+#~ msgid "ScreenletsDaemon running ..."
+#~ msgstr "ScreenletsDaemon działa..."
+
+#~ msgid "Exception in ScreenletsDaemon: %s"
+#~ msgstr "Wyjątek w ScreenletsDaemon: %s"
+
+#~ msgid "Invalid archive. Archive does not contain a screenlet."
+#~ msgstr "Niewłaściwe archwum. Archiwum nie zawiera screenletu."
+
+#~ msgid "Archive damaged or unsuported, only tar , bz2 or gz."
+#~ msgstr "Archiwum uszkodzone lub nieobsługiwane, tylko tar, bz2 lub gz."
+
+#~ msgid "screenletsDaemon: unregistered %s"
+#~ msgstr "ScreenletsDaemon: wyrejestrowano %s"
+
+#~ msgid "ScreenletsDaemon: registered %s"
+#~ msgstr "ScreenletsDaemon: zarejestrowano %s"
+
+#~ msgid "It looks like you are running %s"
+#~ msgstr "Wygląda na to, że %s jest uruchomiony..."
+
+#~ msgid ""
+#~ "The %sScreenlet is already installed in '%s'.\n"
+#~ "Do you wish to continue?"
+#~ msgstr "Screenlet %s jest już zainstalowany w '%s'. Czy chcesz kontynuować?"
+
+#~ msgid "Create autostarter for: Screenlets Daemon"
+#~ msgstr "Tworzę autostarter dla: ScreenletsDaemon"
+
+#~ msgid "Failed to create autostarter for %s."
+#~ msgstr "Nie udało się stworzyć autostartera dla %s."
+
+#~ msgid "Starter already exists."
+#~ msgstr "Starter już istnieje."
+
+#~ msgid "Trying to launching screenlets-daemon ..."
+#~ msgstr "Próbuję uruchomić ScreenletsDaemon..."
+
+#~ msgid "Error: Unable to connect/launch daemon."
+#~ msgstr "Błąd: Nie można uruchomić lub połączyć się z demonem."
+
+#~ msgid "Error in ScreenletsManager.connect_daemon: %s"
+#~ msgstr "Błąd w ScreenletsManager.connect_daemon: %s"
+
+#~ msgid "Removed duplicate entry"
+#~ msgstr "Usunięto podwójny wpis"
+
+#~ msgid "Delete autostarter for %s."
+#~ msgstr "Usuń autostarter dla %s."
+
+#~ msgid "OK."
+#~ msgstr "OK."
+
+#~ msgid "Unable to import module '%s' from %s. (%s)"
+#~ msgstr "Nie można importować modułu '%s' z %s. (%s)"
+
+#~ msgid "Quit %s"
+#~ msgstr "Zakończ %s"
+
+#~ msgid "Launch %s"
+#~ msgstr "Uruchom %s"
+
+#~ msgid "Quit!"
+#~ msgstr "Wyjście"
+
+#~ msgid "Create autostarter for: %s/%sScreenlet.py"
+#~ msgstr "Tworzenie autostartera dla: %s/%sScreenlet.py"
+
+#~ msgid "DAEMON FOUND - Ending timeout"
+#~ msgstr "DEMON został znaleziony - kończenie przerwy"
+
+#~ msgid "checking for running daemon again ..."
+#~ msgstr "ponowne sprawdzanie czy demon działa..."
+
+#~ msgid "Auto-create autostart dir ..."
+#~ msgstr "Automatyczne tworzenie katalogu autostartu..."
+
+#~ msgid "Data dropped ..."
+#~ msgstr "Dane zrzucone ..."
+
+#~ msgid "Installing %s"
+#~ msgstr "Instalowanie %s"
+
+#~ msgid "closing %s"
+#~ msgstr "zamykanie %s"
+
+#~ msgid "Create desktop shortcut for: %s/%sScreenlet.py"
+#~ msgstr "Utwórz dowiązanie na pulpicie dla: %s%sScreenlet.py"
+
+#~ msgid "list contains themes folder"
+#~ msgstr "lista zawiera katalog motywów"
+
+#~ msgid "list contains the screenlet name folder"
+#~ msgstr "lista zawiera kartaloz z nazwą screenletu"
+
 #~ msgid ""
 #~ "You are about to install a theme in root mode. Continue only if you have "
 #~ "gksudo installed, do you wish to continue?"
 #~ msgstr ""
 #~ "Próbujesz zainstalować motyw w trybie administratora. Kontynuuj tylko jeżeli "
 #~ "gksudo jest zainstalowane, czy kontynuować?"
+
+#~ msgid "Please install screenlets from folders without strange characters"
+#~ msgstr ""
+#~ "Proszę instalować screenlety z katalogów nie zawierających niestandardowych "
+#~ "znaków"
+
+#~ msgid ""
+#~ "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
+#~ "Usage: %s <path> [options]"
+#~ msgstr ""
+#~ "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
+#~ "Użycie: %s <ścieżka> [opcje]"
+
+#~ msgid "only contains the themes folders"
+#~ msgstr "zawiera tylko katalog z motywami"

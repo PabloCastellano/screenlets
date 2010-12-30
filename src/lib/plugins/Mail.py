@@ -87,13 +87,13 @@ may block connections for a certain interval before allowing reconnects."""
 class MailboxStatus(object):
 	UNKNOWN			= 0
 	ALL_READ		= 1
-	UNREAD_MAIL	= 2
-	NEW_MAIL		=	3
+	UNREAD_MAIL	        = 2
+	NEW_MAIL		= 3
 
 # the mailcheck status
 class MailCheckStatus(object):
 	REFRESH		= 1
-	IDLE		= 2
+	GET_MAIL	= 2
 	ERROR		= 3
 	IDLE		= 100
 
@@ -120,6 +120,7 @@ class MailCheckBackend (gobject.GObject):
 		self.error					= ''		# human-readable error message
 		self.options		= []				# ???additonal ptions for backend
 		self.thread		= None
+                self.mailcount          = 0                            #
 	
 	def check_mail (self):
 		"""This handler should be overridden by subclasses to add new types
@@ -184,21 +185,21 @@ class IMAPBackend(MailCheckBackend):
 				typ, data = self.server.search(None, 'NEW')
 				if typ == 'OK':
 					if len(data[0].split()) > 0:
-						self.mailboxstatus = MailboxStatus.NEW_MAIL
+						self.mailbox_status = MailboxStatus.NEW_MAIL
 						print "NEW_MAIL"
 					else:
-						self.mailboxstatus = MailboxStatus.UNREAD_MAIL
+						self.mailbox_status = MailboxStatus.UNREAD_MAIL
 						print "UNREAD_MAIL"
 				else:
 					print "IMAP error (checking new count): " + typ
 			else:
-				self.mailboxstatus = MailboxStatus.ALL_READ
+				self.mailbox_status = MailboxStatus.ALL_READ
 			self.status = MailCheckStatus.IDLE
 		else:
 			print "IMAP error (checking unseen count): " + typ
 			self.error	= MSG_FETCH_MAILS_FAILED
 			self.status	= MailCheckStatus.ERROR
-			self.mailboxstatus = MailboxStatus.UNKNOWN
+			self.mailbox_status = MailboxStatus.UNKNOWN
 		self.server.close()
 		self.server.logout()
 		return False
@@ -363,14 +364,16 @@ class POP3Backend (MailCheckBackend):
 			messages = resp[1]
 			#print messages
 			msgnum = len(messages)
-			if msgnum > self.unseen_count:
+			if msgnum > self.mailcount:
 				diff = msgnum - self.mailcount
 				self.mailcount = msgnum
+                                self.mailbox_status = MailboxStatus.NEW_MAIL
 				self.status = MailCheckStatus.GOT_MAIL
 				print "GOT_MAIL"
 			elif msgnum <= self.mailcount:
 				print "set status to IDLE (POP3Backend.check_mail)"
-				self.mailcount = msgnum
+                                self.mailbox_status = MailboxStatus.ALL_READ				
+                                self.mailcount = msgnum
 				self.status = MailCheckStatus.IDLE
 				print "IDLE"
 		else:

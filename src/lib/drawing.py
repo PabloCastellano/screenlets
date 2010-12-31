@@ -19,23 +19,23 @@ class Drawing(object):
 	p_context		= None		# PangoContext
 	p_layout		= None		# PangoLayout
 
-	def get_text_width(self, ctx, text, font):
-		"""Returns the pixel width of a given text"""
-		ctx.save()
-		if self.p_layout == None :
-	
-			self.p_layout = ctx.create_layout()
-		else:
-			
-			ctx.update_layout(self.p_layout)
-		if self.p_fdesc == None:self.p_fdesc = pango.FontDescription()
-		else: pass
-		self.p_fdesc.set_family_static(font)
-		self.p_layout.set_font_description(self.p_fdesc)
-		self.p_layout.set_text(text)
-		extents, lextents = self.p_layout.get_pixel_extents()
-		ctx.restore()
-		return extents[2]
+	#def get_text_width(self, ctx, text, font):
+		#"""Returns the pixel width of a given text"""
+		#ctx.save()
+		#if self.p_layout == None :
+	#
+		#	self.p_layout = ctx.create_layout()
+	#	else:
+	#		
+	#		ctx.update_layout(self.p_layout)
+	#	if self.p_fdesc == None:self.p_fdesc = pango.FontDescription()
+	#	else: pass
+	#	self.p_fdesc.set_family_static(font)
+	#	self.p_layout.set_font_description(self.p_fdesc)
+	#	self.p_layout.set_text(text)
+	#	extents, lextents = self.p_layout.get_pixel_extents()
+	#	ctx.restore()
+	#	return extents[2]
 
 	def get_text_height(self, ctx, text, font):
 		"""Returns the pixel height of a given text"""
@@ -55,7 +55,7 @@ class Drawing(object):
 		ctx.restore()
 		return extents[3]
 
-	def get_text_line_count(self, ctx, text, font):
+	def get_text_line_count(self, ctx, text, font, size):
 		"""Returns the line count of a given text"""
 		ctx.save()
 		if self.p_layout == None :
@@ -67,6 +67,7 @@ class Drawing(object):
 		if self.p_fdesc == None:self.p_fdesc = pango.FontDescription()
 		else: pass
 		self.p_fdesc.set_family_static(font)
+                self.p_fdesc.set_size(size * pango.SCALE)
 		self.p_layout.set_font_description(self.p_fdesc)
 		self.p_layout.set_text(text)
 		ctx.restore()

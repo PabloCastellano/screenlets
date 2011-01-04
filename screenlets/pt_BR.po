@@ -8,20 +8,20 @@ msgstr ""
 "Project-Id-Version: screenlets\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-17 14:51+0900\n"
-"PO-Revision-Date: 2010-12-14 07:56+0000\n"
-"Last-Translator: Screenlets Dev Team <screenlets-dev@lists.launchpad.net>\n"
+"PO-Revision-Date: 2011-01-03 23:33+0000\n"
+"Last-Translator: Fitoschido <Unknown>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-12-15 04:32+0000\n"
+"X-Launchpad-Export-Date: 2011-01-04 13:37+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "Language: pt_BR\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
 #: src/lib/__init__.py:99
 msgid "http://www.screenlets.org/index.php/Get_more_screenlets"
-msgstr ""
+msgstr "http://www.screenlets.org/index.php/Get_more_screenlets"
 
 #. default meta-info for Screenlets
 #: src/lib/__init__.py:609
@@ -423,6 +423,9 @@ msgstr "Desconectado"
 #~ msgid "Info: "
 #~ msgstr "Informações: "
 
+#~ msgid "Failed to load theme.conf"
+#~ msgstr "Não foi possível carregar theme.conf"
+
 #~ msgid "theme.conf found! Loading option-overrides."
 #~ msgstr "theme.conf encontrado! Carregando novas opções."
 
@@ -438,14 +441,23 @@ msgstr "Desconectado"
 #~ msgid "FOUND: "
 #~ msgstr "ENCONTRADO: "
 
+#~ msgid "Quit this %s ..."
+#~ msgstr "Fechar este %s ..."
+
 #~ msgid "Quit all %ss ..."
 #~ msgstr "Fechar todos os %ss ..."
+
+#~ msgid "Delete Screenlet ..."
+#~ msgstr "Remover Screenlet ..."
 
 #~ msgid "Error while loading theme: "
 #~ msgstr "Erro ao carregar tema: "
 
 #~ msgid "Error: Cannot set missing or non-boolean value '"
 #~ msgstr "Erro: Não é possível definir valor não-booleano ou inexistente '"
+
+#~ msgid "Screenlet: Set theme %s"
+#~ msgstr "Screenlet: Definir tema %s"
 
 #~ msgid "Cancel delete_event"
 #~ msgstr "Cancelar delete_event"
@@ -628,6 +640,9 @@ msgstr "Desconectado"
 #~ msgid "Failed to remove INI-file for instance (not critical)."
 #~ msgstr "Falha na remoção do arquivo-INI por instância (não é crítico)."
 
+#~ msgid "Error in screenlets.session.connect_daemon: %s"
+#~ msgstr "Erro em screenlets.session.connect_daemon: %s"
+
 #~ msgid "Creating new instance: "
 #~ msgstr "Criando uma nova instância: "
 
@@ -708,6 +723,12 @@ msgstr "Desconectado"
 #~ "Erro: Impossível criar diretório temporário %s - o Gerenciador de Screenlets "
 #~ "não trabalhará corretamente."
 
+#~ msgid "No more screenlets running."
+#~ msgstr "Não há mais screenlets em execução"
+
+#~ msgid "No screenlets running?"
+#~ msgstr "Nenhum screenlet em execução?"
+
 #~ msgid "File %s not found"
 #~ msgstr "Arquivo %s não encontrado"
 
@@ -722,6 +743,9 @@ msgstr "Desconectado"
 #~ msgid "LISTED PATH NOT EXISTS: "
 #~ msgstr "CAMINHO LISTADO NÃO EXISTE: "
 
+#~ msgid "Unable to load '%s' from %s: %s "
+#~ msgstr "Impossível carregar '%s' de %s: %s "
+
 #~ msgid "Error: Failed to delete global tempfile"
 #~ msgstr "Erro: Falha na eliminação do arquivo temporário global"
 
@@ -730,8 +754,41 @@ msgstr "Desconectado"
 #~ msgstr ""
 #~ "O Screenlet '%s' foi interrompido pelo teclado. TODO: tornar isto um evento"
 
+#~ msgid "Exception in ScreenletSession: "
+#~ msgstr "Excepção em ScreenletSession: "
+
+#~ msgid "Failed to create instance of '%s'!"
+#~ msgstr "Falha na criação da instância de '%s'!"
+
 #~ msgid "Quitting current screenlet instance"
 #~ msgstr "Fechando instância atual deste screenlet"
+
+#~ msgid "Failed to open /proc/swaps"
+#~ msgstr "Leitura em /proc/swaps falha"
+
+#~ msgid "Screenlet has already been added to %s"
+#~ msgstr "O Screenlet já foi adicionado ao %s"
+
+#~ msgid "No global tempdir found, creating new one."
+#~ msgstr "Nenhum diretório global foi encontrado, criando um novo."
+
+#~ msgid "Temp directory %s created."
+#~ msgstr "Diretório temporário %s foi criado."
+
+#~ msgid "Unable to open %s"
+#~ msgstr "Impossível abrir %s"
+
+#~ msgid "Start drag"
+#~ msgstr "Começar a arrastar"
+
+#~ msgid "End drag"
+#~ msgstr "Terminar de arrastar"
+
+#~ msgid "Failed to open /proc/sys/kernel/hostname"
+#~ msgstr "Falha ao ler /proc/sys/kernel/hostname"
+
+#~ msgid "Failed to open /proc/loadavg"
+#~ msgstr "Falha ao ler /proc/loadavg"
 
 #~ msgid "UPDATING SHAPE"
 #~ msgstr "ATUALIZANDO FORMA"

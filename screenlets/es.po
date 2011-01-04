@@ -8,20 +8,20 @@ msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-17 14:51+0900\n"
-"PO-Revision-Date: 2010-12-19 08:19+0000\n"
-"Last-Translator: Screenlets Dev Team <screenlets-dev@lists.launchpad.net>\n"
+"PO-Revision-Date: 2011-01-03 23:37+0000\n"
+"Last-Translator: Fitoschido <Unknown>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-12-20 04:42+0000\n"
+"X-Launchpad-Export-Date: 2011-01-04 13:37+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "Language: es\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
 #: src/lib/__init__.py:99
 msgid "http://www.screenlets.org/index.php/Get_more_screenlets"
-msgstr ""
+msgstr "http://www.screenlets.org/index.php/Get_more_screenlets"
 
 #. default meta-info for Screenlets
 #: src/lib/__init__.py:609
@@ -110,12 +110,12 @@ msgstr "Bloquear posición"
 
 #: src/lib/__init__.py:766
 msgid "Stop the screenlet from being moved..."
-msgstr "Parar el proceso de borrado"
+msgstr "Evitar que el screenlet sea movido..."
 
 #. add "Keep above"-menuitem
 #: src/lib/__init__.py:768 src/lib/__init__.py:1085
 msgid "Keep above"
-msgstr "Mantener por encima"
+msgstr "Mantener encima"
 
 #: src/lib/__init__.py:769
 msgid "Keep this Screenlet above other windows ..."
@@ -195,7 +195,7 @@ msgstr "Opciones actuales del Screenlet .."
 #. version of the deb package if unspecified
 #: src/lib/__init__.py:988
 msgid "?"
-msgstr ""
+msgstr "?"
 
 #: src/lib/__init__.py:993
 #, python-format
@@ -203,6 +203,8 @@ msgid ""
 "\n"
 "%(package)s %(version)s required, NOT INSTALLED!"
 msgstr ""
+"\n"
+"Se requiere %(package)s %(version)s, y no se ha instalado."
 
 #: src/lib/__init__.py:996
 #, python-format
@@ -210,6 +212,8 @@ msgid ""
 "\n"
 "%(package)s %(version)s installed, req %(required)s."
 msgstr ""
+"\n"
+"%(package)s %(version)s instalado, req %(required)s."
 
 #: src/lib/__init__.py:1006
 #, python-format
@@ -220,6 +224,11 @@ msgid ""
 "REQUIREMENTS:\n"
 "%s"
 msgstr ""
+"Las dependencias para el Screenlet no han sido satisfechas. Use el gestor de "
+"paquetes de su sistema para instalarlas.\n"
+"\n"
+"DEPENDENCIAS:\n"
+"%s"
 
 #: src/lib/__init__.py:1028
 msgid "Size"
@@ -360,7 +369,7 @@ msgstr "Aplicar"
 #: src/lib/sensors.py:168
 #, python-format
 msgid "%(days)s days, %(hours)s hours and %(minutes)s minutes"
-msgstr ""
+msgstr "%(days)s días, %(hours)s horas y %(minutes)s minutos"
 
 #: src/lib/sensors.py:288
 msgid "Can't get kernel version"
@@ -425,6 +434,9 @@ msgstr "No conectado"
 #~ msgid "error while saving config: %s%s"
 #~ msgstr "error al guardar configuración: %s%s"
 
+#~ msgid "Delete Screenlet ..."
+#~ msgstr "Eliminar Screenlet..."
+
 #~ msgid "WARNING: Option '%s' not found or protected."
 #~ msgstr "ADVERTENCIA: Opción '%s' no encontrada o protegida."
 
@@ -466,6 +478,9 @@ msgstr "No conectado"
 #~ msgid "Override: "
 #~ msgstr "Sobrescribir: "
 
+#~ msgid "Failed to load theme.conf"
+#~ msgstr "Error al cargar theme.conf"
+
 #~ msgid "theme.conf found! Loading option-overrides."
 #~ msgstr "theme.conf encontrando! Sobrescribiendo opciones por defecto."
 
@@ -474,6 +489,9 @@ msgstr "No conectado"
 
 #~ msgid "FOUND: "
 #~ msgstr "ENCONTRADO: "
+
+#~ msgid "Quit this %s ..."
+#~ msgstr "Cerrar este %s"
 
 #~ msgid "Cancel delete_event"
 #~ msgstr "Cancelar delete_event"
@@ -506,6 +524,9 @@ msgstr "No conectado"
 
 #~ msgid "Quitting current screenlet instance"
 #~ msgstr "Cerrando esta instancia del screenlet."
+
+#~ msgid "Screenlet: Set theme %s"
+#~ msgstr "Screenlet: Cambio de tema a %s"
 
 #~ msgid "ERROR: Unable to read password from keyring: %s"
 #~ msgstr "ERROR: No se ha podido leer las contraseñas del anillo: %s"
@@ -640,6 +661,9 @@ msgstr "No conectado"
 #~ msgid "Failed to remove INI-file for instance (not critical)."
 #~ msgstr "Error al borrar INI-file de instancia (no crítico)."
 
+#~ msgid "Error in screenlets.session.connect_daemon: %s"
+#~ msgstr "Error en screenlets.session.connect_daemon: %s"
+
 #~ msgid "Creating new instance: "
 #~ msgstr "Creando una instancia nueva: "
 
@@ -706,6 +730,9 @@ msgstr "No conectado"
 #~ msgstr ""
 #~ "Nota: No hay ningun demonio de notificaciones, o DBus no esta corriendo"
 
+#~ msgid "Unable to load '%s' from %s: %s "
+#~ msgstr "Imposible cargar '%s' desde %s: %s "
+
 #~ msgid "Error: Failed to delete global tempfile"
 #~ msgstr "Error: Fallo al borrar \"tempfile\""
 
@@ -714,6 +741,12 @@ msgstr "No conectado"
 #~ msgstr ""
 #~ "El Screenlet '%s' ha sido interrumpido por la pulsacion de una tecla. TODO: "
 #~ "make this an event"
+
+#~ msgid "Exception in ScreenletSession: "
+#~ msgstr "Excepcion en ScreenletSession: "
+
+#~ msgid "Failed to create instance of '%s'!"
+#~ msgstr "Fallo al crear la instancia de '%s'!"
 
 #~ msgid "Deleting global tempfile %s"
 #~ msgstr "Borrando tempfile global %s"
@@ -738,8 +771,36 @@ msgstr "No conectado"
 #~ "Error: Imposible crear el directorio temporal %s - screenlets-manager no "
 #~ "funcionará bien."
 
+#~ msgid "No more screenlets running."
+#~ msgstr "No hay más screenlets en ejecución"
+
+#~ msgid "No screenlets running?"
+#~ msgstr "No hay screenlets en ejecución?"
+
 #~ msgid "Error getting distro name"
 #~ msgstr "Error al obtener el nombre de la distribución"
+
+#~ msgid "No global tempdir found, creating new one."
+#~ msgstr ""
+#~ "No se ha encontrado un directorio temporal global, Creando uno nuevo."
+
+#~ msgid "Screenlet has already been added to %s"
+#~ msgstr "El screenlet ya se ha añadido a %s"
+
+#~ msgid "Failed to open /proc/sys/kernel/hostname"
+#~ msgstr "Fallo al abrir /proc/sys/kernel/hostname"
+
+#~ msgid "Failed to open /proc/loadavg"
+#~ msgstr "Fallo al abrir /proc/loadavg"
+
+#~ msgid "Failed to open /proc/swaps"
+#~ msgstr "Fallo al abrir /proc/swaps"
+
+#~ msgid "Temp directory %s created."
+#~ msgstr "Creado el directorio %s."
+
+#~ msgid "Unable to open %s"
+#~ msgstr "No se pudo abrir %s"
 
 #~ msgid "(?)"
 #~ msgstr "(?)"

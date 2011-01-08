@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-17 14:51+0900\n"
-"PO-Revision-Date: 2010-11-12 09:59+0000\n"
-"Last-Translator: Miro Glavić <glavicmiro@gmail.com>\n"
+"PO-Revision-Date: 2011-01-07 19:35+0000\n"
+"Last-Translator: student4 <Unknown>\n"
 "Language-Team: Croatian <hr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-12-10 04:44+0000\n"
+"X-Launchpad-Export-Date: 2011-01-08 04:38+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "Language: hr\n"
 
@@ -166,7 +166,7 @@ msgstr ""
 
 #: src/lib/__init__.py:786
 msgid "Set this Screenlet to ignore/demand DEB requirements ..."
-msgstr ""
+msgstr "Postavi ovaj Screenlet za zanemarivanje/potražnja DEB zahtjeva ..."
 
 #: src/lib/__init__.py:790
 msgid "Allow overriding Options"
@@ -394,6 +394,9 @@ msgstr "Nije povezano"
 #~ msgid "XML-Error: %s"
 #~ msgstr "XML-Greška: %s"
 
+#~ msgid "Failed to create instance of '%s'!"
+#~ msgstr "Neuspjelo stvaranje instance od '%s'!"
+
 #~ msgid "File %s not found"
 #~ msgstr "Datoteka %s nije pronađena"
 
@@ -412,6 +415,12 @@ msgstr "Nije povezano"
 
 #~ msgid "Error while creating image from file: %s"
 #~ msgstr "Greška prilikom stvaranja slike iz datoteke: %s"
+
+#~ msgid "Unable to load '%s' from %s: %s "
+#~ msgstr "Nije moguće učitati '%s' iz %s: %s "
+
+#~ msgid "Exception in ScreenletSession: "
+#~ msgstr "Iznimka u ScreenletSession: "
 
 #, python-format
 #~ msgid "can't read temperature in: %s"
@@ -468,8 +477,17 @@ msgstr "Nije povezano"
 #~ msgid "Author: "
 #~ msgstr "Autor: "
 
+#~ msgid "Quit this %s ..."
+#~ msgstr "Zatvori ovaj %s ..."
+
+#~ msgid "Delete Screenlet ..."
+#~ msgstr "Ukloni Screenlet ..."
+
 #~ msgid "Quit all %ss ..."
 #~ msgstr "Zatvori sve %se ..."
+
+#~ msgid "Failed to load theme.conf"
+#~ msgstr "Neuspjelo učitavanje theme.conf"
 
 #~ msgid "theme.conf found! Loading option-overrides."
 #~ msgstr "theme.conf pronađen! Učitavanje postavki-zaobilaženja."
@@ -480,11 +498,20 @@ msgstr "Nije povezano"
 #~ msgid "Deleting global tempfile %s"
 #~ msgstr "Brisanje globalne temp datoteke %s"
 
+#~ msgid "No more screenlets running."
+#~ msgstr "Niti jedan screenlet nije pokrenut."
+
+#~ msgid "No screenlets running?"
+#~ msgstr "Niti jedan screenlet nije pokrenut?"
+
 #~ msgid "FOUND: "
 #~ msgstr "PRONAĐEN: "
 
 #~ msgid "Error while loading theme: "
 #~ msgstr "Greška prilikom učitavanja teme: "
+
+#~ msgid "Screenlet: Set theme %s"
+#~ msgstr "Screenlet: postavi temu %s"
 
 #~ msgid "Temporary file didn't exist - nothing to remove."
 #~ msgstr "Privremena datoteka ne postoji - ništa za ukloniti."
@@ -579,8 +606,38 @@ msgstr "Nije povezano"
 #~ msgid "Creating new entry for %s in %s"
 #~ msgstr "Stvaranje novog unosa za %s u %s"
 
+#~ msgid "GConf python module not found. GConf settings backend is disabled."
+#~ msgstr "GConf python modul nije pronađen. GConf postavke isključene."
+
+#~ msgid "GConfBackend: initializing"
+#~ msgstr "GConfBackend: inicijalizacija"
+
+#~ msgid "CachingBackend: Loading instances from cache"
+#~ msgstr "CachingBackend: Učitavanje instanci iz cachea"
+
 #~ msgid "GnomeKeyring is not available!!"
 #~ msgstr "GnomeKeyring nije dostupan!!"
+
+#~ msgid "CachingBackend: Saving <#%s> :) ..."
+#~ msgstr "CachingBackend: Spremanje <#%s> :) ..."
+
+#~ msgid "CachingBackend: Loading <%s>"
+#~ msgstr "CachingBackend: Učitavanje <%s>"
+
+#~ msgid "CachingBackend: <#%s> removed!"
+#~ msgstr "CachingBackend: <#%s> uklonjeno!"
+
+#~ msgid "Failed to open /proc/sys/kernel/hostname"
+#~ msgstr "Neuspjelo otvaranje /proc/sys/kernel/hostname"
+
+#~ msgid "Failed to open /proc/loadavg"
+#~ msgstr "Neuspjelo otvaranje /proc/loadavg"
+
+#~ msgid "Failed to open /proc/swaps"
+#~ msgstr "Neuspjelo otvaranje /proc/swaps"
+
+#~ msgid "Removing last instance from session"
+#~ msgstr "Uklanjanje zadnje instance iz sesije"
 
 #, python-format
 #~ msgid "Trying to access invalid option \"%s\"."
@@ -589,6 +646,15 @@ msgstr "Nije povezano"
 #, python-format
 #~ msgid "Trying to access invalid instance \"%s\"."
 #~ msgstr "Pokušaj pristupa nevažećoj instanci \"%s\"."
+
+#~ msgid "Unable to open %s"
+#~ msgstr "Nije moguće otvoriti %s"
+
+#~ msgid "Loading instances in: %s"
+#~ msgstr "Učitavanje instanci u: %s"
+
+#~ msgid "Adding new instance through: %s"
+#~ msgstr "Dodavanje nove instance kroz: %s"
 
 #~ msgid "UPDATING SHAPE"
 #~ msgstr "AŽURIRAM OBLIK"

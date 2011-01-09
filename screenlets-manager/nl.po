@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-09 19:14+0900\n"
+"POT-Creation-Date: 2011-01-10 05:24+0900\n"
 "PO-Revision-Date: 2010-12-18 08:40+0000\n"
 "Last-Translator: Screenlets Dev Team <screenlets-dev@lists.launchpad.net>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -26,12 +26,12 @@ msgstr "Screenlets daemon"
 #. name/version of this app
 #: src/share/screenlets-manager/screenlets-daemon.py:130
 #: src/share/screenlets-manager/screenlets-manager.py:49
-#: src/share/screenlets-manager/screenlets-manager.py:1312
+#: src/share/screenlets-manager/screenlets-manager.py:1320
 msgid "Screenlets Manager"
 msgstr "Screenlets Manager"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:132
-#: src/share/screenlets-manager/screenlets-manager.py:910
+#: src/share/screenlets-manager/screenlets-manager.py:918
 msgid "Install Screenlet"
 msgstr "Installeer Screenlet"
 
@@ -97,8 +97,8 @@ msgstr ""
 "Kan geen verbinding met de daemon krijgen of die starten. Sommige waarden "
 "kunnen foutief afgebeeld worden."
 
-#: src/share/screenlets-manager/screenlets-manager.py:132 src/lib/utils.py:101
-#: src/lib/utils.py:105 src/lib/utils.py:577 src/lib/utils.py:581
+#: src/share/screenlets-manager/screenlets-manager.py:132 src/lib/utils.py:102
+#: src/lib/utils.py:106 src/lib/utils.py:584 src/lib/utils.py:588
 msgid "Error"
 msgstr "Fout"
 
@@ -136,7 +136,7 @@ msgid "Launch/Add"
 msgstr "Start/Voeg toe"
 
 #: src/share/screenlets-manager/screenlets-manager.py:362
-#: src/share/screenlets-manager/screenlets-manager.py:915
+#: src/share/screenlets-manager/screenlets-manager.py:923
 msgid "Install"
 msgstr "Installeren"
 
@@ -320,62 +320,80 @@ msgstr ""
 "Thema-installatiefout 2 gevonden - Het thema is niet geïnstalleerd òf reeds "
 "geïnstalleerd"
 
+#: src/share/screenlets-manager/screenlets-manager.py:908
+msgid ""
+"The Screenlets PPA is not listed among Software Sources. Adding this enables "
+"installing individual screenlets from Package Manager (or Software Center) "
+"and by clicking on an AptURL on web pages like Gnome-look.org. Would you "
+"like to add the Screenlets PPA to your system?"
+msgstr ""
+
 #: src/share/screenlets-manager/screenlets-manager.py:911
+#, fuzzy
+msgid "The Screenlets PPA added successfully."
+msgstr "De %sScreenlet is succesvol geïnstalleerd."
+
+#: src/share/screenlets-manager/screenlets-manager.py:913
+#, fuzzy
+msgid "Adding the Screenlets PPA failed."
+msgstr "Stop alle Screenlets"
+
+#: src/share/screenlets-manager/screenlets-manager.py:919
 msgid "Install SuperKaramba Theme"
 msgstr "Installeer SuperKaramba Thema"
 
-#: src/share/screenlets-manager/screenlets-manager.py:912
+#: src/share/screenlets-manager/screenlets-manager.py:920
 msgid "Convert Web Widget"
 msgstr "Converteer Web Widget"
 
-#: src/share/screenlets-manager/screenlets-manager.py:913
-#: src/share/screenlets-manager/screenlets-manager.py:1020
+#: src/share/screenlets-manager/screenlets-manager.py:921
+#: src/share/screenlets-manager/screenlets-manager.py:1028
 msgid "Install Web Application"
 msgstr "Installeer web applicatie"
 
-#: src/share/screenlets-manager/screenlets-manager.py:933
+#: src/share/screenlets-manager/screenlets-manager.py:941
 msgid "New screenlets atributes.."
 msgstr "Nieuwe gegevenskenmerken van de screenlet.."
 
-#: src/share/screenlets-manager/screenlets-manager.py:934
+#: src/share/screenlets-manager/screenlets-manager.py:942
 msgid "Lock"
 msgstr "Vergrendel"
 
-#: src/share/screenlets-manager/screenlets-manager.py:935
+#: src/share/screenlets-manager/screenlets-manager.py:943
 msgid "Sticky"
 msgstr "Vastgeplakt"
 
-#: src/share/screenlets-manager/screenlets-manager.py:936
+#: src/share/screenlets-manager/screenlets-manager.py:944
 msgid "Widget"
 msgstr "Widget"
 
-#: src/share/screenlets-manager/screenlets-manager.py:937
+#: src/share/screenlets-manager/screenlets-manager.py:945
 msgid "Keep above"
 msgstr "Zichtbaar houden"
 
-#: src/share/screenlets-manager/screenlets-manager.py:939
+#: src/share/screenlets-manager/screenlets-manager.py:947
 msgid "Keep below"
 msgstr "Naar achtergrond"
 
-#: src/share/screenlets-manager/screenlets-manager.py:940
+#: src/share/screenlets-manager/screenlets-manager.py:948
 msgid "Show buttons"
 msgstr "Toon knoppen"
 
-#: src/share/screenlets-manager/screenlets-manager.py:972
+#: src/share/screenlets-manager/screenlets-manager.py:980
 msgid "New Screenlets atributes"
 msgstr "Nieuwe gegevenskenmerken van de Screenlet"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1010
+#: src/share/screenlets-manager/screenlets-manager.py:1018
 msgid "Web Application Url"
 msgstr "Web Applicatie Url"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1011
+#: src/share/screenlets-manager/screenlets-manager.py:1019
 msgid "Web Application Name"
 msgstr "Web applicatie naam"
 
 #. found_path != None:
-#: src/share/screenlets-manager/screenlets-manager.py:1043
-#: src/share/screenlets-manager/screenlets-manager.py:1127
+#: src/share/screenlets-manager/screenlets-manager.py:1051
+#: src/share/screenlets-manager/screenlets-manager.py:1135
 msgid ""
 "There is already a screenlet with that name installed\n"
 "Do you wish to continue?"
@@ -383,59 +401,59 @@ msgstr ""
 "Er is al een Screenlet met deze naam geïnstalleerd.\n"
 "Wilt u verder gaan?"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1064
+#: src/share/screenlets-manager/screenlets-manager.py:1072
 msgid "Web Application was successfully installed"
 msgstr "De web applicatie is succesvol geïnstalleerd"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1067
+#: src/share/screenlets-manager/screenlets-manager.py:1075
 msgid "Error installing!!!"
 msgstr "Een fout bij installatie!!!"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1068
-#: src/share/screenlets-manager/screenlets-manager.py:1153
+#: src/share/screenlets-manager/screenlets-manager.py:1076
+#: src/share/screenlets-manager/screenlets-manager.py:1161
 msgid "Please specify a name for the widget"
 msgstr "Geef een naam voor het widget"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1069
-#: src/share/screenlets-manager/screenlets-manager.py:1154
+#: src/share/screenlets-manager/screenlets-manager.py:1077
+#: src/share/screenlets-manager/screenlets-manager.py:1162
 msgid "No HTML code found"
 msgstr "Geen HTML code gevonden"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1073
+#: src/share/screenlets-manager/screenlets-manager.py:1081
 msgid "Convert any webpage widget into a Screenlet."
 msgstr "Zet elke webpage widget over in een Screenlet."
 
-#: src/share/screenlets-manager/screenlets-manager.py:1074
+#: src/share/screenlets-manager/screenlets-manager.py:1082
 msgid "Step 1 : Find the widget you want to convert"
 msgstr "Stap 1: Zoek de widget die je wilt overzetten"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1075
+#: src/share/screenlets-manager/screenlets-manager.py:1083
 msgid "Step 2 : Copy and Paste the HTML from the widget in the box below"
 msgstr "Stap 2: Kopieer en Plak de HTML van de widget in het vak hieronder"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1076
+#: src/share/screenlets-manager/screenlets-manager.py:1084
 msgid "Step 3 : Give it a name in the box below and click on Ok to convert"
 msgstr ""
 "Stap 3: Geef die een naam in het vak hieronder en klik op OK om over te "
 "zetten"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1077
+#: src/share/screenlets-manager/screenlets-manager.py:1085
 msgid "The name of the widget"
 msgstr "De naam van het widget"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1101
+#: src/share/screenlets-manager/screenlets-manager.py:1109
 msgid "Widget converter"
 msgstr "Widget overzetter"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1149
+#: src/share/screenlets-manager/screenlets-manager.py:1157
 msgid "Widget was successfully converted"
 msgstr "Widget is met succes overgezet"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1152
+#: src/share/screenlets-manager/screenlets-manager.py:1160
 msgid "Error converting!!!"
 msgstr "Fout bij het overzetten!!!"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1275
+#: src/share/screenlets-manager/screenlets-manager.py:1283
 msgid "Screenlets-Manager must now be restarted"
 msgstr "Screenlets-Manager moet nu herstart worden"
 
@@ -594,7 +612,7 @@ msgid "The %sScreenlet has been succesfully installed."
 msgstr "De %sScreenlet is succesvol geïnstalleerd."
 
 #. create autostart directory, if not existent
-#: src/lib/utils.py:100 src/lib/utils.py:577
+#: src/lib/utils.py:101 src/lib/utils.py:584
 msgid ""
 "There is no existing autostart directory for your user account yet. Do you "
 "want me to automatically create it for you?"
@@ -602,7 +620,7 @@ msgstr ""
 "Er bestaat nog geen autostart map voor je gebruikersaccount. Wil je dat ik "
 "die automatisch voor je maak?"
 
-#: src/lib/utils.py:105 src/lib/utils.py:581
+#: src/lib/utils.py:106 src/lib/utils.py:588
 #, python-format
 msgid ""
 "Automatic creation failed. Please manually create the directory:\n"
@@ -611,7 +629,7 @@ msgstr ""
 "Automatisch maken van de map mislukt. Maak a.u.b. de map handmatig:\n"
 "%s"
 
-#: src/lib/utils.py:108 src/lib/utils.py:584
+#: src/lib/utils.py:109 src/lib/utils.py:591
 #, python-format
 msgid ""
 "Please manually create the directory:\n"
@@ -620,7 +638,7 @@ msgstr ""
 "Maak de map a.u.b. handmatig:\n"
 "%s"
 
-#: src/lib/utils.py:613
+#: src/lib/utils.py:620
 #, python-format
 msgid "Failed to add %sScreenlet."
 msgstr "Toevoegen van %sScreenlet mislukt."

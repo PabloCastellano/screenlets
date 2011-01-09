@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-09 19:14+0900\n"
+"POT-Creation-Date: 2011-01-10 05:24+0900\n"
 "PO-Revision-Date: 2010-11-12 13:10+0000\n"
 "Last-Translator: Ermal Llanaj <ermalipavia@gmail.com>\n"
 "Language-Team: Albanian <sq@li.org>\n"
@@ -26,12 +26,12 @@ msgstr ""
 #. name/version of this app
 #: src/share/screenlets-manager/screenlets-daemon.py:130
 #: src/share/screenlets-manager/screenlets-manager.py:49
-#: src/share/screenlets-manager/screenlets-manager.py:1312
+#: src/share/screenlets-manager/screenlets-manager.py:1320
 msgid "Screenlets Manager"
 msgstr "Menaxheri i Screenlets"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:132
-#: src/share/screenlets-manager/screenlets-manager.py:910
+#: src/share/screenlets-manager/screenlets-manager.py:918
 msgid "Install Screenlet"
 msgstr "Instalo Screenlet"
 
@@ -96,8 +96,8 @@ msgstr ""
 "Nuk mund te lidhet ose ngarkohet daemoni. Disa vlera mund te shfaqin me "
 "gabime."
 
-#: src/share/screenlets-manager/screenlets-manager.py:132 src/lib/utils.py:101
-#: src/lib/utils.py:105 src/lib/utils.py:577 src/lib/utils.py:581
+#: src/share/screenlets-manager/screenlets-manager.py:132 src/lib/utils.py:102
+#: src/lib/utils.py:106 src/lib/utils.py:584 src/lib/utils.py:588
 msgid "Error"
 msgstr "Gabim"
 
@@ -135,7 +135,7 @@ msgid "Launch/Add"
 msgstr "Ngarko/Shto"
 
 #: src/share/screenlets-manager/screenlets-manager.py:362
-#: src/share/screenlets-manager/screenlets-manager.py:915
+#: src/share/screenlets-manager/screenlets-manager.py:923
 msgid "Install"
 msgstr "Instalo"
 
@@ -315,62 +315,79 @@ msgid "Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Gabimi 2 u gjet ne instalimin e temes - Tema nuk u instalua ose ekziston"
 
+#: src/share/screenlets-manager/screenlets-manager.py:908
+msgid ""
+"The Screenlets PPA is not listed among Software Sources. Adding this enables "
+"installing individual screenlets from Package Manager (or Software Center) "
+"and by clicking on an AptURL on web pages like Gnome-look.org. Would you "
+"like to add the Screenlets PPA to your system?"
+msgstr ""
+
 #: src/share/screenlets-manager/screenlets-manager.py:911
+#, fuzzy
+msgid "The Screenlets PPA added successfully."
+msgstr "%sScreenlet u instalua me sukses."
+
+#: src/share/screenlets-manager/screenlets-manager.py:913
+msgid "Adding the Screenlets PPA failed."
+msgstr ""
+
+#: src/share/screenlets-manager/screenlets-manager.py:919
 msgid "Install SuperKaramba Theme"
 msgstr ""
 
-#: src/share/screenlets-manager/screenlets-manager.py:912
+#: src/share/screenlets-manager/screenlets-manager.py:920
 msgid "Convert Web Widget"
 msgstr ""
 
-#: src/share/screenlets-manager/screenlets-manager.py:913
-#: src/share/screenlets-manager/screenlets-manager.py:1020
+#: src/share/screenlets-manager/screenlets-manager.py:921
+#: src/share/screenlets-manager/screenlets-manager.py:1028
 msgid "Install Web Application"
 msgstr "Instalo Programin Web"
 
-#: src/share/screenlets-manager/screenlets-manager.py:933
+#: src/share/screenlets-manager/screenlets-manager.py:941
 msgid "New screenlets atributes.."
 msgstr "Atributet e Screenlet te ri.."
 
-#: src/share/screenlets-manager/screenlets-manager.py:934
+#: src/share/screenlets-manager/screenlets-manager.py:942
 msgid "Lock"
 msgstr "Blloko"
 
-#: src/share/screenlets-manager/screenlets-manager.py:935
+#: src/share/screenlets-manager/screenlets-manager.py:943
 msgid "Sticky"
 msgstr "Ngjitur"
 
-#: src/share/screenlets-manager/screenlets-manager.py:936
+#: src/share/screenlets-manager/screenlets-manager.py:944
 msgid "Widget"
 msgstr "Widget"
 
-#: src/share/screenlets-manager/screenlets-manager.py:937
+#: src/share/screenlets-manager/screenlets-manager.py:945
 msgid "Keep above"
 msgstr "Mbaj Perpara"
 
-#: src/share/screenlets-manager/screenlets-manager.py:939
+#: src/share/screenlets-manager/screenlets-manager.py:947
 msgid "Keep below"
 msgstr "Mbaj Mbrapa"
 
-#: src/share/screenlets-manager/screenlets-manager.py:940
+#: src/share/screenlets-manager/screenlets-manager.py:948
 msgid "Show buttons"
 msgstr "Shfaq Butonat"
 
-#: src/share/screenlets-manager/screenlets-manager.py:972
+#: src/share/screenlets-manager/screenlets-manager.py:980
 msgid "New Screenlets atributes"
 msgstr "Atributet e Screenlet te ri"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1010
+#: src/share/screenlets-manager/screenlets-manager.py:1018
 msgid "Web Application Url"
 msgstr "Url e Programit Web"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1011
+#: src/share/screenlets-manager/screenlets-manager.py:1019
 msgid "Web Application Name"
 msgstr "Emri i Programit Web"
 
 #. found_path != None:
-#: src/share/screenlets-manager/screenlets-manager.py:1043
-#: src/share/screenlets-manager/screenlets-manager.py:1127
+#: src/share/screenlets-manager/screenlets-manager.py:1051
+#: src/share/screenlets-manager/screenlets-manager.py:1135
 msgid ""
 "There is already a screenlet with that name installed\n"
 "Do you wish to continue?"
@@ -378,59 +395,59 @@ msgstr ""
 "Ekziston nje Screenlet i instaluar me te njejtin emer\n"
 "Doni te vazhdoni?"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1064
+#: src/share/screenlets-manager/screenlets-manager.py:1072
 msgid "Web Application was successfully installed"
 msgstr "Programi Web u instalua me sukses"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1067
+#: src/share/screenlets-manager/screenlets-manager.py:1075
 msgid "Error installing!!!"
 msgstr "Gabim ne Instalim!!!"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1068
-#: src/share/screenlets-manager/screenlets-manager.py:1153
+#: src/share/screenlets-manager/screenlets-manager.py:1076
+#: src/share/screenlets-manager/screenlets-manager.py:1161
 msgid "Please specify a name for the widget"
 msgstr "Ju lutem specifikoni nje emer per widget"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1069
-#: src/share/screenlets-manager/screenlets-manager.py:1154
+#: src/share/screenlets-manager/screenlets-manager.py:1077
+#: src/share/screenlets-manager/screenlets-manager.py:1162
 msgid "No HTML code found"
 msgstr "Nuk u gjet kod HTML"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1073
+#: src/share/screenlets-manager/screenlets-manager.py:1081
 msgid "Convert any webpage widget into a Screenlet."
 msgstr "Konverto cdo widget ne nje Screenlet."
 
-#: src/share/screenlets-manager/screenlets-manager.py:1074
+#: src/share/screenlets-manager/screenlets-manager.py:1082
 msgid "Step 1 : Find the widget you want to convert"
 msgstr "Hapi i pare : Gjeni widget qe doni te konvertoni"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1075
+#: src/share/screenlets-manager/screenlets-manager.py:1083
 msgid "Step 2 : Copy and Paste the HTML from the widget in the box below"
 msgstr "Hapi i dyte : Kopjo dhe Ngjit HTML nga widget ne kutine me poshte"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1076
+#: src/share/screenlets-manager/screenlets-manager.py:1084
 msgid "Step 3 : Give it a name in the box below and click on Ok to convert"
 msgstr ""
 "Hapi i trete : Vendosni nje emer per kutine me poshte dhe klikoni OK per ta "
 "konvertuar"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1077
+#: src/share/screenlets-manager/screenlets-manager.py:1085
 msgid "The name of the widget"
 msgstr "Emri i widget"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1101
+#: src/share/screenlets-manager/screenlets-manager.py:1109
 msgid "Widget converter"
 msgstr "Konvertues Widget"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1149
+#: src/share/screenlets-manager/screenlets-manager.py:1157
 msgid "Widget was successfully converted"
 msgstr "Widget u konvertua me sukses"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1152
+#: src/share/screenlets-manager/screenlets-manager.py:1160
 msgid "Error converting!!!"
 msgstr "Gabim ne Konvertim!!!"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1275
+#: src/share/screenlets-manager/screenlets-manager.py:1283
 msgid "Screenlets-Manager must now be restarted"
 msgstr "Menaxheri i Screenlets tani duhet te rifillohet"
 
@@ -583,7 +600,7 @@ msgid "The %sScreenlet has been succesfully installed."
 msgstr "%sScreenlet u instalua me sukses."
 
 #. create autostart directory, if not existent
-#: src/lib/utils.py:100 src/lib/utils.py:577
+#: src/lib/utils.py:101 src/lib/utils.py:584
 msgid ""
 "There is no existing autostart directory for your user account yet. Do you "
 "want me to automatically create it for you?"
@@ -591,7 +608,7 @@ msgstr ""
 "Nuk ka akoma nje direktori autostart per perdoruesin tuaj. Doni te krijohet "
 "automatikisht kjo direktori?"
 
-#: src/lib/utils.py:105 src/lib/utils.py:581
+#: src/lib/utils.py:106 src/lib/utils.py:588
 #, python-format
 msgid ""
 "Automatic creation failed. Please manually create the directory:\n"
@@ -600,7 +617,7 @@ msgstr ""
 "Krijimi automatik nuk u krye. Ju lutem krijoni manualisht direktorine:\n"
 "%s"
 
-#: src/lib/utils.py:108 src/lib/utils.py:584
+#: src/lib/utils.py:109 src/lib/utils.py:591
 #, python-format
 msgid ""
 "Please manually create the directory:\n"
@@ -609,7 +626,7 @@ msgstr ""
 "Ju lutem krijoni manualisht direktorine:\n"
 "%s"
 
-#: src/lib/utils.py:613
+#: src/lib/utils.py:620
 #, python-format
 msgid "Failed to add %sScreenlet."
 msgstr "%sScreenlet nuk u shtua."

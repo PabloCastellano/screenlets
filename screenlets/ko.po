@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-09 19:13+0900\n"
+"POT-Creation-Date: 2011-01-10 05:23+0900\n"
 "PO-Revision-Date: 2010-11-12 13:58+0000\n"
 "Last-Translator: Bundo <bundo@bundo.biz>\n"
 "Language-Team: Korean <ko@li.org>\n"
@@ -24,188 +24,188 @@ msgid "http://www.screenlets.org/index.php/Get_more_screenlets"
 msgstr ""
 
 #. default meta-info for Screenlets
-#: src/lib/__init__.py:611
+#: src/lib/__init__.py:613
 msgid "No name set for this Screenlet"
 msgstr "이 스크린렛츠는 설정에는 이름이 없습니다."
 
-#: src/lib/__init__.py:613
+#: src/lib/__init__.py:615
 msgid "No author defined for this Screenlet"
 msgstr "만든이가 이 스크린렛츠에 대해 정의함"
 
-#: src/lib/__init__.py:614
+#: src/lib/__init__.py:616
 msgid "No info set for this Screenlet"
 msgstr "이 스크린렛츠는 설정에는 정보가 없습니다."
 
-#: src/lib/__init__.py:724
+#: src/lib/__init__.py:726
 msgid "The basic settings for this Screenlet-instance."
 msgstr "스크린렛츠-예에 대한 기본설정"
 
-#: src/lib/__init__.py:739
+#: src/lib/__init__.py:741
 msgid "X-Position"
 msgstr "세로 위치"
 
-#: src/lib/__init__.py:739
+#: src/lib/__init__.py:741
 msgid "The X-position of this Screenlet ..."
 msgstr "이 스크릿렛츠에 대한 세로 위치"
 
-#: src/lib/__init__.py:742
+#: src/lib/__init__.py:744
 msgid "Y-Position"
 msgstr "가로 위치"
 
-#: src/lib/__init__.py:742
+#: src/lib/__init__.py:744
 msgid "The Y-position of this Screenlet ..."
 msgstr "이 스크릿렛츠에 대한 가로 위치"
 
-#: src/lib/__init__.py:745
+#: src/lib/__init__.py:747
 msgid "Width"
 msgstr "너비"
 
-#: src/lib/__init__.py:745
+#: src/lib/__init__.py:747
 msgid "The width of this Screenlet ..."
 msgstr "이 스크릿렛츠에 대한 너비"
 
-#: src/lib/__init__.py:748
+#: src/lib/__init__.py:750
 msgid "Height"
 msgstr "높이"
 
-#: src/lib/__init__.py:748
+#: src/lib/__init__.py:750
 msgid "The height of this Screenlet ..."
 msgstr "이 스크릿렛츠에 대한 높이"
 
-#: src/lib/__init__.py:751
+#: src/lib/__init__.py:753
 msgid "Scale"
 msgstr "크기 조정"
 
-#: src/lib/__init__.py:751
+#: src/lib/__init__.py:753
 msgid "The scale-factor of this Screenlet ..."
 msgstr "이 스크릿렛츠에 대한 크기 요소"
 
-#: src/lib/__init__.py:754
+#: src/lib/__init__.py:756
 msgid "Opacity"
 msgstr "투명도"
 
-#: src/lib/__init__.py:754
+#: src/lib/__init__.py:756
 msgid "The opacity of the Screenlet window ..."
 msgstr "스크린렛츠 창에 대한 투명도"
 
-#: src/lib/__init__.py:757
+#: src/lib/__init__.py:759
 msgid "Stick to Desktop"
 msgstr "바탕화면에 달라붙기"
 
-#: src/lib/__init__.py:758
+#: src/lib/__init__.py:760
 msgid "Show this Screenlet on all workspaces ..."
 msgstr "이 스크린렛츠 모든 작업공간에 표시"
 
-#: src/lib/__init__.py:760
+#: src/lib/__init__.py:762
 msgid "Treat as Widget"
 msgstr "위젯으로 취급"
 
-#: src/lib/__init__.py:761
+#: src/lib/__init__.py:763
 msgid "Treat this Screenlet as a \"Widget\" ..."
 msgstr "이 스크린렛츠를  \"Widget\"으로 취급..."
 
-#: src/lib/__init__.py:769
+#: src/lib/__init__.py:771
 msgid "Lock position"
 msgstr "위치 잠금"
 
-#: src/lib/__init__.py:770
+#: src/lib/__init__.py:772
 msgid "Stop the screenlet from being moved..."
 msgstr "움직임으로 부터 스크린렛츠 정지"
 
 #. add "Keep above"-menuitem
-#: src/lib/__init__.py:772 src/lib/__init__.py:1089
+#: src/lib/__init__.py:774 src/lib/__init__.py:1091
 msgid "Keep above"
 msgstr "상위 유지"
 
-#: src/lib/__init__.py:773
+#: src/lib/__init__.py:775
 msgid "Keep this Screenlet above other windows ..."
 msgstr "다른 창보다 스크린렛츠가 상위 유지"
 
 #. add "Keep Below"-menuitem
-#: src/lib/__init__.py:775 src/lib/__init__.py:1096
+#: src/lib/__init__.py:777 src/lib/__init__.py:1098
 msgid "Keep below"
 msgstr "하위 유지"
 
-#: src/lib/__init__.py:776
+#: src/lib/__init__.py:778
 msgid "Keep this Screenlet below other windows ..."
 msgstr "스크린렛츠를 다른창보다 하위 유지..."
 
-#: src/lib/__init__.py:778
+#: src/lib/__init__.py:780
 msgid "Draw button controls"
 msgstr "버튼 컨트롤 보기"
 
-#: src/lib/__init__.py:779
+#: src/lib/__init__.py:781
 msgid "Draw buttons in top right corner"
 msgstr "버튼을 오른쪽 상단 모서리에"
 
-#: src/lib/__init__.py:781
+#: src/lib/__init__.py:783
 msgid "Skip Pager"
 msgstr "호출 뻬기"
 
-#: src/lib/__init__.py:782
+#: src/lib/__init__.py:784
 msgid "Set this Screenlet to show/hide in pagers ..."
 msgstr "호출 보기/숨기기에 따라 스크린렛츠 설정"
 
-#: src/lib/__init__.py:784
+#: src/lib/__init__.py:786
 msgid "Skip Taskbar"
 msgstr "작업 표시줄 뼤기"
 
-#: src/lib/__init__.py:785
+#: src/lib/__init__.py:787
 msgid "Set this Screenlet to show/hide in taskbars ..."
 msgstr "작업표시줄 보기/숨기기에 따라 스크린렛츠 설정"
 
-#: src/lib/__init__.py:787
+#: src/lib/__init__.py:789
 msgid "Resize on mouse scroll"
 msgstr "마우스 스크롤로 크기 조정"
 
-#: src/lib/__init__.py:789
+#: src/lib/__init__.py:791
 msgid "Ignore requirements"
 msgstr ""
 
-#: src/lib/__init__.py:790
+#: src/lib/__init__.py:792
 msgid "Set this Screenlet to ignore/demand DEB requirements ..."
 msgstr ""
 
-#: src/lib/__init__.py:794
+#: src/lib/__init__.py:796
 msgid "Allow overriding Options"
 msgstr "옵션 우선 허용"
 
-#: src/lib/__init__.py:795
+#: src/lib/__init__.py:797
 msgid "Allow themes to override options in this screenlet ..."
 msgstr "아 스크린렛츠  옵션을 무시하는 테마를 허용합니다 .."
 
-#: src/lib/__init__.py:797
+#: src/lib/__init__.py:799
 msgid "Ask on Override"
 msgstr "허용 질문"
 
-#: src/lib/__init__.py:798
+#: src/lib/__init__.py:800
 msgid "Show a confirmation-dialog when a theme wants to override "
 msgstr "테마 설정 갱신을 요구하면 확인 대화 상자 표시 "
 
-#: src/lib/__init__.py:799
+#: src/lib/__init__.py:801
 msgid "the current options of this Screenlet ..."
 msgstr "이 스크린렛츠의 현재 옵션 ..."
 
 #. version of the deb package if unspecified
-#: src/lib/__init__.py:992
+#: src/lib/__init__.py:994
 msgid "?"
 msgstr ""
 
-#: src/lib/__init__.py:997
+#: src/lib/__init__.py:999
 #, python-format
 msgid ""
 "\n"
 "%(package)s %(version)s required, NOT INSTALLED!"
 msgstr ""
 
-#: src/lib/__init__.py:1000
+#: src/lib/__init__.py:1002
 #, python-format
 msgid ""
 "\n"
 "%(package)s %(version)s installed, req %(required)s."
 msgstr ""
 
-#: src/lib/__init__.py:1010
+#: src/lib/__init__.py:1012
 #, python-format
 msgid ""
 "Requirements for the Screenlet are not satisfied! Use the package manager of "
@@ -215,74 +215,74 @@ msgid ""
 "%s"
 msgstr ""
 
-#: src/lib/__init__.py:1032
+#: src/lib/__init__.py:1034
 msgid "Size"
 msgstr "크기"
 
-#: src/lib/__init__.py:1047
+#: src/lib/__init__.py:1049
 msgid "Theme"
 msgstr "테마"
 
-#: src/lib/__init__.py:1062
+#: src/lib/__init__.py:1064
 msgid "Window"
 msgstr "창"
 
 #. add "lock"-menuitem
-#: src/lib/__init__.py:1068
+#: src/lib/__init__.py:1070
 msgid "Lock"
 msgstr "잠금"
 
 #. add "Sticky"-menuitem
-#: src/lib/__init__.py:1075
+#: src/lib/__init__.py:1077
 msgid "Sticky"
 msgstr "고정"
 
 #. add "Widget"-menuitem
-#: src/lib/__init__.py:1082
+#: src/lib/__init__.py:1084
 msgid "Widget"
 msgstr "위젯"
 
-#: src/lib/__init__.py:1106
+#: src/lib/__init__.py:1108
 msgid "Properties..."
 msgstr "설정..."
 
-#: src/lib/__init__.py:1109
+#: src/lib/__init__.py:1111
 msgid "Info..."
 msgstr "정보..."
 
-#: src/lib/__init__.py:1113
+#: src/lib/__init__.py:1115
 #, python-format
 msgid "Add one more %s"
 msgstr ""
 
-#: src/lib/__init__.py:1116
+#: src/lib/__init__.py:1118
 #, python-format
 msgid "Delete this %s"
 msgstr ""
 
-#: src/lib/__init__.py:1120
+#: src/lib/__init__.py:1122
 #, python-format
 msgid "Quit this %s"
 msgstr ""
 
-#: src/lib/__init__.py:1123
+#: src/lib/__init__.py:1125
 #, python-format
 msgid "Quit all %ss"
 msgstr ""
 
-#: src/lib/__init__.py:1374
+#: src/lib/__init__.py:1376
 msgid ""
 "This theme wants to override your settings for this Screenlet. Do you want "
 "to allow that?"
 msgstr ""
 "이 테마는 당신의 이 스크린렛츠설정을 덥어 버립니다. 계속 따라 하시겠습니까?"
 
-#: src/lib/__init__.py:1608
+#: src/lib/__init__.py:1610
 #, python-format
 msgid "To quit all %s's, use 'Quit' instead. "
 msgstr "모든 %s's 종료, '종료' 대신에 사용. "
 
-#: src/lib/__init__.py:1609
+#: src/lib/__init__.py:1611
 #, python-format
 msgid "Really delete this %s and its settings?"
 msgstr "정말 이 %s와 이 설정을 삭제하겠습니까?"

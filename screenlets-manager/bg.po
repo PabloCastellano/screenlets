@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-09 19:14+0900\n"
+"POT-Creation-Date: 2011-01-10 05:24+0900\n"
 "PO-Revision-Date: 2010-12-14 08:07+0000\n"
 "Last-Translator: Screenlets Dev Team <screenlets-dev@lists.launchpad.net>\n"
 "Language-Team: Bulgarian <bg@li.org>\n"
@@ -26,12 +26,12 @@ msgstr "Демон на Джаджи"
 #. name/version of this app
 #: src/share/screenlets-manager/screenlets-daemon.py:130
 #: src/share/screenlets-manager/screenlets-manager.py:49
-#: src/share/screenlets-manager/screenlets-manager.py:1312
+#: src/share/screenlets-manager/screenlets-manager.py:1320
 msgid "Screenlets Manager"
 msgstr "Мениджър на джаджи"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:132
-#: src/share/screenlets-manager/screenlets-manager.py:910
+#: src/share/screenlets-manager/screenlets-manager.py:918
 msgid "Install Screenlet"
 msgstr "Инсталиране на джаджа"
 
@@ -96,8 +96,8 @@ msgstr ""
 "Невъзможност да връзка или зареждане на демона. Възможно е някои стойности "
 "да не са показани правилно."
 
-#: src/share/screenlets-manager/screenlets-manager.py:132 src/lib/utils.py:101
-#: src/lib/utils.py:105 src/lib/utils.py:577 src/lib/utils.py:581
+#: src/share/screenlets-manager/screenlets-manager.py:132 src/lib/utils.py:102
+#: src/lib/utils.py:106 src/lib/utils.py:584 src/lib/utils.py:588
 msgid "Error"
 msgstr "Грешка"
 
@@ -137,7 +137,7 @@ msgid "Launch/Add"
 msgstr "Зареждане/Добавяне"
 
 #: src/share/screenlets-manager/screenlets-manager.py:362
-#: src/share/screenlets-manager/screenlets-manager.py:915
+#: src/share/screenlets-manager/screenlets-manager.py:923
 msgid "Install"
 msgstr "Инсталиране"
 
@@ -319,62 +319,80 @@ msgstr ""
 "Получи се грешка 2 при инсталиране на темата - темата не е инсталирана или "
 "вече е инсталирана"
 
+#: src/share/screenlets-manager/screenlets-manager.py:908
+msgid ""
+"The Screenlets PPA is not listed among Software Sources. Adding this enables "
+"installing individual screenlets from Package Manager (or Software Center) "
+"and by clicking on an AptURL on web pages like Gnome-look.org. Would you "
+"like to add the Screenlets PPA to your system?"
+msgstr ""
+
 #: src/share/screenlets-manager/screenlets-manager.py:911
+#, fuzzy
+msgid "The Screenlets PPA added successfully."
+msgstr "Джаджата %s беше инсталирана успешно."
+
+#: src/share/screenlets-manager/screenlets-manager.py:913
+#, fuzzy
+msgid "Adding the Screenlets PPA failed."
+msgstr "Изход от Джаджите"
+
+#: src/share/screenlets-manager/screenlets-manager.py:919
 msgid "Install SuperKaramba Theme"
 msgstr "Инсталиране на SuperKaramba тема"
 
-#: src/share/screenlets-manager/screenlets-manager.py:912
+#: src/share/screenlets-manager/screenlets-manager.py:920
 msgid "Convert Web Widget"
 msgstr ""
 
-#: src/share/screenlets-manager/screenlets-manager.py:913
-#: src/share/screenlets-manager/screenlets-manager.py:1020
+#: src/share/screenlets-manager/screenlets-manager.py:921
+#: src/share/screenlets-manager/screenlets-manager.py:1028
 msgid "Install Web Application"
 msgstr "Инсталиране на уеб приложение"
 
-#: src/share/screenlets-manager/screenlets-manager.py:933
+#: src/share/screenlets-manager/screenlets-manager.py:941
 msgid "New screenlets atributes.."
 msgstr "Свойства на новите джаджи.."
 
-#: src/share/screenlets-manager/screenlets-manager.py:934
+#: src/share/screenlets-manager/screenlets-manager.py:942
 msgid "Lock"
 msgstr "Заключване"
 
-#: src/share/screenlets-manager/screenlets-manager.py:935
+#: src/share/screenlets-manager/screenlets-manager.py:943
 msgid "Sticky"
 msgstr "На всички работни плотове"
 
-#: src/share/screenlets-manager/screenlets-manager.py:936
+#: src/share/screenlets-manager/screenlets-manager.py:944
 msgid "Widget"
 msgstr "Джаджа"
 
-#: src/share/screenlets-manager/screenlets-manager.py:937
+#: src/share/screenlets-manager/screenlets-manager.py:945
 msgid "Keep above"
 msgstr "Поддържане отгоре"
 
-#: src/share/screenlets-manager/screenlets-manager.py:939
+#: src/share/screenlets-manager/screenlets-manager.py:947
 msgid "Keep below"
 msgstr "Поддържане отдолу"
 
-#: src/share/screenlets-manager/screenlets-manager.py:940
+#: src/share/screenlets-manager/screenlets-manager.py:948
 msgid "Show buttons"
 msgstr "Показване на бутони"
 
-#: src/share/screenlets-manager/screenlets-manager.py:972
+#: src/share/screenlets-manager/screenlets-manager.py:980
 msgid "New Screenlets atributes"
 msgstr "Атрубити на новите джаджи"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1010
+#: src/share/screenlets-manager/screenlets-manager.py:1018
 msgid "Web Application Url"
 msgstr "Адрес на уеб приложението"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1011
+#: src/share/screenlets-manager/screenlets-manager.py:1019
 msgid "Web Application Name"
 msgstr "Име на уеб приложението"
 
 #. found_path != None:
-#: src/share/screenlets-manager/screenlets-manager.py:1043
-#: src/share/screenlets-manager/screenlets-manager.py:1127
+#: src/share/screenlets-manager/screenlets-manager.py:1051
+#: src/share/screenlets-manager/screenlets-manager.py:1135
 msgid ""
 "There is already a screenlet with that name installed\n"
 "Do you wish to continue?"
@@ -382,58 +400,58 @@ msgstr ""
 "Съществува джаджа с такова име.\n"
 "Желаете ли да продължите?"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1064
+#: src/share/screenlets-manager/screenlets-manager.py:1072
 msgid "Web Application was successfully installed"
 msgstr "Уеб приложението беше инсталирано успешно"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1067
+#: src/share/screenlets-manager/screenlets-manager.py:1075
 msgid "Error installing!!!"
 msgstr "Грешка при инсталиране!!!"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1068
-#: src/share/screenlets-manager/screenlets-manager.py:1153
+#: src/share/screenlets-manager/screenlets-manager.py:1076
+#: src/share/screenlets-manager/screenlets-manager.py:1161
 msgid "Please specify a name for the widget"
 msgstr "Моля определете име за джаджата"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1069
-#: src/share/screenlets-manager/screenlets-manager.py:1154
+#: src/share/screenlets-manager/screenlets-manager.py:1077
+#: src/share/screenlets-manager/screenlets-manager.py:1162
 msgid "No HTML code found"
 msgstr "Не е открит код на HTML"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1073
+#: src/share/screenlets-manager/screenlets-manager.py:1081
 msgid "Convert any webpage widget into a Screenlet."
 msgstr "Преобразуване на всяка една джаджа на уеб страница в джаджа."
 
-#: src/share/screenlets-manager/screenlets-manager.py:1074
+#: src/share/screenlets-manager/screenlets-manager.py:1082
 msgid "Step 1 : Find the widget you want to convert"
 msgstr "Стъпка 1: Намерете уеб джаджата, която желаете да преобразувате"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1075
+#: src/share/screenlets-manager/screenlets-manager.py:1083
 msgid "Step 2 : Copy and Paste the HTML from the widget in the box below"
 msgstr ""
 "Стъпка 2: Копирайте и поставете кода на HTML от уеб джаджата в полето по-долу"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1076
+#: src/share/screenlets-manager/screenlets-manager.py:1084
 msgid "Step 3 : Give it a name in the box below and click on Ok to convert"
 msgstr "Стъпка 3: Въведете име в полето по-долу и цъкнете ОК за преобразуване"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1077
+#: src/share/screenlets-manager/screenlets-manager.py:1085
 msgid "The name of the widget"
 msgstr "Името на джаджата"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1101
+#: src/share/screenlets-manager/screenlets-manager.py:1109
 msgid "Widget converter"
 msgstr "Конвертор на  джаджи"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1149
+#: src/share/screenlets-manager/screenlets-manager.py:1157
 msgid "Widget was successfully converted"
 msgstr "Преобразуването на джаджата е успешо"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1152
+#: src/share/screenlets-manager/screenlets-manager.py:1160
 msgid "Error converting!!!"
 msgstr "Грешка при преобразуване!!!"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1275
+#: src/share/screenlets-manager/screenlets-manager.py:1283
 msgid "Screenlets-Manager must now be restarted"
 msgstr "Мениджъра на джаджи трябва да се рестартира"
 
@@ -586,7 +604,7 @@ msgid "The %sScreenlet has been succesfully installed."
 msgstr "Джаджата %s беше инсталирана успешно."
 
 #. create autostart directory, if not existent
-#: src/lib/utils.py:100 src/lib/utils.py:577
+#: src/lib/utils.py:101 src/lib/utils.py:584
 msgid ""
 "There is no existing autostart directory for your user account yet. Do you "
 "want me to automatically create it for you?"
@@ -594,7 +612,7 @@ msgstr ""
 "Във вашия потребителски профил все още не съществува папка за автоматично "
 "зареждане. Желаете автоматично създаване на такава?"
 
-#: src/lib/utils.py:105 src/lib/utils.py:581
+#: src/lib/utils.py:106 src/lib/utils.py:588
 #, python-format
 msgid ""
 "Automatic creation failed. Please manually create the directory:\n"
@@ -603,7 +621,7 @@ msgstr ""
 "Автоматичното създаване е неуспешно. Моля ръчно създайте папката:\n"
 "%s"
 
-#: src/lib/utils.py:108 src/lib/utils.py:584
+#: src/lib/utils.py:109 src/lib/utils.py:591
 #, python-format
 msgid ""
 "Please manually create the directory:\n"
@@ -612,7 +630,7 @@ msgstr ""
 "Моля ръчно създайте папката:\n"
 "%s"
 
-#: src/lib/utils.py:613
+#: src/lib/utils.py:620
 #, python-format
 msgid "Failed to add %sScreenlet."
 msgstr "Джаджата %s не можа да се добави"

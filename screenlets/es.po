@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-09 19:13+0900\n"
+"POT-Creation-Date: 2011-01-10 05:23+0900\n"
 "PO-Revision-Date: 2011-01-04 16:14+0000\n"
 "Last-Translator: Screenlets Dev Team <screenlets-dev@lists.launchpad.net>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -24,179 +24,179 @@ msgid "http://www.screenlets.org/index.php/Get_more_screenlets"
 msgstr "http://www.screenlets.org/index.php/Get_more_screenlets"
 
 #. default meta-info for Screenlets
-#: src/lib/__init__.py:611
+#: src/lib/__init__.py:613
 msgid "No name set for this Screenlet"
 msgstr "No hay nombre establecido para este Screenlet"
 
-#: src/lib/__init__.py:613
+#: src/lib/__init__.py:615
 msgid "No author defined for this Screenlet"
 msgstr "No hay un autor definido para este Screenlet"
 
-#: src/lib/__init__.py:614
+#: src/lib/__init__.py:616
 msgid "No info set for this Screenlet"
 msgstr "Este Screenlet no posee informacion"
 
-#: src/lib/__init__.py:724
+#: src/lib/__init__.py:726
 msgid "The basic settings for this Screenlet-instance."
 msgstr "Configuración básica de esta instancia del Screenlet"
 
-#: src/lib/__init__.py:739
+#: src/lib/__init__.py:741
 msgid "X-Position"
 msgstr "Posición X"
 
-#: src/lib/__init__.py:739
+#: src/lib/__init__.py:741
 msgid "The X-position of this Screenlet ..."
 msgstr "La posición en el eje X de este Screenlet..."
 
-#: src/lib/__init__.py:742
+#: src/lib/__init__.py:744
 msgid "Y-Position"
 msgstr "Posición Y"
 
-#: src/lib/__init__.py:742
+#: src/lib/__init__.py:744
 msgid "The Y-position of this Screenlet ..."
 msgstr "La posición en el eje Y de este Screenlet..."
 
-#: src/lib/__init__.py:745
+#: src/lib/__init__.py:747
 msgid "Width"
 msgstr "Anchura"
 
-#: src/lib/__init__.py:745
+#: src/lib/__init__.py:747
 msgid "The width of this Screenlet ..."
 msgstr "La anchura de este Screenlet ..."
 
-#: src/lib/__init__.py:748
+#: src/lib/__init__.py:750
 msgid "Height"
 msgstr "Altura"
 
-#: src/lib/__init__.py:748
+#: src/lib/__init__.py:750
 msgid "The height of this Screenlet ..."
 msgstr "La altura de este Screenlet..."
 
-#: src/lib/__init__.py:751
+#: src/lib/__init__.py:753
 msgid "Scale"
 msgstr "Escala"
 
-#: src/lib/__init__.py:751
+#: src/lib/__init__.py:753
 msgid "The scale-factor of this Screenlet ..."
 msgstr "El factor de escala de este Screenlet..."
 
-#: src/lib/__init__.py:754
+#: src/lib/__init__.py:756
 msgid "Opacity"
 msgstr "Opacidad"
 
-#: src/lib/__init__.py:754
+#: src/lib/__init__.py:756
 msgid "The opacity of the Screenlet window ..."
 msgstr "La opacidad de la ventana de este Screenlet..."
 
-#: src/lib/__init__.py:757
+#: src/lib/__init__.py:759
 msgid "Stick to Desktop"
 msgstr "Pegar al escritorio"
 
-#: src/lib/__init__.py:758
+#: src/lib/__init__.py:760
 msgid "Show this Screenlet on all workspaces ..."
 msgstr "Mostrar el Screenlet en todos los espacios de trabajo"
 
-#: src/lib/__init__.py:760
+#: src/lib/__init__.py:762
 msgid "Treat as Widget"
 msgstr "Tratar como Widget"
 
-#: src/lib/__init__.py:761
+#: src/lib/__init__.py:763
 msgid "Treat this Screenlet as a \"Widget\" ..."
 msgstr "Tratar este Screenlet como un \"Widget\""
 
-#: src/lib/__init__.py:769
+#: src/lib/__init__.py:771
 msgid "Lock position"
 msgstr "Bloquear posición"
 
-#: src/lib/__init__.py:770
+#: src/lib/__init__.py:772
 msgid "Stop the screenlet from being moved..."
 msgstr "Evitar que el screenlet sea movido..."
 
 #. add "Keep above"-menuitem
-#: src/lib/__init__.py:772 src/lib/__init__.py:1089
+#: src/lib/__init__.py:774 src/lib/__init__.py:1091
 msgid "Keep above"
 msgstr "Mantener encima"
 
-#: src/lib/__init__.py:773
+#: src/lib/__init__.py:775
 msgid "Keep this Screenlet above other windows ..."
 msgstr "Mantener este Screenlet por encima de otras ventanas"
 
 #. add "Keep Below"-menuitem
-#: src/lib/__init__.py:775 src/lib/__init__.py:1096
+#: src/lib/__init__.py:777 src/lib/__init__.py:1098
 msgid "Keep below"
 msgstr "Mantener por debajo"
 
-#: src/lib/__init__.py:776
+#: src/lib/__init__.py:778
 msgid "Keep this Screenlet below other windows ..."
 msgstr "Mantener este Screenlet por debajo de otras ventanas"
 
-#: src/lib/__init__.py:778
+#: src/lib/__init__.py:780
 msgid "Draw button controls"
 msgstr "Dibujar botones de control en el screenlet"
 
-#: src/lib/__init__.py:779
+#: src/lib/__init__.py:781
 msgid "Draw buttons in top right corner"
 msgstr "Dibujar los botones de control en la esquina superior derecha"
 
-#: src/lib/__init__.py:781
+#: src/lib/__init__.py:783
 msgid "Skip Pager"
 msgstr "Saltarse el paginador"
 
-#: src/lib/__init__.py:782
+#: src/lib/__init__.py:784
 msgid "Set this Screenlet to show/hide in pagers ..."
 msgstr "Define si el screenlet debe aparecer en el paginador de tareas..."
 
-#: src/lib/__init__.py:784
+#: src/lib/__init__.py:786
 msgid "Skip Taskbar"
 msgstr "Aparecer en la barra de tareas."
 
-#: src/lib/__init__.py:785
+#: src/lib/__init__.py:787
 msgid "Set this Screenlet to show/hide in taskbars ..."
 msgstr ""
 "Define si el screenlet debe aparecer en la barra de tareas, como si se "
 "tratase de otra aplicación cualquiera .."
 
-#: src/lib/__init__.py:787
+#: src/lib/__init__.py:789
 msgid "Resize on mouse scroll"
 msgstr "Redimensionar al hacer scroll con el ratón"
 
-#: src/lib/__init__.py:789
+#: src/lib/__init__.py:791
 msgid "Ignore requirements"
 msgstr "Ignorar requerimientos"
 
-#: src/lib/__init__.py:790
+#: src/lib/__init__.py:792
 msgid "Set this Screenlet to ignore/demand DEB requirements ..."
 msgstr ""
 "Establezca este screenlet a ignorar / demandar los requerimientos DEB ..."
 
-#: src/lib/__init__.py:794
+#: src/lib/__init__.py:796
 msgid "Allow overriding Options"
 msgstr "Sobrescribir opciones"
 
-#: src/lib/__init__.py:795
+#: src/lib/__init__.py:797
 msgid "Allow themes to override options in this screenlet ..."
 msgstr "Define si se pueden sobrescribir las opciones de tema en el screenlet."
 
-#: src/lib/__init__.py:797
+#: src/lib/__init__.py:799
 msgid "Ask on Override"
 msgstr "Preguntar al sobrescribir"
 
-#: src/lib/__init__.py:798
+#: src/lib/__init__.py:800
 msgid "Show a confirmation-dialog when a theme wants to override "
 msgstr ""
 "Muestra un dialogo de confirmación cuando un tema quiere sobrescribir la "
 "configuración "
 
-#: src/lib/__init__.py:799
+#: src/lib/__init__.py:801
 msgid "the current options of this Screenlet ..."
 msgstr "Opciones actuales del Screenlet .."
 
 #. version of the deb package if unspecified
-#: src/lib/__init__.py:992
+#: src/lib/__init__.py:994
 msgid "?"
 msgstr "?"
 
-#: src/lib/__init__.py:997
+#: src/lib/__init__.py:999
 #, python-format
 msgid ""
 "\n"
@@ -205,7 +205,7 @@ msgstr ""
 "\n"
 "Se requiere %(package)s %(version)s, y no se ha instalado."
 
-#: src/lib/__init__.py:1000
+#: src/lib/__init__.py:1002
 #, python-format
 msgid ""
 "\n"
@@ -214,7 +214,7 @@ msgstr ""
 "\n"
 "%(package)s %(version)s instalado, req %(required)s."
 
-#: src/lib/__init__.py:1010
+#: src/lib/__init__.py:1012
 #, python-format
 msgid ""
 "Requirements for the Screenlet are not satisfied! Use the package manager of "
@@ -229,62 +229,62 @@ msgstr ""
 "DEPENDENCIAS:\n"
 "%s"
 
-#: src/lib/__init__.py:1032
+#: src/lib/__init__.py:1034
 msgid "Size"
 msgstr "Tamaño"
 
-#: src/lib/__init__.py:1047
+#: src/lib/__init__.py:1049
 msgid "Theme"
 msgstr "Tema"
 
-#: src/lib/__init__.py:1062
+#: src/lib/__init__.py:1064
 msgid "Window"
 msgstr "Ventana"
 
 #. add "lock"-menuitem
-#: src/lib/__init__.py:1068
+#: src/lib/__init__.py:1070
 msgid "Lock"
 msgstr "Bloquear"
 
 #. add "Sticky"-menuitem
-#: src/lib/__init__.py:1075
+#: src/lib/__init__.py:1077
 msgid "Sticky"
 msgstr "Adherido"
 
 #. add "Widget"-menuitem
-#: src/lib/__init__.py:1082
+#: src/lib/__init__.py:1084
 msgid "Widget"
 msgstr "Widget"
 
-#: src/lib/__init__.py:1106
+#: src/lib/__init__.py:1108
 msgid "Properties..."
 msgstr "Propiedades..."
 
-#: src/lib/__init__.py:1109
+#: src/lib/__init__.py:1111
 msgid "Info..."
 msgstr "Informacion..."
 
-#: src/lib/__init__.py:1113
+#: src/lib/__init__.py:1115
 #, python-format
 msgid "Add one more %s"
 msgstr "Agregar un mas %s"
 
-#: src/lib/__init__.py:1116
+#: src/lib/__init__.py:1118
 #, python-format
 msgid "Delete this %s"
 msgstr "Borrar este %s"
 
-#: src/lib/__init__.py:1120
+#: src/lib/__init__.py:1122
 #, python-format
 msgid "Quit this %s"
 msgstr "Quitar este %s"
 
-#: src/lib/__init__.py:1123
+#: src/lib/__init__.py:1125
 #, python-format
 msgid "Quit all %ss"
 msgstr "Quitar todos %ss"
 
-#: src/lib/__init__.py:1374
+#: src/lib/__init__.py:1376
 msgid ""
 "This theme wants to override your settings for this Screenlet. Do you want "
 "to allow that?"
@@ -292,12 +292,12 @@ msgstr ""
 "Este tema necesita sobreescribir tu configuración del Screenlet. Deseas "
 "concenderle permiso para ello?"
 
-#: src/lib/__init__.py:1608
+#: src/lib/__init__.py:1610
 #, python-format
 msgid "To quit all %s's, use 'Quit' instead. "
 msgstr "Para cerrar todos los %s's, usa 'Cerrar'. "
 
-#: src/lib/__init__.py:1609
+#: src/lib/__init__.py:1611
 #, python-format
 msgid "Really delete this %s and its settings?"
 msgstr ""

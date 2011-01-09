@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-10 05:24+0900\n"
+"POT-Creation-Date: 2011-01-10 06:36+0900\n"
 "PO-Revision-Date: 2010-12-14 08:07+0000\n"
 "Last-Translator: Screenlets Dev Team <screenlets-dev@lists.launchpad.net>\n"
 "Language-Team: Bulgarian <bg@li.org>\n"
@@ -327,15 +327,28 @@ msgid ""
 "like to add the Screenlets PPA to your system?"
 msgstr ""
 
+#: src/share/screenlets-manager/screenlets-manager.py:908
+#, fuzzy
+msgid "Do you want to enable the Screenlets PPA?"
+msgstr "Желаете ли да премахнете и конфигурационните файлове на джаджата?"
+
 #: src/share/screenlets-manager/screenlets-manager.py:911
 #, fuzzy
 msgid "The Screenlets PPA added successfully."
 msgstr "Джаджата %s беше инсталирана успешно."
 
+#: src/share/screenlets-manager/screenlets-manager.py:911
+msgid "Success!"
+msgstr ""
+
 #: src/share/screenlets-manager/screenlets-manager.py:913
 #, fuzzy
 msgid "Adding the Screenlets PPA failed."
 msgstr "Изход от Джаджите"
+
+#: src/share/screenlets-manager/screenlets-manager.py:913
+msgid "Failed!"
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:919
 msgid "Install SuperKaramba Theme"

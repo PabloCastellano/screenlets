@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: screenlets-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-10 05:24+0900\n"
+"POT-Creation-Date: 2011-01-10 06:36+0900\n"
 "PO-Revision-Date: 2010-11-12 14:17+0000\n"
 "Last-Translator: tabbernuk <boamaod@gmail.com>\n"
 "Language-Team: German <de@li.org>\n"
@@ -326,15 +326,28 @@ msgid ""
 "like to add the Screenlets PPA to your system?"
 msgstr ""
 
+#: src/share/screenlets-manager/screenlets-manager.py:908
+#, fuzzy
+msgid "Do you want to enable the Screenlets PPA?"
+msgstr "Möchten Sie die %sScreenlet Konfigurationen wirklich zurücksetzen?"
+
 #: src/share/screenlets-manager/screenlets-manager.py:911
 #, fuzzy
 msgid "The Screenlets PPA added successfully."
 msgstr "Das %sScreenlet wurde erfolgreich installiert."
 
+#: src/share/screenlets-manager/screenlets-manager.py:911
+msgid "Success!"
+msgstr ""
+
 #: src/share/screenlets-manager/screenlets-manager.py:913
 #, fuzzy
 msgid "Adding the Screenlets PPA failed."
 msgstr "Screenlets beenden"
+
+#: src/share/screenlets-manager/screenlets-manager.py:913
+msgid "Failed!"
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:919
 msgid "Install SuperKaramba Theme"

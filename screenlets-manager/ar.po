@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-10 05:24+0900\n"
+"POT-Creation-Date: 2011-01-10 06:36+0900\n"
 "PO-Revision-Date: 2010-11-12 13:40+0000\n"
 "Last-Translator: Nawaf Alsallami <nawafnaim@gmail.com>\n"
 "Language-Team: Arabic <ar@li.org>\n"
@@ -316,13 +316,26 @@ msgid ""
 "like to add the Screenlets PPA to your system?"
 msgstr ""
 
+#: src/share/screenlets-manager/screenlets-manager.py:908
+#, fuzzy
+msgid "Do you want to enable the Screenlets PPA?"
+msgstr "هل تريد إزالة ملفات إعدادات الشُويشة أيضاً؟"
+
 #: src/share/screenlets-manager/screenlets-manager.py:911
 #, fuzzy
 msgid "The Screenlets PPA added successfully."
 msgstr "ثُبتت شُويشة %s بنجاح."
 
+#: src/share/screenlets-manager/screenlets-manager.py:911
+msgid "Success!"
+msgstr ""
+
 #: src/share/screenlets-manager/screenlets-manager.py:913
 msgid "Adding the Screenlets PPA failed."
+msgstr ""
+
+#: src/share/screenlets-manager/screenlets-manager.py:913
+msgid "Failed!"
 msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:919

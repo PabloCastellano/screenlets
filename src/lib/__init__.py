@@ -136,6 +136,8 @@ DEBUG_MODE		= True
 
 DEBIAN = subprocess.call("which dpkg >/dev/null", shell=True)==0
 
+UBUNTU = subprocess.call("which apt-add-repository >/dev/null", shell=True)==0
+
 #-------------------------------------------------------------------------------
 # CLASSES
 #-------------------------------------------------------------------------------

@@ -24,6 +24,7 @@ gettext.textdomain('screenlets')
 gettext.bindtextdomain('screenlets', screenlets.INSTALL_PREFIX +  '/share/locale')
 import gobject
 from distutils.version import LooseVersion
+from subprocess import *
 try:
 	import gnomevfs
 except:
@@ -165,6 +166,12 @@ def get_screenlet_linux_name_by_class_name(name):
 def get_screenlet_linux_name_by_short_class_name(name):
 	"""Returns screenlet name on form 'foobar-screenlet' by shortened screenlet class name."""
 	return name.lower() + "-screenlet"
+
+def is_screenlets_ppa_enabled():
+	"""Detect if Screenlets default PPA is enabled on system."""
+	import commands
+	result = commands.getstatusoutput("ls /etc/apt/sources.list.d/screenlets-dev-ppa-*.list | xargs grep '^deb.*'")[0]
+	return result == 0
 
 def get_translator(path):
 	"""Returns translator by screenlet class path from __file__."""

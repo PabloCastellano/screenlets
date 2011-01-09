@@ -8,19 +8,19 @@ msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-17 14:51+0900\n"
-"PO-Revision-Date: 2010-11-12 13:34+0000\n"
-"Last-Translator: tabbernuk <boamaod@gmail.com>\n"
+"PO-Revision-Date: 2011-01-08 23:46+0000\n"
+"Last-Translator: Tomi Juntunen <Unknown>\n"
 "Language-Team: Finnish <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-12-10 04:44+0000\n"
+"X-Launchpad-Export-Date: 2011-01-09 04:34+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "Language: fi\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
 msgid "Screenlets daemon"
-msgstr ""
+msgstr "Screenlets-taustaprosessi"
 
 #. create top menuitems
 #. name/version of this app
@@ -50,11 +50,11 @@ msgstr "Sulje kaikki Screenletsit"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:144
 msgid "Restart all Screenlets"
-msgstr ""
+msgstr "Käynnistä uudelleen kaikki Screenletit"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:147
 msgid "Quit the Screenlets"
-msgstr ""
+msgstr "Lopeta Screenlets"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:219
 #: src/share/screenlets-manager/screenlets-manager.py:605
@@ -106,7 +106,7 @@ msgstr "Virhe"
 msgid ""
 "Do you really want to permanently uninstall and delete the %sScreenlet from "
 "your system?"
-msgstr ""
+msgstr "Haluatko poistaa pysyvästi %s-screenletin järjestelmästäsi?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:160
 msgid "Delete Screenlet"
@@ -123,7 +123,7 @@ msgstr "Et voi poistaa järjestelmän laajuisia screenletejä"
 #: src/share/screenlets-manager/screenlets-manager.py:269
 #, python-format
 msgid "Do you really want to reset the %sScreenlet configuration?"
-msgstr ""
+msgstr "Haluatko palauttaa %s-screenletin alkuperäiset asetukset?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:269
 msgid "Reset Screenlet"
@@ -318,11 +318,11 @@ msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
 msgid "Install SuperKaramba Theme"
-msgstr ""
+msgstr "Asenna SuperKaramba-teema"
 
 #: src/share/screenlets-manager/screenlets-manager.py:912
 msgid "Convert Web Widget"
-msgstr ""
+msgstr "Muunna web-widget"
 
 #: src/share/screenlets-manager/screenlets-manager.py:913
 #: src/share/screenlets-manager/screenlets-manager.py:1020
@@ -359,7 +359,7 @@ msgstr "Näytä painikkeet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:972
 msgid "New Screenlets atributes"
-msgstr "Uusien Screenletien atribuutit"
+msgstr "Uusien Screenletien ominaisuudet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1010
 msgid "Web Application Url"
@@ -475,6 +475,8 @@ msgstr "Löydettiin %sScreenlet"
 #, python-format
 msgid "Unable to import module '%(name)s' from %(path)s. (%(error)s)"
 msgstr ""
+"Moduulin '%(name)s' tuonti kohteesta %(path)s ei onnistunut. (Tapahtui "
+"virhe: %(error)s)"
 
 #: src/share/screenlets-manager/screenlets-packager.py:93
 #, python-format
@@ -531,6 +533,8 @@ msgid ""
 "The %(slet)sScreenlet is already installed in '%(dir)s'.\n"
 "Do you wish to continue?"
 msgstr ""
+"%(slet)s-screenlet on jo asennettu kohteeseen '%(dir)s'.\n"
+"Haluatko jatkaa tästä huolimatta?"
 
 #: src/lib/install.py:127 src/lib/install.py:193
 #, python-format
@@ -583,7 +587,7 @@ msgstr "Tämä paketti ei ollut pakattu screenlet paketoijalla"
 #: src/lib/install.py:205
 #, python-format
 msgid "The %sScreenlet has been succesfully installed."
-msgstr "%sScreenlet on onnistuneesti asennettu."
+msgstr "%s-screenlet on onnistuneesti asennettu."
 
 #. create autostart directory, if not existent
 #: src/lib/utils.py:100 src/lib/utils.py:547
@@ -617,9 +621,125 @@ msgstr ""
 msgid "Failed to add %sScreenlet."
 msgstr "%sScreenletin lisääminen epäonnistui"
 
+#~ msgid "Invalid archive. Archive does not contain a screenlet."
+#~ msgstr "Virheellinen arkisto. Arkisto ei sisällä screenletiä"
+
+#~ msgid ""
+#~ "The %sScreenlet is already installed in '%s'.\n"
+#~ "Do you wish to continue?"
+#~ msgstr ""
+#~ "%sScreenlet on jo asennettu '%s'.\n"
+#~ "Haluatko jatkaa?"
+
+#~ msgid "Installing %s"
+#~ msgstr "Asennetaan %s"
+
+#~ msgid "Starter already exists."
+#~ msgstr "Käynnistin on jo olemassa."
+
+#~ msgid "Auto-create autostart dir ..."
+#~ msgstr "Luodaan automaattikäynnistys -kansio..."
+
+#~ msgid "Failed to create autostarter for %s."
+#~ msgstr "Automaattikäynnistimen %s luonti epäonnistui"
+
+#~ msgid "Please install screenlets from folders without strange characters"
+#~ msgstr ""
+#~ "Ole hyvä, asenna Screenletit kansioista joissa ei ole outoja merkkejä"
+
 #~ msgid ""
 #~ "You are about to install a theme in root mode. Continue only if you have "
 #~ "gksudo installed, do you wish to continue?"
 #~ msgstr ""
 #~ "Aiot asentaa teeman root -käyttäjänä. Jatka vain siinä tapauksessa jos "
 #~ "sinulla on gksudo asennettuna. Haluatko jatkaa?"
+
+#~ msgid "list contains themes folder"
+#~ msgstr "lista sisältää teema -kansion"
+
+#~ msgid "list contains the screenlet name folder"
+#~ msgstr "lista sisältää kansion jolla on Sceenletin nimi"
+
+#~ msgid "only contains the themes folders"
+#~ msgstr "sisältää vain teema -kansiot"
+
+#~ msgid "closing %s"
+#~ msgstr "suljetaan %s"
+
+#~ msgid "Create desktop shortcut for: %s/%sScreenlet.py"
+#~ msgstr "Luo %s/%sScreenlet.py pikakuvake työpöydälle"
+
+#~ msgid "Quit %s"
+#~ msgstr "Lopeta %s"
+
+#~ msgid "Launch %s"
+#~ msgstr "Käynnistä %s"
+
+#~ msgid ""
+#~ "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
+#~ "Usage: %s <path> [options]"
+#~ msgstr ""
+#~ "Screenlet pakkain - (c) RYX (Rico Pfaus) 2007\n"
+#~ "Käyttö: %s <polku> [asetukset]"
+
+#~ msgid "Quit!"
+#~ msgstr "Lopeta!"
+
+#~ msgid "OK."
+#~ msgstr "OK."
+
+#~ msgid "screenletsDaemon: unregistered %s"
+#~ msgstr "Screenlet prosessi: rekisteristä poisto %s"
+
+#~ msgid "ScreenletsDaemon: registered %s"
+#~ msgstr "Screenlet prosessi: rekisteröity %s"
+
+#~ msgid "ScreenletsDaemon running ..."
+#~ msgstr "Screenlet prosessi käynnissä"
+
+#~ msgid "Exception in ScreenletsDaemon: %s"
+#~ msgstr "Poikkeus Screenlet prosessissa: %s"
+
+#~ msgid "ScreenletsDaemon has been shut down ..."
+#~ msgstr "Screenlet prosessi on sammutettu"
+
+#~ msgid "It looks like you are running %s"
+#~ msgstr "Näyttää että käytät %s"
+
+#~ msgid "Archive damaged or unsuported, only tar , bz2 or gz."
+#~ msgstr ""
+#~ "Arkisto on viallinen tai epäsopiva, käytä ainoastaan tar, bz2 tai gz -"
+#~ "tyyppisiä."
+
+#~ msgid "Trying to launching screenlets-daemon ..."
+#~ msgstr "Yritetään käynnistää Screenlet prosessia"
+
+#~ msgid "Create autostarter for: Screenlets Daemon"
+#~ msgstr "Luo automaattikäynnistin Screenlet prosessille"
+
+#~ msgid "Create autostarter for: %s/%sScreenlet.py"
+#~ msgstr "Luo automaattikäynnistin: %s/%sScreenlet.py"
+
+#~ msgid "Removed duplicate entry"
+#~ msgstr "Poistettu päällekkäiset prosessit"
+
+#~ msgid "DAEMON FOUND - Ending timeout"
+#~ msgstr "Prosessi löydetty"
+
+#~ msgid "Error in ScreenletsManager.connect_daemon: %s"
+#~ msgstr "Virhe Screenlet hallinnan yhdistämisessä prosessiin %s"
+
+#~ msgid "Error: Unable to connect/launch daemon."
+#~ msgstr "Virhe: Ei kyetty yhdistämään/käynnistämään prosessia"
+
+#~ msgid "Data dropped ..."
+#~ msgstr "Hukattiin dataa..."
+
+#~ msgid "Delete autostarter for %s."
+#~ msgstr "Poista automaattikäynnistin %s"
+
+#~ msgid "checking for running daemon again ..."
+#~ msgstr "Tarkistetaan Screenlet prosessi taas..."
+
+#~ msgid "Unable to import module '%s' from %s. (%s)"
+#~ msgstr "Ei voitu tuoda moduulia '%s' %s:stä (%s)"

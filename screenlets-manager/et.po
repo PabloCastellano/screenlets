@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-17 14:51+0900\n"
+"POT-Creation-Date: 2011-01-09 19:14+0900\n"
 "PO-Revision-Date: 2010-11-30 09:53+0000\n"
 "Last-Translator: tabbernuk <boamaod@gmail.com>\n"
 "Language-Team: Estonian <gnome-et@lists.linux.ee>\n"
+"Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2010-12-10 04:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
-"Language: et\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
 msgid "Screenlets daemon"
@@ -97,7 +97,7 @@ msgstr ""
 "ebatäpsed."
 
 #: src/share/screenlets-manager/screenlets-manager.py:132 src/lib/utils.py:101
-#: src/lib/utils.py:105 src/lib/utils.py:547 src/lib/utils.py:551
+#: src/lib/utils.py:105 src/lib/utils.py:577 src/lib/utils.py:581
 msgid "Error"
 msgstr "Tõrge"
 
@@ -314,8 +314,7 @@ msgid "Theme installed , please restart %s"
 msgstr "Teema paigaldatud, palun taaskäivita %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:824
-msgid ""
-"Theme install error 2 found - Theme not installed or already installed"
+msgid "Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Tõrge teema paigaldamisel. Teema jäeti paigaldamata, kuid võib olla juba "
 "varem paigaldatud."
@@ -441,7 +440,7 @@ msgid "Screenlets-Manager must now be restarted"
 msgstr "Töölauavidinate haldur tuleb nüüd taaskäivitada"
 
 #. + constants
-#: src/share/screenlets-manager/screenlets-packager.py:31
+#: src/share/screenlets-manager/screenlets-packager.py:30
 msgid ""
 "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
 "Usage: screenlets-packager <path> [options]"
@@ -449,75 +448,73 @@ msgstr ""
 "Screenletide pakendaja - (c) RYX (Rico Pfaus) 2007\n"
 "Kasutus: screenlets-packager <asukoht> [võtmed]"
 
-#: src/share/screenlets-manager/screenlets-packager.py:70
+#: src/share/screenlets-manager/screenlets-packager.py:69
 #, python-format
 msgid "The specified path \"%s\" does not exist."
 msgstr "Asukohta \"%s\" ei eksisteeri."
 
-#: src/share/screenlets-manager/screenlets-packager.py:71
+#: src/share/screenlets-manager/screenlets-packager.py:70
 #, python-format
 msgid "Found path \"%s\"."
 msgstr "Leitud asukoht \"%s\"."
 
-#: src/share/screenlets-manager/screenlets-packager.py:77
+#: src/share/screenlets-manager/screenlets-packager.py:76
 msgid "Failed to extract screenlet name from path."
 msgstr "Töölauavidina lahtipakkimine antud asukohast ebaõnnestus."
 
-#: src/share/screenlets-manager/screenlets-packager.py:78
+#: src/share/screenlets-manager/screenlets-packager.py:77
 #, python-format
 msgid "Screenlet name is %s."
 msgstr "Töölauavidina nimi on %s."
 
-#: src/share/screenlets-manager/screenlets-packager.py:82
+#: src/share/screenlets-manager/screenlets-packager.py:81
 #, python-format
 msgid "No screenlet-file \"%sScreenlet.py\" found in the given path."
 msgstr "Antud asukohast ei leitud vidinafaili \"%sScreenlet.py\""
 
-#: src/share/screenlets-manager/screenlets-packager.py:83
+#: src/share/screenlets-manager/screenlets-packager.py:82
 #, python-format
 msgid "Found %sScreenlet.py in path."
 msgstr "Asukohast leiti %sScreenlet."
 
-#: src/share/screenlets-manager/screenlets-packager.py:92
+#: src/share/screenlets-manager/screenlets-packager.py:91
 #, python-format
 msgid "Unable to import module '%(name)s' from %(path)s. (%(error)s)"
 msgstr ""
 "Mooduli '%(name)s' importimine asukohast %(path)s ebaõnnestus (%(error)s)"
 
-#: src/share/screenlets-manager/screenlets-packager.py:93
+#: src/share/screenlets-manager/screenlets-packager.py:92
 #, python-format
 msgid "Successfully imported module: %s"
 msgstr "Edukalt imporditud moodul %s"
 
-#: src/share/screenlets-manager/screenlets-packager.py:99
+#: src/share/screenlets-manager/screenlets-packager.py:98
 msgid "Unable to import class from module."
 msgstr "Ei suuda importida moodulist klassi."
 
-#: src/share/screenlets-manager/screenlets-packager.py:101
+#: src/share/screenlets-manager/screenlets-packager.py:100
 msgid "The class inside the module is no subclass of screenlets.Screenlet."
-msgstr ""
-"Moodulis sisalduv klass ei ole screenlets.Screenlet klassi alamklass."
+msgstr "Moodulis sisalduv klass ei ole screenlets.Screenlet klassi alamklass."
 
-#: src/share/screenlets-manager/screenlets-packager.py:102
+#: src/share/screenlets-manager/screenlets-packager.py:101
 #, python-format
 msgid "Successfully got class from module: %s"
 msgstr "Leitud klass moodulist %s"
 
-#: src/share/screenlets-manager/screenlets-packager.py:126
+#: src/share/screenlets-manager/screenlets-packager.py:132
 #, python-format
 msgid "Failed to create package info in \"%s\" (no permission?)."
-msgstr ""
-"Paketiinfo tekitamine kataloogis \"%s\" ebaõnnestus (õigused puudu?)."
+msgstr "Paketiinfo tekitamine kataloogis \"%s\" ebaõnnestus (õigused puudu?)."
 
-#: src/share/screenlets-manager/screenlets-packager.py:127
+#: src/share/screenlets-manager/screenlets-packager.py:133
 msgid "Created package info file."
 msgstr "Paketiinfo fail loodud."
 
-#: src/share/screenlets-manager/screenlets-packager.py:143
+#: src/share/screenlets-manager/screenlets-packager.py:151
 msgid "Cleaned up and finished."
 msgstr "Puhastatud ja lõpetatud."
 
-#: src/lib/install.py:57
+#: src/lib/install.py:58
 msgid ""
 "This type of karamba theme is not supported yet\n"
 " Only older versions can be used"
@@ -525,7 +522,7 @@ msgstr ""
 "Seda tüüpi Karamba teemad pole veel toetatud.\n"
 " Kasutada saab ainult vanemaid versiooni."
 
-#: src/lib/install.py:113
+#: src/lib/install.py:114
 msgid "Archive is damaged or unsupported, use only tar, bz2 or gz."
 msgstr ""
 "Arhiiv on vigane või toetamata, kasutada ainult tar, bz2 või gz vorminguid."
@@ -533,7 +530,7 @@ msgstr ""
 #. check if screenlet is already installed
 #. found_path = screenlets.utils.find_first_screenlet_path(name)
 #. found_path != None:
-#: src/lib/install.py:127
+#: src/lib/install.py:128
 #, python-format
 msgid ""
 "The %(slet)sScreenlet is already installed in '%(dir)s'.\n"
@@ -542,31 +539,31 @@ msgstr ""
 "%(slet)sScreenlet on juba kataloogis '%(dir)s' olemas.\n"
 "Kas soovid, et jätkame?"
 
-#: src/lib/install.py:127 src/lib/install.py:193
+#: src/lib/install.py:128 src/lib/install.py:194
 #, python-format
 msgid "Install %s"
 msgstr "Paigalda %s"
 
-#: src/lib/install.py:130
+#: src/lib/install.py:131
 #, python-format
 msgid "%sScreenlet is already installed"
 msgstr "%sScreenlet on juba paigaldatud."
 
 #. dir missing
-#: src/lib/install.py:137
+#: src/lib/install.py:138
 msgid ""
 "Invalid archive. Archive must contain a directory with the screenlet's name."
 msgstr "Vigane arhiiv. Arhiivis peab olema kaust töölauavidina nimega."
 
-#: src/lib/install.py:149
+#: src/lib/install.py:150
 msgid "Compatibility for this karamba theme is not yet implemented"
 msgstr "Ühilduvus selle Karamba teemaga pole veel sisse viidud."
 
-#: src/lib/install.py:176
+#: src/lib/install.py:177
 msgid "Karamba theme was successfully installed"
 msgstr "Karamba teema on edukalt paigaldatud."
 
-#: src/lib/install.py:178
+#: src/lib/install.py:179
 msgid ""
 "Invalid archive. Archive does not contain a screenlet or a valid karamba "
 "theme."
@@ -574,7 +571,7 @@ msgstr ""
 "Vigane arhiiv. Arhiivis pole Screenleti tüüpi töölauavidinat ega sobivat "
 "Karamba teemat."
 
-#: src/lib/install.py:193
+#: src/lib/install.py:194
 #, python-format
 msgid ""
 "%s was not packaged with the screenlet packager. Do you wish to continue and "
@@ -583,18 +580,18 @@ msgstr ""
 "%s ei ole pakitud töölauavidinate pakendajaga. Kas jätkata ja üritada seda "
 "paigaldada?"
 
-#: src/lib/install.py:196
+#: src/lib/install.py:197
 msgid "This package was not packaged with the screenlet packager."
 msgstr "See pakk pole pakitud töölauavidina pakendajaga."
 
 #. set msg/result
-#: src/lib/install.py:205
+#: src/lib/install.py:206
 #, python-format
 msgid "The %sScreenlet has been succesfully installed."
 msgstr "%sScreenlet on edukalt pigaldatud."
 
 #. create autostart directory, if not existent
-#: src/lib/utils.py:100 src/lib/utils.py:547
+#: src/lib/utils.py:100 src/lib/utils.py:577
 msgid ""
 "There is no existing autostart directory for your user account yet. Do you "
 "want me to automatically create it for you?"
@@ -602,7 +599,7 @@ msgstr ""
 "Sinu kasutajakonto jaoks pole veel loodud automaatkäivituse kataloogi. Kas "
 "luua see praegu?"
 
-#: src/lib/utils.py:105 src/lib/utils.py:551
+#: src/lib/utils.py:105 src/lib/utils.py:581
 #, python-format
 msgid ""
 "Automatic creation failed. Please manually create the directory:\n"
@@ -611,7 +608,7 @@ msgstr ""
 "Automaatne tekitamine ebaõnnestus. Palun tekita see kataloog ise:\n"
 "%s"
 
-#: src/lib/utils.py:108 src/lib/utils.py:554
+#: src/lib/utils.py:108 src/lib/utils.py:584
 #, python-format
 msgid ""
 "Please manually create the directory:\n"
@@ -620,7 +617,7 @@ msgstr ""
 "Palun, loo siis käsitsi selline kataloog:\n"
 "%s"
 
-#: src/lib/utils.py:583
+#: src/lib/utils.py:613
 #, python-format
 msgid "Failed to add %sScreenlet."
 msgstr "%sScreenlet'i lisamine ebaõnnestus."
@@ -747,16 +744,17 @@ msgstr "%sScreenlet'i lisamine ebaõnnestus."
 
 #~ msgid ""
 #~ "Screenlets is a widget framework that consists of small owner-drawn "
-#~ "applications (written in Python, a very simple object-oriented programming-"
-#~ "language) that can be described as 'the virtual representation of things "
-#~ "lying/standing around on your desk'. Sticknotes, clocks, rulers, ... the "
-#~ "possibilities are endless. Screenlet also tries to include some "
-#~ "compatibility with other widget frameworks,like web widgets and super "
-#~ "karamba themes"
+#~ "applications (written in Python, a very simple object-oriented "
+#~ "programming-language) that can be described as 'the virtual "
+#~ "representation of things lying/standing around on your desk'. Sticknotes, "
+#~ "clocks, rulers, ... the possibilities are endless. Screenlet also tries "
+#~ "to include some compatibility with other widget frameworks,like web "
+#~ "widgets and super karamba themes"
 #~ msgstr ""
 #~ "Screenlets on töölauavidinate raamistik, mis koosneb miniatuursetest "
 #~ "rakendustest (kirjutatud Pythonis, väga lihtsas objekt-orienteeritud "
-#~ "programmeerimiskeeles), mida võib nimetada 'sinu töölaual vedelevate asjade "
-#~ "virtuaalseks esituseks'. Märkmepaberid, kellad, joonlauad --- võimalusi on "
-#~ "lõputult. Screenlets raamistik püüab seejuures ühilduda ka mõnede teiste "
-#~ "vidinaraamistikega nagu nt Web Widgets ja Super Karamba teemad."
+#~ "programmeerimiskeeles), mida võib nimetada 'sinu töölaual vedelevate "
+#~ "asjade virtuaalseks esituseks'. Märkmepaberid, kellad, joonlauad --- "
+#~ "võimalusi on lõputult. Screenlets raamistik püüab seejuures ühilduda ka "
+#~ "mõnede teiste vidinaraamistikega nagu nt Web Widgets ja Super Karamba "
+#~ "teemad."

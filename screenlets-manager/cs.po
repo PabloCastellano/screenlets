@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-17 14:51+0900\n"
+"POT-Creation-Date: 2011-01-09 19:14+0900\n"
 "PO-Revision-Date: 2010-11-12 14:18+0000\n"
 "Last-Translator: Michal <partri@gmail.com>\n"
 "Language-Team: Czech <cs@li.org>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2010-12-10 04:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
-"Language: cs\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
 msgid "Screenlets daemon"
@@ -66,10 +66,10 @@ msgid ""
 "license. Thank you for using free software!"
 msgstr ""
 "Tato aplikace je vydávána pod licencí GNU General Public Licence v3 (nebo "
-"kompatibilní). Plné znění licence můžete najít na "
-"http://www.gnu.org/licenses/gpl.txt. Používáním, upravováním nebo "
-"distribuováním tohoto programu souhlasíte s podmínkami této licence. "
-"Děkujeme za používání svobodného softwaru!"
+"kompatibilní). Plné znění licence můžete najít na http://www.gnu.org/"
+"licenses/gpl.txt. Používáním, upravováním nebo distribuováním tohoto "
+"programu souhlasíte s podmínkami této licence. Děkujeme za používání "
+"svobodného softwaru!"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:251
 msgid "Install a Screenlet"
@@ -96,7 +96,7 @@ msgstr ""
 "zobrazeny nesprávně."
 
 #: src/share/screenlets-manager/screenlets-manager.py:132 src/lib/utils.py:101
-#: src/lib/utils.py:105 src/lib/utils.py:547 src/lib/utils.py:551
+#: src/lib/utils.py:105 src/lib/utils.py:577 src/lib/utils.py:581
 msgid "Error"
 msgstr "Chyba"
 
@@ -311,8 +311,7 @@ msgid "Theme installed , please restart %s"
 msgstr "Styl nainstalován, prosím, restartujte %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:824
-msgid ""
-"Theme install error 2 found - Theme not installed or already installed"
+msgid "Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Zjištěna 2. chyba během instalace stylu - Styl nebyl nainstalován nebo již "
 "byl nainstalován."
@@ -435,80 +434,80 @@ msgid "Screenlets-Manager must now be restarted"
 msgstr "Screenlets-Manager musí být restartován"
 
 #. + constants
-#: src/share/screenlets-manager/screenlets-packager.py:31
+#: src/share/screenlets-manager/screenlets-packager.py:30
 msgid ""
 "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
 "Usage: screenlets-packager <path> [options]"
 msgstr ""
 
-#: src/share/screenlets-manager/screenlets-packager.py:70
+#: src/share/screenlets-manager/screenlets-packager.py:69
 #, python-format
 msgid "The specified path \"%s\" does not exist."
 msgstr "Uvedená cesta \"%s\" neexistuje."
 
-#: src/share/screenlets-manager/screenlets-packager.py:71
+#: src/share/screenlets-manager/screenlets-packager.py:70
 #, python-format
 msgid "Found path \"%s\"."
 msgstr "Nalezena cesta \"%s\"."
 
-#: src/share/screenlets-manager/screenlets-packager.py:77
+#: src/share/screenlets-manager/screenlets-packager.py:76
 msgid "Failed to extract screenlet name from path."
 msgstr "Nepodařilo se extrahovat název screenletu  z cesty."
 
-#: src/share/screenlets-manager/screenlets-packager.py:78
+#: src/share/screenlets-manager/screenlets-packager.py:77
 #, python-format
 msgid "Screenlet name is %s."
 msgstr "Jméno Screenletu je %s."
 
-#: src/share/screenlets-manager/screenlets-packager.py:82
+#: src/share/screenlets-manager/screenlets-packager.py:81
 #, python-format
 msgid "No screenlet-file \"%sScreenlet.py\" found in the given path."
 msgstr ""
 "Žádný screenlet-soubor jménem \"%sScreenlet.py\" nebyl v zadaném adresáři "
 "nalezen."
 
-#: src/share/screenlets-manager/screenlets-packager.py:83
+#: src/share/screenlets-manager/screenlets-packager.py:82
 #, python-format
 msgid "Found %sScreenlet.py in path."
 msgstr "Nalezen% sScreenlet.py v cestě."
 
-#: src/share/screenlets-manager/screenlets-packager.py:92
+#: src/share/screenlets-manager/screenlets-packager.py:91
 #, python-format
 msgid "Unable to import module '%(name)s' from %(path)s. (%(error)s)"
 msgstr ""
 
-#: src/share/screenlets-manager/screenlets-packager.py:93
+#: src/share/screenlets-manager/screenlets-packager.py:92
 #, python-format
 msgid "Successfully imported module: %s"
 msgstr "Úspěšně importovaný modul: %s"
 
-#: src/share/screenlets-manager/screenlets-packager.py:99
+#: src/share/screenlets-manager/screenlets-packager.py:98
 msgid "Unable to import class from module."
 msgstr "Nelze importovat třídu z modulu."
 
-#: src/share/screenlets-manager/screenlets-packager.py:101
+#: src/share/screenlets-manager/screenlets-packager.py:100
 msgid "The class inside the module is no subclass of screenlets.Screenlet."
 msgstr "Třída uvnitř modulu není podtřídou screenlets.Screenlet."
 
-#: src/share/screenlets-manager/screenlets-packager.py:102
+#: src/share/screenlets-manager/screenlets-packager.py:101
 #, python-format
 msgid "Successfully got class from module: %s"
 msgstr "Třída byla úspěšně získána z modulu: %s"
 
-#: src/share/screenlets-manager/screenlets-packager.py:126
+#: src/share/screenlets-manager/screenlets-packager.py:132
 #, python-format
 msgid "Failed to create package info in \"%s\" (no permission?)."
 msgstr "Nepodařilo se vytvořit soubor informací v \"%s\"  (bez povolení?)"
 
-#: src/share/screenlets-manager/screenlets-packager.py:127
+#: src/share/screenlets-manager/screenlets-packager.py:133
 msgid "Created package info file."
 msgstr "Balíček do souboru vytvořen."
 
-#: src/share/screenlets-manager/screenlets-packager.py:143
+#: src/share/screenlets-manager/screenlets-packager.py:151
 msgid "Cleaned up and finished."
 msgstr "Vyčištěno a dokončeno."
 
-#: src/lib/install.py:57
+#: src/lib/install.py:58
 msgid ""
 "This type of karamba theme is not supported yet\n"
 " Only older versions can be used"
@@ -516,7 +515,7 @@ msgstr ""
 "Tento typ karamba stylu není ještě podporován\n"
 "Může být použita pouze starší verze"
 
-#: src/lib/install.py:113
+#: src/lib/install.py:114
 msgid "Archive is damaged or unsupported, use only tar, bz2 or gz."
 msgstr ""
 "Archiv je poškozen nebo nepodporován, používejte pouze tar, bz2 nebo gz."
@@ -524,45 +523,45 @@ msgstr ""
 #. check if screenlet is already installed
 #. found_path = screenlets.utils.find_first_screenlet_path(name)
 #. found_path != None:
-#: src/lib/install.py:127
+#: src/lib/install.py:128
 #, python-format
 msgid ""
 "The %(slet)sScreenlet is already installed in '%(dir)s'.\n"
 "Do you wish to continue?"
 msgstr ""
 
-#: src/lib/install.py:127 src/lib/install.py:193
+#: src/lib/install.py:128 src/lib/install.py:194
 #, python-format
 msgid "Install %s"
 msgstr "Nainstalovat %s"
 
-#: src/lib/install.py:130
+#: src/lib/install.py:131
 #, python-format
 msgid "%sScreenlet is already installed"
 msgstr "Screenlet %s je již nainstalovaný."
 
 #. dir missing
-#: src/lib/install.py:137
+#: src/lib/install.py:138
 msgid ""
 "Invalid archive. Archive must contain a directory with the screenlet's name."
 msgstr "Neplatný archív. Archív musí obsahovat složku se jménem screenletu."
 
-#: src/lib/install.py:149
+#: src/lib/install.py:150
 msgid "Compatibility for this karamba theme is not yet implemented"
 msgstr "Kompatibilita tohoto karamba stylu není ještě implementována"
 
-#: src/lib/install.py:176
+#: src/lib/install.py:177
 msgid "Karamba theme was successfully installed"
 msgstr "Téma Karamba bylo úspěšně nainstalováno."
 
-#: src/lib/install.py:178
+#: src/lib/install.py:179
 msgid ""
 "Invalid archive. Archive does not contain a screenlet or a valid karamba "
 "theme."
 msgstr ""
 "Neplatný archív. Archív neobsahuje a screenlet nebo platné téma Karamba."
 
-#: src/lib/install.py:193
+#: src/lib/install.py:194
 #, python-format
 msgid ""
 "%s was not packaged with the screenlet packager. Do you wish to continue and "
@@ -571,18 +570,18 @@ msgstr ""
 "%s nebyl vytvořen balíkovacím systémem screenletů. Chcete pokračovat a "
 "pokusit se jej nainstalovat?"
 
-#: src/lib/install.py:196
+#: src/lib/install.py:197
 msgid "This package was not packaged with the screenlet packager."
 msgstr "Tento balík nebyl vytvořen balíkovacím systémem screenletů."
 
 #. set msg/result
-#: src/lib/install.py:205
+#: src/lib/install.py:206
 #, python-format
 msgid "The %sScreenlet has been succesfully installed."
 msgstr "Screenlet %s byl úspěšně naistalován."
 
 #. create autostart directory, if not existent
-#: src/lib/utils.py:100 src/lib/utils.py:547
+#: src/lib/utils.py:100 src/lib/utils.py:577
 msgid ""
 "There is no existing autostart directory for your user account yet. Do you "
 "want me to automatically create it for you?"
@@ -590,7 +589,7 @@ msgstr ""
 "Pro tohoto uživatele neexistuje žádný adresář automatického spouštění. "
 "Přejete si, aby byl automaticky vytvořen?"
 
-#: src/lib/utils.py:105 src/lib/utils.py:551
+#: src/lib/utils.py:105 src/lib/utils.py:581
 #, python-format
 msgid ""
 "Automatic creation failed. Please manually create the directory:\n"
@@ -599,7 +598,7 @@ msgstr ""
 "Automatické vytvoření selhalo. Prosím vytvořte ručně adresář\n"
 "%s"
 
-#: src/lib/utils.py:108 src/lib/utils.py:554
+#: src/lib/utils.py:108 src/lib/utils.py:584
 #, python-format
 msgid ""
 "Please manually create the directory:\n"
@@ -608,7 +607,7 @@ msgstr ""
 "Prosím vytvořte ručně adresář\n"
 "%s"
 
-#: src/lib/utils.py:583
+#: src/lib/utils.py:613
 #, python-format
 msgid "Failed to add %sScreenlet."
 msgstr "Chyba při přidání %sScreenletu"
@@ -629,5 +628,5 @@ msgstr "Chyba při přidání %sScreenletu"
 #~ "You are about to install a theme in root mode. Continue only if you have "
 #~ "gksudo installed, do you wish to continue?"
 #~ msgstr ""
-#~ "Chystáte se nainstalovat styl ve režimu správce. Pokračujte pouze, pokud je "
-#~ "nainstalované gksudo. Přejete si pokračovat?"
+#~ "Chystáte se nainstalovat styl ve režimu správce. Pokračujte pouze, pokud "
+#~ "je nainstalované gksudo. Přejete si pokračovat?"

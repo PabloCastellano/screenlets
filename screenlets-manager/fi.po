@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-17 14:51+0900\n"
+"POT-Creation-Date: 2011-01-09 19:14+0900\n"
 "PO-Revision-Date: 2011-01-08 23:46+0000\n"
 "Last-Translator: Tomi Juntunen <Unknown>\n"
 "Language-Team: Finnish <fi@li.org>\n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2011-01-09 04:34+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
-"Language: fi\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
 msgid "Screenlets daemon"
@@ -96,7 +96,7 @@ msgstr ""
 "virheellisesti"
 
 #: src/share/screenlets-manager/screenlets-manager.py:132 src/lib/utils.py:101
-#: src/lib/utils.py:105 src/lib/utils.py:547 src/lib/utils.py:551
+#: src/lib/utils.py:105 src/lib/utils.py:577 src/lib/utils.py:581
 msgid "Error"
 msgstr "Virhe"
 
@@ -185,8 +185,7 @@ msgstr "Käynnistä/Lisää uusi kappale valitusta Screenletistä..."
 #: src/share/screenlets-manager/screenlets-manager.py:420
 msgid ""
 "Install a new Screenlet, SuperKaramba or Web Widget or Web Application  ..."
-msgstr ""
-"Asenna uusi Screenlet, SuperKaramba tai Web -Vimpain tai Web sovellus"
+msgstr "Asenna uusi Screenlet, SuperKaramba tai Web -Vimpain tai Web sovellus"
 
 #: src/share/screenlets-manager/screenlets-manager.py:421
 msgid "Permanently uninstall/delete the currently selected Screenlet ..."
@@ -310,8 +309,7 @@ msgid "Theme installed , please restart %s"
 msgstr "Teema asennettu, ole hyvä, käynnistä %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:824
-msgid ""
-"Theme install error 2 found - Theme not installed or already installed"
+msgid "Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Teeman asennusvirhe nro 2 - Teemaa ei asennettu tai se on jo valmiiksi "
 "asennettu"
@@ -435,82 +433,81 @@ msgid "Screenlets-Manager must now be restarted"
 msgstr "Screenlet -hallinta täytyy uudelleenkäynnistää"
 
 #. + constants
-#: src/share/screenlets-manager/screenlets-packager.py:31
+#: src/share/screenlets-manager/screenlets-packager.py:30
 msgid ""
 "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
 "Usage: screenlets-packager <path> [options]"
 msgstr ""
 
-#: src/share/screenlets-manager/screenlets-packager.py:70
+#: src/share/screenlets-manager/screenlets-packager.py:69
 #, python-format
 msgid "The specified path \"%s\" does not exist."
 msgstr "Valittua polkua \"%s\" ei ole"
 
-#: src/share/screenlets-manager/screenlets-packager.py:71
+#: src/share/screenlets-manager/screenlets-packager.py:70
 #, python-format
 msgid "Found path \"%s\"."
 msgstr "Löydettiin polku \"%s\"."
 
-#: src/share/screenlets-manager/screenlets-packager.py:77
+#: src/share/screenlets-manager/screenlets-packager.py:76
 msgid "Failed to extract screenlet name from path."
 msgstr "Epäonnistuttiin eristämään Screenletin nimeä polusta."
 
-#: src/share/screenlets-manager/screenlets-packager.py:78
+#: src/share/screenlets-manager/screenlets-packager.py:77
 #, python-format
 msgid "Screenlet name is %s."
 msgstr "Screenletin nimi on %s"
 
-#: src/share/screenlets-manager/screenlets-packager.py:82
+#: src/share/screenlets-manager/screenlets-packager.py:81
 #, python-format
 msgid "No screenlet-file \"%sScreenlet.py\" found in the given path."
-msgstr ""
-"Screenlet tiedostoa \"%sScreenelet.py\" ei löytynyt valitusta polusta"
+msgstr "Screenlet tiedostoa \"%sScreenelet.py\" ei löytynyt valitusta polusta"
 
-#: src/share/screenlets-manager/screenlets-packager.py:83
+#: src/share/screenlets-manager/screenlets-packager.py:82
 #, python-format
 msgid "Found %sScreenlet.py in path."
 msgstr "Löydettiin %sScreenlet"
 
-#: src/share/screenlets-manager/screenlets-packager.py:92
+#: src/share/screenlets-manager/screenlets-packager.py:91
 #, python-format
 msgid "Unable to import module '%(name)s' from %(path)s. (%(error)s)"
 msgstr ""
 "Moduulin '%(name)s' tuonti kohteesta %(path)s ei onnistunut. (Tapahtui "
 "virhe: %(error)s)"
 
-#: src/share/screenlets-manager/screenlets-packager.py:93
+#: src/share/screenlets-manager/screenlets-packager.py:92
 #, python-format
 msgid "Successfully imported module: %s"
 msgstr "Tuotiin onnistuneesti moduuli %s"
 
-#: src/share/screenlets-manager/screenlets-packager.py:99
+#: src/share/screenlets-manager/screenlets-packager.py:98
 msgid "Unable to import class from module."
 msgstr "Ei pystytty tuomaan moduulin luokkaa."
 
-#: src/share/screenlets-manager/screenlets-packager.py:101
+#: src/share/screenlets-manager/screenlets-packager.py:100
 msgid "The class inside the module is no subclass of screenlets.Screenlet."
 msgstr ""
 "Moduulin sisällä oleva luokitus ei ole Screenletien aliluokitus. Screenlet."
 
-#: src/share/screenlets-manager/screenlets-packager.py:102
+#: src/share/screenlets-manager/screenlets-packager.py:101
 #, python-format
 msgid "Successfully got class from module: %s"
 msgstr "Saatiin onnistuneesti luokka moduulista %s"
 
-#: src/share/screenlets-manager/screenlets-packager.py:126
+#: src/share/screenlets-manager/screenlets-packager.py:132
 #, python-format
 msgid "Failed to create package info in \"%s\" (no permission?)."
 msgstr "Epäonnistuttiin rakentamaan paketin tietoja \"%s\" ( Ei oikeuksia?)"
 
-#: src/share/screenlets-manager/screenlets-packager.py:127
+#: src/share/screenlets-manager/screenlets-packager.py:133
 msgid "Created package info file."
 msgstr "Luotiin arkiston info -tiedosto"
 
-#: src/share/screenlets-manager/screenlets-packager.py:143
+#: src/share/screenlets-manager/screenlets-packager.py:151
 msgid "Cleaned up and finished."
 msgstr "Puhdistettiin ja lopetettiin."
 
-#: src/lib/install.py:57
+#: src/lib/install.py:58
 msgid ""
 "This type of karamba theme is not supported yet\n"
 " Only older versions can be used"
@@ -518,7 +515,7 @@ msgstr ""
 "Tämän tyyppinen karamba -teema ei ole tuettu vielä.\n"
 " Vain vanhempia versioita voidaan käyttää."
 
-#: src/lib/install.py:113
+#: src/lib/install.py:114
 msgid "Archive is damaged or unsupported, use only tar, bz2 or gz."
 msgstr ""
 "Arkisto on viallinen tai epäsopiva, käytä ainoastaan tar, bz2 tai gz -"
@@ -527,7 +524,7 @@ msgstr ""
 #. check if screenlet is already installed
 #. found_path = screenlets.utils.find_first_screenlet_path(name)
 #. found_path != None:
-#: src/lib/install.py:127
+#: src/lib/install.py:128
 #, python-format
 msgid ""
 "The %(slet)sScreenlet is already installed in '%(dir)s'.\n"
@@ -536,33 +533,33 @@ msgstr ""
 "%(slet)s-screenlet on jo asennettu kohteeseen '%(dir)s'.\n"
 "Haluatko jatkaa tästä huolimatta?"
 
-#: src/lib/install.py:127 src/lib/install.py:193
+#: src/lib/install.py:128 src/lib/install.py:194
 #, python-format
 msgid "Install %s"
 msgstr "Asenna %s"
 
-#: src/lib/install.py:130
+#: src/lib/install.py:131
 #, python-format
 msgid "%sScreenlet is already installed"
 msgstr "%sScreenlet on jo asennettu"
 
 #. dir missing
-#: src/lib/install.py:137
+#: src/lib/install.py:138
 msgid ""
 "Invalid archive. Archive must contain a directory with the screenlet's name."
 msgstr ""
 "Virheellinen arkisto. Arkiston tulee sisältää kansio, joka on saman niminen "
 "kuin screenlet"
 
-#: src/lib/install.py:149
+#: src/lib/install.py:150
 msgid "Compatibility for this karamba theme is not yet implemented"
 msgstr "Yhteensopivuutta tälle  karamba -teemalle ei ole vielä kehitetty"
 
-#: src/lib/install.py:176
+#: src/lib/install.py:177
 msgid "Karamba theme was successfully installed"
 msgstr "Karamba -teema asennettiin onnistuneesti"
 
-#: src/lib/install.py:178
+#: src/lib/install.py:179
 msgid ""
 "Invalid archive. Archive does not contain a screenlet or a valid karamba "
 "theme."
@@ -570,7 +567,7 @@ msgstr ""
 "Virheellinen arkisto. Arkisto ei sisällä screenletiä tai sopivaa karamba -"
 "teemaa."
 
-#: src/lib/install.py:193
+#: src/lib/install.py:194
 #, python-format
 msgid ""
 "%s was not packaged with the screenlet packager. Do you wish to continue and "
@@ -579,18 +576,18 @@ msgstr ""
 "%s ei ollut pakattu screenlet paketoijalla. Haluatko silti jatkaa ja yrittää "
 "asentaa sitä?"
 
-#: src/lib/install.py:196
+#: src/lib/install.py:197
 msgid "This package was not packaged with the screenlet packager."
 msgstr "Tämä paketti ei ollut pakattu screenlet paketoijalla"
 
 #. set msg/result
-#: src/lib/install.py:205
+#: src/lib/install.py:206
 #, python-format
 msgid "The %sScreenlet has been succesfully installed."
 msgstr "%s-screenlet on onnistuneesti asennettu."
 
 #. create autostart directory, if not existent
-#: src/lib/utils.py:100 src/lib/utils.py:547
+#: src/lib/utils.py:100 src/lib/utils.py:577
 msgid ""
 "There is no existing autostart directory for your user account yet. Do you "
 "want me to automatically create it for you?"
@@ -598,7 +595,7 @@ msgstr ""
 "Käyttäjätunnuksellasi ei ole olemassa olevaa automaattikäynnistys -kansiota. "
 "Haluatko luoda sen automaattisesti?"
 
-#: src/lib/utils.py:105 src/lib/utils.py:551
+#: src/lib/utils.py:105 src/lib/utils.py:581
 #, python-format
 msgid ""
 "Automatic creation failed. Please manually create the directory:\n"
@@ -607,7 +604,7 @@ msgstr ""
 "Automaattinen luonti epäonnistui. Luo hakemisto käsin:\n"
 "%s"
 
-#: src/lib/utils.py:108 src/lib/utils.py:554
+#: src/lib/utils.py:108 src/lib/utils.py:584
 #, python-format
 msgid ""
 "Please manually create the directory:\n"
@@ -616,7 +613,7 @@ msgstr ""
 "Ole hyvä, luo kansio käsin:\n"
 "%s"
 
-#: src/lib/utils.py:583
+#: src/lib/utils.py:613
 #, python-format
 msgid "Failed to add %sScreenlet."
 msgstr "%sScreenletin lisääminen epäonnistui"

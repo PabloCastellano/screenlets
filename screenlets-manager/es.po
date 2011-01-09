@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: screenlets-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-17 14:51+0900\n"
+"POT-Creation-Date: 2011-01-09 19:14+0900\n"
 "PO-Revision-Date: 2011-01-04 16:20+0000\n"
 "Last-Translator: Screenlets Dev Team <screenlets-dev@lists.launchpad.net>\n"
 "Language-Team: Spanish <es@li.org>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2011-01-05 04:31+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
-"Language: es\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
 msgid "Screenlets daemon"
@@ -97,7 +97,7 @@ msgstr ""
 "valores no se muestren correctamente."
 
 #: src/share/screenlets-manager/screenlets-manager.py:132 src/lib/utils.py:101
-#: src/lib/utils.py:105 src/lib/utils.py:547 src/lib/utils.py:551
+#: src/lib/utils.py:105 src/lib/utils.py:577 src/lib/utils.py:581
 msgid "Error"
 msgstr "Error"
 
@@ -117,8 +117,7 @@ msgstr "Eliminar Screenlet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:165
 msgid "Do you also want to remove the Screenlet configuration files?"
-msgstr ""
-"¿Ademas quieres desinstalar el archivo de configuracion de Screenlet?"
+msgstr "¿Ademas quieres desinstalar el archivo de configuracion de Screenlet?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:169
 msgid "Can't delete system-wide screenlets."
@@ -128,8 +127,7 @@ msgstr ""
 #: src/share/screenlets-manager/screenlets-manager.py:269
 #, python-format
 msgid "Do you really want to reset the %sScreenlet configuration?"
-msgstr ""
-"¿Estas seguro que quieres reiniciar la configuracion de %sScreenlet ?"
+msgstr "¿Estas seguro que quieres reiniciar la configuracion de %sScreenlet ?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:269
 msgid "Reset Screenlet"
@@ -313,8 +311,7 @@ msgid "Theme installed , please restart %s"
 msgstr "Tema instalado, por favor, reinicia %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:824
-msgid ""
-"Theme install error 2 found - Theme not installed or already installed"
+msgid "Theme install error 2 found - Theme not installed or already installed"
 msgstr "El tema no está instalado, o ya lo está."
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
@@ -437,7 +434,7 @@ msgid "Screenlets-Manager must now be restarted"
 msgstr "Screenlets-Manager se debe reiniciar ahora mismo"
 
 #. + constants
-#: src/share/screenlets-manager/screenlets-packager.py:31
+#: src/share/screenlets-manager/screenlets-packager.py:30
 msgid ""
 "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
 "Usage: screenlets-packager <path> [options]"
@@ -445,75 +442,75 @@ msgstr ""
 "Paquete de Screenlets - (c) RYX (Rico Pfaus) 2007\n"
 "Uso: screenlets-packager <ruta> [opciones]"
 
-#: src/share/screenlets-manager/screenlets-packager.py:70
+#: src/share/screenlets-manager/screenlets-packager.py:69
 #, python-format
 msgid "The specified path \"%s\" does not exist."
 msgstr "La dirección \"%s\" no existe."
 
-#: src/share/screenlets-manager/screenlets-packager.py:71
+#: src/share/screenlets-manager/screenlets-packager.py:70
 #, python-format
 msgid "Found path \"%s\"."
 msgstr "Dirección encontrada \"%s\"."
 
-#: src/share/screenlets-manager/screenlets-packager.py:77
+#: src/share/screenlets-manager/screenlets-packager.py:76
 msgid "Failed to extract screenlet name from path."
 msgstr "Error al extraer el nombre del screenlet desde la dirección dada."
 
-#: src/share/screenlets-manager/screenlets-packager.py:78
+#: src/share/screenlets-manager/screenlets-packager.py:77
 #, python-format
 msgid "Screenlet name is %s."
 msgstr "El nombre del Screenlet es %s."
 
-#: src/share/screenlets-manager/screenlets-packager.py:82
+#: src/share/screenlets-manager/screenlets-packager.py:81
 #, python-format
 msgid "No screenlet-file \"%sScreenlet.py\" found in the given path."
 msgstr ""
 "Ningun archivo del tipo \"%sScreenlet.py\" se encontro en la dirección dada"
 
-#: src/share/screenlets-manager/screenlets-packager.py:83
+#: src/share/screenlets-manager/screenlets-packager.py:82
 #, python-format
 msgid "Found %sScreenlet.py in path."
 msgstr "Encontrado %sScreenlet.py en la dirección dada."
 
-#: src/share/screenlets-manager/screenlets-packager.py:92
+#: src/share/screenlets-manager/screenlets-packager.py:91
 #, python-format
 msgid "Unable to import module '%(name)s' from %(path)s. (%(error)s)"
 msgstr "No se pudo instalar '%(name)s' de %(path)s. (%(error)s)"
 
-#: src/share/screenlets-manager/screenlets-packager.py:93
+#: src/share/screenlets-manager/screenlets-packager.py:92
 #, python-format
 msgid "Successfully imported module: %s"
 msgstr "Modulo importado correctamente: %s"
 
-#: src/share/screenlets-manager/screenlets-packager.py:99
+#: src/share/screenlets-manager/screenlets-packager.py:98
 msgid "Unable to import class from module."
 msgstr "Imposible importar el objeto \"class\" desde el módulo."
 
-#: src/share/screenlets-manager/screenlets-packager.py:101
+#: src/share/screenlets-manager/screenlets-packager.py:100
 msgid "The class inside the module is no subclass of screenlets.Screenlet."
 msgstr ""
-"El objeto \"class\" dentro del módulo no es una sub-clase de "
-"screenlets.Screenlet"
+"El objeto \"class\" dentro del módulo no es una sub-clase de screenlets."
+"Screenlet"
 
-#: src/share/screenlets-manager/screenlets-packager.py:102
+#: src/share/screenlets-manager/screenlets-packager.py:101
 #, python-format
 msgid "Successfully got class from module: %s"
 msgstr "Se ha obtenido el objeto \"class\" correctamente del módulo: %s"
 
-#: src/share/screenlets-manager/screenlets-packager.py:126
+#: src/share/screenlets-manager/screenlets-packager.py:132
 #, python-format
 msgid "Failed to create package info in \"%s\" (no permission?)."
 msgstr "Error al crear la información del paquete en \"%s\" (¿sin permisos?)"
 
-#: src/share/screenlets-manager/screenlets-packager.py:127
+#: src/share/screenlets-manager/screenlets-packager.py:133
 msgid "Created package info file."
 msgstr "Creado el archivo de informacion del paquete."
 
-#: src/share/screenlets-manager/screenlets-packager.py:143
+#: src/share/screenlets-manager/screenlets-packager.py:151
 msgid "Cleaned up and finished."
 msgstr "Tarea finalizada"
 
-#: src/lib/install.py:57
+#: src/lib/install.py:58
 msgid ""
 "This type of karamba theme is not supported yet\n"
 " Only older versions can be used"
@@ -521,14 +518,14 @@ msgstr ""
 "Este tipo de tema para Karamba no está soportado aún\n"
 " Sólo pueden utilizarse versiones anteriores."
 
-#: src/lib/install.py:113
+#: src/lib/install.py:114
 msgid "Archive is damaged or unsupported, use only tar, bz2 or gz."
 msgstr "Archivador dañado o no soportado: use únicamente tar, bz2 o gz."
 
 #. check if screenlet is already installed
 #. found_path = screenlets.utils.find_first_screenlet_path(name)
 #. found_path != None:
-#: src/lib/install.py:127
+#: src/lib/install.py:128
 #, python-format
 msgid ""
 "The %(slet)sScreenlet is already installed in '%(dir)s'.\n"
@@ -537,39 +534,38 @@ msgstr ""
 "%(slet)sScreenlet lla esta instalado en '%(dir)s'.\n"
 "Continuar?"
 
-#: src/lib/install.py:127 src/lib/install.py:193
+#: src/lib/install.py:128 src/lib/install.py:194
 #, python-format
 msgid "Install %s"
 msgstr "Instalar %s"
 
-#: src/lib/install.py:130
+#: src/lib/install.py:131
 #, python-format
 msgid "%sScreenlet is already installed"
 msgstr "El Screenlet %s ya está instalado"
 
 #. dir missing
-#: src/lib/install.py:137
+#: src/lib/install.py:138
 msgid ""
 "Invalid archive. Archive must contain a directory with the screenlet's name."
 msgstr ""
 "Archivador inválido: debe contener un directorio con el nombre del screenlet"
 
-#: src/lib/install.py:149
+#: src/lib/install.py:150
 msgid "Compatibility for this karamba theme is not yet implemented"
 msgstr "Este tema de \"Karamba widgets\" no esta actualmente soportado"
 
-#: src/lib/install.py:176
+#: src/lib/install.py:177
 msgid "Karamba theme was successfully installed"
 msgstr "El tema de \"Karamba widgets\" ha sido instalado correctamente"
 
-#: src/lib/install.py:178
+#: src/lib/install.py:179
 msgid ""
 "Invalid archive. Archive does not contain a screenlet or a valid karamba "
 "theme."
-msgstr ""
-"Archivador inválido: no tiene un tema de Karamba o Screenlets válido."
+msgstr "Archivador inválido: no tiene un tema de Karamba o Screenlets válido."
 
-#: src/lib/install.py:193
+#: src/lib/install.py:194
 #, python-format
 msgid ""
 "%s was not packaged with the screenlet packager. Do you wish to continue and "
@@ -578,18 +574,18 @@ msgstr ""
 "%s no se creó con el empaquetador de screenlets. ¿Desea continuar e intentar "
 "instalarlo?"
 
-#: src/lib/install.py:196
+#: src/lib/install.py:197
 msgid "This package was not packaged with the screenlet packager."
 msgstr "Este paquete no fue empaquetado con el empaquetador de screenlets."
 
 #. set msg/result
-#: src/lib/install.py:205
+#: src/lib/install.py:206
 #, python-format
 msgid "The %sScreenlet has been succesfully installed."
 msgstr "El %sScreenlet se ha instalado correctamente."
 
 #. create autostart directory, if not existent
-#: src/lib/utils.py:100 src/lib/utils.py:547
+#: src/lib/utils.py:100 src/lib/utils.py:577
 msgid ""
 "There is no existing autostart directory for your user account yet. Do you "
 "want me to automatically create it for you?"
@@ -597,7 +593,7 @@ msgstr ""
 "No hay ningún directorio de autoarranque en su cuenta de usuario. ¿Desea "
 "crearlo?"
 
-#: src/lib/utils.py:105 src/lib/utils.py:551
+#: src/lib/utils.py:105 src/lib/utils.py:581
 #, python-format
 msgid ""
 "Automatic creation failed. Please manually create the directory:\n"
@@ -607,7 +603,7 @@ msgstr ""
 "manualmente:\n"
 "%s"
 
-#: src/lib/utils.py:108 src/lib/utils.py:554
+#: src/lib/utils.py:108 src/lib/utils.py:584
 #, python-format
 msgid ""
 "Please manually create the directory:\n"
@@ -616,7 +612,7 @@ msgstr ""
 "Por favor cree manualmente el directorio:\n"
 "%s"
 
-#: src/lib/utils.py:583
+#: src/lib/utils.py:613
 #, python-format
 msgid "Failed to add %sScreenlet."
 msgstr "No se ha podido añadir %sScreenlet."

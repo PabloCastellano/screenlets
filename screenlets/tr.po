@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-17 14:51+0900\n"
+"POT-Creation-Date: 2011-01-09 19:13+0900\n"
 "PO-Revision-Date: 2010-11-15 08:22+0000\n"
 "Last-Translator: Screenlets Dev Team <screenlets-dev@lists.launchpad.net>\n"
 "Language-Team: Turkish <tr@li.org>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2010-12-10 04:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
-"Language: tr\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
 #: src/lib/__init__.py:99
@@ -24,174 +24,174 @@ msgid "http://www.screenlets.org/index.php/Get_more_screenlets"
 msgstr "http://www.screenlets.org/index.php/Get_more_screenlets"
 
 #. default meta-info for Screenlets
-#: src/lib/__init__.py:609
+#: src/lib/__init__.py:611
 msgid "No name set for this Screenlet"
 msgstr "Bu Screenlet için isim girilmemiş"
 
-#: src/lib/__init__.py:611
+#: src/lib/__init__.py:613
 msgid "No author defined for this Screenlet"
 msgstr "Bu Screenlet için yazar tanımlanmamış"
 
-#: src/lib/__init__.py:612
+#: src/lib/__init__.py:614
 msgid "No info set for this Screenlet"
 msgstr "Bu Screenlet için bilgi girilmemiş"
 
-#: src/lib/__init__.py:720
+#: src/lib/__init__.py:724
 msgid "The basic settings for this Screenlet-instance."
 msgstr "Bu screenlet için temel ayarlar."
 
-#: src/lib/__init__.py:735
+#: src/lib/__init__.py:739
 msgid "X-Position"
 msgstr "X-Konumu"
 
-#: src/lib/__init__.py:735
+#: src/lib/__init__.py:739
 msgid "The X-position of this Screenlet ..."
 msgstr "Bu Screenlet'in X-konumu..."
 
-#: src/lib/__init__.py:738
+#: src/lib/__init__.py:742
 msgid "Y-Position"
 msgstr "Y-Konumu"
 
-#: src/lib/__init__.py:738
+#: src/lib/__init__.py:742
 msgid "The Y-position of this Screenlet ..."
 msgstr "Bu Screenlet'in Y-konumu..."
 
-#: src/lib/__init__.py:741
+#: src/lib/__init__.py:745
 msgid "Width"
 msgstr "Genişlik"
 
-#: src/lib/__init__.py:741
+#: src/lib/__init__.py:745
 msgid "The width of this Screenlet ..."
 msgstr "Bu Screenlet'in genişliği..."
 
-#: src/lib/__init__.py:744
+#: src/lib/__init__.py:748
 msgid "Height"
 msgstr "Yükseklik"
 
-#: src/lib/__init__.py:744
+#: src/lib/__init__.py:748
 msgid "The height of this Screenlet ..."
 msgstr "Bu Screenlet'in yüksekliği..."
 
-#: src/lib/__init__.py:747
+#: src/lib/__init__.py:751
 msgid "Scale"
 msgstr "Ölçek"
 
-#: src/lib/__init__.py:747
+#: src/lib/__init__.py:751
 msgid "The scale-factor of this Screenlet ..."
 msgstr "bu screenlet'in ölçek-değişkeni"
 
-#: src/lib/__init__.py:750
+#: src/lib/__init__.py:754
 msgid "Opacity"
 msgstr "Şeffaflık"
 
-#: src/lib/__init__.py:750
+#: src/lib/__init__.py:754
 msgid "The opacity of the Screenlet window ..."
 msgstr "screenlet penceresinin  saydamlığı"
 
-#: src/lib/__init__.py:753
+#: src/lib/__init__.py:757
 msgid "Stick to Desktop"
 msgstr "Masaüstüne yapıştır"
 
-#: src/lib/__init__.py:754
+#: src/lib/__init__.py:758
 msgid "Show this Screenlet on all workspaces ..."
 msgstr "bu screenlet'i tüm çalışma alanları üstünde göster"
 
-#: src/lib/__init__.py:756
+#: src/lib/__init__.py:760
 msgid "Treat as Widget"
 msgstr "Parçacık gibi davran"
 
-#: src/lib/__init__.py:757
+#: src/lib/__init__.py:761
 msgid "Treat this Screenlet as a \"Widget\" ..."
 msgstr "Bu screenlet'e bir parçacık gibi davran..."
 
-#: src/lib/__init__.py:765
+#: src/lib/__init__.py:769
 msgid "Lock position"
 msgstr "Konumu kilitle"
 
-#: src/lib/__init__.py:766
+#: src/lib/__init__.py:770
 msgid "Stop the screenlet from being moved..."
 msgstr "Screenlet'i taşırken durdur"
 
 #. add "Keep above"-menuitem
-#: src/lib/__init__.py:768 src/lib/__init__.py:1085
+#: src/lib/__init__.py:772 src/lib/__init__.py:1089
 msgid "Keep above"
 msgstr "Üstte tut"
 
-#: src/lib/__init__.py:769
+#: src/lib/__init__.py:773
 msgid "Keep this Screenlet above other windows ..."
 msgstr "Bu Screenleti diğer pencerelerin üzerinde tut"
 
 #. add "Keep Below"-menuitem
-#: src/lib/__init__.py:771 src/lib/__init__.py:1092
+#: src/lib/__init__.py:775 src/lib/__init__.py:1096
 msgid "Keep below"
 msgstr "Pencerelerin altında tut"
 
-#: src/lib/__init__.py:772
+#: src/lib/__init__.py:776
 msgid "Keep this Screenlet below other windows ..."
 msgstr "Bu Screenleti diğer pencerelerin altında tut ..."
 
-#: src/lib/__init__.py:774
+#: src/lib/__init__.py:778
 msgid "Draw button controls"
 msgstr "Kontrol düğmelerini göster"
 
-#: src/lib/__init__.py:775
+#: src/lib/__init__.py:779
 msgid "Draw buttons in top right corner"
 msgstr "Düğmeleri sağ üst köşede göster"
 
-#: src/lib/__init__.py:777
+#: src/lib/__init__.py:781
 msgid "Skip Pager"
 msgstr "Sayfalayıcıyı Geç"
 
-#: src/lib/__init__.py:778
+#: src/lib/__init__.py:782
 msgid "Set this Screenlet to show/hide in pagers ..."
 msgstr "Bu Screenletin sayfalayıcıdaki gösterme/gizleme ayarlarını yap"
 
-#: src/lib/__init__.py:780
+#: src/lib/__init__.py:784
 msgid "Skip Taskbar"
 msgstr "Görev çubuğunu atla"
 
-#: src/lib/__init__.py:781
+#: src/lib/__init__.py:785
 msgid "Set this Screenlet to show/hide in taskbars ..."
 msgstr "Bu Screenletin görev çubuğundaki gözterme/gizleme ayarlarını yap"
 
-#: src/lib/__init__.py:783
+#: src/lib/__init__.py:787
 msgid "Resize on mouse scroll"
 msgstr "Fare kaydırma ile boyutlandır"
 
-#: src/lib/__init__.py:785
+#: src/lib/__init__.py:789
 msgid "Ignore requirements"
 msgstr "Gereksinimleri yoksay"
 
-#: src/lib/__init__.py:786
+#: src/lib/__init__.py:790
 msgid "Set this Screenlet to ignore/demand DEB requirements ..."
 msgstr "Bu Screenlet kabul etme/DEB talep gereksinimlerini belirle..."
 
-#: src/lib/__init__.py:790
+#: src/lib/__init__.py:794
 msgid "Allow overriding Options"
 msgstr "Başta gelen seçeneklere müsade et"
 
-#: src/lib/__init__.py:791
+#: src/lib/__init__.py:795
 msgid "Allow themes to override options in this screenlet ..."
 msgstr "Temaların bu screenlet'in ayarlarının üstüne yazmasına izin ver ..."
 
-#: src/lib/__init__.py:793
+#: src/lib/__init__.py:797
 msgid "Ask on Override"
 msgstr "İstekleri geçersiz kıl"
 
-#: src/lib/__init__.py:794
+#: src/lib/__init__.py:798
 msgid "Show a confirmation-dialog when a theme wants to override "
 msgstr "Bir tema etkisizleştirilmek istendiğinde onay kutusunu göster "
 
-#: src/lib/__init__.py:795
+#: src/lib/__init__.py:799
 msgid "the current options of this Screenlet ..."
 msgstr "Bu Screenletin geçerli ayarları"
 
 #. version of the deb package if unspecified
-#: src/lib/__init__.py:988
+#: src/lib/__init__.py:992
 msgid "?"
 msgstr ""
 
-#: src/lib/__init__.py:993
+#: src/lib/__init__.py:997
 #, python-format
 msgid ""
 "\n"
@@ -200,7 +200,7 @@ msgstr ""
 "\n"
 "%(package)s %(version)s sürümü gerekli, KURULU DEĞİL!"
 
-#: src/lib/__init__.py:996
+#: src/lib/__init__.py:1000
 #, python-format
 msgid ""
 "\n"
@@ -209,7 +209,7 @@ msgstr ""
 "\n"
 "%(package)s %(version)s kurulmuş, %(required)s gerekli."
 
-#: src/lib/__init__.py:1006
+#: src/lib/__init__.py:1010
 #, python-format
 msgid ""
 "Requirements for the Screenlet are not satisfied! Use the package manager of "
@@ -224,62 +224,62 @@ msgstr ""
 "GEREKLİLER:\n"
 "%s"
 
-#: src/lib/__init__.py:1028
+#: src/lib/__init__.py:1032
 msgid "Size"
 msgstr "Boyut"
 
-#: src/lib/__init__.py:1043
+#: src/lib/__init__.py:1047
 msgid "Theme"
 msgstr "Tema"
 
-#: src/lib/__init__.py:1058
+#: src/lib/__init__.py:1062
 msgid "Window"
 msgstr "Pencere"
 
 #. add "lock"-menuitem
-#: src/lib/__init__.py:1064
+#: src/lib/__init__.py:1068
 msgid "Lock"
 msgstr "Kilitle"
 
 #. add "Sticky"-menuitem
-#: src/lib/__init__.py:1071
+#: src/lib/__init__.py:1075
 msgid "Sticky"
 msgstr "Yapışkan"
 
 #. add "Widget"-menuitem
-#: src/lib/__init__.py:1078
+#: src/lib/__init__.py:1082
 msgid "Widget"
 msgstr "widget aracı"
 
-#: src/lib/__init__.py:1102
+#: src/lib/__init__.py:1106
 msgid "Properties..."
 msgstr "Özellikler..."
 
-#: src/lib/__init__.py:1105
+#: src/lib/__init__.py:1109
 msgid "Info..."
 msgstr "Bilgi..."
 
-#: src/lib/__init__.py:1109
+#: src/lib/__init__.py:1113
 #, python-format
 msgid "Add one more %s"
 msgstr "%s bir daha Ekle"
 
-#: src/lib/__init__.py:1112
+#: src/lib/__init__.py:1116
 #, python-format
 msgid "Delete this %s"
 msgstr "%s Sil"
 
-#: src/lib/__init__.py:1116
+#: src/lib/__init__.py:1120
 #, python-format
 msgid "Quit this %s"
 msgstr "%s Kapat"
 
-#: src/lib/__init__.py:1119
+#: src/lib/__init__.py:1123
 #, python-format
 msgid "Quit all %ss"
 msgstr "%ss Tamamını Kapat"
 
-#: src/lib/__init__.py:1370
+#: src/lib/__init__.py:1374
 msgid ""
 "This theme wants to override your settings for this Screenlet. Do you want "
 "to allow that?"
@@ -287,12 +287,12 @@ msgstr ""
 "Bu tema Screenlet için ayarlarınızı geçersizleştirmek istiyor. Buna izin "
 "vermek istiyormusunuz?"
 
-#: src/lib/__init__.py:1572
+#: src/lib/__init__.py:1608
 #, python-format
 msgid "To quit all %s's, use 'Quit' instead. "
 msgstr "Bütün %s'leri kapatmak için, 'Çıkış' ı kullanın. "
 
-#: src/lib/__init__.py:1573
+#: src/lib/__init__.py:1609
 #, python-format
 msgid "Really delete this %s and its settings?"
 msgstr "Gerçekten bu %s ve onun ayarlarını silecek misiniz?"
@@ -358,39 +358,36 @@ msgstr "Parolayı buraya girin ..."
 msgid "Apply"
 msgstr "Uygula"
 
-#: src/lib/sensors.py:168
+#: src/lib/sensors.py:165
 #, python-format
 msgid "%(days)s days, %(hours)s hours and %(minutes)s minutes"
 msgstr "%(days)s gün, %(hours)s saat ve %(minutes)s dakika"
 
-#: src/lib/sensors.py:288
-msgid "Can't get kernel version"
-msgstr "Çekirdek sürümü alınamıyor"
-
-#: src/lib/sensors.py:298
+#: src/lib/sensors.py:276
 msgid "Can't get KDE version"
 msgstr "KDE sürümü alınamıyor"
 
-#: src/lib/sensors.py:308
+#: src/lib/sensors.py:286
 msgid "Can't get Gnome version"
 msgstr "Gnome sürümü alınamıyor"
 
-#: src/lib/sensors.py:319
-msgid "Failed to open /proc/version"
-msgstr "/proc/version açılamadı"
-
-#: src/lib/sensors.py:529
+#: src/lib/sensors.py:474
 msgid "Cannot get ip"
 msgstr "IP alınamadı"
 
-#: src/lib/sensors.py:598 src/lib/sensors.py:611
+#: src/lib/sensors.py:568 src/lib/sensors.py:581
 msgid "Not connected"
 msgstr "Bağlı değil"
+
+#~ msgid "Can't get kernel version"
+#~ msgstr "Çekirdek sürümü alınamıyor"
+
+#~ msgid "Failed to open /proc/version"
+#~ msgstr "/proc/version açılamadı"
 
 #~ msgid "Error while loading ScreenletTheme in: "
 #~ msgstr "Hata screenlet teması yüklenemiyor: "
 
-#, python-format
 #~ msgid "Can't open %s"
 #~ msgstr "%s açılamadı"
 
@@ -403,7 +400,6 @@ msgstr "Bağlı değil"
 #~ msgid "No keyrings found. Please create one first!"
 #~ msgstr "Anahtarlık bulunamadı. Lütfen önce bir tane yaratın!"
 
-#, python-format
 #~ msgid "No name for group defined in \"%s\"."
 #~ msgstr "\"%s\"de tanımlanmış grup için isim yok."
 
@@ -425,23 +421,18 @@ msgstr "Bağlı değil"
 #~ msgid "Can't open folder /proc/acpi/thermal_zone/"
 #~ msgstr "/proc/acpi/thermal_zone/ dizini açılamadı"
 
-#, python-format
 #~ msgid "can't read temperature in: %s"
 #~ msgstr "%s'teki sıcaklık değeri okunamıyor"
 
-#, python-format
 #~ msgid "Can't open %s/temperature"
 #~ msgstr "%s/temperature açılamadı"
 
-#, python-format
 #~ msgid "Can't read value from %s"
 #~ msgstr "%s'teki değer okunamıyor"
 
-#, python-format
 #~ msgid "Trying to access invalid option \"%s\"."
 #~ msgstr "Geçersiz ayara erişilmeye çalışıldı: \"%s\""
 
-#, python-format
 #~ msgid "Trying to access invalid instance \"%s\"."
 #~ msgstr "Geçersiz nesneye erişilmeye çalışıldı: \"%s\""
 

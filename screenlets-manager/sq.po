@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-17 14:51+0900\n"
+"POT-Creation-Date: 2011-01-09 19:14+0900\n"
 "PO-Revision-Date: 2010-11-12 13:10+0000\n"
 "Last-Translator: Ermal Llanaj <ermalipavia@gmail.com>\n"
 "Language-Team: Albanian <sq@li.org>\n"
+"Language: sq\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2010-12-10 04:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
-"Language: sq\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
 msgid "Screenlets daemon"
@@ -66,10 +66,10 @@ msgid ""
 "license. Thank you for using free software!"
 msgstr ""
 "Ky program eshte publikuar nen Licencen GNU (General Public License) v3 (ose "
-"versione pasardhese). Mund te gjeni Licencen e plote ne "
-"http://www.gnu.org/licenses/gpl.txt. Duke perdorur, ndryshuar dhe/ose "
-"shperndare kete program ju pranoni termat dhe kushtet e kesaj licence. "
-"Faleminderit per perdorimin e programeve falas!"
+"versione pasardhese). Mund te gjeni Licencen e plote ne http://www.gnu.org/"
+"licenses/gpl.txt. Duke perdorur, ndryshuar dhe/ose shperndare kete program "
+"ju pranoni termat dhe kushtet e kesaj licence. Faleminderit per perdorimin e "
+"programeve falas!"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:251
 msgid "Install a Screenlet"
@@ -97,7 +97,7 @@ msgstr ""
 "gabime."
 
 #: src/share/screenlets-manager/screenlets-manager.py:132 src/lib/utils.py:101
-#: src/lib/utils.py:105 src/lib/utils.py:547 src/lib/utils.py:551
+#: src/lib/utils.py:105 src/lib/utils.py:577 src/lib/utils.py:581
 msgid "Error"
 msgstr "Gabim"
 
@@ -115,8 +115,7 @@ msgstr "Fshij Screenlet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:165
 msgid "Do you also want to remove the Screenlet configuration files?"
-msgstr ""
-"Doni te fshini gjithashtu edhe dokumentat e konfigurimit te Screenlet?"
+msgstr "Doni te fshini gjithashtu edhe dokumentat e konfigurimit te Screenlet?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:169
 msgid "Can't delete system-wide screenlets."
@@ -312,8 +311,7 @@ msgid "Theme installed , please restart %s"
 msgstr "Tema u instalua , rifilloni %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:824
-msgid ""
-"Theme install error 2 found - Theme not installed or already installed"
+msgid "Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Gabimi 2 u gjet ne instalimin e temes - Tema nuk u instalua ose ekziston"
 
@@ -437,79 +435,79 @@ msgid "Screenlets-Manager must now be restarted"
 msgstr "Menaxheri i Screenlets tani duhet te rifillohet"
 
 #. + constants
-#: src/share/screenlets-manager/screenlets-packager.py:31
+#: src/share/screenlets-manager/screenlets-packager.py:30
 msgid ""
 "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
 "Usage: screenlets-packager <path> [options]"
 msgstr ""
 
-#: src/share/screenlets-manager/screenlets-packager.py:70
+#: src/share/screenlets-manager/screenlets-packager.py:69
 #, python-format
 msgid "The specified path \"%s\" does not exist."
 msgstr "Drejtimi i specifikuar \"%s\" nuk ekziston."
 
-#: src/share/screenlets-manager/screenlets-packager.py:71
+#: src/share/screenlets-manager/screenlets-packager.py:70
 #, python-format
 msgid "Found path \"%s\"."
 msgstr "U gjet drejtimi \"%s\"."
 
-#: src/share/screenlets-manager/screenlets-packager.py:77
+#: src/share/screenlets-manager/screenlets-packager.py:76
 msgid "Failed to extract screenlet name from path."
 msgstr "Nuk mund te nxirrej emri i screenlet nga drejtimi."
 
-#: src/share/screenlets-manager/screenlets-packager.py:78
+#: src/share/screenlets-manager/screenlets-packager.py:77
 #, python-format
 msgid "Screenlet name is %s."
 msgstr "Emri i Screenlet eshte %s."
 
-#: src/share/screenlets-manager/screenlets-packager.py:82
+#: src/share/screenlets-manager/screenlets-packager.py:81
 #, python-format
 msgid "No screenlet-file \"%sScreenlet.py\" found in the given path."
 msgstr ""
 "Nuk u gjet dokumenti Screenlet \"%sScreenlet.py\" ne drejtimin e dhene."
 
-#: src/share/screenlets-manager/screenlets-packager.py:83
+#: src/share/screenlets-manager/screenlets-packager.py:82
 #, python-format
 msgid "Found %sScreenlet.py in path."
 msgstr "U gjet %sScreenlet.py ne kete drejtim."
 
-#: src/share/screenlets-manager/screenlets-packager.py:92
+#: src/share/screenlets-manager/screenlets-packager.py:91
 #, python-format
 msgid "Unable to import module '%(name)s' from %(path)s. (%(error)s)"
 msgstr ""
 
-#: src/share/screenlets-manager/screenlets-packager.py:93
+#: src/share/screenlets-manager/screenlets-packager.py:92
 #, python-format
 msgid "Successfully imported module: %s"
 msgstr "Moduli %s u importua me sukses"
 
-#: src/share/screenlets-manager/screenlets-packager.py:99
+#: src/share/screenlets-manager/screenlets-packager.py:98
 msgid "Unable to import class from module."
 msgstr "Nuk mund te importohet klasi i modulit."
 
-#: src/share/screenlets-manager/screenlets-packager.py:101
+#: src/share/screenlets-manager/screenlets-packager.py:100
 msgid "The class inside the module is no subclass of screenlets.Screenlet."
 msgstr "Klasi brenda modulit nuk eshte nenklas i screenlets.Screenlet."
 
-#: src/share/screenlets-manager/screenlets-packager.py:102
+#: src/share/screenlets-manager/screenlets-packager.py:101
 #, python-format
 msgid "Successfully got class from module: %s"
 msgstr "Klasi u terhoq me sukses nga moduli: %s"
 
-#: src/share/screenlets-manager/screenlets-packager.py:126
+#: src/share/screenlets-manager/screenlets-packager.py:132
 #, python-format
 msgid "Failed to create package info in \"%s\" (no permission?)."
 msgstr "Nuk u krijua info i paketes ne \"%s\" (nuk keni te drejta?)."
 
-#: src/share/screenlets-manager/screenlets-packager.py:127
+#: src/share/screenlets-manager/screenlets-packager.py:133
 msgid "Created package info file."
 msgstr "U krijua dokumenti i info per paketen."
 
-#: src/share/screenlets-manager/screenlets-packager.py:143
+#: src/share/screenlets-manager/screenlets-packager.py:151
 msgid "Cleaned up and finished."
 msgstr "U pastrua dhe mbaroji."
 
-#: src/lib/install.py:57
+#: src/lib/install.py:58
 msgid ""
 "This type of karamba theme is not supported yet\n"
 " Only older versions can be used"
@@ -517,48 +515,47 @@ msgstr ""
 "Kjo lloj teme karamba nuk mundesohet akoma\n"
 " Vetem versione me te vjetra mund te perdoren"
 
-#: src/lib/install.py:113
+#: src/lib/install.py:114
 msgid "Archive is damaged or unsupported, use only tar, bz2 or gz."
-msgstr ""
-"Arkivi eshte i demtuar ose i panjohur, perdorni vetem tar, bz2 ose gz."
+msgstr "Arkivi eshte i demtuar ose i panjohur, perdorni vetem tar, bz2 ose gz."
 
 #. check if screenlet is already installed
 #. found_path = screenlets.utils.find_first_screenlet_path(name)
 #. found_path != None:
-#: src/lib/install.py:127
+#: src/lib/install.py:128
 #, python-format
 msgid ""
 "The %(slet)sScreenlet is already installed in '%(dir)s'.\n"
 "Do you wish to continue?"
 msgstr ""
 
-#: src/lib/install.py:127 src/lib/install.py:193
+#: src/lib/install.py:128 src/lib/install.py:194
 #, python-format
 msgid "Install %s"
 msgstr "Instalo %s"
 
-#: src/lib/install.py:130
+#: src/lib/install.py:131
 #, python-format
 msgid "%sScreenlet is already installed"
 msgstr "%sScreenlet eshte i instaluar"
 
 #. dir missing
-#: src/lib/install.py:137
+#: src/lib/install.py:138
 msgid ""
 "Invalid archive. Archive must contain a directory with the screenlet's name."
 msgstr ""
 "Arkiv jo i vlefshem. Arkivi duhet te permbaje nje direktori me emrin e "
 "Screenlet."
 
-#: src/lib/install.py:149
+#: src/lib/install.py:150
 msgid "Compatibility for this karamba theme is not yet implemented"
 msgstr "Kompatibiliteti per kete teme karamba nuk eshte implementuar akoma"
 
-#: src/lib/install.py:176
+#: src/lib/install.py:177
 msgid "Karamba theme was successfully installed"
 msgstr "Tema Karamba u instalua me sukses"
 
-#: src/lib/install.py:178
+#: src/lib/install.py:179
 msgid ""
 "Invalid archive. Archive does not contain a screenlet or a valid karamba "
 "theme."
@@ -566,7 +563,7 @@ msgstr ""
 "Arkiv jo i vlefshem. Arkivi nuk permban nje Screenlet ose teme karamba te "
 "vlefshme."
 
-#: src/lib/install.py:193
+#: src/lib/install.py:194
 #, python-format
 msgid ""
 "%s was not packaged with the screenlet packager. Do you wish to continue and "
@@ -575,18 +572,18 @@ msgstr ""
 "%s nuk eshte paketuar me paketuesin screenlet. Doni te vazhdoni dhe te "
 "provoni ta instaloni?"
 
-#: src/lib/install.py:196
+#: src/lib/install.py:197
 msgid "This package was not packaged with the screenlet packager."
 msgstr "Kjo pakete nuk eshte paketuar me paketuesin screenlet."
 
 #. set msg/result
-#: src/lib/install.py:205
+#: src/lib/install.py:206
 #, python-format
 msgid "The %sScreenlet has been succesfully installed."
 msgstr "%sScreenlet u instalua me sukses."
 
 #. create autostart directory, if not existent
-#: src/lib/utils.py:100 src/lib/utils.py:547
+#: src/lib/utils.py:100 src/lib/utils.py:577
 msgid ""
 "There is no existing autostart directory for your user account yet. Do you "
 "want me to automatically create it for you?"
@@ -594,7 +591,7 @@ msgstr ""
 "Nuk ka akoma nje direktori autostart per perdoruesin tuaj. Doni te krijohet "
 "automatikisht kjo direktori?"
 
-#: src/lib/utils.py:105 src/lib/utils.py:551
+#: src/lib/utils.py:105 src/lib/utils.py:581
 #, python-format
 msgid ""
 "Automatic creation failed. Please manually create the directory:\n"
@@ -603,7 +600,7 @@ msgstr ""
 "Krijimi automatik nuk u krye. Ju lutem krijoni manualisht direktorine:\n"
 "%s"
 
-#: src/lib/utils.py:108 src/lib/utils.py:554
+#: src/lib/utils.py:108 src/lib/utils.py:584
 #, python-format
 msgid ""
 "Please manually create the directory:\n"
@@ -612,7 +609,7 @@ msgstr ""
 "Ju lutem krijoni manualisht direktorine:\n"
 "%s"
 
-#: src/lib/utils.py:583
+#: src/lib/utils.py:613
 #, python-format
 msgid "Failed to add %sScreenlet."
 msgstr "%sScreenlet nuk u shtua."
@@ -621,5 +618,5 @@ msgstr "%sScreenlet nuk u shtua."
 #~ "You are about to install a theme in root mode. Continue only if you have "
 #~ "gksudo installed, do you wish to continue?"
 #~ msgstr ""
-#~ "Ju doni te instaloni nje teme ne menyren root. Vazhdoni vetem nese keni te "
-#~ "instaluar gksudo, doni te vazhdoni?"
+#~ "Ju doni te instaloni nje teme ne menyren root. Vazhdoni vetem nese keni "
+#~ "te instaluar gksudo, doni te vazhdoni?"

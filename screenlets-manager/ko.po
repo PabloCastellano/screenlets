@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-17 14:51+0900\n"
+"POT-Creation-Date: 2011-01-09 19:14+0900\n"
 "PO-Revision-Date: 2010-11-12 13:33+0000\n"
 "Last-Translator: Bundo <bundo@bundo.biz>\n"
 "Language-Team: Korean <ko@li.org>\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2010-12-10 04:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
-"Language: ko\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
 msgid "Screenlets daemon"
@@ -81,8 +81,9 @@ msgid ""
 "functionality is disabled. You can use this to install screenlets into the "
 "system-wide path."
 msgstr ""
-"중요! 당신 은, 거의 모든 기능을 사용할 수 있다. 루트 사용자로 이 응용 프로그램을 실행하고있습니다. 당신은 시스템의 전체 경로로 "
-"스크린렛츠를 설치하는 데 사용할 수 있습니다."
+"중요! 당신 은, 거의 모든 기능을 사용할 수 있다. 루트 사용자로 이 응용 프로그"
+"램을 실행하고있습니다. 당신은 시스템의 전체 경로로 스크린렛츠를 설치하는 데 "
+"사용할 수 있습니다."
 
 #: src/share/screenlets-manager/screenlets-manager.py:101
 msgid "Warning!"
@@ -94,7 +95,7 @@ msgid ""
 msgstr "연결 또는 데몬 실행 없습니다. 어떤 값은 잘못 표시 될 수 있습니다."
 
 #: src/share/screenlets-manager/screenlets-manager.py:132 src/lib/utils.py:101
-#: src/lib/utils.py:105 src/lib/utils.py:547 src/lib/utils.py:551
+#: src/lib/utils.py:105 src/lib/utils.py:577 src/lib/utils.py:581
 msgid "Error"
 msgstr "오류"
 
@@ -183,7 +184,8 @@ msgstr "선택된 스크린렛츠의 새 인스턴스를 시작/주가 합니다
 #: src/share/screenlets-manager/screenlets-manager.py:420
 msgid ""
 "Install a new Screenlet, SuperKaramba or Web Widget or Web Application  ..."
-msgstr "새로운 스크린렛츠, SuperKaramba 또는 웹 위젯이나 웹 응용 프로그램을 설치 ."
+msgstr ""
+"새로운 스크린렛츠, SuperKaramba 또는 웹 위젯이나 웹 응용 프로그램을 설치 ."
 
 #: src/share/screenlets-manager/screenlets-manager.py:421
 msgid "Permanently uninstall/delete the currently selected Screenlet ..."
@@ -289,7 +291,9 @@ msgstr "테마설치중 오류 1개 발생- 테마설치 못함, 아마도 패�
 msgid ""
 "This package seams to contain a full Screenlet and not just a theme, please "
 "use the screenlet install instead"
-msgstr "이 패키지 뿐만 아니라 테마 전체 스크린렛츠를 포함하는 스크린렛츠를 사용하여 설치하시기 바랍니다"
+msgstr ""
+"이 패키지 뿐만 아니라 테마 전체 스크린렛츠를 포함하는 스크린렛츠를 사용하여 "
+"설치하시기 바랍니다"
 
 #: src/share/screenlets-manager/screenlets-manager.py:796
 msgid "This package doesnt seem to contain a theme"
@@ -301,9 +305,9 @@ msgid "Theme installed , please restart %s"
 msgstr "테마 설치됨, %s 재시작 하세요"
 
 #: src/share/screenlets-manager/screenlets-manager.py:824
-msgid ""
-"Theme install error 2 found - Theme not installed or already installed"
-msgstr "테마 설치중 오류2개 발생- 태마가 이미 설치되었거나 설치되지 않았습니다."
+msgid "Theme install error 2 found - Theme not installed or already installed"
+msgstr ""
+"테마 설치중 오류2개 발생- 태마가 이미 설치되었거나 설치되지 않았습니다."
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
 msgid "Install SuperKaramba Theme"
@@ -423,78 +427,78 @@ msgid "Screenlets-Manager must now be restarted"
 msgstr "스크린렛츠 관리자를 지금 재시작 해야 합니다"
 
 #. + constants
-#: src/share/screenlets-manager/screenlets-packager.py:31
+#: src/share/screenlets-manager/screenlets-packager.py:30
 msgid ""
 "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
 "Usage: screenlets-packager <path> [options]"
 msgstr ""
 
-#: src/share/screenlets-manager/screenlets-packager.py:70
+#: src/share/screenlets-manager/screenlets-packager.py:69
 #, python-format
 msgid "The specified path \"%s\" does not exist."
 msgstr "지정된 경로 \"%\"가 존재하지 않습니다."
 
-#: src/share/screenlets-manager/screenlets-packager.py:71
+#: src/share/screenlets-manager/screenlets-packager.py:70
 #, python-format
 msgid "Found path \"%s\"."
 msgstr "\"%s\" 경로 찾음"
 
-#: src/share/screenlets-manager/screenlets-packager.py:77
+#: src/share/screenlets-manager/screenlets-packager.py:76
 msgid "Failed to extract screenlet name from path."
 msgstr "경 로에서 스크린렛츠 이름을 추출하는 데 실패했습니다."
 
-#: src/share/screenlets-manager/screenlets-packager.py:78
+#: src/share/screenlets-manager/screenlets-packager.py:77
 #, python-format
 msgid "Screenlet name is %s."
 msgstr "스크린렛츠 이름은 %s"
 
-#: src/share/screenlets-manager/screenlets-packager.py:82
+#: src/share/screenlets-manager/screenlets-packager.py:81
 #, python-format
 msgid "No screenlet-file \"%sScreenlet.py\" found in the given path."
 msgstr "주어진 경로에서 발견된 것은  스크린렛츠 파일 아님 \"%sScreenlet.py\""
 
-#: src/share/screenlets-manager/screenlets-packager.py:83
+#: src/share/screenlets-manager/screenlets-packager.py:82
 #, python-format
 msgid "Found %sScreenlet.py in path."
 msgstr "경로에서 %sScreenlet.py 찾음"
 
-#: src/share/screenlets-manager/screenlets-packager.py:92
+#: src/share/screenlets-manager/screenlets-packager.py:91
 #, python-format
 msgid "Unable to import module '%(name)s' from %(path)s. (%(error)s)"
 msgstr ""
 
-#: src/share/screenlets-manager/screenlets-packager.py:93
+#: src/share/screenlets-manager/screenlets-packager.py:92
 #, python-format
 msgid "Successfully imported module: %s"
 msgstr "성공적으로 모듈을 불러옴: %s"
 
-#: src/share/screenlets-manager/screenlets-packager.py:99
+#: src/share/screenlets-manager/screenlets-packager.py:98
 msgid "Unable to import class from module."
 msgstr "모듈에서 클래스를 가져올 수없습니다."
 
-#: src/share/screenlets-manager/screenlets-packager.py:101
+#: src/share/screenlets-manager/screenlets-packager.py:100
 msgid "The class inside the module is no subclass of screenlets.Screenlet."
 msgstr "모듈 내부 클래스 스크린렛츠는 하위 글래스 입니다.스크린렛츠"
 
-#: src/share/screenlets-manager/screenlets-packager.py:102
+#: src/share/screenlets-manager/screenlets-packager.py:101
 #, python-format
 msgid "Successfully got class from module: %s"
 msgstr "모듈에서 클래스를 성공적으로 가져옴: %s"
 
-#: src/share/screenlets-manager/screenlets-packager.py:126
+#: src/share/screenlets-manager/screenlets-packager.py:132
 #, python-format
 msgid "Failed to create package info in \"%s\" (no permission?)."
 msgstr "\"%s\" 에서 패키지를 정보로 만드는 데 실패했습니다 (권한 없음?)."
 
-#: src/share/screenlets-manager/screenlets-packager.py:127
+#: src/share/screenlets-manager/screenlets-packager.py:133
 msgid "Created package info file."
 msgstr "만들어진 패키지 정보 파일입니다."
 
-#: src/share/screenlets-manager/screenlets-packager.py:143
+#: src/share/screenlets-manager/screenlets-packager.py:151
 msgid "Cleaned up and finished."
 msgstr "청소 그리고 완료."
 
-#: src/lib/install.py:57
+#: src/lib/install.py:58
 msgid ""
 "This type of karamba theme is not supported yet\n"
 " Only older versions can be used"
@@ -502,75 +506,80 @@ msgstr ""
 "karamba 테마의 유형은 아직 지원되지 않습니다\n"
 " 이전 버전에서만 사용할 수 있습니다"
 
-#: src/lib/install.py:113
+#: src/lib/install.py:114
 msgid "Archive is damaged or unsupported, use only tar, bz2 or gz."
-msgstr "압축 파일이 손상되었거나 지원 하지 않습니다. 오직 tar, bz2, gz 이 가능 합니다."
+msgstr ""
+"압축 파일이 손상되었거나 지원 하지 않습니다. 오직 tar, bz2, gz 이 가능 합니"
+"다."
 
 #. check if screenlet is already installed
 #. found_path = screenlets.utils.find_first_screenlet_path(name)
 #. found_path != None:
-#: src/lib/install.py:127
+#: src/lib/install.py:128
 #, python-format
 msgid ""
 "The %(slet)sScreenlet is already installed in '%(dir)s'.\n"
 "Do you wish to continue?"
 msgstr ""
 
-#: src/lib/install.py:127 src/lib/install.py:193
+#: src/lib/install.py:128 src/lib/install.py:194
 #, python-format
 msgid "Install %s"
 msgstr "%s 설치"
 
-#: src/lib/install.py:130
+#: src/lib/install.py:131
 #, python-format
 msgid "%sScreenlet is already installed"
 msgstr "%s 스크린렛츠는 이미 설치되었습니다"
 
 #. dir missing
-#: src/lib/install.py:137
+#: src/lib/install.py:138
 msgid ""
 "Invalid archive. Archive must contain a directory with the screenlet's name."
 msgstr "잘못된 아카이브.  스크린렛츠의 이름을 가진 디렉터리를 포함해야 합니다."
 
-#: src/lib/install.py:149
+#: src/lib/install.py:150
 msgid "Compatibility for this karamba theme is not yet implemented"
 msgstr "karamba 테마에 대한 호환성은 아직 구현되지 않았습니다"
 
-#: src/lib/install.py:176
+#: src/lib/install.py:177
 msgid "Karamba theme was successfully installed"
 msgstr "karamba 테마가 성공적으로 설치됨"
 
-#: src/lib/install.py:178
+#: src/lib/install.py:179
 msgid ""
 "Invalid archive. Archive does not contain a screenlet or a valid karamba "
 "theme."
-msgstr "잘못된 압축. 압축이 스크린렛츠 또는 유효한 karamba 테마를 포함하지 않습니다."
+msgstr ""
+"잘못된 압축. 압축이 스크린렛츠 또는 유효한 karamba 테마를 포함하지 않습니다."
 
-#: src/lib/install.py:193
+#: src/lib/install.py:194
 #, python-format
 msgid ""
 "%s was not packaged with the screenlet packager. Do you wish to continue and "
 "try to install it?"
 msgstr "%s 스크린렛츠 패키지가 아닙니다. 계속 설치 하기를 원하십니까?"
 
-#: src/lib/install.py:196
+#: src/lib/install.py:197
 msgid "This package was not packaged with the screenlet packager."
 msgstr "이 패키지는 스크린렛츠용 패키지가 아닙니다."
 
 #. set msg/result
-#: src/lib/install.py:205
+#: src/lib/install.py:206
 #, python-format
 msgid "The %sScreenlet has been succesfully installed."
 msgstr "%s 스크린렛츠가 성공적으로 설치 되었습니다."
 
 #. create autostart directory, if not existent
-#: src/lib/utils.py:100 src/lib/utils.py:547
+#: src/lib/utils.py:100 src/lib/utils.py:577
 msgid ""
 "There is no existing autostart directory for your user account yet. Do you "
 "want me to automatically create it for you?"
-msgstr "사용자 계정에 대한 기존의 자동 시작 디렉터리가 아직입니다. 자동으로 그것을 만드시겠습니까?"
+msgstr ""
+"사용자 계정에 대한 기존의 자동 시작 디렉터리가 아직입니다. 자동으로 그것을 만"
+"드시겠습니까?"
 
-#: src/lib/utils.py:105 src/lib/utils.py:551
+#: src/lib/utils.py:105 src/lib/utils.py:581
 #, python-format
 msgid ""
 "Automatic creation failed. Please manually create the directory:\n"
@@ -579,7 +588,7 @@ msgstr ""
 "자동 생성이 실패했습니다. 직접 경로를 만들어주세요.\n"
 "%s"
 
-#: src/lib/utils.py:108 src/lib/utils.py:554
+#: src/lib/utils.py:108 src/lib/utils.py:584
 #, python-format
 msgid ""
 "Please manually create the directory:\n"
@@ -588,7 +597,7 @@ msgstr ""
 "수동으로 디렉터리를 만듭니다 :\n"
 "%s"
 
-#: src/lib/utils.py:583
+#: src/lib/utils.py:613
 #, python-format
 msgid "Failed to add %sScreenlet."
 msgstr "%s 스크린렛츠 추가  실패"
@@ -596,4 +605,6 @@ msgstr "%s 스크린렛츠 추가  실패"
 #~ msgid ""
 #~ "You are about to install a theme in root mode. Continue only if you have "
 #~ "gksudo installed, do you wish to continue?"
-#~ msgstr "관리자 모드에서 테마를 설치 하여야 합니다. 관리자 권한이 가능 하며 관리자 권한으로 설치를 계속 진행하시겠습니까?"
+#~ msgstr ""
+#~ "관리자 모드에서 테마를 설치 하여야 합니다. 관리자 권한이 가능 하며 관리자 "
+#~ "권한으로 설치를 계속 진행하시겠습니까?"

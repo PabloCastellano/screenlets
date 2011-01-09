@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-17 14:51+0900\n"
+"POT-Creation-Date: 2011-01-09 19:13+0900\n"
 "PO-Revision-Date: 2011-01-08 23:55+0000\n"
 "Last-Translator: Tomi Juntunen <Unknown>\n"
 "Language-Team: Finnish <fi@li.org>\n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2011-01-09 04:34+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
-"Language: fi\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
 #: src/lib/__init__.py:99
@@ -24,174 +24,174 @@ msgid "http://www.screenlets.org/index.php/Get_more_screenlets"
 msgstr "http://www.screenlets.org/index.php/Get_more_screenlets"
 
 #. default meta-info for Screenlets
-#: src/lib/__init__.py:609
+#: src/lib/__init__.py:611
 msgid "No name set for this Screenlet"
 msgstr "Tälle Screenletille ei ole annettu nimeä"
 
-#: src/lib/__init__.py:611
+#: src/lib/__init__.py:613
 msgid "No author defined for this Screenlet"
 msgstr "Tälle Screenletille ei ole määritelty tekijää"
 
-#: src/lib/__init__.py:612
+#: src/lib/__init__.py:614
 msgid "No info set for this Screenlet"
 msgstr "Tälle Screenletille ei ole määritelty tietoja"
 
-#: src/lib/__init__.py:720
+#: src/lib/__init__.py:724
 msgid "The basic settings for this Screenlet-instance."
 msgstr "Perusasetukset tälle Screenletille"
 
-#: src/lib/__init__.py:735
+#: src/lib/__init__.py:739
 msgid "X-Position"
 msgstr "X-suunnan sijainti"
 
-#: src/lib/__init__.py:735
+#: src/lib/__init__.py:739
 msgid "The X-position of this Screenlet ..."
 msgstr "Tämän Screenletin sijainti X-suunnassa..."
 
-#: src/lib/__init__.py:738
+#: src/lib/__init__.py:742
 msgid "Y-Position"
 msgstr "Y-suunnan sijainti"
 
-#: src/lib/__init__.py:738
+#: src/lib/__init__.py:742
 msgid "The Y-position of this Screenlet ..."
 msgstr "Tämän Screenletin sijainti Y-suunnassa..."
 
-#: src/lib/__init__.py:741
+#: src/lib/__init__.py:745
 msgid "Width"
 msgstr "Leveys"
 
-#: src/lib/__init__.py:741
+#: src/lib/__init__.py:745
 msgid "The width of this Screenlet ..."
 msgstr "Tämän Screenletin leveys..."
 
-#: src/lib/__init__.py:744
+#: src/lib/__init__.py:748
 msgid "Height"
 msgstr "Korkeus"
 
-#: src/lib/__init__.py:744
+#: src/lib/__init__.py:748
 msgid "The height of this Screenlet ..."
 msgstr "Tämän Screenletin korkeus..."
 
-#: src/lib/__init__.py:747
+#: src/lib/__init__.py:751
 msgid "Scale"
 msgstr "Skaala"
 
-#: src/lib/__init__.py:747
+#: src/lib/__init__.py:751
 msgid "The scale-factor of this Screenlet ..."
 msgstr "Tämän Screenletin skaalaus-suhde"
 
-#: src/lib/__init__.py:750
+#: src/lib/__init__.py:754
 msgid "Opacity"
 msgstr "Läpinäkyvyys"
 
-#: src/lib/__init__.py:750
+#: src/lib/__init__.py:754
 msgid "The opacity of the Screenlet window ..."
 msgstr "Screenelet-ikkunan läpinäkyvyys"
 
-#: src/lib/__init__.py:753
+#: src/lib/__init__.py:757
 msgid "Stick to Desktop"
 msgstr "Liimaa työpöydälle"
 
-#: src/lib/__init__.py:754
+#: src/lib/__init__.py:758
 msgid "Show this Screenlet on all workspaces ..."
 msgstr "Näytä tämä Screenlet kaikissa työtiloissa"
 
-#: src/lib/__init__.py:756
+#: src/lib/__init__.py:760
 msgid "Treat as Widget"
 msgstr "Käsittele vimpaimena"
 
-#: src/lib/__init__.py:757
+#: src/lib/__init__.py:761
 msgid "Treat this Screenlet as a \"Widget\" ..."
 msgstr "Käsittele tätä Screenletiä kuten vimpainta"
 
-#: src/lib/__init__.py:765
+#: src/lib/__init__.py:769
 msgid "Lock position"
 msgstr "Lukitse sijainti"
 
-#: src/lib/__init__.py:766
+#: src/lib/__init__.py:770
 msgid "Stop the screenlet from being moved..."
 msgstr "Estä Screenletin liikuttaminen"
 
 #. add "Keep above"-menuitem
-#: src/lib/__init__.py:768 src/lib/__init__.py:1085
+#: src/lib/__init__.py:772 src/lib/__init__.py:1089
 msgid "Keep above"
 msgstr "Pidä päällä"
 
-#: src/lib/__init__.py:769
+#: src/lib/__init__.py:773
 msgid "Keep this Screenlet above other windows ..."
 msgstr "Pidä tämä Screenlet muiden ikkunoiden päällä..."
 
 #. add "Keep Below"-menuitem
-#: src/lib/__init__.py:771 src/lib/__init__.py:1092
+#: src/lib/__init__.py:775 src/lib/__init__.py:1096
 msgid "Keep below"
 msgstr "pidä alla"
 
-#: src/lib/__init__.py:772
+#: src/lib/__init__.py:776
 msgid "Keep this Screenlet below other windows ..."
 msgstr "Pidä tämä Screenlet muiden ikkunoiden alla..."
 
-#: src/lib/__init__.py:774
+#: src/lib/__init__.py:778
 msgid "Draw button controls"
 msgstr "Näytä painikkeiden ohjaimet"
 
-#: src/lib/__init__.py:775
+#: src/lib/__init__.py:779
 msgid "Draw buttons in top right corner"
 msgstr "Näytä painikkeet oikeassa yläkulmassa"
 
-#: src/lib/__init__.py:777
+#: src/lib/__init__.py:781
 msgid "Skip Pager"
 msgstr "Ohita Sivuttaja"
 
-#: src/lib/__init__.py:778
+#: src/lib/__init__.py:782
 msgid "Set this Screenlet to show/hide in pagers ..."
 msgstr "Aseta tämä Screenlet näkymään/näkymättömäksi sivuttajalle"
 
-#: src/lib/__init__.py:780
+#: src/lib/__init__.py:784
 msgid "Skip Taskbar"
 msgstr "Ohita tehtäväpalkki"
 
-#: src/lib/__init__.py:781
+#: src/lib/__init__.py:785
 msgid "Set this Screenlet to show/hide in taskbars ..."
 msgstr "Aseta tämä Screenlet näkymään tehtäväpalkissa"
 
-#: src/lib/__init__.py:783
+#: src/lib/__init__.py:787
 msgid "Resize on mouse scroll"
 msgstr "Muuta kokoa hiirtä rullaamalla"
 
-#: src/lib/__init__.py:785
+#: src/lib/__init__.py:789
 msgid "Ignore requirements"
 msgstr "Ohita vaatimukset"
 
-#: src/lib/__init__.py:786
+#: src/lib/__init__.py:790
 msgid "Set this Screenlet to ignore/demand DEB requirements ..."
 msgstr "Aseta tämä Screenlet ohittamaan/pyytämään DEB-vaatimukset ..."
 
-#: src/lib/__init__.py:790
+#: src/lib/__init__.py:794
 msgid "Allow overriding Options"
 msgstr "Salli asetusten muuttaminen"
 
-#: src/lib/__init__.py:791
+#: src/lib/__init__.py:795
 msgid "Allow themes to override options in this screenlet ..."
 msgstr "Salli teemojen muuttaa tämän Screenletin asetuksia"
 
-#: src/lib/__init__.py:793
+#: src/lib/__init__.py:797
 msgid "Ask on Override"
 msgstr "Kysy muutettaessa"
 
-#: src/lib/__init__.py:794
+#: src/lib/__init__.py:798
 msgid "Show a confirmation-dialog when a theme wants to override "
 msgstr "Näytä hyväksyntä -ikkuna kun teema haluaa muuttaa asetuksia "
 
-#: src/lib/__init__.py:795
+#: src/lib/__init__.py:799
 msgid "the current options of this Screenlet ..."
 msgstr "Nykyiset asetukset tälle Screenletille"
 
 #. version of the deb package if unspecified
-#: src/lib/__init__.py:988
+#: src/lib/__init__.py:992
 msgid "?"
 msgstr "?"
 
-#: src/lib/__init__.py:993
+#: src/lib/__init__.py:997
 #, python-format
 msgid ""
 "\n"
@@ -200,14 +200,14 @@ msgstr ""
 "\n"
 "Paketin '%(package)s' versio %(version)s vaaditaan. Tätä ei ole asennettu!"
 
-#: src/lib/__init__.py:996
+#: src/lib/__init__.py:1000
 #, python-format
 msgid ""
 "\n"
 "%(package)s %(version)s installed, req %(required)s."
 msgstr ""
 
-#: src/lib/__init__.py:1006
+#: src/lib/__init__.py:1010
 #, python-format
 msgid ""
 "Requirements for the Screenlet are not satisfied! Use the package manager of "
@@ -217,74 +217,73 @@ msgid ""
 "%s"
 msgstr ""
 
-#: src/lib/__init__.py:1028
+#: src/lib/__init__.py:1032
 msgid "Size"
 msgstr "Koko"
 
-#: src/lib/__init__.py:1043
+#: src/lib/__init__.py:1047
 msgid "Theme"
 msgstr "Teema"
 
-#: src/lib/__init__.py:1058
+#: src/lib/__init__.py:1062
 msgid "Window"
 msgstr "Ikkuna"
 
 #. add "lock"-menuitem
-#: src/lib/__init__.py:1064
+#: src/lib/__init__.py:1068
 msgid "Lock"
 msgstr "Lukitse"
 
 #. add "Sticky"-menuitem
-#: src/lib/__init__.py:1071
+#: src/lib/__init__.py:1075
 msgid "Sticky"
 msgstr "Tarttuva"
 
 #. add "Widget"-menuitem
-#: src/lib/__init__.py:1078
+#: src/lib/__init__.py:1082
 msgid "Widget"
 msgstr "Vimpain"
 
-#: src/lib/__init__.py:1102
+#: src/lib/__init__.py:1106
 msgid "Properties..."
 msgstr "Ominaisuudet..."
 
-#: src/lib/__init__.py:1105
+#: src/lib/__init__.py:1109
 msgid "Info..."
 msgstr "Tietoja..."
 
-#: src/lib/__init__.py:1109
+#: src/lib/__init__.py:1113
 #, python-format
 msgid "Add one more %s"
 msgstr "Lisää %s"
 
-#: src/lib/__init__.py:1112
+#: src/lib/__init__.py:1116
 #, python-format
 msgid "Delete this %s"
 msgstr "Poista tämä %s"
 
-#: src/lib/__init__.py:1116
+#: src/lib/__init__.py:1120
 #, python-format
 msgid "Quit this %s"
 msgstr "Lopeta tämä %s"
 
-#: src/lib/__init__.py:1119
+#: src/lib/__init__.py:1123
 #, python-format
 msgid "Quit all %ss"
 msgstr ""
 
-#: src/lib/__init__.py:1370
+#: src/lib/__init__.py:1374
 msgid ""
 "This theme wants to override your settings for this Screenlet. Do you want "
 "to allow that?"
-msgstr ""
-"Tämä teema haluaa muuttaa asetuksia tälle Screenletille. Sallitko sen?"
+msgstr "Tämä teema haluaa muuttaa asetuksia tälle Screenletille. Sallitko sen?"
 
-#: src/lib/__init__.py:1572
+#: src/lib/__init__.py:1608
 #, python-format
 msgid "To quit all %s's, use 'Quit' instead. "
 msgstr "Lopettaaksesi kaikki %s:t, käytä 'Lopeta' -käskyä. "
 
-#: src/lib/__init__.py:1573
+#: src/lib/__init__.py:1609
 #, python-format
 msgid "Really delete this %s and its settings?"
 msgstr "Haluatko todellakin poistaa tämän %s ja sen asetukset?"
@@ -350,34 +349,32 @@ msgstr "Kirjoita salasana tähän..."
 msgid "Apply"
 msgstr "Hyväksy"
 
-#: src/lib/sensors.py:168
+#: src/lib/sensors.py:165
 #, python-format
 msgid "%(days)s days, %(hours)s hours and %(minutes)s minutes"
 msgstr "%(days)s päivää, %(hours)s tuntia ja %(minutes)s minuuttia"
 
-#: src/lib/sensors.py:288
-msgid "Can't get kernel version"
-msgstr "Ei saada kernelin versiota"
-
-#: src/lib/sensors.py:298
+#: src/lib/sensors.py:276
 msgid "Can't get KDE version"
 msgstr "Ei saada KDE:n versiota"
 
-#: src/lib/sensors.py:308
+#: src/lib/sensors.py:286
 msgid "Can't get Gnome version"
 msgstr "Ei saada Gnome:n versiota"
 
-#: src/lib/sensors.py:319
-msgid "Failed to open /proc/version"
-msgstr "Epäonnistuttiin avaamaan /proc/version"
-
-#: src/lib/sensors.py:529
+#: src/lib/sensors.py:474
 msgid "Cannot get ip"
 msgstr "Ei saatu IP:tä"
 
-#: src/lib/sensors.py:598 src/lib/sensors.py:611
+#: src/lib/sensors.py:568 src/lib/sensors.py:581
 msgid "Not connected"
 msgstr "Ei yhteyttä"
+
+#~ msgid "Can't get kernel version"
+#~ msgstr "Ei saada kernelin versiota"
+
+#~ msgid "Failed to open /proc/version"
+#~ msgstr "Epäonnistuttiin avaamaan /proc/version"
 
 #~ msgid "WARNING: Option '%s' not found or protected."
 #~ msgstr "VAROITUS: Asetusta '%s' ei löydy tai se on suojattu"
@@ -491,11 +488,9 @@ msgstr "Ei yhteyttä"
 #~ msgid "Options: Error - group %s not defined."
 #~ msgstr "Asetukset: virhe - ryhmää %s ei ole määritelty."
 
-#, python-format
 #~ msgid "No name for group defined in \"%s\"."
 #~ msgstr "Ryhmälle ei ole määritelty nimeä \"%s\" :ssä"
 
-#, python-format
 #~ msgid ""
 #~ "Error in metadata-file \"%s\" - only <group>-tags allowed in first level. "
 #~ "Groups must contain at least one <info>-element."
@@ -507,11 +502,10 @@ msgstr "Ei yhteyttä"
 #~ msgid "Illegal value in AccountOption.on_import."
 #~ msgstr "Virheellinen arvo kohdassa AccountOption.on_import"
 
-#, python-format
 #~ msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
-#~ msgstr "Puuttuva tai virheellinen juuripiste metadata -tiedostossa : \"%s\"."
+#~ msgstr ""
+#~ "Puuttuva tai virheellinen juuripiste metadata -tiedostossa : \"%s\"."
 
-#, python-format
 #~ msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
 #~ msgstr ""
 #~ "Virheellinen XML metadata -tiedostossa (tai tiedosto puuttuu): \"%s\""
@@ -519,7 +513,6 @@ msgstr "Ei yhteyttä"
 #~ msgid "ERROR: Unable to read password from keyring: %s"
 #~ msgstr "VIRHE: Ei pystytty lukemaan salasanaa avaimesta %s"
 
-#, python-format
 #~ msgid "Invalid option-node found in \"%s\"."
 #~ msgstr "Virheellinen asetus löydettiin \"%s\":stä"
 
@@ -568,7 +561,6 @@ msgstr "Ei yhteyttä"
 #~ msgid "Can't open /proc/net/dev"
 #~ msgstr "Epäonnistuttiin avaamaan /proc/net/dev"
 
-#, python-format
 #~ msgid "Can't open %s"
 #~ msgstr "Epäonnistuttiin avaamaan %s"
 
@@ -578,7 +570,6 @@ msgstr "Ei yhteyttä"
 #~ msgid "Failed to open /proc/swaps"
 #~ msgstr "Epäonnistuttiin avaamaan /proc/swaps"
 
-#, python-format
 #~ msgid "Can't open %s/temperature"
 #~ msgstr "Epäonnistuttiin avaamaan %s/temperature"
 
@@ -588,7 +579,6 @@ msgstr "Ei yhteyttä"
 #~ msgid "Error during hddtemp drives search"
 #~ msgstr "Virhe hddtemp -asemien haussa"
 
-#, python-format
 #~ msgid "can't read temperature in: %s"
 #~ msgstr "ei voida lukea lämpötilaa %s"
 
@@ -599,9 +589,9 @@ msgstr "Ei yhteyttä"
 #~ msgstr "Nimeä ei ole asetettu ScreenletService.__init__!"
 
 #~ msgid "CPUSensor: Failed to open /proc/stat. Sensor stopped."
-#~ msgstr "CPUSensor: Epäonnistuttiin avaamaan /proc/stat. Sensori pysäytettiin"
+#~ msgstr ""
+#~ "CPUSensor: Epäonnistuttiin avaamaan /proc/stat. Sensori pysäytettiin"
 
-#, python-format
 #~ msgid "Trying to access invalid instance \"%s\"."
 #~ msgstr "Yritettiin päästä virheelliseen instanssiin \"%s\"."
 
@@ -611,7 +601,6 @@ msgstr "Ei yhteyttä"
 #~ msgid "DEBUG: %s"
 #~ msgstr "testaa ja hae virheet: %s"
 
-#, python-format
 #~ msgid "Can't read value from %s"
 #~ msgstr "Ei saada arvoa: %s"
 
@@ -640,7 +629,6 @@ msgstr "Ei yhteyttä"
 #~ msgid "Error in screenlets.services.get_service_by_name: %s"
 #~ msgstr "virhe: screenlets.services.get_service_by_name: %s"
 
-#, python-format
 #~ msgid "Trying to access invalid option \"%s\"."
 #~ msgstr "Yritettiin päästä virheelliseen asetukseen \"%s\"."
 
@@ -712,11 +700,11 @@ msgstr "Ei yhteyttä"
 #~ msgstr "Tehdään uusi merkintä %s :lle %s :n"
 
 #~ msgid ""
-#~ "Error: Unable to create temp directory %s - screenlets-manager will not work "
-#~ "properly."
+#~ "Error: Unable to create temp directory %s - screenlets-manager will not "
+#~ "work properly."
 #~ msgstr ""
-#~ "Virhe: Ei pystytty luomaan temp -kansiota %s - Screenlet -hallinta ei toimi "
-#~ "oikein"
+#~ "Virhe: Ei pystytty luomaan temp -kansiota %s - Screenlet -hallinta ei "
+#~ "toimi oikein"
 
 #~ msgid "File %s not found"
 #~ msgstr "Tiedostoa %s ei löydy."
@@ -736,7 +724,8 @@ msgstr "Ei yhteyttä"
 #~ msgid ""
 #~ "Screenlet '%s' has been interrupted by keyboard. TODO: make this an event"
 #~ msgstr ""
-#~ "Screenlet '%s' on pysäytetty näppäimistöltä. TEHTÄVÄKSI: tee tästä tapahtuma"
+#~ "Screenlet '%s' on pysäytetty näppäimistöltä. TEHTÄVÄKSI: tee tästä "
+#~ "tapahtuma"
 
 #~ msgid "Exception in ScreenletSession: "
 #~ msgstr "Poikkeus Screenlet -sessiossa: "

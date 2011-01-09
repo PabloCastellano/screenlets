@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: screenlets-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-17 14:51+0900\n"
+"POT-Creation-Date: 2011-01-09 19:14+0900\n"
 "PO-Revision-Date: 2010-11-12 14:18+0000\n"
 "Last-Translator: tabbernuk <boamaod@gmail.com>\n"
 "Language-Team: Danish <da@li.org>\n"
+"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2010-12-10 04:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
-"Language: da\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
 msgid "Screenlets daemon"
@@ -66,10 +66,10 @@ msgid ""
 "license. Thank you for using free software!"
 msgstr ""
 "Dette program er frigivet under GNU General Public License v3 (eller, efter "
-"dit valgt, en senere version). Du kan finde licensens fulde ordlyd på "
-"http://www.gnu.org/licenses/gpl.txt. Ved at bruge, ændre og/eller "
-"distribuere denne software accepterer du licensens vilkår og betingelser. "
-"Tak fordi du bruger fri software!"
+"dit valgt, en senere version). Du kan finde licensens fulde ordlyd på http://"
+"www.gnu.org/licenses/gpl.txt. Ved at bruge, ændre og/eller distribuere denne "
+"software accepterer du licensens vilkår og betingelser. Tak fordi du bruger "
+"fri software!"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:251
 msgid "Install a Screenlet"
@@ -97,7 +97,7 @@ msgstr ""
 "vist korrekt."
 
 #: src/share/screenlets-manager/screenlets-manager.py:132 src/lib/utils.py:101
-#: src/lib/utils.py:105 src/lib/utils.py:547 src/lib/utils.py:551
+#: src/lib/utils.py:105 src/lib/utils.py:577 src/lib/utils.py:581
 msgid "Error"
 msgstr "Fejl"
 
@@ -187,8 +187,8 @@ msgstr "Start/tilføj en ny instans af den valgte Screenlet ..."
 msgid ""
 "Install a new Screenlet, SuperKaramba or Web Widget or Web Application  ..."
 msgstr ""
-"Installer en ny Screenlet, SuperKaramba eller Web Widget eller Web Program "
-"..."
+"Installer en ny Screenlet, SuperKaramba eller Web Widget eller Web "
+"Program ..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:421
 msgid "Permanently uninstall/delete the currently selected Screenlet ..."
@@ -311,8 +311,7 @@ msgid "Theme installed , please restart %s"
 msgstr "Tema installeret, genstart venligst %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:824
-msgid ""
-"Theme install error 2 found - Theme not installed or already installed"
+msgid "Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Tema installation fejl 2 fundet - Tema ikke installeret eller allerede "
 "installeret"
@@ -408,8 +407,7 @@ msgstr "Punkt 1 : Find den widget du ønsker at konvertere"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1075
 msgid "Step 2 : Copy and Paste the HTML from the widget in the box below"
-msgstr ""
-"Punkt 2 : Kopier og indsæt HTML koden fra widgeten i boksen nedenunder"
+msgstr "Punkt 2 : Kopier og indsæt HTML koden fra widgeten i boksen nedenunder"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1076
 msgid "Step 3 : Give it a name in the box below and click on Ok to convert"
@@ -437,80 +435,79 @@ msgid "Screenlets-Manager must now be restarted"
 msgstr "Screenlets-Manager skal genstartes nu"
 
 #. + constants
-#: src/share/screenlets-manager/screenlets-packager.py:31
+#: src/share/screenlets-manager/screenlets-packager.py:30
 msgid ""
 "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
 "Usage: screenlets-packager <path> [options]"
 msgstr ""
 
-#: src/share/screenlets-manager/screenlets-packager.py:70
+#: src/share/screenlets-manager/screenlets-packager.py:69
 #, python-format
 msgid "The specified path \"%s\" does not exist."
 msgstr "Den specificerede sti \"%s\" eksisterer ikke."
 
-#: src/share/screenlets-manager/screenlets-packager.py:71
+#: src/share/screenlets-manager/screenlets-packager.py:70
 #, python-format
 msgid "Found path \"%s\"."
 msgstr "Fundet sti \"%s\"."
 
-#: src/share/screenlets-manager/screenlets-packager.py:77
+#: src/share/screenlets-manager/screenlets-packager.py:76
 msgid "Failed to extract screenlet name from path."
 msgstr "Fejlede under forsøg på at udtrække screenlet navn fra kilde."
 
-#: src/share/screenlets-manager/screenlets-packager.py:78
+#: src/share/screenlets-manager/screenlets-packager.py:77
 #, python-format
 msgid "Screenlet name is %s."
 msgstr "Screenlet navn er %s."
 
-#: src/share/screenlets-manager/screenlets-packager.py:82
+#: src/share/screenlets-manager/screenlets-packager.py:81
 #, python-format
 msgid "No screenlet-file \"%sScreenlet.py\" found in the given path."
 msgstr "Ingen screenlet-fil \"%sScreenlet.py\" blev fundet på den givne sti."
 
-#: src/share/screenlets-manager/screenlets-packager.py:83
+#: src/share/screenlets-manager/screenlets-packager.py:82
 #, python-format
 msgid "Found %sScreenlet.py in path."
 msgstr "Fundet %sScreenlet.py i sti."
 
-#: src/share/screenlets-manager/screenlets-packager.py:92
+#: src/share/screenlets-manager/screenlets-packager.py:91
 #, python-format
 msgid "Unable to import module '%(name)s' from %(path)s. (%(error)s)"
 msgstr ""
 
-#: src/share/screenlets-manager/screenlets-packager.py:93
+#: src/share/screenlets-manager/screenlets-packager.py:92
 #, python-format
 msgid "Successfully imported module: %s"
 msgstr "Importerede modulet: %s"
 
-#: src/share/screenlets-manager/screenlets-packager.py:99
+#: src/share/screenlets-manager/screenlets-packager.py:98
 msgid "Unable to import class from module."
 msgstr "Ikke muligt at omportere klasse fra modul."
 
-#: src/share/screenlets-manager/screenlets-packager.py:101
+#: src/share/screenlets-manager/screenlets-packager.py:100
 msgid "The class inside the module is no subclass of screenlets.Screenlet."
 msgstr ""
 "Klassen inde i dette modul er ikke en sub-klasse af screenlets.Screenlet."
 
-#: src/share/screenlets-manager/screenlets-packager.py:102
+#: src/share/screenlets-manager/screenlets-packager.py:101
 #, python-format
 msgid "Successfully got class from module: %s"
 msgstr "Fik klasse fra modul: %s"
 
-#: src/share/screenlets-manager/screenlets-packager.py:126
+#: src/share/screenlets-manager/screenlets-packager.py:132
 #, python-format
 msgid "Failed to create package info in \"%s\" (no permission?)."
-msgstr ""
-"Fejlede under oprettelse af pakke info i \"%s\" (ingen rettigheder?)."
+msgstr "Fejlede under oprettelse af pakke info i \"%s\" (ingen rettigheder?)."
 
-#: src/share/screenlets-manager/screenlets-packager.py:127
+#: src/share/screenlets-manager/screenlets-packager.py:133
 msgid "Created package info file."
 msgstr "Lavede pakke info fil."
 
-#: src/share/screenlets-manager/screenlets-packager.py:143
+#: src/share/screenlets-manager/screenlets-packager.py:151
 msgid "Cleaned up and finished."
 msgstr "Renset op og færdig."
 
-#: src/lib/install.py:57
+#: src/lib/install.py:58
 msgid ""
 "This type of karamba theme is not supported yet\n"
 " Only older versions can be used"
@@ -518,7 +515,7 @@ msgstr ""
 "Denne type af karamba tema er ikke mulig endnu\n"
 " Kun gamle version kan bruges"
 
-#: src/lib/install.py:113
+#: src/lib/install.py:114
 msgid "Archive is damaged or unsupported, use only tar, bz2 or gz."
 msgstr ""
 "Arkiv er beskadiget eller ikke understøttet, brug kun tar, bz2 ller gz."
@@ -526,39 +523,39 @@ msgstr ""
 #. check if screenlet is already installed
 #. found_path = screenlets.utils.find_first_screenlet_path(name)
 #. found_path != None:
-#: src/lib/install.py:127
+#: src/lib/install.py:128
 #, python-format
 msgid ""
 "The %(slet)sScreenlet is already installed in '%(dir)s'.\n"
 "Do you wish to continue?"
 msgstr ""
 
-#: src/lib/install.py:127 src/lib/install.py:193
+#: src/lib/install.py:128 src/lib/install.py:194
 #, python-format
 msgid "Install %s"
 msgstr "Installér %s"
 
-#: src/lib/install.py:130
+#: src/lib/install.py:131
 #, python-format
 msgid "%sScreenlet is already installed"
 msgstr "%sScreenlet er allerede installeret"
 
 #. dir missing
-#: src/lib/install.py:137
+#: src/lib/install.py:138
 msgid ""
 "Invalid archive. Archive must contain a directory with the screenlet's name."
 msgstr ""
 "Ugyldigt arkiv. Arkivet skal indeholde en mappe med screenlettens navn."
 
-#: src/lib/install.py:149
+#: src/lib/install.py:150
 msgid "Compatibility for this karamba theme is not yet implemented"
 msgstr "Kompatibilitet for dette karamba tema er ikke implanteret endnu"
 
-#: src/lib/install.py:176
+#: src/lib/install.py:177
 msgid "Karamba theme was successfully installed"
 msgstr "Karamba tema blev installeret"
 
-#: src/lib/install.py:178
+#: src/lib/install.py:179
 msgid ""
 "Invalid archive. Archive does not contain a screenlet or a valid karamba "
 "theme."
@@ -566,7 +563,7 @@ msgstr ""
 "Ugyldigt arkiv. Arkivet indeholder ikke en screenlet eller et gyldigt "
 "karamba tema."
 
-#: src/lib/install.py:193
+#: src/lib/install.py:194
 #, python-format
 msgid ""
 "%s was not packaged with the screenlet packager. Do you wish to continue and "
@@ -575,18 +572,18 @@ msgstr ""
 "%s var ikke pakket med screenlet-pakkeren. Vil du fortsætte og prøve at "
 "installere den?"
 
-#: src/lib/install.py:196
+#: src/lib/install.py:197
 msgid "This package was not packaged with the screenlet packager."
 msgstr "Denne pakke var ikke pakket med screenletpakkeren"
 
 #. set msg/result
-#: src/lib/install.py:205
+#: src/lib/install.py:206
 #, python-format
 msgid "The %sScreenlet has been succesfully installed."
 msgstr "The %sScreenlet er korrekt installeret."
 
 #. create autostart directory, if not existent
-#: src/lib/utils.py:100 src/lib/utils.py:547
+#: src/lib/utils.py:100 src/lib/utils.py:577
 msgid ""
 "There is no existing autostart directory for your user account yet. Do you "
 "want me to automatically create it for you?"
@@ -594,7 +591,7 @@ msgstr ""
 "Der er ingen eksisterende autostart mappe til din bruger konto endnu. Vil du "
 "have mig til at oprette en automatisk for dig?"
 
-#: src/lib/utils.py:105 src/lib/utils.py:551
+#: src/lib/utils.py:105 src/lib/utils.py:581
 #, python-format
 msgid ""
 "Automatic creation failed. Please manually create the directory:\n"
@@ -603,7 +600,7 @@ msgstr ""
 "Automatisk oprettelse slog fejl. Foretag en manuel oprettelse af mappen:\n"
 "%s"
 
-#: src/lib/utils.py:108 src/lib/utils.py:554
+#: src/lib/utils.py:108 src/lib/utils.py:584
 #, python-format
 msgid ""
 "Please manually create the directory:\n"
@@ -612,7 +609,7 @@ msgstr ""
 "Opret venligst kataloget manuelt:\n"
 "%s"
 
-#: src/lib/utils.py:583
+#: src/lib/utils.py:613
 #, python-format
 msgid "Failed to add %sScreenlet."
 msgstr "Tilføjelsen af %sScreenlet fejlede."
@@ -642,5 +639,5 @@ msgstr "Tilføjelsen af %sScreenlet fejlede."
 #~ "You are about to install a theme in root mode. Continue only if you have "
 #~ "gksudo installed, do you wish to continue?"
 #~ msgstr ""
-#~ "Du er ved at installer et tema med root-rettigheder. Fortsæt kun hvis du har "
-#~ "gksudo installeret, ønsker du at fortsætte?"
+#~ "Du er ved at installer et tema med root-rettigheder. Fortsæt kun hvis du "
+#~ "har gksudo installeret, ønsker du at fortsætte?"

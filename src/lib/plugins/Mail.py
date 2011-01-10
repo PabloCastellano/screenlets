@@ -58,7 +58,14 @@ def get_GMail_Num(login, password):
 
 def get_Mail_Num(server, login, passwd):
 	"""This output the number of messages of mail box"""
-	m = poplib.POP3(server)
+	try:
+		m = poplib.POP3_SSL(server)
+	except:
+		try:
+			m = poplib.POP3(server)
+		except:
+			return None
+
 	m.user(login)
 	m.pass_(passwd)
 	out = m.stat()
@@ -93,7 +100,7 @@ class MailboxStatus(object):
 # the mailcheck status
 class MailCheckStatus(object):
 	REFRESH		= 1
-	GET_MAIL	= 2
+	GOT_MAIL	= 2
 	ERROR		= 3
 	IDLE		= 100
 
@@ -163,11 +170,14 @@ class IMAPBackend(MailCheckBackend):
 		print "IMAPBackend: Connecting to IMAP-server ... please wait."
 		self.status = MailCheckStatus.REFRESH
 		try:
-			self.server = imaplib.IMAP4(self.screenlet.imap_host)
+			self.server = imaplib.IMAP4_SSL(self.screenlet.imap_host)
 		except:
-			self.error	= MSG_CONNECTION_FAILED
-			self.status	= MailCheckStatus.ERROR
-			return False
+			try:
+				self.server = imaplib.IMAP4(self.screenlet.imap_host)
+			except:
+				self.error	= MSG_CONNECTION_FAILED
+				self.status	= MailCheckStatus.ERROR
+				return False
 		user, passwd = self.screenlet.imap_account
 		try:
 			self.server.login(user, passwd)
@@ -342,11 +352,14 @@ class POP3Backend (MailCheckBackend):
 		print "POP3Backend: Connecting to POP3-server ... please wait."
 		#self.screenlet.redraw_canvas()
 		try:
-			self.server = poplib.POP3(self.screenlet.pop3_server)
+			self.server = poplib.POP3_SSL(self.screenlet.pop3_server)
 		except:
-			self.error	= MSG_CONNECTION_FAILED
-			self.status = MailCheckStatus.ERROR
-			return False
+			try:
+				self.server = poplib.POP3(self.screenlet.pop3_server)
+			except:
+				self.error	= MSG_CONNECTION_FAILED
+				self.status = MailCheckStatus.ERROR
+				return False
 		# authenticate
 		user, pw = self.screenlet.pop3_account
 		#print "ACCOUNT IS %s/%s!!" % (o[0], o[1])

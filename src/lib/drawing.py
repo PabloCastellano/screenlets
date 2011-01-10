@@ -20,7 +20,7 @@ class Drawing(object):
 	p_layout		= None		# PangoLayout
 
 	def get_text_width(self, ctx, text, font):
-		#"""Returns the pixel width of a given text"""
+		"""Returns the pixel width of a given text"""
 		ctx.save()
 		if self.p_layout == None :
 	

@@ -134,7 +134,7 @@ class StringOption (Option):
 class IntOption (Option):
 	"""An Option for values of type number (can be int or float)."""
 	
-	def __init__ (self, group, name, default, label, desc,  min=0, max=0, 
+	def __init__ (self, group, name, default, label, desc,  min=-100000, max=100000, 
 		increment=1, **keyword_args):
 		Option.__init__(self, group, name, default, label, desc, **keyword_args)
 		self.min = min

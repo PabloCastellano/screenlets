@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2010-11-12 13:10+0000\n"
 "Last-Translator: Ermal Llanaj <ermalipavia@gmail.com>\n"
 "Language-Team: Albanian <sq@li.org>\n"
-"Language: sq\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-12-10 04:44+0000\n"
+"X-Launchpad-Export-Date: 2011-01-10 04:53+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: sq\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
 msgid "Screenlets daemon"
@@ -66,10 +66,10 @@ msgid ""
 "license. Thank you for using free software!"
 msgstr ""
 "Ky program eshte publikuar nen Licencen GNU (General Public License) v3 (ose "
-"versione pasardhese). Mund te gjeni Licencen e plote ne http://www.gnu.org/"
-"licenses/gpl.txt. Duke perdorur, ndryshuar dhe/ose shperndare kete program "
-"ju pranoni termat dhe kushtet e kesaj licence. Faleminderit per perdorimin e "
-"programeve falas!"
+"versione pasardhese). Mund te gjeni Licencen e plote ne "
+"http://www.gnu.org/licenses/gpl.txt. Duke perdorur, ndryshuar dhe/ose "
+"shperndare kete program ju pranoni termat dhe kushtet e kesaj licence. "
+"Faleminderit per perdorimin e programeve falas!"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:251
 msgid "Install a Screenlet"
@@ -115,7 +115,8 @@ msgstr "Fshij Screenlet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:165
 msgid "Do you also want to remove the Screenlet configuration files?"
-msgstr "Doni te fshini gjithashtu edhe dokumentat e konfigurimit te Screenlet?"
+msgstr ""
+"Doni te fshini gjithashtu edhe dokumentat e konfigurimit te Screenlet?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:169
 msgid "Can't delete system-wide screenlets."
@@ -311,7 +312,8 @@ msgid "Theme installed , please restart %s"
 msgstr "Tema u instalua , rifilloni %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:824
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Gabimi 2 u gjet ne instalimin e temes - Tema nuk u instalua ose ekziston"
 
@@ -324,14 +326,12 @@ msgid ""
 msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:908
-#, fuzzy
 msgid "Do you want to enable the Screenlets PPA?"
-msgstr "Doni te fshini gjithashtu edhe dokumentat e konfigurimit te Screenlet?"
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
-#, fuzzy
 msgid "The Screenlets PPA added successfully."
-msgstr "%sScreenlet u instalua me sukses."
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
 msgid "Success!"
@@ -547,7 +547,8 @@ msgstr ""
 
 #: src/lib/install.py:114
 msgid "Archive is damaged or unsupported, use only tar, bz2 or gz."
-msgstr "Arkivi eshte i demtuar ose i panjohur, perdorni vetem tar, bz2 ose gz."
+msgstr ""
+"Arkivi eshte i demtuar ose i panjohur, perdorni vetem tar, bz2 ose gz."
 
 #. check if screenlet is already installed
 #. found_path = screenlets.utils.find_first_screenlet_path(name)
@@ -644,9 +645,122 @@ msgstr ""
 msgid "Failed to add %sScreenlet."
 msgstr "%sScreenlet nuk u shtua."
 
+#~ msgid "screenletsDaemon: unregistered %s"
+#~ msgstr "screenletsDaemon: c'regjistroji %s"
+
+#~ msgid "ScreenletsDaemon: registered %s"
+#~ msgstr "ScreenletsDaemon: regjistroji %s"
+
+#~ msgid "Exception in ScreenletsDaemon: %s"
+#~ msgstr "Perjashtim ne ScreenletDaemon: %s"
+
+#~ msgid "ScreenletsDaemon running ..."
+#~ msgstr "ScreenletDaemon ne ngarkim..."
+
+#~ msgid "ScreenletsDaemon has been shut down ..."
+#~ msgstr "ScreenletDaemon u mbyll..."
+
+#~ msgid "Invalid archive. Archive does not contain a screenlet."
+#~ msgstr "Arkiv jo i vlefshem. Arkivi nuk permban nje Screenlet."
+
+#~ msgid "Archive damaged or unsuported, only tar , bz2 or gz."
+#~ msgstr "Arkiv i demtuar ose i panjohur, vetem tar , bz2 ose gz."
+
+#~ msgid "It looks like you are running %s"
+#~ msgstr "Me sa duket ju po perdorni %s"
+
+#~ msgid ""
+#~ "The %sScreenlet is already installed in '%s'.\n"
+#~ "Do you wish to continue?"
+#~ msgstr ""
+#~ "%sScreenlet eshte instaluar ne '%s'.\n"
+#~ "Doni te vazhdoni?"
+
+#~ msgid "Installing %s"
+#~ msgstr "Instalimi i %s"
+
+#~ msgid "Trying to launching screenlets-daemon ..."
+#~ msgstr "Duke ngarkuar screenlets-daemon..."
+
+#~ msgid "Starter already exists."
+#~ msgstr "Starteri ekziston."
+
+#~ msgid "Auto-create autostart dir ..."
+#~ msgstr "Auto-krijo direktorine autostart..."
+
+#~ msgid "Failed to create autostarter for %s."
+#~ msgstr "Nuk mund te krijohet autostarter per %s."
+
+#~ msgid "Create autostarter for: Screenlets Daemon"
+#~ msgstr "Krijo autostarter per: Screenlets Daemon"
+
+#~ msgid "Create autostarter for: %s/%sScreenlet.py"
+#~ msgstr "Krijo autostarter per: %s/%sScreenlet.py"
+
+#~ msgid "Removed duplicate entry"
+#~ msgstr "Fshij hyrjen e dyfishte"
+
+#~ msgid "Delete autostarter for %s."
+#~ msgstr "Fshij autostarter per %s."
+
+#~ msgid "DAEMON FOUND - Ending timeout"
+#~ msgstr "DAEMON U GJET - Duke perfunduar vonesen"
+
+#~ msgid "checking for running daemon again ..."
+#~ msgstr "duke kontrolluar per daemon e ngarkuar ..."
+
+#~ msgid "Error in ScreenletsManager.connect_daemon: %s"
+#~ msgstr "Gabim ne ScreenletsManager.connect_daemon: %s"
+
+#~ msgid "Error: Unable to connect/launch daemon."
+#~ msgstr "Gabim: Nuk mund te lidhet/ngarkohet daemoni."
+
+#~ msgid "Please install screenlets from folders without strange characters"
+#~ msgstr "Ju lutem instaloni screenlets nga dosje pa karaktere te cuditshme"
+
+#~ msgid "Data dropped ..."
+#~ msgstr "Te dhena te hedhura ..."
+
 #~ msgid ""
 #~ "You are about to install a theme in root mode. Continue only if you have "
 #~ "gksudo installed, do you wish to continue?"
 #~ msgstr ""
-#~ "Ju doni te instaloni nje teme ne menyren root. Vazhdoni vetem nese keni "
-#~ "te instaluar gksudo, doni te vazhdoni?"
+#~ "Ju doni te instaloni nje teme ne menyren root. Vazhdoni vetem nese keni te "
+#~ "instaluar gksudo, doni te vazhdoni?"
+
+#~ msgid "list contains themes folder"
+#~ msgstr "lista permban dosje temash"
+
+#~ msgid "list contains the screenlet name folder"
+#~ msgstr "lista permban emrin e dosjes se Screenlet"
+
+#~ msgid "only contains the themes folders"
+#~ msgstr "permban vetem dosjet e temes"
+
+#~ msgid "closing %s"
+#~ msgstr "duke mbyllur %s"
+
+#~ msgid "Create desktop shortcut for: %s/%sScreenlet.py"
+#~ msgstr "Krijo lidhje te shkurter ne Desktop per: %s/%sScreenlet.py"
+
+#~ msgid "Quit %s"
+#~ msgstr "Mbyll %s"
+
+#~ msgid "Launch %s"
+#~ msgstr "Nis %s"
+
+#~ msgid "Quit!"
+#~ msgstr "Mbyll!"
+
+#~ msgid ""
+#~ "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
+#~ "Usage: %s <path> [options]"
+#~ msgstr ""
+#~ "Paketuesi Screenlets - (c) RYX (Rico Pfaus) 2007\n"
+#~ "Perdorimi: %s <drejtimi> [mundesite]"
+
+#~ msgid "Unable to import module '%s' from %s. (%s)"
+#~ msgstr "Nuk mund te importohet moduli '%s' nga %s. (%s)"
+
+#~ msgid "OK."
+#~ msgstr "OK"

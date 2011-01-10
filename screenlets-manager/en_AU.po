@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2010-11-12 13:36+0000\n"
 "Last-Translator: tabbernuk <boamaod@gmail.com>\n"
 "Language-Team: English (Australia) <en_AU@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-12-10 04:44+0000\n"
+"X-Launchpad-Export-Date: 2011-01-10 04:54+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: \n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
 msgid "Screenlets daemon"
@@ -309,8 +309,10 @@ msgid "Theme installed , please restart %s"
 msgstr "Theme installed, please restart %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:824
-msgid "Theme install error 2 found - Theme not installed or already installed"
-msgstr "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
+msgstr ""
+"Theme install error 2 found - Theme not installed or already installed"
 
 #: src/share/screenlets-manager/screenlets-manager.py:908
 msgid ""
@@ -321,14 +323,12 @@ msgid ""
 msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:908
-#, fuzzy
 msgid "Do you want to enable the Screenlets PPA?"
-msgstr "Do you also want to remove the Screenlet configuration files?"
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
-#, fuzzy
 msgid "The Screenlets PPA added successfully."
-msgstr "The %sScreenlet has been succesfully installed."
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
 msgid "Success!"
@@ -511,7 +511,8 @@ msgstr "Unable to import class from module."
 
 #: src/share/screenlets-manager/screenlets-packager.py:100
 msgid "The class inside the module is no subclass of screenlets.Screenlet."
-msgstr "The class inside the module is not a subclass of screenlets.Screenlet."
+msgstr ""
+"The class inside the module is not a subclass of screenlets.Screenlet."
 
 #: src/share/screenlets-manager/screenlets-packager.py:101
 #, python-format
@@ -637,9 +638,122 @@ msgstr ""
 msgid "Failed to add %sScreenlet."
 msgstr "Failed to add %sScreenlet."
 
+#~ msgid "screenletsDaemon: unregistered %s"
+#~ msgstr "screenletsDaemon: unregistered %s"
+
+#~ msgid "ScreenletsDaemon: registered %s"
+#~ msgstr "ScreenletsDaemon: registered %s"
+
+#~ msgid "ScreenletsDaemon running ..."
+#~ msgstr "ScreenletsDaemon running ..."
+
+#~ msgid "Exception in ScreenletsDaemon: %s"
+#~ msgstr "Exception in ScreenletsDaemon: %s"
+
+#~ msgid "ScreenletsDaemon has been shut down ..."
+#~ msgstr "ScreenletsDaemon has been shut down ..."
+
+#~ msgid "Invalid archive. Archive does not contain a screenlet."
+#~ msgstr "Invalid archive. Archive does not contain a screenlet."
+
+#~ msgid "Archive damaged or unsuported, only tar , bz2 or gz."
+#~ msgstr "Archive damaged or unsuported, only tar, bz2 or gz."
+
+#~ msgid "It looks like you are running %s"
+#~ msgstr "It looks like you are running %s"
+
+#~ msgid ""
+#~ "The %sScreenlet is already installed in '%s'.\n"
+#~ "Do you wish to continue?"
+#~ msgstr ""
+#~ "The %sScreenlet is already installed in '%s'.\n"
+#~ "Do you wish to continue?"
+
+#~ msgid "Installing %s"
+#~ msgstr "Installing %s"
+
+#~ msgid "Trying to launching screenlets-daemon ..."
+#~ msgstr "Trying to launch screenlets-daemon ..."
+
+#~ msgid "Starter already exists."
+#~ msgstr "Starter already exists."
+
+#~ msgid "Auto-create autostart dir ..."
+#~ msgstr "Auto-create autostart dir ..."
+
+#~ msgid "Failed to create autostarter for %s."
+#~ msgstr "Failed to create autostarter for %s."
+
+#~ msgid "Create autostarter for: Screenlets Daemon"
+#~ msgstr "Create autostarter for: Screenlets Daemon"
+
+#~ msgid "Create autostarter for: %s/%sScreenlet.py"
+#~ msgstr "Create autostarter for: %s/%sScreenlet.py"
+
+#~ msgid "Removed duplicate entry"
+#~ msgstr "Removed duplicate entry"
+
+#~ msgid "Delete autostarter for %s."
+#~ msgstr "Delete autostarter for %s."
+
+#~ msgid "DAEMON FOUND - Ending timeout"
+#~ msgstr "DAEMON FOUND - Ending timeout"
+
+#~ msgid "checking for running daemon again ..."
+#~ msgstr "checking for running daemon again ..."
+
+#~ msgid "Error in ScreenletsManager.connect_daemon: %s"
+#~ msgstr "Error in ScreenletsManager.connect_daemon: %s"
+
+#~ msgid "Error: Unable to connect/launch daemon."
+#~ msgstr "Error: Unable to connect/launch daemon."
+
+#~ msgid "Please install screenlets from folders without strange characters"
+#~ msgstr "Please install screenlets from folders without strange characters"
+
+#~ msgid "Data dropped ..."
+#~ msgstr "Data dropped ..."
+
 #~ msgid ""
 #~ "You are about to install a theme in root mode. Continue only if you have "
 #~ "gksudo installed, do you wish to continue?"
 #~ msgstr ""
 #~ "You are about to install a theme in root mode. Continue only if you have "
 #~ "gksudo installed, do you wish to continue?"
+
+#~ msgid "list contains themes folder"
+#~ msgstr "list contains themes folder"
+
+#~ msgid "list contains the screenlet name folder"
+#~ msgstr "list contains the screenlet name folder"
+
+#~ msgid "only contains the themes folders"
+#~ msgstr "only contains the themes folders"
+
+#~ msgid "closing %s"
+#~ msgstr "closing %s"
+
+#~ msgid "Create desktop shortcut for: %s/%sScreenlet.py"
+#~ msgstr "Create desktop shortcut for: %s/%sScreenlet.py"
+
+#~ msgid "Quit %s"
+#~ msgstr "Quit %s"
+
+#~ msgid "Launch %s"
+#~ msgstr "Launch %s"
+
+#~ msgid ""
+#~ "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
+#~ "Usage: %s <path> [options]"
+#~ msgstr ""
+#~ "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
+#~ "Usage: %s <path> [options]"
+
+#~ msgid "Unable to import module '%s' from %s. (%s)"
+#~ msgstr "Unable to import module '%s' from %s. (%s)"
+
+#~ msgid "OK."
+#~ msgstr "OK."
+
+#~ msgid "Quit!"
+#~ msgstr "Quit!"

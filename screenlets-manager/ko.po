@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2010-11-12 13:33+0000\n"
 "Last-Translator: Bundo <bundo@bundo.biz>\n"
 "Language-Team: Korean <ko@li.org>\n"
-"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-12-10 04:44+0000\n"
+"X-Launchpad-Export-Date: 2011-01-10 04:53+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: ko\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
 msgid "Screenlets daemon"
@@ -81,9 +81,8 @@ msgid ""
 "functionality is disabled. You can use this to install screenlets into the "
 "system-wide path."
 msgstr ""
-"중요! 당신 은, 거의 모든 기능을 사용할 수 있다. 루트 사용자로 이 응용 프로그"
-"램을 실행하고있습니다. 당신은 시스템의 전체 경로로 스크린렛츠를 설치하는 데 "
-"사용할 수 있습니다."
+"중요! 당신 은, 거의 모든 기능을 사용할 수 있다. 루트 사용자로 이 응용 프로그램을 실행하고있습니다. 당신은 시스템의 전체 경로로 "
+"스크린렛츠를 설치하는 데 사용할 수 있습니다."
 
 #: src/share/screenlets-manager/screenlets-manager.py:101
 msgid "Warning!"
@@ -184,8 +183,7 @@ msgstr "선택된 스크린렛츠의 새 인스턴스를 시작/주가 합니다
 #: src/share/screenlets-manager/screenlets-manager.py:420
 msgid ""
 "Install a new Screenlet, SuperKaramba or Web Widget or Web Application  ..."
-msgstr ""
-"새로운 스크린렛츠, SuperKaramba 또는 웹 위젯이나 웹 응용 프로그램을 설치 ."
+msgstr "새로운 스크린렛츠, SuperKaramba 또는 웹 위젯이나 웹 응용 프로그램을 설치 ."
 
 #: src/share/screenlets-manager/screenlets-manager.py:421
 msgid "Permanently uninstall/delete the currently selected Screenlet ..."
@@ -291,9 +289,7 @@ msgstr "테마설치중 오류 1개 발생- 테마설치 못함, 아마도 패�
 msgid ""
 "This package seams to contain a full Screenlet and not just a theme, please "
 "use the screenlet install instead"
-msgstr ""
-"이 패키지 뿐만 아니라 테마 전체 스크린렛츠를 포함하는 스크린렛츠를 사용하여 "
-"설치하시기 바랍니다"
+msgstr "이 패키지 뿐만 아니라 테마 전체 스크린렛츠를 포함하는 스크린렛츠를 사용하여 설치하시기 바랍니다"
 
 #: src/share/screenlets-manager/screenlets-manager.py:796
 msgid "This package doesnt seem to contain a theme"
@@ -305,9 +301,9 @@ msgid "Theme installed , please restart %s"
 msgstr "테마 설치됨, %s 재시작 하세요"
 
 #: src/share/screenlets-manager/screenlets-manager.py:824
-msgid "Theme install error 2 found - Theme not installed or already installed"
-msgstr ""
-"테마 설치중 오류2개 발생- 태마가 이미 설치되었거나 설치되지 않았습니다."
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
+msgstr "테마 설치중 오류2개 발생- 태마가 이미 설치되었거나 설치되지 않았습니다."
 
 #: src/share/screenlets-manager/screenlets-manager.py:908
 msgid ""
@@ -318,14 +314,12 @@ msgid ""
 msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:908
-#, fuzzy
 msgid "Do you want to enable the Screenlets PPA?"
-msgstr "또한 스크린렛츠 구성 파일을 삭제하시겠습니까?"
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
-#, fuzzy
 msgid "The Screenlets PPA added successfully."
-msgstr "%s 스크린렛츠가 성공적으로 설치 되었습니다."
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
 msgid "Success!"
@@ -538,9 +532,7 @@ msgstr ""
 
 #: src/lib/install.py:114
 msgid "Archive is damaged or unsupported, use only tar, bz2 or gz."
-msgstr ""
-"압축 파일이 손상되었거나 지원 하지 않습니다. 오직 tar, bz2, gz 이 가능 합니"
-"다."
+msgstr "압축 파일이 손상되었거나 지원 하지 않습니다. 오직 tar, bz2, gz 이 가능 합니다."
 
 #. check if screenlet is already installed
 #. found_path = screenlets.utils.find_first_screenlet_path(name)
@@ -580,8 +572,7 @@ msgstr "karamba 테마가 성공적으로 설치됨"
 msgid ""
 "Invalid archive. Archive does not contain a screenlet or a valid karamba "
 "theme."
-msgstr ""
-"잘못된 압축. 압축이 스크린렛츠 또는 유효한 karamba 테마를 포함하지 않습니다."
+msgstr "잘못된 압축. 압축이 스크린렛츠 또는 유효한 karamba 테마를 포함하지 않습니다."
 
 #: src/lib/install.py:194
 #, python-format
@@ -605,9 +596,7 @@ msgstr "%s 스크린렛츠가 성공적으로 설치 되었습니다."
 msgid ""
 "There is no existing autostart directory for your user account yet. Do you "
 "want me to automatically create it for you?"
-msgstr ""
-"사용자 계정에 대한 기존의 자동 시작 디렉터리가 아직입니다. 자동으로 그것을 만"
-"드시겠습니까?"
+msgstr "사용자 계정에 대한 기존의 자동 시작 디렉터리가 아직입니다. 자동으로 그것을 만드시겠습니까?"
 
 #: src/lib/utils.py:106 src/lib/utils.py:588
 #, python-format
@@ -632,9 +621,120 @@ msgstr ""
 msgid "Failed to add %sScreenlet."
 msgstr "%s 스크린렛츠 추가  실패"
 
+#~ msgid "screenletsDaemon: unregistered %s"
+#~ msgstr "스크린렛츠 데몬 : 제거 %s"
+
+#~ msgid "ScreenletsDaemon: registered %s"
+#~ msgstr "스크린렛츠 데몬 : 등록 %s"
+
+#~ msgid "Exception in ScreenletsDaemon: %s"
+#~ msgstr "스크린렛츠데몬에서 빠짐 : %s"
+
+#~ msgid "Invalid archive. Archive does not contain a screenlet."
+#~ msgstr "잘못된 압축이거나 스크린렛츠용 압축 파일이 아닙니다."
+
+#~ msgid "Installing %s"
+#~ msgstr "%s 설치 중"
+
+#~ msgid "Starter already exists."
+#~ msgstr "이미 존재 합니다."
+
+#~ msgid "Auto-create autostart dir ..."
+#~ msgstr "자동시작을 자동으로 만듬"
+
+#~ msgid "Failed to create autostarter for %s."
+#~ msgstr "%s 자동시작 만들기 실패"
+
+#~ msgid "Create autostarter for: Screenlets Daemon"
+#~ msgstr "자동시작을 만듬 : 스크린렛츠데몬"
+
+#~ msgid "Trying to launching screenlets-daemon ..."
+#~ msgstr "스크린렛츠데몬을 실행하려고 노력"
+
+#~ msgid "ScreenletsDaemon running ..."
+#~ msgstr "스크린렛츠 데몬 실행중..."
+
+#~ msgid "ScreenletsDaemon has been shut down ..."
+#~ msgstr "스크린렛츠데몬이 종료되었음..."
+
+#~ msgid "It looks like you are running %s"
+#~ msgstr "실행중인 것들 %"
+
+#~ msgid ""
+#~ "The %sScreenlet is already installed in '%s'.\n"
+#~ "Do you wish to continue?"
+#~ msgstr ""
+#~ "%s 스크린렛츠는 이미 설치 되었습니다 '%s'.\n"
+#~ "계속하시겠습니까?"
+
+#~ msgid "Removed duplicate entry"
+#~ msgstr "중복된 항목을 제거함"
+
+#~ msgid "checking for running daemon again ..."
+#~ msgstr "데본 다시 실행을 점검중..."
+
+#~ msgid "Please install screenlets from folders without strange characters"
+#~ msgstr "폴더에서 이상한 문자 없이 스크린레츠 설치"
+
+#~ msgid "Data dropped ..."
+#~ msgstr "데이터 기록..."
+
+#~ msgid "list contains themes folder"
+#~ msgstr "목록 포함된 테마 폴더"
+
+#~ msgid "list contains the screenlet name folder"
+#~ msgstr "목록 포함된 스크린렛츠 이름 폴더"
+
+#~ msgid "only contains the themes folders"
+#~ msgstr "테마 폴더에만 포함"
+
+#~ msgid "Create desktop shortcut for: %s/%sScreenlet.py"
+#~ msgstr "바탕화면에 바로가기 만들기: %s/%sScreenlet.py"
+
+#~ msgid "closing %s"
+#~ msgstr "%s 닫는 중"
+
+#~ msgid "Quit %s"
+#~ msgstr "%s 종료"
+
+#~ msgid "Launch %s"
+#~ msgstr "%s 실행"
+
+#~ msgid "Quit!"
+#~ msgstr "종료!"
+
+#~ msgid ""
+#~ "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
+#~ "Usage: %s <path> [options]"
+#~ msgstr ""
+#~ "스크린렛츠 패키지 - (c) RYX (Rico Pfaus) 2007\n"
+#~ "용법: %s <경로> [옵션]"
+
+#~ msgid "Unable to import module '%s' from %s. (%s)"
+#~ msgstr "%s 에서 모듈 '%s' 를 가져올 수  없습니다. (%s)"
+
+#~ msgid "OK."
+#~ msgstr "확인."
+
+#~ msgid "DAEMON FOUND - Ending timeout"
+#~ msgstr "DAEMON FOUND -  시간 제한 종료"
+
+#~ msgid "Error in ScreenletsManager.connect_daemon: %s"
+#~ msgstr "스크린렛츠 연결 데몬 오류: %s"
+
+#~ msgid "Error: Unable to connect/launch daemon."
+#~ msgstr "오류: 연결할 수 없습니다/데몬을 시작하십시오."
+
+#~ msgid "Archive damaged or unsuported, only tar , bz2 or gz."
+#~ msgstr "손상되었거나  지원하지않습니다. 오직 tar , bz2, gz 만 가능"
+
+#~ msgid "Create autostarter for: %s/%sScreenlet.py"
+#~ msgstr "자동 시작 만들기: %s/%sScreenlet.py"
+
+#~ msgid "Delete autostarter for %s."
+#~ msgstr "%s를 위한 자동 시작 삭제"
+
 #~ msgid ""
 #~ "You are about to install a theme in root mode. Continue only if you have "
 #~ "gksudo installed, do you wish to continue?"
-#~ msgstr ""
-#~ "관리자 모드에서 테마를 설치 하여야 합니다. 관리자 권한이 가능 하며 관리자 "
-#~ "권한으로 설치를 계속 진행하시겠습니까?"
+#~ msgstr "관리자 모드에서 테마를 설치 하여야 합니다. 관리자 권한이 가능 하며 관리자 권한으로 설치를 계속 진행하시겠습니까?"

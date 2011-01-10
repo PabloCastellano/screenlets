@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2010-11-18 07:05+0000\n"
 "Last-Translator: Ushakov Maxim <msincster@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
-"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-12-10 04:44+0000\n"
+"X-Launchpad-Export-Date: 2011-01-10 04:53+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: ru\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
 msgid "Screenlets daemon"
@@ -314,7 +314,8 @@ msgid "Theme installed , please restart %s"
 msgstr "Тема установлена, пожалуйста, перезапустите %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:824
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr "Ошибка 2 при установке темы - Тема не установлена или уже сущетсвует"
 
 #: src/share/screenlets-manager/screenlets-manager.py:908
@@ -326,23 +327,20 @@ msgid ""
 msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:908
-#, fuzzy
 msgid "Do you want to enable the Screenlets PPA?"
-msgstr "Вы точно хотите сбросить конфигурацию скринлета %s?"
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
-#, fuzzy
 msgid "The Screenlets PPA added successfully."
-msgstr "%s скринлет был успешно установлен."
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
 msgid "Success!"
 msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:913
-#, fuzzy
 msgid "Adding the Screenlets PPA failed."
-msgstr "Выход"
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:913
 msgid "Failed!"
@@ -581,7 +579,8 @@ msgstr "%s скринлет уже установлен"
 #: src/lib/install.py:138
 msgid ""
 "Invalid archive. Archive must contain a directory with the screenlet's name."
-msgstr "Неправильный архив. Архив должен содержать каталог с именем скринлета."
+msgstr ""
+"Неправильный архив. Архив должен содержать каталог с именем скринлета."
 
 #: src/lib/install.py:150
 msgid "Compatibility for this karamba theme is not yet implemented"
@@ -746,6 +745,9 @@ msgstr "Не удалось добавть скринлет %s."
 #~ msgid "OK."
 #~ msgstr "OK."
 
+#~ msgid "Unable to import module '%s' from %s. (%s)"
+#~ msgstr "Невозможно импортировать модуль '%s' из %s. (%s)"
+
 #~ msgid ""
 #~ "The %sScreenlet is already installed in '%s'.\n"
 #~ "Do you wish to continue?"
@@ -761,6 +763,13 @@ msgstr "Не удалось добавть скринлет %s."
 
 #~ msgid "only contains the themes folders"
 #~ msgstr "Содержит только темы"
+
+#~ msgid ""
+#~ "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
+#~ "Usage: %s <path> [options]"
+#~ msgstr ""
+#~ "Упаковщик скринлетов - (с) RUX (Rico Pfaus) 2007\n"
+#~ "Использвание: %s <путь> [опции]"
 
 #~ msgid "Create desktop shortcut for: %s/%sScreenlet.py"
 #~ msgstr "Создать ярлык на рабочем столе для: %s/%sScreenlet.py"

@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2010-11-12 14:07+0000\n"
 "Last-Translator: tabbernuk <boamaod@gmail.com>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
-"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-12-10 04:44+0000\n"
+"X-Launchpad-Export-Date: 2011-01-10 04:54+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: uk\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
 msgid "Screenlets daemon"
@@ -187,8 +187,8 @@ msgstr "Запустити/Додати ще однукопію обраного
 msgid ""
 "Install a new Screenlet, SuperKaramba or Web Widget or Web Application  ..."
 msgstr ""
-"Встіновити новий Screenlet, SuperKaramba або Web Widget, або Web "
-"Application ..."
+"Встіновити новий Screenlet, SuperKaramba або Web Widget, або Web Application "
+"..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:421
 msgid "Permanently uninstall/delete the currently selected Screenlet ..."
@@ -309,7 +309,8 @@ msgid "Theme installed , please restart %s"
 msgstr "Оформлення встановлено, перезапустіть но %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:824
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Встановлення оформлення. Помилка 2 знайдена - Оформлення не встановлене або "
 "вже встановлене"
@@ -323,23 +324,20 @@ msgid ""
 msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:908
-#, fuzzy
 msgid "Do you want to enable the Screenlets PPA?"
-msgstr "Ви хочете знищити конфігураційні файли Screenlet?"
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
-#, fuzzy
 msgid "The Screenlets PPA added successfully."
-msgstr "Скрінлет %s успішно встановлено."
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
 msgid "Success!"
 msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:913
-#, fuzzy
 msgid "Adding the Screenlets PPA failed."
-msgstr "Видалити Скрінлет"
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:913
 msgid "Failed!"
@@ -514,7 +512,8 @@ msgstr "Неможливо імпортувати клас з модуля."
 
 #: src/share/screenlets-manager/screenlets-packager.py:100
 msgid "The class inside the module is no subclass of screenlets.Screenlet."
-msgstr "Клас всередині модуля не являється під-класомом screenlets.Screenlet."
+msgstr ""
+"Клас всередині модуля не являється під-класомом screenlets.Screenlet."
 
 #: src/share/screenlets-manager/screenlets-packager.py:101
 #, python-format
@@ -647,8 +646,8 @@ msgstr "Скрінлет %s додати не вийшло."
 
 #~ msgid "Archive damaged or unsuported, only tar , bz2 or gz."
 #~ msgstr ""
-#~ "Цей архів пошкоджено, або його тип не підтримується (має бути *.tar, *."
-#~ "bz2 або *.gz)"
+#~ "Цей архів пошкоджено, або його тип не підтримується (має бути *.tar, *.bz2 "
+#~ "або *.gz)"
 
 #~ msgid "Exception in ScreenletsDaemon: %s"
 #~ msgstr "Викючення служби Скрінлетс: %s"
@@ -687,8 +686,8 @@ msgstr "Скрінлет %s додати не вийшло."
 #~ "You are about to install a theme in root mode. Continue only if you have "
 #~ "gksudo installed, do you wish to continue?"
 #~ msgstr ""
-#~ "Формлення встановлюватиметься від імені суперкористувача. Пересвідчіться "
-#~ "чи встановлено gksudo."
+#~ "Формлення встановлюватиметься від імені суперкористувача. Пересвідчіться чи "
+#~ "встановлено gksudo."
 
 #~ msgid "list contains themes folder"
 #~ msgstr "В переліку є теки оформлень"
@@ -713,3 +712,49 @@ msgstr "Скрінлет %s додати не вийшло."
 
 #~ msgid "OK."
 #~ msgstr "Гаразд."
+
+#~ msgid "Starter already exists."
+#~ msgstr "Автостарт вже існує."
+
+#~ msgid "Failed to create autostarter for %s."
+#~ msgstr "Невдача при створенні автостарту для %s."
+
+#~ msgid "Create autostarter for: Screenlets Daemon"
+#~ msgstr "Створити автостарт для Screenlets Daemon"
+
+#~ msgid "Create desktop shortcut for: %s/%sScreenlet.py"
+#~ msgstr "Створити ярлик на стільниці для: %s/%sScreenlet.py"
+
+#~ msgid "Create autostarter for: %s/%sScreenlet.py"
+#~ msgstr "Створити автозапуск для: %s/%sScreenlet.py"
+
+#~ msgid "Removed duplicate entry"
+#~ msgstr "Вилучення повторного значення"
+
+#~ msgid "Delete autostarter for %s."
+#~ msgstr "Знищити автозапуск для %s."
+
+#~ msgid "DAEMON FOUND - Ending timeout"
+#~ msgstr "ПРОЦЕС ЗНАЙДЕНО - закінчення перерви"
+
+#~ msgid "checking for running daemon again ..."
+#~ msgstr "повторна перевірка і запуск процесу ..."
+
+#~ msgid "Error in ScreenletsManager.connect_daemon: %s"
+#~ msgstr "Помилка ScreenletsManager.connect_daemon: %s"
+
+#~ msgid "Error: Unable to connect/launch daemon."
+#~ msgstr "Помилка: Неможливо підключити/запустити процес."
+
+#~ msgid "Data dropped ..."
+#~ msgstr "Пропущені дані ..."
+
+#~ msgid "Unable to import module '%s' from %s. (%s)"
+#~ msgstr "Неможливо імпортувати модуль '%s' з %s. (%s)"
+
+#~ msgid ""
+#~ "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
+#~ "Usage: %s <path> [options]"
+#~ msgstr ""
+#~ "Screenlets пакувальник - (c) RYX (Rico Pfaus) 2007\n"
+#~ "Використання: %s <шлях> [опції]"

@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2010-11-12 14:17+0000\n"
 "Last-Translator: tabbernuk <boamaod@gmail.com>\n"
 "Language-Team: German <de@li.org>\n"
-"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-12-10 04:44+0000\n"
+"X-Launchpad-Export-Date: 2011-01-10 04:53+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: de\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
 msgid "Screenlets daemon"
@@ -314,7 +314,8 @@ msgid "Theme installed , please restart %s"
 msgstr "Thema installiert, bitte starten Sie %s neu"
 
 #: src/share/screenlets-manager/screenlets-manager.py:824
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Themeninstallations-Fehler 2 gefunden - Thema nicht oder bereits installiert."
 
@@ -327,23 +328,20 @@ msgid ""
 msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:908
-#, fuzzy
 msgid "Do you want to enable the Screenlets PPA?"
-msgstr "Möchten Sie die %sScreenlet Konfigurationen wirklich zurücksetzen?"
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
-#, fuzzy
 msgid "The Screenlets PPA added successfully."
-msgstr "Das %sScreenlet wurde erfolgreich installiert."
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
 msgid "Success!"
 msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:913
-#, fuzzy
 msgid "Adding the Screenlets PPA failed."
-msgstr "Screenlets beenden"
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:913
 msgid "Failed!"
@@ -440,7 +438,8 @@ msgstr "Schritt 1: Finde das zu konvertierende Screenlet."
 
 #: src/share/screenlets-manager/screenlets-manager.py:1083
 msgid "Step 2 : Copy and Paste the HTML from the widget in the box below"
-msgstr "Schritt 2: Füge den HTML-Code des Widgets in das folgende Textfeld ein"
+msgstr ""
+"Schritt 2: Füge den HTML-Code des Widgets in das folgende Textfeld ein"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1084
 msgid "Step 3 : Give it a name in the box below and click on Ok to convert"
@@ -496,7 +495,8 @@ msgstr "Screenlet-Name ist %s."
 #: src/share/screenlets-manager/screenlets-packager.py:81
 #, python-format
 msgid "No screenlet-file \"%sScreenlet.py\" found in the given path."
-msgstr "Keine Screenlet-Datei \"%sScreenlet.py\" im angegebenen Pfad gefunden."
+msgstr ""
+"Keine Screenlet-Datei \"%sScreenlet.py\" im angegebenen Pfad gefunden."
 
 #: src/share/screenlets-manager/screenlets-packager.py:82
 #, python-format
@@ -669,6 +669,16 @@ msgstr "Kann %sScreenlet nicht hinzufügen."
 
 #~ msgid "Invalid archive. Archive does not contain a screenlet."
 #~ msgstr "Ungültiges Archiv. Archiv enthält kein Screenlet."
+
+#~ msgid ""
+#~ "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
+#~ "Usage: %s <path> [options]"
+#~ msgstr ""
+#~ "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
+#~ "Aufruf: %s <path>"
+
+#~ msgid "Unable to import module '%s' from %s. (%s)"
+#~ msgstr "Nicht in der Lage module '%s' von %s zu importieren. (%s)"
 
 #~ msgid "It looks like you are running %s"
 #~ msgstr "Anscheinend haben Sie %s laufen."

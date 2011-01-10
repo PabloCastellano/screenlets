@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2010-12-18 08:18+0000\n"
 "Last-Translator: Pierre Slamich <pierre.slamich@gmail.com>\n"
 "Language-Team: French <fr@li.org>\n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-12-19 04:37+0000\n"
+"X-Launchpad-Export-Date: 2011-01-10 04:52+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: fr\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
 #: src/lib/__init__.py:99
@@ -385,12 +385,6 @@ msgstr "Impossible de récupérer l'IP"
 msgid "Not connected"
 msgstr "Non connecté"
 
-#~ msgid "Can't get kernel version"
-#~ msgstr "Impossible de récupérer la version du noyau"
-
-#~ msgid "Failed to open /proc/version"
-#~ msgstr "Erreur d'ouverture de /proc/version"
-
 #~ msgid "Version: "
 #~ msgstr "Version: "
 
@@ -402,6 +396,9 @@ msgstr "Non connecté"
 
 #~ msgid "Author: "
 #~ msgstr "Auteur: "
+
+#~ msgid "Delete Screenlet ..."
+#~ msgstr "Effacer le Screenlet ..."
 
 #~ msgid "%s days, %s hours and %s minutes"
 #~ msgstr "%s jours, %s heures et %s minutes"
@@ -427,6 +424,9 @@ msgstr "Non connecté"
 #~ msgid "LOAD NEW THEME: "
 #~ msgstr "CHARGER UN NOUVEAU THEME: "
 
+#~ msgid "Quit this %s ..."
+#~ msgstr "Quitter ce %s ..."
+
 #~ msgid "Quit all %ss ..."
 #~ msgstr "Quitter tous les %ss ..."
 
@@ -448,6 +448,9 @@ msgstr "Non connecté"
 #~ msgid "active theme is: %s"
 #~ msgstr "Le thème actif est: %s"
 
+#~ msgid "Can't get kernel version"
+#~ msgstr "Impossible de récupérer la version du noyau"
+
 #~ msgid "Can't parse /proc/meminfo"
 #~ msgstr "Impossible de parser /proc/meminfo"
 
@@ -457,23 +460,34 @@ msgstr "Non connecté"
 #~ msgid "Can't open /proc/net/dev"
 #~ msgstr "Impossible d'ouvrir /proc/net/dev"
 
+#, python-format
 #~ msgid "Can't open %s"
 #~ msgstr "Impossible d'ouvrir %s"
 
 #~ msgid "Can't open folder /proc/acpi/thermal_zone/"
 #~ msgstr "Impossible d'ouvrir le dossier /proc/acpi/thermal_zone/"
 
+#, python-format
 #~ msgid "can't read temperature in: %s"
 #~ msgstr "Impossible de lire la température dans: %s"
 
 #~ msgid "TEST: %s"
 #~ msgstr "TEST: %s"
 
+#~ msgid "No screenlets running?"
+#~ msgstr "Aucun screenlet en cours d'éxécution?"
+
 #~ msgid "Section %s not found!"
 #~ msgstr "Section %s non trouvée!"
 
+#~ msgid "Unable to load '%s' from %s: %s "
+#~ msgstr "Impossible de charger '%s' à partir de %s: %s "
+
 #~ msgid "File %s not found"
 #~ msgstr "Fichier %s non trouvé"
+
+#~ msgid "Failed to load theme.conf"
+#~ msgstr "theme.conf n'a pas pu être chargé"
 
 #~ msgid "theme.conf loaded: "
 #~ msgstr "theme.conf a été chargé: "
@@ -484,6 +498,9 @@ msgstr "Non connecté"
 #~ msgid "No keyrings found. Please create one first!"
 #~ msgstr ""
 #~ "Aucun trousseau de clés n'a été trouvé. Veuillez d'abord en créer un!"
+
+#~ msgid "GConfBackend: initializing"
+#~ msgstr "GConfBackend: initialisation"
 
 #~ msgid "Saved option %s%s/%s = %s"
 #~ msgstr "Option sauvegardée %s%s/%s = %s"
@@ -503,12 +520,14 @@ msgstr "Non connecté"
 #~ msgid "error while saving config: %s%s"
 #~ msgstr "Erreur lors de la sauvegarde de la configuration: %s%s"
 
+#, python-format
 #~ msgid "No name for group defined in \"%s\"."
 #~ msgstr "Pas de nom pour le groupe défini dans \"%s\"."
 
 #~ msgid "Path %s not found."
 #~ msgstr "Chemin %s non trouvé."
 
+#, python-format
 #~ msgid "Can't open %s/temperature"
 #~ msgstr "Impossible d'ouvrir %s/temperature"
 
@@ -521,8 +540,14 @@ msgstr "Non connecté"
 #~ msgid "DEBUG: %s"
 #~ msgstr "DEBOGAGE: %s"
 
+#~ msgid "Error in screenlets.session.connect_daemon: %s"
+#~ msgstr "Erreur dans screenlets.session.connect_daemon: %s"
+
 #~ msgid "Error in screenlets.services.get_service_by_name: %s"
 #~ msgstr "Erreur dans screenlets.services.get_service_by_name: %s"
+
+#~ msgid "Creating new entry for %s in %s"
+#~ msgstr "Création d'une nouvelle entrée pour %s dans %s"
 
 #~ msgid "Cancel delete_event"
 #~ msgstr "Annuler delete_event"
@@ -548,12 +573,25 @@ msgstr "Non connecté"
 #~ msgid "No name set in ScreenletService.__init__!"
 #~ msgstr "Pas de nom défini dans ScreenletService.__init__!"
 
+#~ msgid "Restored instances from session '%s' ..."
+#~ msgstr "Restauration des instances depuis la session '%s' ..."
+
 #~ msgid "Loading instances in: %s"
 #~ msgstr "Chargement des instances dans: %s"
+
+#~ msgid "Set options in %s"
+#~ msgstr "Définir les options dans %s"
+
+#~ msgid "No more screenlets running."
+#~ msgstr "Plus aucun screenlets exécutés."
 
 #~ msgid "unsupported type ''"
 #~ msgstr "type '' non supporté"
 
+#~ msgid "Creating new instance: "
+#~ msgstr "Création d'une nouvelle instance: "
+
+#, python-format
 #~ msgid "Can't read value from %s"
 #~ msgstr "Ne peut pas lire la valeur depuis %s"
 
@@ -574,13 +612,12 @@ msgstr "Non connecté"
 
 #~ msgid "GConf python module not found. GConf settings backend is disabled."
 #~ msgstr ""
-#~ "Module python GConf non trouvé. Le backend de réglages GConf est "
-#~ "désactivé."
+#~ "Module python GConf non trouvé. Le backend de réglages GConf est désactivé."
 
 #~ msgid "Warning: No default keyring found, storage is not permanent!"
 #~ msgstr ""
-#~ "Avertissement : pas de trousseau de clés par défaut trouvé, le stockage "
-#~ "est non permanent !"
+#~ "Avertissement : pas de trousseau de clés par défaut trouvé, le stockage est "
+#~ "non permanent !"
 
 #~ msgid "PRESS: %s"
 #~ msgstr "APPUYER : %s"
@@ -588,30 +625,33 @@ msgstr "Non connecté"
 #~ msgid "Changed: %s"
 #~ msgstr "Changé : %s"
 
+#, python-format
 #~ msgid ""
 #~ "Error in metadata-file \"%s\" - only <group>-tags allowed in first level. "
 #~ "Groups must contain at least one <info>-element."
 #~ msgstr ""
-#~ "Erreur dans le fichier métadonnées \"%s\" - seules les balises <group> "
-#~ "sont autorisées dans le premier niveau. Les groupes doivent contenir au "
-#~ "moins un élément <info>."
+#~ "Erreur dans le fichier métadonnées \"%s\" - seules les balises <group> sont "
+#~ "autorisées dans le premier niveau. Les groupes doivent contenir au moins un "
+#~ "élément <info>."
 
 #~ msgid "Illegal value in AccountOption.on_import."
 #~ msgstr "Valeur illégale dans AccontOption.on_import."
 
+#, python-format
 #~ msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
 #~ msgstr ""
 #~ "Noeud racine manquant ou invalide dans le fichier métadonnées : \"%s\"."
 
+#, python-format
 #~ msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
 #~ msgstr ""
 #~ "XML invalide dans le fichier metadonnées (ou fichier manquant) : \"%s\"."
 
 #~ msgid "ERROR: Unable to read password from keyring: %s"
 #~ msgstr ""
-#~ "ERREUR : Impossible de lire le mot de passe depuis le trousseau de clés : "
-#~ "%s"
+#~ "ERREUR : Impossible de lire le mot de passe depuis le trousseau de clés : %s"
 
+#, python-format
 #~ msgid "Invalid option-node found in \"%s\"."
 #~ msgstr "Noeud option invalide trouvé dans \"%s\"."
 
@@ -626,8 +666,8 @@ msgstr "Non connecté"
 
 #~ msgid "Unable to init backend - settings will not be saved!"
 #~ msgstr ""
-#~ "Impossible d'initialiser la backend - les réglages ne seront pas "
-#~ "sauvegardés !"
+#~ "Impossible d'initialiser la backend - les réglages ne seront pas sauvegardés "
+#~ "!"
 
 #~ msgid ""
 #~ "ScreenletSession.__init__ has to be called with a\n"
@@ -645,9 +685,11 @@ msgstr "Non connecté"
 #~ msgid "Removing last instance from session"
 #~ msgstr "Enlèvement de la dernière instance de la session"
 
+#, python-format
 #~ msgid "Trying to access invalid option \"%s\"."
 #~ msgstr "Essai d'accés à l'option invalide \"%s\"."
 
+#, python-format
 #~ msgid "Trying to access invalid instance \"%s\"."
 #~ msgstr "Essai d'accés à l'instance invalide \"%s\"."
 
@@ -662,8 +704,7 @@ msgstr "Non connecté"
 
 #~ msgid "Found a running session of %s, adding new instance by service."
 #~ msgstr ""
-#~ "Trouvé une session en cours de %s, ajout d'une nouvelle instance par "
-#~ "service."
+#~ "Trouvé une session en cours de %s, ajout d'une nouvelle instance par service."
 
 #~ msgid "Failed creating instance of: %s"
 #~ msgstr "Impossible de créer l'instance de : %s"
@@ -677,11 +718,14 @@ msgstr "Non connecté"
 #~ msgstr "Impossible de désenregister du démon : %s"
 
 #~ msgid ""
-#~ "Error: Unable to create temp directory %s - screenlets-manager will not "
-#~ "work properly."
+#~ "Error: Unable to create temp directory %s - screenlets-manager will not work "
+#~ "properly."
 #~ msgstr ""
-#~ "Erreur : impossible de créer répertoire temporaire %s - screenlets-"
-#~ "manager ne fonctionnera pas correctement."
+#~ "Erreur : impossible de créer répertoire temporaire %s - screenlets-manager "
+#~ "ne fonctionnera pas correctement."
+
+#~ msgid "Failed to create instance of '%s'!"
+#~ msgstr "Impossible de créer l'instance de \"%s\" !"
 
 #~ msgid "Notify: No DBus running or notifications-daemon unavailable."
 #~ msgstr ""
@@ -700,8 +744,10 @@ msgstr "Non connecté"
 #~ msgid ""
 #~ "Screenlet '%s' has been interrupted by keyboard. TODO: make this an event"
 #~ msgstr ""
-#~ "Screenlet \"%s\" a été interrompu par clavier. TODO : en faire un "
-#~ "évènement."
+#~ "Screenlet \"%s\" a été interrompu par clavier. TODO : en faire un évènement."
+
+#~ msgid "Exception in ScreenletSession: "
+#~ msgstr "Exception dans ScreenletSession : "
 
 #~ msgid "Entry not found. Will (obviously) not be removed."
 #~ msgstr "Entrée non trouvée. Ne sera (évidemment) pas enlevée."
@@ -715,11 +761,44 @@ msgstr "Non connecté"
 #~ msgid "Override: "
 #~ msgstr "Ignorer "
 
+#~ msgid "Screenlet: Set theme %s"
+#~ msgstr "Screenlet: Définir le thème %s"
+
 #~ msgid "theme.conf found! Loading option-overrides."
 #~ msgstr "theme.conf trouvé ! Chargement des options d'écrasements"
 
+#~ msgid "No global tempdir found, creating new one."
+#~ msgstr "Aucun dossier temporaire global trouvé, veuillez en créer un."
+
+#~ msgid "Unable to open %s"
+#~ msgstr "Impossible d'ouvrir %s"
+
+#~ msgid "Temp directory %s created."
+#~ msgstr "Le dossier temporaire %s a été crée."
+
+#~ msgid "Failed to open /proc/sys/kernel/hostname"
+#~ msgstr "Erreur d'ouverture de /proc/sys/kernel/hostname"
+
+#~ msgid "Failed to open /proc/version"
+#~ msgstr "Erreur d'ouverture de /proc/version"
+
+#~ msgid "Failed to open /proc/loadavg"
+#~ msgstr "Erreur d'ouverture de /proc/loadavg"
+
+#~ msgid "Failed to open /proc/swaps"
+#~ msgstr "Erreur d'ouverture de /proc/swaps"
+
+#~ msgid "Screenlet has already been added to %s"
+#~ msgstr "Screenlet a déjà été ajouté à %s"
+
+#~ msgid "An error occured with desktop-file: %s"
+#~ msgstr "Une erreur est survenue avec le fichier du bureau : %s"
+
 #~ msgid "Error while loading ScreenletTheme in: "
 #~ msgstr "Erreur lors du chargement du ScreenletTheme dans : "
+
+#~ msgid "Cannot get/set protected options through service."
+#~ msgstr "Impossible d'obtenir/définir les options protégées par le service."
 
 #~ msgid "MOUSEWHEEL"
 #~ msgstr "MOLLETTESOURIS"

@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2010-11-12 10:12+0000\n"
 "Last-Translator: shafin <mahdee.jameel@gmail.com>\n"
 "Language-Team: Bengali <bn@li.org>\n"
-"Language: bn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-12-10 04:43+0000\n"
+"X-Launchpad-Export-Date: 2011-01-10 04:52+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: bn\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
 #: src/lib/__init__.py:99
@@ -368,6 +368,9 @@ msgstr ""
 
 #~ msgid "An error occured with desktop-file: %s"
 #~ msgstr "ডেক্সটপ ফাইল %s এ একটি সমস্যা হয়েছে"
+
+#~ msgid "Exception: %s"
+#~ msgstr "ব্যাতিক্রমঃ %s"
 
 #~ msgid "Error while creating menu."
 #~ msgstr "মেনু তৈরী করতে সমস্যা হয়েছে"

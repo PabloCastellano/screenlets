@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2010-11-12 14:13+0000\n"
 "Last-Translator: Fulvio Ciucci <lordbrady@gmail.com>\n"
 "Language-Team: Italian <it@li.org>\n"
-"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-12-10 04:44+0000\n"
+"X-Launchpad-Export-Date: 2011-01-10 04:53+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: it\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
 msgid "Screenlets daemon"
@@ -312,7 +312,8 @@ msgid "Theme installed , please restart %s"
 msgstr "Tema installato , riavvia %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:824
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Installazione Tema trovato errore 2 - Tema non installato o già installato"
 
@@ -325,14 +326,12 @@ msgid ""
 msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:908
-#, fuzzy
 msgid "Do you want to enable the Screenlets PPA?"
-msgstr "Vuoi eliminare anche i file di configurazione di Screenlet?"
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
-#, fuzzy
 msgid "The Screenlets PPA added successfully."
-msgstr "La Screenlet %s è stata installata con successo."
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
 msgid "Success!"
@@ -484,7 +483,8 @@ msgstr "Trovato percorso \"%s\"."
 
 #: src/share/screenlets-manager/screenlets-packager.py:76
 msgid "Failed to extract screenlet name from path."
-msgstr "Fallimento durante l'estrazione del nome della screenlet dal percorso."
+msgstr ""
+"Fallimento durante l'estrazione del nome della screenlet dal percorso."
 
 #: src/share/screenlets-manager/screenlets-packager.py:77
 #, python-format
@@ -609,7 +609,8 @@ msgstr ""
 
 #: src/lib/install.py:197
 msgid "This package was not packaged with the screenlet packager."
-msgstr "Questo pacchetto non è stato impacchettato con lo screenlet packager."
+msgstr ""
+"Questo pacchetto non è stato impacchettato con lo screenlet packager."
 
 #. set msg/result
 #: src/lib/install.py:206
@@ -701,11 +702,21 @@ msgstr "Aggiunta della Screenlet %s fallita"
 #~ msgid "Create desktop shortcut for: %s/%sScreenlet.py"
 #~ msgstr "Crea un collegamento sulla scrivania per: %s/%sScreenlet.py"
 
+#~ msgid "Unable to import module '%s' from %s. (%s)"
+#~ msgstr "Impossibile importare il modulo '%s' da %s. (%s)"
+
 #~ msgid "Data dropped ..."
 #~ msgstr "Dati eliminati ..."
 
 #~ msgid "closing %s"
 #~ msgstr "chiusura di %s"
+
+#~ msgid ""
+#~ "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
+#~ "Usage: %s <path> [options]"
+#~ msgstr ""
+#~ "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
+#~ "Utilizzo: %s <percorso> [opzioni]"
 
 #~ msgid "Create autostarter for: %s/%sScreenlet.py"
 #~ msgstr "Crea avvio automatico per: %s/%sScreenlet.py"

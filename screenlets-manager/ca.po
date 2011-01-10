@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2010-11-12 13:38+0000\n"
 "Last-Translator: tabbernuk <boamaod@gmail.com>\n"
 "Language-Team: Catalan <ca@li.org>\n"
-"Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-12-10 04:44+0000\n"
+"X-Launchpad-Export-Date: 2011-01-10 04:53+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: ca\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
 msgid "Screenlets daemon"
@@ -186,7 +186,8 @@ msgstr "Executa/afegeix una instància nova de l'Screenlet seleccionat ..."
 #: src/share/screenlets-manager/screenlets-manager.py:420
 msgid ""
 "Install a new Screenlet, SuperKaramba or Web Widget or Web Application  ..."
-msgstr "Instal·la un Screenlet, SuperKaramba, giny web o aplicació web nou ..."
+msgstr ""
+"Instal·la un Screenlet, SuperKaramba, giny web o aplicació web nou ..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:421
 msgid "Permanently uninstall/delete the currently selected Screenlet ..."
@@ -312,7 +313,8 @@ msgid "Theme installed , please restart %s"
 msgstr "Tema instal·lat, reinicieu %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:824
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "S'ha produït un error en instal·lar el tema - El tema no està instal·lat o "
 "ja està instal·lat"
@@ -326,14 +328,12 @@ msgid ""
 msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:908
-#, fuzzy
 msgid "Do you want to enable the Screenlets PPA?"
-msgstr "Voleu suprimir també els fitxers de configuració de l'Screenlet?"
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
-#, fuzzy
 msgid "The Screenlets PPA added successfully."
-msgstr "El %sScreenlet s'ha instal·lat correctament."
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
 msgid "Success!"
@@ -520,7 +520,8 @@ msgstr "No s'ha pogut importar la classe des del mòdul."
 
 #: src/share/screenlets-manager/screenlets-packager.py:100
 msgid "The class inside the module is no subclass of screenlets.Screenlet."
-msgstr "La classe dins del mòdul no és una subclasse de screenlets.Screenlet."
+msgstr ""
+"La classe dins del mòdul no és una subclasse de screenlets.Screenlet."
 
 #: src/share/screenlets-manager/screenlets-packager.py:101
 #, python-format
@@ -647,9 +648,122 @@ msgstr ""
 msgid "Failed to add %sScreenlet."
 msgstr "No s'ha pogut afegir el %sScreenlet."
 
+#~ msgid "ScreenletsDaemon: registered %s"
+#~ msgstr "ScreenletsDaemon: %s registrat"
+
+#~ msgid "screenletsDaemon: unregistered %s"
+#~ msgstr "ScreenletsDaemon: %s no registrat"
+
+#~ msgid "Archive damaged or unsuported, only tar , bz2 or gz."
+#~ msgstr "L'arxiu està malmès o no és compatible, només tar, bz2 o gz."
+
+#~ msgid "Invalid archive. Archive does not contain a screenlet."
+#~ msgstr "Arxiu invàlid. L'arxiu no conté un Screenlet."
+
+#~ msgid "ScreenletsDaemon running ..."
+#~ msgstr "S'està executant l'ScreenletsDaemon ..."
+
+#~ msgid "ScreenletsDaemon has been shut down ..."
+#~ msgstr "L'ScreenletsDaemon s'ha aturat ..."
+
+#~ msgid "Exception in ScreenletsDaemon: %s"
+#~ msgstr "S'ha produït una excepció en l'ScreenletsDaemon: %s"
+
+#~ msgid "It looks like you are running %s"
+#~ msgstr "Sembla que esteu executant %s"
+
+#~ msgid "Installing %s"
+#~ msgstr "S'està instal·lant %s"
+
+#~ msgid ""
+#~ "The %sScreenlet is already installed in '%s'.\n"
+#~ "Do you wish to continue?"
+#~ msgstr ""
+#~ "El %sScreenlet ja està instal·lat a «%s».\n"
+#~ "Voleu continuar?"
+
+#~ msgid "Auto-create autostart dir ..."
+#~ msgstr "S'està creant automàticament el directori d'inici automàtic ..."
+
+#~ msgid "Create autostarter for: Screenlets Daemon"
+#~ msgstr "Creeu l'inici automàtic per al: Dimoni de l'Screenlets"
+
+#~ msgid "Failed to create autostarter for %s."
+#~ msgstr "No s'ha pogut crear l'inici automàtic per a %s."
+
+#~ msgid "Starter already exists."
+#~ msgstr "L'inici automàtic ja existeix."
+
+#~ msgid "Trying to launching screenlets-daemon ..."
+#~ msgstr "S'està intentant executar l'screenlets-daemon ..."
+
+#~ msgid "checking for running daemon again ..."
+#~ msgstr "s'està comprovant un altre cop l'execució del dimoni ..."
+
+#~ msgid "DAEMON FOUND - Ending timeout"
+#~ msgstr "DIMONI TROBAT - S'està finalitzant el temps d'espera"
+
+#~ msgid "Error: Unable to connect/launch daemon."
+#~ msgstr "Error: No s'ha pogut connectar/executar el dimoni."
+
+#~ msgid "Error in ScreenletsManager.connect_daemon: %s"
+#~ msgstr "S'ha produït un error en el ScreenletsManager.connect_daemon: %s"
+
+#~ msgid "Removed duplicate entry"
+#~ msgstr "S'ha suprimit l'entrada duplicada"
+
+#~ msgid "Create autostarter for: %s/%sScreenlet.py"
+#~ msgstr "Crea l'inici automàtic per a: %s/%sScreenlet.py"
+
+#~ msgid "Delete autostarter for %s."
+#~ msgstr "Suprimeix l'inici automàtic per a %s."
+
+#~ msgid "Data dropped ..."
+#~ msgstr "Dades perdudes ..."
+
+#~ msgid "Please install screenlets from folders without strange characters"
+#~ msgstr "Instal·leu els Screenlets des de carpetes sense caràcters estranys"
+
+#~ msgid "list contains themes folder"
+#~ msgstr "la llista conte una carpeta de temes"
+
+#~ msgid "list contains the screenlet name folder"
+#~ msgstr "la llista conté el nom de carpeta de l'Screenlet"
+
+#~ msgid "only contains the themes folders"
+#~ msgstr "només conté les carpetes dels temes"
+
+#~ msgid "Create desktop shortcut for: %s/%sScreenlet.py"
+#~ msgstr "Crea una drecera a l'escriptori per a: %s/%sScreenlet.py"
+
+#~ msgid "closing %s"
+#~ msgstr "s'està tancant %s"
+
+#~ msgid "Launch %s"
+#~ msgstr "Executa %s"
+
+#~ msgid "Quit %s"
+#~ msgstr "Surt %s"
+
+#~ msgid "Quit!"
+#~ msgstr "Surt"
+
+#~ msgid ""
+#~ "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
+#~ "Usage: %s <path> [options]"
+#~ msgstr ""
+#~ "Empaquetador d'Screenlets - (c) RYX (Rico Pfaus) 2007\n"
+#~ "Utilització: %s <path> [opcions]"
+
+#~ msgid "Unable to import module '%s' from %s. (%s)"
+#~ msgstr "No s'ha pogut importar el mòdul «%s» des de %s. (%s)"
+
+#~ msgid "OK."
+#~ msgstr "D'acord."
+
 #~ msgid ""
 #~ "You are about to install a theme in root mode. Continue only if you have "
 #~ "gksudo installed, do you wish to continue?"
 #~ msgstr ""
-#~ "Esteu apunt d'instal·lar un tema en mode d'usuari primari. Continueu "
-#~ "només si teniu instal·lat el gksudo. Voleu continuar?"
+#~ "Esteu apunt d'instal·lar un tema en mode d'usuari primari. Continueu només "
+#~ "si teniu instal·lat el gksudo. Voleu continuar?"

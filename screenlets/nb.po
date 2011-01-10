@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2010-11-12 14:23+0000\n"
 "Last-Translator: Ketil Wendelbo Aanensen <ketil.w.aanensen@gmail.com>\n"
 "Language-Team: Norwegian Bokmal <nb@li.org>\n"
-"Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-12-10 04:43+0000\n"
+"X-Launchpad-Export-Date: 2011-01-10 04:53+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: nb\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
 #: src/lib/__init__.py:99
@@ -370,12 +370,6 @@ msgstr "Kan ikke få IP"
 msgid "Not connected"
 msgstr "Ikke tilkoblet"
 
-#~ msgid "Can't get kernel version"
-#~ msgstr "Kan ikke få kjerneversjon"
-
-#~ msgid "Failed to open /proc/version"
-#~ msgstr "Klarte ikke å åpne /proc/version"
-
 #~ msgid "error while saving config: %s%s"
 #~ msgstr "feil ved lagring av konfigurering: %s%s"
 
@@ -391,6 +385,7 @@ msgstr "Ikke tilkoblet"
 #~ msgid "Saved option %s%s/%s = %s"
 #~ msgstr "Lagret valg %s%s/%s = %s"
 
+#, python-format
 #~ msgid ""
 #~ "Error in metadata-file \"%s\" - only <group>-tags allowed in first level. "
 #~ "Groups must contain at least one <info>-element."
@@ -401,6 +396,7 @@ msgstr "Ikke tilkoblet"
 #~ msgid "Illegal value in AccountOption.on_import."
 #~ msgstr "Ulovlig verdi i AccountOption.on_import."
 
+#, python-format
 #~ msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
 #~ msgstr "Manglende eller ugyldig rotnode i metadatafil: \"%s\"."
 
@@ -413,9 +409,11 @@ msgstr "Ikke tilkoblet"
 #~ msgid "Error during on_import - option: %s."
 #~ msgstr "Feil ved on_import-valg: %s."
 
+#, python-format
 #~ msgid "No name for group defined in \"%s\"."
 #~ msgstr "Ingen navn for gruppe definert i \"%s\"."
 
+#, python-format
 #~ msgid "Invalid option-node found in \"%s\"."
 #~ msgstr "Ugyldig valgnode funnet i \"%s\"."
 
@@ -440,9 +438,11 @@ msgstr "Ikke tilkoblet"
 #~ msgid "Error in screenlets.services.get_service_by_name: %s"
 #~ msgstr "Feil i screenlets.services.get_service_by_name: %s"
 
+#, python-format
 #~ msgid "Trying to access invalid option \"%s\"."
 #~ msgstr "Prøver å få tilgang til ugyldig valg \"%s\"."
 
+#, python-format
 #~ msgid "Trying to access invalid instance \"%s\"."
 #~ msgstr "Prøver å få tilgang til ugyldig tilfelle \"%s\"."
 
@@ -454,6 +454,9 @@ msgstr "Ikke tilkoblet"
 
 #~ msgid "LISTED PATH NOT EXISTS: "
 #~ msgstr "OPPGITT STI EKSISTERER IKKE: "
+
+#~ msgid "Unable to load '%s' from %s: %s "
+#~ msgstr "Ikke i stand til å laste '%s' fra %s: %s "
 
 #~ msgid "Version: "
 #~ msgstr "Versjon: "
@@ -482,11 +485,17 @@ msgstr "Ikke tilkoblet"
 #~ msgid "FOUND: "
 #~ msgstr "FUNNET: "
 
+#~ msgid "Delete Screenlet ..."
+#~ msgstr "Slett Screenlet ..."
+
 #~ msgid "Error while loading theme: "
 #~ msgstr "Feil ved lasting av tema: "
 
 #~ msgid "ID is unset or already in use - creating new one!"
 #~ msgstr "ID er ikke satt eller allerede i bruk - lager ny!"
+
+#~ msgid "Error in screenlets.session.connect_daemon: %s"
+#~ msgstr "Feil i screenlets.session.connect_daemon: %s"
 
 #~ msgid "Creating new instance: "
 #~ msgstr "Lager nytt tilfelle: "
@@ -539,8 +548,7 @@ msgstr "Ikke tilkoblet"
 #~ msgstr "Legger til nytt tilfelle gjennom: %s"
 
 #~ msgid "Found a running session of %s, adding new instance by service."
-#~ msgstr ""
-#~ "Fant en kjørende sesjon av %s, legger til nytt tilfelle av tjeneste."
+#~ msgstr "Fant en kjørende sesjon av %s, legger til nytt tilfelle av tjeneste."
 
 #~ msgid "No instance(s) found in session-path, creating new one."
 #~ msgstr "Ingen tilfelle(r) funnet i sesjonsstien, lager nytt."
@@ -564,11 +572,17 @@ msgstr "Ikke tilkoblet"
 #~ msgstr "Lager ny oppføring for %s i %s"
 
 #~ msgid ""
-#~ "Error: Unable to create temp directory %s - screenlets-manager will not "
-#~ "work properly."
+#~ "Error: Unable to create temp directory %s - screenlets-manager will not work "
+#~ "properly."
 #~ msgstr ""
-#~ "Feil: Ikke i stand til å lage midlertidig katalog %s - "
-#~ "screenletshåndterer vil ikke virke ordentlig."
+#~ "Feil: Ikke i stand til å lage midlertidig katalog %s - screenletshåndterer "
+#~ "vil ikke virke ordentlig."
+
+#~ msgid "No more screenlets running."
+#~ msgstr "Ingen flere Screenlets kjører."
+
+#~ msgid "Failed to create instance of '%s'!"
+#~ msgstr "Klarte ikke lage tilfelle av '%s'!"
 
 #~ msgid "File: %s"
 #~ msgstr "Fil: %s"
@@ -590,6 +604,12 @@ msgstr "Ikke tilkoblet"
 
 #~ msgid "Error while creating image from file: %s"
 #~ msgstr "Feil ved laging av bilde fra fil: %s"
+
+#~ msgid "No screenlets running?"
+#~ msgstr "Ingen Screenlet kjører?"
+
+#~ msgid "Exception in ScreenletSession: "
+#~ msgstr "Unntak i ScreenletSession: "
 
 #~ msgid "An error occured with desktop-file: %s"
 #~ msgstr "En feil oppstod med skrivebordsfil: %s"
@@ -622,8 +642,14 @@ msgstr "Ikke tilkoblet"
 #~ msgid "CachingBackend: <#%s> removed!"
 #~ msgstr "Bakstykke for mellomlagring: <#%s> fjernet!"
 
+#~ msgid "Failed to load theme.conf"
+#~ msgstr "Kunne ikke laste theme.conf"
+
 #~ msgid "theme.conf found! Loading option-overrides."
 #~ msgstr "theme.conf funnet! Laster overstyringer"
+
+#~ msgid "Quit this %s ..."
+#~ msgstr "Lukk denne %s ..."
 
 #~ msgid "Quit all %ss ..."
 #~ msgstr "Lukk alle %ss ..."
@@ -637,6 +663,9 @@ msgstr "Ikke tilkoblet"
 #~ msgid "Quitting current screenlet instance"
 #~ msgstr "Avslutter nåværende screenlet-tilfelle"
 
+#~ msgid "Screenlet: Set theme %s"
+#~ msgstr "Screenlet: Setter tema %s"
+
 #~ msgid "Warning: No default keyring found, storage is not permanent!"
 #~ msgstr ""
 #~ "Advarsel: Ingen forvalgt nøkkelring funnet, lagring er ikke permanent!"
@@ -647,6 +676,7 @@ msgstr "Ikke tilkoblet"
 #~ msgid "Options: Error - group %s not defined."
 #~ msgstr "Valg: Feil - gruppe %s ikke definert"
 
+#, python-format
 #~ msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
 #~ msgstr "Ugyldig XML i metadatafil (eller manglende fil): \"%s\"."
 
@@ -661,6 +691,9 @@ msgstr "Ikke tilkoblet"
 
 #~ msgid "Failed to open /proc/uptime"
 #~ msgstr "Klarte ikke åpne /proc/uptime"
+
+#~ msgid "Can't get kernel version"
+#~ msgstr "Kan ikke få kjerneversjon"
 
 #~ msgid "Failed to open /proc/cpuinfo"
 #~ msgstr "Klarte ikke åpne /proc/cpuinfo"
@@ -680,15 +713,18 @@ msgstr "Ikke tilkoblet"
 #~ msgid "Hddtemp not installed"
 #~ msgstr "Hddtemp er ikke installert"
 
+#, python-format
 #~ msgid "Can't open %s"
 #~ msgstr "Kan ikke åpne %s"
 
+#, python-format
 #~ msgid "Can't open %s/temperature"
 #~ msgstr "Kan ikke åpne %s/temperature"
 
 #~ msgid "Can't parse /proc/meminfo"
 #~ msgstr "Kan ikke fortolke /proc/meminfo"
 
+#, python-format
 #~ msgid "can't read temperature in: %s"
 #~ msgstr "Kan ikke lese temperatur i: %s"
 
@@ -698,6 +734,7 @@ msgstr "Ikke tilkoblet"
 #~ msgid "DEBUG: %s"
 #~ msgstr "AVLUS: %s"
 
+#, python-format
 #~ msgid "Can't read value from %s"
 #~ msgstr "Kan ikke lese verdi fra %s"
 
@@ -712,6 +749,30 @@ msgstr "Ikke tilkoblet"
 
 #~ msgid "Error getting distro name"
 #~ msgstr "Feil ved innhenting av distribusjonens navn"
+
+#~ msgid "No global tempdir found, creating new one."
+#~ msgstr "Fant ikke et globalt tempdir, lager ett nytt ett."
+
+#~ msgid "Screenlet has already been added to %s"
+#~ msgstr "Screenlet har allerede blitt lagt til %s"
+
+#~ msgid "Failed to open /proc/sys/kernel/hostname"
+#~ msgstr "Klarte ikke å åpne /proc/sys/kernel/hostname"
+
+#~ msgid "Failed to open /proc/version"
+#~ msgstr "Klarte ikke å åpne /proc/version"
+
+#~ msgid "Failed to open /proc/loadavg"
+#~ msgstr "Klarte ikke å åpne /proc/loadavg"
+
+#~ msgid "Unable to open %s"
+#~ msgstr "Klarte ikke å åpne %s"
+
+#~ msgid "Failed to open /proc/swaps"
+#~ msgstr "Klarte ikke å åpne /proc/swaps"
+
+#~ msgid "Temp directory %s created."
+#~ msgstr "Midlertidig mappe %s opprettet."
 
 #~ msgid "UPDATING SHAPE"
 #~ msgstr "OPPDATERER FORM"

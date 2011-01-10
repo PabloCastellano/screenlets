@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2010-11-12 09:56+0000\n"
 "Last-Translator: tabbernuk <boamaod@gmail.com>\n"
 "Language-Team: Italian <it@li.org>\n"
-"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-12-10 04:43+0000\n"
+"X-Launchpad-Export-Date: 2011-01-10 04:52+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: it\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
 #: src/lib/__init__.py:99
@@ -379,12 +379,6 @@ msgstr "Impossibile ottenere IP"
 msgid "Not connected"
 msgstr "Non connesso"
 
-#~ msgid "Can't get kernel version"
-#~ msgstr "Non è possible recuperare la versione del kernel"
-
-#~ msgid "Failed to open /proc/version"
-#~ msgstr "Impossibile aprire /proc/version"
-
 #~ msgid "WARNING: Option '%s' not found or protected."
 #~ msgstr "ATTENZIONE: Opzione '%s' non trovata o protetta."
 
@@ -421,11 +415,20 @@ msgstr "Non connesso"
 #~ msgid "Author: "
 #~ msgstr "Autore: "
 
+#~ msgid "Failed to load theme.conf"
+#~ msgstr "Caricamento di theme.conf fallito"
+
 #~ msgid "LOAD NEW THEME: "
 #~ msgstr "CARICA NUOVO TEMA: "
 
 #~ msgid "FOUND: "
 #~ msgstr "TROVATO: "
+
+#~ msgid "Delete Screenlet ..."
+#~ msgstr "Elimina Screenlet ..."
+
+#~ msgid "Quit this %s ..."
+#~ msgstr "Chiudi questo %s ..."
 
 #~ msgid "Quit all %ss ..."
 #~ msgstr "Chiudi tutti %s ..."
@@ -438,6 +441,9 @@ msgstr "Non connesso"
 
 #~ msgid "End drag"
 #~ msgstr "Fine trascinamento"
+
+#~ msgid "Screenlet: Set theme %s"
+#~ msgstr "Screenlet: Imposta tema %s"
 
 #~ msgid "GConf python module not found. GConf settings backend is disabled."
 #~ msgstr ""
@@ -468,6 +474,7 @@ msgstr "Non connesso"
 #~ msgid "Hddtemp not installed"
 #~ msgstr "Hddtemp non installato"
 
+#, python-format
 #~ msgid "Can't open %s"
 #~ msgstr "Non posso aprire %s"
 
@@ -516,6 +523,7 @@ msgstr "Non connesso"
 #~ msgid "Options: Error - group %s not defined."
 #~ msgstr "Opzioni: Errore - gruppo %s non definito."
 
+#, python-format
 #~ msgid "No name for group defined in \"%s\"."
 #~ msgstr "Nessun nome per il gruppo definito in \"%s\"."
 
@@ -537,8 +545,14 @@ msgstr "Non connesso"
 #~ msgid "unsupported type ''"
 #~ msgstr "tipo non supportato ''"
 
+#~ msgid "Can't get kernel version"
+#~ msgstr "Non è possible recuperare la versione del kernel"
+
 #~ msgid "ID is unset or already in use - creating new one!"
 #~ msgstr "ID non impostato o già in uso - creazione di uno nuovo!"
+
+#~ msgid "Error in screenlets.session.connect_daemon: %s"
+#~ msgstr "Errore in screenlets.session.connect_daemon: %s"
 
 #~ msgid "Set options in %s"
 #~ msgstr "Imposta opzione in %s"
@@ -546,9 +560,11 @@ msgstr "Non connesso"
 #~ msgid "Error in screenlets.services.get_service_by_name: %s"
 #~ msgstr "Errore in screenlets.services.get_service_by_name: %s"
 
+#, python-format
 #~ msgid "Trying to access invalid option \"%s\"."
 #~ msgstr "Tentativo invalido di accesso dell'opzione \"%s\"."
 
+#, python-format
 #~ msgid "Trying to access invalid instance \"%s\"."
 #~ msgstr "Tentativo invalido di accesso dell'istanza \"%s\"."
 
@@ -576,9 +592,18 @@ msgstr "Non connesso"
 #~ msgid "Creating new entry for %s in %s"
 #~ msgstr "Creazione nuova voce per %s in %s"
 
+#~ msgid "No more screenlets running."
+#~ msgstr "Non restano più screenlet in esecuzione"
+
 #~ msgid "Notify: No DBus running or notifications-daemon unavailable."
 #~ msgstr ""
 #~ "Notifica: DBus non in esecuzione o notifications-daemon non disponibile."
+
+#~ msgid "Failed to create instance of '%s'!"
+#~ msgstr "Creazione dell'istanza di '%s' fallita!"
+
+#~ msgid "Unable to load '%s' from %s: %s "
+#~ msgstr "Impossibile caricare '%s' da %s: %s "
 
 #~ msgid "OptionsDialog: Unknown option type: %s"
 #~ msgstr "OptionsDialog: tipo opzione sconosciuta: %s"
@@ -592,12 +617,14 @@ msgstr "Non connesso"
 #~ msgid "Can't open folder /proc/acpi/thermal_zone/"
 #~ msgstr "Impossibile aprire la cartella /proc/acpi/thermal_zone/"
 
+#, python-format
 #~ msgid "can't read temperature in: %s"
 #~ msgstr "impossibile leggere la temperatura in: %s"
 
 #~ msgid "Error: Cannot set missing or non-boolean value '"
 #~ msgstr "Errore: Impossibile assegnare un valore mancante o non boooleano '"
 
+#, python-format
 #~ msgid "Can't open %s/temperature"
 #~ msgstr "Impossibile aprire %s/temperature"
 
@@ -614,6 +641,7 @@ msgstr "Non connesso"
 #~ msgid "Failed creating instance of: %s"
 #~ msgstr "Fallimento durante la creazione dell'istanza di: %s"
 
+#, python-format
 #~ msgid "Can't read value from %s"
 #~ msgstr "Impossibile leggere il valore da %s"
 
@@ -625,6 +653,9 @@ msgstr "Non connesso"
 
 #~ msgid "Entry not found. Will (obviously) not be removed."
 #~ msgstr "Voce non trovata. Non sarà (ovviamente) posibile rimuoverla."
+
+#~ msgid "No screenlets running?"
+#~ msgstr "Nessuna screenlet in esecuzione?"
 
 #~ msgid "LISTED PATH NOT EXISTS: "
 #~ msgstr "IL PERCORSO INDICATO NON ESISTE: "
@@ -645,8 +676,8 @@ msgstr "Non connesso"
 #~ msgstr "Apertura di /proc/stat fallita"
 
 #~ msgid ""
-#~ "Error: Unable to create temp directory %s - screenlets-manager will not "
-#~ "work properly."
+#~ "Error: Unable to create temp directory %s - screenlets-manager will not work "
+#~ "properly."
 #~ msgstr ""
 #~ "Errore: Impossibile creare la directory temporanea %s - il gestore di "
 #~ "screenlet non sarà in grado di lavorare correttamente."
@@ -656,9 +687,10 @@ msgstr "Non connesso"
 
 #~ msgid "No instance(s) found in session-path, creating new one."
 #~ msgstr ""
-#~ "Nessuna istanza trovata nel percorso della sessione, una nuova istanza "
-#~ "verrà creata."
+#~ "Nessuna istanza trovata nel percorso della sessione, una nuova istanza verrà "
+#~ "creata."
 
+#, python-format
 #~ msgid "Invalid option-node found in \"%s\"."
 #~ msgstr "Nodo delle opzioni non valido trovato in \"%s\""
 
@@ -669,6 +701,7 @@ msgstr "Non connesso"
 #~ msgid "Quitting current screenlet instance"
 #~ msgstr "Termino l'istanza corrente della screenlet"
 
+#, python-format
 #~ msgid ""
 #~ "Error in metadata-file \"%s\" - only <group>-tags allowed in first level. "
 #~ "Groups must contain at least one <info>-element."
@@ -676,9 +709,11 @@ msgstr "Non connesso"
 #~ "Errore nel file dei metadati \"%s\" - solo i tag <group> sono ammessi nel "
 #~ "primo livello. I Gruppi possono contenere al massimo un elemento <info>."
 
+#, python-format
 #~ msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
 #~ msgstr "Nodo di radice mancante o invalido nel file dei metadati: \"%s\"."
 
+#, python-format
 #~ msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
 #~ msgstr "XML non valido nel file dei metadati (o file mancante): \"%s\"."
 
@@ -687,6 +722,9 @@ msgstr "Non connesso"
 
 #~ msgid "Cannot get/set protected options through service."
 #~ msgstr "Impossibile impostare/leggere opzioni protette tramite il servizio."
+
+#~ msgid "Exception in ScreenletSession: "
+#~ msgstr "Eccezione in ScreenletSession: "
 
 #~ msgid "Found a running session of %s, adding new instance by service."
 #~ msgstr ""
@@ -701,8 +739,7 @@ msgstr "Non connesso"
 
 #~ msgid "Unable to init backend - settings will not be saved!"
 #~ msgstr ""
-#~ "Impossibile inizializzare il backend - le impostazioni non verranno "
-#~ "salvate!"
+#~ "Impossibile inizializzare il backend - le impostazioni non verranno salvate!"
 
 #~ msgid ""
 #~ "ScreenletSession.__init__ has to be called with a\n"
@@ -728,8 +765,37 @@ msgstr "Non connesso"
 #~ msgid "Error during hddtemp drives search"
 #~ msgstr "Errore durante la ricerca di dispositivi attraverso hddtemp"
 
+#~ msgid "Removing instance from session but staying alive"
+#~ msgstr ""
+#~ "Rimozione istanza dalla sessione, viene comunque mantenuta in esecuzione"
+
+#~ msgid "No global tempdir found, creating new one."
+#~ msgstr ""
+#~ "Nessuna cartella temporanea globale trovata, creazione di una nuova in corso."
+
+#~ msgid "Screenlet has already been added to %s"
+#~ msgstr "Lo screenlet è già stato aggiunto a %s"
+
+#~ msgid "Failed to open /proc/sys/kernel/hostname"
+#~ msgstr "Errore nell'apertura di /proc/sys/kernel/hostname"
+
+#~ msgid "Failed to open /proc/loadavg"
+#~ msgstr "Errore nell'apertura di /proc/loadavg"
+
+#~ msgid "Unable to open %s"
+#~ msgstr "Impossibile aprire %s"
+
+#~ msgid "Failed to open /proc/swaps"
+#~ msgstr "Errore nell'apertura di /proc/swaps"
+
+#~ msgid "Temp directory %s created."
+#~ msgstr "Cartella temporanea %s creata."
+
 #~ msgid "(?)"
 #~ msgstr "(?)"
+
+#~ msgid "Failed to open /proc/version"
+#~ msgstr "Impossibile aprire /proc/version"
 
 #~ msgid "Updating input shape"
 #~ msgstr "Aggiornamento forma dell' input"
@@ -755,8 +821,8 @@ msgstr "Non connesso"
 #~ "Error: Unable to create temp entry - screenlets-manager will not work "
 #~ "properly."
 #~ msgstr ""
-#~ "Errore: Impossibile creare una voce temporanea - il gestore di screenlet "
-#~ "non sarà in grado di lavorare correttamente."
+#~ "Errore: Impossibile creare una voce temporanea - il gestore di screenlet non "
+#~ "sarà in grado di lavorare correttamente."
 
 #~ msgid "Screenlet has been killed. TODO: make this an event"
 #~ msgstr "La screenlet è stata terminata. TODO: fare di questo un evento"

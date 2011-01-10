@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2010-11-12 13:58+0000\n"
 "Last-Translator: tabbernuk <boamaod@gmail.com>\n"
 "Language-Team: Lithuanian <lt@li.org>\n"
-"Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-12-10 04:43+0000\n"
+"X-Launchpad-Export-Date: 2011-01-10 04:52+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: lt\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
 #: src/lib/__init__.py:99
@@ -274,7 +274,8 @@ msgstr ""
 msgid ""
 "This theme wants to override your settings for this Screenlet. Do you want "
 "to allow that?"
-msgstr "Ši tema nori nepaisyti jūsų valdiklio nustatymų. Ar norite tai leisti?"
+msgstr ""
+"Ši tema nori nepaisyti jūsų valdiklio nustatymų. Ar norite tai leisti?"
 
 #: src/lib/__init__.py:1610
 #, python-format
@@ -368,14 +369,77 @@ msgstr "Negalima gauti IP"
 msgid "Not connected"
 msgstr "Neprijungta"
 
-#~ msgid "Can't get kernel version"
-#~ msgstr "Negalima gauti branduolio versijos"
+#~ msgid "Version: "
+#~ msgstr "Versija: "
 
-#~ msgid "Failed to open /proc/version"
-#~ msgstr "Nepavyko atvert /proc/version"
+#~ msgid "Info: "
+#~ msgstr "Informacija: "
+
+#~ msgid "Name: "
+#~ msgstr "Pavadinimas: "
+
+#~ msgid "Author: "
+#~ msgstr "Autorius: "
+
+#~ msgid "FOUND: "
+#~ msgstr "RASTA: "
+
+#~ msgid "Quit this %s ..."
+#~ msgstr "Išjungti %s ..."
+
+#~ msgid "Quit all %ss ..."
+#~ msgstr "Išjungti visus %s'us ..."
+
+#~ msgid "Cancel delete_event"
+#~ msgstr "Atšaukti delete_event"
 
 #~ msgid "GnomeKeyring is not available!!"
 #~ msgstr "GnomeKeyring neprieinamas!!"
+
+#~ msgid "error while saving config: %s%s"
+#~ msgstr "klaida išsaugant konfiguraciją: %s%s"
+
+#~ msgid "CachingBackend: Saving <#%s> :) ..."
+#~ msgstr "CachingBackend: Išsaugoma <#%s> :) ..."
+
+#~ msgid "Temporary file didn't exist - nothing to remove."
+#~ msgstr "Laikinasis failas neegzistuoja - nėra ko pašalinti."
+
+#~ msgid "CachingBackend: <#%s> removed!"
+#~ msgstr "CachingBackend: <#%s> pašalintas!"
+
+#~ msgid "PRESS: %s"
+#~ msgstr "PASPAUSTI: %s"
+
+#~ msgid "active theme is: %s"
+#~ msgstr "aktyvi tema yra: %s"
+
+#~ msgid "Path %s not found."
+#~ msgstr "Kelias %s nerastas"
+
+#~ msgid "unsupported type ''"
+#~ msgstr "nepalaikomas tipas \""
+
+#~ msgid "Changed: %s"
+#~ msgstr "Pakeista: %s"
+
+#~ msgid "Failed to open /proc/uptime"
+#~ msgstr "Nepavyko atverti /proc/uptime"
+
+#~ msgid "%s days, %s hours and %s minutes"
+#~ msgstr "%s dienų, %s valandų ir %s minučių"
+
+#~ msgid "Failed to open /proc/cpuinfo"
+#~ msgstr "Nepavyko atverti /proc/cpuinfo"
+
+#~ msgid "Failed to open /proc/sys/kernel/hostname"
+#~ msgstr "Nepavyko atverti /proc/sys/kernel/hostname"
+
+#~ msgid "Failed to open /proc/loadavg"
+#~ msgstr "Nepavyko atverti /proc/loadavg"
+
+#~ msgid "Failed to open /proc/stat"
+#~ msgstr "Nepavyko atverti /proc/stat"
 
 #~ msgid "Can't open /proc/net/wireless"
 #~ msgstr "Nepavyko atverti /proc/net/wireless"
@@ -386,12 +450,21 @@ msgstr "Neprijungta"
 #~ msgid "Can't open folder /proc/acpi/thermal_zone/"
 #~ msgstr "Negalima atverti aplanko /proc/acpi/thermal_zone/"
 
+#~ msgid "Failed to open /proc/version"
+#~ msgstr "Nepavyko atvert /proc/version"
+
+#~ msgid "Failed to open /proc/swaps"
+#~ msgstr "Nepavyko atverti /proc/swaps"
+
+#, python-format
 #~ msgid "Can't open %s"
 #~ msgstr "Negalima atverti %s"
 
+#, python-format
 #~ msgid "Can't open %s/temperature"
 #~ msgstr "Negalima atverti %s/temperature"
 
+#, python-format
 #~ msgid "can't read temperature in: %s"
 #~ msgstr "negalima nuskaityti temperatūros: %s"
 
@@ -401,18 +474,121 @@ msgstr "Neprijungta"
 #~ msgid "No name set in ScreenletService.__init__!"
 #~ msgstr "Nenustatytas pavadinimas ScreenletService.__init__!"
 
+#~ msgid "CPUSensor: Failed to open /proc/stat. Sensor stopped."
+#~ msgstr "CPUSensor: Nepavyko atverti /proc/stat. Daviklis sustabdytas."
+
+#, python-format
 #~ msgid "Can't read value from %s"
 #~ msgstr "Negalima nuskaityti reikšmės %s"
+
+#~ msgid "TEST: %s"
+#~ msgstr "BANDYMAS: %s"
+
+#~ msgid "Error in screenlets.services.get_service_by_name: %s"
+#~ msgstr "Klaida screenlets.services.get_service_by_name: %s"
+
+#~ msgid "File: %s"
+#~ msgstr "Failas: %s"
+
+#~ msgid "An error occured with desktop-file: %s"
+#~ msgstr "Įvyko klaida su darbastalio failu: %s"
+
+#~ msgid "Exception: %s"
+#~ msgstr "Išimtis: %s"
+
+#~ msgid "Error while creating menu."
+#~ msgstr "Klaida kuriant meniu"
+
+#~ msgid "Override: "
+#~ msgstr "Nepaisyti: "
 
 #~ msgid "Error while loading ScreenletTheme in: "
 #~ msgstr "Klaida įkeliant valdiklio temą į: "
 
+#~ msgid "Error while creating image from file: %s"
+#~ msgstr "Klaida kuriant atvaizdą iš failo: %s"
+
+#~ msgid "XML-Error: %s"
+#~ msgstr "XML-Klaida: %s"
+
+#~ msgid "Error: file %s not found."
+#~ msgstr "Klaida: failas %s nerastas."
+
+#~ msgid "WARNING: Option '%s' not found or protected."
+#~ msgstr "ĮSPĖJIMAS: Parinktis '%s' nerasta arba apsaugota"
+
+#~ msgid "theme.conf loaded: "
+#~ msgstr "theme.cong įkrauta: "
+
+#~ msgid "Failed to load theme.conf"
+#~ msgstr "Nepavyko įkrauti theme.conf"
+
+#~ msgid "theme.conf found! Loading option-overrides."
+#~ msgstr "theme,conf rastas! Įkraunamas parinkties nepaisymas"
+
+#~ msgid "LOAD NEW THEME: "
+#~ msgstr "ĮKELTI NAUJĄ TEMĄ: "
+
+#~ msgid "Delete Screenlet ..."
+#~ msgstr "Ištrinti valdiklį ..."
+
+#~ msgid "Error while loading theme: "
+#~ msgstr "Klaida įkeliant temą: "
+
+#~ msgid "Quitting current screenlet instance"
+#~ msgstr "Išeinama iš valdiklio objekto"
+
+#~ msgid "Error: Cannot set missing or non-boolean value '"
+#~ msgstr "Klaida: Negalima nustatyti nerastos arba neloginės reikšmės '"
+
+#~ msgid "Start drag"
+#~ msgstr "Pradėti vilkimą"
+
+#~ msgid "End drag"
+#~ msgstr "Pabaigti vilkimą"
+
+#~ msgid "GConf python module not found. GConf settings backend is disabled."
+#~ msgstr ""
+#~ "GConf python modulis nerastas. GConf nuostatų vidinė pusė neveiksni.."
+
+#~ msgid "Screenlet: Set theme %s"
+#~ msgstr "Valdiklis: Nustatyti temą %s"
+
+#~ msgid "GConfBackend: initializing"
+#~ msgstr "GConfBackend: inicijavimas"
+
+#~ msgid "Saved option %s%s/%s = %s"
+#~ msgstr "Išsaugota savybė %s%s/%s = %s"
+
+#~ msgid "CachingBackend: Loading instances from cache"
+#~ msgstr "CachingBackend: Įkraunami objektai iš podėlio"
+
+#~ msgid "Error during on_import - option: %s."
+#~ msgstr "Klaida per on_import - savybę: %s."
+
+#~ msgid "Queue-element <%s> not found (already removed?)!"
+#~ msgstr "Eilės-elementas <%s> nerastas (jau pašalintas?)!"
+
+#~ msgid "CachingBackend: Loading <%s>"
+#~ msgstr "CachingBackend: Įkeliama <%s>"
+
+#~ msgid "Error while loading options: %s"
+#~ msgstr "Klaida įkeliant savybes: %s"
+
+#~ msgid "Warning: No default keyring found, storage is not permanent!"
+#~ msgstr "Įspėjimas: Nerasta pagrindinė raktinė, atmintinė nėra nuolatinė!"
+
 #~ msgid "No keyrings found. Please create one first!"
 #~ msgstr "Nerasta raktinė. Prašome ją sukurti!"
 
+#~ msgid "Options: Error - group %s not defined."
+#~ msgstr "Savybė: Klaida - grupė %s neapibrėžta."
+
+#, python-format
 #~ msgid "No name for group defined in \"%s\"."
 #~ msgstr "Neapibrėžtas grupės pavadinimas \"%s\"."
 
+#, python-format
 #~ msgid ""
 #~ "Error in metadata-file \"%s\" - only <group>-tags allowed in first level. "
 #~ "Groups must contain at least one <info>-element."
@@ -423,15 +599,29 @@ msgstr "Neprijungta"
 #~ msgid "Illegal value in AccountOption.on_import."
 #~ msgstr "Nelegali reikšmė AccountOption.on_import."
 
+#, python-format
 #~ msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
-#~ msgstr ""
-#~ "Nerastas arba neteisingas šakninis mazgas metaduomenų faile: \"%s\"."
+#~ msgstr "Nerastas arba neteisingas šakninis mazgas metaduomenų faile: \"%s\"."
 
+#, python-format
 #~ msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
 #~ msgstr "Neteisingas XML metaduomenų faile (arba failas nerastas): \"%s\"."
 
+#~ msgid "ERROR: Unable to read password from keyring: %s"
+#~ msgstr "KLAIDA: Nepavyko nuskaityti slaptažodžio iš raktinės: %s"
+
+#, python-format
 #~ msgid "Invalid option-node found in \"%s\"."
 #~ msgstr "Neteisinga savybė-mazgas rasta \"%s\"."
+
+#~ msgid "OptionsDialog: Unknown option type: %s"
+#~ msgstr "OptionsDialog: Nežinomas savybės tipas: %s"
+
+#~ msgid "Can't get kernel version"
+#~ msgstr "Negalima gauti branduolio versijos"
+
+#~ msgid "Error getting distro name"
+#~ msgstr "Klaida gaunant platinamojo paketo pavadinimą"
 
 #~ msgid "Can't parse /proc/meminfo"
 #~ msgstr "Negalima išanalizuoti /proc/meminfo"
@@ -439,11 +629,141 @@ msgstr "Neprijungta"
 #~ msgid "Error during hddtemp drives search"
 #~ msgstr "Klaida per hddtemp laikmenų paiešką"
 
+#~ msgid "Cannot get/set protected options through service."
+#~ msgstr "Negalima gauti/nustatyti apsaugotos savybės per servisą."
+
+#, python-format
 #~ msgid "Trying to access invalid instance \"%s\"."
 #~ msgstr "Bandoma gauti prieiga prie neteisingo objekto \"%s\"."
 
+#~ msgid "DEBUG: %s"
+#~ msgstr "DERINIMAS: %s"
+
+#~ msgid "ID is unset or already in use - creating new one!"
+#~ msgstr "ID jau naudojamas - sukurkite naują!"
+
+#~ msgid "Failed to remove INI-file for instance (not critical)."
+#~ msgstr "Nepavyko pašalinti INI-failo iš objektoe (ne kritiška)."
+
+#~ msgid "Error in screenlets.session.connect_daemon: %s"
+#~ msgstr "Klaida screenlets.session.connect_daemon: %s"
+
+#~ msgid "Creating new instance: "
+#~ msgstr "Kuriamas naujas objektas: "
+
+#~ msgid "Unable to init backend - settings will not be saved!"
+#~ msgstr ""
+#~ "Nepavyko įkelti vidinės pusės (backend) - nuostatos nebus išsaugotos!"
+
+#, python-format
 #~ msgid "Trying to access invalid option \"%s\"."
 #~ msgstr "Bandoma gauti prieiga prie neteisingos savybės \"%s\"."
+
+#~ msgid "Set options in %s"
+#~ msgstr "Nustatyti savybę %s"
+
+#~ msgid "Removing instance from session but staying alive"
+#~ msgstr "Pašalinamas objektas iš sesijos, bet pasilieka gyvas"
+
+#~ msgid "TODO: remove self.path: %s"
+#~ msgstr "TODO: pašalinti self.path: %s"
+
+#~ msgid "Removing last instance from session"
+#~ msgstr "Pašalinamas paskutinis objektas iš sesijos"
+
+#~ msgid "Restored instances from session '%s' ..."
+#~ msgstr "Atstatyti objektai iš sesijos '%s' ..."
+
+#~ msgid "Loading instances in: %s"
+#~ msgstr "Objektai dedami į: %s"
+
+#~ msgid "Adding new instance through: %s"
+#~ msgstr "Įdedamas naujas objektas per: %s"
+
+#~ msgid "Found a running session of %s, adding new instance by service."
+#~ msgstr "Rasta veikianti sesija %s, servisas įdeda naują objektą."
+
+#~ msgid "Failed creating instance of: %s"
+#~ msgstr "Nepavyko sukurti objekto iš: %s"
+
+#~ msgid "No instance(s) found in session-path, creating new one."
+#~ msgstr "Nerasta objektų sesijos kataloge, kuriamas naujas."
+
+#~ msgid "No global tempdir found, creating new one."
+#~ msgstr "Nerastas tempdir, kuriamas naujas."
+
+#~ msgid "Screenlet has already been added to %s"
+#~ msgstr "Valdiklis jau įdėtas į %s"
+
+#~ msgid "Unable to open %s"
+#~ msgstr "Nepavyko atverti %s"
+
+#~ msgid "Temp directory %s created."
+#~ msgstr "Laikinas katalogas %s sukurtas."
+
+#~ msgid "Failed to unregister from daemon: %s"
+#~ msgstr "Nepavyko išsiregistruoti iš tarnybos: %s"
+
+#~ msgid "Removing entry for %s from global tempfile %s"
+#~ msgstr "Panaikinamas įrašas %s iš tempfile %s"
+
+#~ msgid "Entry not found. Will (obviously) not be removed."
+#~ msgstr "Įrašas nerastas. Nebuvo (tikriausiai) pašalintas"
+
+#~ msgid "Error global tempfile not found. Some error before?"
+#~ msgstr "Klaida tempfile nerastas. Ta pati klaida prieš tai?"
+
+#~ msgid "Creating new entry for %s in %s"
+#~ msgstr "Kuriamas naujas įrašas %s į %s"
+
+#~ msgid ""
+#~ "Error: Unable to create temp directory %s - screenlets-manager will not work "
+#~ "properly."
+#~ msgstr ""
+#~ "Klaida: Negalima sukurti laikinojo katalogo %s - Darbastalio valdiklių "
+#~ "tvarkytuvė nedirbs deramai."
+
+#~ msgid "Failed to create instance of '%s'!"
+#~ msgstr "Nepavyko sukurti objekto iš '%s'!"
+
+#~ msgid "File %s not found"
+#~ msgstr "Failas %s nerastas"
+
+#~ msgid "LISTED PATH NOT EXISTS: "
+#~ msgstr "KELIAS NEEGZISTUOJA: "
+
+#~ msgid "Unable to load '%s' from %s: %s "
+#~ msgstr "Nepavyko įkelti '%s' iš %s: %s "
+
+#~ msgid "Deleting global tempfile %s"
+#~ msgstr "ištrinti tempfile %s"
+
+#~ msgid "Error: Failed to delete global tempfile"
+#~ msgstr "Klaida: Nepavyko ištrinti tempfile"
+
+#~ msgid "Exception in ScreenletSession: "
+#~ msgstr "Išimtis ScreenletSession: "
+
+#~ msgid ""
+#~ "Screenlet '%s' has been interrupted by keyboard. TODO: make this an event"
+#~ msgstr ""
+#~ "Valdiklis '%s' buvo sutrikdytas klaviatūros. TODO: padarykite tai kaip "
+#~ "užduotį"
+
+#~ msgid "No more screenlets running."
+#~ msgstr "Daugiau nepaleisti jokie valdikliai."
+
+#~ msgid "No screenlets running?"
+#~ msgstr "Nepaleisti jokie valdikliai?"
+
+#~ msgid "Notify: No DBus running or notifications-daemon unavailable."
+#~ msgstr "Skelbimas: Nepaleistas joks DBus arba neprieinama pranešimų tarnyba"
+
+#~ msgid "Section %s not found!"
+#~ msgstr "Sekcija %s nerasta!"
+
+#~ msgid "Failed to remove session dir '%s' - not empty?"
+#~ msgstr "Nepavyko pašalinti sesijos katalogo '%s' - ne tuščias?"
 
 #~ msgid ""
 #~ "ScreenletSession.__init__ has to be called with a\n"

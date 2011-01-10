@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2011-01-08 23:55+0000\n"
 "Last-Translator: Tomi Juntunen <Unknown>\n"
 "Language-Team: Finnish <fi@li.org>\n"
-"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-01-09 04:34+0000\n"
+"X-Launchpad-Export-Date: 2011-01-10 04:52+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: fi\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
 #: src/lib/__init__.py:99
@@ -276,7 +276,8 @@ msgstr ""
 msgid ""
 "This theme wants to override your settings for this Screenlet. Do you want "
 "to allow that?"
-msgstr "Tämä teema haluaa muuttaa asetuksia tälle Screenletille. Sallitko sen?"
+msgstr ""
+"Tämä teema haluaa muuttaa asetuksia tälle Screenletille. Sallitko sen?"
 
 #: src/lib/__init__.py:1610
 #, python-format
@@ -369,12 +370,6 @@ msgstr "Ei saatu IP:tä"
 #: src/lib/sensors.py:568 src/lib/sensors.py:581
 msgid "Not connected"
 msgstr "Ei yhteyttä"
-
-#~ msgid "Can't get kernel version"
-#~ msgstr "Ei saada kernelin versiota"
-
-#~ msgid "Failed to open /proc/version"
-#~ msgstr "Epäonnistuttiin avaamaan /proc/version"
 
 #~ msgid "WARNING: Option '%s' not found or protected."
 #~ msgstr "VAROITUS: Asetusta '%s' ei löydy tai se on suojattu"
@@ -488,9 +483,11 @@ msgstr "Ei yhteyttä"
 #~ msgid "Options: Error - group %s not defined."
 #~ msgstr "Asetukset: virhe - ryhmää %s ei ole määritelty."
 
+#, python-format
 #~ msgid "No name for group defined in \"%s\"."
 #~ msgstr "Ryhmälle ei ole määritelty nimeä \"%s\" :ssä"
 
+#, python-format
 #~ msgid ""
 #~ "Error in metadata-file \"%s\" - only <group>-tags allowed in first level. "
 #~ "Groups must contain at least one <info>-element."
@@ -502,10 +499,11 @@ msgstr "Ei yhteyttä"
 #~ msgid "Illegal value in AccountOption.on_import."
 #~ msgstr "Virheellinen arvo kohdassa AccountOption.on_import"
 
+#, python-format
 #~ msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
-#~ msgstr ""
-#~ "Puuttuva tai virheellinen juuripiste metadata -tiedostossa : \"%s\"."
+#~ msgstr "Puuttuva tai virheellinen juuripiste metadata -tiedostossa : \"%s\"."
 
+#, python-format
 #~ msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
 #~ msgstr ""
 #~ "Virheellinen XML metadata -tiedostossa (tai tiedosto puuttuu): \"%s\""
@@ -513,6 +511,7 @@ msgstr "Ei yhteyttä"
 #~ msgid "ERROR: Unable to read password from keyring: %s"
 #~ msgstr "VIRHE: Ei pystytty lukemaan salasanaa avaimesta %s"
 
+#, python-format
 #~ msgid "Invalid option-node found in \"%s\"."
 #~ msgstr "Virheellinen asetus löydettiin \"%s\":stä"
 
@@ -552,6 +551,9 @@ msgstr "Ei yhteyttä"
 #~ msgid "Failed to open /proc/loadavg"
 #~ msgstr "Epäonnistuttiin avaamaan /proc/loadavg"
 
+#~ msgid "Can't get kernel version"
+#~ msgstr "Ei saada kernelin versiota"
+
 #~ msgid "Error getting distro name"
 #~ msgstr "Virhe haettaessa jakelun nimeä"
 
@@ -561,15 +563,20 @@ msgstr "Ei yhteyttä"
 #~ msgid "Can't open /proc/net/dev"
 #~ msgstr "Epäonnistuttiin avaamaan /proc/net/dev"
 
+#, python-format
 #~ msgid "Can't open %s"
 #~ msgstr "Epäonnistuttiin avaamaan %s"
 
 #~ msgid "Can't open folder /proc/acpi/thermal_zone/"
 #~ msgstr "Epäonnistuttiin avaamaan /proc/acpi/thermal_zone/"
 
+#~ msgid "Failed to open /proc/version"
+#~ msgstr "Epäonnistuttiin avaamaan /proc/version"
+
 #~ msgid "Failed to open /proc/swaps"
 #~ msgstr "Epäonnistuttiin avaamaan /proc/swaps"
 
+#, python-format
 #~ msgid "Can't open %s/temperature"
 #~ msgstr "Epäonnistuttiin avaamaan %s/temperature"
 
@@ -579,6 +586,7 @@ msgstr "Ei yhteyttä"
 #~ msgid "Error during hddtemp drives search"
 #~ msgstr "Virhe hddtemp -asemien haussa"
 
+#, python-format
 #~ msgid "can't read temperature in: %s"
 #~ msgstr "ei voida lukea lämpötilaa %s"
 
@@ -589,9 +597,9 @@ msgstr "Ei yhteyttä"
 #~ msgstr "Nimeä ei ole asetettu ScreenletService.__init__!"
 
 #~ msgid "CPUSensor: Failed to open /proc/stat. Sensor stopped."
-#~ msgstr ""
-#~ "CPUSensor: Epäonnistuttiin avaamaan /proc/stat. Sensori pysäytettiin"
+#~ msgstr "CPUSensor: Epäonnistuttiin avaamaan /proc/stat. Sensori pysäytettiin"
 
+#, python-format
 #~ msgid "Trying to access invalid instance \"%s\"."
 #~ msgstr "Yritettiin päästä virheelliseen instanssiin \"%s\"."
 
@@ -601,6 +609,7 @@ msgstr "Ei yhteyttä"
 #~ msgid "DEBUG: %s"
 #~ msgstr "testaa ja hae virheet: %s"
 
+#, python-format
 #~ msgid "Can't read value from %s"
 #~ msgstr "Ei saada arvoa: %s"
 
@@ -629,6 +638,7 @@ msgstr "Ei yhteyttä"
 #~ msgid "Error in screenlets.services.get_service_by_name: %s"
 #~ msgstr "virhe: screenlets.services.get_service_by_name: %s"
 
+#, python-format
 #~ msgid "Trying to access invalid option \"%s\"."
 #~ msgstr "Yritettiin päästä virheelliseen asetukseen \"%s\"."
 
@@ -700,11 +710,11 @@ msgstr "Ei yhteyttä"
 #~ msgstr "Tehdään uusi merkintä %s :lle %s :n"
 
 #~ msgid ""
-#~ "Error: Unable to create temp directory %s - screenlets-manager will not "
-#~ "work properly."
+#~ "Error: Unable to create temp directory %s - screenlets-manager will not work "
+#~ "properly."
 #~ msgstr ""
-#~ "Virhe: Ei pystytty luomaan temp -kansiota %s - Screenlet -hallinta ei "
-#~ "toimi oikein"
+#~ "Virhe: Ei pystytty luomaan temp -kansiota %s - Screenlet -hallinta ei toimi "
+#~ "oikein"
 
 #~ msgid "File %s not found"
 #~ msgstr "Tiedostoa %s ei löydy."
@@ -724,8 +734,7 @@ msgstr "Ei yhteyttä"
 #~ msgid ""
 #~ "Screenlet '%s' has been interrupted by keyboard. TODO: make this an event"
 #~ msgstr ""
-#~ "Screenlet '%s' on pysäytetty näppäimistöltä. TEHTÄVÄKSI: tee tästä "
-#~ "tapahtuma"
+#~ "Screenlet '%s' on pysäytetty näppäimistöltä. TEHTÄVÄKSI: tee tästä tapahtuma"
 
 #~ msgid "Exception in ScreenletSession: "
 #~ msgstr "Poikkeus Screenlet -sessiossa: "

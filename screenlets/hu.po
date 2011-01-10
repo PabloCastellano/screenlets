@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2010-12-31 06:58+0000\n"
 "Last-Translator: Papp Bence <papp.bence89@gmail.com>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
-"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-01-01 04:49+0000\n"
+"X-Launchpad-Export-Date: 2011-01-10 04:52+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: hu\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
 #: src/lib/__init__.py:99
@@ -378,12 +378,6 @@ msgstr "Nem tudtam megállapítani az ip-t"
 msgid "Not connected"
 msgstr "Nincs kapcsolódva"
 
-#~ msgid "Can't get kernel version"
-#~ msgstr "Nem tudtam a kernel verzióját betölteni"
-
-#~ msgid "Failed to open /proc/version"
-#~ msgstr "Nem tudtam megnyitni: /proc/version"
-
 #~ msgid "Version: "
 #~ msgstr "Verzió: "
 
@@ -518,6 +512,7 @@ msgstr "Nincs kapcsolódva"
 #~ msgid "No keyrings found. Please create one first!"
 #~ msgstr "Nem található billentyűparancs. Először hozz létre egyet!"
 
+#, python-format
 #~ msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
 #~ msgstr "Érvénytelen XML adatfájl (vagy hiányzik): \"%s\"."
 
@@ -556,9 +551,11 @@ msgstr "Nincs kapcsolódva"
 #~ msgid "Changed: %s"
 #~ msgstr "Módosítva: %s"
 
+#, python-format
 #~ msgid "No name for group defined in \"%s\"."
 #~ msgstr "Nincs név definiálva a csoportnak a \"%s\"-ben."
 
+#, python-format
 #~ msgid ""
 #~ "Error in metadata-file \"%s\" - only <group>-tags allowed in first level. "
 #~ "Groups must contain at least one <info>-element."
@@ -566,9 +563,11 @@ msgstr "Nincs kapcsolódva"
 #~ "Hiba az adatfájlban \"%s\" - csak <group>-tagek támogatottak az első "
 #~ "szinten. A csoportoknak legalább egy-egy <info> részt tartalmazniuk kell."
 
+#, python-format
 #~ msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
 #~ msgstr "Hiányzó vagy érvénytelen gyökércsomópont az adatfájlban: \"%s\"."
 
+#, python-format
 #~ msgid "Invalid option-node found in \"%s\"."
 #~ msgstr "Érvénytelen beállítás a \"%s\"-ben"
 
@@ -581,11 +580,17 @@ msgstr "Nincs kapcsolódva"
 #~ msgid "Can't open /proc/net/dev"
 #~ msgstr "Nem tudtam megnyitni: /proc/net/dev"
 
+#~ msgid "Failed to open /proc/version"
+#~ msgstr "Nem tudtam megnyitni: /proc/version"
+
 #~ msgid "Failed to open /proc/loadavg"
 #~ msgstr "Nem tudtam megnyitni: /proc/loadavg"
 
 #~ msgid "Failed to open /proc/swaps"
 #~ msgstr "Nem tudtam megnyitni: /proc/swaps"
+
+#~ msgid "Can't get kernel version"
+#~ msgstr "Nem tudtam a kernel verzióját betölteni"
 
 #~ msgid "Can't parse /proc/meminfo"
 #~ msgstr "Nem tudtam elemezni: /proc/meminfo"
@@ -599,21 +604,25 @@ msgstr "Nincs kapcsolódva"
 #~ msgid "Error during hddtemp drives search"
 #~ msgstr "Hiba a hddtemp meghajtó keresése közben"
 
+#, python-format
 #~ msgid "Can't open %s"
 #~ msgstr "Nem tudtam megnyitni: %s"
 
 #~ msgid "Can't open folder /proc/acpi/thermal_zone/"
 #~ msgstr "Nem tudtam megnyitni: /proc/acpi/thermal_zone/"
 
+#, python-format
 #~ msgid "Can't open %s/temperature"
 #~ msgstr "Nem tudtam megnyitni: %s/temperature"
 
+#, python-format
 #~ msgid "can't read temperature in: %s"
 #~ msgstr "Nem lehet olvasni a hőfokát: %s"
 
 #~ msgid "Hddtemp not installed"
 #~ msgstr "Hddtemp nincs telepítve"
 
+#, python-format
 #~ msgid "Can't read value from %s"
 #~ msgstr "Nem tudom olvasni az értékét: %s"
 
@@ -644,9 +653,11 @@ msgstr "Nincs kapcsolódva"
 #~ msgid "Error in screenlets.services.get_service_by_name: %s"
 #~ msgstr "Hiba a screenlets.services.get_service_by_name-ben: %s"
 
+#, python-format
 #~ msgid "Trying to access invalid option \"%s\"."
 #~ msgstr "Érvénytelen beállításhoz próbáltam hozzáférni: %s"
 
+#, python-format
 #~ msgid "Trying to access invalid instance \"%s\"."
 #~ msgstr "Érvénytelen folyamathoz próbáltam hozzáférni: %s"
 
@@ -717,11 +728,11 @@ msgstr "Nincs kapcsolódva"
 #~ msgstr "Új elem hozzáadása a %s-hoz a %s-ben"
 
 #~ msgid ""
-#~ "Error: Unable to create temp directory %s - screenlets-manager will not "
-#~ "work properly."
+#~ "Error: Unable to create temp directory %s - screenlets-manager will not work "
+#~ "properly."
 #~ msgstr ""
-#~ "Hiba: Nem sikerült ideiglenes mappát csinálnom %s-ben - screenlets-"
-#~ "manager nem fog megfelelően működni."
+#~ "Hiba: Nem sikerült ideiglenes mappát csinálnom %s-ben - screenlets-manager "
+#~ "nem fog megfelelően működni."
 
 #~ msgid "Failed to create instance of '%s'!"
 #~ msgstr "Nem sikerült a folyamatot létrehozni: %s!"

@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2011-01-07 19:35+0000\n"
 "Last-Translator: student4 <Unknown>\n"
 "Language-Team: Croatian <hr@li.org>\n"
-"Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-01-08 04:38+0000\n"
+"X-Launchpad-Export-Date: 2011-01-10 04:53+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: hr\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
 #: src/lib/__init__.py:99
@@ -371,12 +371,6 @@ msgstr "Nije moguće pročitati ip"
 msgid "Not connected"
 msgstr "Nije povezano"
 
-#~ msgid "Can't get kernel version"
-#~ msgstr "Nije moguće dobaviti verziju kernela"
-
-#~ msgid "Failed to open /proc/version"
-#~ msgstr "Neuspjelo otvaranje /proc/version"
-
 #~ msgid "Error: file %s not found."
 #~ msgstr "Greška: datoteka %s nije pronađena."
 
@@ -399,8 +393,7 @@ msgstr "Nije povezano"
 #~ msgstr "Datoteka %s nije pronađena"
 
 #~ msgid "Notify: No DBus running or notifications-daemon unavailable."
-#~ msgstr ""
-#~ "Obavjest: DBus nije pokrenut ili nije dostupan notifications-daemon."
+#~ msgstr "Obavjest: DBus nije pokrenut ili nije dostupan notifications-daemon."
 
 #~ msgid "Section %s not found!"
 #~ msgstr "Sekcija %s nije pronađena!"
@@ -421,6 +414,7 @@ msgstr "Nije povezano"
 #~ msgid "Exception in ScreenletSession: "
 #~ msgstr "Iznimka u ScreenletSession: "
 
+#, python-format
 #~ msgid "can't read temperature in: %s"
 #~ msgstr "Nije moguće pročitati temperaturu: %s"
 
@@ -433,6 +427,7 @@ msgstr "Nije povezano"
 #~ msgid "DEBUG: %s"
 #~ msgstr "DEBUG: %s"
 
+#, python-format
 #~ msgid "Can't read value from %s"
 #~ msgstr "Nije moguće pročitati vrijednost %s"
 
@@ -448,12 +443,14 @@ msgstr "Nije povezano"
 #~ msgid "Error during hddtemp drives search"
 #~ msgstr "Greška prilikom hddtemp pretrage diskova"
 
+#, python-format
 #~ msgid "Can't open %s"
 #~ msgstr "Nije moguće otvoriti %s"
 
 #~ msgid "Can't open folder /proc/acpi/thermal_zone/"
 #~ msgstr "Nije moguće otvoriti mapu /proc/acpi/thermal_zone/"
 
+#, python-format
 #~ msgid "Can't open %s/temperature"
 #~ msgstr "Nije moguće otvoriti %s/temperature"
 
@@ -523,12 +520,15 @@ msgstr "Nije povezano"
 #~ msgid "active theme is: %s"
 #~ msgstr "aktivna tema je: %s"
 
+#, python-format
 #~ msgid "No name for group defined in \"%s\"."
 #~ msgstr "Nema imena grupe definiranog u \"%s\"."
 
+#, python-format
 #~ msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
 #~ msgstr "Nedostaje ili nije valjan korijen u metadata-datoteci: \"%s\"."
 
+#, python-format
 #~ msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
 #~ msgstr "Nevaljali XML u metadata-datoteci (ili nedostaje datoteka): \"%s\"."
 
@@ -540,6 +540,9 @@ msgstr "Nije povezano"
 
 #~ msgid "%s days, %s hours and %s minutes"
 #~ msgstr "%s dana, %s sati i %s minuta"
+
+#~ msgid "Can't get kernel version"
+#~ msgstr "Nije moguće dobaviti verziju kernela"
 
 #~ msgid "Error getting distro name"
 #~ msgstr "Greška pri dobavljanju imena distribucije"
@@ -625,15 +628,20 @@ msgstr "Nije povezano"
 #~ msgid "Failed to open /proc/loadavg"
 #~ msgstr "Neuspjelo otvaranje /proc/loadavg"
 
+#~ msgid "Failed to open /proc/version"
+#~ msgstr "Neuspjelo otvaranje /proc/version"
+
 #~ msgid "Failed to open /proc/swaps"
 #~ msgstr "Neuspjelo otvaranje /proc/swaps"
 
 #~ msgid "Removing last instance from session"
 #~ msgstr "Uklanjanje zadnje instance iz sesije"
 
+#, python-format
 #~ msgid "Trying to access invalid option \"%s\"."
 #~ msgstr "Pokušaj pristupa nevažećoj opciji \"%s\"."
 
+#, python-format
 #~ msgid "Trying to access invalid instance \"%s\"."
 #~ msgstr "Pokušaj pristupa nevažećoj instanci \"%s\"."
 

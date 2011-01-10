@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2010-11-15 08:22+0000\n"
 "Last-Translator: Screenlets Dev Team <screenlets-dev@lists.launchpad.net>\n"
 "Language-Team: Turkish <tr@li.org>\n"
-"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-12-10 04:44+0000\n"
+"X-Launchpad-Export-Date: 2011-01-10 04:53+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: tr\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
 #: src/lib/__init__.py:99
@@ -379,35 +379,211 @@ msgstr "IP alınamadı"
 msgid "Not connected"
 msgstr "Bağlı değil"
 
-#~ msgid "Can't get kernel version"
-#~ msgstr "Çekirdek sürümü alınamıyor"
+#~ msgid "XML-Error: %s"
+#~ msgstr "XML-Hatası: %s"
 
-#~ msgid "Failed to open /proc/version"
-#~ msgstr "/proc/version açılamadı"
+#~ msgid "Version: "
+#~ msgstr "Sürüm: "
+
+#~ msgid "Info: "
+#~ msgstr "Bilgi: "
+
+#~ msgid "Failed to load theme.conf"
+#~ msgstr "theme.conf yüklenemedi"
+
+#~ msgid "Name: "
+#~ msgstr "İsim: "
+
+#~ msgid "Author: "
+#~ msgstr "Yazar: "
+
+#~ msgid "theme.conf loaded: "
+#~ msgstr "theme.conf yüklendi: "
+
+#~ msgid "Error while creating menu."
+#~ msgstr "Menü oluştururken hata oluştu."
+
+#~ msgid "WARNING: Option '%s' not found or protected."
+#~ msgstr "UYARI: '%s' opsiyonu bulunamadi ya da korumalı"
+
+#~ msgid "Delete Screenlet ..."
+#~ msgstr "Screenleti Sil ..."
+
+#~ msgid "Error while loading theme: "
+#~ msgstr "Teme yüklenirken hata: "
+
+#~ msgid "An error occured with desktop-file: %s"
+#~ msgstr "masaüstü- dosyasında bir hata belirdi: %s"
+
+#~ msgid "Exception: %s"
+#~ msgstr "%s :istisna"
+
+#~ msgid "Override: "
+#~ msgstr "geçersiz: "
 
 #~ msgid "Error while loading ScreenletTheme in: "
 #~ msgstr "Hata screenlet teması yüklenemiyor: "
 
+#~ msgid "Error while creating image from file: %s"
+#~ msgstr "%s : dosyasından resim oluştururken hata oluştu"
+
+#~ msgid "theme.conf found! Loading option-overrides."
+#~ msgstr "theme.conf  bulundu! Geçersiz yükleme- seçeneği"
+
+#~ msgid "Start drag"
+#~ msgstr "Sürüklemeyi başlat"
+
+#~ msgid "End drag"
+#~ msgstr "Sürüklemeyi bitir"
+
+#~ msgid "Screenlet: Set theme %s"
+#~ msgstr "Screenlet: %s temasını ayarla"
+
+#~ msgid "LOAD NEW THEME: "
+#~ msgstr "Yeni tema yükle: "
+
+#~ msgid "FOUND: "
+#~ msgstr "BULUNDU "
+
+#~ msgid "Quit this %s ..."
+#~ msgstr "Bu %s ...dan çık"
+
+#~ msgid "Quit all %ss ..."
+#~ msgstr "Bütün %ss ...lardan çık"
+
+#~ msgid "Cancel delete_event"
+#~ msgstr "Silme_etkinliğini iptal et"
+
+#~ msgid "Saved option %s%s/%s = %s"
+#~ msgstr "%s%s/%s = %s ayarını kaydet"
+
+#~ msgid "Changed: %s"
+#~ msgstr "Değiştirildi: %s"
+
+#~ msgid "active theme is: %s"
+#~ msgstr "aktif tema: %s"
+
+#~ msgid "%s days, %s hours and %s minutes"
+#~ msgstr "%s gün, %s saat ve %s dakika"
+
+#~ msgid "Can't get kernel version"
+#~ msgstr "Çekirdek sürümü alınamıyor"
+
+#~ msgid "Error getting distro name"
+#~ msgstr "Dağıtım ismi alınırken hata"
+
+#, python-format
 #~ msgid "Can't open %s"
 #~ msgstr "%s açılamadı"
 
 #~ msgid "Hddtemp not installed"
 #~ msgstr "Hddtemp yüklü değil"
 
+#~ msgid "File: %s"
+#~ msgstr "Dosya: %s"
+
+#~ msgid "Unable to open %s"
+#~ msgstr "%s açılamıyor"
+
+#~ msgid "File %s not found"
+#~ msgstr "%s dosyası bulunamadı"
+
+#~ msgid "Section %s not found!"
+#~ msgstr "%s bölümü bulunamadı"
+
+#~ msgid "Error: file %s not found."
+#~ msgstr "Hata: %s dosyası bulunamadı."
+
+#~ msgid "GConf python module not found. GConf settings backend is disabled."
+#~ msgstr "GConf python modülü bulunamadı. GConf backend ayarı devre dışı."
+
+#~ msgid "GConfBackend: initializing"
+#~ msgstr "GConfBackend: başlatılıyor"
+
 #~ msgid "GnomeKeyring is not available!!"
 #~ msgstr "GnomeKeyring geçerli değil!!"
+
+#~ msgid "error while saving config: %s%s"
+#~ msgstr "config kaydedilirken hata: %s%s"
+
+#~ msgid "Error during on_import - option: %s."
+#~ msgstr "Ayarları-dışa_aktarma sırasında hata: %s."
+
+#~ msgid "Queue-element <%s> not found (already removed?)!"
+#~ msgstr "Kuyruk-eleman <%s> bulunamadı (zaten silinmiş?)!"
+
+#~ msgid "CachingBackend: Saving <#%s> :) ..."
+#~ msgstr "CachingBackend: Kaydediliyor <#%s> :) ..."
+
+#~ msgid "CachingBackend: Loading <%s>"
+#~ msgstr "CachingBackend: Yükleniyor <%s>"
+
+#~ msgid "CachingBackend: <#%s> removed!"
+#~ msgstr "CachingBackend: <#%s> silindi!"
+
+#~ msgid "Error while loading options: %s"
+#~ msgstr "Seçenekler yüklenme sırasında hata: %s"
+
+#~ msgid "CachingBackend: Loading instances from cache"
+#~ msgstr "ÖnbelleklemeArkaucu: Önbellekten nesneler yükleniyor"
+
+#~ msgid "Error: Cannot set missing or non-boolean value '"
+#~ msgstr "Hata: Kayıp veya boolean olmayan değer ayarlanamıyor '"
+
+#~ msgid "Temporary file didn't exist - nothing to remove."
+#~ msgstr "Geçici dosya bulunmuyor - hiç bir şey silinmeyecek."
+
+#~ msgid "Warning: No default keyring found, storage is not permanent!"
+#~ msgstr "Dikkat: Varsayılan anahtarlık bulunamadı, kayıtlar kalıcı değil!"
 
 #~ msgid "No keyrings found. Please create one first!"
 #~ msgstr "Anahtarlık bulunamadı. Lütfen önce bir tane yaratın!"
 
+#~ msgid "Options: Error - group %s not defined."
+#~ msgstr "Ayarlar: Hata - grup %s tanımlanmadı."
+
+#, python-format
 #~ msgid "No name for group defined in \"%s\"."
 #~ msgstr "\"%s\"de tanımlanmış grup için isim yok."
 
 #~ msgid "Illegal value in AccountOption.on_import."
 #~ msgstr "AccountOption.on_import'ta kural dışı değer."
 
+#~ msgid "ERROR: Unable to read password from keyring: %s"
+#~ msgstr "HATA: Anahtarlıktan şifre okunamıyor: %s"
+
+#~ msgid "PRESS: %s"
+#~ msgstr "BASIN: %s"
+
+#~ msgid "unsupported type ''"
+#~ msgstr "desteklenmeyen tip ''"
+
+#~ msgid "Path %s not found."
+#~ msgstr "%s yolu bulunamadı."
+
+#~ msgid "Failed to open /proc/uptime"
+#~ msgstr "/proc/uptime açılamadı"
+
 #~ msgid "Can't open /proc/net/dev"
 #~ msgstr "/proc/net/dev açılamadı"
+
+#~ msgid "Failed to open /proc/cpuinfo"
+#~ msgstr "/proc/cpuinfo açılamadı"
+
+#~ msgid "Failed to open /proc/version"
+#~ msgstr "/proc/version açılamadı"
+
+#~ msgid "Failed to open /proc/loadavg"
+#~ msgstr "/proc/loadavg açılamadı"
+
+#~ msgid "Failed to open /proc/swaps"
+#~ msgstr "/proc/swaps açılamadı"
+
+#~ msgid "Failed to open /proc/stat"
+#~ msgstr "/proc/stat açılamadı"
+
+#~ msgid "Failed to open /proc/sys/kernel/hostname"
+#~ msgstr "/proc/sys/kernel/hostname açılamadı"
 
 #~ msgid "Can't parse /proc/meminfo"
 #~ msgstr "/proc/meminfo okunamadı"
@@ -421,20 +597,52 @@ msgstr "Bağlı değil"
 #~ msgid "Can't open folder /proc/acpi/thermal_zone/"
 #~ msgstr "/proc/acpi/thermal_zone/ dizini açılamadı"
 
+#, python-format
 #~ msgid "can't read temperature in: %s"
 #~ msgstr "%s'teki sıcaklık değeri okunamıyor"
 
+#~ msgid "CPUSensor: Failed to open /proc/stat. Sensor stopped."
+#~ msgstr "CPUSensor: /proc/stat açılmadı. Algılayıcı durdu."
+
+#, python-format
 #~ msgid "Can't open %s/temperature"
 #~ msgstr "%s/temperature açılamadı"
 
+#~ msgid "DEBUG: %s"
+#~ msgstr "HATA AYIKLAMA: %s"
+
+#, python-format
 #~ msgid "Can't read value from %s"
 #~ msgstr "%s'teki değer okunamıyor"
 
+#~ msgid "TEST: %s"
+#~ msgstr "TEST: %s"
+
+#~ msgid "Creating new instance: "
+#~ msgstr "Yeni nesne yaratılıyor: "
+
+#~ msgid "ID is unset or already in use - creating new one!"
+#~ msgstr "ID ayarlı değil veya zaten kullanımda - yeni bir tane yaratılıyor!"
+
+#~ msgid "Error in screenlets.session.connect_daemon: %s"
+#~ msgstr "screenlets.session.connect_daemon: %s'te hata"
+
+#~ msgid "Unable to init backend - settings will not be saved!"
+#~ msgstr "Arka uç hazırlanamadı - ayarlar kaydedilmeyecek!"
+
+#~ msgid "Error in screenlets.services.get_service_by_name: %s"
+#~ msgstr "screenlets.services.get_service_by_name: %s'te hata"
+
+#, python-format
 #~ msgid "Trying to access invalid option \"%s\"."
 #~ msgstr "Geçersiz ayara erişilmeye çalışıldı: \"%s\""
 
+#, python-format
 #~ msgid "Trying to access invalid instance \"%s\"."
 #~ msgstr "Geçersiz nesneye erişilmeye çalışıldı: \"%s\""
+
+#~ msgid "Cannot get/set protected options through service."
+#~ msgstr "Servisten korumalı ayarlar alınamadı/ayarlanamadı."
 
 #~ msgid "(?)"
 #~ msgstr "(?)"

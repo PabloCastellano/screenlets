@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2011-01-03 07:07+0000\n"
 "Last-Translator: Screenlets Dev Team <screenlets-dev@lists.launchpad.net>\n"
 "Language-Team: Russian <ru@li.org>\n"
-"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-01-04 13:37+0000\n"
+"X-Launchpad-Export-Date: 2011-01-10 04:53+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: ru\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
 #: src/lib/__init__.py:99
@@ -378,12 +378,6 @@ msgstr "Невозможно получить IP"
 msgid "Not connected"
 msgstr "Не подключен"
 
-#~ msgid "Can't get kernel version"
-#~ msgstr "Невозможно получить версию ядра"
-
-#~ msgid "Failed to open /proc/version"
-#~ msgstr "Не удалось открыть /proc/version"
-
 #~ msgid "Version: "
 #~ msgstr "Версия: "
 
@@ -480,6 +474,9 @@ msgstr "Не подключен"
 #~ msgid "Failed to open /proc/uptime"
 #~ msgstr "Невозможно открыть /proc/uptime"
 
+#~ msgid "Can't get kernel version"
+#~ msgstr "Невозможно получить версию ядра"
+
 #~ msgid "Can't open /proc/net/wireless"
 #~ msgstr "Невозможно открыть /proc/net/wireless"
 
@@ -489,18 +486,22 @@ msgstr "Не подключен"
 #~ msgid "Can't open folder /proc/acpi/thermal_zone/"
 #~ msgstr "Невозможно открыть папку /proc/acpi/thermal_zone/"
 
+#, python-format
 #~ msgid "Can't open %s/temperature"
 #~ msgstr "Невозможно открыть %s/temperature"
 
 #~ msgid "Hddtemp not installed"
 #~ msgstr "Hddtemp не установлен"
 
+#, python-format
 #~ msgid "Can't open %s"
 #~ msgstr "Невозможно открыть %s"
 
+#, python-format
 #~ msgid "can't read temperature in: %s"
 #~ msgstr "невозможно прочесть температуру для: %s"
 
+#, python-format
 #~ msgid "Can't read value from %s"
 #~ msgstr "Невозможно получить значение из %s"
 
@@ -545,8 +546,8 @@ msgstr "Не подключен"
 
 #~ msgid "GConf python module not found. GConf settings backend is disabled."
 #~ msgstr ""
-#~ "Модуль GConf для Python не найден. GConf не будет использоваться в "
-#~ "качестве хранилища настроек."
+#~ "Модуль GConf для Python не найден. GConf не будет использоваться в качестве "
+#~ "хранилища настроек."
 
 #~ msgid "Saved option %s%s/%s = %s"
 #~ msgstr "Сохраненные параметры %s%s/%s = %s"
@@ -569,6 +570,7 @@ msgstr "Не подключен"
 #~ msgid "Error during on_import - option: %s."
 #~ msgstr "Ошибка"
 
+#, python-format
 #~ msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
 #~ msgstr "Некорректный XML в файле метаданных (или файл отсутствует): \"%s\"."
 
@@ -606,6 +608,9 @@ msgstr "Не подключен"
 #~ msgid "Failed to open /proc/sys/kernel/hostname"
 #~ msgstr "Не удалось открыть /proc/sys/kernel/hostname"
 
+#~ msgid "Failed to open /proc/version"
+#~ msgstr "Не удалось открыть /proc/version"
+
 #~ msgid "Failed to open /proc/loadavg"
 #~ msgstr "Не удалось открыть /proc/loadavg"
 
@@ -618,20 +623,23 @@ msgstr "Не подключен"
 #~ msgid "Error in screenlets.services.get_service_by_name: %s"
 #~ msgstr "Ошибка в screenlets.services.get_service_by_name: %s"
 
+#, python-format
 #~ msgid "No name for group defined in \"%s\"."
 #~ msgstr "Нет названия для группы, определенной в \"%s\"."
 
+#, python-format
 #~ msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
 #~ msgstr ""
 #~ "Отсутствует или неправильный корневой узел в файле метаданных: \"%s\"."
 
+#, python-format
 #~ msgid ""
 #~ "Error in metadata-file \"%s\" - only <group>-tags allowed in first level. "
 #~ "Groups must contain at least one <info>-element."
 #~ msgstr ""
-#~ "Ошибка в файле метаданных: \"%s\" - только <group>-теги можно "
-#~ "использовать на первом уровне. Группы должны содержать по крайней мере "
-#~ "один <info>-элемент."
+#~ "Ошибка в файле метаданных: \"%s\" - только <group>-теги можно использовать "
+#~ "на первом уровне. Группы должны содержать по крайней мере один <info>-"
+#~ "элемент."
 
 #~ msgid "Error during hddtemp drives search"
 #~ msgstr "Ошибка во время определения температуры дисков"
@@ -642,9 +650,11 @@ msgstr "Не подключен"
 #~ msgid "No name set in ScreenletService.__init__!"
 #~ msgstr "Нет названия в ScreenletService.__init__!"
 
+#, python-format
 #~ msgid "Trying to access invalid option \"%s\"."
 #~ msgstr "Попытка доступиться к недействительной опции \"%s\"."
 
+#, python-format
 #~ msgid "Trying to access invalid instance \"%s\"."
 #~ msgstr "Попытка доступиться к недействительному экземпляру \"%s\"."
 
@@ -658,12 +668,12 @@ msgstr "Не подключен"
 #~ msgstr "Завершение работы скринлета"
 
 #~ msgid "Error: Cannot set missing or non-boolean value '"
-#~ msgstr ""
-#~ "Ошибка: невозможно установить пропущенное или не двоичное значение '"
+#~ msgstr "Ошибка: невозможно установить пропущенное или не двоичное значение '"
 
 #~ msgid "End drag"
 #~ msgstr "Завершить перетаскивание"
 
+#, python-format
 #~ msgid "Invalid option-node found in \"%s\"."
 #~ msgstr "В \"%s\" обнаружен неверный узел настроек."
 
@@ -705,8 +715,7 @@ msgstr "Не подключен"
 #~ msgstr "Невозможно создать экземпляр %s"
 
 #~ msgid "No instance(s) found in session-path, creating new one."
-#~ msgstr ""
-#~ "В каталоге сессий не обнаружено ни одного экземпляра, создаем новый."
+#~ msgstr "В каталоге сессий не обнаружено ни одного экземпляра, создаем новый."
 
 #~ msgid "Set options in %s"
 #~ msgstr "Установить опции в %s"
@@ -736,8 +745,8 @@ msgstr "Не подключен"
 #~ msgstr "Запись не найдена. Очевидно, она не будет удалена."
 
 #~ msgid ""
-#~ "Error: Unable to create temp directory %s - screenlets-manager will not "
-#~ "work properly."
+#~ "Error: Unable to create temp directory %s - screenlets-manager will not work "
+#~ "properly."
 #~ msgstr ""
 #~ "Ошибка: невозможно создать временную директрию %s - менеджер скринлетов "
 #~ "будет некорректно работать."
@@ -771,8 +780,7 @@ msgstr "Не подключен"
 #~ msgstr "Добавление новых экземпляров через: %s"
 
 #~ msgid "Error global tempfile not found. Some error before?"
-#~ msgstr ""
-#~ "Ошибка: глобальный временный файл не найден. Ошибка произошла ранее?"
+#~ msgstr "Ошибка: глобальный временный файл не найден. Ошибка произошла ранее?"
 
 #~ msgid "Failed to unregister from daemon: %s"
 #~ msgstr "Невозможно отменить регистрацию от демона %s."
@@ -782,8 +790,7 @@ msgstr "Не подключен"
 
 #~ msgid "Warning - Buttons will not be shown until screenlet is restarted"
 #~ msgstr ""
-#~ "Внимание - Кнопки не будут отображаться, пока Скринлет не будет "
-#~ "перезагружен"
+#~ "Внимание - Кнопки не будут отображаться, пока Скринлет не будет перезагружен"
 
 #~ msgid "(?)"
 #~ msgstr "(?)"

@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2010-11-12 14:19+0000\n"
 "Last-Translator: tabbernuk <boamaod@gmail.com>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
-"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-12-10 04:44+0000\n"
+"X-Launchpad-Export-Date: 2011-01-10 04:53+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: uk\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
 #: src/lib/__init__.py:99
@@ -368,12 +368,6 @@ msgstr "Неможливо отримати ip"
 msgid "Not connected"
 msgstr "Немає з'єднання"
 
-#~ msgid "Can't get kernel version"
-#~ msgstr "Не можливо отримати версію ядра"
-
-#~ msgid "Failed to open /proc/version"
-#~ msgstr "Не вдалося відкрити /proc/version"
-
 #~ msgid "CachingBackend: Loading instances from cache"
 #~ msgstr "CachingBackend: завантаження інтерфейсів з кешу"
 
@@ -406,48 +400,200 @@ msgstr "Немає з'єднання"
 #~ msgid "GConfBackend: initializing"
 #~ msgstr "Запускається вікно GConf"
 
+#~ msgid "An error occured with desktop-file: %s"
+#~ msgstr "Виникла помилка з desktop-file: %s"
+
+#~ msgid "Exception: %s"
+#~ msgstr "Виключення: %s"
+
+#~ msgid "Error while creating menu."
+#~ msgstr "При створенні меню виникла помилка"
+
+#~ msgid "Override: "
+#~ msgstr "Переписати: "
+
+#~ msgid "XML-Error: %s"
+#~ msgstr "Виникла помилка в XML: %s"
+
+#~ msgid "Version: "
+#~ msgstr "Версія: "
+
+#~ msgid "Info: "
+#~ msgstr "Інформація: "
+
+#~ msgid "Failed to load theme.conf"
+#~ msgstr "При завантаженні theme.conf виникла помилка"
+
+#~ msgid "theme.conf found! Loading option-overrides."
+#~ msgstr "Знайдено theme.conf! Завантажуються налаштування"
+
+#~ msgid "Name: "
+#~ msgstr "Назва: "
+
+#~ msgid "Author: "
+#~ msgstr "Автор: "
+
+#~ msgid "WARNING: Option '%s' not found or protected."
+#~ msgstr "УВАГА: Параметр '%s' не знайдений або захищений."
+
+#~ msgid "theme.conf loaded: "
+#~ msgstr "theme.conf завантажений: "
+
 #~ msgid "Error while loading ScreenletTheme in: "
 #~ msgstr "Виникла помилка під час завантаження ScreenletTheme в: "
+
+#~ msgid "Error while creating image from file: %s"
+#~ msgstr "Помилка при створенні образу з файла: %s"
+
+#~ msgid "Error: file %s not found."
+#~ msgstr "Помилка: файл %s не знайдено."
+
+#~ msgid "LOAD NEW THEME: "
+#~ msgstr "ЗАВАНТАЖИТИ НОВУ ТЕМУ: "
+
+#~ msgid "FOUND: "
+#~ msgstr "ЗНАЙДЕНО: "
+
+#~ msgid "Quit this %s ..."
+#~ msgstr "Закрити цей %s ..."
+
+#~ msgid "Quit all %ss ..."
+#~ msgstr "Закрити всі %ss ..."
+
+#~ msgid "Delete Screenlet ..."
+#~ msgstr "Видалити Скрінлет ..."
+
+#~ msgid "Error while loading theme: "
+#~ msgstr "Помилка під час завантаження теми: "
+
+#~ msgid "Error: Cannot set missing or non-boolean value '"
+#~ msgstr "Помилка: не можливо встановити відсутнє або не-логічне значення '"
+
+#~ msgid "Start drag"
+#~ msgstr "Почати перетягування"
+
+#~ msgid "End drag"
+#~ msgstr "Закінчити перетягування"
+
+#~ msgid "Quitting current screenlet instance"
+#~ msgstr "Завершення роботи Скрінлета"
+
+#~ msgid "Screenlet: Set theme %s"
+#~ msgstr "Screenlet: Назначити тему %s"
+
+#~ msgid "Cancel delete_event"
+#~ msgstr "Скасувати delete_event"
 
 #~ msgid "GnomeKeyring is not available!!"
 #~ msgstr "GnomeKeyring не доступний!!"
 
+#~ msgid "error while saving config: %s%s"
+#~ msgstr "помилка під час збереження налаштувань: %s%s"
+
+#~ msgid "Error during on_import - option: %s."
+#~ msgstr "Помилка під час події on_import - option: %s."
+
+#~ msgid "Warning: No default keyring found, storage is not permanent!"
+#~ msgstr ""
+#~ "Попередження: Не знайдена в'язка ключів за замовчуванням, зберігання "
+#~ "тимчасове!"
+
 #~ msgid "No keyrings found. Please create one first!"
 #~ msgstr "Не знайдено в'язки ключів. Будь ласка, створіть її спочатку!"
 
+#~ msgid "Options: Error - group %s not defined."
+#~ msgstr "Опції: Група помилки %s не визначена."
+
+#, python-format
 #~ msgid "No name for group defined in \"%s\"."
 #~ msgstr "Немає назви для групи визначеній в \"%s\"."
 
+#, python-format
 #~ msgid ""
 #~ "Error in metadata-file \"%s\" - only <group>-tags allowed in first level. "
 #~ "Groups must contain at least one <info>-element."
 #~ msgstr ""
-#~ "Помилка в файлі метаданих \"%s\" - тільки <group>-теґи можна "
-#~ "використовувати на першому рівні. Групи повинні містити принаймні один "
-#~ "<info>-елемент."
+#~ "Помилка в файлі метаданих \"%s\" - тільки <group>-теґи можна використовувати "
+#~ "на першому рівні. Групи повинні містити принаймні один <info>-елемент."
 
 #~ msgid "Illegal value in AccountOption.on_import."
 #~ msgstr "Некоректне значення в AccountOption.on_import."
 
+#, python-format
 #~ msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
 #~ msgstr ""
 #~ "Відсутній або неправильний кореневий вузол в файлі метаданих: \"%s\"."
 
+#, python-format
 #~ msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
 #~ msgstr "Помилковий XML в файлі метаданих (або файл відсутній): \"%s\"."
 
+#~ msgid "ERROR: Unable to read password from keyring: %s"
+#~ msgstr "ПОМИЛКА: Неможливо прочитати пароль з в'язки ключів: %s"
+
+#, python-format
 #~ msgid "Invalid option-node found in \"%s\"."
 #~ msgstr "Знайдений неправильний параметр-вузол в \"%s\"."
+
+#~ msgid "PRESS: %s"
+#~ msgstr "НАТИСНІТЬ: %s"
+
+#~ msgid "active theme is: %s"
+#~ msgstr "активна тема: %s"
+
+#~ msgid "Path %s not found."
+#~ msgstr "Шлях %s не знайдений."
+
+#~ msgid "unsupported type ''"
+#~ msgstr "непідтримуваний тип ''"
+
+#~ msgid "OptionsDialog: Unknown option type: %s"
+#~ msgstr "Діалог параметрів: Невідомий тип опції: %s"
+
+#~ msgid "Changed: %s"
+#~ msgstr "Змінено: %s"
+
+#~ msgid "Failed to open /proc/uptime"
+#~ msgstr "Не вдалося відкрити /proc/uptime"
+
+#~ msgid "%s days, %s hours and %s minutes"
+#~ msgstr "%s днів, %s годин та %s хвилин"
+
+#~ msgid "Failed to open /proc/cpuinfo"
+#~ msgstr "Не вдалося відкрити /proc/cpuinfo"
+
+#~ msgid "Failed to open /proc/sys/kernel/hostname"
+#~ msgstr "Не вдалося відкрити /proc/sys/kernel/hostname"
+
+#~ msgid "Failed to open /proc/loadavg"
+#~ msgstr "Не вдалося відкрити /proc/loadavg"
+
+#~ msgid "Can't get kernel version"
+#~ msgstr "Не можливо отримати версію ядра"
+
+#~ msgid "Failed to open /proc/stat"
+#~ msgstr "Не вдалося відкрити /proc/stat"
+
+#~ msgid "Error getting distro name"
+#~ msgstr "Помилка в отриманні назви дистрибутиву"
 
 #~ msgid "Can't open /proc/net/dev"
 #~ msgstr "Неможливо відкрити /proc/net/dev"
 
+#, python-format
 #~ msgid "Can't open %s"
 #~ msgstr "Неможливо відкрити %s"
 
 #~ msgid "Can't open folder /proc/acpi/thermal_zone/"
 #~ msgstr "Неможливо відкрити теку /proc/acpi/thermal_zone/"
 
+#~ msgid "Failed to open /proc/version"
+#~ msgstr "Не вдалося відкрити /proc/version"
+
+#~ msgid "Failed to open /proc/swaps"
+#~ msgstr "Не вдалося відкрити /proc/swaps"
+
+#, python-format
 #~ msgid "Can't open %s/temperature"
 #~ msgstr "Неможливо відкрити %s/temperature"
 
@@ -460,6 +606,7 @@ msgstr "Немає з'єднання"
 #~ msgid "Error during hddtemp drives search"
 #~ msgstr "Помилка під час визначення температури дисків"
 
+#, python-format
 #~ msgid "can't read temperature in: %s"
 #~ msgstr "неможливо прочитати температуру для: %s"
 
@@ -469,11 +616,37 @@ msgstr "Немає з'єднання"
 #~ msgid "No name set in ScreenletService.__init__!"
 #~ msgstr "Немає назви в ScreenletService.__init__!"
 
+#~ msgid "CPUSensor: Failed to open /proc/stat. Sensor stopped."
+#~ msgstr "CPUSensor: Не вдалося відкрити /proc/stat. Сенсор зупинений."
+
+#, python-format
 #~ msgid "Trying to access invalid instance \"%s\"."
 #~ msgstr "Спроба доступитися до недійсного екземпляру \"%s\"."
 
+#~ msgid "Cannot get/set protected options through service."
+#~ msgstr "Не вдається отримати/присвоїти налаштування захисту через службу."
+
+#~ msgid "DEBUG: %s"
+#~ msgstr "НАЛАДКА: %s"
+
+#, python-format
 #~ msgid "Can't read value from %s"
 #~ msgstr "Не вдалося прочитати значення з %s"
+
+#~ msgid "TEST: %s"
+#~ msgstr "ТЕСТ: %s"
+
+#~ msgid "ID is unset or already in use - creating new one!"
+#~ msgstr "ID не встановлений або вже використовується - створіть новий!"
+
+#~ msgid "Failed to remove INI-file for instance (not critical)."
+#~ msgstr "Неможливо видалити ini-файл екземпляра (не критично)."
+
+#~ msgid "Error in screenlets.session.connect_daemon: %s"
+#~ msgstr "Помилка в screenlets.session.connect_daemon: %s"
+
+#~ msgid "Creating new instance: "
+#~ msgstr "Створення нового екземпляра: "
 
 #~ msgid ""
 #~ "ScreenletSession.__init__ has to be called with a\n"
@@ -482,5 +655,121 @@ msgstr "Немає з'єднання"
 #~ "ScreenletSession.__init__ має бути викликана з дійсним\n"
 #~ "\t\t\t Screenlet-classobject для першого аргументу!"
 
+#~ msgid "Unable to init backend - settings will not be saved!"
+#~ msgstr "Неможливо ініціалізувати бекенд - налаштування не будуть збережені!"
+
+#~ msgid "Error in screenlets.services.get_service_by_name: %s"
+#~ msgstr "Помилка в screenlets.services.get_service_by_name: %s"
+
+#, python-format
 #~ msgid "Trying to access invalid option \"%s\"."
 #~ msgstr "Намагання отримати доступ до недійсної опції \"%s\"."
+
+#~ msgid "Set options in %s"
+#~ msgstr "Встановити опції в %s"
+
+#~ msgid "File: %s"
+#~ msgstr "Файл: %s"
+
+#~ msgid "Removing instance from session but staying alive"
+#~ msgstr "Видалення екземпляра з сесії зі збереженням процесу"
+
+#~ msgid "Failed to remove session dir '%s' - not empty?"
+#~ msgstr "Неможливо видалити каталог сесії '%s'. Можливо, він не порожній?"
+
+#~ msgid "TODO: remove self.path: %s"
+#~ msgstr "TODO: видалити self.path: %s"
+
+#~ msgid "Removing last instance from session"
+#~ msgstr "Видалення останнього екземпляра з сесії"
+
+#~ msgid "Loading instances in: %s"
+#~ msgstr "Завантаження екземплярів в: %s"
+
+#~ msgid "Adding new instance through: %s"
+#~ msgstr "Додавання нових екземплярів через: %s"
+
+#~ msgid "Found a running session of %s, adding new instance by service."
+#~ msgstr "Виявлена запущена сесія %s, додавання нового екземпляра сервісом."
+
+#~ msgid "Restored instances from session '%s' ..."
+#~ msgstr "Відновлені екземпляри з сесії '%s' ..."
+
+#~ msgid "Failed creating instance of: %s"
+#~ msgstr "Помилка створення екземпляра: %s"
+
+#~ msgid "No instance(s) found in session-path, creating new one."
+#~ msgstr "В каталозі сесій не виявлено жодного екземпляра, створення нового."
+
+#~ msgid "No global tempdir found, creating new one."
+#~ msgstr "Не знайдено глобального тимчасового каталога, створення нового."
+
+#~ msgid "Screenlet has already been added to %s"
+#~ msgstr "Скрінлет вже доданий в %s"
+
+#~ msgid "Unable to open %s"
+#~ msgstr "Не вдалося відкрити %s"
+
+#~ msgid "Removing entry for %s from global tempfile %s"
+#~ msgstr "Видалення запису для %s зглобального тимчасового файла %s"
+
+#~ msgid "Error global tempfile not found. Some error before?"
+#~ msgstr ""
+#~ "Помилковий глобальний тимчасовий файл не знайдений. Можливо були помилки "
+#~ "раніше?"
+
+#~ msgid "Temp directory %s created."
+#~ msgstr "Тимчасовий каталог %s створений."
+
+#~ msgid "Failed to unregister from daemon: %s"
+#~ msgstr "Не вдалося скасувати реєстрацію від демона: %s"
+
+#~ msgid "Entry not found. Will (obviously) not be removed."
+#~ msgstr "Запис не знайдений. Очевидно, він не буде видалений."
+
+#~ msgid "Creating new entry for %s in %s"
+#~ msgstr "Створення нового запису для %s в %s"
+
+#~ msgid ""
+#~ "Error: Unable to create temp directory %s - screenlets-manager will not work "
+#~ "properly."
+#~ msgstr ""
+#~ "Помилка: Неможливо створити тимчасовий каталог %s - менеджер скрінлетів не "
+#~ "буде працювати належним чином."
+
+#~ msgid "File %s not found"
+#~ msgstr "Файл %s не знайдений"
+
+#~ msgid "LISTED PATH NOT EXISTS: "
+#~ msgstr "ВКАЗАНИЙ ШЛЯХ НЕ ІСНУЄ: "
+
+#~ msgid "Unable to load '%s' from %s: %s "
+#~ msgstr "Неможливо завантажити '%s' з %s: %s "
+
+#~ msgid "Deleting global tempfile %s"
+#~ msgstr "Видалення глобального тимчасового файла %s"
+
+#~ msgid "Error: Failed to delete global tempfile"
+#~ msgstr "Помилка: неможливо видалити глобальний тимчасовий файл"
+
+#~ msgid ""
+#~ "Screenlet '%s' has been interrupted by keyboard. TODO: make this an event"
+#~ msgstr "Скрінлет '%s' був перерваний з клавіатури. TODO: зробити це подією."
+
+#~ msgid "Exception in ScreenletSession: "
+#~ msgstr "Виняток в ScreenletSession: "
+
+#~ msgid "Failed to create instance of '%s'!"
+#~ msgstr "Не вдалося створити екземпляр '%s'!"
+
+#~ msgid "No screenlets running?"
+#~ msgstr "Немає запущених Скрінлетів?"
+
+#~ msgid "No more screenlets running."
+#~ msgstr "Запущених Скрінлетів більше немає"
+
+#~ msgid "Notify: No DBus running or notifications-daemon unavailable."
+#~ msgstr "Повідомлення: DBus не запущений або демон повідомлень недоступний."
+
+#~ msgid "Section %s not found!"
+#~ msgstr "Секція %s не знайдена!"

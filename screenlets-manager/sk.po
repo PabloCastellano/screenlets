@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2010-11-12 13:13+0000\n"
 "Last-Translator: tabbernuk <boamaod@gmail.com>\n"
 "Language-Team: Slovak <sk@li.org>\n"
-"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-12-10 04:44+0000\n"
+"X-Launchpad-Export-Date: 2011-01-10 04:53+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: sk\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
 msgid "Screenlets daemon"
@@ -312,7 +312,8 @@ msgid "Theme installed , please restart %s"
 msgstr "Téma nainštalovaná, prosím reštartujte %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:824
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Inštalátor tém našiel 2 chyby - Téma nenainštalovaná alebo už nainštalovaná"
 
@@ -325,14 +326,12 @@ msgid ""
 msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:908
-#, fuzzy
 msgid "Do you want to enable the Screenlets PPA?"
-msgstr "Chcete tiež odstrániť Screenlet konfiguračné súbory?"
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
-#, fuzzy
 msgid "The Screenlets PPA added successfully."
-msgstr "%sScreenlet bol úspešne nainštalovaný."
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
 msgid "Success!"
@@ -441,7 +440,8 @@ msgstr "Krok 2 :Skopírujte a vložte HTML z widget do políčka nižšie"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1084
 msgid "Step 3 : Give it a name in the box below and click on Ok to convert"
-msgstr "Krok 3 :Napíšte názov do políčka nižšie a kliknutím na OK konvertujte."
+msgstr ""
+"Krok 3 :Napíšte názov do políčka nižšie a kliknutím na OK konvertujte."
 
 #: src/share/screenlets-manager/screenlets-manager.py:1085
 msgid "The name of the widget"
@@ -640,9 +640,122 @@ msgstr ""
 msgid "Failed to add %sScreenlet."
 msgstr "Zlyhalo pridanie %sScreenletu"
 
+#~ msgid "screenletsDaemon: unregistered %s"
+#~ msgstr "screenletsDaemon: neregistrovaný %s"
+
+#~ msgid "ScreenletsDaemon: registered %s"
+#~ msgstr "ScreenletsDaemon: registrovaný %s"
+
+#~ msgid "ScreenletsDaemon has been shut down ..."
+#~ msgstr "ScreenletsDaemon bol vypnutý ..."
+
+#~ msgid "Invalid archive. Archive does not contain a screenlet."
+#~ msgstr "Neplatný archív. Archív neobsahuje screenlet."
+
+#~ msgid "Archive damaged or unsuported, only tar , bz2 or gz."
+#~ msgstr "Archív poškodený alebo nepodporovaný, iba tar , bz2 alebo gz."
+
+#~ msgid "Exception in ScreenletsDaemon: %s"
+#~ msgstr "Výnimka v ScreenletsDaemon: %s"
+
+#~ msgid "It looks like you are running %s"
+#~ msgstr "Vyzerá to, že je spustený %s"
+
+#~ msgid ""
+#~ "The %sScreenlet is already installed in '%s'.\n"
+#~ "Do you wish to continue?"
+#~ msgstr ""
+#~ "%sScreenlet je už nainštalovaný v '%s'.\n"
+#~ "Chcete pokračovať?"
+
+#~ msgid "Installing %s"
+#~ msgstr "Inštalácia %s"
+
+#~ msgid "Starter already exists."
+#~ msgstr "Štarter už existuje."
+
+#~ msgid "Auto-create autostart dir ..."
+#~ msgstr "Auto-vytvorenie štartovacieho adresára..."
+
+#~ msgid "Failed to create autostarter for %s."
+#~ msgstr "Zlyhalo vytvorenie autoštartu pre %s"
+
+#~ msgid "Create autostarter for: Screenlets Daemon"
+#~ msgstr "Vytvoriť autoštarter pre: Screenlets Daemon"
+
+#~ msgid "Create autostarter for: %s/%sScreenlet.py"
+#~ msgstr "Vytvoriť autoštartér pre: %s/% sScreenlet.py"
+
+#~ msgid "Removed duplicate entry"
+#~ msgstr "Odstránené duplicitné vstupy"
+
+#~ msgid "Delete autostarter for %s."
+#~ msgstr "Odstrániť autoštartér pre: %s"
+
+#~ msgid "checking for running daemon again ..."
+#~ msgstr "kontrola pre spustenie démona znova ..."
+
+#~ msgid "Error in ScreenletsManager.connect_daemon: %s"
+#~ msgstr "Chyba v ScreenletsManager.connect_daemon: %s"
+
+#~ msgid "Error: Unable to connect/launch daemon."
+#~ msgstr "Chyba: Nedá sa pripojiť/spustiť démon."
+
+#~ msgid "Trying to launching screenlets-daemon ..."
+#~ msgstr "Pokus o spustenie screenlets-daemon ..."
+
 #~ msgid ""
 #~ "You are about to install a theme in root mode. Continue only if you have "
 #~ "gksudo installed, do you wish to continue?"
 #~ msgstr ""
 #~ "Chystáte sa nainštalovať tému v root režime. Pokračovanie, iba ak máte "
 #~ "nainštalovaný gksudo, prajete si pokračovať?"
+
+#~ msgid "closing %s"
+#~ msgstr "zatváranie %s"
+
+#~ msgid "Create desktop shortcut for: %s/%sScreenlet.py"
+#~ msgstr "Create desktop shortcut for: %s/%sScreenlet.py"
+
+#~ msgid "Quit %s"
+#~ msgstr "Ukončenie %s"
+
+#~ msgid "Launch %s"
+#~ msgstr "Spusti %s"
+
+#~ msgid "Quit!"
+#~ msgstr "Ukončenie!"
+
+#~ msgid ""
+#~ "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
+#~ "Usage: %s <path> [options]"
+#~ msgstr ""
+#~ "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
+#~ "Použitie: %s <cesta> [voľby]"
+
+#~ msgid "Unable to import module '%s' from %s. (%s)"
+#~ msgstr "Nemožno import modul '%s' z %s. (%s)"
+
+#~ msgid "OK."
+#~ msgstr "OK."
+
+#~ msgid "Please install screenlets from folders without strange characters"
+#~ msgstr "Prosím, nainštalujte screenlets zo zložiek, bez cudzích znakov"
+
+#~ msgid "ScreenletsDaemon running ..."
+#~ msgstr "ScreenletsDaemon priebeh..."
+
+#~ msgid "list contains themes folder"
+#~ msgstr "zoznam obsahuje zložku témy"
+
+#~ msgid "list contains the screenlet name folder"
+#~ msgstr "zoznam obsahuje zložky nazvané screenlet"
+
+#~ msgid "only contains the themes folders"
+#~ msgstr "obsahuje len zložky témy"
+
+#~ msgid "DAEMON FOUND - Ending timeout"
+#~ msgstr "DAEMON FOUND - Ukončenie timeout"
+
+#~ msgid "Data dropped ..."
+#~ msgstr "Dáta zahodené ..."

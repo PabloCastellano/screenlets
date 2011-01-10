@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2010-11-12 14:06+0000\n"
 "Last-Translator: Svetoslav Stefanov <svetlisashkov@yahoo.com>\n"
 "Language-Team: Bulgarian <bg@li.org>\n"
-"Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-12-10 04:43+0000\n"
+"X-Launchpad-Export-Date: 2011-01-10 04:52+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: bg\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
 #: src/lib/__init__.py:99
@@ -274,7 +274,8 @@ msgstr ""
 msgid ""
 "This theme wants to override your settings for this Screenlet. Do you want "
 "to allow that?"
-msgstr "Тази тема ще презапише настройките ви за тази джаджа. Желаете ли това?"
+msgstr ""
+"Тази тема ще презапише настройките ви за тази джаджа. Желаете ли това?"
 
 #: src/lib/__init__.py:1610
 #, python-format
@@ -368,20 +369,123 @@ msgstr "Не може да се определи IP адресът"
 msgid "Not connected"
 msgstr "Без връзка"
 
-#~ msgid "Can't get kernel version"
-#~ msgstr "Не може да се получи версията на ядрото"
+#~ msgid "Exception: %s"
+#~ msgstr "Изключение: %s"
 
-#~ msgid "Failed to open /proc/version"
-#~ msgstr "Грешка при отваряне на /proc/version"
+#~ msgid "Error while creating image from file: %s"
+#~ msgstr "Грешка при създаването на изображение от файл: %s"
+
+#~ msgid "XML-Error: %s"
+#~ msgstr "XML-Грешка: %s"
+
+#~ msgid "Error: file %s not found."
+#~ msgstr "Грешка: Не е открит файлът %s."
+
+#~ msgid "Version: "
+#~ msgstr "Версия: "
+
+#~ msgid "Info: "
+#~ msgstr "Информация: "
+
+#~ msgid "Name: "
+#~ msgstr "Име: "
+
+#~ msgid "Author: "
+#~ msgstr "Автор: "
+
+#~ msgid "LOAD NEW THEME: "
+#~ msgstr "ЗАРЕЖДАНЕ НА НОВА ТЕМА: "
 
 #~ msgid "Hddtemp not installed"
 #~ msgstr "Не е инсталиран Hddtemp"
 
+#~ msgid "TEST: %s"
+#~ msgstr "ТЕСТ: %s"
+
+#~ msgid "File: %s"
+#~ msgstr "Файл: %s"
+
+#~ msgid "Unable to open %s"
+#~ msgstr "Неуспех при отварянето на %s"
+
+#~ msgid "File %s not found"
+#~ msgstr "Файлът %s не е намерен"
+
+#~ msgid "Screenlet: Set theme %s"
+#~ msgstr "Джаджа: Задаване на тема %s"
+
+#~ msgid "Delete Screenlet ..."
+#~ msgstr "Изтриване на джаджа..."
+
+#~ msgid "No more screenlets running."
+#~ msgstr "Няма повече пуснати джаджи"
+
+#~ msgid ""
+#~ "Error: Unable to create temp directory %s - screenlets-manager will not work "
+#~ "properly."
+#~ msgstr ""
+#~ "Грешка: Не може да се създаде временната папка %s - управителя на джаджи "
+#~ "няма да работи правилно"
+
+#~ msgid "No screenlets running?"
+#~ msgstr "Няма пуснати джаджи?"
+
+#~ msgid "Failed to load theme.conf"
+#~ msgstr "Неуспех при зареждането на файла theme.conf"
+
+#~ msgid "WARNING: Option '%s' not found or protected."
+#~ msgstr "ВНИМАНИЕ: Настройката '%s' не е открита или е заключена"
+
+#~ msgid "theme.conf loaded: "
+#~ msgstr "зареден е файл theme.conf: "
+
+#~ msgid "Error while creating menu."
+#~ msgstr "Грешка при създаване на меню"
+
 #~ msgid "Error while loading ScreenletTheme in: "
 #~ msgstr "Грешка при зареждане на темата на джаджата в: "
 
+#~ msgid "Error while loading theme: "
+#~ msgstr "Грешка при зареждане на темата: "
+
 #~ msgid "GnomeKeyring is not available!!"
 #~ msgstr "GnomeKeyring не е наличен!!!"
+
+#~ msgid "Error while loading options: %s"
+#~ msgstr "Грешка при зареждане на настройките: %s"
+
+#~ msgid "Temporary file didn't exist - nothing to remove."
+#~ msgstr "Временният файл не същуствува - няма нищо за премахване."
+
+#~ msgid "active theme is: %s"
+#~ msgstr "активната тема е: %s"
+
+#~ msgid "Path %s not found."
+#~ msgstr "Пътят %s не е открит."
+
+#~ msgid "Failed to open /proc/uptime"
+#~ msgstr "Грешка при отваряне на /proc/uptime"
+
+#~ msgid "%s days, %s hours and %s minutes"
+#~ msgstr "%s дни, %s часа и%s минути"
+
+#~ msgid "Failed to open /proc/cpuinfo"
+#~ msgstr "Грешка при отваряне на /proc/cpuinfo"
+
+#~ msgid "Failed to open /proc/sys/kernel/hostname"
+#~ msgstr "Грешка при отваряне на /proc/sys/kernel/hostname"
+
+#~ msgid "Failed to open /proc/stat"
+#~ msgstr "Грешка при отваряне на /proc/stat"
+
+#~ msgid "Failed to open /proc/loadavg"
+#~ msgstr "Грешка при отваряне на /proc/loadavg"
+
+#~ msgid "Can't get kernel version"
+#~ msgstr "Не може да се получи версията на ядрото"
+
+#~ msgid "Error getting distro name"
+#~ msgstr "Грешка при получаване името на дистрибуцията"
 
 #~ msgid "Can't open /proc/net/wireless"
 #~ msgstr "Грешка при отваряне на /proc/net/wireless"
@@ -389,38 +493,162 @@ msgstr "Без връзка"
 #~ msgid "Can't open /proc/net/dev"
 #~ msgstr "Грешка при отваряне на /proc/net/dev"
 
+#~ msgid "Failed to open /proc/version"
+#~ msgstr "Грешка при отваряне на /proc/version"
+
+#~ msgid "Failed to open /proc/swaps"
+#~ msgstr "Грешка при отваряне на /proc/swaps"
+
+#, python-format
 #~ msgid "Can't open %s/temperature"
 #~ msgstr "Не може да се отвори %s/temperature"
 
+#, python-format
 #~ msgid "Can't open %s"
 #~ msgstr "Грешка при отваряне на %s"
 
 #~ msgid "Can't open folder /proc/acpi/thermal_zone/"
 #~ msgstr "Грешка при отваряне на /proc/acpi/thermal_zone/"
 
+#, python-format
 #~ msgid "can't read temperature in: %s"
 #~ msgstr "не може да се прочете температурата в: %s"
 
+#~ msgid "CPUSensor: Failed to open /proc/stat. Sensor stopped."
+#~ msgstr "CPUSensor: Грешка при отваряне на /proc/stat. Сензорът е спрян."
+
+#, python-format
 #~ msgid "Can't read value from %s"
 #~ msgstr "Не може да се прочете стойността от %s"
 
+#~ msgid "An error occured with desktop-file: %s"
+#~ msgstr "Възникна грешка с desktop файла: %s"
+
+#~ msgid "Override: "
+#~ msgstr "Презаписване: "
+
+#~ msgid "Quit this %s ..."
+#~ msgstr "Изход от %s ..."
+
+#~ msgid "Error: Cannot set missing or non-boolean value '"
+#~ msgstr "Грешка: Не може да бъде зададена липсваща или небулева стойност '"
+
+#~ msgid "Start drag"
+#~ msgstr "Начало на плъзгане"
+
+#~ msgid "End drag"
+#~ msgstr "Край на плъзгане"
+
+#~ msgid "Quitting current screenlet instance"
+#~ msgstr "Спиране на текущата джаджа"
+
+#~ msgid "Quit all %ss ..."
+#~ msgstr "Изход от всички %ss ..."
+
+#~ msgid "Saved option %s%s/%s = %s"
+#~ msgstr "Запазена настройка %s%s/%s = %s"
+
+#, python-format
 #~ msgid "No name for group defined in \"%s\"."
 #~ msgstr "В \"%s\" не е определено име за групата."
+
+#~ msgid "unsupported type ''"
+#~ msgstr "непподържан тип ''"
 
 #~ msgid "No name set in ScreenletService.__init__!"
 #~ msgstr "В ScreenletService.__init__ няма зададено име!"
 
+#~ msgid "DEBUG: %s"
+#~ msgstr "Откриване на грешки: %s"
+
+#~ msgid "Creating new entry for %s in %s"
+#~ msgstr "Създаване на нов запис за %s в %s"
+
+#~ msgid "No global tempdir found, creating new one."
+#~ msgstr "Не е намерена глобална временна папка. Създава се нова."
+
+#~ msgid "Screenlet has already been added to %s"
+#~ msgstr "Тази джадажа вече е била добавена към %s"
+
+#~ msgid "Deleting global tempfile %s"
+#~ msgstr "Изтриване на глобалният временен файл %s"
+
+#~ msgid "Error: Failed to delete global tempfile"
+#~ msgstr "Грешка: Неуспех при изтриването на глобалния временен файл"
+
+#~ msgid "Temp directory %s created."
+#~ msgstr "Временната папка %s е създадена."
+
+#~ msgid "Removing entry for %s from global tempfile %s"
+#~ msgstr "Премахване на записа за %s от глобалният временен файл %s"
+
+#~ msgid "Entry not found. Will (obviously) not be removed."
+#~ msgstr "Записът не е намерен, съответно няма да бъде премахнат."
+
+#~ msgid "Section %s not found!"
+#~ msgstr "Разделът %s не е намерен!"
+
+#~ msgid "LISTED PATH NOT EXISTS: "
+#~ msgstr "ОПИСАНИЯТ ПЪТ НЕ СЪЩЕСТВУВА: "
+
+#~ msgid "Unable to load '%s' from %s: %s "
+#~ msgstr "'%s' от %s не може да се зареди: %s "
+
+#~ msgid "CachingBackend: Loading instances from cache"
+#~ msgstr "CachingBackend: Зареждане на копия от кеша"
+
+#~ msgid "FOUND: "
+#~ msgstr "ОТКРИТО: "
+
+#~ msgid "CachingBackend: Loading <%s>"
+#~ msgstr "CachingBackend: Зареждане на <%s>"
+
+#~ msgid "CachingBackend: <#%s> removed!"
+#~ msgstr "CachingBackend: <#%s> е премахнат!"
+
+#~ msgid "GConfBackend: initializing"
+#~ msgstr "GConfBackend: инициализиране"
+
 #~ msgid "No keyrings found. Please create one first!"
 #~ msgstr "Не са открити ключодържатели. Моля първо създайте един!"
+
+#~ msgid "Options: Error - group %s not defined."
+#~ msgstr "Настройки: Грешка - групата %s не е определена."
 
 #~ msgid "Illegal value in AccountOption.on_import."
 #~ msgstr "Неправилна стойност в AccountOption.on_import."
 
+#, python-format
 #~ msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
 #~ msgstr "Невалиден XML във файла с метаданни (или липсващ файл): \"%s\"."
 
+#~ msgid "ERROR: Unable to read password from keyring: %s"
+#~ msgstr "ГРЕШКА: Не може да се прочете паролата от ключодържателя: %s"
+
+#~ msgid "Warning: No default keyring found, storage is not permanent!"
+#~ msgstr ""
+#~ "Внимание: Не е открит стандартен ключодържател, съхраняването не е постоянно!"
+
+#~ msgid "error while saving config: %s%s"
+#~ msgstr "грешка при запазване на настройките: %s%s"
+
+#~ msgid "CachingBackend: Saving <#%s> :) ..."
+#~ msgstr "CachingBackend: Запазване на <#%s> :) ..."
+
+#~ msgid "PRESS: %s"
+#~ msgstr "НАТИСНЕТЕ: %s"
+
+#~ msgid "Changed: %s"
+#~ msgstr "Променено: %s"
+
 #~ msgid "Can't parse /proc/meminfo"
 #~ msgstr "Не може да се обработи /proc/meminfo"
+
+#~ msgid "Error in screenlets.session.connect_daemon: %s"
+#~ msgstr "Грешка в screenlets.session.connect_daemon: %s"
+
+#~ msgid "Creating new instance: "
+#~ msgstr "Създаване на ново копие: "
 
 #~ msgid ""
 #~ "ScreenletSession.__init__ has to be called with a\n"
@@ -429,8 +657,41 @@ msgstr "Без връзка"
 #~ "ScreenletSession.__init__ трябва да се извиква с\n"
 #~ "\t\t\t валиден Screenlet-classobject като първи аргумент!"
 
+#~ msgid "Unable to init backend - settings will not be saved!"
+#~ msgstr ""
+#~ "Модулът не може да се инициализира - настройките няма да бъдат запазени!"
+
+#~ msgid "Error in screenlets.services.get_service_by_name: %s"
+#~ msgstr "Грешка в screenlets.services.get_service_by_name: %s"
+
+#, python-format
 #~ msgid "Trying to access invalid option \"%s\"."
 #~ msgstr "Опит за достъп до невалидна настройка \"%s\"."
 
+#, python-format
 #~ msgid "Trying to access invalid instance \"%s\"."
 #~ msgstr "Опит за достъп до невалидно копие \"%s\"."
+
+#~ msgid "Set options in %s"
+#~ msgstr "Задаване на настройки в %s"
+
+#~ msgid "TODO: remove self.path: %s"
+#~ msgstr "ДА СЕ НАПРАВИ: премахване на self.path: %s"
+
+#~ msgid "Removing last instance from session"
+#~ msgstr "Премахване на последното копие от сесията"
+
+#~ msgid "Restored instances from session '%s' ..."
+#~ msgstr "Възстановени си копия от сесията '%s' ..."
+
+#~ msgid "Loading instances in: %s"
+#~ msgstr "Зареждане на копия в: %s"
+
+#~ msgid "Adding new instance through: %s"
+#~ msgstr "Добавяне на ново копие чрез: %s"
+
+#~ msgid "Failed creating instance of: %s"
+#~ msgstr "Неуспех при създаването на копия на: %s"
+
+#~ msgid "Failed to create instance of '%s'!"
+#~ msgstr "Неуспех при създаването на копие на '%s'!"

@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2010-11-12 13:08+0000\n"
 "Last-Translator: Raúl Reina <raulrm75@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
-"Language: te\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-12-10 04:44+0000\n"
+"X-Launchpad-Export-Date: 2011-01-10 04:54+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: te\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
 msgid "Screenlets daemon"
@@ -299,7 +299,8 @@ msgid "Theme installed , please restart %s"
 msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:824
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:908
@@ -609,3 +610,12 @@ msgstr ""
 #, python-format
 msgid "Failed to add %sScreenlet."
 msgstr "Se ha fallado al añadir el screenlet %s"
+
+#~ msgid "OK."
+#~ msgstr "సరే."
+
+#~ msgid "screenletsDaemon: unregistered %s"
+#~ msgstr "Demonio Screenlets: no registrado %s"
+
+#~ msgid "ScreenletsDaemon: registered %s"
+#~ msgstr "Demonio Screenlets: registrado %s"

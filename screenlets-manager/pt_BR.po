@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2010-11-14 07:51+0000\n"
 "Last-Translator: Screenlets Dev Team <screenlets-dev@lists.launchpad.net>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
-"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-12-10 04:44+0000\n"
+"X-Launchpad-Export-Date: 2011-01-10 04:54+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: pt_BR\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
 msgid "Screenlets daemon"
@@ -117,7 +117,8 @@ msgstr "Apagar Screenlet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:165
 msgid "Do you also want to remove the Screenlet configuration files?"
-msgstr "Você também deseja remover os arquivos de configuração do Screenlet ?"
+msgstr ""
+"Você também deseja remover os arquivos de configuração do Screenlet ?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:169
 msgid "Can't delete system-wide screenlets."
@@ -313,7 +314,8 @@ msgid "Theme installed , please restart %s"
 msgstr "Tema instalado, por favor reinicie o screenlet %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:824
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Instalação de temas, erro 2 encontrado - Tema não instalado ou já instalado"
 
@@ -326,23 +328,20 @@ msgid ""
 msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:908
-#, fuzzy
 msgid "Do you want to enable the Screenlets PPA?"
-msgstr "Você realmente quer reiniciar a configuração do %sScreenlet?"
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
-#, fuzzy
 msgid "The Screenlets PPA added successfully."
-msgstr "O Screenlet %s foi instalado com sucesso."
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
 msgid "Success!"
 msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:913
-#, fuzzy
 msgid "Adding the Screenlets PPA failed."
-msgstr "Obter mais Screenlets"
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:913
 msgid "Failed!"
@@ -521,7 +520,8 @@ msgstr "Não foi possível importar a classe do módulo."
 
 #: src/share/screenlets-manager/screenlets-packager.py:100
 msgid "The class inside the module is no subclass of screenlets.Screenlet."
-msgstr "A classe dentro do módulo não é uma subclasse de screenlets.Screenlet."
+msgstr ""
+"A classe dentro do módulo não é uma subclasse de screenlets.Screenlet."
 
 #: src/share/screenlets-manager/screenlets-packager.py:101
 #, python-format
@@ -697,6 +697,9 @@ msgstr "Falha ao adicionar %s Screenlet"
 #~ msgid "Quit!"
 #~ msgstr "Sair!"
 
+#~ msgid "Unable to import module '%s' from %s. (%s)"
+#~ msgstr "Não foi possível importar o módulo '%s' de %s (%s)"
+
 #~ msgid "OK."
 #~ msgstr "OK."
 
@@ -730,6 +733,9 @@ msgstr "Falha ao adicionar %s Screenlet"
 #~ msgid "Auto-create autostart dir ..."
 #~ msgstr "Auto-criar diretório de inicialização automática ..."
 
+#~ msgid "Failed to create autostarter for %s."
+#~ msgstr "Falha ao criar inicializador automático para Serviço Screenlets."
+
 #~ msgid "Create autostarter for: Screenlets Daemon"
 #~ msgstr "Criar inicializador automático para: Serviço Screenlets"
 
@@ -756,3 +762,10 @@ msgstr "Falha ao adicionar %s Screenlet"
 
 #~ msgid "Launch %s"
 #~ msgstr "Iniciar %s"
+
+#~ msgid ""
+#~ "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
+#~ "Usage: %s <path> [options]"
+#~ msgstr ""
+#~ "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
+#~ "Uso: %s <path> [options]"

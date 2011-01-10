@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2010-11-12 10:08+0000\n"
 "Last-Translator: tabbernuk <boamaod@gmail.com>\n"
 "Language-Team: Czech <cs@li.org>\n"
-"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-12-10 04:43+0000\n"
+"X-Launchpad-Export-Date: 2011-01-10 04:52+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: cs\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
 #: src/lib/__init__.py:99
@@ -370,12 +370,6 @@ msgstr "Nemohu získat ip"
 msgid "Not connected"
 msgstr "Nepřipojeno"
 
-#~ msgid "Can't get kernel version"
-#~ msgstr "Nemohu získat verzi jádra"
-
-#~ msgid "Failed to open /proc/version"
-#~ msgstr "Selhalo otevření /proc/version"
-
 #~ msgid "WARNING: Option '%s' not found or protected."
 #~ msgstr "VAROVÁNÍ: Vlastnost '%s' nebyla nelezena, nebo je chráněna."
 
@@ -409,6 +403,9 @@ msgstr "Nepřipojeno"
 #~ msgid "Info: "
 #~ msgstr "Informace: "
 
+#~ msgid "Failed to load theme.conf"
+#~ msgstr "Nepodařilo se načíst theme.conf"
+
 #~ msgid "theme.conf found! Loading option-overrides."
 #~ msgstr "theme.conf nalezen! Načítám přepisy vlastností"
 
@@ -426,6 +423,12 @@ msgstr "Nepřipojeno"
 
 #~ msgid "FOUND: "
 #~ msgstr "NALEZENO: "
+
+#~ msgid "Delete Screenlet ..."
+#~ msgstr "Smazat Screenlet ..."
+
+#~ msgid "Quit this %s ..."
+#~ msgstr "Zavřít tento %s ..."
 
 #~ msgid "Quit all %ss ..."
 #~ msgstr "Zavřít všechny %s ..."
@@ -447,6 +450,9 @@ msgstr "Nepřipojeno"
 
 #~ msgid "Quitting current screenlet instance"
 #~ msgstr "Zavírání současného výskytu screenletu"
+
+#~ msgid "Screenlet: Set theme %s"
+#~ msgstr "Screenlet: Nastavit motiv %s"
 
 #~ msgid "Cancel delete_event"
 #~ msgstr "Zrušena událost_mazání"
@@ -499,9 +505,11 @@ msgstr "Nepřipojeno"
 #~ msgid "Options: Error - group %s not defined."
 #~ msgstr "Vlastnosti: Chyba - skupina %s není definovaná."
 
+#, python-format
 #~ msgid "No name for group defined in \"%s\"."
 #~ msgstr "Žádné jméno skupiny nastavené v \"%s\"."
 
+#, python-format
 #~ msgid ""
 #~ "Error in metadata-file \"%s\" - only <group>-tags allowed in first level. "
 #~ "Groups must contain at least one <info>-element."
@@ -512,15 +520,18 @@ msgstr "Nepřipojeno"
 #~ msgid "Illegal value in AccountOption.on_import."
 #~ msgstr "Neplatná hodnota v AccountOption.on_import."
 
+#, python-format
 #~ msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
 #~ msgstr "Neplatné XML v meta souboru (nebo chybějící): \"%s\"."
 
 #~ msgid "ERROR: Unable to read password from keyring: %s"
 #~ msgstr "CHYBA: Nemohu přečíst heslo z klíčenky: %s"
 
+#, python-format
 #~ msgid "Invalid option-node found in \"%s\"."
 #~ msgstr "Neplatný uzel vlastnosti nalezen v \"%s\"."
 
+#, python-format
 #~ msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
 #~ msgstr "Chybějící nebo neplatný kořenový uzel v meta souboru: \"%s\"."
 
@@ -556,6 +567,9 @@ msgstr "Nepřipojeno"
 #~ msgid "Failed to open /proc/cpuinfo"
 #~ msgstr "Nepodařilo se otevřít /proc/cpuinfo"
 
+#~ msgid "Can't get kernel version"
+#~ msgstr "Nemohu získat verzi jádra"
+
 #~ msgid "Can't parse /proc/meminfo"
 #~ msgstr "Nemohu zpracovat /proc/meminfo"
 
@@ -565,12 +579,14 @@ msgstr "Nepřipojeno"
 #~ msgid "Can't open /proc/net/wireless"
 #~ msgstr "Nemohu otevřít /proc/net/wireless"
 
+#, python-format
 #~ msgid "Can't open %s"
 #~ msgstr "Nemohu otevřít %s"
 
 #~ msgid "Can't open folder /proc/acpi/thermal_zone/"
 #~ msgstr "Nemohu otevřít složku /proc/acpi/thermal_zone/"
 
+#, python-format
 #~ msgid "can't read temperature in: %s"
 #~ msgstr "nemohu číst tepoltu v: %s"
 
@@ -580,14 +596,19 @@ msgstr "Nepřipojeno"
 #~ msgid "Error during hddtemp drives search"
 #~ msgstr "Chyba při hledání zařízení hddtemp"
 
+#, python-format
 #~ msgid "Can't open %s/temperature"
 #~ msgstr "Nemohu otevřít %s/temperature"
 
 #~ msgid "CPUSensor: Failed to open /proc/stat. Sensor stopped."
 #~ msgstr "CPUSensor: Nemohu otevřít /proc/stat. Snímač zastaven."
 
+#, python-format
 #~ msgid "Can't read value from %s"
 #~ msgstr "Nemohu číst hodnotu z %s"
+
+#~ msgid "Error in screenlets.session.connect_daemon: %s"
+#~ msgstr "Chyba v screenlets.session.connect_daemon: %s"
 
 #~ msgid "No name set in ScreenletService.__init__!"
 #~ msgstr "Není nastaveno žádné jméno v ScreenletService.__init__!"
@@ -605,9 +626,11 @@ msgstr "Nepřipojeno"
 #~ msgid "Error in screenlets.services.get_service_by_name: %s"
 #~ msgstr "Chyba v screenlets.services.get_service_by_name: %s"
 
+#, python-format
 #~ msgid "Trying to access invalid option \"%s\"."
 #~ msgstr "Pokus o přístup k neplatné vlastnosti \"%s\"."
 
+#, python-format
 #~ msgid "Trying to access invalid instance \"%s\"."
 #~ msgstr "Pokus o přístup k neplatnému výstyku \"%s\"."
 
@@ -668,6 +691,9 @@ msgstr "Nepřipojeno"
 #~ msgid "Deleting global tempfile %s"
 #~ msgstr "Mazání globálního dočasného souboru %s"
 
+#~ msgid "No screenlets running?"
+#~ msgstr "Neběží nějaké screenlety?"
+
 #~ msgid "Failed to unregister from daemon: %s"
 #~ msgstr "Nemohu odmazat od ducha: %s"
 
@@ -684,11 +710,14 @@ msgstr "Nepřipojeno"
 #~ msgstr "Vytvářím nový záznam pro %s v %s"
 
 #~ msgid ""
-#~ "Error: Unable to create temp directory %s - screenlets-manager will not "
-#~ "work properly."
+#~ "Error: Unable to create temp directory %s - screenlets-manager will not work "
+#~ "properly."
 #~ msgstr ""
 #~ "Chyba: Nemohu vytvořit dočasnou složku %s - screenlets-manager nebude "
 #~ "pracovat korektně."
+
+#~ msgid "No more screenlets running."
+#~ msgstr "Neběží žádné další screenlety."
 
 #~ msgid "File %s not found"
 #~ msgstr "Soubor %s nenalezen"
@@ -703,12 +732,45 @@ msgstr "Nepřipojeno"
 #~ msgid "LISTED PATH NOT EXISTS: "
 #~ msgstr "VYPSANÁ CESTA NEEXISTUJE: "
 
+#~ msgid "Unable to load '%s' from %s: %s "
+#~ msgstr "Nemohu načíst '%s' z %s: %s "
+
 #~ msgid "Error: Failed to delete global tempfile"
 #~ msgstr "Chyba: Nepodařilo se smazat globální dočasný soubor"
 
 #~ msgid ""
 #~ "Screenlet '%s' has been interrupted by keyboard. TODO: make this an event"
 #~ msgstr "Screenlet '%s' byl přerušen klávesnicí. TODO: udělat událostí"
+
+#~ msgid "Exception in ScreenletSession: "
+#~ msgstr "Výjimka v ScreenletSession: "
+
+#~ msgid "Failed to create instance of '%s'!"
+#~ msgstr "Nepodařilo se vytvořit výskyt '%s'!"
+
+#~ msgid "No global tempdir found, creating new one."
+#~ msgstr "Nebyl nalezen žádný globální dočasný adresář, vytvářím nový."
+
+#~ msgid "Screenlet has already been added to %s"
+#~ msgstr "Screenlet byl již přidán do %s"
+
+#~ msgid "Failed to open /proc/sys/kernel/hostname"
+#~ msgstr "Selhalo otevření /proc/sys/kernel/hostname"
+
+#~ msgid "Failed to open /proc/version"
+#~ msgstr "Selhalo otevření /proc/version"
+
+#~ msgid "Failed to open /proc/loadavg"
+#~ msgstr "Selhalo otevření /proc/loadavg"
+
+#~ msgid "Unable to open %s"
+#~ msgstr "Nemohu otevřít %s"
+
+#~ msgid "Failed to open /proc/swaps"
+#~ msgstr "Selhalo otevření /proc/swaps"
+
+#~ msgid "Temp directory %s created."
+#~ msgstr "Dočasný adresář %s vytvořen."
 
 #~ msgid "UPDATING SHAPE"
 #~ msgstr "AKTUALIZACE TVARU"

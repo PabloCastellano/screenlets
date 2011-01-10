@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2010-11-12 13:58+0000\n"
 "Last-Translator: Bundo <bundo@bundo.biz>\n"
 "Language-Team: Korean <ko@li.org>\n"
-"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-12-10 04:43+0000\n"
+"X-Launchpad-Export-Date: 2011-01-10 04:52+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: ko\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
 #: src/lib/__init__.py:99
@@ -274,8 +274,7 @@ msgstr ""
 msgid ""
 "This theme wants to override your settings for this Screenlet. Do you want "
 "to allow that?"
-msgstr ""
-"이 테마는 당신의 이 스크린렛츠설정을 덥어 버립니다. 계속 따라 하시겠습니까?"
+msgstr "이 테마는 당신의 이 스크린렛츠설정을 덥어 버립니다. 계속 따라 하시겠습니까?"
 
 #: src/lib/__init__.py:1610
 #, python-format
@@ -304,9 +303,7 @@ msgstr "설정 "
 msgid ""
 "Themes allow you to easily switch the appearance of your Screenlets. On this "
 "page you find a list of all available themes for this Screenlet."
-msgstr ""
-"스크린렛츠의 모양은 테마로 쉽게 전환할 수 있습니다. 이 스크린렛츠에서 사용 가"
-"능한 모든 주제 목록이 페이지에 게재됩니다."
+msgstr "스크린렛츠의 모양은 테마로 쉽게 전환할 수 있습니다. 이 스크린렛츠에서 사용 가능한 모든 주제 목록이 페이지에 게재됩니다."
 
 #: src/lib/options.py:903
 msgid "Themes "
@@ -369,17 +366,104 @@ msgstr "ip 얻어오기 실패"
 msgid "Not connected"
 msgstr "연결되지 않았음"
 
-#~ msgid "Can't get kernel version"
-#~ msgstr "커널 버전을 가져올 수 없습니다"
+#~ msgid "theme.conf loaded: "
+#~ msgstr "theme.conf 불러옴: "
 
-#~ msgid "Failed to open /proc/version"
-#~ msgstr "/proc/version 열기 실패"
+#~ msgid "An error occured with desktop-file: %s"
+#~ msgstr "데스크탑 파일 오류 발생: %s"
+
+#~ msgid "Exception: %s"
+#~ msgstr "예외: %s"
+
+#~ msgid "Error while creating menu."
+#~ msgstr "메뉴를 만드는 동안 오류가 발생했습니다."
+
+#~ msgid "Override: "
+#~ msgstr "무효: "
 
 #~ msgid "Error while loading ScreenletTheme in: "
 #~ msgstr "스크린렛츠 테마를 불러오는 동안 오류 발생: "
 
+#~ msgid "Error while creating image from file: %s"
+#~ msgstr "파일로부터 이미지를 만드는 도중 오류발생: %s"
+
+#~ msgid "XML-Error: %s"
+#~ msgstr "XML-오류: %s"
+
+#~ msgid "Error: file %s not found."
+#~ msgstr "오류: 파일 %s 를 찾을 수 없음."
+
+#~ msgid "Version: "
+#~ msgstr "버전: "
+
+#~ msgid "Info: "
+#~ msgstr "정보: "
+
+#~ msgid "Failed to load theme.conf"
+#~ msgstr "theme.conf 불러오기 실패"
+
+#~ msgid "theme.conf found! Loading option-overrides."
+#~ msgstr "theme.conf 찾음 덥어쓰기 옵션으로 부르는 중"
+
+#~ msgid "Name: "
+#~ msgstr "이름: "
+
+#~ msgid "Author: "
+#~ msgstr "만든이: "
+
+#~ msgid "LOAD NEW THEME: "
+#~ msgstr "새 테마 부르기: "
+
+#~ msgid "FOUND: "
+#~ msgstr "발견: "
+
+#~ msgid "Start drag"
+#~ msgstr "드래그 시작"
+
+#~ msgid "End drag"
+#~ msgstr "드래그 끝"
+
+#~ msgid "GConf python module not found. GConf settings backend is disabled."
+#~ msgstr "GConf 파이선모둘을 찾을수 없음. GConf 설정 백엔드 불가능"
+
+#~ msgid "Quitting current screenlet instance"
+#~ msgstr "현재 스크린렛츠 인스턴스를 종료"
+
+#~ msgid "Screenlet: Set theme %s"
+#~ msgstr "스크린렛츠: %s 테마셋"
+
+#~ msgid "Cancel delete_event"
+#~ msgstr "이벤트_지우기 취소"
+
+#~ msgid "GConfBackend: initializing"
+#~ msgstr "GConf백엔드: 설정중"
+
+#~ msgid "Saved option %s%s/%s = %s"
+#~ msgstr "옵션 저장됨 %s%s/%s = %s"
+
+#~ msgid "CachingBackend: Loading instances from cache"
+#~ msgstr "백엔드케시: 캐시에서 인스턴스 불러오는 중"
+
 #~ msgid "GnomeKeyring is not available!!"
 #~ msgstr "GnomeKeyring을 사용할 수 없습니다!!"
+
+#~ msgid "error while saving config: %s%s"
+#~ msgstr "config 저장중 오류:  %s%s"
+
+#~ msgid "CachingBackend: Saving <#%s> :) ..."
+#~ msgstr "백엔드케시: 저장 <#%s> :) ..."
+
+#~ msgid "CachingBackend: Loading <%s>"
+#~ msgstr "백엔드케시: 블러 오는중 <%s>"
+
+#~ msgid "Error while loading options: %s"
+#~ msgstr "설정 불러오는 동안 오류 : %s"
+
+#~ msgid "Temporary file didn't exist - nothing to remove."
+#~ msgstr "임시 파일이 존재하지 않았 - 어느것도 제거"
+
+#~ msgid "Warning: No default keyring found, storage is not permanent!"
+#~ msgstr "경고 : 기본적인 키링 발견, 스토리지가 영구하지 않습니다!"
 
 #~ msgid "No keyrings found. Please create one first!"
 #~ msgstr "keyrings 찾을 수 없음. 먼저 작성하시기 바랍니다!"
@@ -387,18 +471,56 @@ msgstr "연결되지 않았음"
 #~ msgid "Illegal value in AccountOption.on_import."
 #~ msgstr "AccountOption.on_import에  잘못된 값."
 
+#~ msgid "ERROR: Unable to read password from keyring: %s"
+#~ msgstr "오류 : 키링에서 암호를 읽을 수 없습니다 : %s"
+
+#~ msgid "PRESS: %s"
+#~ msgstr "프레스: %s"
+
+#~ msgid "active theme is: %s"
+#~ msgstr "활성된 테마: %s"
+
+#~ msgid "Changed: %s"
+#~ msgstr "변경됨 : %s"
+
+#~ msgid "Failed to open /proc/uptime"
+#~ msgstr "/proc/uptime 열기 실패"
+
+#~ msgid "Failed to open /proc/cpuinfo"
+#~ msgstr "/proc/cpuinfo 열기 실패"
+
+#~ msgid "Failed to open /proc/sys/kernel/hostname"
+#~ msgstr "/proc/sys/kernel/hostname 열기 실패"
+
+#~ msgid "Failed to open /proc/loadavg"
+#~ msgstr "/proc/loadavg 열기 실패"
+
+#~ msgid "Failed to open /proc/stat"
+#~ msgstr "/proc/stat 열기 실패"
+
+#~ msgid "Can't get kernel version"
+#~ msgstr "커널 버전을 가져올 수 없습니다"
+
+#~ msgid "Error getting distro name"
+#~ msgstr "배포판 이름 가져오기 오류"
+
 #~ msgid "Can't open /proc/net/wireless"
 #~ msgstr "/proc/net/wireless 열기 실패"
 
 #~ msgid "Can't open /proc/net/dev"
 #~ msgstr "/proc/net/dev 열기 실패"
 
+#, python-format
 #~ msgid "Can't open %s"
 #~ msgstr "%s를 열 수 없습니다."
 
 #~ msgid "Can't open folder /proc/acpi/thermal_zone/"
 #~ msgstr "/proc/acpi/thermal_zone/ 폴더를 열 수 없습니다."
 
+#~ msgid "Failed to open /proc/version"
+#~ msgstr "/proc/version 열기 실패"
+
+#, python-format
 #~ msgid "Can't open %s/temperature"
 #~ msgstr "%s/temperature 열수 없습니다."
 
@@ -408,6 +530,7 @@ msgstr "연결되지 않았음"
 #~ msgid "Error during hddtemp drives search"
 #~ msgstr "hddtemp가 드라이브를 검색하는 동안 오류"
 
+#, python-format
 #~ msgid "can't read temperature in: %s"
 #~ msgstr "온도를 읽을 수없습니다: %s"
 
@@ -417,14 +540,180 @@ msgstr "연결되지 않았음"
 #~ msgid "No name set in ScreenletService.__init__!"
 #~ msgstr "ScreenletService.__init__ 설정 이름이 없음!"
 
+#~ msgid "CPUSensor: Failed to open /proc/stat. Sensor stopped."
+#~ msgstr "CPU센서: 열기 실패 /proc/stat. 센서 정지됨."
+
+#, python-format
 #~ msgid "Trying to access invalid instance \"%s\"."
 #~ msgstr "잘못된 인스턴스에 액세스하려하는중 \"%s\"."
 
+#~ msgid "Cannot get/set protected options through service."
+#~ msgstr "서비스를 통해 설정이 보호되어 가져오거나/설정 할 수  없습니다."
+
+#~ msgid "DEBUG: %s"
+#~ msgstr "디버그: %s"
+
+#, python-format
 #~ msgid "Can't read value from %s"
 #~ msgstr "%s에서 값을 읽을 수없습니다"
 
+#~ msgid "TEST: %s"
+#~ msgstr "테스트: %s"
+
+#~ msgid "ID is unset or already in use - creating new one!"
+#~ msgstr "ID 는 사용자설정이거나 이미 사용 중입니다 - 새로운 하나를 만드십시오!"
+
+#~ msgid "Failed to remove INI-file for instance (not critical)."
+#~ msgstr "예를든 INI-file을 지우기 실패 (중요치 않음)"
+
+#~ msgid "Error in screenlets.session.connect_daemon: %s"
+#~ msgstr "오류 screenlets.session.connect_daemon: %s"
+
+#~ msgid "Creating new instance: "
+#~ msgstr "새로운 예제를 만들기 : "
+
+#~ msgid "Unable to init backend - settings will not be saved!"
+#~ msgstr "백엔드 초기화 할 수 없습니다 - 설정이 저장되지 않습니다!"
+
+#~ msgid "Error in screenlets.services.get_service_by_name: %s"
+#~ msgstr "오류 screenlets.services.get_service_by_name: %s"
+
+#, python-format
 #~ msgid "Trying to access invalid option \"%s\"."
 #~ msgstr "잘못된 옵션을 사용하려고 하는중 \"%s\"."
 
+#~ msgid "File: %s"
+#~ msgstr "파일: %s"
+
+#~ msgid "Removing instance from session but staying alive"
+#~ msgstr "세션에서 인스턴스를 제거하지만, 살아있음"
+
+#~ msgid "TODO: remove self.path: %s"
+#~ msgstr "TODO: 제거 self.path: %s"
+
+#~ msgid "Removing last instance from session"
+#~ msgstr "세션에서 마지막 인스턴스 제거"
+
+#~ msgid "Loading instances in: %s"
+#~ msgstr "인스턴스를로드 중입니다: %s"
+
+#~ msgid "Adding new instance through: %s"
+#~ msgstr "다음을 통해 새로운 인스턴스를 추가: %s"
+
+#~ msgid "Failed creating instance of: %s"
+#~ msgstr "인스턴스 만들기 실패: %s"
+
+#~ msgid "Screenlet has already been added to %s"
+#~ msgstr "%s 스트린렛츠는 이미 추가 되었습니다"
+
+#~ msgid "Failed to unregister from daemon: %s"
+#~ msgstr "데몬을 부터 등록 실패: %s"
+
+#~ msgid "Error global tempfile not found. Some error before?"
+#~ msgstr "오류 글로벌 tempfile을 찾을 수없습니다. 이전에도 일부 오류가?"
+
+#~ msgid "File %s not found"
+#~ msgstr "%s 파일을 찾을 수 없습니다"
+
+#~ msgid "Deleting global tempfile %s"
+#~ msgstr "글로벌 tempfile %s을 삭제"
+
+#~ msgid "Error: Failed to delete global tempfile"
+#~ msgstr "오류 : 글로벌 tempfile을 삭제하지 못했습니다"
+
+#~ msgid "Exception in ScreenletSession: "
+#~ msgstr "스크린렛츠세션 예외: "
+
+#~ msgid "No more screenlets running."
+#~ msgstr "더 이상 스크린렛츠를 실행할 수있습니다."
+
+#~ msgid "Notify: No DBus running or notifications-daemon unavailable."
+#~ msgstr "알림:  DBUS를 실행하거나 데몬 알림을 사용할 수 없습니다."
+
+#~ msgid "unsupported type ''"
+#~ msgstr "지원하지 않는 유형 \""
+
+#~ msgid "No global tempdir found, creating new one."
+#~ msgstr "글러벌 temp 디렉이 없습니다, 하나 만드십시오."
+
+#~ msgid "Temp directory %s created."
+#~ msgstr "Temp 디렉토리 %s 만들어짐."
+
+#~ msgid "Quit all %ss ..."
+#~ msgstr "모든 %ss  종료"
+
+#~ msgid "Error while loading theme: "
+#~ msgstr "테마 불러오는 동안 오류: "
+
+#~ msgid "CachingBackend: <#%s> removed!"
+#~ msgstr "백엔드케시: <#%s> 제거됨!"
+
+#~ msgid "OptionsDialog: Unknown option type: %s"
+#~ msgstr "설정대화창: 알 수없는 유형: %s"
+
+#~ msgid "Failed to remove session dir '%s' - not empty?"
+#~ msgstr "'%s' 디렉을 세션에서 제거 실패 - 비지 않았는데요?"
+
+#~ msgid "Found a running session of %s, adding new instance by service."
+#~ msgstr "Found a running session of %s, adding new instance by service."
+
+#~ msgid "Failed to open /proc/swaps"
+#~ msgstr "Failed to open /proc/swaps"
+
+#~ msgid "Failed to create instance of '%s'!"
+#~ msgstr "'%s' 의 인스턴스를 생성하는 데 실패했습니다!"
+
+#~ msgid "WARNING: Option '%s' not found or protected."
+#~ msgstr "경고 : 옵션 '%s'를 찾을 수없습니다 또는 보호됨."
+
+#~ msgid "Restored instances from session '%s' ..."
+#~ msgstr "세션 '%s' 에서 인스턴스를 복구함 ..."
+
+#~ msgid "Options: Error - group %s not defined."
+#~ msgstr "옵션: 오류  - 정의된  %s 그룹이 아닙니다."
+
+#~ msgid "Path %s not found."
+#~ msgstr "%s 경로를 찾을 수 없습니다."
+
+#~ msgid "%s days, %s hours and %s minutes"
+#~ msgstr "%s 일, %s 시간 그리고 %s 분"
+
+#~ msgid "Set options in %s"
+#~ msgstr "%s 옵션 설정"
+
+#~ msgid "Unable to open %s"
+#~ msgstr "%s 을(를) 열 수 없습니다"
+
+#~ msgid "Section %s not found!"
+#~ msgstr "섹션 %s 찾을 수 없잖아요!"
+
+#, python-format
 #~ msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
 #~ msgstr "메타 데이터 파일에 잘못된 XML (또는 파일 없음) : \"%s\"."
+
+#~ msgid "Queue-element <%s> not found (already removed?)!"
+#~ msgstr "Queue - element \"%s\"를 찾을 수 없습니다 (이미 삭제된?)!"
+
+#~ msgid "LISTED PATH NOT EXISTS: "
+#~ msgstr "나열된 경로가 부재: "
+
+#~ msgid ""
+#~ "Screenlet '%s' has been interrupted by keyboard. TODO: make this an event"
+#~ msgstr "스크린렛츠 '%s' 키보드에 중단되었습니다. TODO :이 이벤트 만듭니다"
+
+#~ msgid "No instance(s) found in session-path, creating new one."
+#~ msgstr "인스턴스가 session - path에서 찾을 수없습니다. 새로 만들기를 합니다."
+
+#~ msgid "Entry not found. Will (obviously) not be removed."
+#~ msgstr "항목이없습니다. (물론) 삭제되지 않습니다."
+
+#~ msgid ""
+#~ "Error: Unable to create temp directory %s - screenlets-manager will not work "
+#~ "properly."
+#~ msgstr "오류 : 임시 디렉토리 %s 생성 금지 - 이 경우 스크린렛츠 관리자가 올바르게 작동하지 않습니다."
+
+#~ msgid "Delete Screenlet ..."
+#~ msgstr "설정 삭제하며 끝내기..."
+
+#~ msgid "Quit this %s ..."
+#~ msgstr "이 %s만 종료..."

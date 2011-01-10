@@ -12,12 +12,17 @@ msgstr ""
 "PO-Revision-Date: 2010-11-30 10:20+0000\n"
 "Last-Translator: tabbernuk <boamaod@gmail.com>\n"
 "Language-Team: Estonian <gnome-et@lists.linux.ee>\n"
-"Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-12-10 04:43+0000\n"
+"X-Launchpad-Export-Date: 2011-01-10 04:52+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: et\n"
+
+#: src/lib/sensors.py:165
+#, python-format
+msgid "%(days)s days, %(hours)s hours and %(minutes)s minutes"
+msgstr "%(days)s päev(a), %(hours)s tund(i) ja %(minutes)s minut(it)"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
 #: src/lib/__init__.py:99
@@ -286,7 +291,8 @@ msgstr "Sulge kõik %s'd"
 msgid ""
 "This theme wants to override your settings for this Screenlet. Do you want "
 "to allow that?"
-msgstr "See teema tahab selle töölauavidina seadeid üle katta. Lubad sa seda?"
+msgstr ""
+"See teema tahab selle töölauavidina seadeid üle katta. Lubad sa seda?"
 
 #: src/lib/__init__.py:1610
 #, python-format
@@ -362,11 +368,6 @@ msgstr ""
 msgid "Apply"
 msgstr "Kinnita"
 
-#: src/lib/sensors.py:165
-#, python-format
-msgid "%(days)s days, %(hours)s hours and %(minutes)s minutes"
-msgstr "%(days)s päev(a), %(hours)s tund(i) ja %(minutes)s minut(it)"
-
 #: src/lib/sensors.py:276
 msgid "Can't get KDE version"
 msgstr "KDE versioon teadmata"
@@ -382,12 +383,6 @@ msgstr "IP teadmata"
 #: src/lib/sensors.py:568 src/lib/sensors.py:581
 msgid "Not connected"
 msgstr "Ühendamata"
-
-#~ msgid "Can't get kernel version"
-#~ msgstr "Kerneli versioon teadmata"
-
-#~ msgid "Failed to open /proc/version"
-#~ msgstr "/proc/version avamine ebaõnnesuts"
 
 #~ msgid "Queue-element <%s> not found (already removed?)!"
 #~ msgstr "Järjekorraelementi <%s> ei leitud (juba eemaldatud?)!"
@@ -413,6 +408,7 @@ msgstr "Ühendamata"
 #~ msgid "Saved option %s%s/%s = %s"
 #~ msgstr "Salvestatud seade %s%s/%s = %s"
 
+#, python-format
 #~ msgid ""
 #~ "Error in metadata-file \"%s\" - only <group>-tags allowed in first level. "
 #~ "Groups must contain at least one <info>-element."
@@ -423,9 +419,11 @@ msgstr "Ühendamata"
 #~ msgid "Illegal value in AccountOption.on_import."
 #~ msgstr "Vigane väärtus AccountOption.on_import-is"
 
+#, python-format
 #~ msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
 #~ msgstr "Puuduv või vigane rootnode metainformatsioonifailis: \"%s\"."
 
+#, python-format
 #~ msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
 #~ msgstr "Vigane XML metadata-failis (või fail puudub): \"%s\"."
 
@@ -450,15 +448,20 @@ msgstr "Ühendamata"
 #~ msgid "Section %s not found!"
 #~ msgstr "Sektsiooni %s ei leitud!"
 
+#~ msgid "Delete Screenlet ..."
+#~ msgstr "Kustuta Screenlet ..."
+
 #~ msgid "Error while loading theme: "
 #~ msgstr "Viga teema laadimisel: "
 
 #~ msgid "File: %s"
 #~ msgstr "Fail: %s"
 
+#, python-format
 #~ msgid "No name for group defined in \"%s\"."
 #~ msgstr "Grupile pole nime defineeritud \"%s\"."
 
+#, python-format
 #~ msgid "Invalid option-node found in \"%s\"."
 #~ msgstr "\"%s\" sisaldab vigast option-node'i."
 
@@ -513,11 +516,26 @@ msgstr "Ühendamata"
 #~ msgid "ERROR: Unable to read password from keyring: %s"
 #~ msgstr "VIGA: Parooli lugemine võtmerõngast kukkus läbi: %s"
 
+#~ msgid "WARNING: Option '%s' not found or protected."
+#~ msgstr "Hoiatus: Valikut '%s' ei leitud või on kaitstud."
+
+#~ msgid "An error occured with desktop-file: %s"
+#~ msgstr "Tekkis viga failiga desktop-file:%s"
+
+#~ msgid "theme.conf found! Loading option-overrides."
+#~ msgstr "theme.conf leitud! Laadin ülekirjutusvalikuid."
+
+#~ msgid "FOUND: "
+#~ msgstr "LEITUD: "
+
 #~ msgid "Error while loading ScreenletTheme in: "
 #~ msgstr "Viga töölauavidina teema lugemisel: "
 
 #~ msgid "No keyrings found. Please create one first!"
 #~ msgstr "Võtmerõngast ei leitud. Palun, loo see esmalt!"
+
+#~ msgid "Failed to open /proc/version"
+#~ msgstr "/proc/version avamine ebaõnnesuts"
 
 #~ msgid "Can't parse /proc/meminfo"
 #~ msgstr "/proc/meminfo parsimine ebaõnnestus"
@@ -542,8 +560,7 @@ msgstr "Ühendamata"
 
 #~ msgid "GConf python module not found. GConf settings backend is disabled."
 #~ msgstr ""
-#~ "GConf'i Pythoni moodulit ei leitud. GConf seadete pakkujat ei saa "
-#~ "kasutada."
+#~ "GConf'i Pythoni moodulit ei leitud. GConf seadete pakkujat ei saa kasutada."
 
 #~ msgid "CachingBackend: Loading instances from cache"
 #~ msgstr "CachingBackend: Laadin isendid puhvrist"
@@ -567,19 +584,18 @@ msgstr "Ühendamata"
 #~ msgstr "%sScreenleti lisamine ebaõnnestus."
 
 #~ msgid ""
-#~ "Invalid archive. Archive must contain a directory with the screenlet's "
-#~ "name."
+#~ "Invalid archive. Archive must contain a directory with the screenlet's name."
 #~ msgstr "Vigane arhiiv. Arhiivis peab olema kaust töölauavidina nimega."
 
 #~ msgid "Install %s"
 #~ msgstr "Paigalda %s"
 
 #~ msgid ""
-#~ "%s was not packaged with the screenlet packager. Do you wish to continue "
-#~ "and try to install it?"
+#~ "%s was not packaged with the screenlet packager. Do you wish to continue and "
+#~ "try to install it?"
 #~ msgstr ""
-#~ "%s ei ole pakitud töölauavidinate pakendajaga. Kas jätkata ja üritada "
-#~ "seda paigaldada?"
+#~ "%s ei ole pakitud töölauavidinate pakendajaga. Kas jätkata ja üritada seda "
+#~ "paigaldada?"
 
 #~ msgid "This package was not packaged with the screenlet packager."
 #~ msgstr "See pakk pole pakendatud töölauavidinate pakendajaga."
@@ -626,11 +642,11 @@ msgstr "Ühendamata"
 #~ msgstr "Tõrge"
 
 #~ msgid ""
-#~ "There is no existing autostart directory for your user account yet. Do "
-#~ "you want me to automatically create it for you?"
+#~ "There is no existing autostart directory for your user account yet. Do you "
+#~ "want me to automatically create it for you?"
 #~ msgstr ""
-#~ "Sinu kasutajakonto jaoks pole veel loodud automaatkäivituse kataloogi. "
-#~ "Kas luua see praegu?"
+#~ "Sinu kasutajakonto jaoks pole veel loodud automaatkäivituse kataloogi. Kas "
+#~ "luua see praegu?"
 
 #~ msgid "Auto-create autostart dir ..."
 #~ msgstr "Automaatkäivituse kataloogi loomine..."
@@ -975,3 +991,6 @@ msgstr "Ühendamata"
 
 #~ msgid "(?)"
 #~ msgstr "(?)"
+
+#~ msgid "Can't get kernel version"
+#~ msgstr "Kerneli versioon teadmata"

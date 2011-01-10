@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2010-11-12 14:18+0000\n"
 "Last-Translator: tabbernuk <boamaod@gmail.com>\n"
 "Language-Team: Danish <da@li.org>\n"
-"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-12-10 04:44+0000\n"
+"X-Launchpad-Export-Date: 2011-01-10 04:53+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+"Language: da\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
 msgid "Screenlets daemon"
@@ -66,10 +66,10 @@ msgid ""
 "license. Thank you for using free software!"
 msgstr ""
 "Dette program er frigivet under GNU General Public License v3 (eller, efter "
-"dit valgt, en senere version). Du kan finde licensens fulde ordlyd på http://"
-"www.gnu.org/licenses/gpl.txt. Ved at bruge, ændre og/eller distribuere denne "
-"software accepterer du licensens vilkår og betingelser. Tak fordi du bruger "
-"fri software!"
+"dit valgt, en senere version). Du kan finde licensens fulde ordlyd på "
+"http://www.gnu.org/licenses/gpl.txt. Ved at bruge, ændre og/eller "
+"distribuere denne software accepterer du licensens vilkår og betingelser. "
+"Tak fordi du bruger fri software!"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:251
 msgid "Install a Screenlet"
@@ -187,8 +187,8 @@ msgstr "Start/tilføj en ny instans af den valgte Screenlet ..."
 msgid ""
 "Install a new Screenlet, SuperKaramba or Web Widget or Web Application  ..."
 msgstr ""
-"Installer en ny Screenlet, SuperKaramba eller Web Widget eller Web "
-"Program ..."
+"Installer en ny Screenlet, SuperKaramba eller Web Widget eller Web Program "
+"..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:421
 msgid "Permanently uninstall/delete the currently selected Screenlet ..."
@@ -311,7 +311,8 @@ msgid "Theme installed , please restart %s"
 msgstr "Tema installeret, genstart venligst %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:824
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Tema installation fejl 2 fundet - Tema ikke installeret eller allerede "
 "installeret"
@@ -325,23 +326,20 @@ msgid ""
 msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:908
-#, fuzzy
 msgid "Do you want to enable the Screenlets PPA?"
-msgstr "Vil du også fjerne Screenlet konfigurations filerne?"
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
-#, fuzzy
 msgid "The Screenlets PPA added successfully."
-msgstr "The %sScreenlet er korrekt installeret."
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
 msgid "Success!"
 msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:913
-#, fuzzy
 msgid "Adding the Screenlets PPA failed."
-msgstr "Hent flere Screenlets"
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:913
 msgid "Failed!"
@@ -438,7 +436,8 @@ msgstr "Punkt 1 : Find den widget du ønsker at konvertere"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1083
 msgid "Step 2 : Copy and Paste the HTML from the widget in the box below"
-msgstr "Punkt 2 : Kopier og indsæt HTML koden fra widgeten i boksen nedenunder"
+msgstr ""
+"Punkt 2 : Kopier og indsæt HTML koden fra widgeten i boksen nedenunder"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1084
 msgid "Step 3 : Give it a name in the box below and click on Ok to convert"
@@ -528,7 +527,8 @@ msgstr "Fik klasse fra modul: %s"
 #: src/share/screenlets-manager/screenlets-packager.py:132
 #, python-format
 msgid "Failed to create package info in \"%s\" (no permission?)."
-msgstr "Fejlede under oprettelse af pakke info i \"%s\" (ingen rettigheder?)."
+msgstr ""
+"Fejlede under oprettelse af pakke info i \"%s\" (ingen rettigheder?)."
 
 #: src/share/screenlets-manager/screenlets-packager.py:133
 msgid "Created package info file."
@@ -666,9 +666,103 @@ msgstr "Tilføjelsen af %sScreenlet fejlede."
 #~ msgid "OK."
 #~ msgstr "OK"
 
+#~ msgid "ScreenletsDaemon: registered %s"
+#~ msgstr "ScreenletsDaemon: registreret %s"
+
+#~ msgid "screenletsDaemon: unregistered %s"
+#~ msgstr "ScreenletsDaemon: uregistreret %s"
+
+#~ msgid "ScreenletsDaemon has been shut down ..."
+#~ msgstr "Screenlets dæmonen er lukket ..."
+
+#~ msgid "Invalid archive. Archive does not contain a screenlet."
+#~ msgstr "Ugyldigt arkiv. Arkivet indeholder ikke en screenlet."
+
+#~ msgid "Archive damaged or unsuported, only tar , bz2 or gz."
+#~ msgstr "Arkiv beskadiget eller ikke understøttet, kun tar, bz2 eller gz."
+
+#~ msgid "ScreenletsDaemon running ..."
+#~ msgstr "Screenlets dæmonen kører ..."
+
+#~ msgid ""
+#~ "The %sScreenlet is already installed in '%s'.\n"
+#~ "Do you wish to continue?"
+#~ msgstr ""
+#~ "Screenletten %s er allerede installeret i '%s'.\n"
+#~ "Ønsker du at fortsætte?"
+
+#~ msgid "Failed to create autostarter for %s."
+#~ msgstr "Fejlede under oprettelse af autostarter til %s."
+
+#~ msgid "Create autostarter for: Screenlets Daemon"
+#~ msgstr "Opret autostarter til: Screenlets Daemon"
+
+#~ msgid "Create autostarter for: %s/%sScreenlet.py"
+#~ msgstr "Opret autostarter for: %s/%sScreenlet.py"
+
+#~ msgid "Removed duplicate entry"
+#~ msgstr "Fjern duplikeret indtastning"
+
+#~ msgid "Delete autostarter for %s."
+#~ msgstr "Fjern autostarter til %s."
+
+#~ msgid "DAEMON FOUND - Ending timeout"
+#~ msgstr "DAEMON FUNDET - Ender timeout"
+
+#~ msgid "checking for running daemon again ..."
+#~ msgstr "tjekker efter kørende daemon igen ..."
+
+#~ msgid "Error: Unable to connect/launch daemon."
+#~ msgstr "Fejl: Kunne ikke forbinde/starte daemon."
+
+#~ msgid "Trying to launching screenlets-daemon ..."
+#~ msgstr "Forsøger at starte screenlets-daemon ..."
+
+#~ msgid "Starter already exists."
+#~ msgstr "Starteren eksisterer allerede."
+
+#~ msgid "Please install screenlets from folders without strange characters"
+#~ msgstr ""
+#~ "Installer venligst screenlets fra en folder som ikke indeholder underlige "
+#~ "tegn"
+
+#~ msgid "Data dropped ..."
+#~ msgstr "Data fjernet ..."
+
 #~ msgid ""
 #~ "You are about to install a theme in root mode. Continue only if you have "
 #~ "gksudo installed, do you wish to continue?"
 #~ msgstr ""
-#~ "Du er ved at installer et tema med root-rettigheder. Fortsæt kun hvis du "
-#~ "har gksudo installeret, ønsker du at fortsætte?"
+#~ "Du er ved at installer et tema med root-rettigheder. Fortsæt kun hvis du har "
+#~ "gksudo installeret, ønsker du at fortsætte?"
+
+#~ msgid "list contains themes folder"
+#~ msgstr "liste indeholder tema mappe"
+
+#~ msgid "list contains the screenlet name folder"
+#~ msgstr "liste indeholder screenlet navne mappe"
+
+#~ msgid "only contains the themes folders"
+#~ msgstr "indeholder kun tema mapperne"
+
+#~ msgid "Create desktop shortcut for: %s/%sScreenlet.py"
+#~ msgstr "Opret Skrivebords genvej til: %s/%sScreenlet.py"
+
+#~ msgid "Exception in ScreenletsDaemon: %s"
+#~ msgstr "Undtagelse i ScreenletsDaemon: %s"
+
+#~ msgid "Error in ScreenletsManager.connect_daemon: %s"
+#~ msgstr "Fejl i ScreenletsManager.connect_daemon: %s"
+
+#~ msgid "Auto-create autostart dir ..."
+#~ msgstr "Auto-generer autostart mappe ..."
+
+#~ msgid "Unable to import module '%s' from %s. (%s)"
+#~ msgstr "Kunne ikke importere modul '%s' fra %s. (%s)"
+
+#~ msgid ""
+#~ "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
+#~ "Usage: %s <path> [options]"
+#~ msgstr ""
+#~ "Screenlets pakker - (c) RYX (Rico Pfaus) 2007\n"
+#~ "Brug: %s <sti> [indstilling]"

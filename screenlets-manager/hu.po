@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-10 06:36+0900\n"
-"PO-Revision-Date: 2010-12-27 07:43+0000\n"
+"PO-Revision-Date: 2011-01-10 17:43+0000\n"
 "Last-Translator: Papp Bence <papp.bence89@gmail.com>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-01-10 04:53+0000\n"
+"X-Launchpad-Export-Date: 2011-01-11 04:46+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "Language: hu\n"
 
@@ -54,7 +54,7 @@ msgstr "Összes Screenlet Újraindítása"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:147
 msgid "Quit the Screenlets"
-msgstr "Még több Screenlet"
+msgstr "Kilépés a Screenletekből"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:219
 #: src/share/screenlets-manager/screenlets-manager.py:605
@@ -118,12 +118,12 @@ msgstr "Elszeretné távolítani a Screenlet beállító fájljait is?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:169
 msgid "Can't delete system-wide screenlets."
-msgstr "Az alap screenletek nem törölhetőek."
+msgstr "Az alap Screenletek nem törölhetőek."
 
 #: src/share/screenlets-manager/screenlets-manager.py:269
 #, python-format
 msgid "Do you really want to reset the %sScreenlet configuration?"
-msgstr "Biztos benne, hogy újraindítja a %sScreenlet konfigurációt?"
+msgstr "Biztos benne, hogy törli a %sScreenlet beállításait?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:269
 msgid "Reset Screenlet"
@@ -190,17 +190,17 @@ msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:421
 msgid "Permanently uninstall/delete the currently selected Screenlet ..."
-msgstr "Végleg törli a kiválaszott Screenletet ..."
+msgstr "Végleg törli a kiválasztott Screenletet ..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:422
 msgid ""
 "Reset this Screenlet configuration (will only work if screenlet isnt running)"
 msgstr ""
-"Törli a Screenlet beállításait (Csak akkor müködik, ha a Screenlet nem fut)"
+"Törli a Screenlet beállításait (Csak akkor működik, ha a Screenlet nem fut)"
 
 #: src/share/screenlets-manager/screenlets-manager.py:423
 msgid "Install new theme for this screenlet"
-msgstr "Új téma telepítése a screenlethez"
+msgstr "Új téma telepítése ehhez a Screenlethez"
 
 #: src/share/screenlets-manager/screenlets-manager.py:424
 msgid "Restart all screenlets that have auto start at login"
@@ -216,7 +216,7 @@ msgstr "Új Screenlet Beállításai/Tulajdonságai"
 
 #: src/share/screenlets-manager/screenlets-manager.py:427
 msgid "Create a Desktop shortcut for this Screenlet"
-msgstr "Inditóikon készítese ehez  a Screenlethez"
+msgstr "Indítóikon készítése ehhez  a Screenlethez"
 
 #: src/share/screenlets-manager/screenlets-manager.py:446
 msgid "All Screenlets"
@@ -248,7 +248,7 @@ msgstr "A program információi ..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:483
 msgid "Download more screenlets ..."
-msgstr "Több Screenlet letöltése..."
+msgstr "Még több Screenlet letöltése ..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:484
 msgid "Close this dialog ..."
@@ -278,7 +278,7 @@ msgstr "Screenlet vagy SuperKaramba téma telepítése"
 
 #: src/share/screenlets-manager/screenlets-manager.py:723
 msgid "Install a new theme for the selected Screenlet"
-msgstr "Új téma telepítése a kiválaszott Screenlethez"
+msgstr "Új téma telepítése a kiválasztott Screenlethez"
 
 #: src/share/screenlets-manager/screenlets-manager.py:768
 msgid "Error Found"
@@ -295,8 +295,8 @@ msgid ""
 "This package seams to contain a full Screenlet and not just a theme, please "
 "use the screenlet install instead"
 msgstr ""
-"Úgy tűnik ez a csomag egy Screenletet tartalmaz és nem egy témát, kérlek "
-"használd a Screenlet telepítőt"
+"Úgy tűnik ez a csomag egy Screenletet tartalmaz és nem egy témát, kérem "
+"használja a Screenlet telepítőt"
 
 #: src/share/screenlets-manager/screenlets-manager.py:796
 msgid "This package doesnt seem to contain a theme"
@@ -320,26 +320,30 @@ msgid ""
 "and by clicking on an AptURL on web pages like Gnome-look.org. Would you "
 "like to add the Screenlets PPA to your system?"
 msgstr ""
+"A Screenlets PPA tároló még nincs felvéve a Szoftverforrásokhoz. A tároló "
+"felvételével telepíthet még több egyéni Screenletet a Csomagkezelővel (vagy "
+"a Szoftverközpontból) vagy AptURL-la való kattintással a Gnome-look.org "
+"weboldalon. Szeretné felvenni a Screenlets PPA tárolót a rendszeréhez?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:908
 msgid "Do you want to enable the Screenlets PPA?"
-msgstr ""
+msgstr "Engedélyezi a Screenlet PPA tárolóját?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
 msgid "The Screenlets PPA added successfully."
-msgstr ""
+msgstr "A Screenlet PPA tároló sikeresen felvéve."
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
 msgid "Success!"
-msgstr ""
+msgstr "Sikeres!"
 
 #: src/share/screenlets-manager/screenlets-manager.py:913
 msgid "Adding the Screenlets PPA failed."
-msgstr ""
+msgstr "A Screenlet PPA tárolójának felvétele sikertelen."
 
 #: src/share/screenlets-manager/screenlets-manager.py:913
 msgid "Failed!"
-msgstr ""
+msgstr "Sikertelen!"
 
 #: src/share/screenlets-manager/screenlets-manager.py:919
 msgid "Install SuperKaramba Theme"
@@ -352,7 +356,7 @@ msgstr "Web Widget Konvertálása"
 #: src/share/screenlets-manager/screenlets-manager.py:921
 #: src/share/screenlets-manager/screenlets-manager.py:1028
 msgid "Install Web Application"
-msgstr "Webes Alkalmazás telepítése"
+msgstr "Webes Alkalmazás Telepítése"
 
 #: src/share/screenlets-manager/screenlets-manager.py:941
 msgid "New screenlets atributes.."
@@ -406,7 +410,7 @@ msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:1072
 msgid "Web Application was successfully installed"
-msgstr "A Webes Alkalmazás sikeresen telepítve"
+msgstr "Webes Alkalmazás sikeresen telepítve"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1075
 msgid "Error installing!!!"
@@ -432,12 +436,13 @@ msgstr "1. Lépés: Találjon egy konvertálni szánt wigdetet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1083
 msgid "Step 2 : Copy and Paste the HTML from the widget in the box below"
-msgstr "2 Lépés: Másolja és illessze be a widget HTML kódját a lenti dobozba"
+msgstr ""
+"2. Lépés: Másolja és illessze be a widget HTML kódját a lenti dobozba"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1084
 msgid "Step 3 : Give it a name in the box below and click on Ok to convert"
 msgstr ""
-"3 Lépés: Írja be a kívánt nevet a lenti dobozba és kattintson az OK-ra a "
+"3. Lépés: Írja be a kívánt nevet a lenti dobozba és kattintson az OK-ra a "
 "konvertáláshoz"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1085
@@ -458,7 +463,7 @@ msgstr "Konvertálási hiba!!!"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1283
 msgid "Screenlets-Manager must now be restarted"
-msgstr "A Screenlet-Beállításkezelő most újraindul"
+msgstr "A Screenlet Beállításkezelő most újraindul"
 
 #. + constants
 #: src/share/screenlets-manager/screenlets-packager.py:30
@@ -516,12 +521,12 @@ msgstr "Sikertelen az osztály importálása a modulból."
 
 #: src/share/screenlets-manager/screenlets-packager.py:100
 msgid "The class inside the module is no subclass of screenlets.Screenlet."
-msgstr "A modul osztálya nem alosztálya a Screenlets.Screenlet-nek."
+msgstr "A modul osztálya nem alosztálya a screenlets.Screenlet-nek."
 
 #: src/share/screenlets-manager/screenlets-packager.py:101
 #, python-format
 msgid "Successfully got class from module: %s"
-msgstr "Az osztály sikeresen betölve a %s modulból"
+msgstr "Az osztály sikeresen betöltve a %s modulból"
 
 #: src/share/screenlets-manager/screenlets-packager.py:132
 #, python-format
@@ -544,7 +549,7 @@ msgid ""
 " Only older versions can be used"
 msgstr ""
 "Ez a fajta karamba téma még nem támogatott\n"
-" Csak a régebbi verziók használhatók"
+" Csak a régebbi verziók használhatóak"
 
 #: src/lib/install.py:114
 msgid "Archive is damaged or unsupported, use only tar, bz2 or gz."

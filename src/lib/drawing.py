@@ -104,6 +104,8 @@ class Drawing(object):
 	
 	def draw_text(self, ctx, text, x, y,  font, size, width, allignment=pango.ALIGN_LEFT,alignment=None,justify = False,weight = 0, ellipsize = pango.ELLIPSIZE_NONE):
 		"""Draws text"""
+		size = int(size)
+
 		ctx.save()
 		ctx.translate(x, y)
 		if self.p_layout == None :
@@ -458,6 +460,8 @@ class Drawing(object):
 
 	def draw_scaled_image(self,ctx,x,y, pix, w, h):
 		"""Draws a picture from specified path with a certain width and height"""
+		w = int(w)
+		h = int(h)
 
 		ctx.save()
 		ctx.translate(x, y)	

@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-10 06:36+0900\n"
-"PO-Revision-Date: 2010-11-30 09:53+0000\n"
+"PO-Revision-Date: 2011-01-12 01:11+0000\n"
 "Last-Translator: tabbernuk <boamaod@gmail.com>\n"
 "Language-Team: Estonian <gnome-et@lists.linux.ee>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-01-10 04:53+0000\n"
+"X-Launchpad-Export-Date: 2011-01-12 04:39+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "Language: et\n"
 
@@ -327,26 +327,31 @@ msgid ""
 "and by clicking on an AptURL on web pages like Gnome-look.org. Would you "
 "like to add the Screenlets PPA to your system?"
 msgstr ""
+"Screenlets töölauavidinate PPA pole tarkvaraallikate nimekirjas. Lisades "
+"selle saad sa paigaldada üksikuid töölauavidinaid paketihalduri (või "
+"tarkvarakeskuse) kaudu või kõpsates hiirega Gnome-look.org'il jt "
+"veebisaitidel leiduvatel AptURL'idel. Soovid sa lisada Screenlets PPA oma "
+"süsteemi?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:908
 msgid "Do you want to enable the Screenlets PPA?"
-msgstr ""
+msgstr "Screenlets PPA sisselülitamine"
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
 msgid "The Screenlets PPA added successfully."
-msgstr ""
+msgstr "Screenlets PPA lisamine õnnestus"
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
 msgid "Success!"
-msgstr ""
+msgstr "Korras!"
 
 #: src/share/screenlets-manager/screenlets-manager.py:913
 msgid "Adding the Screenlets PPA failed."
-msgstr ""
+msgstr "Screenlets PPA lisamine kukkus läbi."
 
 #: src/share/screenlets-manager/screenlets-manager.py:913
 msgid "Failed!"
-msgstr ""
+msgstr "Ebaõnnestus!"
 
 #: src/share/screenlets-manager/screenlets-manager.py:919
 msgid "Install SuperKaramba Theme"

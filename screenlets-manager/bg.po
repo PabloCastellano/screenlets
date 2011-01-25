@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-10 06:36+0900\n"
-"PO-Revision-Date: 2011-01-11 16:26+0000\n"
-"Last-Translator: Screenlets Dev Team <screenlets-dev@lists.launchpad.net>\n"
+"PO-Revision-Date: 2011-01-24 18:06+0000\n"
+"Last-Translator: George Karavasilev <Unknown>\n"
 "Language-Team: Bulgarian <bg@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-01-12 04:39+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Launchpad-Export-Date: 2011-01-25 04:43+0000\n"
+"X-Generator: Launchpad (build 12177)\n"
 "Language: bg\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
@@ -127,6 +127,7 @@ msgstr ""
 #, python-format
 msgid "Do you really want to reset the %sScreenlet configuration?"
 msgstr ""
+"Наистина ли искате да възстановите първоначалните настройки на %sДжаджа?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:269
 msgid "Reset Screenlet"
@@ -327,26 +328,30 @@ msgid ""
 "and by clicking on an AptURL on web pages like Gnome-look.org. Would you "
 "like to add the Screenlets PPA to your system?"
 msgstr ""
+"PPA за Джаджи не е във вашите хранилища за софтуер.Добавянето му ще разреши "
+"инсталация на индивидуални джаджи от Мениджъра на пакети (или Софтуерния "
+"център) и чрез кликването на AptURL на уеб страници като Gnome-"
+"look.org.Искате ли добавите PPA-то за джаджи на вашата система?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:908
 msgid "Do you want to enable the Screenlets PPA?"
-msgstr ""
+msgstr "Искате ли да добавите PPA за джаджи?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
 msgid "The Screenlets PPA added successfully."
-msgstr ""
+msgstr "PPA за джаджи е добавено успешно."
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
 msgid "Success!"
-msgstr ""
+msgstr "Успех"
 
 #: src/share/screenlets-manager/screenlets-manager.py:913
 msgid "Adding the Screenlets PPA failed."
-msgstr ""
+msgstr "Добавянето на PPA за джаджи се провали."
 
 #: src/share/screenlets-manager/screenlets-manager.py:913
 msgid "Failed!"
-msgstr ""
+msgstr "Провал!"
 
 #: src/share/screenlets-manager/screenlets-manager.py:919
 msgid "Install SuperKaramba Theme"
@@ -354,7 +359,7 @@ msgstr "Инсталиране на SuperKaramba тема"
 
 #: src/share/screenlets-manager/screenlets-manager.py:920
 msgid "Convert Web Widget"
-msgstr ""
+msgstr "Конвертиране на уеб джаджа"
 
 #: src/share/screenlets-manager/screenlets-manager.py:921
 #: src/share/screenlets-manager/screenlets-manager.py:1028
@@ -473,6 +478,8 @@ msgid ""
 "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
 "Usage: screenlets-packager <path> [options]"
 msgstr ""
+"Пакетировач на джаджа - (c) RYX (Rico Pfaus) 2007\n"
+"използване: screenlets-packager <път> [опции]"
 
 #: src/share/screenlets-manager/screenlets-packager.py:69
 #, python-format

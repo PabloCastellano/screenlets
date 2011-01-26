@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: screenlets-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-10 06:36+0900\n"
-"PO-Revision-Date: 2011-01-11 15:39+0000\n"
-"Last-Translator: Screenlets Dev Team <screenlets-dev@lists.launchpad.net>\n"
+"PO-Revision-Date: 2011-01-25 16:18+0000\n"
+"Last-Translator: André Gondim <andregondim@ubuntu.com>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-01-12 04:40+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Launchpad-Export-Date: 2011-01-26 04:31+0000\n"
+"X-Generator: Launchpad (build 12177)\n"
 "Language: pt_BR\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
@@ -176,11 +176,11 @@ msgstr "Fechar Todos"
 #. gtk.ICON_SIZE_BUTTON))
 #: src/share/screenlets-manager/screenlets-manager.py:385
 msgid "Options"
-msgstr "Preferências"
+msgstr "Opções"
 
 #: src/share/screenlets-manager/screenlets-manager.py:387
 msgid "Create Desktop Shortcut"
-msgstr "Criar Atalho na Área de Trabalho"
+msgstr "Criar atalho na Área de Trabalho"
 
 #: src/share/screenlets-manager/screenlets-manager.py:419
 msgid "Launch/add a new instance of the selected Screenlet ..."
@@ -326,26 +326,30 @@ msgid ""
 "and by clicking on an AptURL on web pages like Gnome-look.org. Would you "
 "like to add the Screenlets PPA to your system?"
 msgstr ""
+"A PPA do Screenlets não está listada nos Canais de Software. Adicionando-a "
+"dá a possibilidade de instalar screenlets individuais do Gerenciador de "
+"Pacotes (ou Centro do Software) clicando numa AptURL em sites como Gnome-"
+"look.org. Gostaria de adicionar a PPA do Screenlets no seu sistema?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:908
 msgid "Do you want to enable the Screenlets PPA?"
-msgstr ""
+msgstr "Deseja habilitar a PPA do Screenlets?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
 msgid "The Screenlets PPA added successfully."
-msgstr ""
+msgstr "A PPA do Screenlets foi adicionada com sucesso."
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
 msgid "Success!"
-msgstr ""
+msgstr "Sucesso!"
 
 #: src/share/screenlets-manager/screenlets-manager.py:913
 msgid "Adding the Screenlets PPA failed."
-msgstr ""
+msgstr "Erro ao adicionar a PPA do Screenlets."
 
 #: src/share/screenlets-manager/screenlets-manager.py:913
 msgid "Failed!"
-msgstr ""
+msgstr "Falhou!"
 
 #: src/share/screenlets-manager/screenlets-manager.py:919
 msgid "Install SuperKaramba Theme"
@@ -547,7 +551,7 @@ msgid ""
 " Only older versions can be used"
 msgstr ""
 "Esse tipo de tema do Karamba ainda não é suportado.\n"
-"Somente versões anteriores podem ser usadas."
+" Somente versões anteriores podem ser usadas."
 
 #: src/lib/install.py:114
 msgid "Archive is damaged or unsupported, use only tar, bz2 or gz."

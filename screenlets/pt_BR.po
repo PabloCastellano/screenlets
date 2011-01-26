@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: screenlets\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-10 05:23+0900\n"
-"PO-Revision-Date: 2011-01-04 16:22+0000\n"
-"Last-Translator: Screenlets Dev Team <screenlets-dev@lists.launchpad.net>\n"
+"PO-Revision-Date: 2011-01-25 16:24+0000\n"
+"Last-Translator: nerling <Unknown>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-01-10 04:53+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Launchpad-Export-Date: 2011-01-26 04:31+0000\n"
+"X-Generator: Launchpad (build 12177)\n"
 "Language: pt_BR\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
@@ -30,7 +30,7 @@ msgstr "Esse Screenlet não tem nome definido"
 
 #: src/lib/__init__.py:615
 msgid "No author defined for this Screenlet"
-msgstr "Nenhum autor definido para este Screenlet"
+msgstr "Esse Screenlet não tem um autor definido"
 
 #: src/lib/__init__.py:616
 msgid "No info set for this Screenlet"
@@ -42,19 +42,19 @@ msgstr "As definições básicas para esta instância do Screenlet"
 
 #: src/lib/__init__.py:741
 msgid "X-Position"
-msgstr "Posição X"
+msgstr "Posição horizontal"
 
 #: src/lib/__init__.py:741
 msgid "The X-position of this Screenlet ..."
-msgstr "A posição X deste Screenlet ..."
+msgstr "A posição horizontal deste Screenlet ..."
 
 #: src/lib/__init__.py:744
 msgid "Y-Position"
-msgstr "Posição Y"
+msgstr "Posição vertical"
 
 #: src/lib/__init__.py:744
 msgid "The Y-position of this Screenlet ..."
-msgstr "A posição Y deste Screenlet ..."
+msgstr "A posição vertical deste Screenlet ..."
 
 #: src/lib/__init__.py:747
 msgid "Width"
@@ -70,7 +70,7 @@ msgstr "Altura"
 
 #: src/lib/__init__.py:750
 msgid "The height of this Screenlet ..."
-msgstr "A altura deste Screenlet ..."
+msgstr "A altura desse Screenlet ..."
 
 #: src/lib/__init__.py:753
 msgid "Scale"
@@ -78,7 +78,7 @@ msgstr "Escala"
 
 #: src/lib/__init__.py:753
 msgid "The scale-factor of this Screenlet ..."
-msgstr "O fator de escalamento deste Screenlet ..."
+msgstr "O fator escalar desse Screenlet"
 
 #: src/lib/__init__.py:756
 msgid "Opacity"
@@ -94,7 +94,7 @@ msgstr "Fixar na Área de Trabalho"
 
 #: src/lib/__init__.py:760
 msgid "Show this Screenlet on all workspaces ..."
-msgstr "Mostrar este Screenlet em todas as Áreas de Trabalho"
+msgstr "Mostrar esse Screenlet em todas as Áreas de Trabalho"
 
 #: src/lib/__init__.py:762
 msgid "Treat as Widget"
@@ -106,20 +106,20 @@ msgstr "Considerar este Screenlet como um \"Widget\""
 
 #: src/lib/__init__.py:771
 msgid "Lock position"
-msgstr "Travar posição"
+msgstr "Fixar posição"
 
 #: src/lib/__init__.py:772
 msgid "Stop the screenlet from being moved..."
-msgstr "Impedir que o screenlet seja movido..."
+msgstr "Impedir que esse Screenlet seja movido..."
 
 #. add "Keep above"-menuitem
 #: src/lib/__init__.py:774 src/lib/__init__.py:1091
 msgid "Keep above"
-msgstr "Manter em cima"
+msgstr "Manter acima"
 
 #: src/lib/__init__.py:775
 msgid "Keep this Screenlet above other windows ..."
-msgstr "Manter este Screenlet em cima de outras janelas"
+msgstr "Sobrepor esse Screenlet às outras janelas"
 
 #. add "Keep Below"-menuitem
 #: src/lib/__init__.py:777 src/lib/__init__.py:1098

@@ -677,8 +677,6 @@ class OptionsDialog (gtk.Dialog):
 		self.create_about_page()
 		self.create_themes_page()
 		self.create_options_page()
-		# crete tooltips-object
-		self.tooltips = gtk.Tooltips()
 	
 	# "public" functions
 	
@@ -1080,8 +1078,9 @@ class OptionsDialog (gtk.Dialog):
 			but.show()
 			widget.show()
 			# add tooltips
-			#self.tooltips.set_tip(but, 'Select Image ...')
-			self.tooltips.set_tip(but, option.desc)
+			#but.set_tooltip_text('Select Image ...')
+			but.set_tooltip_text(option.desc)
+			
 		elif t == ListOption:
 			entry= gtk.Entry()
 			entry.set_editable(False)
@@ -1106,8 +1105,8 @@ class OptionsDialog (gtk.Dialog):
 				dlg.destroy()
 			but.show()
 			but.connect("clicked", open_listeditor)
-			self.tooltips.set_tip(but, _('Open List-Editor ...'))
-			self.tooltips.set_tip(entry, option.desc)
+			but.set_tooltip_text('Open List-Editor ...')
+			entry.set_tooltip_text(option.desc)
 			widget = gtk.HBox()
 			widget.add(entry)
 			widget.add(but)
@@ -1127,9 +1126,9 @@ class OptionsDialog (gtk.Dialog):
 			vb.add(input_name)
 			vb.add(input_pass)
 			vb.show()
-			self.tooltips.set_tip(but, _('Apply username/password ...'))
-			self.tooltips.set_tip(input_name, _('Enter username here ...'))
-			self.tooltips.set_tip(input_pass, _('Enter password here ...'))
+			but.set_tooltip_text('Apply username/password ...')
+			input_name.set_tooltip_text('Enter username here ...')
+			input_pass.set_tooltip_text('Enter password here ...')
 			widget.add(vb)
 			widget.add(but)
 		elif t == TimeOption:
@@ -1155,9 +1154,9 @@ class OptionsDialog (gtk.Dialog):
 			input_hour.connect('value-changed', self.options_callback, option)
 			input_minute.connect('value-changed', self.options_callback, option)
 			input_second.connect('value-changed', self.options_callback, option)
-			self.tooltips.set_tip(input_hour, option.desc)
-			self.tooltips.set_tip(input_minute, option.desc)
-			self.tooltips.set_tip(input_second, option.desc)
+			input_hour.set_tooltip_text(option.desc)
+			input_minute.set_tooltip_text(option.desc)
+			input_second.set_tooltip_text(option.desc)
 			widget.add(input_hour)
 			widget.add(gtk.Label(':'))
 			widget.add(input_minute)
@@ -1180,7 +1179,7 @@ class OptionsDialog (gtk.Dialog):
 				widget.set_sensitive(False)
 				label.set_sensitive(False)
 			#label.set_mnemonic_widget(widget)
-			self.tooltips.set_tip(widget, option.desc)
+			widget.set_tooltip_text(option.desc)
 			widget.show()
 			# check if needs Apply-button
 			if option.realtime == False:

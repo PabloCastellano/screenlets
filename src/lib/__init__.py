@@ -134,9 +134,17 @@ DAEMON_IFACE = 'org.screenlets.ScreenletsDaemon'
 
 DEBUG_MODE		= True
 
-DEBIAN = subprocess.call("which dpkg >/dev/null", shell=True)==0
+DEBIAN = True
+try:
+    subprocess.call(["dpkg"], stdout=open(os.devnull, 'w'), stderr=subprocess.STDOUT)
+except OSError:
+    DEBIAN = False
 
-UBUNTU = subprocess.call("which apt-add-repository >/dev/null", shell=True)==0
+UBUNTU = True
+try:
+    subprocess.call(["apt-add-repository"], stdout=open(os.devnull, 'w'), stderr=subprocess.STDOUT)
+except OSError:
+    UBUNTU = False
 
 #-------------------------------------------------------------------------------
 # CLASSES

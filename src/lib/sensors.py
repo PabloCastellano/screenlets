@@ -188,7 +188,7 @@ def sys_get_uptime():
 
 def sys_get_username():
 	"""Returns username"""
-	return os.getlogin()
+	return os.environ.get("USER")
 
 def sys_get_hostname ():
 	"""Get hostname"""

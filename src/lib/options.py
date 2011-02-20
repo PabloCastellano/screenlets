@@ -1078,7 +1078,7 @@ class OptionsDialog (gtk.Dialog):
 			but.show()
 			widget.show()
 			# add tooltips
-			#but.set_tooltip_text('Select Image ...')
+			#but.set_tooltip_text(_('Select Image ...'))
 			but.set_tooltip_text(option.desc)
 			
 		elif t == ListOption:
@@ -1105,7 +1105,7 @@ class OptionsDialog (gtk.Dialog):
 				dlg.destroy()
 			but.show()
 			but.connect("clicked", open_listeditor)
-			but.set_tooltip_text('Open List-Editor ...')
+			but.set_tooltip_text(_('Open List-Editor ...'))
 			entry.set_tooltip_text(option.desc)
 			widget = gtk.HBox()
 			widget.add(entry)
@@ -1120,15 +1120,15 @@ class OptionsDialog (gtk.Dialog):
 			input_pass.set_visibility(False)	# password
 			input_pass.set_text(value[1])
 			input_pass.show()
-			but = gtk.Button('Apply', gtk.STOCK_APPLY)
+			but = gtk.Button(_('Apply'), gtk.STOCK_APPLY)
 			but.show()
 			but.connect("clicked", self.apply_options_callback, option, widget)
 			vb.add(input_name)
 			vb.add(input_pass)
 			vb.show()
-			but.set_tooltip_text('Apply username/password ...')
-			input_name.set_tooltip_text('Enter username here ...')
-			input_pass.set_tooltip_text('Enter password here ...')
+			but.set_tooltip_text(_('Apply username/password ...'))
+			input_name.set_tooltip_text(_('Enter username here ...'))
+			input_pass.set_tooltip_text(_('Enter password here ...'))
 			widget.add(vb)
 			widget.add(but)
 		elif t == TimeOption:

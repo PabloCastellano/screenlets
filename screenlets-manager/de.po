@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: screenlets-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-10 06:36+0900\n"
-"PO-Revision-Date: 2011-01-11 15:23+0000\n"
-"Last-Translator: tabbernuk <boamaod@gmail.com>\n"
+"PO-Revision-Date: 2011-02-20 12:13+0000\n"
+"Last-Translator: Tim O. <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-01-12 04:39+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Launchpad-Export-Date: 2011-02-21 04:45+0000\n"
+"X-Generator: Launchpad (build 12351)\n"
 "Language: de\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
@@ -326,26 +326,30 @@ msgid ""
 "and by clicking on an AptURL on web pages like Gnome-look.org. Would you "
 "like to add the Screenlets PPA to your system?"
 msgstr ""
+"Das Screenlets PPA ist nicht in den Paketquellen gelistet. Das Hinzufügen "
+"des PPA erlaubt Ihnen diverse Screenlets aus der Paketverwaltung und durch "
+"das Klicken auf AptURLs, beispielsweise auf Gnome-look.org, zu installieren. "
+"Möchten Sie das Screenlets PPA zu ihrem System hinzufügen?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:908
 msgid "Do you want to enable the Screenlets PPA?"
-msgstr ""
+msgstr "Möchten Sie das Screenlets PPA aktivieren?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
 msgid "The Screenlets PPA added successfully."
-msgstr ""
+msgstr "Das Screenlets PPA wurde erfolgreich hinzugefügt."
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
 msgid "Success!"
-msgstr ""
+msgstr "Erfolg!"
 
 #: src/share/screenlets-manager/screenlets-manager.py:913
 msgid "Adding the Screenlets PPA failed."
-msgstr ""
+msgstr "Das Hinzufügen des Screenlets PPA schlug fehl."
 
 #: src/share/screenlets-manager/screenlets-manager.py:913
 msgid "Failed!"
-msgstr ""
+msgstr "Misserfolg!"
 
 #: src/share/screenlets-manager/screenlets-manager.py:919
 msgid "Install SuperKaramba Theme"
@@ -507,6 +511,7 @@ msgstr "%sScreenlet.py in Pfad gefunden."
 #, python-format
 msgid "Unable to import module '%(name)s' from %(path)s. (%(error)s)"
 msgstr ""
+"Es ist unmöglich das Modul '%(name)s' von %(path)s zu holen. (%(error)s)"
 
 #: src/share/screenlets-manager/screenlets-packager.py:92
 #, python-format

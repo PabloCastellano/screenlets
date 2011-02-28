@@ -7,6 +7,7 @@ screenlets.INSTALL_PREFIX	screenlets-module.html#INSTALL_PREFIX
 screenlets.show_message	screenlets-module.html#show_message
 screenlets.DIR_USER	screenlets-module.html#DIR_USER
 screenlets.TRANSLATORS	screenlets-module.html#TRANSLATORS
+screenlets.UBUNTU	screenlets-module.html#UBUNTU
 screenlets.DIR_USER_ROOT	screenlets-module.html#DIR_USER_ROOT
 screenlets.SCREENLETS_PACK_PREFIX	screenlets-module.html#SCREENLETS_PACK_PREFIX
 screenlets.DEBIAN	screenlets-module.html#DEBIAN
@@ -53,6 +54,7 @@ screenlets.menu.fill_menu_from_directory	screenlets.menu-module.html#fill_menu_f
 screenlets.menu.read_desktop_file	screenlets.menu-module.html#read_desktop_file
 screenlets.menu.add_menuitem_with_item	screenlets.menu-module.html#add_menuitem_with_item
 screenlets.menu.add_image_menuitem	screenlets.menu-module.html#add_image_menuitem
+screenlets.menu.add_submenuitem	screenlets.menu-module.html#add_submenuitem
 screenlets.menu.imageitem_from_name	screenlets.menu-module.html#imageitem_from_name
 screenlets.menu.__package__	screenlets.menu-module.html#__package__
 screenlets.menu.add_menuitem	screenlets.menu-module.html#add_menuitem
@@ -171,8 +173,8 @@ screenlets.sensors.cal_get_time12	screenlets.sensors-module.html#cal_get_time12
 screenlets.sensors.disk_get_swap	screenlets.sensors-module.html#disk_get_swap
 screenlets.sensors.process_get_top	screenlets.sensors-module.html#process_get_top
 screenlets.sensors.bat_get_data	screenlets.sensors-module.html#bat_get_data
-screenlets.sensors.bat_get_value	screenlets.sensors-module.html#bat_get_value
 screenlets.sensors.sys_get_kernel_version	screenlets.sensors-module.html#sys_get_kernel_version
+screenlets.sensors.bat_get_value	screenlets.sensors-module.html#bat_get_value
 screenlets.sensors.cal_get_hour24	screenlets.sensors-module.html#cal_get_hour24
 screenlets.sensors.net_get_ip	screenlets.sensors-module.html#net_get_ip
 screenlets.sensors.sys_get_linux_version	screenlets.sensors-module.html#sys_get_linux_version
@@ -249,25 +251,26 @@ screenlets.utils.LoadBookmarks	screenlets.utils-module.html#LoadBookmarks
 screenlets.utils.DIR_USER	screenlets.utils-module.html#DIR_USER
 screenlets.utils.read_file	screenlets.utils-module.html#read_file
 screenlets.utils.USER	screenlets.utils-module.html#USER
+screenlets.utils.get_translator	screenlets.utils-module.html#get_translator
 screenlets.utils.get_screenlet_process	screenlets.utils-module.html#get_screenlet_process
 screenlets.utils.containsAll	screenlets.utils-module.html#containsAll
 screenlets.utils.lookup_daemon_autostart	screenlets.utils-module.html#lookup_daemon_autostart
 screenlets.utils.find_first_screenlet_path	screenlets.utils-module.html#find_first_screenlet_path
 screenlets.utils.get_daemon_iface	screenlets.utils-module.html#get_daemon_iface
+screenlets.utils.get_screenlet_icon	screenlets.utils-module.html#get_screenlet_icon
 screenlets.utils.get_desktop_dir	screenlets.utils-module.html#get_desktop_dir
+screenlets.utils.get_user_dir	screenlets.utils-module.html#get_user_dir
 screenlets.utils.get_screenlet_metadata_by_path	screenlets.utils-module.html#get_screenlet_metadata_by_path
 screenlets.utils.list_running_screenlets	screenlets.utils-module.html#list_running_screenlets
 screenlets.utils.launch_screenlet	screenlets.utils-module.html#launch_screenlet
 screenlets.utils.__package__	screenlets.utils-module.html#__package__
-screenlets.utils.get_screenlet_icon	screenlets.utils-module.html#get_screenlet_icon
-screenlets.utils.restart_all_screenlets	screenlets.utils-module.html#restart_all_screenlets
 screenlets.utils.get_screenlet_metadata	screenlets.utils-module.html#get_screenlet_metadata
 screenlets.utils.create_user_dir	screenlets.utils-module.html#create_user_dir
 screenlets.utils.is_manager_running_me	screenlets.utils-module.html#is_manager_running_me
+screenlets.utils.restart_all_screenlets	screenlets.utils-module.html#restart_all_screenlets
 screenlets.utils.DIR_AUTOSTART	screenlets.utils-module.html#DIR_AUTOSTART
 screenlets.utils.list_running_screenlets2	screenlets.utils-module.html#list_running_screenlets2
 screenlets.utils.get_filename_on_drop	screenlets.utils-module.html#get_filename_on_drop
-screenlets.utils.get_user_dir	screenlets.utils-module.html#get_user_dir
 screenlets.utils._contains_path	screenlets.utils-module.html#_contains_path
 screenlets.utils.create_autostarter	screenlets.utils-module.html#create_autostarter
 screenlets.utils._	screenlets.utils-module.html#_
@@ -275,6 +278,7 @@ screenlets.utils.readMountFile	screenlets.utils-module.html#readMountFile
 screenlets.utils.get_screenlet_linux_name_by_short_class_name	screenlets.utils-module.html#get_screenlet_linux_name_by_short_class_name
 screenlets.utils.xdg_open	screenlets.utils-module.html#xdg_open
 screenlets.utils.getBetween	screenlets.utils-module.html#getBetween
+screenlets.utils.is_screenlets_ppa_enabled	screenlets.utils-module.html#is_screenlets_ppa_enabled
 screenlets.utils.get_autostart_dir	screenlets.utils-module.html#get_autostart_dir
 screenlets.utils.list_available_screenlets	screenlets.utils-module.html#list_available_screenlets
 screenlets.utils.containsAny	screenlets.utils-module.html#containsAny
@@ -325,6 +329,7 @@ screenlets.Screenlet.is_visible	screenlets.Screenlet-class.html#is_visible
 screenlets.Screenlet.__lasty	screenlets.Screenlet-class.html#__lasty
 screenlets.Screenlet.__lastx	screenlets.Screenlet-class.html#__lastx
 screenlets.Screenlet.show	screenlets.Screenlet-class.html#show
+screenlets.drawing.Drawing.get_text_height	screenlets.drawing.Drawing-class.html#get_text_height
 screenlets.Screenlet.redraw_canvas_and_update_shape	screenlets.Screenlet-class.html#redraw_canvas_and_update_shape
 screenlets.Screenlet.load_buttons	screenlets.Screenlet-class.html#load_buttons
 screenlets.Screenlet.is_widget	screenlets.Screenlet-class.html#is_widget
@@ -598,6 +603,7 @@ screenlets.backend.ScreenletsBackend.load_instance	screenlets.backend.Screenlets
 screenlets.drawing.Drawing	screenlets.drawing.Drawing-class.html
 screenlets.drawing.Drawing.draw_scaled_image	screenlets.drawing.Drawing-class.html#draw_scaled_image
 screenlets.drawing.Drawing.draw_line	screenlets.drawing.Drawing-class.html#draw_line
+screenlets.drawing.Drawing.get_text_height	screenlets.drawing.Drawing-class.html#get_text_height
 screenlets.drawing.Drawing.draw_triangle	screenlets.drawing.Drawing-class.html#draw_triangle
 screenlets.drawing.Drawing.draw_image	screenlets.drawing.Drawing-class.html#draw_image
 screenlets.drawing.Drawing.draw_quadrant_shadow	screenlets.drawing.Drawing-class.html#draw_quadrant_shadow
@@ -1087,6 +1093,7 @@ screenlets.plugins.Mail.MailCheckBackend.__init__	screenlets.plugins.Mail.MailCh
 screenlets.plugins.Mail.MailCheckBackend.__gtype__	screenlets.plugins.Mail.MailCheckBackend-class.html#__gtype__
 screenlets.plugins.Mail.MailCheckBackend.stop	screenlets.plugins.Mail.MailCheckBackend-class.html#stop
 screenlets.plugins.Mail.MailCheckStatus	screenlets.plugins.Mail.MailCheckStatus-class.html
+screenlets.plugins.Mail.MailCheckStatus.GOT_MAIL	screenlets.plugins.Mail.MailCheckStatus-class.html#GOT_MAIL
 screenlets.plugins.Mail.MailCheckStatus.REFRESH	screenlets.plugins.Mail.MailCheckStatus-class.html#REFRESH
 screenlets.plugins.Mail.MailCheckStatus.IDLE	screenlets.plugins.Mail.MailCheckStatus-class.html#IDLE
 screenlets.plugins.Mail.MailCheckStatus.ERROR	screenlets.plugins.Mail.MailCheckStatus-class.html#ERROR

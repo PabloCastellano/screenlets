@@ -1,0 +1,370 @@
+# Indonesian translation for screenlets
+# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+# This file is distributed under the same license as the screenlets package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: screenlets\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2011-01-10 05:23+0900\n"
+"PO-Revision-Date: 2011-03-03 04:11+0000\n"
+"Last-Translator: zaenal arifin <Unknown>\n"
+"Language-Team: Indonesian <id@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2011-03-03 04:32+0000\n"
+"X-Generator: Launchpad (build 12351)\n"
+
+#. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
+#: src/lib/__init__.py:99
+msgid "http://www.screenlets.org/index.php/Get_more_screenlets"
+msgstr "http://www.screenlets.org/index.php/Get_more_screenlets"
+
+#. default meta-info for Screenlets
+#: src/lib/__init__.py:613
+msgid "No name set for this Screenlet"
+msgstr "Tidak ada nama yang di set untuk Screenlet ini"
+
+#: src/lib/__init__.py:615
+msgid "No author defined for this Screenlet"
+msgstr "Tidak ada penulis yang ditetapkan untuk Screenlet ini"
+
+#: src/lib/__init__.py:616
+msgid "No info set for this Screenlet"
+msgstr "Tidak ada info ditetapkan untuk Screenlet ini"
+
+#: src/lib/__init__.py:726
+msgid "The basic settings for this Screenlet-instance."
+msgstr "Dasar pengaturan untuk instansi-Screenlet ini."
+
+#: src/lib/__init__.py:741
+msgid "X-Position"
+msgstr "X-Posisi"
+
+#: src/lib/__init__.py:741
+msgid "The X-position of this Screenlet ..."
+msgstr "X-posisi dari Screenlet ini..."
+
+#: src/lib/__init__.py:744
+msgid "Y-Position"
+msgstr "Y-Posisi"
+
+#: src/lib/__init__.py:744
+msgid "The Y-position of this Screenlet ..."
+msgstr "Y-posisi dari Screenlet ini ..."
+
+#: src/lib/__init__.py:747
+msgid "Width"
+msgstr "Lebar"
+
+#: src/lib/__init__.py:747
+msgid "The width of this Screenlet ..."
+msgstr "Lebar dari Screenlet ini ..."
+
+#: src/lib/__init__.py:750
+msgid "Height"
+msgstr "Tinggi"
+
+#: src/lib/__init__.py:750
+msgid "The height of this Screenlet ..."
+msgstr "Tinggi dari Screenlet ini ..."
+
+#: src/lib/__init__.py:753
+msgid "Scale"
+msgstr "Perbandingan"
+
+#: src/lib/__init__.py:753
+msgid "The scale-factor of this Screenlet ..."
+msgstr "Skala-faktor dari Screenlet ini ..."
+
+#: src/lib/__init__.py:756
+msgid "Opacity"
+msgstr "Tembus-pandang"
+
+#: src/lib/__init__.py:756
+msgid "The opacity of the Screenlet window ..."
+msgstr "Tembus-pandang dari jendela Screenlet ..."
+
+#: src/lib/__init__.py:759
+msgid "Stick to Desktop"
+msgstr "Melekat ke Desktop"
+
+#: src/lib/__init__.py:760
+msgid "Show this Screenlet on all workspaces ..."
+msgstr "Tampilkan Screenlet ini pada semua area kerja ..."
+
+#: src/lib/__init__.py:762
+msgid "Treat as Widget"
+msgstr "Perlakukan sebagai Widget"
+
+#: src/lib/__init__.py:763
+msgid "Treat this Screenlet as a \"Widget\" ..."
+msgstr "Perlakukan Screenlet ini sebagai \"Widget\" ..."
+
+#: src/lib/__init__.py:771
+msgid "Lock position"
+msgstr "Mengunci Posisi"
+
+#: src/lib/__init__.py:772
+msgid "Stop the screenlet from being moved..."
+msgstr "Berhentikan screenlet dari melakukan gerakan..."
+
+#. add "Keep above"-menuitem
+#: src/lib/__init__.py:774 src/lib/__init__.py:1091
+msgid "Keep above"
+msgstr "Jaga selalu diatas"
+
+#: src/lib/__init__.py:775
+msgid "Keep this Screenlet above other windows ..."
+msgstr "Jaga Screenlet selalu diatas dari jendela-jendela yang lain ..."
+
+#. add "Keep Below"-menuitem
+#: src/lib/__init__.py:777 src/lib/__init__.py:1098
+msgid "Keep below"
+msgstr "Jaga selalu dibawah"
+
+#: src/lib/__init__.py:778
+msgid "Keep this Screenlet below other windows ..."
+msgstr "Jaga Screenlet selalu dibawah dari jendela-jendela yang lain ..."
+
+#: src/lib/__init__.py:780
+msgid "Draw button controls"
+msgstr "Gambaran tombol kontrol"
+
+#: src/lib/__init__.py:781
+msgid "Draw buttons in top right corner"
+msgstr "Gambar tombol di puncak sebelah kanan pojok"
+
+#: src/lib/__init__.py:783
+msgid "Skip Pager"
+msgstr "Lewati Halamannya"
+
+#: src/lib/__init__.py:784
+msgid "Set this Screenlet to show/hide in pagers ..."
+msgstr "Menyetel Screenlet ini untuk tampil/sembunyi di halamannya ..."
+
+#: src/lib/__init__.py:786
+msgid "Skip Taskbar"
+msgstr "Lewati Taskbar"
+
+#: src/lib/__init__.py:787
+msgid "Set this Screenlet to show/hide in taskbars ..."
+msgstr "Menyetel Screenlet ini untuk tampil/sembunyi di taskbar ..."
+
+#: src/lib/__init__.py:789
+msgid "Resize on mouse scroll"
+msgstr "Resize pada skrol mouse"
+
+#: src/lib/__init__.py:791
+msgid "Ignore requirements"
+msgstr "Abaikan persyaratan"
+
+#: src/lib/__init__.py:792
+msgid "Set this Screenlet to ignore/demand DEB requirements ..."
+msgstr "Set Screenlet ini untuk diabaikan/menuntut kebutuhan DEB ..."
+
+#: src/lib/__init__.py:796
+msgid "Allow overriding Options"
+msgstr "Bolehkan Pilihan menimpa"
+
+#: src/lib/__init__.py:797
+msgid "Allow themes to override options in this screenlet ..."
+msgstr ""
+"Membolehkan tema untuk mengesampingkan pilihan dalam screenlet ini ..."
+
+#: src/lib/__init__.py:799
+msgid "Ask on Override"
+msgstr "Tanya saat Menimpa"
+
+#: src/lib/__init__.py:800
+msgid "Show a confirmation-dialog when a theme wants to override "
+msgstr ""
+"Tampilkan suatu konfirmasi-dialog ketika tema ingin untuk menumpangi "
+
+#: src/lib/__init__.py:801
+msgid "the current options of this Screenlet ..."
+msgstr "Pilihan-pilihan saat ini dari Screenlet ini ..."
+
+#. version of the deb package if unspecified
+#: src/lib/__init__.py:994
+msgid "?"
+msgstr "?"
+
+#: src/lib/__init__.py:999
+#, python-format
+msgid ""
+"\n"
+"%(package)s %(version)s required, NOT INSTALLED!"
+msgstr ""
+"\n"
+"%(package)s %(version)s dibutuhkan, TIDAK DIPASANG!"
+
+#: src/lib/__init__.py:1002
+#, python-format
+msgid ""
+"\n"
+"%(package)s %(version)s installed, req %(required)s."
+msgstr ""
+
+#: src/lib/__init__.py:1012
+#, python-format
+msgid ""
+"Requirements for the Screenlet are not satisfied! Use the package manager of "
+"your system to install required packages.\n"
+"\n"
+"REQUIREMENTS:\n"
+"%s"
+msgstr ""
+
+#: src/lib/__init__.py:1034
+msgid "Size"
+msgstr ""
+
+#: src/lib/__init__.py:1049
+msgid "Theme"
+msgstr ""
+
+#: src/lib/__init__.py:1064
+msgid "Window"
+msgstr ""
+
+#. add "lock"-menuitem
+#: src/lib/__init__.py:1070
+msgid "Lock"
+msgstr ""
+
+#. add "Sticky"-menuitem
+#: src/lib/__init__.py:1077
+msgid "Sticky"
+msgstr ""
+
+#. add "Widget"-menuitem
+#: src/lib/__init__.py:1084
+msgid "Widget"
+msgstr "Widget"
+
+#: src/lib/__init__.py:1108
+msgid "Properties..."
+msgstr "Sifat-sifatnya..."
+
+#: src/lib/__init__.py:1111
+msgid "Info..."
+msgstr "Info..."
+
+#: src/lib/__init__.py:1115
+#, python-format
+msgid "Add one more %s"
+msgstr "Menambahkan satu lebih %s"
+
+#: src/lib/__init__.py:1118
+#, python-format
+msgid "Delete this %s"
+msgstr "Menghapus ini %s"
+
+#: src/lib/__init__.py:1122
+#, python-format
+msgid "Quit this %s"
+msgstr "Keluarkan ini %s"
+
+#: src/lib/__init__.py:1125
+#, python-format
+msgid "Quit all %ss"
+msgstr "Keluarkan semua %ss"
+
+#: src/lib/__init__.py:1376
+msgid ""
+"This theme wants to override your settings for this Screenlet. Do you want "
+"to allow that?"
+msgstr ""
+
+#: src/lib/__init__.py:1610
+#, python-format
+msgid "To quit all %s's, use 'Quit' instead. "
+msgstr ""
+
+#: src/lib/__init__.py:1611
+#, python-format
+msgid "Really delete this %s and its settings?"
+msgstr ""
+
+#: src/lib/options.py:653
+msgid "Edit Options"
+msgstr "Pilihan mengedit"
+
+#: src/lib/options.py:855
+msgid "About "
+msgstr "Sekitar "
+
+#: src/lib/options.py:867
+msgid "Options "
+msgstr "Pilihan-pilihan "
+
+#. create info-text list
+#: src/lib/options.py:874
+msgid ""
+"Themes allow you to easily switch the appearance of your Screenlets. On this "
+"page you find a list of all available themes for this Screenlet."
+msgstr ""
+
+#: src/lib/options.py:903
+msgid "Themes "
+msgstr ""
+
+#: src/lib/options.py:916
+msgid "no info available"
+msgstr ""
+
+#: src/lib/options.py:1007
+msgid "Choose File"
+msgstr ""
+
+#: src/lib/options.py:1016
+msgid "Choose Directory"
+msgstr ""
+
+#: src/lib/options.py:1042
+msgid "Choose Image"
+msgstr ""
+
+#: src/lib/options.py:1109
+msgid "Open List-Editor ..."
+msgstr ""
+
+#: src/lib/options.py:1130
+msgid "Apply username/password ..."
+msgstr "Terapkan nama pengguna/sandi ..."
+
+#: src/lib/options.py:1131
+msgid "Enter username here ..."
+msgstr "Masukkan nama pengguna disini ..."
+
+#: src/lib/options.py:1132
+msgid "Enter password here ..."
+msgstr "Masukkan sandi disini ..."
+
+#: src/lib/options.py:1187
+msgid "Apply"
+msgstr "Terap"
+
+#: src/lib/sensors.py:165
+#, python-format
+msgid "%(days)s days, %(hours)s hours and %(minutes)s minutes"
+msgstr "%(days)s hari, %(hours)s jam dan %(minutes)s menit"
+
+#: src/lib/sensors.py:276
+msgid "Can't get KDE version"
+msgstr "Tidak dapat mendapatkan versi KDE"
+
+#: src/lib/sensors.py:286
+msgid "Can't get Gnome version"
+msgstr "Tidak dapat mendapatkan versi Gnome"
+
+#: src/lib/sensors.py:474
+msgid "Cannot get ip"
+msgstr "Tidak dapat mendapatkan versi ip"
+
+#: src/lib/sensors.py:568 src/lib/sensors.py:581
+msgid "Not connected"
+msgstr "Tidak terhubungkan"

@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: screenlets\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-01-10 05:23+0900\n"
-"PO-Revision-Date: 2011-02-24 17:24+0000\n"
+"PO-Revision-Date: 2011-03-03 06:13+0000\n"
 "Last-Translator: zaenal arifin <Unknown>\n"
 "Language-Team: Javanese <jv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-25 04:32+0000\n"
+"X-Launchpad-Export-Date: 2011-03-04 04:34+0000\n"
 "X-Generator: Launchpad (build 12351)\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
@@ -89,7 +89,7 @@ msgstr "Transparane seko jendelo Screenlet ..."
 
 #: src/lib/__init__.py:759
 msgid "Stick to Desktop"
-msgstr "Stick reng Desktop"
+msgstr "Lengketno reng Desktop"
 
 #: src/lib/__init__.py:760
 msgid "Show this Screenlet on all workspaces ..."
@@ -97,7 +97,7 @@ msgstr "Tampilno Screenlet iki nok kabeh workspaces ..."
 
 #: src/lib/__init__.py:762
 msgid "Treat as Widget"
-msgstr "Lakokake sayogane Widget"
+msgstr "Perlakokno sayogane Widget"
 
 #: src/lib/__init__.py:763
 msgid "Treat this Screenlet as a \"Widget\" ..."

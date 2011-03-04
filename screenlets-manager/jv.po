@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: screenlets\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-01-10 06:36+0900\n"
-"PO-Revision-Date: 2011-03-03 04:29+0000\n"
+"PO-Revision-Date: 2011-03-04 02:11+0000\n"
 "Last-Translator: zaenal arifin <Unknown>\n"
 "Language-Team: Javanese <jv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-03 04:32+0000\n"
+"X-Launchpad-Export-Date: 2011-03-04 04:34+0000\n"
 "X-Generator: Launchpad (build 12351)\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
@@ -27,7 +27,7 @@ msgstr "Daemon Screenlets"
 #: src/share/screenlets-manager/screenlets-manager.py:49
 #: src/share/screenlets-manager/screenlets-manager.py:1320
 msgid "Screenlets Manager"
-msgstr "Ngengatur Screenlets"
+msgstr "Manajer Screenlets"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:132
 #: src/share/screenlets-manager/screenlets-manager.py:918
@@ -80,9 +80,9 @@ msgid ""
 "functionality is disabled. You can use this to install screenlets into the "
 "system-wide path."
 msgstr ""
-"Penting! Kowe mlayu ning applikasi dadio root user, almost kabeh "
-"functionality yoiku rak digunakno. Kowe iso gunakno iki kanggo nginstall "
-"screenlets ning njerone sistem-wide path."
+"Penting! Kowe mlayu ning applikasi dadio root user, hampir kabeh fungsinane "
+"yoiku dinonaktifno. Kowe iso gunakno iki kanggo nginstal screenlets ning "
+"njerone sistem-wide path."
 
 #: src/share/screenlets-manager/screenlets-manager.py:101
 msgid "Warning!"
@@ -92,8 +92,8 @@ msgstr "Ngingatno!"
 msgid ""
 "Unable to connect or launch daemon. Some values may be displayed incorrectly."
 msgstr ""
-"Gunakno kanggo konnek utowo ngluncurake daemon. Terkadang nilaine mungkin "
-"ditampilno incorrectly."
+"Gunakno kanggo koneksi utowo ngluncurake daemon. Piro-piro nilaine mungkine "
+"ditampilno ora bener."
 
 #: src/share/screenlets-manager/screenlets-manager.py:132 src/lib/utils.py:102
 #: src/lib/utils.py:106 src/lib/utils.py:584 src/lib/utils.py:588
@@ -107,8 +107,8 @@ msgid ""
 "Do you really want to permanently uninstall and delete the %sScreenlet from "
 "your system?"
 msgstr ""
-"Do you really want to permanently uninstall and delete the %sScreenlet from "
-"your system?"
+"Opo kowe bener-bener pingin permanen mreteline lan mbusak %sScreenlet seko "
+"sistemmu?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:160
 msgid "Delete Screenlet"
@@ -125,50 +125,50 @@ msgstr "Rak iso hapus sistem-wide screenlets."
 #: src/share/screenlets-manager/screenlets-manager.py:269
 #, python-format
 msgid "Do you really want to reset the %sScreenlet configuration?"
-msgstr ""
+msgstr "Opo kowe serius pingin kanggo ngreset the %sScreenlet konfigurasi?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:269
 msgid "Reset Screenlet"
-msgstr ""
+msgstr "Ngeset-ulang Screenlet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:358
 msgid "Launch/Add"
-msgstr ""
+msgstr "Ngluncurno/Nambahno"
 
 #: src/share/screenlets-manager/screenlets-manager.py:362
 #: src/share/screenlets-manager/screenlets-manager.py:923
 msgid "Install"
-msgstr ""
+msgstr "ngInstall"
 
 #. but2.set_image(gtk.image_new_from_stock(gtk.STOCK_ADD,
 #. gtk.ICON_SIZE_BUTTON))
 #: src/share/screenlets-manager/screenlets-manager.py:365
 msgid "Uninstall"
-msgstr ""
+msgstr "Mbongkar"
 
 #. but3.set_image(gtk.image_new_from_stock(gtk.STOCK_DELETE,
 #. gtk.ICON_SIZE_BUTTON))
 #: src/share/screenlets-manager/screenlets-manager.py:369
 msgid "Reset Screenlet Config"
-msgstr ""
+msgstr "Nyetel-ulang Screenlet Konfig"
 
 #. but4.set_image(gtk.image_new_from_stock(gtk.STOCK_CLEAR,
 #. gtk.ICON_SIZE_BUTTON))
 #: src/share/screenlets-manager/screenlets-manager.py:373
 msgid "Install New Theme"
-msgstr ""
+msgstr "Masang Tema Anyar"
 
 #. but5.set_image(gtk.image_new_from_stock(gtk.STOCK_ADD,
 #. gtk.ICON_SIZE_BUTTON))
 #: src/share/screenlets-manager/screenlets-manager.py:377
 msgid "Re-Start All"
-msgstr ""
+msgstr "Mbaleni-Ngawiti Kabeh"
 
 #. but6.set_image(gtk.image_new_from_stock(gtk.STOCK_REFRESH,
 #. gtk.ICON_SIZE_BUTTON))
 #: src/share/screenlets-manager/screenlets-manager.py:381
 msgid "Close All"
-msgstr ""
+msgstr "Nutupi Kabeh"
 
 #. but7.set_image(gtk.image_new_from_stock(gtk.STOCK_REMOVE,
 #. gtk.ICON_SIZE_BUTTON))
@@ -189,126 +189,137 @@ msgstr ""
 msgid ""
 "Install a new Screenlet, SuperKaramba or Web Widget or Web Application  ..."
 msgstr ""
+"Masangi Screenlet anyar, SuperKaramba utowo Web Widget utowo Web Application "
+" ..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:421
 msgid "Permanently uninstall/delete the currently selected Screenlet ..."
-msgstr ""
+msgstr "Permanen mreteline/mbusak seleksine Screenlet saat iki ..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:422
 msgid ""
 "Reset this Screenlet configuration (will only work if screenlet isnt running)"
 msgstr ""
+"Ngeset ulang konfigurasine Screenlet iki (arep mung kerjo tek screenlet-te "
+"orak diplayukno)"
 
 #: src/share/screenlets-manager/screenlets-manager.py:423
 msgid "Install new theme for this screenlet"
-msgstr ""
+msgstr "ngInstall tema kanggo screenlet iki"
 
 #: src/share/screenlets-manager/screenlets-manager.py:424
 msgid "Restart all screenlets that have auto start at login"
 msgstr ""
+"Uripno ulang kabeh screenlets iku nduweni otomatis ngawiti wektu log mlebu"
 
 #: src/share/screenlets-manager/screenlets-manager.py:425
 msgid "Close all Screenlets running"
-msgstr ""
+msgstr "Nutup sak kabehane Screenlets sing do mlayu"
 
 #: src/share/screenlets-manager/screenlets-manager.py:426
 msgid "New Screenlets Options/Properties"
-msgstr ""
+msgstr "Pilihane/Sifate Screenlets anyar"
 
 #: src/share/screenlets-manager/screenlets-manager.py:427
 msgid "Create a Desktop shortcut for this Screenlet"
-msgstr ""
+msgstr "Ngekreasi sakwiji sotkat Destop kanggo Screenlet iki"
 
 #: src/share/screenlets-manager/screenlets-manager.py:446
 msgid "All Screenlets"
-msgstr ""
+msgstr "Kabeh Screenlets"
 
 #: src/share/screenlets-manager/screenlets-manager.py:447
 msgid "Running Screenlets"
-msgstr ""
+msgstr "Mlayukno Screenlets"
 
 #: src/share/screenlets-manager/screenlets-manager.py:448
 msgid "Autostart Screenlets"
-msgstr ""
+msgstr "Screenlets ngawiti secoro otomatis"
 
 #: src/share/screenlets-manager/screenlets-manager.py:449
 msgid "Only native Screenlets"
-msgstr ""
+msgstr "Mung gawane seko Screenlets"
 
 #: src/share/screenlets-manager/screenlets-manager.py:450
 msgid "Only third party"
-msgstr ""
+msgstr "Mung pihak ketelu"
 
 #: src/share/screenlets-manager/screenlets-manager.py:476
 msgid "Get more screenlets"
-msgstr ""
+msgstr "Enthukno luwih screenlets"
 
 #: src/share/screenlets-manager/screenlets-manager.py:482
 msgid "Show info about this dialog ..."
-msgstr ""
+msgstr "Nampilno info sakitaran dialog iki ..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:483
 msgid "Download more screenlets ..."
-msgstr ""
+msgstr "Ngunduhi luwih screenlets ..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:484
 msgid "Close this dialog ..."
-msgstr ""
+msgstr "Nutup dialog iki ..."
 
 #. create checkboxes
 #: src/share/screenlets-manager/screenlets-manager.py:518
 msgid "Start/Stop"
-msgstr ""
+msgstr "Ngawiti/Mandeg"
 
 #: src/share/screenlets-manager/screenlets-manager.py:519
 msgid "Auto start on login"
-msgstr ""
+msgstr "Ngawiti secoro otomatis pas log mlebu"
 
 #: src/share/screenlets-manager/screenlets-manager.py:520
 msgid "Show daemon in tray"
-msgstr ""
+msgstr "Nampilno daemon ing nampan"
 
 #: src/share/screenlets-manager/screenlets-manager.py:650
 #, python-format
 msgid "Invalid string: %s."
-msgstr ""
+msgstr "Orakcocok stringe: %s."
 
 #: src/share/screenlets-manager/screenlets-manager.py:685
 msgid "Install a Screenlet or SuperKaramba theme"
-msgstr ""
+msgstr "Masangi sakwijineng tema Screenlet utowo SuperKaramba"
 
 #: src/share/screenlets-manager/screenlets-manager.py:723
 msgid "Install a new theme for the selected Screenlet"
-msgstr ""
+msgstr "ngInstall tema anyar kanggo nyeleksi Screenlet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:768
 msgid "Error Found"
-msgstr ""
+msgstr "Ditemukno Kekeliruan"
 
 #: src/share/screenlets-manager/screenlets-manager.py:773
 msgid ""
 "Theme install error 1 found - Theme not installed , maybe a package error "
 msgstr ""
+"Masange tema diemukno 1 kesalahan - Temane orak kepasang , mungkin wae "
+"sakwiji paket ono sing keliru "
 
 #: src/share/screenlets-manager/screenlets-manager.py:784
 msgid ""
 "This package seams to contain a full Screenlet and not just a theme, please "
 "use the screenlet install instead"
 msgstr ""
+"Lapisane paketan iki  kanggo ngemuat sakwijine Screenlet lengkap lan orak "
+"mung sakwiji tema, sumonggo ngunakno screenlet nginstall instead"
 
 #: src/share/screenlets-manager/screenlets-manager.py:796
 msgid "This package doesnt seem to contain a theme"
-msgstr ""
+msgstr "Paket iki ora nampakake kanggo memuat sakwijine tema"
 
 #: src/share/screenlets-manager/screenlets-manager.py:819
 #, python-format
 msgid "Theme installed , please restart %s"
-msgstr ""
+msgstr "Tema wis kepasang , sumonggo diuripno ulang %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:824
 msgid ""
 "Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
+"Tema kepasang ditemukno 2 kekeliruan - Tema orak kepasang utowo wis ono "
+"installane"
 
 #: src/share/screenlets-manager/screenlets-manager.py:908
 msgid ""
@@ -317,79 +328,84 @@ msgid ""
 "and by clicking on an AptURL on web pages like Gnome-look.org. Would you "
 "like to add the Screenlets PPA to your system?"
 msgstr ""
+"PPA Screenlets yoiku orak terdaftar nok antarane sumber perangkat lunak. "
+"Tambahno iki gunakake menginstal screenlets individu seko Paket Manajer "
+"(utowo pusat Software) lan karo ngeklik nok sakwijine AptURL nok halaman web "
+"koyoo Gnome-look.org. Opo kowe seneng kanggo nambahake Screenlets PPA reng "
+"sistemmu?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:908
 msgid "Do you want to enable the Screenlets PPA?"
-msgstr ""
+msgstr "Opo kowe pingin kanggo gunakno Screenlets PPA?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
 msgid "The Screenlets PPA added successfully."
-msgstr ""
+msgstr "PPA Screenlets sukses ditambahno."
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
 msgid "Success!"
-msgstr ""
+msgstr "Sukses!"
 
 #: src/share/screenlets-manager/screenlets-manager.py:913
 msgid "Adding the Screenlets PPA failed."
-msgstr ""
+msgstr "Nambahke PPA Screenlets failed."
 
 #: src/share/screenlets-manager/screenlets-manager.py:913
 msgid "Failed!"
-msgstr ""
+msgstr "Gagal!"
 
 #: src/share/screenlets-manager/screenlets-manager.py:919
 msgid "Install SuperKaramba Theme"
-msgstr ""
+msgstr "ngInstall  Tema SuperKaramba"
 
 #: src/share/screenlets-manager/screenlets-manager.py:920
 msgid "Convert Web Widget"
-msgstr ""
+msgstr "Ngonversi Web Widget"
 
 #: src/share/screenlets-manager/screenlets-manager.py:921
 #: src/share/screenlets-manager/screenlets-manager.py:1028
 msgid "Install Web Application"
-msgstr ""
+msgstr "ngInstall Application Web"
 
 #: src/share/screenlets-manager/screenlets-manager.py:941
 msgid "New screenlets atributes.."
-msgstr ""
+msgstr "Atribut screenlets anyar.."
 
 #: src/share/screenlets-manager/screenlets-manager.py:942
 msgid "Lock"
-msgstr ""
+msgstr "Ngunci"
 
 #: src/share/screenlets-manager/screenlets-manager.py:943
 msgid "Sticky"
-msgstr ""
+msgstr "Lengket"
 
 #: src/share/screenlets-manager/screenlets-manager.py:944
 msgid "Widget"
-msgstr ""
+msgstr "Widget"
 
 #: src/share/screenlets-manager/screenlets-manager.py:945
 msgid "Keep above"
-msgstr ""
+msgstr "Njogo tetep ning nduwur"
 
 #: src/share/screenlets-manager/screenlets-manager.py:947
 msgid "Keep below"
-msgstr ""
+msgstr "Njogo tetep ning ngisor"
 
 #: src/share/screenlets-manager/screenlets-manager.py:948
 msgid "Show buttons"
-msgstr ""
+msgstr "Nampilno tombol"
 
 #: src/share/screenlets-manager/screenlets-manager.py:980
 msgid "New Screenlets atributes"
-msgstr ""
+msgstr "Atributes Screenlets anyar"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1018
 msgid "Web Application Url"
-msgstr ""
+msgstr "Web Aplikasi Url"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1019
 msgid "Web Application Name"
-msgstr ""
+msgstr "Nami Web Aplikasi"
 
 #. found_path != None:
 #: src/share/screenlets-manager/screenlets-manager.py:1051
@@ -398,60 +414,65 @@ msgid ""
 "There is already a screenlet with that name installed\n"
 "Do you wish to continue?"
 msgstr ""
+"Ningkene yoiku uwis cemepak sakwijine screenlet karo jengen iku sing "
+"kepasang\n"
+"Opo kowe pingin nglanjutake?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1072
 msgid "Web Application was successfully installed"
-msgstr ""
+msgstr "Aplikasi Web uwis sukses dipasangake"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1075
 msgid "Error installing!!!"
-msgstr ""
+msgstr "Keliru masangine!!!"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1076
 #: src/share/screenlets-manager/screenlets-manager.py:1161
 msgid "Please specify a name for the widget"
-msgstr ""
+msgstr "Sumonggo spesifikno sakwiji jengen kanggo widget"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1077
 #: src/share/screenlets-manager/screenlets-manager.py:1162
 msgid "No HTML code found"
-msgstr ""
+msgstr "Rakono HTML kode ditemukno"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1081
 msgid "Convert any webpage widget into a Screenlet."
-msgstr ""
+msgstr "Ngorversi suwatu webpage widget ninggon sakwijine Screenlet."
 
 #: src/share/screenlets-manager/screenlets-manager.py:1082
 msgid "Step 1 : Find the widget you want to convert"
-msgstr ""
+msgstr "Step 1 : ngGoleki widget sing kowe pingin kanggo dikonversi"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1083
 msgid "Step 2 : Copy and Paste the HTML from the widget in the box below"
-msgstr ""
+msgstr "Step 2 : Jiplak lan Tempelno HTML seko widget ning kotak ngisor"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1084
 msgid "Step 3 : Give it a name in the box below and click on Ok to convert"
 msgstr ""
+"Step 3 : Wenehi sakwiji jengen nok ngGon kotakane ngisor lan klik nok Ok "
+"kanggo ngonversi"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1085
 msgid "The name of the widget"
-msgstr ""
+msgstr "Jengen seko widget"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1109
 msgid "Widget converter"
-msgstr ""
+msgstr "Widget Konversi"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1157
 msgid "Widget was successfully converted"
-msgstr ""
+msgstr "Widget uwis sukses dikonversi"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1160
 msgid "Error converting!!!"
-msgstr ""
+msgstr "Gagal ngonversine!!!"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1283
 msgid "Screenlets-Manager must now be restarted"
-msgstr ""
+msgstr "Screenlets-Manajer kudune diuripake ulang sakiki"
 
 #. + constants
 #: src/share/screenlets-manager/screenlets-packager.py:30
@@ -459,81 +480,89 @@ msgid ""
 "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
 "Usage: screenlets-packager <path> [options]"
 msgstr ""
+"Paket Screenlets - (c) RYX (Rico Pfaus) 2007\n"
+"Usage: screenlets-packager <path> [options]"
 
 #: src/share/screenlets-manager/screenlets-packager.py:69
 #, python-format
 msgid "The specified path \"%s\" does not exist."
-msgstr ""
+msgstr "Jalur sing ditetepno \"%s\" ora ono."
 
 #: src/share/screenlets-manager/screenlets-packager.py:70
 #, python-format
 msgid "Found path \"%s\"."
-msgstr ""
+msgstr "Ditemukake jalur \"%s\"."
 
 #: src/share/screenlets-manager/screenlets-packager.py:76
 msgid "Failed to extract screenlet name from path."
-msgstr ""
+msgstr "Gagal olehe nguraiake jengen screenlet seko jalure."
 
 #: src/share/screenlets-manager/screenlets-packager.py:77
 #, python-format
 msgid "Screenlet name is %s."
-msgstr ""
+msgstr "Namine Screenlet yoiku %s."
 
 #: src/share/screenlets-manager/screenlets-packager.py:81
 #, python-format
 msgid "No screenlet-file \"%sScreenlet.py\" found in the given path."
 msgstr ""
+"Rakono brekas-screenlet \"%sScreenlet.py\" ditemukno ning jalur sing "
+"diwenehi."
 
 #: src/share/screenlets-manager/screenlets-packager.py:82
 #, python-format
 msgid "Found %sScreenlet.py in path."
-msgstr ""
+msgstr "Ditemukno %sScreenlet.py ing rintisane."
 
 #: src/share/screenlets-manager/screenlets-packager.py:91
 #, python-format
 msgid "Unable to import module '%(name)s' from %(path)s. (%(error)s)"
-msgstr ""
+msgstr "Rakmampu kanggo ngimpor modul '%(name)s' seko %(path)s. (%(error)s)"
 
 #: src/share/screenlets-manager/screenlets-packager.py:92
 #, python-format
 msgid "Successfully imported module: %s"
-msgstr ""
+msgstr "Wis sukses ngimpore modul: %s"
 
 #: src/share/screenlets-manager/screenlets-packager.py:98
 msgid "Unable to import class from module."
-msgstr ""
+msgstr "Rakmampu kanggo ngimpor kelas seko modul."
 
 #: src/share/screenlets-manager/screenlets-packager.py:100
 msgid "The class inside the module is no subclass of screenlets.Screenlet."
 msgstr ""
+"Sebelahe kelas modul yoiku rakono sub kelas seko screenlets.Screenlet."
 
 #: src/share/screenlets-manager/screenlets-packager.py:101
 #, python-format
 msgid "Successfully got class from module: %s"
-msgstr ""
+msgstr "Wis Sukses ngentukake kelas seko modul: %s"
 
 #: src/share/screenlets-manager/screenlets-packager.py:132
 #, python-format
 msgid "Failed to create package info in \"%s\" (no permission?)."
-msgstr ""
+msgstr "Gagal kanggo ngekreasi info paket ning \"%s\" (no permission?)."
 
 #: src/share/screenlets-manager/screenlets-packager.py:133
 msgid "Created package info file."
-msgstr ""
+msgstr "Ngekreasi brekas info paket."
 
 #: src/share/screenlets-manager/screenlets-packager.py:151
 msgid "Cleaned up and finished."
-msgstr ""
+msgstr "Diresiki kabeh lan Dirampungke."
 
 #: src/lib/install.py:58
 msgid ""
 "This type of karamba theme is not supported yet\n"
 " Only older versions can be used"
 msgstr ""
+"Tipe iki seko temane karamba yoiku ora ngedukung iku\n"
+" Mung versi lawase sing iso digunakake"
 
 #: src/lib/install.py:114
 msgid "Archive is damaged or unsupported, use only tar, bz2 or gz."
 msgstr ""
+"Arsipe yoiku rusak utowo ora ngedukung, gunakno mung tar, bz2 utowo gz."
 
 #. check if screenlet is already installed
 #. found_path = screenlets.utils.find_first_screenlet_path(name)
@@ -544,36 +573,42 @@ msgid ""
 "The %(slet)sScreenlet is already installed in '%(dir)s'.\n"
 "Do you wish to continue?"
 msgstr ""
+"The %(slet)sScreenlet yoiku wis tersediyo keinstall ning '%(dir)s'.\n"
+"Opo kowe kepingin ngelanjutake?"
 
 #: src/lib/install.py:128 src/lib/install.py:194
 #, python-format
 msgid "Install %s"
-msgstr ""
+msgstr "ngInstall %s"
 
 #: src/lib/install.py:131
 #, python-format
 msgid "%sScreenlet is already installed"
-msgstr ""
+msgstr "%sScreenlet yoiku wis tersediyo keinstal"
 
 #. dir missing
 #: src/lib/install.py:138
 msgid ""
 "Invalid archive. Archive must contain a directory with the screenlet's name."
 msgstr ""
+"Arsipe rak sah. Arsip kudune ngengandung suwatu direktori karo jengen "
+"screenlet's."
 
 #: src/lib/install.py:150
 msgid "Compatibility for this karamba theme is not yet implemented"
-msgstr ""
+msgstr "Kecocokane kanggo temane karamba iki yoiku durung dilaksanakno"
 
 #: src/lib/install.py:177
 msgid "Karamba theme was successfully installed"
-msgstr ""
+msgstr "Tema Karamba uwis sukses dipasang"
 
 #: src/lib/install.py:179
 msgid ""
 "Invalid archive. Archive does not contain a screenlet or a valid karamba "
 "theme."
 msgstr ""
+"Arsipe orak sah. Arsip ora ngengandung suwatu screenlet utowo sakwiji tema "
+"karamba sing sah."
 
 #: src/lib/install.py:194
 #, python-format
@@ -581,16 +616,18 @@ msgid ""
 "%s was not packaged with the screenlet packager. Do you wish to continue and "
 "try to install it?"
 msgstr ""
+"%s yoiku ora sak paketan karo screenlet paket. Opo kowe kepingin "
+"ngelanjutake lan ncobo kanggo nginstal iku?"
 
 #: src/lib/install.py:197
 msgid "This package was not packaged with the screenlet packager."
-msgstr ""
+msgstr "Paket iki yoiku ora sak paketan karo screenlet paket."
 
 #. set msg/result
 #: src/lib/install.py:206
 #, python-format
 msgid "The %sScreenlet has been succesfully installed."
-msgstr ""
+msgstr "The %sScreenlet uwis sukses kepasang."
 
 #. create autostart directory, if not existent
 #: src/lib/utils.py:101 src/lib/utils.py:584
@@ -598,6 +635,8 @@ msgid ""
 "There is no existing autostart directory for your user account yet. Do you "
 "want me to automatically create it for you?"
 msgstr ""
+"Ningkene yoiku ora nongol autostart direktori kanggo akun pengunomu. Opo "
+"kowe pingin tak gawekno kanggo otomatise dikreasi kanggo kowe?"
 
 #: src/lib/utils.py:106 src/lib/utils.py:588
 #, python-format
@@ -605,6 +644,8 @@ msgid ""
 "Automatic creation failed. Please manually create the directory:\n"
 "%s"
 msgstr ""
+"Kreasi otomatise gagal. Sumonggo ngekreasi secoro manual ning direktori:\n"
+"%s"
 
 #: src/lib/utils.py:109 src/lib/utils.py:591
 #, python-format
@@ -612,8 +653,10 @@ msgid ""
 "Please manually create the directory:\n"
 "%s"
 msgstr ""
+"Sumonggo ngekreasi manual ning direktori:\n"
+"%s"
 
 #: src/lib/utils.py:620
 #, python-format
 msgid "Failed to add %sScreenlet."
-msgstr ""
+msgstr "Gagal kanggo nambahno %sScreenlet."

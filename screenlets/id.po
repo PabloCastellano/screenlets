@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: screenlets\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-01-10 05:23+0900\n"
-"PO-Revision-Date: 2011-03-03 04:11+0000\n"
+"PO-Revision-Date: 2011-03-03 05:50+0000\n"
 "Last-Translator: zaenal arifin <Unknown>\n"
 "Language-Team: Indonesian <id@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-03 04:32+0000\n"
+"X-Launchpad-Export-Date: 2011-03-04 04:34+0000\n"
 "X-Generator: Launchpad (build 12351)\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
@@ -131,7 +131,7 @@ msgstr "Jaga Screenlet selalu dibawah dari jendela-jendela yang lain ..."
 
 #: src/lib/__init__.py:780
 msgid "Draw button controls"
-msgstr "Gambaran tombol kontrol"
+msgstr "Gambar tombol kontrol"
 
 #: src/lib/__init__.py:781
 msgid "Draw buttons in top right corner"
@@ -171,12 +171,11 @@ msgstr "Bolehkan Pilihan menimpa"
 
 #: src/lib/__init__.py:797
 msgid "Allow themes to override options in this screenlet ..."
-msgstr ""
-"Membolehkan tema untuk mengesampingkan pilihan dalam screenlet ini ..."
+msgstr "Membolehkan tema untuk pilihan menumpukkan dalam screenlet ini ..."
 
 #: src/lib/__init__.py:799
 msgid "Ask on Override"
-msgstr "Tanya saat Menimpa"
+msgstr "Tanya saat Menumpuk"
 
 #: src/lib/__init__.py:800
 msgid "Show a confirmation-dialog when a theme wants to override "
@@ -207,6 +206,8 @@ msgid ""
 "\n"
 "%(package)s %(version)s installed, req %(required)s."
 msgstr ""
+"\n"
+"%(package)s %(version)s installed, req %(required)s."
 
 #: src/lib/__init__.py:1012
 #, python-format
@@ -217,28 +218,33 @@ msgid ""
 "REQUIREMENTS:\n"
 "%s"
 msgstr ""
+"Persyaratan untuk Screenlet tidak memuaskan! Gunakan manajer paket dari "
+"sistim anda untuk menginstall dibutuhkan paket-paket.\n"
+"\n"
+"REQUIREMENTS:\n"
+"%s"
 
 #: src/lib/__init__.py:1034
 msgid "Size"
-msgstr ""
+msgstr "Ukurannya"
 
 #: src/lib/__init__.py:1049
 msgid "Theme"
-msgstr ""
+msgstr "Tema"
 
 #: src/lib/__init__.py:1064
 msgid "Window"
-msgstr ""
+msgstr "Jendela"
 
 #. add "lock"-menuitem
 #: src/lib/__init__.py:1070
 msgid "Lock"
-msgstr ""
+msgstr "Mengunci"
 
 #. add "Sticky"-menuitem
 #: src/lib/__init__.py:1077
 msgid "Sticky"
-msgstr ""
+msgstr "Melekat"
 
 #. add "Widget"-menuitem
 #: src/lib/__init__.py:1084
@@ -278,16 +284,18 @@ msgid ""
 "This theme wants to override your settings for this Screenlet. Do you want "
 "to allow that?"
 msgstr ""
+"This theme wants to override your settings for this Screenlet. Do you want "
+"to allow that?"
 
 #: src/lib/__init__.py:1610
 #, python-format
 msgid "To quit all %s's, use 'Quit' instead. "
-msgstr ""
+msgstr "Untuk keluar dari semua %s's, pakai 'Quit' sebagai gantinya. "
 
 #: src/lib/__init__.py:1611
 #, python-format
 msgid "Really delete this %s and its settings?"
-msgstr ""
+msgstr "Serius menghapus ini %s dan pengaturannya?"
 
 #: src/lib/options.py:653
 msgid "Edit Options"
@@ -307,30 +315,32 @@ msgid ""
 "Themes allow you to easily switch the appearance of your Screenlets. On this "
 "page you find a list of all available themes for this Screenlet."
 msgstr ""
+"Themes allow you to easily switch the appearance of your Screenlets. On this "
+"page you find a list of all available themes for this Screenlet."
 
 #: src/lib/options.py:903
 msgid "Themes "
-msgstr ""
+msgstr "Tema-tema "
 
 #: src/lib/options.py:916
 msgid "no info available"
-msgstr ""
+msgstr "Tidak ada info yang disediakan"
 
 #: src/lib/options.py:1007
 msgid "Choose File"
-msgstr ""
+msgstr "Memilih Berkas"
 
 #: src/lib/options.py:1016
 msgid "Choose Directory"
-msgstr ""
+msgstr "Memiilih Direktori"
 
 #: src/lib/options.py:1042
 msgid "Choose Image"
-msgstr ""
+msgstr "Memiilih Gambar"
 
 #: src/lib/options.py:1109
 msgid "Open List-Editor ..."
-msgstr ""
+msgstr "Membuka daftar-Editor ..."
 
 #: src/lib/options.py:1130
 msgid "Apply username/password ..."

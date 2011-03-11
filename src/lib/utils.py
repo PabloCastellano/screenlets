@@ -170,7 +170,7 @@ def get_screenlet_linux_name_by_short_class_name(name):
 def is_screenlets_ppa_enabled():
 	"""Detect if Screenlets default PPA is enabled on system."""
 	import commands
-	result = commands.getstatusoutput("ls /etc/apt/sources.list.d/screenlets-dev-ppa-*.list | xargs grep '^deb.*'")[0]
+	result = commands.getstatusoutput("ls /etc/apt/sources.list.d/screenlets*ppa*.list | xargs grep '^deb.*'")[0]
 	return result == 0
 
 def get_translator(path):

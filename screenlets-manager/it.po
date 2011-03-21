@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: screenlets-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-10 06:36+0900\n"
-"PO-Revision-Date: 2011-03-13 20:33+0000\n"
-"Last-Translator: Andrea Azzarone <Unknown>\n"
+"PO-Revision-Date: 2011-03-20 14:16+0000\n"
+"Last-Translator: Lelio Giaccone <Unknown>\n"
 "Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-14 04:42+0000\n"
+"X-Launchpad-Export-Date: 2011-03-21 04:32+0000\n"
 "X-Generator: Launchpad (build 12559)\n"
 "Language: it\n"
 
@@ -329,11 +329,11 @@ msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:908
 msgid "Do you want to enable the Screenlets PPA?"
-msgstr ""
+msgstr "Vuoi abilitare il repository PPA per gli Screenlets?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
 msgid "The Screenlets PPA added successfully."
-msgstr ""
+msgstr "Il repository PPA per gli Screenlets è stato aggiunto correttamente."
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
 msgid "Success!"
@@ -341,7 +341,7 @@ msgstr "Riuscito!"
 
 #: src/share/screenlets-manager/screenlets-manager.py:913
 msgid "Adding the Screenlets PPA failed."
-msgstr ""
+msgstr "L'aggiunta del repository PPA per gli screenlets è fallita"
 
 #: src/share/screenlets-manager/screenlets-manager.py:913
 msgid "Failed!"

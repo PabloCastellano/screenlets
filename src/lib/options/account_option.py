@@ -43,13 +43,13 @@ class AccountOption(Option):
         super(AccountOption, self).__init__ (group, name, **args)
         # check for availability of keyring
         if not gnomekeyring.is_available():
-            raise Exception(_('GnomeKeyring is not available!!'))
+            raise Exception('GnomeKeyring is not available!!')
         # THIS IS A WORKAROUND FOR A BUG IN KEYRING (usually we would use
         # gnomekeyring.get_default_keyring_sync() here):
         # find first available keyring
         self.keyring_list = gnomekeyring.list_keyring_names_sync()
         if len(self.keyring_list) == 0:
-            raise Exception(_('No keyrings found. Please create one first!'))
+            raise Exception('No keyrings found. Please create one first!')
         else:
             # we prefer the default keyring
             try:
@@ -81,7 +81,7 @@ class AccountOption(Option):
             # return
             return (name, pw)
         else:
-            raise Exception(_('Illegal value in AccountOption.on_import.'))
+            raise Exception('Illegal value in AccountOption.on_import.')
 
     def on_export(self, value):
         """Export the given tuple/list containing a username and a password. The

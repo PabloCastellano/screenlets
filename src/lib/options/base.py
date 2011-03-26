@@ -243,11 +243,11 @@ class EditableOptions(object):
         try:
             doc = xml.dom.minidom.parse(filename)
         except:
-            raise Exception(_('Invalid XML in metadata-file (or file missing): "%s".') % filename)
+            raise Exception('Invalid XML in metadata-file (or file missing): "%s".' % filename)
         # get rootnode
         root = doc.firstChild
         if not root or root.nodeName != 'screenlet':
-            raise Exception(_('Missing or invalid rootnode in metadata-file: "%s".') % filename)
+            raise Exception('Missing or invalid rootnode in metadata-file: "%s".' % filename)
         # ok, let's check the nodes: this one should contain option-groups
         groups = []
         for node in root.childNodes:
@@ -256,13 +256,13 @@ class EditableOptions(object):
                 #print node
                 if node.nodeName != 'group' or not node.hasChildNodes():
                     # we only allow groups in the first level (groups need children)
-                    raise Exception(_('Error in metadata-file "%s" - only <group>-tags allowed in first level. Groups must contain at least one <info>-element.') % filename)
+                    raise Exception('Error in metadata-file "%s" - only <group>-tags allowed in first level. Groups must contain at least one <info>-element.' % filename)
                 else:
                     # ok, create a new group and parse its elements
                     group = {}
                     group['name']        = node.getAttribute("name")
                     if not group['name']:
-                        raise Exception(_('No name for group defined in "%s".') % filename)
+                        raise Exception('No name for group defined in "%s".' % filename)
                     group['info']        = ''
                     group['options']    = []
                     # check all children in group
@@ -278,7 +278,7 @@ class EditableOptions(object):
                                 if opt:
                                     group['options'].append(opt)
                                 else:
-                                    raise Exception(_('Invalid option-node found in "%s".') % filename)
+                                    raise Exception('Invalid option-node found in "%s".' % filename)
 
                     # create new group
                     if len(group['options']):

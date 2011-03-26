@@ -446,6 +446,7 @@ class OptionsDialog(gtk.Dialog):
         """Update the Themes-page to display the available themes for the
         given Screenlet-object."""
         dircontent = []
+        screenlets.utils.refresh_available_screenlet_paths()
         # now check all paths for themes
         for path in screenlets.SCREENLETS_PATH:
             p = path + '/' + obj.get_short_name() + '/themes'

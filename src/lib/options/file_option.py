@@ -123,7 +123,7 @@ class ImageOption(FileOption):
         but.show()
         self.widget.show()
         # add tooltips
-        but.set_tooltip_text('Select Image ...')
+        but.set_tooltip_text(_('Select Image ...'))
         but.set_tooltip_text(self.desc)
         return self.widget
 

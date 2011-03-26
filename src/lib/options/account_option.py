@@ -105,7 +105,7 @@ class AccountOption(Option):
         input_pass.set_visibility(False)    # password
         input_pass.set_text(value[1])
         input_pass.show()
-        but = gtk.Button('Apply', gtk.STOCK_APPLY)
+        but = gtk.Button(_('Apply'), gtk.STOCK_APPLY)
         but.show()
         but.connect("clicked", self.has_changed)
         vb.add(input_name)

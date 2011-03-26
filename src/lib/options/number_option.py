@@ -26,8 +26,8 @@ from base import Option
 
 class IntOption(Option):
     """An Option for integer options."""
-    min = 0
-    max = 0
+    min = -100000
+    max = 100000
     increment = 1
 
     def on_import(self, strvalue):

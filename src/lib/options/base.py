@@ -54,6 +54,7 @@ class Option(gobject.GObject):
         # This should allow any of the class options to be set on init.
         for name in args.keys():
             if hasattr(self, name):
+                # Replaces class variables (defaults) with object vars
                 setattr(self, name, args[name])
 
         # XXX for groups (TODO: OptionGroup)

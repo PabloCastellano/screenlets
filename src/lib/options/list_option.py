@@ -21,7 +21,7 @@ List options, these classes will display all sorts of crazy shit.
 
 import gtk
 
-from screenlets.options import _, TOOLTIPS
+from screenlets.options import _
 from base import Option
 
 class ListOption(Option):
@@ -46,8 +46,8 @@ class ListOption(Option):
         but.set_image(img)
         but.show()
         but.connect("clicked", self.open_listeditor)
-        TOOLTIPS.set_tip(but, _('Open List-Editor ...'))
-        TOOLTIPS.set_tip(self._entry, self.desc)
+        but.set_tooltip_text(_('Open List-Editor ...'))
+        self._entry.set_tooltip_text(self.desc)
         self.widget = gtk.HBox()
         self.widget.add(self._entry)
         self.widget.add(but)

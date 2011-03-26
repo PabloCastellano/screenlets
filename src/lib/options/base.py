@@ -326,8 +326,6 @@ class OptionsDialog(gtk.Dialog):
         self.create_about_page()
         self.create_themes_page()
         self.create_options_page()
-        # crete tooltips-object
-        self.tooltips = gtk.Tooltips()
 
     # "public" functions
 
@@ -426,7 +424,7 @@ class OptionsDialog(gtk.Dialog):
             if option.disabled:
                 widget.set_sensitive(False)
                 label.set_sensitive(False)
-            self.tooltips.set_tip(widget, option.desc)
+            widget.set_tooltip_text(option.desc)
             widget.show()
             # check if needs Apply-button
             if option.realtime == False:

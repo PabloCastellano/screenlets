@@ -32,8 +32,6 @@ import screenlets
 import os
 import gtk, gobject
 
-TOOLTIPS = gtk.Tooltips()
-
 # translation stuff
 import gettext
 gettext.textdomain('screenlets')

@@ -22,7 +22,7 @@ Account options, these classes will display a text box.
 import gtk
 import gnomekeyring
 
-from screenlets.options import _, TOOLTIPS
+from screenlets.options import _
 from base import Option
 
 class AccountOption(Option):
@@ -111,9 +111,9 @@ class AccountOption(Option):
         vb.add(input_name)
         vb.add(input_pass)
         vb.show()
-        TOOLTIPS.set_tip(but, _('Apply username/password ...'))
-        TOOLTIPS.set_tip(input_name, _('Enter username here ...'))
-        TOOLTIPS.set_tip(input_pass, _('Enter password here ...'))
+        but.set_tooltip_text(_('Apply username/password ...'))
+        input_name.set_tooltip_text(_('Enter username here ...'))
+        input_pass.set_tooltip_text(_('Enter password here ...'))
         self.widget.add(vb)
         self.widget.add(but)
         return self.widget

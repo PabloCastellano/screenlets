@@ -21,7 +21,7 @@ Time options, these classes will display a text box.
 
 import gtk
 
-from screenlets.options import _, TOOLTIPS
+from screenlets.options import _
 from colour_option import ColorOption
 
 class TimeOption(ColorOption):
@@ -51,9 +51,9 @@ class TimeOption(ColorOption):
         input_hour.connect('value-changed', self.has_changed)
         input_minute.connect('value-changed', self.has_changed)
         input_second.connect('value-changed', self.has_changed)
-        TOOLTIPS.set_tip(input_hour, self.desc)
-        TOOLTIPS.set_tip(input_minute, self.desc)
-        TOOLTIPS.set_tip(input_second, self.desc)
+        input_hour.set_tooltip_text(self.desc)
+        input_minute.set_tooltip_text(self.desc)
+        input_second.set_tooltip_text(self.desc)
         self.widget.add(input_hour)
         self.widget.add(gtk.Label(':'))
         self.widget.add(input_minute)

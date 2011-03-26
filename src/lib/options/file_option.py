@@ -22,7 +22,7 @@ File options, these classes will display a file select widget.
 import gtk
 import os
 
-from screenlets.options import _, TOOLTIPS
+from screenlets.options import _
 from base import Option
 
 class FileOption(Option):
@@ -123,8 +123,8 @@ class ImageOption(FileOption):
         but.show()
         self.widget.show()
         # add tooltips
-        TOOLTIPS.set_tip(but, 'Select Image ...')
-        TOOLTIPS.set_tip(but, self.desc)
+        but.set_tooltip_text('Select Image ...')
+        but.set_tooltip_text(self.desc)
         return self.widget
 
     def create_preview(self, filename):

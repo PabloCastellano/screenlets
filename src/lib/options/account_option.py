@@ -76,7 +76,7 @@ class AccountOption(Option):
                 pw = gnomekeyring.item_get_info_sync(self.keyring, 
                     int(auth_token)).get_secret()
             except Exception, ex:
-                print _("ERROR: Unable to read password from keyring: %s") % ex
+                print "ERROR: Unable to read password from keyring: %s" % ex
                 pw = ''
             # return
             return (name, pw)

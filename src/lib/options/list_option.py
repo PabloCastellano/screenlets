@@ -181,7 +181,7 @@ class ListOptionDialog(gtk.Dialog):
         return ret
 
     def button_callback (self, widget, id):
-        print _("PRESS: %s") % id
+        print "PRESS: %s" % id
         if id == 'remove':
             self.remove_selected_item()
         if id == 'add':

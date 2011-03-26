@@ -170,7 +170,7 @@ class EditableOptions(object):
         try:
             self.__options_groups__[option.group]['options'].append(option)
         except:
-            print _("Options: Error - group %s not defined.") % option.group
+            print "Options: Error - group %s not defined." % option.group
             return False
         # now add the option
         self.__options__.append(option)
@@ -455,7 +455,7 @@ class OptionsDialog(gtk.Dialog):
             try:
                 dircontent = os.listdir(p)
             except:
-                print _("Path %s not found.") % p
+                print "Path %s not found." % p
                 continue
             # check all themes in path
             for name in dircontent:
@@ -491,7 +491,7 @@ class OptionsDialog(gtk.Dialog):
                 # is it the active theme?
                 if name == obj.theme_name:
                     # select it in tree
-                    print _("active theme is: %s") % name
+                    print "active theme is: %s" % name
                     sel = self.tree.get_selection()
                     if sel:
                         it = self.liststore.get_iter_from_string(\

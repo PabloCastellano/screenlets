@@ -55,8 +55,13 @@ class AccountOption(Option):
             try:
                 self.keyring = gnomekeyring.get_default_keyring_sync()
             except:
-                print _("Warning: No default keyring found, storage is not permanent!")
-                self.keyring = self.keyring_list[0]
+                if "session" in self.keyring_list:
+                    print "Warning: No default keyring found, using session keyring. Storage is not permanent!"
+                    self.keyring = "session"
+                else:
+                    print "Warning: Neither default nor session keyring found, assuming keyring %s!" % self.keyring_list[0]
+                    self.keyring = self.keyring_list[0]
+
 
     def on_import(self, strvalue):
         """Import account info from a string (like 'username:auth_token'),.
@@ -68,12 +73,8 @@ class AccountOption(Option):
         if name and auth_token:
             # read pass from storage
             try:
-                if self.keyring == self.keyring_list[0]:
-                    pw = gnomekeyring.item_get_info_sync('session',
-                        int(auth_token)).get_secret()
-                else:
-                    pw = gnomekeyring.item_get_info_sync(self.keyring,
-                        int(auth_token)).get_secret()
+                pw = gnomekeyring.item_get_info_sync(self.keyring, 
+                    int(auth_token)).get_secret()
             except Exception, ex:
                 print _("ERROR: Unable to read password from keyring: %s") % ex
                 pw = ''
@@ -88,12 +89,8 @@ class AccountOption(Option):
         string in form 'username:auth_token'."""
         # store password in storage
         attribs = dict(name=value[0])
-        if self.keyring == self.keyring_list[0]:
-            auth_token = gnomekeyring.item_create_sync('session',
-                gnomekeyring.ITEM_GENERIC_SECRET, value[0], attribs, value[1], True)
-        else:
-            auth_token = gnomekeyring.item_create_sync(self.keyring,
-                gnomekeyring.ITEM_GENERIC_SECRET, value[0], attribs, value[1], True)
+        auth_token = gnomekeyring.item_create_sync(self.keyring, 
+            gnomekeyring.ITEM_GENERIC_SECRET, value[0], attribs, value[1], True)
         # build value from username and auth_token
         return value[0] + ':' + str(auth_token)
 

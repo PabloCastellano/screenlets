@@ -42,7 +42,7 @@ class ListOption(Option):
         self._entry.show()
         img = gtk.Image()
         img.set_from_stock(gtk.STOCK_EDIT, 1)
-        but = gtk.Button('')
+        but = gtk.Button()
         but.set_image(img)
         but.show()
         but.connect("clicked", self.open_listeditor)

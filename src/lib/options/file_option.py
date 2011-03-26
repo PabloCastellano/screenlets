@@ -112,7 +112,7 @@ class ImageOption(FileOption):
         self._entry = gtk.Entry()
         self._entry.set_text(value)
         self._entry.set_editable(False)
-        but = gtk.Button('')
+        but = gtk.Button()
         # load preview image
         but.set_image(self.create_preview(value))
         but.connect('clicked', self.but_callback)

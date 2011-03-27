@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-10 06:36+0900\n"
-"PO-Revision-Date: 2011-03-21 23:03+0000\n"
+"PO-Revision-Date: 2011-03-26 21:53+0000\n"
 "Last-Translator: Daniela Barcan <Unknown>\n"
 "Language-Team: Romanian <ro@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-23 04:32+0000\n"
+"X-Launchpad-Export-Date: 2011-03-27 04:33+0000\n"
 "X-Generator: Launchpad (build 12559)\n"
 "Language: ro\n"
 
@@ -218,19 +218,19 @@ msgstr "Inchideți toate Screenlets rulările Screenlets"
 
 #: src/share/screenlets-manager/screenlets-manager.py:426
 msgid "New Screenlets Options/Properties"
-msgstr "New Screenlets Opțiuni/Proprietăți"
+msgstr "Screenleturi noi Opțiuni/Proprietăți"
 
 #: src/share/screenlets-manager/screenlets-manager.py:427
 msgid "Create a Desktop shortcut for this Screenlet"
-msgstr ""
+msgstr "Creaţi o comandă rapidă pe fundal pentru acest Screenlet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:446
 msgid "All Screenlets"
-msgstr ""
+msgstr "Toate screenleturile"
 
 #: src/share/screenlets-manager/screenlets-manager.py:447
 msgid "Running Screenlets"
-msgstr ""
+msgstr "Rulează screenleturile"
 
 #: src/share/screenlets-manager/screenlets-manager.py:448
 msgid "Autostart Screenlets"
@@ -276,7 +276,7 @@ msgstr "Arată serviciul în zona de notificare"
 #: src/share/screenlets-manager/screenlets-manager.py:650
 #, python-format
 msgid "Invalid string: %s."
-msgstr "String invalid: %s"
+msgstr "Șir invalid: %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:685
 msgid "Install a Screenlet or SuperKaramba theme"
@@ -284,36 +284,41 @@ msgstr "Instalează un screenlet sau tema SuperKaramba"
 
 #: src/share/screenlets-manager/screenlets-manager.py:723
 msgid "Install a new theme for the selected Screenlet"
-msgstr ""
+msgstr "Instalează o tema nouă pentru screenletul selectat"
 
 #: src/share/screenlets-manager/screenlets-manager.py:768
 msgid "Error Found"
-msgstr ""
+msgstr "S-a găsit o eroare"
 
 #: src/share/screenlets-manager/screenlets-manager.py:773
 msgid ""
 "Theme install error 1 found - Theme not installed , maybe a package error "
 msgstr ""
+"A intervenit eroarea 1 la tema instalată - Tema nu a fost instalată, "
+"posibilă eroare de pachet "
 
 #: src/share/screenlets-manager/screenlets-manager.py:784
 msgid ""
 "This package seams to contain a full Screenlet and not just a theme, please "
 "use the screenlet install instead"
 msgstr ""
+"Acest pachet poate să conțină un screenlet complet și nu doar o temă, "
+"folosiți screenletul instalat în loc"
 
 #: src/share/screenlets-manager/screenlets-manager.py:796
 msgid "This package doesnt seem to contain a theme"
-msgstr ""
+msgstr "Acest pachet nu pare să conțină o temă"
 
 #: src/share/screenlets-manager/screenlets-manager.py:819
 #, python-format
 msgid "Theme installed , please restart %s"
-msgstr ""
+msgstr "Temă instalată , reporniți %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:824
 msgid ""
 "Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
+"A intervenit eroarea 2 - Tema nu a fost instalată sau este deja instalată"
 
 #: src/share/screenlets-manager/screenlets-manager.py:908
 msgid ""
@@ -322,79 +327,83 @@ msgid ""
 "and by clicking on an AptURL on web pages like Gnome-look.org. Would you "
 "like to add the Screenlets PPA to your system?"
 msgstr ""
+"PPA screenlets nu este listat printre Surse Software. Adăugarea acestui "
+"lucru permite instalarea de screenleturi individuale de la Package Manager "
+"(sau Software Center) şi făcând clic pe un AptURL pe paginile de web ca "
+"Gnome-look.org. Doriţi să adăugaţi screenletul PPA la sistemul dumneavoastră?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:908
 msgid "Do you want to enable the Screenlets PPA?"
-msgstr ""
+msgstr "Vreți sa activați screenletul PPA?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
 msgid "The Screenlets PPA added successfully."
-msgstr ""
+msgstr "Screenletul PPA a fost adăugat cu succes."
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
 msgid "Success!"
-msgstr ""
+msgstr "Succes!"
 
 #: src/share/screenlets-manager/screenlets-manager.py:913
 msgid "Adding the Screenlets PPA failed."
-msgstr ""
+msgstr "Adăugarea screenletului PPA a eșuat."
 
 #: src/share/screenlets-manager/screenlets-manager.py:913
 msgid "Failed!"
-msgstr ""
+msgstr "Eșuat!"
 
 #: src/share/screenlets-manager/screenlets-manager.py:919
 msgid "Install SuperKaramba Theme"
-msgstr ""
+msgstr "Instalează tema Superkaramba"
 
 #: src/share/screenlets-manager/screenlets-manager.py:920
 msgid "Convert Web Widget"
-msgstr ""
+msgstr "Web Widget ascuns"
 
 #: src/share/screenlets-manager/screenlets-manager.py:921
 #: src/share/screenlets-manager/screenlets-manager.py:1028
 msgid "Install Web Application"
-msgstr ""
+msgstr "Instalează aplicații web"
 
 #: src/share/screenlets-manager/screenlets-manager.py:941
 msgid "New screenlets atributes.."
-msgstr ""
+msgstr "Screenleturi noi atribuite.."
 
 #: src/share/screenlets-manager/screenlets-manager.py:942
 msgid "Lock"
-msgstr ""
+msgstr "Blochează"
 
 #: src/share/screenlets-manager/screenlets-manager.py:943
 msgid "Sticky"
-msgstr ""
+msgstr "Persistent"
 
 #: src/share/screenlets-manager/screenlets-manager.py:944
 msgid "Widget"
-msgstr ""
+msgstr "Widget"
 
 #: src/share/screenlets-manager/screenlets-manager.py:945
 msgid "Keep above"
-msgstr ""
+msgstr "Menține deasupra"
 
 #: src/share/screenlets-manager/screenlets-manager.py:947
 msgid "Keep below"
-msgstr ""
+msgstr "Menține dedesubt"
 
 #: src/share/screenlets-manager/screenlets-manager.py:948
 msgid "Show buttons"
-msgstr ""
+msgstr "Arată butoanele"
 
 #: src/share/screenlets-manager/screenlets-manager.py:980
 msgid "New Screenlets atributes"
-msgstr ""
+msgstr "Noile screenleturi atribuite"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1018
 msgid "Web Application Url"
-msgstr ""
+msgstr "aplicații URL web"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1019
 msgid "Web Application Name"
-msgstr ""
+msgstr "Numele aplicației web"
 
 #. found_path != None:
 #: src/share/screenlets-manager/screenlets-manager.py:1051
@@ -403,60 +412,64 @@ msgid ""
 "There is already a screenlet with that name installed\n"
 "Do you wish to continue?"
 msgstr ""
+"Există deja un screenlet cu același nume instalat\n"
+"Doriți să continuați?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1072
 msgid "Web Application was successfully installed"
-msgstr ""
+msgstr "Aplicațiile web au fost instalate cu succes"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1075
 msgid "Error installing!!!"
-msgstr ""
+msgstr "Instalare eronată!!!"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1076
 #: src/share/screenlets-manager/screenlets-manager.py:1161
 msgid "Please specify a name for the widget"
-msgstr ""
+msgstr "Specificați un nume pentru widget"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1077
 #: src/share/screenlets-manager/screenlets-manager.py:1162
 msgid "No HTML code found"
-msgstr ""
+msgstr "Nu a fost găsit nici un cod HTML"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1081
 msgid "Convert any webpage widget into a Screenlet."
-msgstr ""
+msgstr "Convertiți orice pagină widget într-un screenlet."
 
 #: src/share/screenlets-manager/screenlets-manager.py:1082
 msgid "Step 1 : Find the widget you want to convert"
-msgstr ""
+msgstr "Pasul 1 : Căutați widgetul pe care doriți să-l convertiți"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1083
 msgid "Step 2 : Copy and Paste the HTML from the widget in the box below"
-msgstr ""
+msgstr "Copiați și inserați HTML din widget în caseta de mai jos"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1084
 msgid "Step 3 : Give it a name in the box below and click on Ok to convert"
 msgstr ""
+"Pasul 3 : Dați-i un nume în caseta de mai jos și faceți clic pe OK pentru a "
+"converti"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1085
 msgid "The name of the widget"
-msgstr ""
+msgstr "Numele widgetului"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1109
 msgid "Widget converter"
-msgstr ""
+msgstr "Convertor widget"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1157
 msgid "Widget was successfully converted"
-msgstr ""
+msgstr "Widgetul a fost convertit cu succes"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1160
 msgid "Error converting!!!"
-msgstr ""
+msgstr "Conversie eronată!!!"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1283
 msgid "Screenlets-Manager must now be restarted"
-msgstr ""
+msgstr "Screenlets-Manager trebuie să fie repornit acum"
 
 #. + constants
 #: src/share/screenlets-manager/screenlets-packager.py:30
@@ -464,81 +477,87 @@ msgid ""
 "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
 "Usage: screenlets-packager <path> [options]"
 msgstr ""
+"Creator de pachete pentru screenleturi - (c) RYX (Rico Pfaus) 2007\n"
+"Folosire: creator de pachete pentru screenleturi <cale> [opțiuni]"
 
 #: src/share/screenlets-manager/screenlets-packager.py:69
 #, python-format
 msgid "The specified path \"%s\" does not exist."
-msgstr ""
+msgstr "Calea specificată \"%s\" nu există."
 
 #: src/share/screenlets-manager/screenlets-packager.py:70
 #, python-format
 msgid "Found path \"%s\"."
-msgstr ""
+msgstr "Cale găsită \"%s\"."
 
 #: src/share/screenlets-manager/screenlets-packager.py:76
 msgid "Failed to extract screenlet name from path."
-msgstr ""
+msgstr "Extragerea numelui screenletului de la calea dată a eșuat."
 
 #: src/share/screenlets-manager/screenlets-packager.py:77
 #, python-format
 msgid "Screenlet name is %s."
-msgstr ""
+msgstr "Numele screenletului este %s."
 
 #: src/share/screenlets-manager/screenlets-packager.py:81
 #, python-format
 msgid "No screenlet-file \"%sScreenlet.py\" found in the given path."
-msgstr ""
+msgstr "Nici un fișier-screenlet \"%sScreenlet.py\" găsit în calea dată."
 
 #: src/share/screenlets-manager/screenlets-packager.py:82
 #, python-format
 msgid "Found %sScreenlet.py in path."
-msgstr ""
+msgstr "S-a găsit %sScreenlet.py la calea dată."
 
 #: src/share/screenlets-manager/screenlets-packager.py:91
 #, python-format
 msgid "Unable to import module '%(name)s' from %(path)s. (%(error)s)"
-msgstr ""
+msgstr "Incapabil să importe modul '%(name)s' from %(path)s. (%(error)s)"
 
 #: src/share/screenlets-manager/screenlets-packager.py:92
 #, python-format
 msgid "Successfully imported module: %s"
-msgstr ""
+msgstr "Modul %s importat cu succes"
 
 #: src/share/screenlets-manager/screenlets-packager.py:98
 msgid "Unable to import class from module."
-msgstr ""
+msgstr "Clasa din modul este imposibil de importat."
 
 #: src/share/screenlets-manager/screenlets-packager.py:100
 msgid "The class inside the module is no subclass of screenlets.Screenlet."
 msgstr ""
+"Clasa din interiorul modulului nu este subclasă de screenleturi.Screenlet."
 
 #: src/share/screenlets-manager/screenlets-packager.py:101
 #, python-format
 msgid "Successfully got class from module: %s"
-msgstr ""
+msgstr "Clasa din modul %s primită cu succes"
 
 #: src/share/screenlets-manager/screenlets-packager.py:132
 #, python-format
 msgid "Failed to create package info in \"%s\" (no permission?)."
-msgstr ""
+msgstr "Pachetul info în \"%s\" (no permission?) nu a fost creat."
 
 #: src/share/screenlets-manager/screenlets-packager.py:133
 msgid "Created package info file."
-msgstr ""
+msgstr "Pachetul fișiere info a fost creat."
 
 #: src/share/screenlets-manager/screenlets-packager.py:151
 msgid "Cleaned up and finished."
-msgstr ""
+msgstr "Golește și încheie."
 
 #: src/lib/install.py:58
 msgid ""
 "This type of karamba theme is not supported yet\n"
 " Only older versions can be used"
 msgstr ""
+"Acest tip de temă karamba nu este acceptată încă\n"
+" Numai versiunile mai vechi pot fi folosite"
 
 #: src/lib/install.py:114
 msgid "Archive is damaged or unsupported, use only tar, bz2 or gz."
 msgstr ""
+"Arhiva este deteriorată sau neacceptată, utilizați numai tar, bz2 sau gz."
 
 #. check if screenlet is already installed
 #. found_path = screenlets.utils.find_first_screenlet_path(name)
@@ -549,6 +568,8 @@ msgid ""
 "The %(slet)sScreenlet is already installed in '%(dir)s'.\n"
 "Do you wish to continue?"
 msgstr ""
+"Screenletul %(slet)s este deja instalat în '%(dir)s'\n"
+"Doriți să continuați?"
 
 #: src/lib/install.py:128 src/lib/install.py:194
 #, python-format
@@ -558,27 +579,31 @@ msgstr "Instalează %s"
 #: src/lib/install.py:131
 #, python-format
 msgid "%sScreenlet is already installed"
-msgstr ""
+msgstr "Screenletul %s este deja instalat"
 
 #. dir missing
 #: src/lib/install.py:138
 msgid ""
 "Invalid archive. Archive must contain a directory with the screenlet's name."
 msgstr ""
+"Arhivă invalidă. Arhiva trebuie să conţină un director cu numele "
+"screenletului."
 
 #: src/lib/install.py:150
 msgid "Compatibility for this karamba theme is not yet implemented"
 msgstr ""
+"Compatibilitatea pentru această temă karamba nu este încă pusă în aplicare"
 
 #: src/lib/install.py:177
 msgid "Karamba theme was successfully installed"
-msgstr ""
+msgstr "Tema karamba a fost instalată cu succes"
 
 #: src/lib/install.py:179
 msgid ""
 "Invalid archive. Archive does not contain a screenlet or a valid karamba "
 "theme."
 msgstr ""
+"Arhivă invalidă. Arhiva nu conţine un screenlet sau o temă karamba valabilă."
 
 #: src/lib/install.py:194
 #, python-format
@@ -586,16 +611,19 @@ msgid ""
 "%s was not packaged with the screenlet packager. Do you wish to continue and "
 "try to install it?"
 msgstr ""
+"%s nu a fost ambalat cu creator de pachete pentru screenleturi. Doriţi să "
+"continuați şi încercați să-l instalaţi?"
 
 #: src/lib/install.py:197
 msgid "This package was not packaged with the screenlet packager."
 msgstr ""
+"Acest pachet nu a fost ambalat cu creatorul de pachete pentru screenleturi."
 
 #. set msg/result
 #: src/lib/install.py:206
 #, python-format
 msgid "The %sScreenlet has been succesfully installed."
-msgstr ""
+msgstr "Screenletul %s a fost instalat cu succes."
 
 #. create autostart directory, if not existent
 #: src/lib/utils.py:101 src/lib/utils.py:584
@@ -603,6 +631,8 @@ msgid ""
 "There is no existing autostart directory for your user account yet. Do you "
 "want me to automatically create it for you?"
 msgstr ""
+"Încă nu există nici un director existent de pornire automată pentru contul "
+"de utilizator. Vrei să se creeze automat pentru tine?"
 
 #: src/lib/utils.py:106 src/lib/utils.py:588
 #, python-format
@@ -610,6 +640,8 @@ msgid ""
 "Automatic creation failed. Please manually create the directory:\n"
 "%s"
 msgstr ""
+"Crearea automată a eșuat. Creați manual directorul:\n"
+"%s"
 
 #: src/lib/utils.py:109 src/lib/utils.py:591
 #, python-format
@@ -617,8 +649,10 @@ msgid ""
 "Please manually create the directory:\n"
 "%s"
 msgstr ""
+"Creați manual directorul:\n"
+"%s"
 
 #: src/lib/utils.py:620
 #, python-format
 msgid "Failed to add %sScreenlet."
-msgstr ""
+msgstr "Adăugarea screenletului %s a eșuat."

@@ -46,11 +46,17 @@ class Option(gobject.GObject):
     protected = False
     widget = None
 
-    def __init__ (self, group, name, **args):
+    def __init__ (self, group, name, *attr, **args):
         """Creates a new Option with the given information."""
         super(Option, self).__init__()
         self.name = name
         self.group = group
+        # To maintain compatability, we parse out the 3 attributes and
+        # Move into known arguments.
+        if len(attr) == 3:
+            args.setdefault('default', attr[0])
+            args.setdefault('label', attr[1])
+            args.setdefault('desc', attr[2])
         # This should allow any of the class options to be set on init.
         for name in args.keys():
             if hasattr(self, name):

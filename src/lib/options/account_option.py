@@ -39,8 +39,8 @@ class AccountOption(Option):
     """
     protected = True
 
-    def __init__(self, group, name, **args):
-        super(AccountOption, self).__init__ (group, name, **args)
+    def __init__(self, group, name, *attr, **args):
+        super(AccountOption, self).__init__ (group, name, *attr, **args)
         # check for availability of keyring
         if not gnomekeyring.is_available():
             raise Exception('GnomeKeyring is not available!!')

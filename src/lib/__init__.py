@@ -136,15 +136,15 @@ DEBUG_MODE		= True
 
 DEBIAN = True
 try:
-    subprocess.call(["dpkg"], stdout=open(os.devnull, 'w'), stderr=subprocess.STDOUT)
+	subprocess.call(["dpkg"], stdout=open(os.devnull, 'w'), stderr=subprocess.STDOUT)
 except OSError:
-    DEBIAN = False
+	DEBIAN = False
 
 UBUNTU = True
 try:
-    subprocess.call(["apt-add-repository"], stdout=open(os.devnull, 'w'), stderr=subprocess.STDOUT)
+	subprocess.call(["apt-add-repository"], stdout=open(os.devnull, 'w'), stderr=subprocess.STDOUT)
 except OSError:
-    UBUNTU = False
+	UBUNTU = False
 
 #-------------------------------------------------------------------------------
 # CLASSES
@@ -318,8 +318,8 @@ class ScreenletTheme (dict):
 		"""@DEPRECATED Moved to Screenlets class: Draws a circule"""
 		ctx.save()
 		ctx.translate(x, y)
-       		ctx.arc(width/2,height/2,min(height,width)/2,0,2*math.pi)
-		if fill:ctx.fill()
+		ctx.arc(width/2,height/2,min(height,width)/2,0,2*math.pi)
+		if fill: ctx.fill()
 		else: ctx.stroke()
 		ctx.restore()
 
@@ -328,7 +328,7 @@ class ScreenletTheme (dict):
 		ctx.save()
 		ctx.move_to(start_x, start_y)
 		ctx.set_line_width(line_width)
-        	ctx.rel_line_to(end_x, end_y)
+		ctx.rel_line_to(end_x, end_y)
 		if close : ctx.close_path()
 		if preserve: ctx.stroke_preserve()
 		else: ctx.stroke()
@@ -348,30 +348,30 @@ class ScreenletTheme (dict):
 		ctx.save()
 		ctx.translate(x, y)
 		padding=0 # Padding from the edges of the window
-        	rounded=rounded_angle # How round to make the edges 20 is ok
-        	w = width
+		rounded=rounded_angle # How round to make the edges 20 is ok
+		w = width
 		h = height
 
-        	# Move to top corner
-        	ctx.move_to(0+padding+rounded, 0+padding)
-        	
-        	# Top right corner and round the edge
-        	ctx.line_to(w-padding-rounded, 0+padding)
-        	ctx.arc(w-padding-rounded, 0+padding+rounded, rounded, (math.pi/2 )+(math.pi) , 0)
+		# Move to top corner
+		ctx.move_to(0+padding+rounded, 0+padding)
+			
+		# Top right corner and round the edge
+		ctx.line_to(w-padding-rounded, 0+padding)
+		ctx.arc(w-padding-rounded, 0+padding+rounded, rounded, (math.pi/2 )+(math.pi) , 0)
 	
-        	# Bottom right corner and round the edge
-        	ctx.line_to(w-padding, h-padding-rounded)
-        	ctx.arc(w-padding-rounded, h-padding-rounded, rounded, 0, math.pi/2)
-       	
-        	# Bottom left corner and round the edge.
-        	ctx.line_to(0+padding+rounded, h-padding)
-        	ctx.arc(0+padding+rounded, h-padding-rounded, rounded,math.pi/2, math.pi)
+		# Bottom right corner and round the edge
+		ctx.line_to(w-padding, h-padding-rounded)
+		ctx.arc(w-padding-rounded, h-padding-rounded, rounded, 0, math.pi/2)
+	   	
+		# Bottom left corner and round the edge.
+		ctx.line_to(0+padding+rounded, h-padding)
+		ctx.arc(0+padding+rounded, h-padding-rounded, rounded,math.pi/2, math.pi)
 	
-        	# Top left corner and round the edge
-        	ctx.line_to(0+padding, 0+padding+rounded)
-        	ctx.arc(0+padding+rounded, 0+padding+rounded, rounded, math.pi, (math.pi/2 )+(math.pi))
-        	
-        	# Fill in the shape.
+		# Top left corner and round the edge
+		ctx.line_to(0+padding, 0+padding+rounded)
+		ctx.arc(0+padding+rounded, 0+padding+rounded, rounded, math.pi, (math.pi/2 )+(math.pi))
+			
+		# Fill in the shape.
 		if fill:ctx.fill()
 		else: ctx.stroke()
 		ctx.restore()
@@ -430,29 +430,29 @@ class ScreenletTheme (dict):
 		ctx.restore()
 
 	def show_notification (self,text):
-	        """@DEPRECATED Moved to Screenlets class: Show notification window at current mouse position."""
+		"""@DEPRECATED Moved to Screenlets class: Show notification window at current mouse position."""
 		if self.notify == None:
-	      		self.notify = Notify()
-	        	self.notify.text = text
-	        	self.notify.show()
+		 	self.notify = Notify()
+			self.notify.text = text
+		self.notify.show()
 
 	def hide_notification (self):
-	        """@DEPRECATED Moved to Screenlets class: hide notification window"""
+		"""@DEPRECATED Moved to Screenlets class: hide notification window"""
 		if self.notify != None:
 			self.notify.hide()
 			self.notify = None
 
 	def show_tooltip (self,text,tooltipx,tooltipy):
-	        """@DEPRECATED: Moved to Screenlets class: Show tooltip window at current mouse position."""
+		"""@DEPRECATED: Moved to Screenlets class: Show tooltip window at current mouse position."""
 		if self.tooltip == None:
-      			self.tooltip = Tooltip(300, 400)
-        		self.tooltip.text = text
-        		self.tooltip.x    = tooltipx
-        		self.tooltip.y    = tooltipy
-			self.tooltip.show()
+	  		self.tooltip = Tooltip(300, 400)
+			self.tooltip.text = text
+			self.tooltip.x	= tooltipx
+			self.tooltip.y	= tooltipy
+		self.tooltip.show()
 
 	def hide_tooltip (self):
-	        """@DEPRECATED Moved to Screenlets class: hide tooltip window"""
+		"""@DEPRECATED Moved to Screenlets class: hide tooltip window"""
 		if self.tooltip != None:
 			self.tooltip.hide()
 			self.tooltip = None		
@@ -742,70 +742,80 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 		else: self.draw_buttons = False
 		if uses_theme:
 			self.uses_theme = True
-			self.add_option(StringOption('Screenlet', 'theme_name', 
-				'default', '', '', hidden=True))
+			self.add_option(StringOption('Screenlet', 'theme_name',
+				default='default', hidden=True))
 		# create/add options
-		self.add_option(IntOption('Screenlet', 'x', 
-			0, _('X-Position'), _('The X-position of this Screenlet ...'), 
+		self.add_option(IntOption('Screenlet', 'x',
+			default=0, label=_('X-Position'),
+			desc=_('The X-position of this Screenlet ...'),
 			min=0, max=gtk.gdk.screen_width()))
-		self.add_option(IntOption('Screenlet', 'y', 
-			0, _('Y-Position'), _('The Y-position of this Screenlet ...'), 
+		self.add_option(IntOption('Screenlet', 'y',
+			default=0, label=_('Y-Position'),
+			desc=_('The Y-position of this Screenlet ...'),
 			min=0, max=gtk.gdk.screen_height()))
-		self.add_option(IntOption('Screenlet', 'width', 
-			width, _('Width'), _('The width of this Screenlet ...'), 
+		self.add_option(IntOption('Screenlet', 'width',
+			default=width, label=_('Width'),
+			desc=_('The width of this Screenlet ...'),
 			min=16, max=1000, hidden=True))
-		self.add_option(IntOption('Screenlet', 'height', 
-			height, _('Height'), _('The height of this Screenlet ...'), 
+		self.add_option(IntOption('Screenlet', 'height',
+			default=height, label=_('Height'),
+			desc=_('The height of this Screenlet ...'),
 			min=16, max=1000, hidden=True))
-		self.add_option(FloatOption('Screenlet', 'scale', 
-			self.scale, _('Scale'), _('The scale-factor of this Screenlet ...'), 
+		self.add_option(FloatOption('Screenlet', 'scale',
+			default=self.scale, label=_('Scale'),
+			desc=_('The scale-factor of this Screenlet ...'),
 			min=0.1, max=10.0, digits=2, increment=0.1))
-		self.add_option(FloatOption('Screenlet', 'opacity', 
-			self.opacity, _('Opacity'), _('The opacity of the Screenlet window ...'), 
+		self.add_option(FloatOption('Screenlet', 'opacity',
+			default=self.opacity, label=_('Opacity'),
+			desc=_('The opacity of the Screenlet window ...'),
 			min=0.1, max=1.0, digits=2, increment=0.1))
-		self.add_option(BoolOption('Screenlet', 'is_sticky', 
-			is_sticky, _('Stick to Desktop'), 
-			_('Show this Screenlet on all workspaces ...')))
-		self.add_option(BoolOption('Screenlet', 'is_widget', 
-			is_widget, _('Treat as Widget'), 
-			_('Treat this Screenlet as a "Widget" ...')))
-		self.add_option(BoolOption('Screenlet', 'is_dragged', 
-			self.is_dragged, "Is the screenlet dragged","Is the screenlet dragged", hidden=True))
-		self.add_option(BoolOption('Screenlet', 'is_sizable', 
-			is_sizable, "Can the screenlet be resized","is_sizable", hidden=True))
-		self.add_option(BoolOption('Screenlet', 'is_visible', 
-			self.is_visible, "Usefull to use screenlets as gnome panel applets","is_visible", hidden=True))
-		self.add_option(BoolOption('Screenlet', 'lock_position', 
-			self.lock_position, _('Lock position'), 
-			_('Stop the screenlet from being moved...')))
-		self.add_option(BoolOption('Screenlet', 'keep_above', 
-			self.keep_above, _('Keep above'), 
-			_('Keep this Screenlet above other windows ...')))
-		self.add_option(BoolOption('Screenlet', 'keep_below', 
-			self.keep_below, _('Keep below'), 
-			_('Keep this Screenlet below other windows ...')))
-		self.add_option(BoolOption('Screenlet', 'draw_buttons', 
-			self.draw_buttons, _('Draw button controls'), 
-			_('Draw buttons in top right corner')))
-		self.add_option(BoolOption('Screenlet', 'skip_pager', 
-			self.skip_pager, _('Skip Pager'), 
-			_('Set this Screenlet to show/hide in pagers ...')))
-		self.add_option(BoolOption('Screenlet', 'skip_taskbar', 
-			self.skip_pager, _('Skip Taskbar'), 
-			_('Set this Screenlet to show/hide in taskbars ...')))
-		self.add_option(BoolOption('Screenlet', 'resize_on_scroll', 
-			self.resize_on_scroll, _("Resize on mouse scroll"),"resize_on_scroll"))
+		self.add_option(BoolOption('Screenlet', 'is_sticky',
+			default=is_sticky, label=_('Stick to Desktop'),
+			desc=_('Show this Screenlet on all workspaces ...')))
+		self.add_option(BoolOption('Screenlet', 'is_widget',
+			default=is_widget, label=_('Treat as Widget'),
+			desc=_('Treat this Screenlet as a "Widget" ...')))
+		self.add_option(BoolOption('Screenlet', 'is_dragged',
+			default=self.is_dragged, label="Is the screenlet dragged",
+			desc="Is the screenlet dragged", hidden=True))
+		self.add_option(BoolOption('Screenlet', 'is_sizable',
+			default=is_sizable, label="Can the screenlet be resized",
+			desc="is_sizable", hidden=True))
+		self.add_option(BoolOption('Screenlet', 'is_visible',
+			default=self.is_visible, label="Usefull to use screenlets as gnome panel applets",
+			desc="is_visible", hidden=True))
+		self.add_option(BoolOption('Screenlet', 'lock_position',
+			default=self.lock_position, label=_('Lock position'),
+			desc=_('Stop the screenlet from being moved...')))
+		self.add_option(BoolOption('Screenlet', 'keep_above',
+			default=self.keep_above, label=_('Keep above'),
+			desc=_('Keep this Screenlet above other windows ...')))
+		self.add_option(BoolOption('Screenlet', 'keep_below',
+			default=self.keep_below, label=_('Keep below'),
+			desc=_('Keep this Screenlet below other windows ...')))
+		self.add_option(BoolOption('Screenlet', 'draw_buttons',
+			default=self.draw_buttons, label=_('Draw button controls'),
+			desc=_('Draw buttons in top right corner')))
+		self.add_option(BoolOption('Screenlet', 'skip_pager',
+			default=self.skip_pager, label=_('Skip Pager'),
+			desc=_('Set this Screenlet to show/hide in pagers ...')))
+		self.add_option(BoolOption('Screenlet', 'skip_taskbar',
+			default=self.skip_pager, label=_('Skip Taskbar'),
+			desc=_('Set this Screenlet to show/hide in taskbars ...')))
+		self.add_option(BoolOption('Screenlet', 'resize_on_scroll',
+			default=self.resize_on_scroll, label=_("Resize on mouse scroll"),
+			desc="resize_on_scroll"))
 		self.add_option(BoolOption('Screenlet', 'ignore_requirements', 
 			self.ignore_requirements, _('Ignore requirements'), 
 			_('Set this Screenlet to ignore/demand DEB requirements ...')))
 		if uses_theme:
 			self.ask_on_option_override = ask_on_option_override
-			self.add_option(BoolOption('Screenlet', 'allow_option_override', 
-			self.allow_option_override, _('Allow overriding Options'), 
-				_('Allow themes to override options in this screenlet ...')))
-			self.add_option(BoolOption('Screenlet', 'ask_on_option_override', 
-				self.ask_on_option_override, _('Ask on Override'), 
-				_('Show a confirmation-dialog when a theme wants to override ')+\
+			self.add_option(BoolOption('Screenlet', 'allow_option_override',
+				default=self.allow_option_override, label=_('Allow overriding Options'),
+				desc=_('Allow themes to override options in this screenlet ...')))
+			self.add_option(BoolOption('Screenlet', 'ask_on_option_override',
+				default=self.ask_on_option_override, label=_('Ask on Override'),
+				desc=_('Show a confirmation-dialog when a theme wants to override ')+\
 				_('the current options of this Screenlet ...')))
 		# disable width/height
 		self.disable_option('width')
@@ -959,7 +969,7 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 			if self.window.window:
 				self.window.window.set_skip_taskbar_hint(bool(value))
 		# NOTE: This is the new recommended way of storing options in real-time
-		#       (we access the backend through the session here)
+		#	   (we access the backend through the session here)
 		if self.saving_enabled:
 			o = self.get_option_by_name(name)
 			if o != None:
@@ -2084,35 +2094,35 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 
 
 	def show_notification (self,text):
-	        """Show notification window at current mouse position."""
+		"""Show notification window at current mouse position."""
 		if self.notify == None:
-	      		self.notify = Notify()
-	        	self.notify.text = text
-	        	self.notify.show()
+			self.notify = Notify()
+			self.notify.text = text
+			self.notify.show()
 
 	def hide_notification (self):
-	        """hide notification window"""
+		"""hide notification window"""
 		if self.notify != None:
 			self.notify.hide()
 			self.notify = None
 
 	def show_tooltip (self,text,tooltipx,tooltipy):
-	        """Show tooltip window at current mouse position."""
+		"""Show tooltip window at current mouse position."""
 		if self.tooltip == None:
-      			self.tooltip = Tooltip(300, 400)
-        		self.tooltip.text = text
-        		self.tooltip.x    = tooltipx
-        		self.tooltip.y    = tooltipy
+	  		self.tooltip = Tooltip(300, 400)
+			self.tooltip.text = text
+			self.tooltip.x	= tooltipx
+			self.tooltip.y	= tooltipy
 			self.tooltip.show()
 		else:
-     			#self.tooltip = Tooltip(300, 400)
-        		self.tooltip.text = text
-        		self.tooltip.x    = tooltipx
-        		self.tooltip.y    = tooltipy
+	 		#self.tooltip = Tooltip(300, 400)
+			self.tooltip.text = text
+			self.tooltip.x	= tooltipx
+			self.tooltip.y	= tooltipy
 			#self.tooltip.show()
 
 	def hide_tooltip (self):
-	        """hide tooltip window"""
+		"""hide tooltip window"""
 		if self.tooltip != None:
 			self.tooltip.hide()
 			self.tooltip = None		
@@ -2204,21 +2214,21 @@ class Tooltip(object):
 	"""A window that displays a text and serves as Tooltip (very basic yet)."""
 	
 	# internals
-	__timeout    = None
-    
+	__timeout	= None
+	
 	# attribs
-	text        = ''
-	font_name    = 'FreeSans 9'
-	width        = 100
-	height        = 20
-	x             = 0
-	y             = 0
-    
+	text		= ''
+	font_name	= 'FreeSans 9'
+	width		= 100
+	height		= 20
+	x			 = 0
+	y			 = 0
+	
 	def __init__ (self, width, height):
 		object.__init__(self)
 		# init
-		self.__dict__['width']    = width
-		self.__dict__['height']    = height
+		self.__dict__['width']	= width
+		self.__dict__['height']	= height
 		self.window = gtk.Window()
 		self.window.set_app_paintable(True)
 		self.window.set_size_request(width, height)
@@ -2237,7 +2247,7 @@ class Tooltip(object):
 		pango.FontDescription(self.font_name))
 		#self.p_layout.set_width(-1)
 		self.p_layout.set_width(width * pango.SCALE - 6)
-    
+	
 	def __setattr__ (self, name, value):
 		self.__dict__[name] = value
 		if name in ('width', 'height', 'text'):
@@ -2253,7 +2263,7 @@ class Tooltip(object):
 			self.window.move(int(value), int(self.y))
 		elif name == 'y':
 			self.window.move(int(self.x), int(value))
-    
+	
 	def show (self):
 		"""Show the Tooltip window."""
 		self.cancel_show()
@@ -2264,22 +2274,22 @@ class Tooltip(object):
 		"""Show the Tooltip window after a given delay."""
 		self.cancel_show()
 		self.__timeout = gobject.timeout_add(delay, self.__show_timeout)
-    
+	
 	def hide (self):
 		"""Hide the Tooltip window."""
 		self.cancel_show()
 		self.window.destroy()
-    
+	
 	def cancel_show (self):
 		"""Cancel showing of the Tooltip."""
 		if self.__timeout:
 			gobject.source_remove(self.__timeout)
 			self.p_context = None
 			self.p_layout = None
-    
+	
 	def __show_timeout (self):
 		self.show()
-    
+	
 	def screen_changed (self, window, screen=None):
 		if screen == None:
 			screen = window.get_screen()
@@ -2287,10 +2297,10 @@ class Tooltip(object):
 		if not map:
 			map = screen.get_rgb_colormap()
 		window.set_colormap(map)
-    
+	
 	def expose (self, widget, event):
 		ctx = self.window.window.cairo_create()
-		ctx.set_antialias (cairo.ANTIALIAS_SUBPIXEL)    # ?
+		ctx.set_antialias (cairo.ANTIALIAS_SUBPIXEL)	# ?
 		# set a clip region for the expose event
 		ctx.rectangle(event.area.x, event.area.y,event.area.width, event.area.height)
 		ctx.clip()
@@ -2317,17 +2327,17 @@ class Notify(object):
 	"""A window that displays a text and serves as Notification (very basic yet)."""
 	
 	# internals
-	__timeout    = None
-    
+	__timeout	= None
+	
 	# attribs
-	text        = ''
-	font_name    = 'FreeSans 9'
-	width        = 200
-	height        = 100
-	x             = 0
-	y             = 0
+	text		= ''
+	font_name	= 'FreeSans 9'
+	width		= 200
+	height		= 100
+	x			 = 0
+	y			 = 0
 	gradient = cairo.LinearGradient(0, 100,0, 0)
-    
+	
 	def __init__ (self):
 		object.__init__(self)
 		# init
@@ -2349,7 +2359,7 @@ class Notify(object):
 		pango.FontDescription(self.font_name))
 		#self.p_layout.set_width(-1)
 		self.p_layout.set_width(self.width * pango.SCALE - 6)
-    
+	
 	def __setattr__ (self, name, value):
 		self.__dict__[name] = value
 		if name in ('text'):
@@ -2369,22 +2379,22 @@ class Notify(object):
 		"""Show the Notify window after a given delay."""
 		self.cancel_show()
 		self.__timeout = gobject.timeout_add(delay, self.__show_timeout)
-    
+	
 	def hide (self):
 		"""Hide the Notify window."""
 		self.cancel_show()
 		self.window.destroy()
-    
+	
 	def cancel_show (self):
 		"""Cancel showing of the Notify."""
 		if self.__timeout:
 			gobject.source_remove(self.__timeout)
 			self.p_context = None
 			self.p_layout = None
-    
+	
 	def __show_timeout (self):
 		self.show()
-    
+	
 	def screen_changed (self, window, screen=None):
 		if screen == None:
 			screen = window.get_screen()
@@ -2392,10 +2402,10 @@ class Notify(object):
 		if not map:
 			map = screen.get_rgb_colormap()
 		window.set_colormap(map)
-    
+	
 	def expose (self, widget, event):
 		ctx = self.window.window.cairo_create()
-		ctx.set_antialias (cairo.ANTIALIAS_SUBPIXEL)    # ?
+		ctx.set_antialias (cairo.ANTIALIAS_SUBPIXEL)	# ?
 		# set a clip region for the expose event
 		ctx.rectangle(event.area.x, event.area.y,event.area.width, event.area.height)
 		ctx.clip()

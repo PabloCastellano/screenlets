@@ -119,7 +119,7 @@ for name in os.listdir ("screenlets-manager"):
 			os.system (buildcmd % (dname, name, name, dname))
 			files_list.append ((destpath % dname, [mopath % (dname,name.replace('-'+dname,''))]))
 				
-PACKAGES = ['screenlets','screenlets.plugins']
+PACKAGES = ['screenlets','screenlets.plugins','screenlets.options']
 
 # ----------------------------
 # Call setup()

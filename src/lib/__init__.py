@@ -29,24 +29,84 @@
 # -
 #
 
+#-------------------------------------------------------------------------------
+# Imports!
+#-------------------------------------------------------------------------------
+
+import os
+import sys
+from optparse import OptionParser
+
+import gtk
+import gettext
+
+#-------------------------------------------------------------------------------
+# Find Install Prefix
+# Note: It's important to do this before we import the Screenlets submodules
+#-------------------------------------------------------------------------------
 try:
 	INSTALL_PREFIX = open("/etc/screenlets/prefix").read()[:-1] 
 except:
 	INSTALL_PREFIX = '/usr'
 
+# translation stuff
+gettext.textdomain('screenlets')
+gettext.bindtextdomain('screenlets', INSTALL_PREFIX +  '/share/locale')
+
+#-------------------------------------------------------------------------------
+# Parse command line options
+# Note: This must be done before we import any submodules
+# TODO: Fix up command line parsing. Right now, the same options are parsed for
+#	both screenlets, the manager, the daemon, and melange.
+#-------------------------------------------------------------------------------
+# Define command line related constants.
+# These are used as the default values for command line options that aren't overriden
+LOG_DISABLED = False				# Disable log
+LOG_LEVEL = 4						# TODO: change to 3 for stable version to show only warning, error and critical messages
+LOG_OUTPUT = "FILE"					# default output, allowed FILE, STDERR, STDOUT
+LOG_NAME = "screenlets"		# Log name
+LOG_FILE = "/tmp/%s.log" % os.path.basename(sys.argv[0]) # full path to log file; only used if LOG_OUTPUT is FILE
+
+SESSION_NAME = "default"
+SESSION_REPLACE = "False"
+SERVER_NAME = "none"
+
+# Create the parser
+parser = OptionParser()
+# Add options used by all of the various modules
+parser.add_option("-l", "--logging-level", dest = "LOG_LEVEL", default = LOG_LEVEL,
+	help = ("set logging level.\n0 - log disabled, 1 - only critical errors, 2 - all errors,\
+	3 - all errors and warnings, 4 - all errors, warnings, and info messages, 5 - all messages \
+	including debug output.\ndefault: %s") %(LOG_LEVEL))
+parser.add_option("-f", "--logging-file", dest = "LOG_FILE", default = LOG_FILE,
+	help = ("write log to LOG_FILE. Default: %s") %(LOG_FILE))
+parser.add_option("-s", "--server", dest = "SERVER_NAME", default = SERVER_NAME,
+	help = "server name. default options are Melange and Sidebar")
+parser.add_option("-o", "--output", dest = "LOG_OUTPUT", default = LOG_OUTPUT,
+	help = ("set output. allowed outputs: FILE, STDOUT and STDERR. Default: %s") %(LOG_OUTPUT))
+parser.add_option("-q", "--quiet", action="store_true", dest = "LOG_DISABLED",
+	default = LOG_DISABLED, help = "Disable log. The same as log level 0")
+parser.add_option("-r", "--replace", action="store_true", dest = "SESSION_REPLACE",
+	default = SESSION_REPLACE, help = "Replace old session. Default: %s" %(SESSION_REPLACE))
+parser.add_option("-e", "--session", action="store_true", dest = "SESSION_NAME",
+	default = SESSION_NAME, help = "Name of session. Default: %s" %(SESSION_NAME))
+# Parse the options and store them in global module variables
+COMMAND_LINE_OPTIONS, COMMAND_LINE_ARGS = parser.parse_args()
+
+#-------------------------------------------------------------------------------
+# Finish with the imports and import all of the submodules
+#-------------------------------------------------------------------------------
+
 import pygtk
 pygtk.require('2.0')
-import gtk
 import cairo, pango
 import gobject
 import glib
 try:
 	import rsvg
 except ImportError: print 'No module RSVG , graphics will not be so good'
-import os
 import subprocess
 import glob
-import gettext
 import math
 
 # import screenlet-submodules
@@ -60,9 +120,7 @@ from menu import DefaultMenuItem, add_menuitem
 from drawing import Drawing
 # /TEST
 
-# translation stuff
-gettext.textdomain('screenlets')
-gettext.bindtextdomain('screenlets', INSTALL_PREFIX +  '/share/locale')
+import logger
 
 def _(s):
 	return gettext.gettext(s)

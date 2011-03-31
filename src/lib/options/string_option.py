@@ -1,5 +1,6 @@
 # 
 # Copyright (C) 2009 Martin Owens (DoctorMO) <doctormo@gmail.com>
+# Changed by Guido Tabbernuk 2011
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -31,11 +32,11 @@ class StringOption(Option):
 
     def on_import(self, strvalue):
         """When a string is imported from the config."""
-        return strvalue
+        return strvalue.replace("\\n", "\n")
 
     def on_export(self, value):
         """When a string is exported to the config."""
-        return str(value)
+        return str(value).replace("\n", "\\n")
 
     def generate_widget(self, value):
         """Generate a textbox for a string options"""

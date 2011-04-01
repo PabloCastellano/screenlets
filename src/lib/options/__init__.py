@@ -49,7 +49,7 @@ from font_option import FontOption
 from file_option import FileOption, DirectoryOption, ImageOption
 from colour_option import ColorOption, ColorsOption
 from time_option import TimeOption
-from base import EditableOptions, OptionsDialog
+from base import EditableOptions, OptionsDialog, create_option_from_node
 
 # ------ ONLY FOR TESTING ------------------:
 if __name__ == "__main__":

@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: screenlets-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-10 06:36+0900\n"
-"PO-Revision-Date: 2011-03-20 14:16+0000\n"
-"Last-Translator: Lelio Giaccone <Unknown>\n"
+"PO-Revision-Date: 2011-04-04 23:39+0000\n"
+"Last-Translator: Neoxxx <Unknown>\n"
 "Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-21 04:32+0000\n"
+"X-Launchpad-Export-Date: 2011-04-05 04:42+0000\n"
 "X-Generator: Launchpad (build 12559)\n"
 "Language: it\n"
 
@@ -353,7 +353,7 @@ msgstr "Installa il Tema SuperKaramba"
 
 #: src/share/screenlets-manager/screenlets-manager.py:920
 msgid "Convert Web Widget"
-msgstr ""
+msgstr "Converti in Widget Web"
 
 #: src/share/screenlets-manager/screenlets-manager.py:921
 #: src/share/screenlets-manager/screenlets-manager.py:1028

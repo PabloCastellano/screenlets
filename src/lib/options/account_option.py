@@ -20,7 +20,9 @@ Account options, these classes will display a text box.
 """
 
 import gtk
-import gnomekeyring
+try:
+	import gnomekeyring
+except ImportError: print 'No GNOME keyring, there will be problems with account options'
 
 from screenlets.options import _
 from base import Option

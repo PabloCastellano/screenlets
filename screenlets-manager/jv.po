@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: screenlets\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-01-10 06:36+0900\n"
-"PO-Revision-Date: 2011-03-04 02:11+0000\n"
+"PO-Revision-Date: 2011-04-05 04:47+0000\n"
 "Last-Translator: zaenal arifin <Unknown>\n"
 "Language-Team: Javanese <jv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-05 04:32+0000\n"
-"X-Generator: Launchpad (build 12351)\n"
+"X-Launchpad-Export-Date: 2011-04-06 04:35+0000\n"
+"X-Generator: Launchpad (build 12559)\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
 msgid "Screenlets daemon"
@@ -356,7 +356,7 @@ msgstr "Gagal!"
 
 #: src/share/screenlets-manager/screenlets-manager.py:919
 msgid "Install SuperKaramba Theme"
-msgstr "ngInstall  Tema SuperKaramba"
+msgstr "Ngepasang Tema SuperKaramba"
 
 #: src/share/screenlets-manager/screenlets-manager.py:920
 msgid "Convert Web Widget"

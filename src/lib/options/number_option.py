@@ -19,7 +19,7 @@
 Integer and Float options, these classes will display a spin box.
 """
 
-import gtk
+import gtk, sys
 
 from screenlets.options import _
 from base import Option
@@ -34,8 +34,8 @@ class IntOption(Option):
         """When a integer is imported from the config."""
         try:
             if strvalue[0]=='-':
-                return int(strvalue[1:]) * -1
-            return int(strvalue)
+                return int(float(strvalue[1:])) * -1
+            return int(float(strvalue))
         except:
             sys.stderr.write(_("Error during on_import - option: %s.\n") % self.name)
             return 0

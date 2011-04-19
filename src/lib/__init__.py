@@ -886,6 +886,10 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 			self.window.set_destroy_with_parent(True)
 		self.window.resize(width, height)
 		self.window.set_decorated(False)
+		try:	# Workaround for Ubuntu Natty
+			self.window.set_property('has-resize-grip', False)
+		except TypeError:
+			pass
 		self.window.set_app_paintable(True)
 		# create pango layout, if active
 		if uses_pango:
@@ -1997,13 +2001,13 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 	
 	def expose (self, widget, event):
 		ctx = widget.window.cairo_create()
-		# clear context
-		self.clear_cairo_context(ctx)
 		# set a clip region for the expose event
 		ctx.rectangle(event.area.x, event.area.y,
 			event.area.width, event.area.height)
 		ctx.clip()
-		
+		# clear context
+		self.clear_cairo_context(ctx)
+	
 		# scale context
 		#ctx.scale(self.scale, self.scale)
 		# call drawing method

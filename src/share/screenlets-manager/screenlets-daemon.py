@@ -37,6 +37,20 @@ import gtk
 from screenlets import utils, install
 import gettext
 
+has_app_indicator = False
+try:
+	import appindicator
+	import apt_pkg
+
+	apt_pkg.init()
+	cache = apt_pkg.Cache()
+
+	if apt_pkg.version_compare(cache['python-appindicator'].current_ver.ver_str, '0.3.0') >= 0:
+		print "INDICATOR"
+		has_app_indicator = True
+except Exception:
+	pass
+
 gettext.textdomain('screenlets-manager')
 gettext.bindtextdomain('screenlets-manager', screenlets.INSTALL_PREFIX +  '/share/locale')
 
@@ -58,7 +72,9 @@ class ScreenletsDaemon (dbus.service.Object):
 	DIR_USER2 = '/usr/local/share/screenlets'	
 	show_in_tray = 'True'
 	launch_menu = None
+	app_indicator = None
 	def __init__ (self):
+
 		# create bus, call super
 
 		icontheme = gtk.icon_theme_get_default()
@@ -82,12 +98,33 @@ class ScreenletsDaemon (dbus.service.Object):
 		except:
 			self.show_in_tray = 'True'
 		if self.show_in_tray == 'True':
-			tray = gtk.StatusIcon()
-			tray.set_from_pixbuf(pixbuf_tray)
-			tray.connect("activate", self.openit)
-			tray.connect("popup-menu", self.show_menu)
-			tray.set_tooltip(_("Screenlets daemon"))
-			tray.set_visible(True)		
+
+			self.init_menu()
+
+			if has_app_indicator:
+
+				self.app_indicator = appindicator.Indicator ("screenlets",
+							      "screenlets-tray",
+							      appindicator.CATEGORY_OTHER)
+				self.app_indicator.set_status (appindicator.STATUS_ACTIVE)
+				self.app_indicator.set_attention_icon ("screenlets-tray")
+
+				# appindicator
+				while gtk.events_pending():
+					gtk.main_iteration(False)
+
+				gobject.idle_add(self.app_indicator.set_menu, self.menu)
+
+			else:
+
+				tray = gtk.StatusIcon()
+				tray.set_from_pixbuf(pixbuf_tray)
+				tray.connect("activate", self.openit)
+				tray.connect("popup-menu", self.show_menu)
+				tray.set_tooltip(_("Screenlets daemon"))
+				tray.set_visible(True)	
+
+
 			gtk.main()
 	
 	@dbus.service.method(SLD_IFACE)
@@ -120,9 +157,8 @@ class ScreenletsDaemon (dbus.service.Object):
 		"""Send the 'unregister'-signal over DBus."""
 		pass
 
-
-	def show_menu(self, status_icon, button, activate_time):
-		"""Create the menu and show it."""
+	def init_menu(self):
+		"""Initialize tray/indicator menu"""
 		if self.menu is None:
 			self.menu = gtk.Menu()
 			
@@ -138,6 +174,9 @@ class ScreenletsDaemon (dbus.service.Object):
 			self.launch_menu = gtk.Menu()
 			item = add_image_menuitem(self.menu, gtk.STOCK_EXECUTE, _("Launch Screenlet"))
 			item.set_submenu(self.launch_menu)
+
+			item.connect("activate", self.refresh_menu_for_indicator)
+			add_image_menuitem(self.launch_menu, gtk.STOCK_MISSING_IMAGE, "", self.launch, "")
 			
 			# create the bottom menuitems
 			add_image_menuitem(self.menu, gtk.STOCK_QUIT, _("Close all Screenlets"), self.closeit)
@@ -148,21 +187,49 @@ class ScreenletsDaemon (dbus.service.Object):
 			
 			self.menu.show_all()
 
-		def set_item_image (self, item, name):
-			img = utils.get_screenlet_icon(name,16,16)
-			item.set_image_from_pixbuf(img)
-			return False
-		
-		for menuitem in self.launch_menu.get_children():
-			menuitem.destroy()
+	def refresh_menu_for_indicator(self, param):
+		"""Refresh callback for libindicator"""
+		self.refresh_menu()
 
-		# (re)populate the launch menu
+	def refresh_menu(self):
+		"""Refresh launch menu contents if needed"""
 		lst_a = utils.list_available_screenlets()
-		for f in lst_a:
-			item = add_image_menuitem(self.launch_menu, gtk.STOCK_MISSING_IMAGE, f, self.launch, f)
-			item.set_always_show_image(True)
-			gobject.idle_add(set_item_image, self, item, f)
+		lst_b = self.launch_menu.get_children()
+		has_to_refresh = False
+
+		if len(lst_a) == len(lst_b):
+			for i in range(len(lst_a)):
+				if lst_a[i] != lst_b[i].get_child().get_text():
+					has_to_refresh = True
+					break
+		else:
+			has_to_refresh = True
+
+		if has_to_refresh:
+
+			def set_item_image (self, item, name):
+				img = utils.get_screenlet_icon(name,16,16)
+				item.set_image_from_pixbuf(img)
+				return False
 		
+			for menuitem in self.launch_menu.get_children():
+				menuitem.destroy()
+
+			for f in lst_a:
+				item = add_image_menuitem(self.launch_menu, gtk.STOCK_MISSING_IMAGE, f, self.launch, f)
+				item.set_always_show_image(True)
+				gobject.idle_add(set_item_image, self, item, f)
+
+			self.menu.show_all()
+
+	def show_menu(self, status_icon, button, activate_time):
+		"""Create and poplulate/refresh the menu and show it. For tray icon."""
+
+		if self.menu is None:
+			self.init_menu()
+
+		self.refresh_menu()
+
 		# show the menu
 		self.menu.popup(None, None, None, button, activate_time)
 

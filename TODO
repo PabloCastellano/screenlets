@@ -68,6 +68,9 @@
   existing ...  much much more room for improvement)
 - Drag drop launch of screenlets in the manager (hm, seems not useful to me)
   https://bugs.launchpad.net/screenlets/+bug/208757
+- Use python-apt (apt_pkg) instead of command line dpkg/apt (see
+  screenlets-daemon.py) for example. Maybe even python-smartpm to provide
+  compatibility with other distros than Debian/Ubuntu.
 
 
 + TODO: individual screenlets

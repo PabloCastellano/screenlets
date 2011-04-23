@@ -2272,6 +2272,48 @@ class ShapedWidget (gtk.DrawingArea):
 		del ctx
 		return False
 
+class WrapLabel(gtk.Label):
+    __gtype_name__ = 'WrapLabel'
+
+    def __init__(self, str=None):
+        gtk.Label.__init__(self)
+        
+        self.__wrap_width = 0
+        self.layout = self.get_layout()
+        self.layout.set_wrap(pango.WRAP_WORD_CHAR)
+        
+        if str != None:
+            self.set_text(str)
+        
+        self.set_alignment(0.0, 0.0)
+    
+    def do_size_request(self, requisition):
+        layout = self.get_layout()
+        width, height = layout.get_pixel_size()
+        requisition.width = 0
+        requisition.height = height
+    
+    def do_size_allocate(self, allocation):
+        gtk.Label.do_size_allocate(self, allocation)
+        self.__set_wrap_width(allocation.width)
+    
+    def set_text(self, str):
+        gtk.Label.set_text(self, str)
+        self.__set_wrap_width(self.__wrap_width)
+        
+    def set_markup(self, str):
+        gtk.Label.set_markup(self, str)
+        self.__set_wrap_width(self.__wrap_width)
+    
+    def __set_wrap_width(self, width):
+        if width == 0:
+            return
+        layout = self.get_layout()
+        layout.set_width(width * pango.SCALE)
+        if self.__wrap_width != width:
+            self.__wrap_width = width
+            self.queue_resize()
+
 class Tooltip(object):
 	"""A window that displays a text and serves as Tooltip (very basic yet)."""
 	
@@ -2300,14 +2342,21 @@ class Tooltip(object):
 		self.window.set_skip_taskbar_hint(True)
 		self.window.set_keep_above(True)
 		self.screen_changed(self.window)
-		self.window.connect("expose_event", self.expose)
 		self.window.connect("screen-changed", self.screen_changed)
 		#self.window.show()
-		self.p_context = self.window.get_pango_context()
-		self.p_layout = pango.Layout(self.p_context)
-		self.p_layout.set_font_description(\
-		pango.FontDescription(self.font_name))
-		#self.p_layout.set_width(-1)
+
+		try:    # Workaround for Ubuntu Natty
+			self.window.set_property('has-resize-grip', False)
+		except TypeError:
+			pass
+		self.window.modify_bg(gtk.STATE_NORMAL, gtk.gdk.Color(65535, 65535, 32767))
+		self.label = WrapLabel()
+		self.label.modify_font(pango.FontDescription(self.font_name))
+		self.label.set_line_wrap(True)
+		self.label.show()
+		self.window.add(self.label)
+
+		self.p_layout = self.label.get_layout()
 		self.p_layout.set_width(width * pango.SCALE - 6)
 	
 	def __setattr__ (self, name, value):
@@ -2317,6 +2366,7 @@ class Tooltip(object):
 				self.p_layout.set_width(width)
 			elif name == 'text':
 				self.p_layout.set_markup(value)
+				self.label.set_markup(value)
 				ink_rect, logical_rect = self.p_layout.get_pixel_extents()
 				self.height = min(max(logical_rect[3], 16), 400) + 6
 				self.window.set_size_request(self.width, self.height)
@@ -2359,31 +2409,6 @@ class Tooltip(object):
 		if not map:
 			map = screen.get_rgb_colormap()
 		window.set_colormap(map)
-	
-	def expose (self, widget, event):
-		ctx = self.window.window.cairo_create()
-		ctx.set_antialias (cairo.ANTIALIAS_SUBPIXEL)	# ?
-		# set a clip region for the expose event
-		ctx.rectangle(event.area.x, event.area.y,event.area.width, event.area.height)
-		ctx.clip()
-		# clear context
-		ctx.set_source_rgba(1, 1, 1, 0)
-		ctx.set_operator (cairo.OPERATOR_SOURCE)
-		ctx.paint()
-		# draw rectangle
-		ctx.set_source_rgba(1, 1, 0.5, 1)
-		ctx.rectangle(0, 0, self.width, self.height)
-		ctx.fill()
-		# draw text
-		ctx.save()
-		ctx.translate(3, 3)
-		ctx.set_source_rgba(0, 0, 0, 1) 
-		ctx.show_layout(self.p_layout)
-		ctx.fill()
-		ctx.restore()
-		ctx.rectangle(0, 0, self.width, self.height)
-		ctx.set_source_rgba(0, 0, 0, 0.7)
-		ctx.stroke()
 
 class Notify(object):
 	"""A window that displays a text and serves as Notification (very basic yet)."""

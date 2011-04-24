@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2009 Martin Owens (DoctorMO) <doctormo@gmail.com>
+# Copyright (C) 2011 Martin Owens (DoctorMO) <doctormo@gmail.com>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -31,6 +31,8 @@ from xml.dom.minidom import Node
 # Option-classes and subclasses
 # -----------------------------------------------------------------------
 
+OPT_ATTRS = [ 'default', 'label', 'desc', 'choices' ]
+
 class Option(gobject.GObject):
     """An Option stores information about a certain object-attribute. It doesn't
     carry information about the value or the object it belongs to - it is only a
@@ -49,14 +51,14 @@ class Option(gobject.GObject):
     def __init__ (self, group, name, *attr, **args):
         """Creates a new Option with the given information."""
         super(Option, self).__init__()
+        if name == None:
+            raise ValueError("Option widget %s must have name." % str(type(self)) )
         self.name = name
         self.group = group
         # To maintain compatability, we parse out the 3 attributes and
         # Move into known arguments.
-        if len(attr) == 3:
-            args.setdefault('default', attr[0])
-            args.setdefault('label', attr[1])
-            args.setdefault('desc', attr[2])
+        for i in range(len(attr)):
+            args.setdefault(OPT_ATTRS[i], attr[i])
         # This should allow any of the class options to be set on init.
         for name in args.keys():
             if hasattr(self, name):
@@ -404,8 +406,10 @@ class OptionsDialog(gtk.Dialog):
             # and create inputs
             for option in group_data['options']:
                 if option.hidden == False:
-                    val = getattr(obj, option.name)
-                    w = self.generate_widget( option, val )
+                    name = getattr(obj, option.name)
+                    if name == None:
+                        raise ValueError("Option %s has no name" % str(type(obj)))
+                    w = self.generate_widget( option, name )
                     if w:
                         box.pack_start(w, 0, 0)
                         w.show()

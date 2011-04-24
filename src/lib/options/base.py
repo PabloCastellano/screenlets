@@ -49,6 +49,8 @@ class Option(gobject.GObject):
     def __init__ (self, group, name, *attr, **args):
         """Creates a new Option with the given information."""
         super(Option, self).__init__()
+        if name == None:
+            raise ValueError("Option widget %s must have name." % str(type(self)) )
         self.name = name
         self.group = group
         # To maintain compatability, we parse out the 3 attributes and
@@ -404,8 +406,10 @@ class OptionsDialog(gtk.Dialog):
             # and create inputs
             for option in group_data['options']:
                 if option.hidden == False:
-                    val = getattr(obj, option.name)
-                    w = self.generate_widget( option, val )
+                    name = getattr(obj, option.name)
+                    if name == None:
+                        raise ValueError("Option %s has no name" % str(type(obj)))
+                    w = self.generate_widget( option, name )
                     if w:
                         box.pack_start(w, 0, 0)
                         w.show()

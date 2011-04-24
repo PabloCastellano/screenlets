@@ -715,8 +715,8 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 	is_visible		= True
 	is_sticky		= False
 	is_widget		= False
-	keep_above		= True
-	keep_below		= False
+	keep_above		= False
+	keep_below		= True
 	skip_pager		= True
 	first_run		= False
 	skip_taskbar	= True
@@ -907,7 +907,8 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 			print "WARNING - You are using kwin window manager , screenlets doesnt have full compatibility with this window manager"
 		else:
 			self.window.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_TOOLBAR)
-		self.window.set_keep_above(True)
+		self.window.set_keep_above(self.keep_above)
+		self.window.set_keep_below(self.keep_below)
 		self.window.set_skip_taskbar_hint(True)
 		self.window.set_skip_pager_hint(True)
 		if is_sticky:

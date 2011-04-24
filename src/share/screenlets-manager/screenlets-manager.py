@@ -526,7 +526,8 @@ class ScreenletsManager(object):
 			f = open(DIR_USER + '/config.ini', 'w')
 			f.write("[Options]\n")
 			f.write("show_in_tray=True\n")
-			f.write("Keep_above=True\n")
+			f.write("Keep_above=False\n")
+			f.write("Keep_below=True\n")
 			f.close()
 		try:
 			if ini.load(DIR_USER + '/config.ini'):
@@ -540,7 +541,8 @@ class ScreenletsManager(object):
 			f = open(DIR_USER + '/config.ini', 'w')
 			f.write("[Options]\n")
 			f.write("show_in_tray=True\n")
-			f.write("Keep_above=True\n")
+			f.write("Keep_above=False\n")
+			f.write("Keep_below=True\n")
 			f.close()
 			if ini.load(DIR_USER + '/config.ini'):
 				show_in_tray = ini.get_option('show_in_tray', section='Options')

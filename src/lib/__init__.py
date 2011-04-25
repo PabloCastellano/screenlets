@@ -2369,6 +2369,7 @@ class Tooltip(object):
 			if name== 'width':
 				self.p_layout.set_width(width)
 			elif name == 'text':
+				value = utils.html_to_pango(value)
 				self.p_layout.set_markup(value)
 				self.label.set_markup(value)
 				ink_rect, logical_rect = self.p_layout.get_pixel_extents()

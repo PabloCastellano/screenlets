@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-10 06:36+0900\n"
-"PO-Revision-Date: 2011-04-21 09:25+0000\n"
+"PO-Revision-Date: 2011-04-26 14:06+0000\n"
 "Last-Translator: Richard Somlói <level@somloirichard.hu>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-22 04:32+0000\n"
+"X-Launchpad-Export-Date: 2011-04-27 04:31+0000\n"
 "X-Generator: Launchpad (build 12758)\n"
 "Language: hu\n"
 
@@ -236,7 +236,7 @@ msgstr "Csak az alap Screenletek"
 
 #: src/share/screenlets-manager/screenlets-manager.py:450
 msgid "Only third party"
-msgstr "Csak a mástól származók (third party)"
+msgstr "Csak harmadik féltől származó"
 
 #: src/share/screenlets-manager/screenlets-manager.py:476
 msgid "Get more screenlets"
@@ -244,15 +244,15 @@ msgstr "Még több Screenlet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:482
 msgid "Show info about this dialog ..."
-msgstr "A program információi ..."
+msgstr "A program információi …"
 
 #: src/share/screenlets-manager/screenlets-manager.py:483
 msgid "Download more screenlets ..."
-msgstr "Még több Screenlet letöltése ..."
+msgstr "Még több Screenlet letöltése …"
 
 #: src/share/screenlets-manager/screenlets-manager.py:484
 msgid "Close this dialog ..."
-msgstr "Az ablak bezárása ..."
+msgstr "Az ablak bezárása …"
 
 #. create checkboxes
 #: src/share/screenlets-manager/screenlets-manager.py:518
@@ -265,7 +265,7 @@ msgstr "Automatikus indulás bejelentkezéskor"
 
 #: src/share/screenlets-manager/screenlets-manager.py:520
 msgid "Show daemon in tray"
-msgstr "Daemon mutatása a tálcán"
+msgstr "Daemon megjelenítése a tálcán"
 
 #: src/share/screenlets-manager/screenlets-manager.py:650
 #, python-format
@@ -347,11 +347,11 @@ msgstr "Sikertelen!"
 
 #: src/share/screenlets-manager/screenlets-manager.py:919
 msgid "Install SuperKaramba Theme"
-msgstr "SuperKaramba Téma Telepítése"
+msgstr "SuperKaramba téma telepítése"
 
 #: src/share/screenlets-manager/screenlets-manager.py:920
 msgid "Convert Web Widget"
-msgstr "Web Widget Konvertálása"
+msgstr "Web widget konvertálása"
 
 #: src/share/screenlets-manager/screenlets-manager.py:921
 #: src/share/screenlets-manager/screenlets-manager.py:1028
@@ -360,7 +360,7 @@ msgstr "Webes Alkalmazás Telepítése"
 
 #: src/share/screenlets-manager/screenlets-manager.py:941
 msgid "New screenlets atributes.."
-msgstr "Az új Screenlet tulajdonságai..."
+msgstr "Az új Screenlet tulajdonságai…"
 
 #: src/share/screenlets-manager/screenlets-manager.py:942
 msgid "Lock"
@@ -384,7 +384,7 @@ msgstr "Mögé tartás"
 
 #: src/share/screenlets-manager/screenlets-manager.py:948
 msgid "Show buttons"
-msgstr "Gombok mutatása"
+msgstr "Gombok megjelenítése"
 
 #: src/share/screenlets-manager/screenlets-manager.py:980
 msgid "New Screenlets atributes"
@@ -392,11 +392,11 @@ msgstr "Az új Screenlet tulajdonságai"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1018
 msgid "Web Application Url"
-msgstr "Webes Alkalmazás URL"
+msgstr "Webes alkalmazás URL-je"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1019
 msgid "Web Application Name"
-msgstr "Webes Alkalmazás Neve"
+msgstr "Webes alkalmazás neve"
 
 #. found_path != None:
 #: src/share/screenlets-manager/screenlets-manager.py:1051
@@ -410,7 +410,7 @@ msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:1072
 msgid "Web Application was successfully installed"
-msgstr "Webes Alkalmazás sikeresen telepítve"
+msgstr "Webes alkalmazás sikeresen telepítve"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1075
 msgid "Error installing!!!"
@@ -432,7 +432,7 @@ msgstr "Más weblap widget Screenletté konvertálása"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1082
 msgid "Step 1 : Find the widget you want to convert"
-msgstr "1. Lépés: Találjon egy konvertálni szánt wigdetet"
+msgstr "1. Lépés: Keressen egy konvertálni szánt widgetet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1083
 msgid "Step 2 : Copy and Paste the HTML from the widget in the box below"
@@ -463,7 +463,7 @@ msgstr "Konvertálási hiba!!!"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1283
 msgid "Screenlets-Manager must now be restarted"
-msgstr "A Screenlet Beállításkezelő most újraindul"
+msgstr "A Screenlet beállításkezelő most újraindul"
 
 #. + constants
 #: src/share/screenlets-manager/screenlets-packager.py:30
@@ -477,7 +477,7 @@ msgstr ""
 #: src/share/screenlets-manager/screenlets-packager.py:69
 #, python-format
 msgid "The specified path \"%s\" does not exist."
-msgstr "A megadott \"%s\" útvonal nem létezik."
+msgstr "A megadott „%s” útvonal nem létezik."
 
 #: src/share/screenlets-manager/screenlets-packager.py:70
 #, python-format
@@ -497,7 +497,7 @@ msgstr "A Screenlet neve %s."
 #, python-format
 msgid "No screenlet-file \"%sScreenlet.py\" found in the given path."
 msgstr ""
-"A \"%sScreenlet.py\" Screenlet fájl nem található a megadott útvonalon."
+"A „%sScreenlet.py” Screenlet fájl nem található a megadott útvonalon."
 
 #: src/share/screenlets-manager/screenlets-packager.py:82
 #, python-format
@@ -508,7 +508,7 @@ msgstr "A %sScreenlet.py fájl megtalálva."
 #, python-format
 msgid "Unable to import module '%(name)s' from %(path)s. (%(error)s)"
 msgstr ""
-"A '%(name)s' modul innen %(path)s importálása sikertelen.  (%(error)s)"
+"A „%(name)s” modul innen %(path)s importálása sikertelen.  (%(error)s)"
 
 #: src/share/screenlets-manager/screenlets-packager.py:92
 #, python-format
@@ -532,8 +532,7 @@ msgstr "Az osztály sikeresen betöltve a %s modulból"
 #, python-format
 msgid "Failed to create package info in \"%s\" (no permission?)."
 msgstr ""
-"Nem sikerült csomag információt készíteni a \"%s\" helyen. (nincs "
-"jogosultság?)"
+"Nem sikerült csomag információt készíteni a „%s” helyen. (nincs jogosultság?)"
 
 #: src/share/screenlets-manager/screenlets-packager.py:133
 msgid "Created package info file."
@@ -566,13 +565,13 @@ msgid ""
 "The %(slet)sScreenlet is already installed in '%(dir)s'.\n"
 "Do you wish to continue?"
 msgstr ""
-"A %(slet)sScreenlet már telepítve van ide '%(dir)s'.\n"
+"A %(slet)sScreenlet már telepítve van ide „%(dir)s”.\n"
 "Szeretné folytatni?"
 
 #: src/lib/install.py:128 src/lib/install.py:194
 #, python-format
 msgid "Install %s"
-msgstr "%s Telepítése"
+msgstr "%s telepítése"
 
 #: src/lib/install.py:131
 #, python-format

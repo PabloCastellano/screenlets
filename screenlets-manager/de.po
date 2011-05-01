@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: screenlets-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-10 06:36+0900\n"
-"PO-Revision-Date: 2011-02-20 12:13+0000\n"
-"Last-Translator: Tim O. <Unknown>\n"
+"PO-Revision-Date: 2011-04-30 08:53+0000\n"
+"Last-Translator: Jochen Kemnade <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-21 04:45+0000\n"
-"X-Generator: Launchpad (build 12351)\n"
+"X-Launchpad-Export-Date: 2011-05-01 04:32+0000\n"
+"X-Generator: Launchpad (build 12758)\n"
 "Language: de\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
@@ -179,7 +179,7 @@ msgstr "Einstellungen"
 
 #: src/share/screenlets-manager/screenlets-manager.py:387
 msgid "Create Desktop Shortcut"
-msgstr "Desktop Verküpfung erstellen"
+msgstr "Desktop-Verküpfung erstellen"
 
 #: src/share/screenlets-manager/screenlets-manager.py:419
 msgid "Launch/add a new instance of the selected Screenlet ..."
@@ -221,7 +221,7 @@ msgstr "Einstellungen/Eigenschaften für neue Screenlets"
 
 #: src/share/screenlets-manager/screenlets-manager.py:427
 msgid "Create a Desktop shortcut for this Screenlet"
-msgstr "Erstelle eine Desktop Verknüpfung für dieses Screenlet"
+msgstr "Erstelle eine Desktop-Verknüpfung für dieses Screenlet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:446
 msgid "All Screenlets"
@@ -233,7 +233,7 @@ msgstr "Laufende Screenlets"
 
 #: src/share/screenlets-manager/screenlets-manager.py:448
 msgid "Autostart Screenlets"
-msgstr "Autostart Screenlets"
+msgstr "Autostart-Screenlets"
 
 #: src/share/screenlets-manager/screenlets-manager.py:449
 msgid "Only native Screenlets"
@@ -357,7 +357,7 @@ msgstr "SuperKaramba Thema installieren"
 
 #: src/share/screenlets-manager/screenlets-manager.py:920
 msgid "Convert Web Widget"
-msgstr ""
+msgstr "Web-Widget konvertieren"
 
 #: src/share/screenlets-manager/screenlets-manager.py:921
 #: src/share/screenlets-manager/screenlets-manager.py:1028

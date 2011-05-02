@@ -94,13 +94,16 @@ class ScreenletSession (object):
 			print "Unable to init backend - settings will not be saved!"
 		# WORKAROUND: connect to daemon (ideally the daemon should watch the 
 		#             tmpfile for changes!!)
+
+
+		# NOTE: daemon will be started by bus.get_object anyway!!!
 		#check for daemon
-		proc = os.popen("""ps axo "%p,%a" | grep "python.*screenlets-daemon.py" | grep -v grep|cut -d',' -f1""").read()
+		#proc = os.popen("""ps axo "%p,%a" | grep "python.*screenlets-daemon.py" | grep -v grep|cut -d',' -f1""").read()
 	
-		procs = proc.split('\n')
-		if len(procs) <= 1:
-			os.system('python -u ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/screenlets-daemon.py &')
-			print 'No Daemon, Launching Daemon'
+		#procs = proc.split('\n')
+		#if len(procs) <= 1:
+		#	os.system('python -u ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/screenlets-daemon.py &')
+		#	print 'No Daemon, Launching Daemon'
 		self.connect_daemon()
 	
 	def connect_daemon (self):

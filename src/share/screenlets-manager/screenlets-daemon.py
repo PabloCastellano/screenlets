@@ -37,20 +37,6 @@ import gtk
 from screenlets import utils, install
 import gettext
 
-has_app_indicator = False
-try:
-	import appindicator
-	import apt_pkg
-
-	apt_pkg.init()
-	cache = apt_pkg.Cache()
-
-	if apt_pkg.version_compare(cache['python-appindicator'].current_ver.ver_str, '0.3.0') >= 0:
-		print "INDICATOR"
-		has_app_indicator = True
-except Exception:
-	pass
-
 gettext.textdomain('screenlets-manager')
 gettext.bindtextdomain('screenlets-manager', screenlets.INSTALL_PREFIX +  '/share/locale')
 
@@ -100,6 +86,20 @@ class ScreenletsDaemon (dbus.service.Object):
 		if self.show_in_tray == 'True':
 
 			self.init_menu()
+
+			has_app_indicator = False
+			try:
+				import appindicator
+				import apt_pkg
+
+				apt_pkg.init()
+				cache = apt_pkg.Cache()
+
+				if apt_pkg.version_compare(cache['python-appindicator'].current_ver.ver_str, '0.3.0') >= 0:
+					print "INDICATOR"
+					has_app_indicator = True
+			except Exception:
+				pass
 
 			if has_app_indicator:
 

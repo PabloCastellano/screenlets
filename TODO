@@ -78,7 +78,7 @@
 - separate screenlets into own launchpad project and add global TODO list there
  (if possible, it should be an open project where people can freely upload their 
  own screenlets; that would also for managing all non-core bugs there)
-
+- check through all the 100+ screenlets in the project and prepare some other packs besides basic-pack, for example screenlets-pack-normal (containing all the generally interesting screenlets which work well enough) and screenlets-pack-interesting (containing the rest of screenlets which work, but are not of general interest) etc
 
 + TODO: individual screenlets (old, move to new sub project somewhen)
 ---------------------------------------------------------------------

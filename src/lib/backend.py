@@ -199,16 +199,40 @@ class CachingBackend (ScreenletsBackend):
 						parts = line[:-1].split('=', 1)
 						if len(parts) > 1:
 							# undocumented feature to resize screenlet dynamically on first launch
+							# width, height must precede rel_x and rel_y with "_"
 							# by boamaod for Estobuntu
 							if parts[0] == 'rel_x':
 								parts[0] = 'x'
-								parts[1] = str(int(gtk.gdk.screen_width()*float(parts[1])))
+								add_width = 0
+								if parts[1].startswith("_"): # if _ is added, take it to be right corner
+									add_width = int(float(self.__instances[id]["width"])*float(self.__instances[id]["scale"]))
+									print "ADD W", add_width
+								parts[1] = str(int(gtk.gdk.screen_width()*float(parts[1].strip("_"))) - add_width)
+								print ">>>X", parts[1]
 							if parts[0] == 'rel_y':
 								parts[0] = 'y'
-								parts[1] = str(int(gtk.gdk.screen_height()*float(parts[1])))
+								add_height = 0
+								if parts[1].startswith("_"): # if _ is added, take it to be bottom corner
+									add_height = int(float(self.__instances[id]["height"])*float(self.__instances[id]["scale"]))
+									print "ADD H", add_height
+								parts[1] = str(int(gtk.gdk.screen_height()*float(parts[1].strip("_"))) - add_height)
+								print ">>>Y", parts[1]
 							if parts[0] == 'rel_scale':
 								parts[0] = 'scale'
-								parts[1] = str(gtk.gdk.screen_height()/float(parts[1]))
+								parts[1] = str(float(gtk.gdk.screen_height()*gtk.gdk.screen_width())/float(parts[1]))
+#								parts[1] = str(gtk.gdk.screen_height()/float(parts[1]))
+								print ">>>SCALE", parts[1]
+							if parts[0] == 'rel_font_name':
+								parts[0] = 'font_name'
+								font_parts = parts[1].split(" ")
+								parts[1]=""
+								for fp in font_parts:
+									if fp.isdigit():
+										parts[1]+= str( round( float(fp)*float(self.__instances[id]["scale"]) ) ) + " "
+									else:
+										parts[1]+= fp + " "
+								parts[1] = parts[1].strip(" ")
+								print ">>>FONT_NAME", parts[1]
 							print "%s='%s'" % (parts[0], parts[1])
 							self.__instances[id][parts[0]] = parts[1]
 					f.close()

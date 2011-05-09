@@ -219,7 +219,10 @@ class CachingBackend (ScreenletsBackend):
 								print ">>>Y", parts[1]
 							if parts[0] == 'rel_scale':
 								parts[0] = 'scale'
-								parts[1] = str(float(gtk.gdk.screen_height()*gtk.gdk.screen_width())/float(parts[1]))
+								initial_scale = float(gtk.gdk.screen_height()*gtk.gdk.screen_width())/float(parts[1])
+								if initial_scale < 1.5:
+									initial_scale = 1.5
+								parts[1] = str(initial_scale)
 #								parts[1] = str(gtk.gdk.screen_height()/float(parts[1]))
 								print ">>>SCALE", parts[1]
 							if parts[0] == 'rel_font_name':

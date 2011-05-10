@@ -198,16 +198,26 @@ class CachingBackend (ScreenletsBackend):
 						#print "LOAD: "+line[:-1]
 						parts = line[:-1].split('=', 1)
 						if len(parts) > 1:
-							# undocumented feature to resize screenlet dynamically on first launch
+							# undocumented features to resize screenlet dynamically on first launch
 							# width, height must precede rel_x and rel_y with "_"
 							# by boamaod for Estobuntu
 							if parts[0] == 'x':
 								if parts[1].startswith("*"): # if * is added, take distance from the opposite side
-									parts[1] = str(gtk.gdk.screen_width() - int(parts[1].strip("*")))
+									parts[1] = parts[1].strip("*")
+									add_width = 0
+									if parts[1].startswith("_"): # if _ is added, take it to be right corner
+										add_width = int(float(self.__instances[id]["width"])*float(self.__instances[id]["scale"]))
+										print "ADD W", add_width
+									parts[1] = str(gtk.gdk.screen_width() - int(parts[1].strip("_")) - add_width)
 									print ">>>X", parts[1]
 							if parts[0] == 'y':
 								if parts[1].startswith("*"): # if * is added, take distance from the opposite side
-									parts[1] = str(gtk.gdk.screen_width() - int(parts[1].strip("*")))
+									parts[1] = parts[1].strip("*")
+									add_height = 0
+									if parts[1].startswith("_"): # if _ is added, take it to be bottom corner
+										add_height = int(float(self.__instances[id]["height"])*float(self.__instances[id]["scale"]))
+										print "ADD H", add_height
+									parts[1] = str(gtk.gdk.screen_height() - int(parts[1].strip("_")) - add_height)
 									print ">>>Y", parts[1]
 							if parts[0] == 'rel_x':
 								parts[0] = 'x'
@@ -248,6 +258,7 @@ class CachingBackend (ScreenletsBackend):
 										parts[1]+= fp + " "
 								parts[1] = parts[1].strip(" ")
 								print ">>>FONT_NAME", parts[1]
+							# End of dynamic resize section
 							print "%s='%s'" % (parts[0], parts[1])
 							self.__instances[id][parts[0]] = parts[1]
 					f.close()

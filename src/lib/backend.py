@@ -201,6 +201,14 @@ class CachingBackend (ScreenletsBackend):
 							# undocumented feature to resize screenlet dynamically on first launch
 							# width, height must precede rel_x and rel_y with "_"
 							# by boamaod for Estobuntu
+							if parts[0] == 'x':
+								if parts[1].startswith("*"): # if * is added, take distance from the opposite side
+									parts[1] = str(gtk.gdk.screen_width() - int(parts[1].strip("*")))
+									print ">>>X", parts[1]
+							if parts[0] == 'y':
+								if parts[1].startswith("*"): # if * is added, take distance from the opposite side
+									parts[1] = str(gtk.gdk.screen_width() - int(parts[1].strip("*")))
+									print ">>>Y", parts[1]
 							if parts[0] == 'rel_x':
 								parts[0] = 'x'
 								add_width = 0
@@ -219,19 +227,23 @@ class CachingBackend (ScreenletsBackend):
 								print ">>>Y", parts[1]
 							if parts[0] == 'rel_scale':
 								parts[0] = 'scale'
-								initial_scale = float(gtk.gdk.screen_height()*gtk.gdk.screen_width())/float(parts[1])
+								scale = float(self.__instances[id]["scale"])
+								initial_scale = scale + float(gtk.gdk.screen_height()*gtk.gdk.screen_width())/float(parts[1])
 								if initial_scale < 1.5:
 									initial_scale = 1.5
+								if initial_scale > 3:
+									initial_scale = 3
 								parts[1] = str(initial_scale)
 #								parts[1] = str(gtk.gdk.screen_height()/float(parts[1]))
 								print ">>>SCALE", parts[1]
 							if parts[0] == 'rel_font_name':
 								parts[0] = 'font_name'
+								print "|||", parts[1]
 								font_parts = parts[1].split(" ")
 								parts[1]=""
 								for fp in font_parts:
-									if fp.isdigit():
-										parts[1]+= str( round( float(fp)*float(self.__instances[id]["scale"]) ) ) + " "
+									if len(fp.strip("0123456789.")) == 0:
+										parts[1]+= str( round(float(fp)*float(self.__instances[id]["scale"]), 1) ) + " "
 									else:
 										parts[1]+= fp + " "
 								parts[1] = parts[1].strip(" ")

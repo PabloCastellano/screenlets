@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-10 06:36+0900\n"
-"PO-Revision-Date: 2011-04-10 18:33+0000\n"
-"Last-Translator: Petr Wudi <Unknown>\n"
+"PO-Revision-Date: 2011-05-10 18:20+0000\n"
+"Last-Translator: Adrian Guniš <andygun696@gmail.com>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-05-10 04:33+0000\n"
+"X-Launchpad-Export-Date: 2011-05-11 04:32+0000\n"
 "X-Generator: Launchpad (build 12959)\n"
 "Language: cs\n"
 
@@ -131,7 +131,7 @@ msgstr "Restartovat Screenlet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:358
 msgid "Launch/Add"
-msgstr "Spustut/Přidat"
+msgstr "Spustit/Přidat"
 
 #: src/share/screenlets-manager/screenlets-manager.py:362
 #: src/share/screenlets-manager/screenlets-manager.py:923

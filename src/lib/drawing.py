@@ -102,9 +102,10 @@ class Drawing(object):
 		except:
 			return False
 	
-	def draw_text(self, ctx, text, x, y,  font, size, width, allignment=pango.ALIGN_LEFT,alignment=None,justify = False,weight = 0, ellipsize = pango.ELLIPSIZE_NONE):
+	def draw_text(self, ctx, text, x, y,  font, size = None, width = 200, allignment=pango.ALIGN_LEFT,alignment=None,justify = False,weight = None, ellipsize = pango.ELLIPSIZE_NONE):
 		"""Draws text"""
-		size = int(size)
+		if size is not None:
+			size = int(size)
 
 		ctx.save()
 		ctx.translate(x, y)
@@ -114,11 +115,19 @@ class Drawing(object):
 		else:
 			
 			ctx.update_layout(self.p_layout)
-		if self.p_fdesc == None:self.p_fdesc = pango.FontDescription()
+		if self.p_fdesc == None:self.p_fdesc = pango.FontDescription(font)
 		else: pass
-		self.p_fdesc.set_family_static(font)
-		self.p_fdesc.set_size(size * pango.SCALE)
-		self.p_fdesc.set_weight(weight)
+		# using "Ubuntu Bold 12" is new standard, detecting spaces is lousy, but no better idea
+		if font.find(" ") >= 0:
+			self.p_fdesc = pango.FontDescription(font)
+		# but we should keep old standard describing just font family "Ubuntu"
+		# this is probably not needed, but max compatibility!!!
+		else:
+			self.p_fdesc.set_family_static(font)
+		if size is not None:
+			self.p_fdesc.set_size(size * pango.SCALE)
+		if weight is not None:
+			self.p_fdesc.set_weight(weight)
 		self.p_layout.set_font_description(self.p_fdesc)
 		self.p_layout.set_width(width * pango.SCALE)
 		self.p_layout.set_alignment(allignment)

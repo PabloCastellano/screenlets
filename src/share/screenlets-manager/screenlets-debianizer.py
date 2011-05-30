@@ -227,7 +227,7 @@ binary: binary-indep binary-arch
 compat = """5"""
 
 Makefile = """SYSTEM_SCREENLETS_DIR = $(DESTDIR)/usr/share/screenlets
-XDG_DESKTOP_FILES_DIR = $(DESTDIR)/usr/share/applications
+XDG_DESKTOP_FILES_DIR = $(DESTDIR)/usr/share/applications/screenlets
 
 install:
 	mkdir -p $(SYSTEM_SCREENLETS_DIR)

@@ -251,9 +251,9 @@ Exec= python -u /usr/share/screenlets/%s/%sScreenlet.py
 try:
 
 	icon = None
-	if os.path.exists("%s/icon.svg" % sl_name):
+	if os.path.exists("%s/icon.svg" % path):
 		icon = "icon.svg"
-	elif os.path.exists("%s/icon.png" % sl_name):
+	elif os.path.exists("%s/icon.png" % path):
 		icon = "icon.png"
 	if icon is not None:
 		desktop_file += "Icon=/usr/share/screenlets/%s/%s" % (sl_name, icon)

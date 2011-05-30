@@ -227,17 +227,37 @@ binary: binary-indep binary-arch
 compat = """5"""
 
 Makefile = """SYSTEM_SCREENLETS_DIR = $(DESTDIR)/usr/share/screenlets
+XDG_DESKTOP_FILES_DIR = $(DESTDIR)/usr/share/applications
 
 install:
 	mkdir -p $(SYSTEM_SCREENLETS_DIR)
 	cp -r screenlet/* $(SYSTEM_SCREENLETS_DIR)
+	mkdir -p $(XDG_DESKTOP_FILES_DIR)
+	cp -r xdg-desktop/* $(XDG_DESKTOP_FILES_DIR)
 	for file in $$(ls -1 po/); do mkdir -p $(DESTDIR)/usr/share/locale/$${file%.po}/LC_MESSAGES; msgfmt -v -o $(DESTDIR)/usr/share/locale/$${file%.po}/LC_MESSAGES/""" + deb_name + ".mo po/$$file; done"
 
 #print "=========================================================="
 #print control
 #print "=========================================================="
 
+desktop_file = """[Desktop Entry]
+Name=%s
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Exec= python -u /usr/share/screenlets/%s/%sScreenlet.py
+""" % (sl_name, sl_name, sl_name)
+
 try:
+
+	icon = None
+	if os.path.exists("%s/icon.svg" % sl_name):
+		icon = "icon.svg"
+	elif os.path.exists("%s/icon.png" % sl_name):
+		icon = "icon.png"
+	if icon is not None:
+		desktop_file += "Icon=/usr/share/screenlets/%s/%s" % (sl_name, icon)
+
 	os.system('rm -rf /tmp/%s' % deb_name)
 	os.system('mkdir -p /tmp/%s/debian' % deb_name)
 	os.system('mkdir -p /tmp/%s/screenlet' % deb_name)
@@ -247,6 +267,10 @@ try:
 	write_conf_file('/tmp/%s/debian/changelog' % deb_name, changelog)
 	write_conf_file('/tmp/%s/debian/compat' % deb_name, compat)
 	write_conf_file('/tmp/%s/debian/rules' % deb_name, rules)
+
+	os.system('mkdir -p /tmp/%s/xdg-desktop' % deb_name)
+	write_conf_file('/tmp/%s/xdg-desktop/%s.desktop' % (deb_name, deb_name), desktop_file)
+	os.system('chmod a+x /tmp/%s/xdg-desktop/*' % deb_name)
 
 	os.system('cp -r %s /tmp/%s/screenlet' % (path, deb_name))
 

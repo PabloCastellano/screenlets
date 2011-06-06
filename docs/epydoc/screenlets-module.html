@@ -34,7 +34,7 @@
       <th class="navbar" align="right" width="100%">
         <table border="0" cellpadding="0" cellspacing="0">
           <tr><th class="navbar" align="center"
-            >Screenlets 0.1.3</th>
+            >Screenlets 0.1.4</th>
           </tr></table></th>
   </tr>
 </table>
@@ -83,8 +83,23 @@
     <li> <strong class="uidlink"><a href="screenlets.backend-module.html">screenlets.backend</a></strong>    </li>
     <li> <strong class="uidlink"><a href="screenlets.drawing-module.html">screenlets.drawing</a></strong>    </li>
     <li> <strong class="uidlink"><a href="screenlets.install-module.html">screenlets.install</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="screenlets.logger-module.html">screenlets.logger</a></strong>    </li>
     <li> <strong class="uidlink"><a href="screenlets.menu-module.html">screenlets.menu</a></strong>    </li>
-    <li> <strong class="uidlink"><a href="screenlets.options-module.html">screenlets.options</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="screenlets.options-module.html">screenlets.options</a></strong>
+    <ul>
+    <li> <strong class="uidlink"><a href="screenlets.options.account_option-module.html">screenlets.options.account_option</a></strong>: <em class="summary">Account options, these classes will display a text box.</em>    </li>
+    <li> <strong class="uidlink"><a href="screenlets.options.base-module.html">screenlets.options.base</a></strong>: <em class="summary">Base classes and basic mechanics for all screenlet options.</em>    </li>
+    <li> <strong class="uidlink"><a href="screenlets.options.boolean_option-module.html">screenlets.options.boolean_option</a></strong>: <em class="summary">Boolean options, these classes will display a boolean Checkbox as 
+        required and control the formating of data.</em>    </li>
+    <li> <strong class="uidlink"><a href="screenlets.options.colour_option-module.html">screenlets.options.colour_option</a></strong>: <em class="summary">Color options, these classes will display a text box.</em>    </li>
+    <li> <strong class="uidlink"><a href="screenlets.options.file_option-module.html">screenlets.options.file_option</a></strong>: <em class="summary">File options, these classes will display a file select widget.</em>    </li>
+    <li> <strong class="uidlink"><a href="screenlets.options.font_option-module.html">screenlets.options.font_option</a></strong>: <em class="summary">Font options, these classes will display a text box.</em>    </li>
+    <li> <strong class="uidlink"><a href="screenlets.options.list_option-module.html">screenlets.options.list_option</a></strong>: <em class="summary">List options, these classes will display all sorts of crazy shit.</em>    </li>
+    <li> <strong class="uidlink"><a href="screenlets.options.number_option-module.html">screenlets.options.number_option</a></strong>: <em class="summary">Integer and Float options, these classes will display a spin box.</em>    </li>
+    <li> <strong class="uidlink"><a href="screenlets.options.string_option-module.html">screenlets.options.string_option</a></strong>: <em class="summary">String options, these classes will display a text box.</em>    </li>
+    <li> <strong class="uidlink"><a href="screenlets.options.time_option-module.html">screenlets.options.time_option</a></strong>: <em class="summary">Time options, these classes will display a text box.</em>    </li>
+    </ul>
+    </li>
     <li> <strong class="uidlink"><a href="screenlets.plugins-module.html">screenlets.plugins</a></strong>
     <ul>
     <li> <strong class="uidlink"><a href="screenlets.plugins.Amarok-module.html">screenlets.plugins.Amarok</a></strong>    </li>
@@ -175,6 +190,13 @@
     </td><td class="summary">
         <a href="screenlets.ShapedWidget-class.html" class="summary-name">ShapedWidget</a><br />
       A simple base-class for creating owner-drawn gtk-widgets
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="screenlets.WrapLabel-class.html" class="summary-name">WrapLabel</a>
     </td>
   </tr>
 <tr>
@@ -367,6 +389,69 @@
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
+        <a name="LOG_DISABLED"></a><span class="summary-name">LOG_DISABLED</span> = <code title="False">False</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="LOG_LEVEL"></a><span class="summary-name">LOG_LEVEL</span> = <code title="4">4</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="LOG_OUTPUT"></a><span class="summary-name">LOG_OUTPUT</span> = <code title="'FILE'"><code class="variable-quote">'</code><code class="variable-string">FILE</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="LOG_NAME"></a><span class="summary-name">LOG_NAME</span> = <code title="'screenlets'"><code class="variable-quote">'</code><code class="variable-string">screenlets</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="LOG_FILE"></a><span class="summary-name">LOG_FILE</span> = <code title="'/tmp/(imported).log'"><code class="variable-quote">'</code><code class="variable-string">/tmp/(imported).log</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SESSION_NAME"></a><span class="summary-name">SESSION_NAME</span> = <code title="'default'"><code class="variable-quote">'</code><code class="variable-string">default</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SESSION_REPLACE"></a><span class="summary-name">SESSION_REPLACE</span> = <code title="'False'"><code class="variable-quote">'</code><code class="variable-string">False</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SERVER_NAME"></a><span class="summary-name">SERVER_NAME</span> = <code title="'none'"><code class="variable-quote">'</code><code class="variable-string">none</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="parser"></a><span class="summary-name">parser</span> = <code title="OptionParser()">OptionParser()</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
         <a name="APP_NAME"></a><span class="summary-name">APP_NAME</span> = <code title="'Screenlets'"><code class="variable-quote">'</code><code class="variable-string">Screenlets</code><code class="variable-quote">'</code></code>
     </td>
   </tr>
@@ -374,7 +459,7 @@
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="VERSION"></a><span class="summary-name">VERSION</span> = <code title="'0.1.3'"><code class="variable-quote">'</code><code class="variable-string">0.1.3</code><code class="variable-quote">'</code></code>
+        <a name="VERSION"></a><span class="summary-name">VERSION</span> = <code title="'0.1.4'"><code class="variable-quote">'</code><code class="variable-string">0.1.4</code><code class="variable-quote">'</code></code>
     </td>
   </tr>
 <tr>
@@ -544,6 +629,22 @@ Full Translator list on https://translations.launchpad.net/screenlets/\
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
         <a name="UBUNTU"></a><span class="summary-name">UBUNTU</span> = <code title="True">True</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="COMMAND_LINE_ARGS"></a><span class="summary-name">COMMAND_LINE_ARGS</span> = <code title="[]"><code class="variable-group">[</code><code class="variable-group">]</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="screenlets-module.html#COMMAND_LINE_OPTIONS" class="summary-name">COMMAND_LINE_OPTIONS</a> = <code title="&lt;Values at 0x9c45eec: {'LOG_LEVEL': 4, 'SERVER_NAME': 'none', 'LOG_DIS\
+ABLED': False, 'SESSION_REPLACE': 'False', 'LOG_OUTPUT': 'FILE', 'SESS\
+ION_NAME': 'default', 'LOG_FILE': '/tmp/(imported).log'}&gt;">&lt;Values at 0x9c45eec: {'LOG_LEVEL': 4, <code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 <tr>
@@ -778,6 +879,26 @@ Full Translator list on https://translations.launchpad.net/screenlets/\
   </dl>
 </td></tr></table>
 </div>
+<a name="COMMAND_LINE_OPTIONS"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">COMMAND_LINE_OPTIONS</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+&lt;Values at 0x9c45eec: {'LOG_LEVEL': 4, 'SERVER_NAME': 'none', 'LOG_DIS<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+ABLED': False, 'SESSION_REPLACE': 'False', 'LOG_OUTPUT': 'FILE', 'SESS<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+ION_NAME': 'default', 'LOG_FILE': '/tmp/(imported).log'}&gt;
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
 <br />
 <!-- ==================== NAVIGATION BAR ==================== -->
 <table class="navbar" border="0" width="100%" cellpadding="0"
@@ -803,14 +924,14 @@ Full Translator list on https://translations.launchpad.net/screenlets/\
       <th class="navbar" align="right" width="100%">
         <table border="0" cellpadding="0" cellspacing="0">
           <tr><th class="navbar" align="center"
-            >Screenlets 0.1.3</th>
+            >Screenlets 0.1.4</th>
           </tr></table></th>
   </tr>
 </table>
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Mon Feb 28 23:21:23 2011
+    Generated by Epydoc 3.0.1 on Mon Jun  6 10:56:35 2011
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

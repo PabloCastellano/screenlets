@@ -21,62 +21,11 @@ import commands
 import sys
 import os
 from screenlets import sensors
+import webkit
 
-
-
-#########WORKARROUND FOR GTKOZEMBED BUG BY WHISE################
-myfile = 'WidgetScreenlet.py'
-mypath = sys.argv[0][:sys.argv[0].find(myfile)].strip()
-
-if sys.argv[0].endswith(myfile): # Makes Shure its not the manager running...
-		# First workarround
-		c = None
-		workarround =  "python "+ sys.argv[0] + " &"
-		a = str(commands.getoutput('whereis firefox')).replace('firefox: ','').split(' ')
-		for b in a:
-			if os.path.isfile(b + '/run-mozilla.sh'):
-				c = b + '/run-mozilla.sh'
-				workarround = c + " " + sys.argv[0] + " &"
-
-
-		if c == None:
-			# Second workarround
-			print 'First workarround didnt work let run a second manual workarround'
-			if str(sensors.sys_get_distrib_name()).lower().find('ubuntu') != -1: # Works for ubuntu 32
-				workarround = "export LD_LIBRARY_PATH=/usr/lib/firefox \n export MOZILLA_FIVE_HOME=/usr/lib/firefox \n python "+ sys.argv[0] + " &"
-			elif str(sensors.sys_get_distrib_name()).lower().find('debian') != -1: # Works for debian 32 with iceweasel installed
-				workarround = "export LD_LIBRARY_PATH=/usr/lib/iceweasel \n export MOZILLA_FIVE_HOME=/usr/lib/iceweasel \n python " + sys.argv[0] + " &"
-			elif str(sensors.sys_get_distrib_name()).lower().find('suse') != -1: # Works for suse 32 with seamonkey installed
-				workarround = "export LD_LIBRARY_PATH=/usr/lib/seamonkey \n export MOZILLA_FIVE_HOME=/usr/lib/seamonkey \n python "+ sys.argv[0] + " &"
-				print 'Your running suse , make shure you have seamonkey installed'
-			elif str(sensors.sys_get_distrib_name()).lower().find('fedora') != -1: # Works for fedora 32 with seamonkey installed
-				workarround = "export LD_LIBRARY_PATH=/usr/lib/seamonkey \n export MOZILLA_FIVE_HOME=/usr/lib/seamonkey \n python "+ sys.argv[0] + " &"
-				print 'Your running fedora , make shure you have seamonkey installed'
-
-
-		if os.path.isfile("/tmp/"+ myfile+"running"):
-			os.system("rm -f " + "/tmp/"+ myfile+"running")
-		
-		else:
-			if workarround == "python "+ sys.argv[0] + " &":
-				print 'No workarround will be applied to your sistem , this screenlet will probably not work properly'
-			os.system (workarround)
-			fileObj = open("/tmp/"+ myfile+"running","w") #// open for for write
-			fileObj.write('gtkmozembed bug workarround')
-		
-			fileObj.close()
-			sys.exit()
-
-
-else:
-	pass
-try:
-	import gtkmozembed
-except:
-	if sys.argv[0].endswith(myfile):screenlets.show_error(None,"You need Gtkmozembed to run this Screenlet , please install it")
-	else: print "You need Gtkmozembed to run this Screenlet , please install it"
-#########WORKARROUND FOR GTKOZEMBED BUG BY WHISE################
 #Check for internet connection required for web widgets
+
+myfile = 'WidgetScreenlet.py'
 
 if sys.argv[0].endswith(myfile):# Makes Shure its not the manager running...
 	#os.system('wget www.google.com -O/tmp/index.html &')
@@ -97,7 +46,7 @@ class WidgetScreenlet (screenlets.Screenlet):
 	__desc__		= __doc__
 
 	started = False
-	moz = None
+	view = None
 	box = None
 	mypath = sys.argv[0][:sys.argv[0].find('WidgetScreenlet.py')].strip()
 	url = mypath + 'index.html'
@@ -130,12 +79,8 @@ class WidgetScreenlet (screenlets.Screenlet):
 		self.disable_option('scale')
 		self.theme_name = 'default'
 		self.box = gtk.VBox(False, 0)
-		if hasattr(gtkmozembed, 'set_profile_path'):
-			gtkmozembed.set_profile_path(self.mypath,'mozilla')
-		else:
-			gtkmozembed.gtk_moz_embed_set_profile_path(self.mypath ,'mozilla')
-		self.moz = gtkmozembed.MozEmbed()
-    		self.box.pack_start(self.moz, False, False, 0)
+		self.view = webkit.WebView()
+    		self.box.pack_start(self.view, False, False, 0)
 
 		self.window.add(self.box)		
 			
@@ -202,7 +147,7 @@ class WidgetScreenlet (screenlets.Screenlet):
 					#ctx.translate(0,10)
 					self.draw_scaled_image(ctx,0,0,self.width,self.height,self.mypath + 'icon.png')
 
-				self.moz.shape_combine_mask(self.bgpbms,0,0)	
+				self.view.shape_combine_mask(self.bgpbms,0,0)	
 			else:
 				self.bgpb = gtk.gdk.pixbuf_new_from_file(self.mypath + 'icon.png').scale_simple(int(self.widget_width),int(self.widget_height),gtk.gdk.INTERP_HYPER)
 				self.bgpbim, self.bgpbms = self.bgpb.render_pixmap_and_mask(alpha_threshold=128)
@@ -211,7 +156,7 @@ class WidgetScreenlet (screenlets.Screenlet):
 					ctx.translate(0,10)
 					self.draw_image(ctx,0,0,self.mypath + 'icon.png')
 
-				self.moz.shape_combine_mask(self.bgpbms,8,8)	
+				self.view.shape_combine_mask(self.bgpbms,8,8)	
  	
 
 
@@ -276,7 +221,7 @@ class WidgetScreenlet (screenlets.Screenlet):
 			self.url = self.widget_info[13:][:(len(self.widget_info)-24)]
 			
 			self.engine = 'google'
-		self.moz.load_url(self.url)
+		self.view.load_uri(self.url)
 		print 'loading ' + self.url
 		
 		self.width = int(self.widget_width)+30
@@ -291,9 +236,9 @@ class WidgetScreenlet (screenlets.Screenlet):
 
 			self.box.set_uposition(-1,7)
 		
-			self.moz.set_size_request(-1,int(self.widget_height))
+			self.view.set_size_request(-1,int(self.widget_height))
 		else:
-			self.moz.set_size_request(-1,int(self.height))
+			self.view.set_size_request(-1,int(self.height))
 		self.redraw_canvas()
 
 	def on_mouse_down(self,event):

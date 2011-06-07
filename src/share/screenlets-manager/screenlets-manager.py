@@ -1060,7 +1060,6 @@ class ScreenletsManager(object):
 						os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/WebappScreenlet.py ' +DIR_USER + '/' + a + '/' + a + 'Screenlet.py')
 						os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/webapp.png ' +DIR_USER + '/' + a + '/icon.png')				
 						os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/webapp.png ' +DIR_USER + '/' + a + '/themes/default')
-						os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/prefs.js ' +DIR_USER + '/' + a + '/mozilla')			
 		
 						enginecopy = open(DIR_USER + '/' + a + '/' + a + 'Screenlet.py','r')
 						enginesave = enginecopy.read()
@@ -1147,7 +1146,6 @@ class ScreenletsManager(object):
 						os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/WidgetScreenlet.py ' +DIR_USER + '/' + a + '/' + a + 'Screenlet.py')
 						os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/widget.png ' +DIR_USER + '/' + a + '/icon.png')				
 						os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/widget.png ' +DIR_USER + '/' + a + '/themes/default')
-						os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/prefs.js ' +DIR_USER + '/' + a + '/mozilla')			
 						enginecopy = open(DIR_USER + '/' + a + '/' + a + 'Screenlet.py','r')
 						enginesave = enginecopy.read()
 						enginesave = enginesave.replace('WidgetScreenlet',a + 'Screenlet')

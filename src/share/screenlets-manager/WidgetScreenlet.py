@@ -21,11 +21,16 @@ import commands
 import sys
 import os
 from screenlets import sensors
-import webkit
-
-#Check for internet connection required for web widgets
 
 myfile = 'WidgetScreenlet.py'
+
+try:
+	import webkit
+except:
+	if sys.argv[0].endswith(myfile):screenlets.show_error(None,"You need WebKit to run this Screenlet , please install it")
+	else: print "You need WebKit to run this Screenlet , please install it"
+
+#Check for internet connection required for web widgets
 
 if sys.argv[0].endswith(myfile):# Makes Shure its not the manager running...
 	#os.system('wget www.google.com -O/tmp/index.html &')

@@ -21,7 +21,14 @@ import commands
 import sys
 import os
 from screenlets import sensors
-import webkit
+
+myfile = 'WebappScreenlet.py'
+
+try:
+	import webkit
+except:
+	if sys.argv[0].endswith(myfile):screenlets.show_error(None,"You need WebKit to run this Screenlet , please install it")
+	else: print "You need WebKit to run this Screenlet , please install it"
 
 class WebappScreenlet (screenlets.Screenlet):
 	"""Brings Web applications to your desktop"""

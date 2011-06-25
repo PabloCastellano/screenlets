@@ -907,7 +907,7 @@ class ScreenletsManager(object):
 			if screenlets.UBUNTU:
 				if not utils.is_screenlets_ppa_enabled():
 						if screenlets.show_question(None, _('The Screenlets PPA is not listed among Software Sources. Adding this enables installing individual screenlets from Package Manager (or Software Center) and by clicking on an AptURL on web pages like Gnome-look.org. Would you like to add the Screenlets PPA to your system?'), title=_("Do you want to enable the Screenlets PPA?")):
-							result = commands.getstatusoutput('gksudo add-apt-repository ppa:screenlets-dev/ppa && sudo apt-get update')[0]
+							result = commands.getstatusoutput('gksudo add-apt-repository ppa:screenlets/ppa && sudo apt-get update')[0]
 							if result == 0:
 								screenlets.show_message(None, _('The Screenlets PPA added successfully.'), title=_("Success!"))
 							else:

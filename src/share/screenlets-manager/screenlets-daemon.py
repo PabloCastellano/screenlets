@@ -263,8 +263,10 @@ class ScreenletsDaemon (dbus.service.Object):
 
 	
 	def getit(self, widget):
-		# where to get more screenlets if user wants to
-		utils.xdg_open(screenlets.THIRD_PARTY_DOWNLOAD)
+		if screenlets.UBUNTU:
+			utils.get_more_screenlets_ubuntu()
+		else:
+			subprocess.Popen(["xdg-open", screenlets.THIRD_PARTY_DOWNLOAD])
 
 	def website_open(self, d, link, data):
 		utils.xdg_open('http://screenlets.org')

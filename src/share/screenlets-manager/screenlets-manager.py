@@ -31,7 +31,6 @@ import gtk, gobject
 import dbus
 import gettext
 import subprocess
-import commands
 import urllib
 
 
@@ -905,15 +904,10 @@ class ScreenletsManager(object):
 
 		elif id == 'download':
 			if screenlets.UBUNTU:
-				if not utils.is_screenlets_ppa_enabled():
-						if screenlets.show_question(None, _('The Screenlets PPA is not listed among Software Sources. Adding this enables installing individual screenlets from Package Manager (or Software Center) and by clicking on an AptURL on web pages like Gnome-look.org. Would you like to add the Screenlets PPA to your system?'), title=_("Do you want to enable the Screenlets PPA?")):
-							result = commands.getstatusoutput('gksudo add-apt-repository ppa:screenlets-dev/ppa && sudo apt-get update')[0]
-							if result == 0:
-								screenlets.show_message(None, _('The Screenlets PPA added successfully.'), title=_("Success!"))
-							else:
-								screenlets.show_error(None, _('Adding the Screenlets PPA failed.'), title=_("Failed!"))
-			subprocess.Popen(["xdg-open", screenlets.THIRD_PARTY_DOWNLOAD])
-
+				utils.get_more_screenlets_ubuntu()
+			else:
+				subprocess.Popen(["xdg-open", screenlets.THIRD_PARTY_DOWNLOAD])
+			
 	def show_install_chose_ui(self):
 		install_combo = gtk.combo_box_new_text()
 		install_combo.append_text(_('Install Screenlet'))

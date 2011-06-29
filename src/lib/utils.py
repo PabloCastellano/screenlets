@@ -24,13 +24,15 @@ gettext.textdomain('screenlets')
 gettext.bindtextdomain('screenlets', screenlets.INSTALL_PREFIX +  '/share/locale')
 import gobject
 from distutils.version import LooseVersion
-from subprocess import *
+import subprocess
+import commands
 from HTMLParser import HTMLParser
 from BeautifulSoup import BeautifulStoneSoup
 try:
 	import gnomevfs
 except:
 	pass
+	
 def _(s):
 	return gettext.gettext(s)
 
@@ -68,7 +70,6 @@ def get_autostart_dir():
             desktop_environment = 'gnome'
         else:
             try:
-		import commands
                 info = commands.getoutput('xprop -root _DT_SAVE_MODE')
                 if ' = "xfce4"' in info:
                     desktop_environment = 'xfce'
@@ -190,9 +191,21 @@ def get_screenlet_linux_name_by_short_class_name(name):
 
 def is_screenlets_ppa_enabled():
 	"""Detect if Screenlets default PPA is enabled on system."""
-	import commands
 	result = commands.getstatusoutput("ls /etc/apt/sources.list.d/screenlets*ppa*.list | xargs grep '^deb.*'")[0]
 	return result == 0
+
+def get_more_screenlets_ubuntu():
+	if not is_screenlets_ppa_enabled():
+		print "PPA not enabled yet"
+		if screenlets.show_question(None, _('The Screenlets PPA is not listed among Software Sources. Adding this enables installing individual screenlets from Package Manager (or Software Center) and by clicking on an AptURL on web pages like Gnome-look.org. Would you like to add the Screenlets PPA to your system?'), title=_("Do you want to enable the Screenlets PPA?")):
+			result = commands.getstatusoutput('gksudo add-apt-repository ppa:screenlets-dev/ppa && gksudo apt-get update')[0]
+			if result == 0:
+				screenlets.show_message(None, _('The Screenlets PPA added successfully.'), title=_("Success!"))
+			else:
+				screenlets.show_error(None, _('Adding the Screenlets PPA failed.'), title=_("Failed!"))
+	print "show web page anyway"
+	subprocess.Popen(["xdg-open", screenlets.THIRD_PARTY_DOWNLOAD])
+
 
 def get_translator(path):
 	"""Returns translator by screenlet class path from __file__."""

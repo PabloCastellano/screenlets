@@ -249,10 +249,10 @@ class CachingBackend (ScreenletsBackend):
 							if parts[0] == 'rel_font_name':
 								parts[0] = 'font_name'
 								print "|||", parts[1]
-								font_parts = parts[1].split(" ")
+								font_parts = parts[1].rsplit(" ")
 								parts[1]=""
 								for fp in font_parts:
-									if len(fp.strip("0123456789.")) == 0:
+									if len(fp)>0 and len(fp.strip("0123456789."))==0:
 										parts[1]+= str( round(float(fp)*float(self.__instances[id]["scale"]), 1) ) + " "
 									else:
 										parts[1]+= fp + " "

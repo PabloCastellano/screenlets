@@ -14,7 +14,7 @@ import sys
 #sys.path.insert(0, 'src/')
 #import lib  # screenlets-package called 'lib' here because of the dir-names
 
-VERSION	= open("VERSION").readline()
+VERSION	= open("VERSION").readline().strip()
 
 def filter_filename_callback(filename):
 	"""Called by make_file_list to determine which files to add/install 

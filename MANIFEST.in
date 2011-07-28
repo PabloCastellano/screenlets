@@ -9,10 +9,12 @@ include docs/Makefile
 recursive-include desktop-menu *
 recursive-exclude desktop-menu *~
 
-# include all files in bin (except temp-files)
-recursive-include bin *
-recursive-exclude bin *~
-
 # include all files in src and below (except temp-files and bytecode-files)
-recursive-include src * *.*
+recursive-include src * *
 recursive-exclude src *.pyc *.pyo *~
+
+# include all files in screenlets and screenlets-manager (except temp-files and bytecode-files)
+recursive-include screenlets *
+recursive-exclude screenlets *~
+recursive-include screenlets-manager *
+recursive-exclude screenlets-manager *~

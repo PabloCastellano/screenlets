@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: screenlets-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-10 06:36+0900\n"
-"PO-Revision-Date: 2011-04-04 23:39+0000\n"
-"Last-Translator: Neoxxx <Unknown>\n"
+"PO-Revision-Date: 2011-08-06 13:39+0000\n"
+"Last-Translator: Lelio Giaccone <Unknown>\n"
 "Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-08-03 04:32+0000\n"
-"X-Generator: Launchpad (build 13573)\n"
+"X-Launchpad-Export-Date: 2011-08-07 04:33+0000\n"
+"X-Generator: Launchpad (build 13613)\n"
 "Language: it\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
@@ -326,6 +326,10 @@ msgid ""
 "and by clicking on an AptURL on web pages like Gnome-look.org. Would you "
 "like to add the Screenlets PPA to your system?"
 msgstr ""
+"Il repository PPA per gli Screenlets non è elencato tra i Sorgenti Software. "
+"La sua aggiunta consente l'installazione di singoli Screenlet dal Gestore "
+"Pacchetti (o dal Software Center), ed anche cliccando su un' AptUrl in "
+"pagine web come Gnome-look.org. Vuoi aggiungerlo al tuo sistema?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:908
 msgid "Do you want to enable the Screenlets PPA?"
@@ -472,6 +476,8 @@ msgid ""
 "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
 "Usage: screenlets-packager <path> [options]"
 msgstr ""
+"Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
+"Uso: screenlets-packager <path> [opzioni]"
 
 #: src/share/screenlets-manager/screenlets-packager.py:69
 #, python-format
@@ -507,7 +513,7 @@ msgstr "Trovato %sScreenlet.py nel percorso."
 #: src/share/screenlets-manager/screenlets-packager.py:91
 #, python-format
 msgid "Unable to import module '%(name)s' from %(path)s. (%(error)s)"
-msgstr ""
+msgstr "Impossibile importare il modulo'%(name)s' da %(path)s.  (%(error)s)"
 
 #: src/share/screenlets-manager/screenlets-packager.py:92
 #, python-format
@@ -564,6 +570,8 @@ msgid ""
 "The %(slet)sScreenlet is already installed in '%(dir)s'.\n"
 "Do you wish to continue?"
 msgstr ""
+"Lo Screenlet %(slet)s è già installato in '%(dir)s'.\n"
+"Vuoi continuare?"
 
 #: src/lib/install.py:128 src/lib/install.py:194
 #, python-format
@@ -651,126 +659,3 @@ msgstr ""
 #, python-format
 msgid "Failed to add %sScreenlet."
 msgstr "Aggiunta della Screenlet %s fallita"
-
-#~ msgid "Exception in ScreenletsDaemon: %s"
-#~ msgstr "Eccezione in ScreenletsDaemon: %s"
-
-#~ msgid "ScreenletsDaemon has been shut down ..."
-#~ msgstr "ScreenletsDaemon è stato chiuso..."
-
-#~ msgid "Invalid archive. Archive does not contain a screenlet."
-#~ msgstr "Archivio invalido. L'archivio non contiene una screenlet."
-
-#~ msgid "ScreenletsDaemon running ..."
-#~ msgstr "ScreenletsDaemon in esecuzione..."
-
-#~ msgid "Installing %s"
-#~ msgstr "Installazione di %s"
-
-#~ msgid "Trying to launching screenlets-daemon ..."
-#~ msgstr "Tentativo di avviare screenlets-daemon ..."
-
-#~ msgid "Removed duplicate entry"
-#~ msgstr "Rimossa voce duplicata"
-
-#~ msgid "Error in ScreenletsManager.connect_daemon: %s"
-#~ msgstr "Errore in ScreenletsManager.connect_daemon: %s"
-
-#~ msgid "OK."
-#~ msgstr "OK."
-
-#~ msgid "ScreenletsDaemon: registered %s"
-#~ msgstr "ScreenletsDaemon: registrato %s"
-
-#~ msgid "DAEMON FOUND - Ending timeout"
-#~ msgstr "DEMONE TROVATO - Fine del timeout"
-
-#~ msgid "Error: Unable to connect/launch daemon."
-#~ msgstr "Errore: Non è possibile connettere/avviare il demone."
-
-#~ msgid ""
-#~ "You are about to install a theme in root mode. Continue only if you have "
-#~ "gksudo installed, do you wish to continue?"
-#~ msgstr ""
-#~ "Sta per essere installato un tema in modalità amministratore. Ciò è "
-#~ "possibile solo se gksudo è installato, continuare?"
-
-#~ msgid "list contains the screenlet name folder"
-#~ msgstr "lista contenente il nome della cartella della screenlet"
-
-#~ msgid "list contains themes folder"
-#~ msgstr "lista contenente le cartelle dei temi"
-
-#~ msgid "Create desktop shortcut for: %s/%sScreenlet.py"
-#~ msgstr "Crea un collegamento sulla scrivania per: %s/%sScreenlet.py"
-
-#~ msgid "Unable to import module '%s' from %s. (%s)"
-#~ msgstr "Impossibile importare il modulo '%s' da %s. (%s)"
-
-#~ msgid "Data dropped ..."
-#~ msgstr "Dati eliminati ..."
-
-#~ msgid "closing %s"
-#~ msgstr "chiusura di %s"
-
-#~ msgid ""
-#~ "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
-#~ "Usage: %s <path> [options]"
-#~ msgstr ""
-#~ "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
-#~ "Utilizzo: %s <percorso> [opzioni]"
-
-#~ msgid "Create autostarter for: %s/%sScreenlet.py"
-#~ msgstr "Crea avvio automatico per: %s/%sScreenlet.py"
-
-#~ msgid "Delete autostarter for %s."
-#~ msgstr "Elimina avvio automatico per %s."
-
-#~ msgid "Failed to create autostarter for %s."
-#~ msgstr "Fallita creazione della cartella di avvio automatico per %s."
-
-#~ msgid "It looks like you are running %s"
-#~ msgstr "Sembra essere in esecuzione %s"
-
-#~ msgid "Auto-create autostart dir ..."
-#~ msgstr "Creazione directory di avvio automatico ..."
-
-#~ msgid "Create autostarter for: Screenlets Daemon"
-#~ msgstr "Crea avvio automatico per: Screenlets Daemon"
-
-#~ msgid "Archive damaged or unsuported, only tar , bz2 or gz."
-#~ msgstr "Archivio danneggiato o non supportato (solo tar, bz2 o gz)."
-
-#~ msgid ""
-#~ "The %sScreenlet is already installed in '%s'.\n"
-#~ "Do you wish to continue?"
-#~ msgstr ""
-#~ "La Screenlet %s è già installata in '%s'.\n"
-#~ "Continuare?"
-
-#~ msgid "Starter already exists."
-#~ msgstr "Avvio automatico già esistente."
-
-#~ msgid "Please install screenlets from folders without strange characters"
-#~ msgstr "Per favore installa screenlet da cartelle senza caratteri strani"
-
-#~ msgid "checking for running daemon again ..."
-#~ msgstr "Controllo ancora per demone in esecuzione ..."
-
-#~ msgid "Quit %s"
-#~ msgstr "Terminato %s"
-
-#~ msgid "Launch %s"
-#~ msgstr "Avvio di %s"
-
-#~ msgid "Quit!"
-#~ msgstr "Terminato!"
-
-#~ msgid "screenletsDaemon: unregistered %s"
-#~ msgstr "screenletsDaemon: %s cancellato"
-
-#~ msgid "only contains the themes folders"
-#~ msgstr "contiene solo le cartelle dei temi"
-
-#~ msgid "Quit the program"
-#~ msgstr "Esci dal programma"

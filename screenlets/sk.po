@@ -8,25 +8,25 @@ msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-10 05:23+0900\n"
-"PO-Revision-Date: 2011-01-11 16:19+0000\n"
-"Last-Translator: tabbernuk <boamaod@gmail.com>\n"
+"PO-Revision-Date: 2011-08-08 07:36+0000\n"
+"Last-Translator: Eduard Hummel <eduardhummel@centrum.sk>\n"
 "Language-Team: Slovak <sk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-08-03 04:31+0000\n"
-"X-Generator: Launchpad (build 13573)\n"
+"X-Launchpad-Export-Date: 2011-08-09 04:30+0000\n"
+"X-Generator: Launchpad (build 13628)\n"
 "Language: sk\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
 #: src/lib/__init__.py:99
 msgid "http://www.screenlets.org/index.php/Get_more_screenlets"
-msgstr ""
+msgstr "http://www.screenlets.org/index.php/Získať viac screenlets"
 
 #. default meta-info for Screenlets
 #: src/lib/__init__.py:613
 msgid "No name set for this Screenlet"
-msgstr "Tento Screenlet nemá nastavený názov"
+msgstr "Screenlet bez názvu"
 
 #: src/lib/__init__.py:615
 msgid "No author defined for this Screenlet"
@@ -54,7 +54,7 @@ msgstr "Y_Pozícia"
 
 #: src/lib/__init__.py:744
 msgid "The Y-position of this Screenlet ..."
-msgstr "Y_pozícia tohoto Screenletu..."
+msgstr "Y-pozícia tohoto Screenletu..."
 
 #: src/lib/__init__.py:747
 msgid "Width"
@@ -190,7 +190,7 @@ msgstr "terajšie nastavenia tohoto Screenletu ..."
 #. version of the deb package if unspecified
 #: src/lib/__init__.py:994
 msgid "?"
-msgstr ""
+msgstr "?"
 
 #: src/lib/__init__.py:999
 #, python-format
@@ -198,6 +198,8 @@ msgid ""
 "\n"
 "%(package)s %(version)s required, NOT INSTALLED!"
 msgstr ""
+"\n"
+"%(package)s %(version)s požadovaný, NIE JE NAINŠTALOVANÝ!"
 
 #: src/lib/__init__.py:1002
 #, python-format
@@ -205,6 +207,8 @@ msgid ""
 "\n"
 "%(package)s %(version)s installed, req %(required)s."
 msgstr ""
+"\n"
+"%(package)s %(version)s inštalované, req %(required)s."
 
 #: src/lib/__init__.py:1012
 #, python-format
@@ -370,404 +374,3 @@ msgstr "Nemôžem získať ip"
 #: src/lib/sensors.py:568 src/lib/sensors.py:581
 msgid "Not connected"
 msgstr "Nepripojený"
-
-#~ msgid "WARNING: Option '%s' not found or protected."
-#~ msgstr "POZOR: Nastavenia '%s' nenájdené alebo chránené."
-
-#~ msgid "theme.conf loaded: "
-#~ msgstr "theme.conf načítaný: "
-
-#~ msgid "An error occured with desktop-file: %s"
-#~ msgstr "Prišlo ku chybe so súborom-plocha: %s"
-
-#~ msgid "Exception: %s"
-#~ msgstr "Výnimka: %s"
-
-#~ msgid "XML-Error: %s"
-#~ msgstr "XML-Chyba: %s"
-
-#~ msgid "Override: "
-#~ msgstr "Prepísať: "
-
-#~ msgid "Error while loading ScreenletTheme in: "
-#~ msgstr "Chyba pri načítaní ScreenletMotívu v: "
-
-#~ msgid "Error while creating image from file: %s"
-#~ msgstr "Chyba pri vytváraní obrázku zo súboru: %s"
-
-#~ msgid "Error: file %s not found."
-#~ msgstr "Chyba, súbor %s nebol nájdený"
-
-#~ msgid "Error while creating menu."
-#~ msgstr "Chyba pri vytváraní menu."
-
-#~ msgid "Version: "
-#~ msgstr "Verzia: "
-
-#~ msgid "Info: "
-#~ msgstr "Info: "
-
-#~ msgid "Failed to load theme.conf"
-#~ msgstr "Nepodarilo sa načítať theme.conf"
-
-#~ msgid "theme.conf found! Loading option-overrides."
-#~ msgstr "theme.conf nájdený!  Načítam prepis nastavení."
-
-#~ msgid "Name: "
-#~ msgstr "Názov: "
-
-#~ msgid "Author: "
-#~ msgstr "Autor: "
-
-#~ msgid "LOAD NEW THEME: "
-#~ msgstr "NÁJSŤ NOVÚ TÉMU: "
-
-#~ msgid "FOUND: "
-#~ msgstr "NÁJDENÝ: "
-
-#~ msgid "Quit this %s ..."
-#~ msgstr "Zavrieť tento %s ..."
-
-#~ msgid "Quit all %ss ..."
-#~ msgstr "Skončiť všetky %ss ..."
-
-#~ msgid "Delete Screenlet ..."
-#~ msgstr "Odstráň screenlet ..."
-
-#~ msgid "Error while loading theme: "
-#~ msgstr "Chyba počas spustenia motívu: "
-
-#~ msgid "Error: Cannot set missing or non-boolean value '"
-#~ msgstr "Chyba: Nemôžem nastaviť chýbajúcu alebo non-boolean hodnotu '"
-
-#~ msgid "Start drag"
-#~ msgstr "Začiatok ťahania"
-
-#~ msgid "End drag"
-#~ msgstr "Koniec ťahania"
-
-#~ msgid "GConf python module not found. GConf settings backend is disabled."
-#~ msgstr "Modul GConf python nájdený. Nastavenie pre GConf sú vypnuté."
-
-#~ msgid "Quitting current screenlet instance"
-#~ msgstr "Ukončenie súčasneho screenletu"
-
-#~ msgid "Screenlet: Set theme %s"
-#~ msgstr "Screenlet: Nastav tému %s"
-
-#~ msgid "GConfBackend: initializing"
-#~ msgstr "GConfBackend: načítanie"
-
-#~ msgid "Cancel delete_event"
-#~ msgstr "Zrušenie zmazania_udalosti"
-
-#~ msgid "Saved option %s%s/%s = %s"
-#~ msgstr "Nastavenie uložené %s%s/%s = %s"
-
-#~ msgid "CachingBackend: Loading instances from cache"
-#~ msgstr "CachingBackend: Načítanie zápisov z rýchlej pamäte"
-
-#~ msgid "GnomeKeyring is not available!!"
-#~ msgstr "GnomeUloženie kľúčov nie je dostupné!!"
-
-#~ msgid "CachingBackend: <#%s> removed!"
-#~ msgstr "CachingBackend: <#%s> odstránené!"
-
-#~ msgid "error while saving config: %s%s"
-#~ msgstr "chyba počas ukladania nastavenia: %s%s"
-
-#~ msgid "Error during on_import - option: %s."
-#~ msgstr "Chyba počas import_nastavenia: %s."
-
-#~ msgid "Queue-element <%s> not found (already removed?)!"
-#~ msgstr "Časť-fronty <%s> nenájdená (už odstránená?)!"
-
-#~ msgid "CachingBackend: Saving <#%s> :) ..."
-#~ msgstr "CachingBackend: Ukladanie <#%s> :) ..."
-
-#~ msgid "CachingBackend: Loading <%s>"
-#~ msgstr "CachingBackend: Načítanie <%s>"
-
-#~ msgid "Error while loading options: %s"
-#~ msgstr "Chyba pri načítaní nastavenia: %s"
-
-#~ msgid "Temporary file didn't exist - nothing to remove."
-#~ msgstr "Dočasné súbory nie sú - nič k odstráneniu."
-
-#~ msgid "Warning: No default keyring found, storage is not permanent!"
-#~ msgstr "Varovanie: Nenájdená kľúčenka, uloženie nebude trvalé!"
-
-#~ msgid "No keyrings found. Please create one first!"
-#~ msgstr "Nenájdená kľúčenka. Prosím najskôr ju vytvor!"
-
-#~ msgid "Options: Error - group %s not defined."
-#~ msgstr "Nastavenie: Chyba - skupina %s nie je definovaná."
-
-#, python-format
-#~ msgid "No name for group defined in \"%s\"."
-#~ msgstr "Žiadny názov skupiny nie je nastavený v \"%s\"."
-
-#, python-format
-#~ msgid ""
-#~ "Error in metadata-file \"%s\" - only <group>-tags allowed in first level. "
-#~ "Groups must contain at least one <info>-element."
-#~ msgstr ""
-#~ "Chyba v metadata-súbore \"%s\" -iba tagy <group> sú povolené v prvej úrovni. "
-#~ "Skupiny musia obsahovať aspoň jeden prvok <info>."
-
-#~ msgid "Illegal value in AccountOption.on_import."
-#~ msgstr "Nesprávna hodnota v Nastavení užívateľa.on_import."
-
-#, python-format
-#~ msgid "Missing or invalid rootnode in metadata-file: \"%s\"."
-#~ msgstr "Chýbajúci alebo nesprávny rootnode v metadata-súbore: \"%s\"."
-
-#, python-format
-#~ msgid "Invalid XML in metadata-file (or file missing): \"%s\"."
-#~ msgstr "Neplatné XML v meta súbore (alebo chýbajúce): \"%s\"."
-
-#~ msgid "ERROR: Unable to read password from keyring: %s"
-#~ msgstr "CHYBA: Nemôžem prečítať heslo z kľúčenky: %s"
-
-#, python-format
-#~ msgid "Invalid option-node found in \"%s\"."
-#~ msgstr "Neplatné nastavenie nájdené v \"%s\"."
-
-#~ msgid "PRESS: %s"
-#~ msgstr "STLAČ: \"%s\"."
-
-#~ msgid "active theme is: %s"
-#~ msgstr "aktívny motív je: \"%s\"."
-
-#~ msgid "Path %s not found."
-#~ msgstr "Cesta \"%s\". nenájdená."
-
-#~ msgid "unsupported type ''"
-#~ msgstr "nepodporovaný typ ''"
-
-#~ msgid "OptionsDialog: Unknown option type: %s"
-#~ msgstr "NastavenieDialog: Neznámy typ nastavenia: %s"
-
-#~ msgid "Changed: %s"
-#~ msgstr "Zmenené: %s"
-
-#~ msgid "Failed to open /proc/uptime"
-#~ msgstr "Nepodarilo sa otvoriť /proc/uptime"
-
-#~ msgid "%s days, %s hours and %s minutes"
-#~ msgstr "%s dni, %s hodiny a %s minúty"
-
-#~ msgid "Failed to open /proc/cpuinfo"
-#~ msgstr "Nepodarilo sa otvoriť /proc/cpuinfo"
-
-#~ msgid "Failed to open /proc/loadavg"
-#~ msgstr "Nepodarilo sa otvoriť /proc/loadavg"
-
-#~ msgid "Failed to open /proc/sys/kernel/hostname"
-#~ msgstr "Nepodarilo sa otvoriť /proc/sys/kernel/hostname"
-
-#~ msgid "Failed to open /proc/stat"
-#~ msgstr "Nepodarilo sa otvoriť /proc/stat"
-
-#~ msgid "Can't get kernel version"
-#~ msgstr "Nemôžem získať verziu jadra"
-
-#~ msgid "Error getting distro name"
-#~ msgstr "Chyba pri získavaní názvu distribúcie"
-
-#~ msgid "Can't open /proc/net/wireless"
-#~ msgstr "Nemôžem otvoriť /proc/net/wireless"
-
-#~ msgid "Can't open /proc/net/dev"
-#~ msgstr "Nemôžem otvoriť /proc/net/dev"
-
-#, python-format
-#~ msgid "Can't open %s"
-#~ msgstr "Nemôžem otvoriť %s"
-
-#~ msgid "Can't open folder /proc/acpi/thermal_zone/"
-#~ msgstr "Nemôžem otvoriť priečinok /proc/acpi/thermal_zone/"
-
-#~ msgid "Failed to open /proc/version"
-#~ msgstr "Nemôžem otvoriť /proc/verzia"
-
-#~ msgid "Failed to open /proc/swaps"
-#~ msgstr "Nemôžem otvoriť /proc/swaps"
-
-#, python-format
-#~ msgid "Can't open %s/temperature"
-#~ msgstr "Nemôžem otvoriť %s/temperature"
-
-#~ msgid "Can't parse /proc/meminfo"
-#~ msgstr "Nemôžem otvoriť /proc/meminfo"
-
-#~ msgid "Error during hddtemp drives search"
-#~ msgstr "Chyba počas hľadania zariadenia hddtemp"
-
-#, python-format
-#~ msgid "can't read temperature in: %s"
-#~ msgstr "Nemôžem prečítať teplotu v: %s"
-
-#~ msgid "Hddtemp not installed"
-#~ msgstr "Hddtemp nie je nainštalovaný"
-
-#~ msgid "No name set in ScreenletService.__init__!"
-#~ msgstr "Nie je nastavený žiadny nazov v ScreenletService.__init__!"
-
-#~ msgid "CPUSensor: Failed to open /proc/stat. Sensor stopped."
-#~ msgstr "CPUSensor: Chyba pri otváraní /proc/stat. Senzor zastavený."
-
-#, python-format
-#~ msgid "Trying to access invalid instance \"%s\"."
-#~ msgstr "Pokus o prístup k neplatnému prípadu \"%s\"."
-
-#~ msgid "Cannot get/set protected options through service."
-#~ msgstr "Nemôžem získať/nastaviť chranené nastavenia cez službu,"
-
-#~ msgid "DEBUG: %s"
-#~ msgstr "DEBUG: %s"
-
-#, python-format
-#~ msgid "Can't read value from %s"
-#~ msgstr "Nemôžem prečítať hodnotu z %s"
-
-#~ msgid "TEST: %s"
-#~ msgstr "TEST: %s"
-
-#~ msgid "ID is unset or already in use - creating new one!"
-#~ msgstr "ID nie je nastavené alebo je používané - nastavte nové!"
-
-#~ msgid "Failed to remove INI-file for instance (not critical)."
-#~ msgstr "Nepodarilo sa zmazať ini súbor výskytu (nie je kritické)."
-
-#~ msgid "Error in screenlets.session.connect_daemon: %s"
-#~ msgstr "Chyba v screenlets.session.connect_daemon: %s"
-
-#~ msgid "Creating new instance: "
-#~ msgstr "Vytvorenienovej inštancie "
-
-#~ msgid ""
-#~ "ScreenletSession.__init__ has to be called with a\n"
-#~ "\t\t\t valid Screenlet-classobject as first argument!"
-#~ msgstr ""
-#~ "ScreenletSession.__init__ má byť nazvaný\n"
-#~ "\t\t\t platný Screenlet-classobject ako prvý argument!"
-
-#~ msgid "Unable to init backend - settings will not be saved!"
-#~ msgstr "Nepodarilo sa spustit systém - nastavenia nebudú uložené!"
-
-#~ msgid "Error in screenlets.services.get_service_by_name: %s"
-#~ msgstr "Chyba v screenlets.services.get_service_by_name: %s"
-
-#, python-format
-#~ msgid "Trying to access invalid option \"%s\"."
-#~ msgstr "Pokus o prístup k neplatnému nastaveniu \"%s\"."
-
-#~ msgid "File: %s"
-#~ msgstr "Súbor: %s"
-
-#~ msgid "Set options in %s"
-#~ msgstr "Nastav vlastnosti v %s"
-
-#~ msgid "Removing instance from session but staying alive"
-#~ msgstr "Odstranujem výskyt zo sedenia, ale zostávam živý"
-
-#~ msgid "Failed to remove session dir '%s' - not empty?"
-#~ msgstr "Nepodarilo sa zmazat zložku sedenia '%s' - nie je prázdna?"
-
-#~ msgid "TODO: remove self.path: %s"
-#~ msgstr "TODO: odstráň self.path: %s"
-
-#~ msgid "Removing last instance from session"
-#~ msgstr "Odstránenie posledného výskytu zo sedenia"
-
-#~ msgid "Restored instances from session '%s' ..."
-#~ msgstr "Obnovujem prípad zo sedenia '%s' ..."
-
-#~ msgid "Loading instances in: %s"
-#~ msgstr "Načítavam prípad v: %s"
-
-#~ msgid "Adding new instance through: %s"
-#~ msgstr "Pridaný nový prípad cez %s"
-
-#~ msgid "Found a running session of %s, adding new instance by service."
-#~ msgstr "Nájdené spustené sedenie %s, pridávam nové podľa služby."
-
-#~ msgid "Failed creating instance of: %s"
-#~ msgstr "Zlyhalo vytvorenie prípadu: %s"
-
-#~ msgid "No instance(s) found in session-path, creating new one."
-#~ msgstr "Žiaden prípad(y) nenájdený v session-path, vytváram novú."
-
-#~ msgid "No global tempdir found, creating new one."
-#~ msgstr "Nebol nájdený žiadny spoločný dočasný adresár, vytváram nový."
-
-#~ msgid "Screenlet has already been added to %s"
-#~ msgstr "Screenlet už bol pridaný do %s"
-
-#~ msgid "Temp directory %s created."
-#~ msgstr "Temp adresár %s vytvorený."
-
-#~ msgid "Unable to open %s"
-#~ msgstr "Nemôžem otvoriť %s"
-
-#~ msgid "Removing entry for %s from global tempfile %s"
-#~ msgstr "Odstranujem vstup pre %s spoločný dočasný súbor %s"
-
-#~ msgid ""
-#~ "Error: Unable to create temp directory %s - screenlets-manager will not work "
-#~ "properly."
-#~ msgstr ""
-#~ "Chyba: Nemôžem vytvoriť dočasný priečinok %s  - screenlets-manager nebude "
-#~ "fungovať správne"
-
-#~ msgid "Failed to unregister from daemon: %s"
-#~ msgstr "Nemôžem zmazať od daemon: %s"
-
-#~ msgid "Entry not found. Will (obviously) not be removed."
-#~ msgstr "Záznam nenájdený. Bude (zrejme) nemôže byť odstránený."
-
-#~ msgid "Error global tempfile not found. Some error before?"
-#~ msgstr "Chyba spoločný dočasný súbor nenájdený. Prišlo i k inej chybe?"
-
-#~ msgid "Creating new entry for %s in %s"
-#~ msgstr "Vytváram nový záznam pre %s v %s"
-
-#~ msgid "Failed to create instance of '%s'!"
-#~ msgstr "Chyba pri vytvorení  prípadu z '%s'!"
-
-#~ msgid "No screenlets running?"
-#~ msgstr "Žiaden screenlet nie je spustený?"
-
-#~ msgid "File %s not found"
-#~ msgstr "Súbor %s nenájdený"
-
-#~ msgid "LISTED PATH NOT EXISTS: "
-#~ msgstr "VYPÍSANÁ CESTA NEEXISTUJE: "
-
-#~ msgid "Unable to load '%s' from %s: %s "
-#~ msgstr "Nemôžem načítať '%s' z %s: %s "
-
-#~ msgid "Deleting global tempfile %s"
-#~ msgstr "Odstráň spoločný dočasný súbor %s"
-
-#~ msgid "Error: Failed to delete global tempfile"
-#~ msgstr "Chyba: Nedá sa odstrániť spoločný dočasný súbor"
-
-#~ msgid ""
-#~ "Screenlet '%s' has been interrupted by keyboard. TODO: make this an event"
-#~ msgstr ""
-#~ "Screenlet '%s' bol prerušený klávesnicou. TODO: zaznamenaj túto udalosť"
-
-#~ msgid "Exception in ScreenletSession: "
-#~ msgstr "Výnimka v ScreenletSession: "
-
-#~ msgid "No more screenlets running."
-#~ msgstr "Nie sú spustené žiadne daľšie screenlety"
-
-#~ msgid "Section %s not found!"
-#~ msgstr "Sekcia %s nenájdená"
-
-#~ msgid "Notify: No DBus running or notifications-daemon unavailable."
-#~ msgstr ""
-#~ "Pripomienka: Nie je spustený DBus alebo je nedostupný notifications-daemon."

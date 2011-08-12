@@ -114,6 +114,7 @@ class ScreenletsDaemon (dbus.service.Object):
 					gtk.main_iteration(False)
 
 				gobject.idle_add(self.app_indicator.set_menu, self.menu)
+				gobject.idle_add(self.refresh_menu)
 
 			else:
 

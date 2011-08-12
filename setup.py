@@ -1,9 +1,20 @@
 #!/usr/bin/python
 #
 # INFO: The setup-script for the screenlets
-#
 # (c) 2008 Rico Pfaus (RYX), Helder Fraga (Whise), and Natan Yellin (Aantn)
 #
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from distutils.core import setup
 import distutils.sysconfig
@@ -128,8 +139,8 @@ setup(name='screenlets',
 	version			= VERSION,
 	description		= 'A widget framework for Linux',
 	url			= 'http://www.screenlets.org',
-	author			= 'Whise (Helder Fraga)<helder.fraga@hotmail.com>, RYX (Rico Pfaus) <ryx@ryxperience.com>, Sorcerer (Hendrik Kaju), Natan Yellin (Aantn) <aantny@gmail.com>',
-	author_email		= 'helderfraga@hotmail.com',
+	author			= 'Whise (Helder Fraga) <helder.fraga@hotmail.com>, RYX (Rico Pfaus) <ryx@ryxperience.com>, Sorcerer (Hendrik Kaju), Natan Yellin (Aantn) <aantny@gmail.com>, Guido Tabbernuk <boamaod@gmail.com>',
+	author_email		= 'boamaod@hotmail.com',
 	license			= 'GPL v3',
 	packages		= PACKAGES,
 	package_dir		= {'screenlets': 'src/lib'},

@@ -2,6 +2,7 @@
 #
 # INFO: The setup-script for the screenlets
 # (c) 2008 Rico Pfaus (RYX), Helder Fraga (Whise), and Natan Yellin (Aantn)
+# (c) 2010-2011 Guido Tabbernuk
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by

@@ -36,6 +36,7 @@ if getattr(dbus, 'version', (0,0,0)) >= (0,41,0):
 		
 		from dbus.mainloop.glib import DBusGMainLoop
 		DBusGMainLoop(set_as_default=True)
+from xdg.BaseDirectory import *
 import gobject
 import screenlets
 from screenlets.menu import add_menuitem, add_image_menuitem
@@ -53,13 +54,13 @@ def _(s):
 SLD_BUS		= 'org.screenlets.ScreenletsDaemon'
 SLD_PATH	= '/org/screenlets/ScreenletsDaemon'
 SLD_IFACE	= 'org.screenlets.ScreenletsDaemon'
-DIR_USER	= os.environ['HOME'] + '/.screenlets'
+DIR_USER	= os.path.join(xdg_config_home,'screenlets')
 DIR_TMP		= '/tmp/screenlets/'
 
 class ScreenletsDaemon (dbus.service.Object):
 	"""A simple backend class where screenlets register and unregister. It
 	offers functions to keep track of currently opened screenlets."""
-	DIR_USER = os.environ['HOME'] + '/.screenlets'
+	DIR_USER = os.path.join(xdg_config_home,'screenlets')
 	DIR_USER1 = '/usr/share/screenlets'
 	DIR_USER2 = '/usr/local/share/screenlets'	
 	show_in_tray = 'True'
@@ -85,7 +86,7 @@ class ScreenletsDaemon (dbus.service.Object):
 			self.running_screenlets = running
 		try:
 			ini = utils.IniReader()
-			if ini.load(DIR_USER + '/config.ini'):
+			if ini.load(os.path.join(DIR_USER,'config.ini')):
 				self.show_in_tray = ini.get_option('show_in_tray', section='Options')
 		except:
 			self.show_in_tray = 'True'

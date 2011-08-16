@@ -45,7 +45,7 @@ from optparse import OptionParser
 
 import gtk
 import gettext
-
+from xdg.BaseDirectory import *
 #-------------------------------------------------------------------------------
 # Find Install Prefix
 # Note: It's important to do this before we import the Screenlets submodules
@@ -174,9 +174,9 @@ TMP_FILE	= 'screenlets.' + os.environ['USER'] + '.running'
 
 DIR_USER_ROOT = screenlets.INSTALL_PREFIX + '/share/screenlets'
 
-DIR_USER = os.environ['HOME'] + '/.screenlets'
+DIR_USER = os.path.join(xdg_config_home,'screenlets')
 
-DIR_CONFIG = os.environ['HOME'] + '/.config/Screenlets'
+DIR_CONFIG = os.path.join(xdg_config_home,'screenlets')
 
 # note that this is the order how themes are preferred to each other
 # don't change the order just like that
@@ -966,7 +966,7 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 				short_name = self.__name__[:-9]
 			else:
 				short_name = self.__name__
-			if not os.path.exists(os.environ['HOME'] + '/.config/Screenlets/' + short_name + '/default/'+ self.id + '.ini'):
+			if not os.path.exists(DIR_CONFIG + '/' + short_name + '/default/'+ self.id + '.ini'):
 				self.first_run = True
 			self.window.hide()	
 
@@ -1408,7 +1408,7 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 			self.set_is_widget(True)
 		self.has_focus = False
 		ini = utils.IniReader()
-		if ini.load (os.environ['HOME'] + '/.screenlets' + '/config.ini') and self.first_run:
+		if ini.load (DIR_CONFIG + '/config.ini') and self.first_run:
 				
 			if ini.get_option('Lock', section='Options') == 'True':
 				self.lock_position = True
@@ -2573,8 +2573,8 @@ def launch_screenlet (name, debug=False):
 		# launch screenlet as separate process
 		print "Launching Screenlet from: %s" % slfile
 		if debug:
-			print "Logging output goes to: $HOME/.config/Screenlets/%sScreenlet.log" % name
-			out = '$HOME/.config/Screenlets/%sScreenlet.log' % name
+			print "Logging output goes to: "+DIR_CONFIG+"/%sScreenlet.log" % name
+			out = DIR_CONFIG+'/%sScreenlet.log' % name
 		else:
 			out = '/dev/null'
 		os.system('python -u %s > %s &' % (slfile, out))

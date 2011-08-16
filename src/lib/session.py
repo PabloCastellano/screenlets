@@ -85,10 +85,10 @@ class ScreenletSession (object):
 		self.__parse_commandline()
 		# set session path (and create dir-tree if not existent)
 		p = screenlet_classobj.__name__[:-9] + '/' + self.name + '/'
-		self.path = BaseDirectory.load_first_config('Screenlets/' + p)
+		self.path = BaseDirectory.load_first_config('screenlets/' + p)
 		if self.path == None:
-			self.path = BaseDirectory.save_config_path('Screenlets/' + p)
-		if self.path == None: self.path = (os.environ['HOME'] + '.config/Screenlets/' + p)
+			self.path = BaseDirectory.save_config_path('screenlets/' + p)
+		if self.path == None: self.path = os.path.join(screenlets.DIR_CONFIG,p)
 		if self.path:
 			if backend_type == 'caching':
 				self.backend = backend.CachingBackend(path=self.path)

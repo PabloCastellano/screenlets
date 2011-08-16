@@ -34,6 +34,10 @@ import subprocess
 import commands
 from HTMLParser import HTMLParser
 from BeautifulSoup import BeautifulStoneSoup
+from xdg.BaseDirectory import *
+DIR_USER = os.path.join(xdg_config_home,'screenlets')
+DIR_CONFIG = os.path.join(xdg_config_home,'screenlets')
+
 try:
 	import gnomevfs
 except:
@@ -87,9 +91,9 @@ def get_autostart_dir():
 	if desktop_environment == 'kde':
 		return os.environ['HOME'] + '/.kde/Autostart/'
 	elif desktop_environment == 'gnome':
-		return os.environ['HOME'] + '/.config/autostart/'
+		return xdg_config_home+'/autostart/'
 	elif desktop_environment == 'xfce':
-		return os.environ['HOME'] + '/.config/autostart/'
+		return xdg_config_home+'/autostart/'
 
 if os.geteuid()==0:
 	# we run as root, install system-wide
@@ -99,7 +103,7 @@ if os.geteuid()==0:
 else:
 	# we run as normal user, install into $HOME
 	USER = 1
-	DIR_USER		= os.environ['HOME'] + '/.screenlets'
+	DIR_USER = os.path.join(xdg_config_home,'screenlets')
 	DIR_AUTOSTART = get_autostart_dir()
 
 
@@ -146,7 +150,7 @@ def create_autostarter (name):
 			print str(f) + ' duplicate entry'
 			os.system('rm %s%s' % (chr(34)+DIR_AUTOSTART,f+chr(34)))
 			print 'Removed duplicate entry'
-	if not os.path.isfile(starter) and not os.path.exists(os.environ['HOME'] + '/.config/autostart/CalendarScreenlet'):
+	if not os.path.isfile(starter) and not os.path.exists(xdg_config_home+'/autostart/CalendarScreenlet'):
 		path = find_first_screenlet_path(name)
 		if path:
 			print "Create autostarter for: %s/%sScreenlet.py" % (path, name)
@@ -240,11 +244,11 @@ def _contains_path (string):
 
 def create_user_dir ():
 	"""Create the userdir for the screenlets."""
-	if not os.path.isdir(os.environ['HOME'] + '/.screenlets'):
+	if not os.path.isdir(DIR_USER):
 		try:
-			os.mkdir(os.environ['HOME'] + '/.screenlets')
+			os.mkdir(DIR_USER)
 		except:
-			print 'coulnt create user dir'
+			print 'coulnt create user dir '+DIR_USER
 
 
 def find_first_screenlet_path (screenlet_name):

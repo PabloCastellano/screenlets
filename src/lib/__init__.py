@@ -181,6 +181,11 @@ DIR_USER_ROOT = screenlets.INSTALL_PREFIX + '/share/screenlets'
 DIR_USER = os.path.join(xdg_config_home,'screenlets')
 
 DIR_CONFIG = os.path.join(xdg_config_home,'screenlets')
+OLD_DIR_CONFIG = os.path.join(xdg_config_home,'Screenlets')
+
+# workaround for XDG compliance update, see https://bugs.launchpad.net/screenlets/+bug/827369
+if not os.path.exists(DIR_CONFIG) and os.path.exists(OLD_DIR_CONFIG):
+	os.rename(OLD_DIR_CONFIG, DIR_CONFIG)
 
 # note that this is the order how themes are preferred to each other
 # don't change the order just like that

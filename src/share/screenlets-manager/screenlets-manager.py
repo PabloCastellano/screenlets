@@ -92,7 +92,10 @@ class ScreenletsManager(object):
 		# inti props
 
 		if not os.path.isdir(screenlets.DIR_CONFIG):
-			os.system('mkdir %s' % screenlets.DIR_CONFIG)
+			if os.path.isdir(screenlets.OLD_DIR_CONFIG): # workaround for XDG compliance update, see https://bugs.launchpad.net/screenlets/+bug/827369
+				os.rename(OLD_DIR_CONFIG, DIR_CONFIG)
+			else:
+				os.system('mkdir %s' % screenlets.DIR_CONFIG)
 		if not os.path.isdir(DIR_USER):
 			os.system('mkdir %s' % DIR_USER)	
 		# create ui and populate it

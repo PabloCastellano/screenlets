@@ -143,7 +143,7 @@ def _(s):
 APP_NAME = "Screenlets"
 
 # the version of the Screenlets-baseclass in use
-VERSION = "0.1.4"
+VERSION = "0.1.5"
 
 # the application copyright
 COPYRIGHT = "(c) RYX (Rico Pfaus) <ryx@ryxperience.com>\nWhise (Helder Fraga) <helder.fraga@hotmail.com>\nNatan Yellin (Aantn) <aantny@gmail.com>\nGuido Tabbernuk <boamaod@gmail.com>"

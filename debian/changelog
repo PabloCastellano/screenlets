@@ -1,6 +1,42 @@
-screenlets (0.1.5-0ppa1-natty1) natty; urgency=low
+screenlets (0.1.5-0ubuntu1-natty1) natty; urgency=low
 
-  * (Write changes here.)
+  * Allow starting daemon on many user accounts simultaneously
+  * Make screenlets directories more XDG compliant
+  * Load AppIndicator before showing
+  * Fix some licenses, authors lists and packaging routines
+  * Support floats in font description strings
+  * Improve adding Screenlets PPA
+
+ -- Guido Tabbernuk <boamaod@gmail.com>  Sat, 20 Aug 2011 14:56:54 +0300
+
+screenlets (0.1.4-0ubuntu1-natty1) UNRELEASED; urgency=low
+
+  * Add Application Indicators support
+  * Options rework to make code more intelligible
+  * Lyrics screenlet to Basic Pack
+  * Make possible to use logging module from Universal Applets
+  * Fix flicker and resize grips problems in Natty
+  * Some minor fixes and additions for individual screenlets
+
+ -- Guido Tabbernuk <boamaod@gmail.com>  Sat, 20 Aug 2011 14:56:54 +0300
+
+screenlets (0.1.3-0ubuntu1-natty1) UNRELEASED; urgency=low
+
+  * You can install any individual Screenlet as a Debian package from central PPA.
+  * Individual Screenlets now translatable on Launchpad.
+  * Incorporated most of the patches from bug tracker.
+  * Fixed a problem with the theme directories.
+  * Fixed icon logic to work with Ubuntu new icon policy.
+  * Monochrome icons available by default.
+  * Added Compiz setting to make screenlets stick to Desktop.
+  * Updated notification area menu and fixed refresh.
+  * Updated context menu.
+  * Updated some strings, links, translations.
+  * Updated the link to get fresh Screenlets.
+  * Implemented Debian package requirements check for Screenlets.
+  * Created Screenlets debianizer.
+  * Created additional packaging system for Debian Screenlets packs.
+  * Merged individual Screenlets with Universal Applets Extras.
 
  -- Guido Tabbernuk <boamaod@gmail.com>  Sat, 20 Aug 2011 14:56:54 +0300
 

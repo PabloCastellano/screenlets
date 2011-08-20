@@ -35,8 +35,6 @@ import commands
 from HTMLParser import HTMLParser
 from BeautifulSoup import BeautifulStoneSoup
 from xdg.BaseDirectory import *
-DIR_USER = os.path.join(os.environ['HOME'], '.screenlets')
-DIR_CONFIG = os.path.join(xdg_config_home, 'screenlets')
 
 try:
 	import gnomevfs
@@ -45,30 +43,6 @@ except:
 	
 def _(s):
 	return gettext.gettext(s)
-
-# ------------------------------------------------------------------------------
-# FUNCTIONS
-# ------------------------------------------------------------------------------
-
-
-class MLStripper(HTMLParser):
-    def __init__(self):
-        self.reset()
-        self.fed = []
-    def handle_data(self, d):
-        self.fed.append(d)
-    def get_data(self):
-        return ''.join(self.fed)
-
-def html_to_pango (html):	
-	"""Simple html to pango stripper."""
-	s = MLStripper()
-	s.feed(html)
-	no_html = s.get_data()
-	decoded = BeautifulStoneSoup(no_html, convertEntities=BeautifulStoneSoup.HTML_ENTITIES)
-	result = decoded.encode("UTF-8")
-	return result.strip(" \n")
-
 
 def get_autostart_dir():
 	"""Returns the system autostart directory"""
@@ -106,7 +80,27 @@ else:
 	DIR_USER = os.path.join(os.environ['HOME'],'.screenlets')
 	DIR_AUTOSTART = get_autostart_dir()
 
+# ------------------------------------------------------------------------------
+# FUNCTIONS
+# ------------------------------------------------------------------------------
 
+class MLStripper(HTMLParser):
+    def __init__(self):
+        self.reset()
+        self.fed = []
+    def handle_data(self, d):
+        self.fed.append(d)
+    def get_data(self):
+        return ''.join(self.fed)
+
+def html_to_pango (html):	
+	"""Simple html to pango stripper."""
+	s = MLStripper()
+	s.feed(html)
+	no_html = s.get_data()
+	decoded = BeautifulStoneSoup(no_html, convertEntities=BeautifulStoneSoup.HTML_ENTITIES)
+	result = decoded.encode("UTF-8")
+	return result.strip(" \n")
 
 def is_manager_running_me():
 	"""checks if the one starting the screenlet is the screenlets manager"""

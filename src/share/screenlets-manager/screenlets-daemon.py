@@ -47,7 +47,6 @@ import gettext
 gettext.textdomain('screenlets-manager')
 gettext.bindtextdomain('screenlets-manager', screenlets.INSTALL_PREFIX +  '/share/locale')
 
-
 def _(s):
 	return gettext.gettext(s)
 

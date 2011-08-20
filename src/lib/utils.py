@@ -35,7 +35,7 @@ import commands
 from HTMLParser import HTMLParser
 from BeautifulSoup import BeautifulStoneSoup
 from xdg.BaseDirectory import *
-DIR_USER = os.path.join(os.environ['HOME'], 'screenlets')
+DIR_USER = os.path.join(os.environ['HOME'], '.screenlets')
 DIR_CONFIG = os.path.join(xdg_config_home, 'screenlets')
 
 try:
@@ -103,7 +103,7 @@ if os.geteuid()==0:
 else:
 	# we run as normal user, install into $HOME
 	USER = 1
-	DIR_USER = os.path.join(os.environ['HOME'],'screenlets')
+	DIR_USER = os.path.join(os.environ['HOME'],'.screenlets')
 	DIR_AUTOSTART = get_autostart_dir()
 
 

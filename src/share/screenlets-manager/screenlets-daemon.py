@@ -54,15 +54,11 @@ def _(s):
 SLD_BUS		= 'org.screenlets.ScreenletsDaemon'
 SLD_PATH	= '/org/screenlets/ScreenletsDaemon'
 SLD_IFACE	= 'org.screenlets.ScreenletsDaemon'
-DIR_USER	= os.path.join(os.environ['HOME'], 'screenlets')
 DIR_TMP		= '/tmp/screenlets/'
 
 class ScreenletsDaemon (dbus.service.Object):
 	"""A simple backend class where screenlets register and unregister. It
 	offers functions to keep track of currently opened screenlets."""
-	DIR_USER = os.path.join(os.environ['HOME'],'screenlets')
-	DIR_USER1 = '/usr/share/screenlets'
-	DIR_USER2 = '/usr/local/share/screenlets'	
 	show_in_tray = 'True'
 	launch_menu = None
 	app_indicator = None
@@ -86,7 +82,7 @@ class ScreenletsDaemon (dbus.service.Object):
 			self.running_screenlets = running
 		try:
 			ini = utils.IniReader()
-			if ini.load(os.path.join(DIR_USER,'config.ini')):
+			if ini.load(os.path.join(screenlets.DIR_CONFIG, 'config.ini')):
 				self.show_in_tray = ini.get_option('show_in_tray', section='Options')
 		except:
 			self.show_in_tray = 'True'
@@ -103,7 +99,7 @@ class ScreenletsDaemon (dbus.service.Object):
 				cache = apt_pkg.Cache()
 
 				if apt_pkg.version_compare(cache['python-appindicator'].current_ver.ver_str, '0.3.0') >= 0:
-					print "INDICATOR"
+					#print "INDICATOR"
 					has_app_indicator = True
 			except Exception:
 				pass

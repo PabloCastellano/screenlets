@@ -178,7 +178,7 @@ TMP_FILE	= 'screenlets.' + os.environ['USER'] + '.running'
 
 DIR_USER_ROOT = screenlets.INSTALL_PREFIX + '/share/screenlets'
 
-DIR_USER = os.path.join(os.environ['HOME'], 'screenlets')
+DIR_USER = os.path.join(os.environ['HOME'], '.screenlets')
 
 DIR_CONFIG = os.path.join(xdg_config_home,'screenlets')
 OLD_DIR_CONFIG = os.path.join(xdg_config_home,'Screenlets')

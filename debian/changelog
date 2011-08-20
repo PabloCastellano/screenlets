@@ -1,4 +1,10 @@
-screenlets (0.1.3~bzr523+dev~maverick1ubuntu1) UNRELEASED; urgency=low
+screenlets (0.1.5-0ppa1-natty1) natty; urgency=low
+
+  * (Write changes here.)
+
+ -- Guido Tabbernuk <boamaod@gmail.com>  Sat, 20 Aug 2011 14:56:54 +0300
+
+screenlets (0.1.3~bzr523+dev~maverick1) UNRELEASED; urgency=low
 
   * debian/compat : Bump to level 7.
   * debian/control:

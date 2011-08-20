@@ -53,7 +53,7 @@ def _(s):
 # name/version of this app
 APP_NAME	= _('Screenlets Manager')
 APP_VERSION	= '0.1'
-
+CONFIG_FILE     = os.path.join(screenlets.DIR_CONFIG, 'config.ini')
 
 # get executing user (root or normal) and set user-dependant constants
 if os.geteuid()==0:
@@ -93,7 +93,7 @@ class ScreenletsManager(object):
 
 		if not os.path.isdir(screenlets.DIR_CONFIG):
 			if os.path.isdir(screenlets.OLD_DIR_CONFIG): # workaround for XDG compliance update, see https://bugs.launchpad.net/screenlets/+bug/827369
-				os.rename(OLD_DIR_CONFIG, DIR_CONFIG)
+				os.rename(screenlets.OLD_DIR_CONFIG, screenlets.DIR_CONFIG)
 			else:
 				os.system('mkdir %s' % screenlets.DIR_CONFIG)
 		if not os.path.isdir(DIR_USER):
@@ -527,18 +527,18 @@ class ScreenletsManager(object):
 		self.cb_tray = cb3 = gtk.CheckButton(_('Show daemon in tray'))
 		ini = utils.IniReader()
 		
-		if ini.load (DIR_USER + '/config.ini'):
+		if ini.load (CONFIG_FILE):
 		
 			print ini.get_option('show_in_tray')
-		if not os.path.isfile(DIR_USER + '/config.ini'):
-			f = open(DIR_USER + '/config.ini', 'w')
+		if not os.path.isfile(CONFIG_FILE):
+			f = open(CONFIG_FILE, 'w')
 			f.write("[Options]\n")
 			f.write("show_in_tray=True\n")
 			f.write("Keep_above=False\n")
 			f.write("Keep_below=True\n")
 			f.close()
 		try:
-			if ini.load(DIR_USER + '/config.ini'):
+			if ini.load(CONFIG_FILE):
 				show_in_tray = ini.get_option('show_in_tray', section='Options')
 				if show_in_tray == 'True': #doesnt work with the bool variable directly..dont know why
 					cb3.set_active(True)
@@ -546,13 +546,13 @@ class ScreenletsManager(object):
 					cb3.set_active(False)
 			
 		except:
-			f = open(DIR_USER + '/config.ini', 'w')
+			f = open(CONFIG_FILE, 'w')
 			f.write("[Options]\n")
 			f.write("show_in_tray=True\n")
 			f.write("Keep_above=False\n")
 			f.write("Keep_below=True\n")
 			f.close()
-			if ini.load(DIR_USER + '/config.ini'):
+			if ini.load(CONFIG_FILE):
 				show_in_tray = ini.get_option('show_in_tray', section='Options')
 				if show_in_tray == 'True':
 					cb3.set_active(True)
@@ -951,7 +951,7 @@ class ScreenletsManager(object):
 		cb5 = gtk.CheckButton(_('Keep below'))
 		cb6 = gtk.CheckButton(_('Show buttons'))
 		ini = utils.IniReader()
-		if ini.load (DIR_USER + '/config.ini'):
+		if ini.load (CONFIG_FILE):
 				
 			if ini.get_option('Lock', section='Options') == 'True':
 				cb1.set_active(True)
@@ -1012,7 +1012,7 @@ class ScreenletsManager(object):
 			ret = ret + 'Keep_above=' + str(cb4.get_active()) + '\n'
 			ret = ret + 'Keep_below=' + str(cb5.get_active()) + '\n'
 			ret = ret + 'draw_buttons=' + str(cb6.get_active()) + '\n'	
-			f = open(DIR_USER + '/config.ini', 'w')
+			f = open(CONFIG_FILE, 'w')
 			f.write("[Options]\n")
 			f.write(ret)
 			f.close()
@@ -1253,7 +1253,7 @@ class ScreenletsManager(object):
 	def toggle_tray (self, widget):
 		"""Callback for handling changes to the tray-CheckButton."""
 		ini = utils.IniReader()
-		if ini.load (DIR_USER + '/config.ini'):
+		if ini.load (CONFIG_FILE):
 			r = ''
 			if ini.get_option('Lock', section='Options') != None:
 				r = r +  'Lock=' + str(ini.get_option('Lock', section='Options')) + '\n'
@@ -1273,8 +1273,7 @@ class ScreenletsManager(object):
 			if ini.get_option('draw_buttons', section='Options') != None:
 				r = r +  'draw_buttons=' + str(ini.get_option('draw_buttons', section='Options')) + '\n'
 
-		f = open(DIR_USER + '/config.ini', 'w')
-		DIR_USER + '/config.ini'
+		f = open(CONFIG_FILE, 'w')
 		f.write("[Options]\n")
 		f.write("show_in_tray="+str(widget.get_active())+"\n")
 		f.write(r)

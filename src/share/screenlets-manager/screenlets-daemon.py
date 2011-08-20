@@ -54,13 +54,13 @@ def _(s):
 SLD_BUS		= 'org.screenlets.ScreenletsDaemon'
 SLD_PATH	= '/org/screenlets/ScreenletsDaemon'
 SLD_IFACE	= 'org.screenlets.ScreenletsDaemon'
-DIR_USER	= os.path.join(xdg_config_home,'screenlets')
+DIR_USER	= os.path.join(os.environ['HOME'], 'screenlets')
 DIR_TMP		= '/tmp/screenlets/'
 
 class ScreenletsDaemon (dbus.service.Object):
 	"""A simple backend class where screenlets register and unregister. It
 	offers functions to keep track of currently opened screenlets."""
-	DIR_USER = os.path.join(xdg_config_home,'screenlets')
+	DIR_USER = os.path.join(os.environ['HOME'],'screenlets')
 	DIR_USER1 = '/usr/share/screenlets'
 	DIR_USER2 = '/usr/local/share/screenlets'	
 	show_in_tray = 'True'

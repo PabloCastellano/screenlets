@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-08-03 04:32+0000\n"
-"X-Generator: Launchpad (build 13573)\n"
+"X-Launchpad-Export-Date: 2011-08-20 04:32+0000\n"
+"X-Generator: Launchpad (build 13697)\n"
 "Language: tr\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
@@ -646,117 +646,3 @@ msgstr ""
 #, python-format
 msgid "Failed to add %sScreenlet."
 msgstr "%sScreenlet'i eklenemedi."
-
-#~ msgid "ScreenletsDaemon has been shut down ..."
-#~ msgstr "ScreenletsDaemon kapandı..."
-
-#~ msgid "Installing %s"
-#~ msgstr "%s Kuruluyor"
-
-#~ msgid "Launch %s"
-#~ msgstr "%s başlat"
-
-#~ msgid "Invalid archive. Archive does not contain a screenlet."
-#~ msgstr "Geçersiz arşiv. Arşiv bir screenlet içermiyor."
-
-#~ msgid "Archive damaged or unsuported, only tar , bz2 or gz."
-#~ msgstr "Arşiv zarar görmüş ya da desteklenmiyor, sadece tar, bz2 veya gz."
-
-#~ msgid "ScreenletsDaemon running ..."
-#~ msgstr "ScreenletsDaemon çalışıyor..."
-
-#~ msgid "Create desktop shortcut for: %s/%sScreenlet.py"
-#~ msgstr "Şunun için masaüstü kısayolu oluştur: %s/%sScreenlet.py"
-
-#~ msgid "Quit %s"
-#~ msgstr "%s'dan çık"
-
-#~ msgid "Quit!"
-#~ msgstr "Çık!"
-
-#~ msgid ""
-#~ "The %sScreenlet is already installed in '%s'.\n"
-#~ "Do you wish to continue?"
-#~ msgstr ""
-#~ "%s adlı screenlet '%s' dizinine zaten yüklenmiş durumda.\n"
-#~ "Devam etmek ister misiniz?"
-
-#~ msgid "Starter already exists."
-#~ msgstr "Başlatıcı zaten mevcut."
-
-#~ msgid "Failed to create autostarter for %s."
-#~ msgstr "%s için otomatik-başlatıcı oluşturulamadı."
-
-#~ msgid "Trying to launching screenlets-daemon ..."
-#~ msgstr "Screenlets-daemon başlatılmaya çalışılıyor ..."
-
-#~ msgid "ScreenletsDaemon: registered %s"
-#~ msgstr "ScreenletsDaemon: kayıtlı %s"
-
-#~ msgid "Exception in ScreenletsDaemon: %s"
-#~ msgstr "ScreenletsDaemon'da beklenmedik durum: %s"
-
-#~ msgid "Create autostarter for: Screenlets Daemon"
-#~ msgstr "Otomatik başlangıç oluştur: Screenlets Daemon"
-
-#~ msgid "It looks like you are running %s"
-#~ msgstr "%s çalıştırıyor görünüyorsunuz"
-
-#~ msgid "screenletsDaemon: unregistered %s"
-#~ msgstr "screenletsDaemon: kayıtlı değil %s"
-
-#~ msgid "Create autostarter for: %s/%sScreenlet.py"
-#~ msgstr "Özdevimli başlatıcı oluşturmak için: %s/%sScreenlet.py"
-
-#~ msgid "Removed duplicate entry"
-#~ msgstr "Çift giriş kaldırıldı"
-
-#~ msgid "Error: Unable to connect/launch daemon."
-#~ msgstr "Hata: Bağlantı kurulamıyor/servis başlatılmadı."
-
-#~ msgid "DAEMON FOUND - Ending timeout"
-#~ msgstr "SERVİS BULUNAMADI - Son zaman aşımı"
-
-#~ msgid "checking for running daemon again ..."
-#~ msgstr "servisi tekrar çalıştırmak için kontrol ediyor ..."
-
-#~ msgid "Delete autostarter for %s."
-#~ msgstr "Otobaşlatıcı silmek için %s."
-
-#~ msgid "Error in ScreenletsManager.connect_daemon: %s"
-#~ msgstr "ScreenletsYöneticisi.bağlantı_hizmetin'de hata: %s"
-
-#~ msgid "list contains themes folder"
-#~ msgstr "temaları içeren klasörleri listele"
-
-#~ msgid ""
-#~ "You are about to install a theme in root mode. Continue only if you have "
-#~ "gksudo installed, do you wish to continue?"
-#~ msgstr ""
-#~ "Bir temayı yetkili kullanıcı kipinde kurmak üzeresiniz. Sadece gksudo kurulu "
-#~ "ise devam edin, devam etmek ister misiniz?"
-
-#~ msgid "list contains the screenlet name folder"
-#~ msgstr "screenlet adını içeren klasörleri listele"
-
-#~ msgid "only contains the themes folders"
-#~ msgstr "sadece tema klasörlerini içerir"
-
-#~ msgid "closing %s"
-#~ msgstr "%s kapatılıyor"
-
-#~ msgid "Unable to import module '%s' from %s. (%s)"
-#~ msgstr "%s'den '%s' birimi içe aktarılamıyor. (%s)"
-
-#~ msgid ""
-#~ "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
-#~ "Usage: %s <path> [options]"
-#~ msgstr ""
-#~ "Screenlets paketleyici - (c) RYX (Rico Pfaus) 2007\n"
-#~ "Kullanım: %s <path> [seçenekler]"
-
-#~ msgid "OK."
-#~ msgstr "Tamam."
-
-#~ msgid "Data dropped ..."
-#~ msgstr "Veri iptal edildi"

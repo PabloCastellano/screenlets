@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-08-03 04:32+0000\n"
-"X-Generator: Launchpad (build 13573)\n"
+"X-Launchpad-Export-Date: 2011-08-20 04:32+0000\n"
+"X-Generator: Launchpad (build 13697)\n"
 "Language: sl\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
@@ -608,60 +608,3 @@ msgstr ""
 #, python-format
 msgid "Failed to add %sScreenlet."
 msgstr "Neuspelo dodajanje %sScreenleta."
-
-#~ msgid "screenletsDaemon: unregistered %s"
-#~ msgstr "screenletsDaemon: neregistriran %s"
-
-#~ msgid "ScreenletsDaemon: registered %s"
-#~ msgstr "ScreenletsDaemon: registriran %s"
-
-#~ msgid "ScreenletsDaemon running ..."
-#~ msgstr "ScreenletsDaemon zagnan ..."
-
-#~ msgid "Exception in ScreenletsDaemon: %s"
-#~ msgstr "Napaka v ScreenletsDaemon: %s"
-
-#~ msgid "ScreenletsDaemon has been shut down ..."
-#~ msgstr "ScreenletsDaemon je bil ustavljen ..."
-
-#~ msgid "Invalid archive. Archive does not contain a screenlet."
-#~ msgstr "Neveljaven arhiv. Arhiv ne vsebuje screenleta."
-
-#~ msgid "Archive damaged or unsuported, only tar , bz2 or gz."
-#~ msgstr "Arhiv je poškodovan ali nepodprt (le arhivi tar, bz2 ali gz)."
-
-#~ msgid "Installing %s"
-#~ msgstr "Nameščam %s"
-
-#~ msgid "Trying to launching screenlets-daemon ..."
-#~ msgstr "Poskušam zagnati screenlets-daemon ..."
-
-#~ msgid "Starter already exists."
-#~ msgstr "Zaganjalnik že obstaja"
-
-#~ msgid "Failed to create autostarter for %s."
-#~ msgstr "Zaganjalnika za %s ni bilo mogoče ustvariti."
-
-#~ msgid "Create autostarter for: Screenlets Daemon"
-#~ msgstr "Ustvari zaganjalnik za: Screenlets Daemon"
-
-#~ msgid "Create autostarter for: %s/%sScreenlet.py"
-#~ msgstr "Ustvari zaganjalnik za: %s/%sScreenlet.py"
-
-#~ msgid "Removed duplicate entry"
-#~ msgstr "Odstranjen podvojeni vnos"
-
-#~ msgid "Delete autostarter for %s."
-#~ msgstr "Izbriši zaganjalnik za %s."
-
-#~ msgid "closing %s"
-#~ msgstr "zapiramo %s"
-
-#~ msgid "Quit %s"
-#~ msgstr "Zapri %s"
-
-#~ msgid "Launch %s"
-#~ msgstr "Zaženi %s"
-
-#~ msgid "OK."
-#~ msgstr "V redu."

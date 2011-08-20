@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-08-03 04:32+0000\n"
-"X-Generator: Launchpad (build 13573)\n"
+"X-Launchpad-Export-Date: 2011-08-20 04:32+0000\n"
+"X-Generator: Launchpad (build 13697)\n"
 "Language: lt\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
@@ -641,109 +641,3 @@ msgstr ""
 #, python-format
 msgid "Failed to add %sScreenlet."
 msgstr "Nepavyko pridėti %svaldiklio."
-
-#~ msgid "screenletsDaemon: unregistered %s"
-#~ msgstr "screenletsDaemon: išregistruotas %s"
-
-#~ msgid "ScreenletsDaemon: registered %s"
-#~ msgstr "ScreenletsDaemon: užregistruotas %s"
-
-#~ msgid "Archive damaged or unsuported, only tar , bz2 or gz."
-#~ msgstr ""
-#~ "Archyvas sugadintas arba nepalaikomas, palaikomi tik tar, bz2 ir gz archyvai."
-
-#~ msgid "It looks like you are running %s"
-#~ msgstr "Jūs naudojate %s"
-
-#~ msgid "Installing %s"
-#~ msgstr "Įdiegiama %s"
-
-#~ msgid "Failed to create autostarter for %s."
-#~ msgstr "Nepavyko sukurti auto-paleidėjo %s."
-
-#~ msgid "Starter already exists."
-#~ msgstr "Paleidėjas jau egzistuoja"
-
-#~ msgid "Error in ScreenletsManager.connect_daemon: %s"
-#~ msgstr "Klaida ScreenletsManager.connect_daemon: %s"
-
-#~ msgid "Removed duplicate entry"
-#~ msgstr "Pašalinti besikartojančius"
-
-#~ msgid "Create autostarter for: %s/%sScreenlet.py"
-#~ msgstr "Sukurti auto-paleidėją: %s/%sScreenlet.py"
-
-#~ msgid "Delete autostarter for %s."
-#~ msgstr "Ištrinti auto-paleidėją %s."
-
-#~ msgid "Data dropped ..."
-#~ msgstr "Duomenys pamesti ..."
-
-#~ msgid ""
-#~ "You are about to install a theme in root mode. Continue only if you have "
-#~ "gksudo installed, do you wish to continue?"
-#~ msgstr ""
-#~ "Jūs ruošiatės įdiegti temą pagrindinio vartotojo (root) režime. Tęskite tik "
-#~ "turėdami įdiegtą gksudo paketą, ar norite tęsti?"
-
-#~ msgid "list contains themes folder"
-#~ msgstr "sąrašas turi temų aplanką"
-
-#~ msgid "only contains the themes folders"
-#~ msgstr "susideda tik iš temos aplankų"
-
-#~ msgid "Create desktop shortcut for: %s/%sScreenlet.py"
-#~ msgstr "Sukurti darbastalio piktogramą: %s/%sScreenlet.py"
-
-#~ msgid "closing %s"
-#~ msgstr "užveriama %s"
-
-#~ msgid "Launch %s"
-#~ msgstr "Paleisti %s"
-
-#~ msgid "Quit %s"
-#~ msgstr "Išeiti %s"
-
-#~ msgid "Quit!"
-#~ msgstr "Išeiti!"
-
-#~ msgid "Unable to import module '%s' from %s. (%s)"
-#~ msgstr "Negalima įkelti modulio '%s' iš %s. (%s)"
-
-#~ msgid "OK."
-#~ msgstr "Gerai."
-
-#~ msgid "Auto-create autostart dir ..."
-#~ msgstr "Automatiškai sukurti auto-paleidimo aplanką..."
-
-#~ msgid ""
-#~ "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
-#~ "Usage: %s <path> [options]"
-#~ msgstr ""
-#~ "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
-#~ "Naudojimas: %s <kelias> [nuostatos]"
-
-#~ msgid "DAEMON FOUND - Ending timeout"
-#~ msgstr "TARNYBA RASTA - Baigiama pertrauka"
-
-#~ msgid "checking for running daemon again ..."
-#~ msgstr "dar kartą tikrinama paleista tarnyba ..."
-
-#~ msgid "Error: Unable to connect/launch daemon."
-#~ msgstr "Klaida: Negalima įjungti/paleisti tarnybos."
-
-#~ msgid ""
-#~ "The %sScreenlet is already installed in '%s'.\n"
-#~ "Do you wish to continue?"
-#~ msgstr ""
-#~ "Valdiklis %s jau įdiegtas į '%s'.\n"
-#~ "Ar norite tęsti?"
-
-#~ msgid "Trying to launching screenlets-daemon ..."
-#~ msgstr "Bandoma paleisti Valdiklių tarnybą ..."
-
-#~ msgid "Please install screenlets from folders without strange characters"
-#~ msgstr "Prašome įdiegti valdiklius iš aplankų be keistų simbolių"
-
-#~ msgid "list contains the screenlet name folder"
-#~ msgstr "sąrašas turi  valdiklio pavadinimo aplanką"

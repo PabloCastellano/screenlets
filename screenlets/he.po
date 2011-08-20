@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-08-03 04:31+0000\n"
-"X-Generator: Launchpad (build 13573)\n"
+"X-Launchpad-Export-Date: 2011-08-20 04:31+0000\n"
+"X-Generator: Launchpad (build 13697)\n"
 "Language: he\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
@@ -365,63 +365,3 @@ msgstr ""
 #: src/lib/sensors.py:568 src/lib/sensors.py:581
 msgid "Not connected"
 msgstr ""
-
-#~ msgid "Error while loading options: %s"
-#~ msgstr "שגיאה בעת טעינת האפשרויות: %s"
-
-#~ msgid "Temporary file didn't exist - nothing to remove."
-#~ msgstr "קובץ זמני לא קיים - לא קיים קובץ למחיקה."
-
-#~ msgid "Saved option %s%s/%s = %s"
-#~ msgstr "אפשרויות השמירה %s%s%s = %s"
-
-#~ msgid "Version: "
-#~ msgstr "גרסה: "
-
-#~ msgid "Info: "
-#~ msgstr "מידע: "
-
-#~ msgid "WARNING: Option '%s' not found or protected."
-#~ msgstr "אזהרה: האפשרות '%s' לא נמצאה או מוגנת."
-
-#~ msgid "Name: "
-#~ msgstr "שם: "
-
-#~ msgid "Author: "
-#~ msgstr "מחבר: "
-
-#~ msgid "error while saving config: %s%s"
-#~ msgstr "התרחשה שגיאה בעת שמירת ההגדרה: %s%s"
-
-#~ msgid "theme.conf loaded: "
-#~ msgstr "theme.conf טעון: "
-
-#~ msgid "An error occured with desktop-file: %s"
-#~ msgstr "התרחשה שגיאה עם desktop-file: %s"
-
-#~ msgid "Exception: %s"
-#~ msgstr "חריגות: %s"
-
-#~ msgid "Error while creating menu."
-#~ msgstr "שגיאה בעת יצירת התפריט."
-
-#~ msgid "Override: "
-#~ msgstr "בוטל: "
-
-#~ msgid "Error while loading ScreenletTheme in: "
-#~ msgstr "התרחשה שגיאה בעת טעינת ה-ScreenletTheme ב: "
-
-#~ msgid "XML-Error: %s"
-#~ msgstr "שגיאת XML: %s"
-
-#~ msgid "Error: file %s not found."
-#~ msgstr "שגיאה: הקובץ %s לא נמצא."
-
-#~ msgid "Failed to load theme.conf"
-#~ msgstr "נכשל בטעינת theme.conf"
-
-#~ msgid "theme.conf found! Loading option-overrides."
-#~ msgstr "theme.conf נמצא! טוען הגדרות שליטה."
-
-#~ msgid "Error while creating image from file: %s"
-#~ msgstr "תקלה בעת יצירת תמונה מקובץ: %s"

@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-08-03 04:32+0000\n"
-"X-Generator: Launchpad (build 13573)\n"
+"X-Launchpad-Export-Date: 2011-08-20 04:32+0000\n"
+"X-Generator: Launchpad (build 13697)\n"
 "Language: ja\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
@@ -616,106 +616,3 @@ msgstr ""
 #, python-format
 msgid "Failed to add %sScreenlet."
 msgstr "%sScreenlet 追加に失敗。"
-
-#~ msgid "ScreenletsDaemon running ..."
-#~ msgstr "ScreenletsDaemon 実行中..."
-
-#~ msgid "ScreenletsDaemon has been shut down ..."
-#~ msgstr "ScreenletsDaemon はシャットダウンされています ..."
-
-#~ msgid "Exception in ScreenletsDaemon: %s"
-#~ msgstr "ScreenletsDaemon に例外: %s"
-
-#~ msgid "It looks like you are running %s"
-#~ msgstr "%s を実行中のように見えます"
-
-#~ msgid "Installing %s"
-#~ msgstr "%s インストール中"
-
-#~ msgid ""
-#~ "The %sScreenlet is already installed in '%s'.\n"
-#~ "Do you wish to continue?"
-#~ msgstr ""
-#~ "%sScreenlet はすでに '%s' にインストールされています。\n"
-#~ "続行しますか？"
-
-#~ msgid "Auto-create autostart dir ..."
-#~ msgstr "autostart ディレクトリの自動作成..."
-
-#~ msgid "Failed to create autostarter for %s."
-#~ msgstr "%s の autostarter の作成に失敗。"
-
-#~ msgid "Starter already exists."
-#~ msgstr "Starter はすでに存在。"
-
-#~ msgid "Trying to launching screenlets-daemon ..."
-#~ msgstr "Screenlets-daemon の起動を試行中..."
-
-#~ msgid "checking for running daemon again ..."
-#~ msgstr "実行中のデーモンを再チェック中..."
-
-#~ msgid "DAEMON FOUND - Ending timeout"
-#~ msgstr "デーモン発見 - タイムアウト終了中"
-
-#~ msgid "Error: Unable to connect/launch daemon."
-#~ msgstr "エラー: デーモンへの接続や起動が出来ません。"
-
-#~ msgid "Error in ScreenletsManager.connect_daemon: %s"
-#~ msgstr "ScreenletsManager.connect_daemon にエラー: %s"
-
-#~ msgid "Removed duplicate entry"
-#~ msgstr "重複エントリーを削除しました"
-
-#~ msgid "Delete autostarter for %s."
-#~ msgstr "%s の autostarter を削除。"
-
-#~ msgid "Please install screenlets from folders without strange characters"
-#~ msgstr "未知の文字が使用されていないフォルダから Screenlet をインストールしてください"
-
-#~ msgid ""
-#~ "You are about to install a theme in root mode. Continue only if you have "
-#~ "gksudo installed, do you wish to continue?"
-#~ msgstr "root モードでテーマをインストールしようとしています。gksudo をインストール済みの場合にのみ続行してください。続行しますか？"
-
-#~ msgid "list contains themes folder"
-#~ msgstr "リストにはテーマフォルダが含まれています"
-
-#~ msgid "list contains the screenlet name folder"
-#~ msgstr "リストには Screenlet 名のフォルダが含まれています"
-
-#~ msgid "only contains the themes folders"
-#~ msgstr "テーマフォルダのみ含まれています"
-
-#~ msgid "closing %s"
-#~ msgstr "%s を閉じています"
-
-#~ msgid "Launch %s"
-#~ msgstr "%s の起動"
-
-#~ msgid "Quit %s"
-#~ msgstr "%s の終了"
-
-#~ msgid "Quit!"
-#~ msgstr "終了！"
-
-#~ msgid ""
-#~ "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
-#~ "Usage: %s <path> [options]"
-#~ msgstr ""
-#~ "Screenlets パッケージャ - (c) RYX (Rico Pfaus) 2007\n"
-#~ "使用方法: %s <パス> [オプション]"
-
-#~ msgid "OK."
-#~ msgstr "OK."
-
-#~ msgid "Invalid archive. Archive does not contain a screenlet."
-#~ msgstr "不正な書庫です。書庫に Screenlet が含まれていません。"
-
-#~ msgid "Archive damaged or unsuported, only tar , bz2 or gz."
-#~ msgstr "書庫は壊れているか未対応形式です。tar , bz2 または gz にのみ対応しています。"
-
-#~ msgid "ScreenletsDaemon: registered %s"
-#~ msgstr "ScreenletsDaemon: %s を登録しました"
-
-#~ msgid "screenletsDaemon: unregistered %s"
-#~ msgstr "screenletsDaemon: %s の登録を解除しました"

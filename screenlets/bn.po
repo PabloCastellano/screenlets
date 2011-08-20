@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-08-03 04:30+0000\n"
-"X-Generator: Launchpad (build 13573)\n"
+"X-Launchpad-Export-Date: 2011-08-20 04:31+0000\n"
+"X-Generator: Launchpad (build 13697)\n"
 "Language: bn\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
@@ -365,24 +365,3 @@ msgstr ""
 #: src/lib/sensors.py:568 src/lib/sensors.py:581
 msgid "Not connected"
 msgstr ""
-
-#~ msgid "An error occured with desktop-file: %s"
-#~ msgstr "ডেক্সটপ ফাইল %s এ একটি সমস্যা হয়েছে"
-
-#~ msgid "Exception: %s"
-#~ msgstr "ব্যাতিক্রমঃ %s"
-
-#~ msgid "Error while creating menu."
-#~ msgstr "মেনু তৈরী করতে সমস্যা হয়েছে"
-
-#~ msgid "Error while loading ScreenletTheme in: "
-#~ msgstr "এখানে স্ক্রীনলেট এর থীম লোড করতে সমস্যা হচ্ছেঃ "
-
-#~ msgid "Error while creating image from file: %s"
-#~ msgstr "%s ফাইল থেকে ছবি তৈরি করতে সমস্যা হয়েছে"
-
-#~ msgid "XML-Error: %s"
-#~ msgstr "এক্সএমএল এর সমস্যাঃ %s"
-
-#~ msgid "Error: file %s not found."
-#~ msgstr "%s ফাইল পাওয়া যায়নি"

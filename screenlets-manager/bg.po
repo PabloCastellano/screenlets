@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-08-03 04:31+0000\n"
-"X-Generator: Launchpad (build 13573)\n"
+"X-Launchpad-Export-Date: 2011-08-20 04:32+0000\n"
+"X-Generator: Launchpad (build 13697)\n"
 "Language: bg\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
@@ -653,112 +653,3 @@ msgstr ""
 #, python-format
 msgid "Failed to add %sScreenlet."
 msgstr "Джаджата %s не можа да се добави"
-
-#~ msgid "Invalid archive. Archive does not contain a screenlet."
-#~ msgstr "Невалиден архив. Не съдържа джаджа."
-
-#~ msgid "Archive damaged or unsuported, only tar , bz2 or gz."
-#~ msgstr ""
-#~ "Архивът е повреден или неподдържан. Поддържат се само tar , bz2 или gz."
-
-#~ msgid ""
-#~ "The %sScreenlet is already installed in '%s'.\n"
-#~ "Do you wish to continue?"
-#~ msgstr ""
-#~ "Джаджата %s вече е инсталирана в '%s'.\n"
-#~ "Желаете ли да продължите?"
-
-#~ msgid "closing %s"
-#~ msgstr "затваря се %s"
-
-#~ msgid "Quit %s"
-#~ msgstr "Изход на %s"
-
-#~ msgid "Launch %s"
-#~ msgstr "Стартиране на %s"
-
-#~ msgid "Quit!"
-#~ msgstr "Изход!"
-
-#~ msgid "OK."
-#~ msgstr "Добре"
-
-#~ msgid "Auto-create autostart dir ..."
-#~ msgstr "Автоматично създаване на папка за начално зареждане ..."
-
-#~ msgid "Failed to create autostarter for %s."
-#~ msgstr "Създаването на автоматично зареждане за %s е неуспешно."
-
-#~ msgid "Create autostarter for: Screenlets Daemon"
-#~ msgstr "Създаване на автоматично зареждане за: Screenlets Daemon"
-
-#~ msgid "Installing %s"
-#~ msgstr "Инсталиране на %s"
-
-#~ msgid "Create autostarter for: %s/%sScreenlet.py"
-#~ msgstr "Създаване на автоматично зареждане за: %s/%sScreenlet.py"
-
-#~ msgid "Removed duplicate entry"
-#~ msgstr "Премахнат е повтарящ се запис"
-
-#~ msgid "checking for running daemon again ..."
-#~ msgstr "Повторна проверка за зареден screenlets-daemon ..."
-
-#~ msgid "Delete autostarter for %s."
-#~ msgstr "Изтриване на автоматично зареждане за %s"
-
-#~ msgid "Trying to launching screenlets-daemon ..."
-#~ msgstr "Опит за зареждане на screenlets-daemon ..."
-
-#~ msgid ""
-#~ "You are about to install a theme in root mode. Continue only if you have "
-#~ "gksudo installed, do you wish to continue?"
-#~ msgstr ""
-#~ "Ще инсталирате тема в режим на root. Продължете само ако имате инсталиран "
-#~ "пакета gksudo. Желаете ли да продължите?"
-
-#~ msgid "Please install screenlets from folders without strange characters"
-#~ msgstr "Моля инсталирайте джаджи от папки без странни знаци"
-
-#~ msgid "Create desktop shortcut for: %s/%sScreenlet.py"
-#~ msgstr "Създаване на препракта на работния плот за: %s/%sScreenlet.py"
-
-#~ msgid "ScreenletsDaemon: registered %s"
-#~ msgstr "Демон на джаджите: джаджата %s e регистрирана"
-
-#~ msgid "ScreenletsDaemon running ..."
-#~ msgstr "Демона на джаджи е пуснат..."
-
-#~ msgid "screenletsDaemon: unregistered %s"
-#~ msgstr "Демон на джаджите: джаджата %s e дерегистрирана"
-
-#~ msgid "ScreenletsDaemon has been shut down ..."
-#~ msgstr "Демона на джаджи е спрян..."
-
-#~ msgid "Starter already exists."
-#~ msgstr "Стартерът съществува."
-
-#~ msgid "Error: Unable to connect/launch daemon."
-#~ msgstr "Грешка: Невъзможност да връзка/зареждане на демона."
-
-#~ msgid ""
-#~ "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
-#~ "Usage: %s <path> [options]"
-#~ msgstr ""
-#~ "Опаковчик на джаджи - (c) RYX (Rico Pfaus) 2007\n"
-#~ "Usage: %s <path> [options]"
-
-#~ msgid "Error in ScreenletsManager.connect_daemon: %s"
-#~ msgstr "Грешка в ScreenletsManager.connect_daemon: %s"
-
-#~ msgid "Exception in ScreenletsDaemon: %s"
-#~ msgstr "Изключение в ScreenletsDaemon: %s"
-
-#~ msgid "It looks like you are running %s"
-#~ msgstr "Изглежда, че сте използвате %s"
-
-#~ msgid "Unable to import module '%s' from %s. (%s)"
-#~ msgstr "Модулът '%s' от %s не може да бъде внесен. (%s)"
-
-#~ msgid "DAEMON FOUND - Ending timeout"
-#~ msgstr "ДЕМОНЪТ Е ОТКРИТ - Приключване на просрочката"

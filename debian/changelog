@@ -2,7 +2,7 @@ screenlets (0.1.5-0ubuntu1-natty1) natty; urgency=low
 
   * Allow starting daemon on many user accounts simultaneously
   * Make screenlets directories more XDG compliant
-  * Load AppIndicator before showing
+  * Populate AppIndicator menu before showing
   * Fix some licenses, authors lists and packaging routines
   * Support floats in font description strings
   * Improve adding Screenlets PPA
@@ -16,7 +16,6 @@ screenlets (0.1.4-0ubuntu1-natty1) UNRELEASED; urgency=low
   * Lyrics screenlet to Basic Pack
   * Make possible to use logging module from Universal Applets
   * Fix flicker and resize grips problems in Natty
-  * Some minor fixes and additions for individual screenlets
 
  -- Guido Tabbernuk <boamaod@gmail.com>  Sat, 20 Aug 2011 14:56:54 +0300
 

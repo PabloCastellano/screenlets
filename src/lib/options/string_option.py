@@ -73,7 +73,7 @@ class StringOption(Option):
     def has_changed(self, widget):
         """Executed when the widget event kicks off."""
         if self.choices:
-            self.set_value( widget.get_active_text() )
+            self.set_value( self.widget.get_active_text() )
         else:
-            self.set_value( widget.get_text() )
+            self.set_value( self.widget.get_text() )
         super(StringOption, self).has_changed()

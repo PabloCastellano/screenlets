@@ -52,7 +52,8 @@ class IntOption(Option):
         if self.min != None and self.max != None:
             self.widget.set_range(self.min, self.max)
         self.set_value(value)
-        self.widget.connect("value-changed", self.has_changed)
+	if self.realtime:
+            self.widget.connect("value-changed", self.has_changed)
         return self.widget
 
     def set_value(self, value):
@@ -62,7 +63,7 @@ class IntOption(Option):
 
     def has_changed(self, widget):
         """Executed when the widget event kicks off."""
-        self.value = int(widget.get_value())
+        self.value = int(self.widget.get_value())
         super(IntOption, self).has_changed()
 
 
@@ -84,6 +85,6 @@ class FloatOption(IntOption):
 
     def has_changed(self, widget):
         """Executed when the widget event kicks off."""
-        self.value = float(widget.get_value())
+        self.value = float(self.widget.get_value())
         super(IntOption, self).has_changed()
 

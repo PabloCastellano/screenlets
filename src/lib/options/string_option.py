@@ -57,7 +57,8 @@ class StringOption(Option):
                 self.widget.set_visibility(False)
 
         self.set_value(value)
-        self.widget.connect("changed", self.has_changed)
+	if self.realtime:
+            self.widget.connect("changed", self.has_changed)
         #self.widget.set_size_request(180, 28)
         return self.widget
 

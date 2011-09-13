@@ -55,7 +55,8 @@ class FileOption(Option):
         self.widget.set_title(self._opener_title)
         self.widget.set_size_request(180, 28)
         self.set_value(value)
-        self.widget.connect("selection-changed", self.has_changed)
+	if self.realtime:	
+	    self.widget.connect("selection-changed", self.has_changed)
         return self.widget
 
     def generate_file_opener(self):

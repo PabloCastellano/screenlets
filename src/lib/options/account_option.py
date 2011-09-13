@@ -106,9 +106,6 @@ class AccountOption(Option):
         input_pass.set_visibility(False)    # password
         input_pass.set_text(value[1])
         input_pass.show()
-        but = gtk.Button(_('Apply'), gtk.STOCK_APPLY)
-        but.show()
-        but.connect("clicked", self.has_changed)
         vb.add(input_name)
         vb.add(input_pass)
         vb.show()
@@ -116,7 +113,6 @@ class AccountOption(Option):
         input_name.set_tooltip_text(_('Enter username here ...'))
         input_pass.set_tooltip_text(_('Enter password here ...'))
         self.widget.add(vb)
-        self.widget.add(but)
         return self.widget
 
     def set_value(self, value):

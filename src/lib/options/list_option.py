@@ -63,7 +63,8 @@ class ListOption(Option):
             # set text in entry
             self._entry.set_text(str(dlg.get_list()))
             # manually call the options-callback
-            self.has_changed(dlg)
+	    if self.realtime:
+                self.has_changed(dlg)
         dlg.destroy()
 
     def set_value(self, value):

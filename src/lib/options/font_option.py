@@ -37,7 +37,8 @@ class FontOption(Option):
         """Generate a special widget for font options"""
         self.widget = gtk.FontButton()
         self.set_value(value)
-        self.widget.connect("font-set", self.has_changed)
+	if self.realtime:
+            self.widget.connect("font-set", self.has_changed)
         return self.widget
 
     def set_value(self, value):

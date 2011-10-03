@@ -8,19 +8,19 @@ msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-10 06:36+0900\n"
-"PO-Revision-Date: 2011-02-12 06:22+0000\n"
+"PO-Revision-Date: 2011-10-02 09:16+0000\n"
 "Last-Translator: Walter Cheuk <wwycheuk@gmail.com>\n"
 "Language-Team: Traditional Chinese <zh_TW@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-20 04:35+0000\n"
-"X-Generator: Launchpad (build 13980)\n"
+"X-Launchpad-Export-Date: 2011-10-03 04:31+0000\n"
+"X-Generator: Launchpad (build 14071)\n"
 "Language: \n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:89
 msgid "Screenlets daemon"
-msgstr "Screenlet服務常式"
+msgstr "Screenlet 服務常式"
 
 #. create top menuitems
 #. name/version of this app
@@ -28,33 +28,33 @@ msgstr "Screenlet服務常式"
 #: src/share/screenlets-manager/screenlets-manager.py:49
 #: src/share/screenlets-manager/screenlets-manager.py:1320
 msgid "Screenlets Manager"
-msgstr "Screenlet管理員"
+msgstr "Screenlet 管理員"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:132
 #: src/share/screenlets-manager/screenlets-manager.py:918
 msgid "Install Screenlet"
-msgstr "安裝Screenlet"
+msgstr "安裝 Screenlet"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:133
 msgid "Get more Screenlets"
-msgstr "取得更多Screenlet"
+msgstr "取得更多 Screenlet"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:139
 msgid "Launch Screenlet"
-msgstr "啟動Screenlet"
+msgstr "啟動 Screenlet"
 
 #. create the bottom menuitems
 #: src/share/screenlets-manager/screenlets-daemon.py:143
 msgid "Close all Screenlets"
-msgstr "關閉所有Screenlet"
+msgstr "關閉所有 Screenlet"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:144
 msgid "Restart all Screenlets"
-msgstr "重新啟動Screenlet"
+msgstr "重新啟動 Screenlet"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:147
 msgid "Quit the Screenlets"
-msgstr "結束Screenlet"
+msgstr "結束 Screenlet"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:219
 #: src/share/screenlets-manager/screenlets-manager.py:605
@@ -71,15 +71,14 @@ msgstr ""
 
 #: src/share/screenlets-manager/screenlets-daemon.py:251
 msgid "Install a Screenlet"
-msgstr "安裝Screenlet"
+msgstr "安裝 Screenlet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:100
 msgid ""
 "Important! You are running this application as root user, almost all "
 "functionality is disabled. You can use this to install screenlets into the "
 "system-wide path."
-msgstr ""
-"請注意！！現正以系統管理員(Root)權限執行此程式，幾乎所有的功能已禁用。您可以此權限把Screenlet安裝至system-wide路徑。"
+msgstr "請注意！！現正以系統管理員(Root)權限執行此程式，幾乎所有功能已禁用。您可以此權限把 Screenlet 安裝至對全系統有效的路徑。"
 
 #: src/share/screenlets-manager/screenlets-manager.py:101
 msgid "Warning!"
@@ -118,7 +117,7 @@ msgstr "無法刪除套用到全系統的 screenlets。"
 #: src/share/screenlets-manager/screenlets-manager.py:269
 #, python-format
 msgid "Do you really want to reset the %sScreenlet configuration?"
-msgstr "真要重置 %sScreenlet之設定？"
+msgstr "真要重置 %sScreenlet 之設定？"
 
 #: src/share/screenlets-manager/screenlets-manager.py:269
 msgid "Reset Screenlet"
@@ -175,82 +174,82 @@ msgstr "建立桌面捷徑"
 
 #: src/share/screenlets-manager/screenlets-manager.py:419
 msgid "Launch/add a new instance of the selected Screenlet ..."
-msgstr "啟動或添加所選Screenlet的新實體..."
+msgstr "啟動或添加所選 Screenlet 的新執行實體 ..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:420
 msgid ""
 "Install a new Screenlet, SuperKaramba or Web Widget or Web Application  ..."
-msgstr "安裝新的Screenlet、SuperKaramba、網路小工具(Web Widget)或網路應用程式..."
+msgstr "安裝新的 Screenlet、SuperKaramba、網頁小工具(Web Widget)或網路應用程式 ..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:421
 msgid "Permanently uninstall/delete the currently selected Screenlet ..."
-msgstr "永久移除/刪除目前所選的Screenlet ..."
+msgstr "永久移除／刪除目前所選的 Screenlet ..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:422
 msgid ""
 "Reset this Screenlet configuration (will only work if screenlet isnt running)"
-msgstr "重置此Screenlet的設定(只有screenlet非執行中時才會有效)"
+msgstr "重置此 Screenlet 的設定 (只有當沒在執行時才有效)"
 
 #: src/share/screenlets-manager/screenlets-manager.py:423
 msgid "Install new theme for this screenlet"
-msgstr "替這個screenlet安裝新主題"
+msgstr "替此 Screenlet 安裝新主題"
 
 #: src/share/screenlets-manager/screenlets-manager.py:424
 msgid "Restart all screenlets that have auto start at login"
-msgstr "重新啟動登入時會自動啟動的screenlets"
+msgstr "重新啟動登入時啟動的 Screenlet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:425
 msgid "Close all Screenlets running"
-msgstr "關閉所有正在執行的Screenlets"
+msgstr "關閉所有正在執行的 Screenlet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:426
 msgid "New Screenlets Options/Properties"
-msgstr "新Screenlets選項/屬性"
+msgstr "新 Screenlet 的選項／屬性"
 
 #: src/share/screenlets-manager/screenlets-manager.py:427
 msgid "Create a Desktop shortcut for this Screenlet"
-msgstr "替這個Screenlet建立桌面捷徑"
+msgstr "替此 Screenlet 建立桌面捷徑"
 
 #: src/share/screenlets-manager/screenlets-manager.py:446
 msgid "All Screenlets"
-msgstr "全部的Screenlets"
+msgstr "全部 Screenlet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:447
 msgid "Running Screenlets"
-msgstr "執行中的Screenlets"
+msgstr "執行中的 Screenlet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:448
 msgid "Autostart Screenlets"
-msgstr "自動啟動Screenlets"
+msgstr "自動啟動的 Screenlet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:449
 msgid "Only native Screenlets"
-msgstr "只有原生的Screenlets"
+msgstr "只原生的 Screenlet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:450
 msgid "Only third party"
-msgstr "只有第三方"
+msgstr "只第三方"
 
 #: src/share/screenlets-manager/screenlets-manager.py:476
 msgid "Get more screenlets"
-msgstr "取得更多screenlets"
+msgstr "取得更多 Screenlet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:482
 msgid "Show info about this dialog ..."
-msgstr "顯示關於這個對話框的資訊..."
+msgstr "顯示關於此對話框的資訊 ..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:483
 msgid "Download more screenlets ..."
-msgstr "下載更多screelets..."
+msgstr "下載更多  Screenlet ..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:484
 msgid "Close this dialog ..."
-msgstr "關閉此對話框..."
+msgstr "關閉此對話框 ..."
 
 #. create checkboxes
 #: src/share/screenlets-manager/screenlets-manager.py:518
 msgid "Start/Stop"
-msgstr "啟動/停止"
+msgstr "啟動／停止"
 
 #: src/share/screenlets-manager/screenlets-manager.py:519
 msgid "Auto start on login"
@@ -258,7 +257,7 @@ msgstr "登入時自動啟動"
 
 #: src/share/screenlets-manager/screenlets-manager.py:520
 msgid "Show daemon in tray"
-msgstr "在系統列顯示服務常式"
+msgstr "在系統匣顯示服務常式"
 
 #: src/share/screenlets-manager/screenlets-manager.py:650
 #, python-format
@@ -267,11 +266,11 @@ msgstr "字串無效：%s。"
 
 #: src/share/screenlets-manager/screenlets-manager.py:685
 msgid "Install a Screenlet or SuperKaramba theme"
-msgstr "安裝screenlet或SuperKaramba主題"
+msgstr "安裝 Screenlet 或 SuperKaramba 主題"
 
 #: src/share/screenlets-manager/screenlets-manager.py:723
 msgid "Install a new theme for the selected Screenlet"
-msgstr "替所選的Screenlet安裝新主題"
+msgstr "替所選 Screenlet 安裝新主題"
 
 #: src/share/screenlets-manager/screenlets-manager.py:768
 msgid "Error Found"
@@ -286,21 +285,21 @@ msgstr "碰到主題安裝錯誤1 - 主題沒有安裝，也許是套件錯誤 "
 msgid ""
 "This package seams to contain a full Screenlet and not just a theme, please "
 "use the screenlet install instead"
-msgstr "此套件檔似乎包含完整之Sreenlet而非只是主題，請改用安裝sreenlet。"
+msgstr "此套件似乎包含完整之 Sreenlet 而非只是主題，請改用安裝 Sreenlet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:796
 msgid "This package doesnt seem to contain a theme"
-msgstr "此套件檔看來沒包含主題"
+msgstr "此套件看來沒包含主題"
 
 #: src/share/screenlets-manager/screenlets-manager.py:819
 #, python-format
 msgid "Theme installed , please restart %s"
-msgstr "已安裝主題，請重新啟動%s"
+msgstr "已安裝主題，請重新啟動 %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:824
 msgid ""
 "Theme install error 2 found - Theme not installed or already installed"
-msgstr "碰到主題安裝錯誤2：主題沒有安裝或已經安裝"
+msgstr "碰到主題安裝錯誤2 - 主題沒有安裝或已經安裝"
 
 #: src/share/screenlets-manager/screenlets-manager.py:908
 msgid ""
@@ -309,16 +308,16 @@ msgid ""
 "and by clicking on an AptURL on web pages like Gnome-look.org. Would you "
 "like to add the Screenlets PPA to your system?"
 msgstr ""
-"軟體來源未列有Screenlets PPA。添加之可讓您於 Gnome-look.org 等網頁點擊 AptURL 時自動以套件管理員（或軟體中心）安裝 "
-"screenlets。是否添加 Screenlets PPA？"
+"軟體來源未列有該 Screenlet 的 PPA。添加之可讓您於 Gnome-look.org 等網頁點擊 AptURL "
+"時自動以套件管理員（或軟體中心）安裝個別 Screenlet。是否添加該 Screenlet 的 PPA？"
 
 #: src/share/screenlets-manager/screenlets-manager.py:908
 msgid "Do you want to enable the Screenlets PPA?"
-msgstr "要否啟用 Screenlets PPA？"
+msgstr "要否啟用該 Screenlet 的 PPA？"
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
 msgid "The Screenlets PPA added successfully."
-msgstr "成功添加 Screenlets PPA。"
+msgstr "成功添加該 Screenlet 的 PPA。"
 
 #: src/share/screenlets-manager/screenlets-manager.py:911
 msgid "Success!"
@@ -326,7 +325,7 @@ msgstr "成功！"
 
 #: src/share/screenlets-manager/screenlets-manager.py:913
 msgid "Adding the Screenlets PPA failed."
-msgstr "未能添加 Screenlets PPA。"
+msgstr "未能添加該 Screenlet 的 PPA。"
 
 #: src/share/screenlets-manager/screenlets-manager.py:913
 msgid "Failed!"
@@ -343,11 +342,11 @@ msgstr "轉換網頁小程式(Web Widget)"
 #: src/share/screenlets-manager/screenlets-manager.py:921
 #: src/share/screenlets-manager/screenlets-manager.py:1028
 msgid "Install Web Application"
-msgstr "安裝網路應用程式"
+msgstr "安裝網頁應用程式"
 
 #: src/share/screenlets-manager/screenlets-manager.py:941
 msgid "New screenlets atributes.."
-msgstr "新screenlets的參數..."
+msgstr "新 Screenlet 的參數..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:942
 msgid "Lock"
@@ -375,15 +374,15 @@ msgstr "顯示按鈕"
 
 #: src/share/screenlets-manager/screenlets-manager.py:980
 msgid "New Screenlets atributes"
-msgstr "新Screenlets的參數"
+msgstr "新 Screenlet 的參數"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1018
 msgid "Web Application Url"
-msgstr "網路應用程式連結位址"
+msgstr "網頁應用程式連結位址"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1019
 msgid "Web Application Name"
-msgstr "網路應用程式名稱"
+msgstr "網頁應用程式名稱"
 
 #. found_path != None:
 #: src/share/screenlets-manager/screenlets-manager.py:1051
@@ -392,30 +391,30 @@ msgid ""
 "There is already a screenlet with that name installed\n"
 "Do you wish to continue?"
 msgstr ""
-"已有同名的screenlet\n"
+"已有同名 Screenlet\n"
 "是否繼續？"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1072
 msgid "Web Application was successfully installed"
-msgstr "網路應用程式已經成功安裝"
+msgstr "已成功安裝網頁應用程式"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1075
 msgid "Error installing!!!"
-msgstr "安裝錯誤!!!"
+msgstr "安裝發生錯誤！！"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1076
 #: src/share/screenlets-manager/screenlets-manager.py:1161
 msgid "Please specify a name for the widget"
-msgstr "請替這個小工具指定名稱"
+msgstr "請替此小工具指定名稱"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1077
 #: src/share/screenlets-manager/screenlets-manager.py:1162
 msgid "No HTML code found"
-msgstr "找不到HTML程式碼"
+msgstr "找不到 HTML 程式碼"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1081
 msgid "Convert any webpage widget into a Screenlet."
-msgstr "將網頁小工具(webpage widget)轉換為Screenlet"
+msgstr "將網頁小工具(webpage widget)轉換為 Screenlet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1082
 msgid "Step 1 : Find the widget you want to convert"
@@ -427,7 +426,7 @@ msgstr "第二步 : 複製 Widget 的 HTML 程式碼並貼在下方方格"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1084
 msgid "Step 3 : Give it a name in the box below and click on Ok to convert"
-msgstr "第三步：在下面替它取名然後按下確定開始轉換"
+msgstr "第三步：在下面取個名字然後按確定開始轉換"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1085
 msgid "The name of the widget"
@@ -443,11 +442,11 @@ msgstr "小工具已經成功轉換"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1160
 msgid "Error converting!!!"
-msgstr "轉換錯誤!!!"
+msgstr "轉換發生錯誤！！"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1283
 msgid "Screenlets-Manager must now be restarted"
-msgstr "Screenlets管理員現在必須重新啟動"
+msgstr "Screenlet 管理員現在必須重新啟動"
 
 #. + constants
 #: src/share/screenlets-manager/screenlets-packager.py:30
@@ -455,11 +454,13 @@ msgid ""
 "Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
 "Usage: screenlets-packager <path> [options]"
 msgstr ""
+"Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
+"用法：screenlets-packager <路徑> [選項]"
 
 #: src/share/screenlets-manager/screenlets-packager.py:69
 #, python-format
 msgid "The specified path \"%s\" does not exist."
-msgstr "無此路徑(\"%s\")"
+msgstr "無此路徑(［%s\")"
 
 #: src/share/screenlets-manager/screenlets-packager.py:70
 #, python-format
@@ -468,22 +469,22 @@ msgstr "找到路徑\"%s\"。"
 
 #: src/share/screenlets-manager/screenlets-packager.py:76
 msgid "Failed to extract screenlet name from path."
-msgstr "無法自路徑取得screenlet名稱"
+msgstr "無法自路徑取得 Screenlet 名稱"
 
 #: src/share/screenlets-manager/screenlets-packager.py:77
 #, python-format
 msgid "Screenlet name is %s."
-msgstr "Screenlet名稱為%s。"
+msgstr "Screenlet 名稱為 %s。"
 
 #: src/share/screenlets-manager/screenlets-packager.py:81
 #, python-format
 msgid "No screenlet-file \"%sScreenlet.py\" found in the given path."
-msgstr "在指定的路徑找不到 screenlet 檔 \"%sScreenlet.py\"。"
+msgstr "在指定的路徑找不到 Screenlet 檔 \"%sScreenlet.py\"。"
 
 #: src/share/screenlets-manager/screenlets-packager.py:82
 #, python-format
 msgid "Found %sScreenlet.py in path."
-msgstr "路徑中找到了 %sScreenlet.py。"
+msgstr "在路徑找到了 %sScreenlet.py。"
 
 #: src/share/screenlets-manager/screenlets-packager.py:91
 #, python-format
@@ -519,7 +520,7 @@ msgstr "已建立套件資訊檔。"
 
 #: src/share/screenlets-manager/screenlets-packager.py:151
 msgid "Cleaned up and finished."
-msgstr "已清除並完成。"
+msgstr "已清理並結束。"
 
 #: src/lib/install.py:58
 msgid ""
@@ -531,7 +532,7 @@ msgstr ""
 
 #: src/lib/install.py:114
 msgid "Archive is damaged or unsupported, use only tar, bz2 or gz."
-msgstr "檔案已損壞或不獲支援，只支援tar、bz2或gz檔。"
+msgstr "檔案已損壞或不獲支援，只支援 tar、bz2 或 gz檔。"
 
 #. check if screenlet is already installed
 #. found_path = screenlets.utils.find_first_screenlet_path(name)
@@ -553,51 +554,51 @@ msgstr "安裝 %s"
 #: src/lib/install.py:131
 #, python-format
 msgid "%sScreenlet is already installed"
-msgstr "%sScreenlet 已經安裝"
+msgstr "已安裝 %sScreenlet"
 
 #. dir missing
 #: src/lib/install.py:138
 msgid ""
 "Invalid archive. Archive must contain a directory with the screenlet's name."
-msgstr "檔案無效。檔案必須包含該screenlet名稱的資料夾。"
+msgstr "檔案無效。封存檔必須包含以該 Screenlet 名稱命名的資料夾。"
 
 #: src/lib/install.py:150
 msgid "Compatibility for this karamba theme is not yet implemented"
-msgstr "與此 karamba 主題相容的功能尚未完成"
+msgstr "與此 Karamba 主題相容的功能尚未完成"
 
 #: src/lib/install.py:177
 msgid "Karamba theme was successfully installed"
-msgstr "已安裝Karamba主題"
+msgstr "已安裝 Karamba 主題"
 
 #: src/lib/install.py:179
 msgid ""
 "Invalid archive. Archive does not contain a screenlet or a valid karamba "
 "theme."
-msgstr "檔案無效。該檔不包含screenlet或有效之karamba主題。"
+msgstr "檔案無效。封存檔不包含 Screenlet 或有效之 Karamba 主題。"
 
 #: src/lib/install.py:194
 #, python-format
 msgid ""
 "%s was not packaged with the screenlet packager. Do you wish to continue and "
 "try to install it?"
-msgstr "%s 並非以screenlet包裝員包裝。是否繼續嘗試安裝？"
+msgstr "%s 並非以 Screenlet Packager 封裝。是否繼續嘗試安裝？"
 
 #: src/lib/install.py:197
 msgid "This package was not packaged with the screenlet packager."
-msgstr "此套件並非以screenlet包裝員包裝。"
+msgstr "此套件並非以 Screenlet Packager 封裝。"
 
 #. set msg/result
 #: src/lib/install.py:206
 #, python-format
 msgid "The %sScreenlet has been succesfully installed."
-msgstr "%sScreenlet 已經成功安裝。"
+msgstr "已成功安裝 %sScreenlet。"
 
 #. create autostart directory, if not existent
 #: src/lib/utils.py:101 src/lib/utils.py:584
 msgid ""
 "There is no existing autostart directory for your user account yet. Do you "
 "want me to automatically create it for you?"
-msgstr "您的使用者帳號沒有自動啟動資料夾。要讓我自動替您建立嗎？"
+msgstr "您的使用者帳號未有自動啟動資料夾。要自動建立嗎？"
 
 #: src/lib/utils.py:106 src/lib/utils.py:588
 #, python-format

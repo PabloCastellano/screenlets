@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-10 05:23+0900\n"
-"PO-Revision-Date: 2011-10-02 06:48+0000\n"
+"PO-Revision-Date: 2011-10-06 07:09+0000\n"
 "Last-Translator: Walter Cheuk <wwycheuk@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-10-03 04:31+0000\n"
-"X-Generator: Launchpad (build 14071)\n"
+"X-Launchpad-Export-Date: 2011-10-07 04:30+0000\n"
+"X-Generator: Launchpad (build 14085)\n"
 "Language: \n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
@@ -38,23 +38,23 @@ msgstr "此 Screenlet 無資料"
 
 #: src/lib/__init__.py:726
 msgid "The basic settings for this Screenlet-instance."
-msgstr ""
+msgstr "此 Screenlet 執行實體的基本設定。"
 
 #: src/lib/__init__.py:741
 msgid "X-Position"
-msgstr "x-座標"
+msgstr "水平位置"
 
 #: src/lib/__init__.py:741
 msgid "The X-position of this Screenlet ..."
-msgstr "Screenlet 在「x-座標」的位置"
+msgstr "此 Screenlet 的水平位置 ..."
 
 #: src/lib/__init__.py:744
 msgid "Y-Position"
-msgstr "y-座標"
+msgstr "垂直位置"
 
 #: src/lib/__init__.py:744
 msgid "The Y-position of this Screenlet ..."
-msgstr "Screenlet 在「y-座標」的位置"
+msgstr "此 Screenlet 的垂直位置 ..."
 
 #: src/lib/__init__.py:747
 msgid "Width"
@@ -74,7 +74,7 @@ msgstr "此 Screenlet 的高度 ..."
 
 #: src/lib/__init__.py:753
 msgid "Scale"
-msgstr "比例"
+msgstr "縮放"
 
 #: src/lib/__init__.py:753
 msgid "The scale-factor of this Screenlet ..."
@@ -82,11 +82,11 @@ msgstr "此 Screenlet 的縮放比例 ..."
 
 #: src/lib/__init__.py:756
 msgid "Opacity"
-msgstr "透明度"
+msgstr "混濁度"
 
 #: src/lib/__init__.py:756
 msgid "The opacity of the Screenlet window ..."
-msgstr "Screenlet 視窗的透明度"
+msgstr "Screenlet 視窗的混濁度 ..."
 
 #: src/lib/__init__.py:759
 msgid "Stick to Desktop"
@@ -94,7 +94,7 @@ msgstr "固定 Screenlet 位置"
 
 #: src/lib/__init__.py:760
 msgid "Show this Screenlet on all workspaces ..."
-msgstr "讓此 Screenlet 出現在所有的工作區"
+msgstr "讓此 Screenlet 出現在所有工作區 ..."
 
 #: src/lib/__init__.py:762
 msgid "Treat as Widget"
@@ -102,7 +102,7 @@ msgstr "把 Screeenlet 置於 Widget 層"
 
 #: src/lib/__init__.py:763
 msgid "Treat this Screenlet as a \"Widget\" ..."
-msgstr "把此 Screeenlet 置於 Widget 層"
+msgstr "將此 Screeenlet 視為「桌面小工具」 ..."
 
 #: src/lib/__init__.py:771
 msgid "Lock position"
@@ -110,7 +110,7 @@ msgstr "鎖定位置"
 
 #: src/lib/__init__.py:772
 msgid "Stop the screenlet from being moved..."
-msgstr "讓 Screenlet 不要移動"
+msgstr "讓 Screenlet 不要移動 ..."
 
 #. add "Keep above"-menuitem
 #: src/lib/__init__.py:774 src/lib/__init__.py:1091
@@ -119,7 +119,7 @@ msgstr "不會被遮蓋"
 
 #: src/lib/__init__.py:775
 msgid "Keep this Screenlet above other windows ..."
-msgstr "讓 Screenlet 不會被其他視窗所遮蓋"
+msgstr "讓 Screenlet 不會被其他視窗所遮蓋 ..."
 
 #. add "Keep Below"-menuitem
 #: src/lib/__init__.py:777 src/lib/__init__.py:1098
@@ -128,7 +128,7 @@ msgstr "保持在所有視窗的最底層"
 
 #: src/lib/__init__.py:778
 msgid "Keep this Screenlet below other windows ..."
-msgstr "讓此 Screenlet 保持在所有視窗的最底層"
+msgstr "讓此 Screenlet 保持在所有視窗的最底層 ..."
 
 #: src/lib/__init__.py:780
 msgid "Draw button controls"
@@ -144,7 +144,7 @@ msgstr ""
 
 #: src/lib/__init__.py:784
 msgid "Set this Screenlet to show/hide in pagers ..."
-msgstr "設定讓此 Screenlet 出現/隱藏於桌面切換器"
+msgstr "設定讓此 Screenlet 出現/隱藏於桌面切換器 ..."
 
 #: src/lib/__init__.py:786
 msgid "Skip Taskbar"
@@ -152,7 +152,7 @@ msgstr ""
 
 #: src/lib/__init__.py:787
 msgid "Set this Screenlet to show/hide in taskbars ..."
-msgstr "設定讓此 Screenlet 出現/隱藏於工作列"
+msgstr "設定讓此 Screenlet 出現/隱藏於工作列 ..."
 
 #: src/lib/__init__.py:789
 msgid "Resize on mouse scroll"
@@ -164,7 +164,7 @@ msgstr ""
 
 #: src/lib/__init__.py:792
 msgid "Set this Screenlet to ignore/demand DEB requirements ..."
-msgstr ""
+msgstr "讓此 Screenlet 忽略/要求 套件條件 ..."
 
 #: src/lib/__init__.py:796
 msgid "Allow overriding Options"
@@ -172,7 +172,7 @@ msgstr ""
 
 #: src/lib/__init__.py:797
 msgid "Allow themes to override options in this screenlet ..."
-msgstr ""
+msgstr "讓佈景主題優先此 Screenlet 的選項 ..."
 
 #: src/lib/__init__.py:799
 msgid "Ask on Override"
@@ -197,6 +197,8 @@ msgid ""
 "\n"
 "%(package)s %(version)s required, NOT INSTALLED!"
 msgstr ""
+"\n"
+"必需 %(package)s 套件的 %(version)s 版，但未安裝！"
 
 #: src/lib/__init__.py:1002
 #, python-format
@@ -204,6 +206,8 @@ msgid ""
 "\n"
 "%(package)s %(version)s installed, req %(required)s."
 msgstr ""
+"\n"
+"已安裝 %(package)s 套件的 %(version)s 版，必需的是 %(required)s。"
 
 #: src/lib/__init__.py:1012
 #, python-format
@@ -217,7 +221,7 @@ msgstr ""
 
 #: src/lib/__init__.py:1034
 msgid "Size"
-msgstr "容量"
+msgstr "大小"
 
 #: src/lib/__init__.py:1049
 msgid "Theme"
@@ -248,27 +252,27 @@ msgstr "屬性..."
 
 #: src/lib/__init__.py:1111
 msgid "Info..."
-msgstr ""
+msgstr "資訊..."
 
 #: src/lib/__init__.py:1115
 #, python-format
 msgid "Add one more %s"
-msgstr ""
+msgstr "再多一個 %s"
 
 #: src/lib/__init__.py:1118
 #, python-format
 msgid "Delete this %s"
-msgstr ""
+msgstr "刪除此 %s"
 
 #: src/lib/__init__.py:1122
 #, python-format
 msgid "Quit this %s"
-msgstr ""
+msgstr "結束此 %s"
 
 #: src/lib/__init__.py:1125
 #, python-format
 msgid "Quit all %ss"
-msgstr ""
+msgstr "結束所有 %ss"
 
 #: src/lib/__init__.py:1376
 msgid ""
@@ -279,12 +283,12 @@ msgstr ""
 #: src/lib/__init__.py:1610
 #, python-format
 msgid "To quit all %s's, use 'Quit' instead. "
-msgstr "要停止所有%s's，使用'Quit'代替 "
+msgstr "要結束所有 %s's，請改用「結束」指令。 "
 
 #: src/lib/__init__.py:1611
 #, python-format
 msgid "Really delete this %s and its settings?"
-msgstr "確定要刪除這個「%s」和他的設定？"
+msgstr "確定要刪除這個「%s」及其設定？"
 
 #: src/lib/options.py:653
 msgid "Edit Options"
@@ -303,7 +307,7 @@ msgstr "選項 "
 msgid ""
 "Themes allow you to easily switch the appearance of your Screenlets. On this "
 "page you find a list of all available themes for this Screenlet."
-msgstr "佈景主題(Theme)讓你輕鬆的改變你的 Screenlets 的外觀。在此頁，你將會發現可用於 Screenlet 的「主題清單」。"
+msgstr "佈景主題讓你輕鬆改變 Screenlet 的外觀。此頁提供可用於此 Screenlet 的主題。"
 
 #: src/lib/options.py:903
 msgid "Themes "
@@ -327,19 +331,19 @@ msgstr "選取圖像"
 
 #: src/lib/options.py:1109
 msgid "Open List-Editor ..."
-msgstr "開啟清單編輯"
+msgstr "開啟清單編輯 ..."
 
 #: src/lib/options.py:1130
 msgid "Apply username/password ..."
-msgstr "套用「使用者名稱」與「密碼」"
+msgstr "套用「使用者名稱」與「密碼」 ..."
 
 #: src/lib/options.py:1131
 msgid "Enter username here ..."
-msgstr "在這裡輸入使用者名稱"
+msgstr "在此輸入使用者名稱 ..."
 
 #: src/lib/options.py:1132
 msgid "Enter password here ..."
-msgstr "在這裡輸入密碼"
+msgstr "在此輸入密碼 ..."
 
 #: src/lib/options.py:1187
 msgid "Apply"
@@ -348,7 +352,7 @@ msgstr "套用"
 #: src/lib/sensors.py:165
 #, python-format
 msgid "%(days)s days, %(hours)s hours and %(minutes)s minutes"
-msgstr ""
+msgstr "%(days)s 日、%(hours)s 小時又 %(minutes)s 分鐘"
 
 #: src/lib/sensors.py:276
 msgid "Can't get KDE version"

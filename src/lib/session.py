@@ -145,8 +145,8 @@ class ScreenletSession (object):
 						#self.__restore_options_from_file (sl, self.path + filename)
 						self.__restore_options_from_backend(sl, self.path+filename)
 						sl.enable_saving(True)
-						# and call init handler informing the config filename as the window role
-						sl.finish_loading(filename)
+						# and call init handler
+						sl.finish_loading()
 						return sl
 		sl = self.screenlet(id=id, session=self, **keyword_args)
 		if sl:
@@ -403,8 +403,8 @@ class ScreenletSession (object):
 					#self.__restore_options_from_file (sl, self.path + filename)
 					self.__restore_options_from_backend(sl, self.path+filename)
 					sl.enable_saving(True)
-					# and call init handler informing the config filename as the window role
-					sl.finish_loading(filename)
+					# and call init handler
+					sl.finish_loading()
 				else:
 					print "Failed to create instance of '%s'!" % filename[:-4]
 		# if instances were found, return True, else False

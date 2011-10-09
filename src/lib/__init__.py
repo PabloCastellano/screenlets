@@ -911,6 +911,8 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 			self.window.set_destroy_with_parent(True)
 		self.window.resize(width, height)
 		self.window.set_decorated(False)
+		# Set the window role so we can manipulate it with a window manager (such as Compiz)
+		self.window.set_role(self.id)
 		try:	# Workaround for Ubuntu Natty
 			self.window.set_property('has-resize-grip', False)
 		except TypeError:
@@ -1397,7 +1399,7 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 			self.set_is_widget(True)
 		self.has_focus = False
 
-	def finish_loading(self,role='Generic Screenlet'):
+	def finish_loading(self):
 		"""Called when screenlet finishes loading"""
 		
 
@@ -1422,8 +1424,6 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 		self.window.set_keep_above(self.keep_above)
 		self.window.set_keep_below(self.keep_below)
 
-		# set the window role so we can manipulate with a window manager (such as Compiz)
-		self.window.set_role(role)
 
 		self.on_init()
 		if self.is_widget:

@@ -1424,7 +1424,6 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 		self.window.set_keep_above(self.keep_above)
 		self.window.set_keep_below(self.keep_below)
 
-
 		self.on_init()
 		if self.is_widget:
 			self.set_is_widget(True)

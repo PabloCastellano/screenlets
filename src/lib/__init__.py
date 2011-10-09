@@ -1397,7 +1397,7 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 			self.set_is_widget(True)
 		self.has_focus = False
 
-	def finish_loading(self):
+	def finish_loading(self,role='Generic Screenlet'):
 		"""Called when screenlet finishes loading"""
 		
 
@@ -1421,6 +1421,9 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 		self.window.set_skip_taskbar_hint(self.skip_taskbar)
 		self.window.set_keep_above(self.keep_above)
 		self.window.set_keep_below(self.keep_below)
+
+		# set the window role so we can manipulate with a window manager (such as Compiz)
+		self.window.set_role(role)
 
 		self.on_init()
 		if self.is_widget:

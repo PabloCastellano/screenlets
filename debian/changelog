@@ -1,13 +1,17 @@
-screenlets (0.1.5-0ubuntu1-natty1) natty; urgency=low
+screenlets (0.1.5) oneiric; urgency=low
 
-  * Allow starting daemon on many user accounts simultaneously
+  * Allow starting daemon on multiple user accounts simultaneously
   * Make screenlets directories more XDG compliant
   * Populate AppIndicator menu before showing
   * Fix some licenses, authors lists and packaging routines
   * Support floats in font description strings
   * Improve adding Screenlets PPA
+  * Webkit support (Chris Coulson)
+  * Add support for multi workspace using Compiz (Diego Lima)
+  * Fix manual/realtime updating for options (Rastko Karadzic)
+  * Remove ClearWeather from Basic Pack, add Stocks
 
- -- Guido Tabbernuk <boamaod@gmail.com>  Sat, 20 Aug 2011 14:56:54 +0300
+ -- Guido Tabbernuk <boamaod@gmail.com>  Fri, 14 Oct 2011 14:41:05 +0300
 
 screenlets (0.1.4-0ubuntu1-natty1) UNRELEASED; urgency=low
 

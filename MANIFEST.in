@@ -2,8 +2,9 @@
 include *
 exclude MANIFEST *~
 
-# include the Makefile in docs
-include docs/Makefile
+# include files under docs
+recursive-include docs *
+recursive-exclude docs *~
 
 # include all files in desktop-menu (no temp-files)
 recursive-include desktop-menu *

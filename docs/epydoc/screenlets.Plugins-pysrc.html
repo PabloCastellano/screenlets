@@ -34,7 +34,7 @@
       <th class="navbar" align="right" width="100%">
         <table border="0" cellpadding="0" cellspacing="0">
           <tr><th class="navbar" align="center"
-            >Screenlets 0.1.4</th>
+            >Screenlets 0.1.5</th>
           </tr></table></th>
   </tr>
 </table>
@@ -61,26 +61,39 @@
 </table>
 <h1 class="epydoc">Source Code for <a href="screenlets.Plugins-module.html">Module screenlets.Plugins</a></h1>
 <pre class="py-src">
-<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">sys</tt> </tt>
-<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">os</tt> </tt>
-<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-name">sys</tt><tt class="py-op">.</tt><tt id="link-0" class="py-name" targets="Variable screenlets.ScreenletTheme.path=screenlets.ScreenletTheme-class.html#path,Variable screenlets.backend.CachingBackend.path=screenlets.backend.CachingBackend-class.html#path"><a title="screenlets.ScreenletTheme.path
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-comment"># This program is free software: you can redistribute it and/or modify</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-comment"># it under the terms of the GNU General Public License as published by</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-comment"># the Free Software Foundation, either version 3 of the License, or</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-comment"># (at your option) any later version.</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-comment"># </tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-comment"># This program is distributed in the hope that it will be useful,</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-comment"># but WITHOUT ANY WARRANTY; without even the implied warranty of</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-comment"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-comment"># GNU General Public License for more details.</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-comment"># </tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-comment"># You should have received a copy of the GNU General Public License</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-comment"># along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">sys</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">os</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-name">sys</tt><tt class="py-op">.</tt><tt id="link-0" class="py-name" targets="Variable screenlets.ScreenletTheme.path=screenlets.ScreenletTheme-class.html#path,Variable screenlets.backend.CachingBackend.path=screenlets.backend.CachingBackend-class.html#path"><a title="screenlets.ScreenletTheme.path
 screenlets.backend.CachingBackend.path" class="py-name" href="#" onclick="return doclink('link-0', 'path', 'link-0');">path</a></tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">sys</tt><tt class="py-op">.</tt><tt id="link-1" class="py-name"><a title="screenlets.ScreenletTheme.path
 screenlets.backend.CachingBackend.path" class="py-name" href="#" onclick="return doclink('link-1', 'path', 'link-0');">path</a></tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
-<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"> </tt>
-<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt id="link-2" class="py-name" targets="Variable screenlets.Plugins.PATH=screenlets.Plugins-module.html#PATH,Variable screenlets.services.ScreenletService.PATH=screenlets.services.ScreenletService-class.html#PATH"><a title="screenlets.Plugins.PATH
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"><tt id="link-2" class="py-name" targets="Variable screenlets.Plugins.PATH=screenlets.Plugins-module.html#PATH,Variable screenlets.services.ScreenletService.PATH=screenlets.services.ScreenletService-class.html#PATH"><a title="screenlets.Plugins.PATH
 screenlets.services.ScreenletService.PATH" class="py-name" href="#" onclick="return doclink('link-2', 'PATH', 'link-2');">PATH</a></tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-3" class="py-name"><a title="screenlets.ScreenletTheme.path
 screenlets.backend.CachingBackend.path" class="py-name" href="#" onclick="return doclink('link-3', 'path', 'link-0');">path</a></tt><tt class="py-op">.</tt><tt class="py-name">dirname</tt><tt class="py-op">(</tt><tt class="py-name">__file__</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-string">'/plugins'</tt> </tt>
-<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"> </tt>
-<a name="importAPI"></a><div id="importAPI-def"><a name="L7"></a><tt class="py-lineno"> 7</tt> <a class="py-toggle" href="#" id="importAPI-toggle" onclick="return toggle('importAPI');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.Plugins-module.html#importAPI">importAPI</a><tt class="py-op">(</tt><tt class="py-param">module</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="importAPI-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="importAPI-expanded"><a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line">        <tt class="py-docstring">"""Imports modules from plugins folder"""</tt> </tt>
-<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
-<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line">                <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt id="link-4" class="py-name"><a title="screenlets.ScreenletTheme.path
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"> </tt>
+<a name="importAPI"></a><div id="importAPI-def"><a name="L20"></a><tt class="py-lineno">20</tt> <a class="py-toggle" href="#" id="importAPI-toggle" onclick="return toggle('importAPI');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="screenlets.Plugins-module.html#importAPI">importAPI</a><tt class="py-op">(</tt><tt class="py-param">module</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="importAPI-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="importAPI-expanded"><a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line">        <tt class="py-docstring">"""Imports modules from plugins folder"""</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">                <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt id="link-4" class="py-name"><a title="screenlets.ScreenletTheme.path
 screenlets.backend.CachingBackend.path" class="py-name" href="#" onclick="return doclink('link-4', 'path', 'link-0');">path</a></tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt id="link-5" class="py-name"><a title="screenlets.Plugins.PATH
 screenlets.services.ScreenletService.PATH" class="py-name" href="#" onclick="return doclink('link-5', 'PATH', 'link-2');">PATH</a></tt><tt class="py-op">)</tt> </tt>
-<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line">                <tt class="py-name">mod</tt> <tt class="py-op">=</tt> <tt class="py-name">__import__</tt><tt class="py-op">(</tt><tt class="py-name">module</tt><tt class="py-op">)</tt> </tt>
-<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">mod</tt> </tt>
-<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt><tt class="py-op">:</tt> <tt class="py-keyword">return</tt> <tt class="py-name">None</tt> </tt>
-</div><a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">                <tt class="py-name">mod</tt> <tt class="py-op">=</tt> <tt class="py-name">__import__</tt><tt class="py-op">(</tt><tt class="py-name">module</tt><tt class="py-op">)</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">mod</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt><tt class="py-op">:</tt> <tt class="py-keyword">return</tt> <tt class="py-name">None</tt> </tt>
+</div><a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"> </tt><script type="text/javascript">
 <!--
 expandto(location.href);
 // -->
@@ -111,14 +124,14 @@ expandto(location.href);
       <th class="navbar" align="right" width="100%">
         <table border="0" cellpadding="0" cellspacing="0">
           <tr><th class="navbar" align="center"
-            >Screenlets 0.1.4</th>
+            >Screenlets 0.1.5</th>
           </tr></table></th>
   </tr>
 </table>
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Mon Jun  6 10:56:40 2011
+    Generated by Epydoc 3.0.1 on Sun Oct 16 07:15:40 2011
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

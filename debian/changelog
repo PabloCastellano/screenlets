@@ -1,3 +1,9 @@
+screenlets (0.1.6) oneiric; urgency=low
+
+  * New milestone.
+
+ -- Guido Tabbernuk <boamaod@gmail.com>  Tue, 18 Oct 2011 10:33:15 +0300
+
 screenlets (0.1.5) oneiric; urgency=low
 
   * Allow starting daemon on multiple user accounts simultaneously

@@ -183,19 +183,31 @@ DIR_USER = os.path.join(os.environ['HOME'], '.screenlets')
 DIR_CONFIG = os.path.join(xdg_config_home,'screenlets')
 OLD_DIR_CONFIG = os.path.join(xdg_config_home,'Screenlets')
 # workaround for XDG compliance update, see https://bugs.launchpad.net/screenlets/+bug/827369
-if not os.path.exists(DIR_CONFIG) and os.path.exists(OLD_DIR_CONFIG):
-	os.rename(OLD_DIR_CONFIG, DIR_CONFIG)
+try:
+	if not os.path.exists(DIR_CONFIG) and os.path.exists(OLD_DIR_CONFIG):
+		os.rename(OLD_DIR_CONFIG, DIR_CONFIG)
+except:
+	pass
 
-if not os.path.isdir(DIR_CONFIG):
-	os.system('mkdir %s' % DIR_CONFIG)
-if not os.path.isdir(DIR_USER):
-	os.system('mkdir %s' % DIR_USER)
+try:
+	if not os.path.isdir(DIR_CONFIG):
+		os.system('mkdir %s' % DIR_CONFIG)
+except:
+	pass
+try:
+	if not os.path.isdir(DIR_USER):
+		os.system('mkdir %s' % DIR_USER)
+except:
+	pass
 
 CONFIG_FILE = os.path.join(DIR_CONFIG, "config.ini")
 OLD_CONFIG_FILE = os.path.join(DIR_USER, "config.ini")
 # workaround for XDG compliance update, see https://bugs.launchpad.net/screenlets/+bug/827369
+try:
 if not os.path.exists(CONFIG_FILE) and os.path.exists(OLD_CONFIG_FILE):
 	os.rename(OLD_CONFIG_FILE, CONFIG_FILE)
+except:
+	pass
 
 # note that this is the order how themes are preferred to each other
 # don't change the order just like that
@@ -933,7 +945,10 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 		elif str(sensors.sys_get_window_manager()).lower() == 'sawfish':
 			print "WARNING - You are using kwin window manager , screenlets doesnt have full compatibility with this window manager"
 		else:
-			self.window.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_TOOLBAR)
+			# Dock seems to be better in Ubuntu 11.10, because it is seen after "Show desktop"
+			# (not in GNOME3 though)
+			#self.window.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_TOOLBAR)
+			self.window.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_DOCK)
 		self.window.set_keep_above(self.keep_above)
 		self.window.set_keep_below(self.keep_below)
 		self.window.set_skip_taskbar_hint(True)

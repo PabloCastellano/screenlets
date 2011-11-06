@@ -204,8 +204,8 @@ CONFIG_FILE = os.path.join(DIR_CONFIG, "config.ini")
 OLD_CONFIG_FILE = os.path.join(DIR_USER, "config.ini")
 # workaround for XDG compliance update, see https://bugs.launchpad.net/screenlets/+bug/827369
 try:
-if not os.path.exists(CONFIG_FILE) and os.path.exists(OLD_CONFIG_FILE):
-	os.rename(OLD_CONFIG_FILE, CONFIG_FILE)
+	if not os.path.exists(CONFIG_FILE) and os.path.exists(OLD_CONFIG_FILE):
+		os.rename(OLD_CONFIG_FILE, CONFIG_FILE)
 except:
 	pass
 

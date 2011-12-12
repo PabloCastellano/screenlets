@@ -945,10 +945,12 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 		elif str(sensors.sys_get_window_manager()).lower() == 'sawfish':
 			print "WARNING - You are using kwin window manager , screenlets doesnt have full compatibility with this window manager"
 		else:
-			# Dock seems to be better in Ubuntu 11.10, because it is seen after "Show desktop"
-			# (not in GNOME3 though)
+			# Dock seems to be best for Unity, because it is seen after "Show desktop"
+			# Toolbar seems to be almost like Dock, focus is fine under GNOME3, but not Drag'n'drop
+			# Utility works also under GNOME3 (focus + DnD), however "Hide desktop" hides the widgets under Unity (most neutral default choice)
 			#self.window.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_TOOLBAR)
-			self.window.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_DOCK)
+			#self.window.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_DOCK)
+			self.window.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_UTILITY)
 		self.window.set_keep_above(self.keep_above)
 		self.window.set_keep_below(self.keep_below)
 		self.window.set_skip_taskbar_hint(True)

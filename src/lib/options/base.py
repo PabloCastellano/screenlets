@@ -405,10 +405,9 @@ class OptionsDialog(gtk.Dialog):
             # and create inputs
             for option in group_data['options']:
                 if option.hidden == False:
-                    name = getattr(obj, option.name)
-                    if name == None:
+                    if option.name == None:
                         raise ValueError("Option %s has no name" % str(type(obj)))
-                    w = self.generate_widget( option, name )
+                    w = self.generate_widget( option, getattr(obj, option.name) )
                     if w:
                         box.pack_start(w, 0, 0)
                         w.show()

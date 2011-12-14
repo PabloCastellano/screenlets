@@ -816,8 +816,8 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 		self.__dict__['is_sticky'] 	= is_sticky
 		self.__dict__['draw_buttons'] 	= draw_buttons
 		self.resize_on_scroll = resize_on_scroll
-		self.__dict__['x'] = 200
-		self.__dict__['y'] = 150
+		self.__dict__['x'] =  gtk.gdk.screen_width()/2 - self.width/2
+		self.__dict__['y'] =  gtk.gdk.screen_height()/2 - self.height/2
 		# TEST: set scale relative to theme size (NOT WORKING)
 		#self.__dict__['scale'] = width/100.0
 		# /TEST
@@ -842,11 +842,11 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 				default='default', hidden=True))
 		# create/add options
 		self.add_option(IntOption('Screenlet', 'x',
-			default=200, label=_('X-Position'),
+			default=self.x, label=_('X-Position'),
 			desc=_('The X-position of this Screenlet ...'),
 			min=0, max=gtk.gdk.screen_width()))
 		self.add_option(IntOption('Screenlet', 'y',
-			default=150, label=_('Y-Position'),
+			default=self.y, label=_('Y-Position'),
 			desc=_('The Y-position of this Screenlet ...'),
 			min=0, max=gtk.gdk.screen_height()))
 		self.add_option(IntOption('Screenlet', 'width',

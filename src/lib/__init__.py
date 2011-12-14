@@ -118,6 +118,7 @@ except ImportError: print 'No module RSVG , graphics will not be so good'
 import subprocess
 import glob
 import math
+import time
 
 # import screenlet-submodules
 from options import *
@@ -739,8 +740,8 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 	p_layout		= None		# PangoLayout
 	
 	# default editable options, available for all Screenlets
-	x = 200
-	y = 150
+	x = None
+	y = None
 	mousex = 0
 	mousey = 0
 	mouse_is_over = False
@@ -917,6 +918,8 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 		self.disable_option('height')
 		# create window
 		self.window = gtk.Window(gtk.WINDOW_TOPLEVEL)
+		self.window.set_position(gtk.WIN_POS_CENTER)
+		self.window.set_accept_focus(True)
 		if parent_window:
 			self.window.set_parent_window(parent_window)
 			self.window.set_transient_for(parent_window)
@@ -947,10 +950,18 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 		else:
 			# Dock seems to be best for Unity, because it is seen after "Show desktop"
 			# Toolbar seems to be almost like Dock, focus is fine under GNOME3, but not Drag'n'drop
-			# Utility works also under GNOME3 (focus + DnD), however "Hide desktop" hides the widgets under Unity (most neutral default choice)
+			# Utility works also under GNOME3 (focus + DnD), however "Hide desktop" hides
+			#               the widgets under Unity (most neutral default choice)
+			if os.environ.get('DESKTOP_SESSION') == "ubuntu":
+				self.window.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_DOCK)
+#			elif os.environ.get('DESKTOP_SESSION') == "ubuntu-2d":
+#				self.window.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_UTILITY)
+#			elif os.environ.get('DESKTOP_SESSION') == "gnome":
+#				self.window.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_UTILITY)
+			else:
+				self.window.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_UTILITY)
 			#self.window.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_TOOLBAR)
 			#self.window.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_DOCK)
-			self.window.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_UTILITY)
 		self.window.set_keep_above(self.keep_above)
 		self.window.set_keep_below(self.keep_below)
 		self.window.set_skip_taskbar_hint(True)
@@ -1420,17 +1431,13 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 		"""Called when screenlet finishes loading"""
 		
 
-		self.window.present()			
-		
-		
-		# the keep above and keep bellow must be reset after the window is shown this is absolutly necessary 
-		self.window.hide()
-		self.window.move(self.x, self.y)
 
 		if DEBIAN and not self.ignore_requirements:
 			self.check_requirements()
 
-		self.window.show()	
+		self.window.present()
+		self.show()
+
 		self.has_started = True	
 		self.is_dragged = False
 		self.keep_above= self.keep_above
@@ -1551,8 +1558,15 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 	
 	def show (self):
 		"""Show this Screenlet's underlying gtk.Window"""
-		self.window.show()
+		# Hack for Ubuntu Oneiric, see https://bugs.launchpad.net/screenlets/+bug/885322 and https://bugs.launchpad.net/unity/+bug/904040
+		while True and os.environ.get('DESKTOP_SESSION') == "ubuntu": 
+			if os.system("pgrep -fl unity-panel-service | grep -v pgrep") == 0:
+				print "PANEL-SERVICE OK"
+				break
+			print "WAITING..."
+			time.sleep(1)
 		self.window.move(self.x, self.y)
+		self.window.show()
 		self.on_show()
 	
 	def show_settings_dialog (self):

@@ -7,57 +7,57 @@ msgid ""
 msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-10 06:36+0900\n"
+"POT-Creation-Date: 2012-01-04 01:49+0200\n"
 "PO-Revision-Date: 2011-01-11 17:19+0000\n"
 "Last-Translator: Screenlets Dev Team <screenlets-dev@lists.launchpad.net>\n"
 "Language-Team: Greek <el@li.org>\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2011-12-22 05:21+0000\n"
 "X-Generator: Launchpad (build 14560)\n"
-"Language: el\n"
 
-#: src/share/screenlets-manager/screenlets-daemon.py:89
+#: src/share/screenlets-manager/screenlets-daemon.py:127
 msgid "Screenlets daemon"
 msgstr "Δαίμονας Screenlets"
 
 #. create top menuitems
 #. name/version of this app
-#: src/share/screenlets-manager/screenlets-daemon.py:130
-#: src/share/screenlets-manager/screenlets-manager.py:49
-#: src/share/screenlets-manager/screenlets-manager.py:1320
+#: src/share/screenlets-manager/screenlets-daemon.py:169
+#: src/share/screenlets-manager/screenlets-manager.py:54
+#: src/share/screenlets-manager/screenlets-manager.py:1306
 msgid "Screenlets Manager"
 msgstr "Διαχειριστής Screenlets"
 
-#: src/share/screenlets-manager/screenlets-daemon.py:132
-#: src/share/screenlets-manager/screenlets-manager.py:918
+#: src/share/screenlets-manager/screenlets-daemon.py:171
+#: src/share/screenlets-manager/screenlets-manager.py:907
 msgid "Install Screenlet"
 msgstr "Εγκατάσταση Screenlet"
 
-#: src/share/screenlets-manager/screenlets-daemon.py:133
+#: src/share/screenlets-manager/screenlets-daemon.py:172
 msgid "Get more Screenlets"
 msgstr "Λήψη περισσότερων Screenlets"
 
-#: src/share/screenlets-manager/screenlets-daemon.py:139
+#: src/share/screenlets-manager/screenlets-daemon.py:178
 msgid "Launch Screenlet"
 msgstr "Έναρξη Screeκnlet"
 
 #. create the bottom menuitems
-#: src/share/screenlets-manager/screenlets-daemon.py:143
+#: src/share/screenlets-manager/screenlets-daemon.py:185
 msgid "Close all Screenlets"
 msgstr "Κλείσιμο όλων των Screenlets"
 
-#: src/share/screenlets-manager/screenlets-daemon.py:144
+#: src/share/screenlets-manager/screenlets-daemon.py:186
 msgid "Restart all Screenlets"
 msgstr "Επανεκκίνηση όλων των Screenlets"
 
-#: src/share/screenlets-manager/screenlets-daemon.py:147
+#: src/share/screenlets-manager/screenlets-daemon.py:189
 msgid "Quit the Screenlets"
 msgstr "Έξοδος από τα Screenlets"
 
-#: src/share/screenlets-manager/screenlets-daemon.py:219
-#: src/share/screenlets-manager/screenlets-manager.py:605
+#: src/share/screenlets-manager/screenlets-daemon.py:291
+#: src/share/screenlets-manager/screenlets-manager.py:599
 msgid ""
 "This application is released under the GNU General Public License v3 (or, at "
 "your option, any later version). You can find the full text of the license "
@@ -67,17 +67,17 @@ msgid ""
 msgstr ""
 "Αυτή η εφαρμογή κυκλοφορεί υπό τους όρους της GNU General Public License v3 "
 "(ή, ανάλογα με τις επιλογές σας, κάθε επόμενης έκδοσης). Μπορείτε να βρείτε "
-"και να διαβάσετε το πλήρες κείμενο της άδειας στη διεύθυνση "
-"http://www.gnu.org/licenses/gpl.txt. Η χρήση, επεξεργασία και/ή αναδιανομή "
-"αυτού του λογισμικού, συνεπάγεται ότι συμφωνείτε με τους όρους και τις "
-"προϋποθέσεις αυτής της άδειας. Ευχαριστούμε που χρησιμοποιείτε Ελεύθερο "
-"Λογισμικό / Λογισμικό Ανοικτού Κώδικα!"
+"και να διαβάσετε το πλήρες κείμενο της άδειας στη διεύθυνση http://www.gnu."
+"org/licenses/gpl.txt. Η χρήση, επεξεργασία και/ή αναδιανομή αυτού του "
+"λογισμικού, συνεπάγεται ότι συμφωνείτε με τους όρους και τις προϋποθέσεις "
+"αυτής της άδειας. Ευχαριστούμε που χρησιμοποιείτε Ελεύθερο Λογισμικό / "
+"Λογισμικό Ανοικτού Κώδικα!"
 
-#: src/share/screenlets-manager/screenlets-daemon.py:251
+#: src/share/screenlets-manager/screenlets-daemon.py:323
 msgid "Install a Screenlet"
 msgstr "Εγκατάσταση ενός Screenlet"
 
-#: src/share/screenlets-manager/screenlets-manager.py:100
+#: src/share/screenlets-manager/screenlets-manager.py:93
 msgid ""
 "Important! You are running this application as root user, almost all "
 "functionality is disabled. You can use this to install screenlets into the "
@@ -87,24 +87,24 @@ msgstr ""
 "λειτουργίες είναι απενεργοποιημένες. Μπορείτε να το χρησιμοποιήσετε για να "
 "εγκαταστήσετε screelets στην ευρεία διαδρομή του συστήματος."
 
-#: src/share/screenlets-manager/screenlets-manager.py:101
+#: src/share/screenlets-manager/screenlets-manager.py:94
 msgid "Warning!"
 msgstr "Προειδοποίηση!"
 
-#: src/share/screenlets-manager/screenlets-manager.py:132
+#: src/share/screenlets-manager/screenlets-manager.py:125
 msgid ""
 "Unable to connect or launch daemon. Some values may be displayed incorrectly."
 msgstr ""
 "Αδυναμία σύνδεσης ή φόρτωσης του δαίμονα. Μερικές τιμές μπορεί να "
 "εμφανίζονται λανθασμένα."
 
-#: src/share/screenlets-manager/screenlets-manager.py:132 src/lib/utils.py:102
-#: src/lib/utils.py:106 src/lib/utils.py:584 src/lib/utils.py:588
+#: src/share/screenlets-manager/screenlets-manager.py:125 src/lib/utils.py:128
+#: src/lib/utils.py:132 src/lib/utils.py:622 src/lib/utils.py:626
 msgid "Error"
 msgstr "Σφάλμα"
 
 #. delete the file
-#: src/share/screenlets-manager/screenlets-manager.py:160
+#: src/share/screenlets-manager/screenlets-manager.py:153
 #, python-format
 msgid ""
 "Do you really want to permanently uninstall and delete the %sScreenlet from "
@@ -113,195 +113,198 @@ msgstr ""
 "Θέλετε πραγματικά να απεγκαταστήσετε μόνιμα και να διαγράψετε το Screenlet "
 "%s από το σύστημά σας;"
 
-#: src/share/screenlets-manager/screenlets-manager.py:160
+#: src/share/screenlets-manager/screenlets-manager.py:153
 msgid "Delete Screenlet"
 msgstr "Διαγραφή Screenlet"
 
-#: src/share/screenlets-manager/screenlets-manager.py:165
+#: src/share/screenlets-manager/screenlets-manager.py:158
 msgid "Do you also want to remove the Screenlet configuration files?"
 msgstr "Θέλετε επίσης να διαγράψετε τα αρχεία ρυθμίσεων του Screenlet;"
 
-#: src/share/screenlets-manager/screenlets-manager.py:169
+#: src/share/screenlets-manager/screenlets-manager.py:162
 msgid "Can't delete system-wide screenlets."
 msgstr "Αδυναμία διαγραφής καθολικών screenlets του συστήματος."
 
-#: src/share/screenlets-manager/screenlets-manager.py:269
+#: src/share/screenlets-manager/screenlets-manager.py:262
 #, python-format
 msgid "Do you really want to reset the %sScreenlet configuration?"
 msgstr ""
 "Θέλετε πραγματικά να επαναφέρετε τις αρχικές ρυθμίσεις του %sScreenlet;"
 
-#: src/share/screenlets-manager/screenlets-manager.py:269
+#: src/share/screenlets-manager/screenlets-manager.py:262
 msgid "Reset Screenlet"
 msgstr "Επαναφορά του Screenlet"
 
-#: src/share/screenlets-manager/screenlets-manager.py:358
+#: src/share/screenlets-manager/screenlets-manager.py:351
 msgid "Launch/Add"
 msgstr "Φόρτωση/Προσθήκη"
 
-#: src/share/screenlets-manager/screenlets-manager.py:362
-#: src/share/screenlets-manager/screenlets-manager.py:923
+#: src/share/screenlets-manager/screenlets-manager.py:355
+#: src/share/screenlets-manager/screenlets-manager.py:912
 msgid "Install"
 msgstr "Εγκατάσταση"
 
 #. but2.set_image(gtk.image_new_from_stock(gtk.STOCK_ADD,
 #. gtk.ICON_SIZE_BUTTON))
-#: src/share/screenlets-manager/screenlets-manager.py:365
+#: src/share/screenlets-manager/screenlets-manager.py:358
 msgid "Uninstall"
 msgstr "Απεγκατάσταση"
 
 #. but3.set_image(gtk.image_new_from_stock(gtk.STOCK_DELETE,
 #. gtk.ICON_SIZE_BUTTON))
-#: src/share/screenlets-manager/screenlets-manager.py:369
+#: src/share/screenlets-manager/screenlets-manager.py:362
 msgid "Reset Screenlet Config"
 msgstr "Επαναφορά ρυθμίσεων του Screenlet"
 
 #. but4.set_image(gtk.image_new_from_stock(gtk.STOCK_CLEAR,
 #. gtk.ICON_SIZE_BUTTON))
-#: src/share/screenlets-manager/screenlets-manager.py:373
+#: src/share/screenlets-manager/screenlets-manager.py:366
 msgid "Install New Theme"
 msgstr "Εγκατάσταση Νέου Θέματος"
 
 #. but5.set_image(gtk.image_new_from_stock(gtk.STOCK_ADD,
 #. gtk.ICON_SIZE_BUTTON))
-#: src/share/screenlets-manager/screenlets-manager.py:377
+#: src/share/screenlets-manager/screenlets-manager.py:370
 msgid "Re-Start All"
 msgstr "Επανεκκίνηση όλων"
 
 #. but6.set_image(gtk.image_new_from_stock(gtk.STOCK_REFRESH,
 #. gtk.ICON_SIZE_BUTTON))
-#: src/share/screenlets-manager/screenlets-manager.py:381
+#: src/share/screenlets-manager/screenlets-manager.py:374
 msgid "Close All"
 msgstr "Κλείσιμο όλων"
 
 #. but7.set_image(gtk.image_new_from_stock(gtk.STOCK_REMOVE,
 #. gtk.ICON_SIZE_BUTTON))
-#: src/share/screenlets-manager/screenlets-manager.py:385
+#: src/share/screenlets-manager/screenlets-manager.py:378
 msgid "Options"
 msgstr "Επιλογές"
 
-#: src/share/screenlets-manager/screenlets-manager.py:387
+#: src/share/screenlets-manager/screenlets-manager.py:380
 msgid "Create Desktop Shortcut"
 msgstr "Δημιουργία συντόμευσης στην επιφάνεια εργασίας"
 
-#: src/share/screenlets-manager/screenlets-manager.py:419
+#: src/share/screenlets-manager/screenlets-manager.py:412
 msgid "Launch/add a new instance of the selected Screenlet ..."
 msgstr "Φόρτωση/Πρσθήκη νέου στιγμιότυπου του επιλεγμένου Screenlet..."
 
-#: src/share/screenlets-manager/screenlets-manager.py:420
+#: src/share/screenlets-manager/screenlets-manager.py:413
 msgid ""
 "Install a new Screenlet, SuperKaramba or Web Widget or Web Application  ..."
 msgstr ""
 "Εγκατάσταση νέου Screenlet, SuperKaramba ή Web Γραφικού Συστατικού ή Web "
 "Εφαρμογής..."
 
-#: src/share/screenlets-manager/screenlets-manager.py:421
+#: src/share/screenlets-manager/screenlets-manager.py:414
 msgid "Permanently uninstall/delete the currently selected Screenlet ..."
 msgstr "Μόνιμη απεγκατάσταση/διαγραφή του παρόντος επιλεγμένου Screenlet..."
 
-#: src/share/screenlets-manager/screenlets-manager.py:422
+#: src/share/screenlets-manager/screenlets-manager.py:415
+#, fuzzy
 msgid ""
-"Reset this Screenlet configuration (will only work if screenlet isnt running)"
+"Reset this Screenlet configuration (will only work if Screenlet isn't "
+"running)"
 msgstr ""
 "Επαναφορά ρυθμίσεων αυτού του Screenlet (μόνον εάν το Screenlet δεν "
 "εκτελείται)"
 
-#: src/share/screenlets-manager/screenlets-manager.py:423
+#: src/share/screenlets-manager/screenlets-manager.py:416
 msgid "Install new theme for this screenlet"
 msgstr "Εγκατάσταση νέου θέματος γι' αυτό το Screenlet"
 
-#: src/share/screenlets-manager/screenlets-manager.py:424
-msgid "Restart all screenlets that have auto start at login"
+#: src/share/screenlets-manager/screenlets-manager.py:417
+#, fuzzy
+msgid "Restart all Screenlets that have auto start at login"
 msgstr ""
 "Επανεκκίνηση όλων των screenlets που διαθέτουν αυτόματη εκκίνηση κατά τη "
 "σύνδεση."
 
-#: src/share/screenlets-manager/screenlets-manager.py:425
+#: src/share/screenlets-manager/screenlets-manager.py:418
 msgid "Close all Screenlets running"
 msgstr "Κλείσιμο όλων των Screenlets που εκτελούνται"
 
-#: src/share/screenlets-manager/screenlets-manager.py:426
+#: src/share/screenlets-manager/screenlets-manager.py:419
 msgid "New Screenlets Options/Properties"
 msgstr "Νέες Επιλογές/Ιδιότητες των Screenlets"
 
-#: src/share/screenlets-manager/screenlets-manager.py:427
+#: src/share/screenlets-manager/screenlets-manager.py:420
 msgid "Create a Desktop shortcut for this Screenlet"
 msgstr "Δημιουργία συντόμευσης επιφάνειας εργασίας γι' αυτό το Screenlet"
 
-#: src/share/screenlets-manager/screenlets-manager.py:446
+#: src/share/screenlets-manager/screenlets-manager.py:439
 msgid "All Screenlets"
 msgstr "Όλα τα Screenlets"
 
-#: src/share/screenlets-manager/screenlets-manager.py:447
+#: src/share/screenlets-manager/screenlets-manager.py:440
 msgid "Running Screenlets"
 msgstr "Εκτελούμενα screenlets"
 
-#: src/share/screenlets-manager/screenlets-manager.py:448
+#: src/share/screenlets-manager/screenlets-manager.py:441
 msgid "Autostart Screenlets"
 msgstr "Screenlets με αυτόματη εκκίνηση"
 
-#: src/share/screenlets-manager/screenlets-manager.py:449
+#: src/share/screenlets-manager/screenlets-manager.py:442
 msgid "Only native Screenlets"
 msgstr "Μόνον εγγενή screenlets"
 
-#: src/share/screenlets-manager/screenlets-manager.py:450
+#: src/share/screenlets-manager/screenlets-manager.py:443
 msgid "Only third party"
 msgstr "Μόνο screenlets τρίτων"
 
-#: src/share/screenlets-manager/screenlets-manager.py:476
+#: src/share/screenlets-manager/screenlets-manager.py:469
 msgid "Get more screenlets"
 msgstr "Λήψη περισσότερων screnlets"
 
-#: src/share/screenlets-manager/screenlets-manager.py:482
+#: src/share/screenlets-manager/screenlets-manager.py:475
 msgid "Show info about this dialog ..."
 msgstr "Εμφάνιση πληροφοριών γι' αυτόν τον διάλογο..."
 
-#: src/share/screenlets-manager/screenlets-manager.py:483
+#: src/share/screenlets-manager/screenlets-manager.py:476
 msgid "Download more screenlets ..."
 msgstr "Μεταφόρτωση περισσότερων screenlets..."
 
-#: src/share/screenlets-manager/screenlets-manager.py:484
+#: src/share/screenlets-manager/screenlets-manager.py:477
 msgid "Close this dialog ..."
 msgstr "Κλείσιμο αυτού του διαλόγου..."
 
 #. create checkboxes
-#: src/share/screenlets-manager/screenlets-manager.py:518
+#: src/share/screenlets-manager/screenlets-manager.py:511
 msgid "Start/Stop"
 msgstr "Έναρξη/Διακοπή"
 
-#: src/share/screenlets-manager/screenlets-manager.py:519
+#: src/share/screenlets-manager/screenlets-manager.py:512
 msgid "Auto start on login"
 msgstr "Αυτόματη εκκίνηση κατά τη σύνδεση"
 
-#: src/share/screenlets-manager/screenlets-manager.py:520
+#: src/share/screenlets-manager/screenlets-manager.py:513
 msgid "Show daemon in tray"
 msgstr "Εμφάνιση δαίμονα στη γραμμή εργασιών"
 
-#: src/share/screenlets-manager/screenlets-manager.py:650
+#: src/share/screenlets-manager/screenlets-manager.py:644
 #, python-format
 msgid "Invalid string: %s."
 msgstr "Μη έγκυρη γραμμή: %s"
 
-#: src/share/screenlets-manager/screenlets-manager.py:685
+#: src/share/screenlets-manager/screenlets-manager.py:679
 msgid "Install a Screenlet or SuperKaramba theme"
 msgstr "Εγκατάσταση ενός screenlet ή θέματος SuperKaramba"
 
-#: src/share/screenlets-manager/screenlets-manager.py:723
+#: src/share/screenlets-manager/screenlets-manager.py:717
 msgid "Install a new theme for the selected Screenlet"
 msgstr "Εγκατάσταση ενός νέου θέματος για το επιλεγμένο Screenlet"
 
-#: src/share/screenlets-manager/screenlets-manager.py:768
+#: src/share/screenlets-manager/screenlets-manager.py:762
 msgid "Error Found"
 msgstr "Βρέθηκε σφάλμα"
 
-#: src/share/screenlets-manager/screenlets-manager.py:773
+#: src/share/screenlets-manager/screenlets-manager.py:767
 msgid ""
 "Theme install error 1 found - Theme not installed , maybe a package error "
 msgstr ""
 "Ένα σφάλμα εγκατάστασης του θέματος βρέθηκε - Το θέμα δεν εγκαταστάθηκε, "
 "πιθανόν να υπάρχει σφάλμα στο πακέτο "
 
-#: src/share/screenlets-manager/screenlets-manager.py:784
+#: src/share/screenlets-manager/screenlets-manager.py:778
 msgid ""
 "This package seams to contain a full Screenlet and not just a theme, please "
 "use the screenlet install instead"
@@ -309,23 +312,413 @@ msgstr ""
 "Αυτό το πακέτο φαίνεται να περιέχει ένα πλήρες screenlet και όχι μόνον ένα "
 "θέμα, παρακαλώ χρησιμοποιήστε την εγκατάσταση του screenlet"
 
-#: src/share/screenlets-manager/screenlets-manager.py:796
+#: src/share/screenlets-manager/screenlets-manager.py:790
 msgid "This package doesnt seem to contain a theme"
 msgstr "Αυτό το πακέτο δεν φαίνεται να περιέχει ένα θέμα"
 
-#: src/share/screenlets-manager/screenlets-manager.py:819
+#: src/share/screenlets-manager/screenlets-manager.py:813
 #, python-format
 msgid "Theme installed , please restart %s"
 msgstr "Το θέμα εγκαταστάθηκε, παρακαλώ κάντε επανεκκίνηση %s"
 
-#: src/share/screenlets-manager/screenlets-manager.py:824
-msgid ""
-"Theme install error 2 found - Theme not installed or already installed"
+#: src/share/screenlets-manager/screenlets-manager.py:818
+msgid "Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Δύο σφάλματα εγκατάστασης του θέματους βρέθηκαν - Το θέμα δεν εγκαταστάθηκε "
 "ή είναι ήδη εγκατεστημένο"
 
 #: src/share/screenlets-manager/screenlets-manager.py:908
+msgid "Install SuperKaramba Theme"
+msgstr "Εγκατάσταση του Θέματος SuperKaramba"
+
+#: src/share/screenlets-manager/screenlets-manager.py:909
+msgid "Convert Web Widget"
+msgstr "Μετατροπή του Web Widget"
+
+#: src/share/screenlets-manager/screenlets-manager.py:910
+#: src/share/screenlets-manager/screenlets-manager.py:1017
+msgid "Install Web Application"
+msgstr "Εγκατάσταση Web Εφαρμογής"
+
+#: src/share/screenlets-manager/screenlets-manager.py:930
+msgid "New screenlets atributes.."
+msgstr "Νέα γνωρίσματα των screenlets..."
+
+#: src/share/screenlets-manager/screenlets-manager.py:931
+msgid "Lock"
+msgstr "Κλείδωμα"
+
+#: src/share/screenlets-manager/screenlets-manager.py:932
+msgid "Sticky"
+msgstr "Κολλημένο"
+
+#: src/share/screenlets-manager/screenlets-manager.py:933
+msgid "Widget"
+msgstr "Γραφικό Συστατικό"
+
+#: src/share/screenlets-manager/screenlets-manager.py:934
+msgid "Keep above"
+msgstr "Διατήρηση επάνω"
+
+#: src/share/screenlets-manager/screenlets-manager.py:936
+msgid "Keep below"
+msgstr "Διατήρηση πίσω"
+
+#: src/share/screenlets-manager/screenlets-manager.py:937
+msgid "Show buttons"
+msgstr "Εμφάνιση πλήκτρων"
+
+#: src/share/screenlets-manager/screenlets-manager.py:969
+msgid "New Screenlets atributes"
+msgstr "Νέα γνωρίσματα των screenlets"
+
+#: src/share/screenlets-manager/screenlets-manager.py:1007
+msgid "Web Application Url"
+msgstr "Url Web Εφαρμογής"
+
+#: src/share/screenlets-manager/screenlets-manager.py:1008
+msgid "Web Application Name"
+msgstr "Όνομα Web Εφαρμογής"
+
+#. found_path != None:
+#: src/share/screenlets-manager/screenlets-manager.py:1040
+#: src/share/screenlets-manager/screenlets-manager.py:1123
+msgid ""
+"There is already a screenlet with that name installed\n"
+"Do you wish to continue?"
+msgstr ""
+"Υπάρχει ήδη ένα εγκατεστημένο screenlet με αυτό το όνομα\n"
+"Θέλετε να συνεχίσετε;"
+
+#: src/share/screenlets-manager/screenlets-manager.py:1060
+msgid "Web Application was successfully installed"
+msgstr "Η Web Εφαρμογή εγκαταστάθηκε με επιτυχία"
+
+#: src/share/screenlets-manager/screenlets-manager.py:1063
+msgid "Error installing!!!"
+msgstr "Σφάλμα εγκατάστασης!!!"
+
+#: src/share/screenlets-manager/screenlets-manager.py:1064
+#: src/share/screenlets-manager/screenlets-manager.py:1148
+msgid "Please specify a name for the widget"
+msgstr "Παρακαλώ δώστε ένα όνομα για το γραφικό συστατικό"
+
+#: src/share/screenlets-manager/screenlets-manager.py:1065
+#: src/share/screenlets-manager/screenlets-manager.py:1149
+msgid "No HTML code found"
+msgstr "Δεν βρέθηκε κώδικας HTML"
+
+#: src/share/screenlets-manager/screenlets-manager.py:1069
+msgid "Convert any webpage widget into a Screenlet."
+msgstr "Μετατροπή οποιουδήποτε γραφικού συστατικού ιστοσελίδας σε screenlet."
+
+#: src/share/screenlets-manager/screenlets-manager.py:1070
+msgid "Step 1 : Find the widget you want to convert"
+msgstr "Βήμα 1: Βρείτε το γραφικό συστατικό που θέλετε να μετατρέψετε"
+
+#: src/share/screenlets-manager/screenlets-manager.py:1071
+msgid "Step 2 : Copy and Paste the HTML from the widget in the box below"
+msgstr ""
+"Βήμα 2: Αντιγράψτε και επικολλήστε τον κώδικα HTML του γραφικού συστατικού "
+"στο παρακάτω πλαίσιο"
+
+#: src/share/screenlets-manager/screenlets-manager.py:1072
+msgid "Step 3 : Give it a name in the box below and click on Ok to convert"
+msgstr ""
+"Βήμα 3: Δώστε του ένα όνομα στο παρακάτω πλαίσιο και πατήστε στο Ok για να "
+"γίνει η μετατροπή"
+
+#: src/share/screenlets-manager/screenlets-manager.py:1073
+msgid "The name of the widget"
+msgstr "Το όνομα του γραφικού συστατικού"
+
+#: src/share/screenlets-manager/screenlets-manager.py:1097
+msgid "Widget converter"
+msgstr "Μετατροπέας γραφικού συστατικού"
+
+#: src/share/screenlets-manager/screenlets-manager.py:1144
+msgid "Widget was successfully converted"
+msgstr "Το γραφικό συστατικό μετατράπηκε με επιτυχία"
+
+#: src/share/screenlets-manager/screenlets-manager.py:1147
+msgid "Error converting!!!"
+msgstr "Σφάλμα μετατροπής!!!"
+
+#: src/share/screenlets-manager/screenlets-manager.py:1269
+msgid "Screenlets-Manager must now be restarted"
+msgstr "Ο Διαχειριστής των screenlets πρέπει να επανεκκινηθεί τώρα"
+
+#. + constants
+#: src/share/screenlets-manager/screenlets-packager.py:36
+msgid ""
+"Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
+"Usage: screenlets-packager <path> [options]"
+msgstr ""
+"Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
+"Χρήση: screenlets-packager <path> [options]"
+
+#: src/share/screenlets-manager/screenlets-packager.py:75
+#, python-format
+msgid "The specified path \"%s\" does not exist."
+msgstr "Η καθορισμένη διαδρομή \"%s\" δεν υπάρχει."
+
+#: src/share/screenlets-manager/screenlets-packager.py:76
+#, python-format
+msgid "Found path \"%s\"."
+msgstr "Βρέθηκε διαδρομή \"%s\"."
+
+#: src/share/screenlets-manager/screenlets-packager.py:82
+msgid "Failed to extract screenlet name from path."
+msgstr "Αποτυχία εξαγωγής ονόματος του screenlet από τη διαδρομή."
+
+#: src/share/screenlets-manager/screenlets-packager.py:83
+#, python-format
+msgid "Screenlet name is %s."
+msgstr "Το όνομα του screenlet είναι %s."
+
+#: src/share/screenlets-manager/screenlets-packager.py:87
+#, python-format
+msgid "No screenlet-file \"%sScreenlet.py\" found in the given path."
+msgstr ""
+"Δεν βρέθηκε το αρχείο του screenlet \"%sScreenlet.py\" στη δοσμένη διαδρομή."
+
+#: src/share/screenlets-manager/screenlets-packager.py:88
+#, python-format
+msgid "Found %sScreenlet.py in path."
+msgstr "Βρέθηκε το %sScreenlet.py στη διαδρομή."
+
+#: src/share/screenlets-manager/screenlets-packager.py:97
+#, python-format
+msgid "Unable to import module '%(name)s' from %(path)s. (%(error)s)"
+msgstr "Αδυναμία εισαγωγής του αρθρώματος '%(name)s' από %(path)s. (%(error)s)"
+
+#: src/share/screenlets-manager/screenlets-packager.py:98
+#, python-format
+msgid "Successfully imported module: %s"
+msgstr "Επιτυχής εισαγωγή αρθρώματος: %s"
+
+#: src/share/screenlets-manager/screenlets-packager.py:104
+msgid "Unable to import class from module."
+msgstr "Αδυναμία εισαγωγής κλάσης από το άρθρωμα."
+
+#: src/share/screenlets-manager/screenlets-packager.py:106
+msgid "The class inside the module is no subclass of screenlets.Screenlet."
+msgstr "Η κλάση μέσα στο άρθρωμα δεν είναι υποκλάση του screenlets.Screenlet."
+
+#: src/share/screenlets-manager/screenlets-packager.py:107
+#, python-format
+msgid "Successfully got class from module: %s"
+msgstr "Επιτυχής λήψη κλάσης από το άρθρωμα: %s"
+
+#: src/share/screenlets-manager/screenlets-packager.py:138
+#, python-format
+msgid "Failed to create package info in \"%s\" (no permission?)."
+msgstr ""
+"Αποτυχία δημιουργίας πακέτου πληροφοριών στο \"%s\" (δεν υπάρχουν άδειες;)."
+
+#: src/share/screenlets-manager/screenlets-packager.py:139
+msgid "Created package info file."
+msgstr "Δημιουργήθηκε αρχείο πακέτου πληροφοριών."
+
+#: src/share/screenlets-manager/screenlets-packager.py:157
+msgid "Cleaned up and finished."
+msgstr "Καθαρισμός και ολοκλήρωση."
+
+#: src/share/screenlets-manager/WebappScreenlet.py:79
+#: src/share/screenlets-manager/WebappScreenlet.py:83
+#: src/share/screenlets-manager/WebappScreenlet.py:90
+#: src/share/screenlets-manager/WebappScreenlet.py:99
+#: src/share/screenlets-manager/WebappScreenlet.py:106
+#: src/share/screenlets-manager/WebappScreenlet.py:115
+#: src/share/screenlets-manager/WebappScreenlet.py:124
+msgid "Webframe"
+msgstr ""
+
+#: src/share/screenlets-manager/WebappScreenlet.py:80
+msgid "Preferences for this Webframe instance"
+msgstr ""
+
+#: src/share/screenlets-manager/WebappScreenlet.py:86
+msgid "Home page"
+msgstr ""
+
+#: src/share/screenlets-manager/WebappScreenlet.py:93
+msgid "Auto reload (minutes)"
+msgstr ""
+
+#: src/share/screenlets-manager/WebappScreenlet.py:94
+msgid "0 is disable an auto reload event"
+msgstr ""
+
+#: src/share/screenlets-manager/WebappScreenlet.py:102
+msgid "Web browser engine"
+msgstr ""
+
+#: src/share/screenlets-manager/WebappScreenlet.py:103
+msgid "Set default engine to the first item of list"
+msgstr ""
+
+#: src/share/screenlets-manager/WebappScreenlet.py:109
+msgid "Width"
+msgstr ""
+
+#: src/share/screenlets-manager/WebappScreenlet.py:110
+#, fuzzy
+msgid "Width of the widget"
+msgstr "Το όνομα του γραφικού συστατικού"
+
+#: src/share/screenlets-manager/WebappScreenlet.py:118
+msgid "Height"
+msgstr ""
+
+#: src/share/screenlets-manager/WebappScreenlet.py:119
+#, fuzzy
+msgid "Height of the widget"
+msgstr "Το όνομα του γραφικού συστατικού"
+
+#: src/share/screenlets-manager/WebappScreenlet.py:127
+msgid "Border width"
+msgstr ""
+
+#: src/share/screenlets-manager/WebappScreenlet.py:128
+msgid "Thickness of border in pixels"
+msgstr ""
+
+#: src/share/screenlets-manager/WebappScreenlet.py:147
+msgid "Theme could not be loaded."
+msgstr ""
+
+#: src/share/screenlets-manager/WebappScreenlet.py:154
+msgid "Back"
+msgstr ""
+
+#: src/share/screenlets-manager/WebappScreenlet.py:155
+msgid "Forward"
+msgstr ""
+
+#: src/share/screenlets-manager/WebappScreenlet.py:156
+msgid "Reload"
+msgstr ""
+
+#: src/share/screenlets-manager/WebappScreenlet.py:157
+msgid "Home"
+msgstr ""
+
+#: src/share/screenlets-manager/WebappScreenlet.py:158
+msgid "Search"
+msgstr ""
+
+#: src/share/screenlets-manager/WebappScreenlet.py:159
+msgid "View in Browser"
+msgstr ""
+
+#: src/lib/install.py:64
+msgid ""
+"This type of karamba theme is not supported yet\n"
+" Only older versions can be used"
+msgstr ""
+"Αυτός ο τύπος θέματος karamba δεν υποστηρίζεται ακόμη.\n"
+"Μόνον παλιές εκδόσεις μπορούν να χρησιμοποιηθούν."
+
+#: src/lib/install.py:120
+msgid "Archive is damaged or unsupported, use only tar, bz2 or gz."
+msgstr ""
+"Το αρχείο είναι κατεστραμμένο ή δεν υποστηρίζεται, χρησιμοποιήστε μόνον "
+"αρχεία tar, bz2 ή gz."
+
+#. check if screenlet is already installed
+#. found_path = screenlets.utils.find_first_screenlet_path(name)
+#. found_path != None:
+#: src/lib/install.py:134
+#, python-format
+msgid ""
+"The %(slet)sScreenlet is already installed in '%(dir)s'.\n"
+"Do you wish to continue?"
+msgstr ""
+"Τα %(slet)sScreenlet είναι ήδη εγκατεστημένα στο '%(dir)s'.\n"
+"Θέλετε να συνεχίσετε?"
+
+#: src/lib/install.py:134 src/lib/install.py:200
+#, python-format
+msgid "Install %s"
+msgstr "Εγκατάσταση %s"
+
+#: src/lib/install.py:137
+#, python-format
+msgid "%sScreenlet is already installed"
+msgstr "Το %sScreenlet είναι ήδη εγκατεστημένο"
+
+#. dir missing
+#: src/lib/install.py:144
+msgid ""
+"Invalid archive. Archive must contain a directory with the screenlet's name."
+msgstr ""
+"Μη έγκυρο αρχείο. Το αρχείο πρέπει να περιέχει έναν φάκελο με το όνομα του "
+"screenlet."
+
+#: src/lib/install.py:156
+msgid "Compatibility for this karamba theme is not yet implemented"
+msgstr "Η συμβατότητα γι' αυτό το θέμα karamba δεν έχει τεθεί ακόμη σε ισχύ"
+
+#: src/lib/install.py:183
+msgid "Karamba theme was successfully installed"
+msgstr "Το θέμα karamba εγκαταστάθηκε με επιτυχία"
+
+#: src/lib/install.py:185
+msgid ""
+"Invalid archive. Archive does not contain a screenlet or a valid karamba "
+"theme."
+msgstr ""
+"Μη έγκυρο αρχείο. Το αρχείο δεν περιέχει screenlet ή ένα έγκυρο θέμα karamba."
+
+#: src/lib/install.py:200
+#, python-format
+msgid ""
+"%s was not packaged with the screenlet packager. Do you wish to continue and "
+"try to install it?"
+msgstr ""
+"Το %s δεν έχει πακεταριστεί με τον συσκευαστή των screenlets. Θέλετε να "
+"συνεχίσετε και να προσπαθήσετε να το εγκαταστήσετε;"
+
+#: src/lib/install.py:203
+msgid "This package was not packaged with the screenlet packager."
+msgstr "Αυτό το πακέτο δεν έχει πακεταριστεί με τον συσκευαστή των screenlets."
+
+#. set msg/result
+#: src/lib/install.py:212
+#, python-format
+msgid "The %sScreenlet has been succesfully installed."
+msgstr "Το %sScreenlet έχει εγκατασταθεί με επιτυχία."
+
+#. create autostart directory, if not existent
+#: src/lib/utils.py:127 src/lib/utils.py:622
+msgid ""
+"There is no existing autostart directory for your user account yet. Do you "
+"want me to automatically create it for you?"
+msgstr ""
+"Δεν υπάρχει ακόμα κατάλογος αυτόματης εκκίνησης για τον δικό σας λογαριασμό "
+"χρήστη. Θέλετε να δημιουργήσω έναν για εσάς;"
+
+#: src/lib/utils.py:132 src/lib/utils.py:626
+#, python-format
+msgid ""
+"Automatic creation failed. Please manually create the directory:\n"
+"%s"
+msgstr ""
+"Η αυτόματη δημιουργία απέτυχε. Παρακαλώ δημιουργήστε τον κατάλογο "
+"χειροκίνητα:\n"
+"%s"
+
+#: src/lib/utils.py:135 src/lib/utils.py:629
+#, python-format
+msgid ""
+"Please manually create the directory:\n"
+"%s"
+msgstr ""
+"Παρακαλώ δημιουργήστε τον κατάλογο χειροκίνητα:\n"
+"%s"
+
+#: src/lib/utils.py:204
 msgid ""
 "The Screenlets PPA is not listed among Software Sources. Adding this enables "
 "installing individual screenlets from Package Manager (or Software Center) "
@@ -338,333 +731,27 @@ msgstr ""
 "σε ιστοσελίδες όπως το Gnome-look.org. Θα θέλατε να προσθέσετε το Screenlets "
 "PPA στο σύστημά σας;"
 
-#: src/share/screenlets-manager/screenlets-manager.py:908
+#: src/lib/utils.py:204
 msgid "Do you want to enable the Screenlets PPA?"
 msgstr "Θέλετε να ενεργοποιήσετε τo PPA των Screenlets;"
 
-#: src/share/screenlets-manager/screenlets-manager.py:911
+#: src/lib/utils.py:207
 msgid "The Screenlets PPA added successfully."
 msgstr "Το PPA των Screenlets προστέθηκε επιτυχώς."
 
-#: src/share/screenlets-manager/screenlets-manager.py:911
+#: src/lib/utils.py:207
 msgid "Success!"
 msgstr "Επιτυχία!"
 
-#: src/share/screenlets-manager/screenlets-manager.py:913
+#: src/lib/utils.py:209
 msgid "Adding the Screenlets PPA failed."
 msgstr "Η προσθήκη του Screenlets PPA απέτυχε."
 
-#: src/share/screenlets-manager/screenlets-manager.py:913
+#: src/lib/utils.py:209
 msgid "Failed!"
 msgstr "Αποτυχία!"
 
-#: src/share/screenlets-manager/screenlets-manager.py:919
-msgid "Install SuperKaramba Theme"
-msgstr "Εγκατάσταση του Θέματος SuperKaramba"
-
-#: src/share/screenlets-manager/screenlets-manager.py:920
-msgid "Convert Web Widget"
-msgstr "Μετατροπή του Web Widget"
-
-#: src/share/screenlets-manager/screenlets-manager.py:921
-#: src/share/screenlets-manager/screenlets-manager.py:1028
-msgid "Install Web Application"
-msgstr "Εγκατάσταση Web Εφαρμογής"
-
-#: src/share/screenlets-manager/screenlets-manager.py:941
-msgid "New screenlets atributes.."
-msgstr "Νέα γνωρίσματα των screenlets..."
-
-#: src/share/screenlets-manager/screenlets-manager.py:942
-msgid "Lock"
-msgstr "Κλείδωμα"
-
-#: src/share/screenlets-manager/screenlets-manager.py:943
-msgid "Sticky"
-msgstr "Κολλημένο"
-
-#: src/share/screenlets-manager/screenlets-manager.py:944
-msgid "Widget"
-msgstr "Γραφικό Συστατικό"
-
-#: src/share/screenlets-manager/screenlets-manager.py:945
-msgid "Keep above"
-msgstr "Διατήρηση επάνω"
-
-#: src/share/screenlets-manager/screenlets-manager.py:947
-msgid "Keep below"
-msgstr "Διατήρηση πίσω"
-
-#: src/share/screenlets-manager/screenlets-manager.py:948
-msgid "Show buttons"
-msgstr "Εμφάνιση πλήκτρων"
-
-#: src/share/screenlets-manager/screenlets-manager.py:980
-msgid "New Screenlets atributes"
-msgstr "Νέα γνωρίσματα των screenlets"
-
-#: src/share/screenlets-manager/screenlets-manager.py:1018
-msgid "Web Application Url"
-msgstr "Url Web Εφαρμογής"
-
-#: src/share/screenlets-manager/screenlets-manager.py:1019
-msgid "Web Application Name"
-msgstr "Όνομα Web Εφαρμογής"
-
-#. found_path != None:
-#: src/share/screenlets-manager/screenlets-manager.py:1051
-#: src/share/screenlets-manager/screenlets-manager.py:1135
-msgid ""
-"There is already a screenlet with that name installed\n"
-"Do you wish to continue?"
-msgstr ""
-"Υπάρχει ήδη ένα εγκατεστημένο screenlet με αυτό το όνομα\n"
-"Θέλετε να συνεχίσετε;"
-
-#: src/share/screenlets-manager/screenlets-manager.py:1072
-msgid "Web Application was successfully installed"
-msgstr "Η Web Εφαρμογή εγκαταστάθηκε με επιτυχία"
-
-#: src/share/screenlets-manager/screenlets-manager.py:1075
-msgid "Error installing!!!"
-msgstr "Σφάλμα εγκατάστασης!!!"
-
-#: src/share/screenlets-manager/screenlets-manager.py:1076
-#: src/share/screenlets-manager/screenlets-manager.py:1161
-msgid "Please specify a name for the widget"
-msgstr "Παρακαλώ δώστε ένα όνομα για το γραφικό συστατικό"
-
-#: src/share/screenlets-manager/screenlets-manager.py:1077
-#: src/share/screenlets-manager/screenlets-manager.py:1162
-msgid "No HTML code found"
-msgstr "Δεν βρέθηκε κώδικας HTML"
-
-#: src/share/screenlets-manager/screenlets-manager.py:1081
-msgid "Convert any webpage widget into a Screenlet."
-msgstr "Μετατροπή οποιουδήποτε γραφικού συστατικού ιστοσελίδας σε screenlet."
-
-#: src/share/screenlets-manager/screenlets-manager.py:1082
-msgid "Step 1 : Find the widget you want to convert"
-msgstr "Βήμα 1: Βρείτε το γραφικό συστατικό που θέλετε να μετατρέψετε"
-
-#: src/share/screenlets-manager/screenlets-manager.py:1083
-msgid "Step 2 : Copy and Paste the HTML from the widget in the box below"
-msgstr ""
-"Βήμα 2: Αντιγράψτε και επικολλήστε τον κώδικα HTML του γραφικού συστατικού "
-"στο παρακάτω πλαίσιο"
-
-#: src/share/screenlets-manager/screenlets-manager.py:1084
-msgid "Step 3 : Give it a name in the box below and click on Ok to convert"
-msgstr ""
-"Βήμα 3: Δώστε του ένα όνομα στο παρακάτω πλαίσιο και πατήστε στο Ok για να "
-"γίνει η μετατροπή"
-
-#: src/share/screenlets-manager/screenlets-manager.py:1085
-msgid "The name of the widget"
-msgstr "Το όνομα του γραφικού συστατικού"
-
-#: src/share/screenlets-manager/screenlets-manager.py:1109
-msgid "Widget converter"
-msgstr "Μετατροπέας γραφικού συστατικού"
-
-#: src/share/screenlets-manager/screenlets-manager.py:1157
-msgid "Widget was successfully converted"
-msgstr "Το γραφικό συστατικό μετατράπηκε με επιτυχία"
-
-#: src/share/screenlets-manager/screenlets-manager.py:1160
-msgid "Error converting!!!"
-msgstr "Σφάλμα μετατροπής!!!"
-
-#: src/share/screenlets-manager/screenlets-manager.py:1283
-msgid "Screenlets-Manager must now be restarted"
-msgstr "Ο Διαχειριστής των screenlets πρέπει να επανεκκινηθεί τώρα"
-
-#. + constants
-#: src/share/screenlets-manager/screenlets-packager.py:30
-msgid ""
-"Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
-"Usage: screenlets-packager <path> [options]"
-msgstr ""
-"Screenlets packager - (c) RYX (Rico Pfaus) 2007\n"
-"Χρήση: screenlets-packager <path> [options]"
-
-#: src/share/screenlets-manager/screenlets-packager.py:69
-#, python-format
-msgid "The specified path \"%s\" does not exist."
-msgstr "Η καθορισμένη διαδρομή \"%s\" δεν υπάρχει."
-
-#: src/share/screenlets-manager/screenlets-packager.py:70
-#, python-format
-msgid "Found path \"%s\"."
-msgstr "Βρέθηκε διαδρομή \"%s\"."
-
-#: src/share/screenlets-manager/screenlets-packager.py:76
-msgid "Failed to extract screenlet name from path."
-msgstr "Αποτυχία εξαγωγής ονόματος του screenlet από τη διαδρομή."
-
-#: src/share/screenlets-manager/screenlets-packager.py:77
-#, python-format
-msgid "Screenlet name is %s."
-msgstr "Το όνομα του screenlet είναι %s."
-
-#: src/share/screenlets-manager/screenlets-packager.py:81
-#, python-format
-msgid "No screenlet-file \"%sScreenlet.py\" found in the given path."
-msgstr ""
-"Δεν βρέθηκε το αρχείο του screenlet \"%sScreenlet.py\" στη δοσμένη διαδρομή."
-
-#: src/share/screenlets-manager/screenlets-packager.py:82
-#, python-format
-msgid "Found %sScreenlet.py in path."
-msgstr "Βρέθηκε το %sScreenlet.py στη διαδρομή."
-
-#: src/share/screenlets-manager/screenlets-packager.py:91
-#, python-format
-msgid "Unable to import module '%(name)s' from %(path)s. (%(error)s)"
-msgstr ""
-"Αδυναμία εισαγωγής του αρθρώματος '%(name)s' από %(path)s. (%(error)s)"
-
-#: src/share/screenlets-manager/screenlets-packager.py:92
-#, python-format
-msgid "Successfully imported module: %s"
-msgstr "Επιτυχής εισαγωγή αρθρώματος: %s"
-
-#: src/share/screenlets-manager/screenlets-packager.py:98
-msgid "Unable to import class from module."
-msgstr "Αδυναμία εισαγωγής κλάσης από το άρθρωμα."
-
-#: src/share/screenlets-manager/screenlets-packager.py:100
-msgid "The class inside the module is no subclass of screenlets.Screenlet."
-msgstr ""
-"Η κλάση μέσα στο άρθρωμα δεν είναι υποκλάση του screenlets.Screenlet."
-
-#: src/share/screenlets-manager/screenlets-packager.py:101
-#, python-format
-msgid "Successfully got class from module: %s"
-msgstr "Επιτυχής λήψη κλάσης από το άρθρωμα: %s"
-
-#: src/share/screenlets-manager/screenlets-packager.py:132
-#, python-format
-msgid "Failed to create package info in \"%s\" (no permission?)."
-msgstr ""
-"Αποτυχία δημιουργίας πακέτου πληροφοριών στο \"%s\" (δεν υπάρχουν άδειες;)."
-
-#: src/share/screenlets-manager/screenlets-packager.py:133
-msgid "Created package info file."
-msgstr "Δημιουργήθηκε αρχείο πακέτου πληροφοριών."
-
-#: src/share/screenlets-manager/screenlets-packager.py:151
-msgid "Cleaned up and finished."
-msgstr "Καθαρισμός και ολοκλήρωση."
-
-#: src/lib/install.py:58
-msgid ""
-"This type of karamba theme is not supported yet\n"
-" Only older versions can be used"
-msgstr ""
-"Αυτός ο τύπος θέματος karamba δεν υποστηρίζεται ακόμη.\n"
-"Μόνον παλιές εκδόσεις μπορούν να χρησιμοποιηθούν."
-
-#: src/lib/install.py:114
-msgid "Archive is damaged or unsupported, use only tar, bz2 or gz."
-msgstr ""
-"Το αρχείο είναι κατεστραμμένο ή δεν υποστηρίζεται, χρησιμοποιήστε μόνον "
-"αρχεία tar, bz2 ή gz."
-
-#. check if screenlet is already installed
-#. found_path = screenlets.utils.find_first_screenlet_path(name)
-#. found_path != None:
-#: src/lib/install.py:128
-#, python-format
-msgid ""
-"The %(slet)sScreenlet is already installed in '%(dir)s'.\n"
-"Do you wish to continue?"
-msgstr ""
-"Τα %(slet)sScreenlet είναι ήδη εγκατεστημένα στο '%(dir)s'.\n"
-"Θέλετε να συνεχίσετε?"
-
-#: src/lib/install.py:128 src/lib/install.py:194
-#, python-format
-msgid "Install %s"
-msgstr "Εγκατάσταση %s"
-
-#: src/lib/install.py:131
-#, python-format
-msgid "%sScreenlet is already installed"
-msgstr "Το %sScreenlet είναι ήδη εγκατεστημένο"
-
-#. dir missing
-#: src/lib/install.py:138
-msgid ""
-"Invalid archive. Archive must contain a directory with the screenlet's name."
-msgstr ""
-"Μη έγκυρο αρχείο. Το αρχείο πρέπει να περιέχει έναν φάκελο με το όνομα του "
-"screenlet."
-
-#: src/lib/install.py:150
-msgid "Compatibility for this karamba theme is not yet implemented"
-msgstr "Η συμβατότητα γι' αυτό το θέμα karamba δεν έχει τεθεί ακόμη σε ισχύ"
-
-#: src/lib/install.py:177
-msgid "Karamba theme was successfully installed"
-msgstr "Το θέμα karamba εγκαταστάθηκε με επιτυχία"
-
-#: src/lib/install.py:179
-msgid ""
-"Invalid archive. Archive does not contain a screenlet or a valid karamba "
-"theme."
-msgstr ""
-"Μη έγκυρο αρχείο. Το αρχείο δεν περιέχει screenlet ή ένα έγκυρο θέμα karamba."
-
-#: src/lib/install.py:194
-#, python-format
-msgid ""
-"%s was not packaged with the screenlet packager. Do you wish to continue and "
-"try to install it?"
-msgstr ""
-"Το %s δεν έχει πακεταριστεί με τον συσκευαστή των screenlets. Θέλετε να "
-"συνεχίσετε και να προσπαθήσετε να το εγκαταστήσετε;"
-
-#: src/lib/install.py:197
-msgid "This package was not packaged with the screenlet packager."
-msgstr ""
-"Αυτό το πακέτο δεν έχει πακεταριστεί με τον συσκευαστή των screenlets."
-
-#. set msg/result
-#: src/lib/install.py:206
-#, python-format
-msgid "The %sScreenlet has been succesfully installed."
-msgstr "Το %sScreenlet έχει εγκατασταθεί με επιτυχία."
-
-#. create autostart directory, if not existent
-#: src/lib/utils.py:101 src/lib/utils.py:584
-msgid ""
-"There is no existing autostart directory for your user account yet. Do you "
-"want me to automatically create it for you?"
-msgstr ""
-"Δεν υπάρχει ακόμα κατάλογος αυτόματης εκκίνησης για τον δικό σας λογαριασμό "
-"χρήστη. Θέλετε να δημιουργήσω έναν για εσάς;"
-
-#: src/lib/utils.py:106 src/lib/utils.py:588
-#, python-format
-msgid ""
-"Automatic creation failed. Please manually create the directory:\n"
-"%s"
-msgstr ""
-"Η αυτόματη δημιουργία απέτυχε. Παρακαλώ δημιουργήστε τον κατάλογο "
-"χειροκίνητα:\n"
-"%s"
-
-#: src/lib/utils.py:109 src/lib/utils.py:591
-#, python-format
-msgid ""
-"Please manually create the directory:\n"
-"%s"
-msgstr ""
-"Παρακαλώ δημιουργήστε τον κατάλογο χειροκίνητα:\n"
-"%s"
-
-#: src/lib/utils.py:620
+#: src/lib/utils.py:658
 #, python-format
 msgid "Failed to add %sScreenlet."
 msgstr "Αποτυχία προσθήκης %sScreenlets."

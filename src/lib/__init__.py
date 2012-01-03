@@ -1111,7 +1111,7 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 
 #		operators=['>', '=', '<']
 
-		commandstr = 'apt-cache policy %s 2>/dev/null | sed -n "2 p" | grep -v ":[ \t]*([a-z \t]*)" | sed -r -e "s/(\s*[^\s]+:\s*)(.*)/\\2/"'
+		commandstr = 'LANG=C apt-cache policy %s 2>/dev/null | sed -n "2 p" | grep -v ":[ \t]*([a-z \t]*)" | sed -r -e "s/(\s*[^\s]+:\s*)(.*)/\\2/"'
 		for req in self.__requires__:
 			operator = None
 #			req = req.replace(' ', '')

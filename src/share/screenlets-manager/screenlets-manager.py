@@ -1052,7 +1052,7 @@ class ScreenletsManager(object):
 						enginecopy = open(DIR_USER + '/' + a + '/' + a + 'Screenlet.py','r')
 						enginesave = enginecopy.read()
 						enginesave = enginesave.replace('WebappScreenlet',a + 'Screenlet')
-						enginesave = enginesave.replace("url = 'myurl'","url = " + chr(34) + code.get_text() + chr(34))
+						enginesave = enginesave.replace("home_uri = ''","home_uri = " + chr(34) + code.get_text() + chr(34))
 						enginecopy.close()
 						enginecopy = open(DIR_USER + '/' + a + '/' + a + 'Screenlet.py','w')
 						enginecopy.write(enginesave)

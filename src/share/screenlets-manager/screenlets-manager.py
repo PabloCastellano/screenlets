@@ -1041,17 +1041,24 @@ class ScreenletsManager(object):
 								pass
 							else: 
 								return False
-						os.system('mkdir ' +DIR_USER + '/' + a)
-						os.system('mkdir ' +DIR_USER + '/' + a + '/themes')
-						os.system('mkdir ' +DIR_USER + '/' + a + '/themes/default')
-						os.system('mkdir ' +DIR_USER + '/' + a + '/mozilla')
-						os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/WebappScreenlet.py ' +DIR_USER + '/' + a + '/' + a + 'Screenlet.py')
-						os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/webapp.png ' +DIR_USER + '/' + a + '/icon.png')				
-						os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/webapp.png ' +DIR_USER + '/' + a + '/themes/default')
+						os.system('mkdir -p ' +DIR_USER + '/' + a + '/themes/default')
+						os.system('mkdir -p ' +DIR_USER + '/' + a + '/mozilla') # probably not needed since webkit
+						# this is just to install something if basic pack is not installed
+						os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/WebframeScreenlet.py ' +DIR_USER + '/' + a + '/' + a + 'Screenlet.py')
+						os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/webframe.png ' +DIR_USER + '/' + a + '/icon.png')				
+						os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/prefs.js ' +DIR_USER + '/' + a + '/mozilla')				
+						os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets-manager/webframe.png ' +DIR_USER + '/' + a + '/themes/default')
+						# install the one from basic pack (probably fullest and most updated)
+						os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets/screenlets-pack-basic/Webframe/WebframeScreenlet.py ' +DIR_USER + '/' + a + '/' + a + 'Screenlet.py')
+						os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets/screenlets-pack-basic/Webframe/icon* ' +DIR_USER + '/' + a)
+						os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets/screenlets-pack-basic/Webframe/*.txt ' +DIR_USER + '/' + a)
+						os.system('cp -r ' + screenlets.INSTALL_PREFIX + '/share/screenlets/screenlets-pack-basic/Webframe/mo ' +DIR_USER + '/' + a)
+						os.system('cp -r ' + screenlets.INSTALL_PREFIX + '/share/screenlets/screenlets-pack-basic/Webframe/themes ' +DIR_USER + '/' + a)
+						os.system('cp -r ' + screenlets.INSTALL_PREFIX + '/share/screenlets/screenlets-pack-basic/Webframe/mozilla ' +DIR_USER + '/' + a)
 		
 						enginecopy = open(DIR_USER + '/' + a + '/' + a + 'Screenlet.py','r')
 						enginesave = enginecopy.read()
-						enginesave = enginesave.replace('WebappScreenlet',a + 'Screenlet')
+						enginesave = enginesave.replace('WebframeScreenlet',a + 'Screenlet')
 						enginesave = enginesave.replace("home_uri = ''","home_uri = " + chr(34) + code.get_text() + chr(34))
 						enginecopy.close()
 						enginecopy = open(DIR_USER + '/' + a + '/' + a + 'Screenlet.py','w')

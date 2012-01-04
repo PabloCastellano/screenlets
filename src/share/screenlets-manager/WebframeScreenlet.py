@@ -12,10 +12,12 @@
 # 
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
+#
 # @license  GNU General Public License Version 3
 # @author   Akira Ohgaki <akiraohgaki@gmail.com>
 # @link     https://launchpad.net/webframe
+
+# Modified 2011 by Guido Tabbernuk <boamaod@gmail.com>
 
 import sys
 import os
@@ -34,11 +36,11 @@ def tdoc(obj):
 	return obj
 
 @tdoc
-class WebappScreenlet(screenlets.Screenlet):
+class WebframeScreenlet(screenlets.Screenlet):
     """ A Screenlet to browse the Web"""
 
-    __name__ = 'WebappScreenlet'
-    __version__ = '3.0.0'
+    __name__ = 'WebframeScreenlet'
+    __version__ = '3.0.2'
     __author__ = 'Akira Ohgaki'
     __desc__ = __doc__
 
@@ -144,7 +146,7 @@ class WebappScreenlet(screenlets.Screenlet):
 
     def on_init(self):
         if not self.theme:
-            screenlets.show_message(self, _('Theme could not be loaded.'))
+            print 'Theme could not be loaded.'
         self.embed_browser()
         self.set_autoreload(self.autoreload_interval)
         if self.home_uri:
@@ -304,4 +306,4 @@ class WebappScreenlet(screenlets.Screenlet):
             return False
 
 if __name__ == '__main__':
-    screenlets.session.create_session(WebappScreenlet)
+    screenlets.session.create_session(WebframeScreenlet)

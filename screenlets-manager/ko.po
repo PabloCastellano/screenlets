@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-04 01:49+0200\n"
+"POT-Creation-Date: 2012-01-05 01:41+0200\n"
 "PO-Revision-Date: 2011-01-11 17:49+0000\n"
 "Last-Translator: Bundo <bundo@bundo.biz>\n"
 "Language-Team: Korean <ko@li.org>\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2012-01-04 04:42+0000\n"
 "X-Generator: Launchpad (build 14616)\n"
-"Language: ko\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:127
 msgid "Screenlets daemon"
@@ -26,12 +26,13 @@ msgstr ""
 #. name/version of this app
 #: src/share/screenlets-manager/screenlets-daemon.py:169
 #: src/share/screenlets-manager/screenlets-manager.py:54
-#: src/share/screenlets-manager/screenlets-manager.py:1306
+#: src/share/screenlets-manager/screenlets-manager.py:1329
 msgid "Screenlets Manager"
 msgstr "스크린렛츠 관리자"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:171
-#: src/share/screenlets-manager/screenlets-manager.py:907
+#: src/share/screenlets-manager/screenlets-manager.py:910
+#: src/share/screenlets-manager/screenlets-manager.py:936
 msgid "Install Screenlet"
 msgstr "스크린렛츠 설치"
 
@@ -81,8 +82,9 @@ msgid ""
 "functionality is disabled. You can use this to install screenlets into the "
 "system-wide path."
 msgstr ""
-"중요! 당신 은, 거의 모든 기능을 사용할 수 있다. 루트 사용자로 이 응용 프로그램을 실행하고있습니다. 당신은 시스템의 전체 경로로 "
-"스크린렛츠를 설치하는 데 사용할 수 있습니다."
+"중요! 당신 은, 거의 모든 기능을 사용할 수 있다. 루트 사용자로 이 응용 프로그"
+"램을 실행하고있습니다. 당신은 시스템의 전체 경로로 스크린렛츠를 설치하는 데 "
+"사용할 수 있습니다."
 
 #: src/share/screenlets-manager/screenlets-manager.py:94
 msgid "Warning!"
@@ -132,7 +134,7 @@ msgid "Launch/Add"
 msgstr "시작/추가"
 
 #: src/share/screenlets-manager/screenlets-manager.py:355
-#: src/share/screenlets-manager/screenlets-manager.py:912
+#: src/share/screenlets-manager/screenlets-manager.py:924
 msgid "Install"
 msgstr "설치"
 
@@ -183,7 +185,8 @@ msgstr "선택된 스크린렛츠의 새 인스턴스를 시작/주가 합니다
 #: src/share/screenlets-manager/screenlets-manager.py:413
 msgid ""
 "Install a new Screenlet, SuperKaramba or Web Widget or Web Application  ..."
-msgstr "새로운 스크린렛츠, SuperKaramba 또는 웹 위젯이나 웹 응용 프로그램을 설치 ."
+msgstr ""
+"새로운 스크린렛츠, SuperKaramba 또는 웹 위젯이나 웹 응용 프로그램을 설치 ."
 
 #: src/share/screenlets-manager/screenlets-manager.py:414
 msgid "Permanently uninstall/delete the currently selected Screenlet ..."
@@ -290,7 +293,9 @@ msgstr "테마설치중 오류 1개 발생- 테마설치 못함, 아마도 패�
 msgid ""
 "This package seams to contain a full Screenlet and not just a theme, please "
 "use the screenlet install instead"
-msgstr "이 패키지 뿐만 아니라 테마 전체 스크린렛츠를 포함하는 스크린렛츠를 사용하여 설치하시기 바랍니다"
+msgstr ""
+"이 패키지 뿐만 아니라 테마 전체 스크린렛츠를 포함하는 스크린렛츠를 사용하여 "
+"설치하시기 바랍니다"
 
 #: src/share/screenlets-manager/screenlets-manager.py:790
 msgid "This package doesnt seem to contain a theme"
@@ -302,66 +307,69 @@ msgid "Theme installed , please restart %s"
 msgstr "테마 설치됨, %s 재시작 하세요"
 
 #: src/share/screenlets-manager/screenlets-manager.py:818
-msgid ""
-"Theme install error 2 found - Theme not installed or already installed"
-msgstr "테마 설치중 오류2개 발생- 태마가 이미 설치되었거나 설치되지 않았습니다."
+msgid "Theme install error 2 found - Theme not installed or already installed"
+msgstr ""
+"테마 설치중 오류2개 발생- 태마가 이미 설치되었거나 설치되지 않았습니다."
 
-#: src/share/screenlets-manager/screenlets-manager.py:908
+#: src/share/screenlets-manager/screenlets-manager.py:914
+#: src/share/screenlets-manager/screenlets-manager.py:936
 msgid "Install SuperKaramba Theme"
 msgstr ""
 
-#: src/share/screenlets-manager/screenlets-manager.py:909
+#: src/share/screenlets-manager/screenlets-manager.py:917
+#: src/share/screenlets-manager/screenlets-manager.py:938
 msgid "Convert Web Widget"
 msgstr ""
 
-#: src/share/screenlets-manager/screenlets-manager.py:910
-#: src/share/screenlets-manager/screenlets-manager.py:1017
+#: src/share/screenlets-manager/screenlets-manager.py:920
+#: src/share/screenlets-manager/screenlets-manager.py:940
+#: src/share/screenlets-manager/screenlets-manager.py:1032
 msgid "Install Web Application"
 msgstr "웹 프로그램 설치"
 
-#: src/share/screenlets-manager/screenlets-manager.py:930
+#: src/share/screenlets-manager/screenlets-manager.py:945
 msgid "New screenlets atributes.."
 msgstr "새로운 스크린렛츠 속성"
 
-#: src/share/screenlets-manager/screenlets-manager.py:931
+#: src/share/screenlets-manager/screenlets-manager.py:946
 msgid "Lock"
 msgstr "잠금"
 
-#: src/share/screenlets-manager/screenlets-manager.py:932
+#: src/share/screenlets-manager/screenlets-manager.py:947
 msgid "Sticky"
 msgstr "고정"
 
-#: src/share/screenlets-manager/screenlets-manager.py:933
+#: src/share/screenlets-manager/screenlets-manager.py:948
 msgid "Widget"
 msgstr "위젯"
 
-#: src/share/screenlets-manager/screenlets-manager.py:934
+#: src/share/screenlets-manager/screenlets-manager.py:949
 msgid "Keep above"
 msgstr "상위 유지"
 
-#: src/share/screenlets-manager/screenlets-manager.py:936
+#: src/share/screenlets-manager/screenlets-manager.py:951
 msgid "Keep below"
 msgstr "하위 유지"
 
-#: src/share/screenlets-manager/screenlets-manager.py:937
+#: src/share/screenlets-manager/screenlets-manager.py:952
 msgid "Show buttons"
 msgstr "버튼 보기"
 
-#: src/share/screenlets-manager/screenlets-manager.py:969
+#: src/share/screenlets-manager/screenlets-manager.py:984
 msgid "New Screenlets atributes"
 msgstr "새 스크린렛츠 속성"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1007
+#: src/share/screenlets-manager/screenlets-manager.py:1022
 msgid "Web Application Url"
 msgstr "웹 프로그램 Url"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1008
+#: src/share/screenlets-manager/screenlets-manager.py:1023
 msgid "Web Application Name"
 msgstr "웹 프로그램 이름"
 
 #. found_path != None:
-#: src/share/screenlets-manager/screenlets-manager.py:1040
-#: src/share/screenlets-manager/screenlets-manager.py:1123
+#: src/share/screenlets-manager/screenlets-manager.py:1055
+#: src/share/screenlets-manager/screenlets-manager.py:1146
 msgid ""
 "There is already a screenlet with that name installed\n"
 "Do you wish to continue?"
@@ -369,57 +377,57 @@ msgstr ""
 "이미 그 이름을 가진 스크린렛츠가 설치되었습니다.\n"
 "계속하시겠습니까?"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1060
+#: src/share/screenlets-manager/screenlets-manager.py:1083
 msgid "Web Application was successfully installed"
 msgstr "웹 프로그램이 성공적으로 설치됨"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1063
+#: src/share/screenlets-manager/screenlets-manager.py:1086
 msgid "Error installing!!!"
 msgstr "설치중 오류!!!"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1064
-#: src/share/screenlets-manager/screenlets-manager.py:1148
+#: src/share/screenlets-manager/screenlets-manager.py:1087
+#: src/share/screenlets-manager/screenlets-manager.py:1171
 msgid "Please specify a name for the widget"
 msgstr "제발 위젯에 대한 이름을 지정하십시오"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1065
-#: src/share/screenlets-manager/screenlets-manager.py:1149
+#: src/share/screenlets-manager/screenlets-manager.py:1088
+#: src/share/screenlets-manager/screenlets-manager.py:1172
 msgid "No HTML code found"
 msgstr "HTML 코드를 찾을수 없습니다."
 
-#: src/share/screenlets-manager/screenlets-manager.py:1069
+#: src/share/screenlets-manager/screenlets-manager.py:1092
 msgid "Convert any webpage widget into a Screenlet."
 msgstr "스크린렛츠로 임의의 웹페이지를 위젯 변환합니다."
 
-#: src/share/screenlets-manager/screenlets-manager.py:1070
+#: src/share/screenlets-manager/screenlets-manager.py:1093
 msgid "Step 1 : Find the widget you want to convert"
 msgstr "1 단계 : 변환하고자 하는 위젯을 찾기"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1071
+#: src/share/screenlets-manager/screenlets-manager.py:1094
 msgid "Step 2 : Copy and Paste the HTML from the widget in the box below"
 msgstr "2 단계 : 복사 및 붙여넣기 - 상자에서 HTML을 아래 위젯에"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1072
+#: src/share/screenlets-manager/screenlets-manager.py:1095
 msgid "Step 3 : Give it a name in the box below and click on Ok to convert"
 msgstr "3 단계 : 아래를 클릭하여 상자에 변환하는 이름을 알려 주십시오"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1073
+#: src/share/screenlets-manager/screenlets-manager.py:1096
 msgid "The name of the widget"
 msgstr "위젯의 이름"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1097
+#: src/share/screenlets-manager/screenlets-manager.py:1120
 msgid "Widget converter"
 msgstr "위젯 변환기"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1144
+#: src/share/screenlets-manager/screenlets-manager.py:1167
 msgid "Widget was successfully converted"
 msgstr "위젯이 성공적으로 변환됨"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1147
+#: src/share/screenlets-manager/screenlets-manager.py:1170
 msgid "Error converting!!!"
 msgstr "변환 오류!!!"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1269
+#: src/share/screenlets-manager/screenlets-manager.py:1292
 msgid "Screenlets-Manager must now be restarted"
 msgstr "스크린렛츠 관리자를 지금 재시작 해야 합니다"
 
@@ -495,92 +503,6 @@ msgstr "만들어진 패키지 정보 파일입니다."
 msgid "Cleaned up and finished."
 msgstr "청소 그리고 완료."
 
-#: src/share/screenlets-manager/WebappScreenlet.py:79
-#: src/share/screenlets-manager/WebappScreenlet.py:83
-#: src/share/screenlets-manager/WebappScreenlet.py:90
-#: src/share/screenlets-manager/WebappScreenlet.py:99
-#: src/share/screenlets-manager/WebappScreenlet.py:106
-#: src/share/screenlets-manager/WebappScreenlet.py:115
-#: src/share/screenlets-manager/WebappScreenlet.py:124
-msgid "Webframe"
-msgstr ""
-
-#: src/share/screenlets-manager/WebappScreenlet.py:80
-msgid "Preferences for this Webframe instance"
-msgstr ""
-
-#: src/share/screenlets-manager/WebappScreenlet.py:86
-msgid "Home page"
-msgstr ""
-
-#: src/share/screenlets-manager/WebappScreenlet.py:93
-msgid "Auto reload (minutes)"
-msgstr ""
-
-#: src/share/screenlets-manager/WebappScreenlet.py:94
-msgid "0 is disable an auto reload event"
-msgstr ""
-
-#: src/share/screenlets-manager/WebappScreenlet.py:102
-msgid "Web browser engine"
-msgstr ""
-
-#: src/share/screenlets-manager/WebappScreenlet.py:103
-msgid "Set default engine to the first item of list"
-msgstr ""
-
-#: src/share/screenlets-manager/WebappScreenlet.py:109
-msgid "Width"
-msgstr ""
-
-#: src/share/screenlets-manager/WebappScreenlet.py:110
-msgid "Width of the widget"
-msgstr ""
-
-#: src/share/screenlets-manager/WebappScreenlet.py:118
-msgid "Height"
-msgstr ""
-
-#: src/share/screenlets-manager/WebappScreenlet.py:119
-msgid "Height of the widget"
-msgstr ""
-
-#: src/share/screenlets-manager/WebappScreenlet.py:127
-msgid "Border width"
-msgstr ""
-
-#: src/share/screenlets-manager/WebappScreenlet.py:128
-msgid "Thickness of border in pixels"
-msgstr ""
-
-#: src/share/screenlets-manager/WebappScreenlet.py:147
-msgid "Theme could not be loaded."
-msgstr ""
-
-#: src/share/screenlets-manager/WebappScreenlet.py:154
-msgid "Back"
-msgstr ""
-
-#: src/share/screenlets-manager/WebappScreenlet.py:155
-msgid "Forward"
-msgstr ""
-
-#: src/share/screenlets-manager/WebappScreenlet.py:156
-msgid "Reload"
-msgstr ""
-
-#: src/share/screenlets-manager/WebappScreenlet.py:157
-msgid "Home"
-msgstr ""
-
-#: src/share/screenlets-manager/WebappScreenlet.py:158
-msgid "Search"
-msgstr ""
-
-#: src/share/screenlets-manager/WebappScreenlet.py:159
-msgid "View in Browser"
-msgstr ""
-
 #: src/lib/install.py:64
 msgid ""
 "This type of karamba theme is not supported yet\n"
@@ -591,7 +513,9 @@ msgstr ""
 
 #: src/lib/install.py:120
 msgid "Archive is damaged or unsupported, use only tar, bz2 or gz."
-msgstr "압축 파일이 손상되었거나 지원 하지 않습니다. 오직 tar, bz2, gz 이 가능 합니다."
+msgstr ""
+"압축 파일이 손상되었거나 지원 하지 않습니다. 오직 tar, bz2, gz 이 가능 합니"
+"다."
 
 #. check if screenlet is already installed
 #. found_path = screenlets.utils.find_first_screenlet_path(name)
@@ -631,7 +555,8 @@ msgstr "karamba 테마가 성공적으로 설치됨"
 msgid ""
 "Invalid archive. Archive does not contain a screenlet or a valid karamba "
 "theme."
-msgstr "잘못된 압축. 압축이 스크린렛츠 또는 유효한 karamba 테마를 포함하지 않습니다."
+msgstr ""
+"잘못된 압축. 압축이 스크린렛츠 또는 유효한 karamba 테마를 포함하지 않습니다."
 
 #: src/lib/install.py:200
 #, python-format
@@ -655,7 +580,9 @@ msgstr "%s 스크린렛츠가 성공적으로 설치 되었습니다."
 msgid ""
 "There is no existing autostart directory for your user account yet. Do you "
 "want me to automatically create it for you?"
-msgstr "사용자 계정에 대한 기존의 자동 시작 디렉터리가 아직입니다. 자동으로 그것을 만드시겠습니까?"
+msgstr ""
+"사용자 계정에 대한 기존의 자동 시작 디렉터리가 아직입니다. 자동으로 그것을 만"
+"드시겠습니까?"
 
 #: src/lib/utils.py:132 src/lib/utils.py:626
 #, python-format
@@ -712,5 +639,6 @@ msgstr "%s 스크린렛츠 추가  실패"
 #~ msgstr "모든 스크린렛츠를 재로그인시 자동으로 다시 시작합니다."
 
 #~ msgid ""
-#~ "Reset this Screenlet configuration (will only work if screenlet isnt running)"
+#~ "Reset this Screenlet configuration (will only work if screenlet isnt "
+#~ "running)"
 #~ msgstr "스크린렛츠 구성 초기화(실행중이 아닌 스크린렛츠에만 가능)"

@@ -903,26 +903,41 @@ class ScreenletsManager(object):
 				subprocess.Popen(["xdg-open", screenlets.THIRD_PARTY_DOWNLOAD])
 			
 	def show_install_chose_ui(self):
-		install_combo = gtk.combo_box_new_text()
-		install_combo.append_text(_('Install Screenlet'))
-		install_combo.append_text(_('Install SuperKaramba Theme'))
-		install_combo.append_text(_('Convert Web Widget'))
-		install_combo.append_text(_('Install Web Application'))
-		install_combo.set_active(0)
-       		dialog = gtk.Dialog(_("Install"),self.window,
+		install_rbs = gtk.VBox(False, 10)
+		install_rbs.set_border_width(10)
+		install_rbs.show()
+
+		button = gtk.RadioButton(None, _('Install Screenlet'))
+		button.set_active(True)
+		install_rbs.pack_start(button, True, True, 0)
+		button.show()
+		button = gtk.RadioButton(button, _('Install SuperKaramba Theme'))
+		install_rbs.pack_start(button, True, True, 0)
+		button.show()
+		button = gtk.RadioButton(button, _('Convert Web Widget'))
+		install_rbs.pack_start(button, True, True, 0)
+		button.show()
+		button = gtk.RadioButton(button, _('Install Web Application'))
+		install_rbs.pack_start(button, True, True, 0)
+		button.show()
+
+		dialog = gtk.Dialog(_("Install"),self.window,
                     gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
                     (gtk.STOCK_CANCEL, gtk.RESPONSE_REJECT,
                      gtk.STOCK_OK, gtk.RESPONSE_ACCEPT))
-		install_combo.show()
-		dialog.vbox.add(install_combo)
+		install_rbs.show()
+		dialog.vbox.add(install_rbs)
 		resp = dialog.run()
 		ret = None
+		
 		if resp == gtk.RESPONSE_ACCEPT:
-			if install_combo.get_active() == 0 or install_combo.get_active() == 1:
+			active_radios = [r for r in button.get_group() if r.get_active()]
+			active_label = active_radios[0].get_label()
+			if active_label in (_('Install Screenlet'), _('Install SuperKaramba Theme')):
 				self.show_install_dialog()
-			elif install_combo.get_active() == 2:
+			elif active_label == _('Convert Web Widget'):
 				self.show_widget_converter()
-			elif install_combo.get_active() == 3:
+			elif active_label == _('Install Web Application'):
 				self.show_webapp()						
 		dialog.destroy()
 
@@ -1053,6 +1068,7 @@ class ScreenletsManager(object):
 						os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets/screenlets-pack-basic/Webframe/icon* ' +DIR_USER + '/' + a)
 						os.system('cp ' + screenlets.INSTALL_PREFIX + '/share/screenlets/screenlets-pack-basic/Webframe/*.txt ' +DIR_USER + '/' + a)
 						os.system('cp -r ' + screenlets.INSTALL_PREFIX + '/share/screenlets/screenlets-pack-basic/Webframe/mo ' +DIR_USER + '/' + a)
+						os.system('cd ' + DIR_USER + '/' + a + '/mo && find -name *.mo | rename -v "s/webframe/' + a.lower() +'/"')
 						os.system('cp -r ' + screenlets.INSTALL_PREFIX + '/share/screenlets/screenlets-pack-basic/Webframe/themes ' +DIR_USER + '/' + a)
 						os.system('cp -r ' + screenlets.INSTALL_PREFIX + '/share/screenlets/screenlets-pack-basic/Webframe/mozilla ' +DIR_USER + '/' + a)
 		

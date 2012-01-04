@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2011-04-05 04:47+0000\n"
 "Last-Translator: zaenal arifin <Unknown>\n"
 "Language-Team: Javanese <jv@li.org>\n"
-"Language: jv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-12-22 05:21+0000\n"
-"X-Generator: Launchpad (build 14560)\n"
+"X-Launchpad-Export-Date: 2012-01-04 04:42+0000\n"
+"X-Generator: Launchpad (build 14616)\n"
+"Language: jv\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:127
 msgid "Screenlets daemon"
@@ -67,9 +67,9 @@ msgid ""
 msgstr ""
 "Applikasi iki direlease ning gone GNU General Public License v3 (utowo, nok "
 "pilihanmu, sakwijine versi sakwise). Kowe iso goleki teks lengkap seko "
-"lisensi ning gone http://www.gnu.org/licenses/gpl.txt. By using, editing lan/"
-"utowo distribusikno software iki kowe setuju kanggo syarat lan kondisi seko "
-"lisensi iki. Maternuwun kowe uwis ngGunakno software bebas!"
+"lisensi ning gone http://www.gnu.org/licenses/gpl.txt. By using, editing "
+"lan/utowo distribusikno software iki kowe setuju kanggo syarat lan kondisi "
+"seko lisensi iki. Maternuwun kowe uwis ngGunakno software bebas!"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:323
 msgid "Install a Screenlet"
@@ -190,31 +190,26 @@ msgstr ""
 msgid ""
 "Install a new Screenlet, SuperKaramba or Web Widget or Web Application  ..."
 msgstr ""
-"Masangi Screenlet anyar, SuperKaramba utowo Web Widget utowo Web "
-"Application  ..."
+"Masangi Screenlet anyar, SuperKaramba utowo Web Widget utowo Web Application "
+" ..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:414
 msgid "Permanently uninstall/delete the currently selected Screenlet ..."
 msgstr "Permanen mreteline/mbusak seleksine Screenlet saat iki ..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:415
-#, fuzzy
 msgid ""
 "Reset this Screenlet configuration (will only work if Screenlet isn't "
 "running)"
 msgstr ""
-"Ngeset ulang konfigurasine Screenlet iki (arep mung kerjo tek screenlet-te "
-"orak diplayukno)"
 
 #: src/share/screenlets-manager/screenlets-manager.py:416
 msgid "Install new theme for this screenlet"
 msgstr "ngInstall tema kanggo screenlet iki"
 
 #: src/share/screenlets-manager/screenlets-manager.py:417
-#, fuzzy
 msgid "Restart all Screenlets that have auto start at login"
 msgstr ""
-"Uripno ulang kabeh screenlets iku nduweni otomatis ngawiti wektu log mlebu"
 
 #: src/share/screenlets-manager/screenlets-manager.py:418
 msgid "Close all Screenlets running"
@@ -319,7 +314,8 @@ msgid "Theme installed , please restart %s"
 msgstr "Tema wis kepasang , sumonggo diuripno ulang %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:818
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Tema kepasang ditemukno 2 kekeliruan - Tema orak kepasang utowo wis ono "
 "installane"
@@ -500,7 +496,8 @@ msgstr "Rakmampu kanggo ngimpor kelas seko modul."
 
 #: src/share/screenlets-manager/screenlets-packager.py:106
 msgid "The class inside the module is no subclass of screenlets.Screenlet."
-msgstr "Sebelahe kelas modul yoiku rakono sub kelas seko screenlets.Screenlet."
+msgstr ""
+"Sebelahe kelas modul yoiku rakono sub kelas seko screenlets.Screenlet."
 
 #: src/share/screenlets-manager/screenlets-packager.py:107
 #, python-format
@@ -559,18 +556,16 @@ msgid "Width"
 msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:110
-#, fuzzy
 msgid "Width of the widget"
-msgstr "Jengen seko widget"
+msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:118
 msgid "Height"
 msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:119
-#, fuzzy
 msgid "Height of the widget"
-msgstr "Jengen seko widget"
+msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:127
 msgid "Border width"
@@ -750,3 +745,13 @@ msgstr "Gagal!"
 #, python-format
 msgid "Failed to add %sScreenlet."
 msgstr "Gagal kanggo nambahno %sScreenlet."
+
+#~ msgid ""
+#~ "Reset this Screenlet configuration (will only work if screenlet isnt running)"
+#~ msgstr ""
+#~ "Ngeset ulang konfigurasine Screenlet iki (arep mung kerjo tek screenlet-te "
+#~ "orak diplayukno)"
+
+#~ msgid "Restart all screenlets that have auto start at login"
+#~ msgstr ""
+#~ "Uripno ulang kabeh screenlets iku nduweni otomatis ngawiti wektu log mlebu"

@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2011-01-11 17:49+0000\n"
 "Last-Translator: Bundo <bundo@bundo.biz>\n"
 "Language-Team: Korean <ko@li.org>\n"
-"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-12-22 05:21+0000\n"
-"X-Generator: Launchpad (build 14560)\n"
+"X-Launchpad-Export-Date: 2012-01-04 04:42+0000\n"
+"X-Generator: Launchpad (build 14616)\n"
+"Language: ko\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:127
 msgid "Screenlets daemon"
@@ -81,9 +81,8 @@ msgid ""
 "functionality is disabled. You can use this to install screenlets into the "
 "system-wide path."
 msgstr ""
-"중요! 당신 은, 거의 모든 기능을 사용할 수 있다. 루트 사용자로 이 응용 프로그"
-"램을 실행하고있습니다. 당신은 시스템의 전체 경로로 스크린렛츠를 설치하는 데 "
-"사용할 수 있습니다."
+"중요! 당신 은, 거의 모든 기능을 사용할 수 있다. 루트 사용자로 이 응용 프로그램을 실행하고있습니다. 당신은 시스템의 전체 경로로 "
+"스크린렛츠를 설치하는 데 사용할 수 있습니다."
 
 #: src/share/screenlets-manager/screenlets-manager.py:94
 msgid "Warning!"
@@ -184,28 +183,25 @@ msgstr "선택된 스크린렛츠의 새 인스턴스를 시작/주가 합니다
 #: src/share/screenlets-manager/screenlets-manager.py:413
 msgid ""
 "Install a new Screenlet, SuperKaramba or Web Widget or Web Application  ..."
-msgstr ""
-"새로운 스크린렛츠, SuperKaramba 또는 웹 위젯이나 웹 응용 프로그램을 설치 ."
+msgstr "새로운 스크린렛츠, SuperKaramba 또는 웹 위젯이나 웹 응용 프로그램을 설치 ."
 
 #: src/share/screenlets-manager/screenlets-manager.py:414
 msgid "Permanently uninstall/delete the currently selected Screenlet ..."
 msgstr "현재 선택된 스크린렛츠를 영구적으로 제거/삭제..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:415
-#, fuzzy
 msgid ""
 "Reset this Screenlet configuration (will only work if Screenlet isn't "
 "running)"
-msgstr "스크린렛츠 구성 초기화(실행중이 아닌 스크린렛츠에만 가능)"
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:416
 msgid "Install new theme for this screenlet"
 msgstr "이 스크린렛츠에 대한 새 테마 설치"
 
 #: src/share/screenlets-manager/screenlets-manager.py:417
-#, fuzzy
 msgid "Restart all Screenlets that have auto start at login"
-msgstr "모든 스크린렛츠를 재로그인시 자동으로 다시 시작합니다."
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:418
 msgid "Close all Screenlets running"
@@ -294,9 +290,7 @@ msgstr "테마설치중 오류 1개 발생- 테마설치 못함, 아마도 패�
 msgid ""
 "This package seams to contain a full Screenlet and not just a theme, please "
 "use the screenlet install instead"
-msgstr ""
-"이 패키지 뿐만 아니라 테마 전체 스크린렛츠를 포함하는 스크린렛츠를 사용하여 "
-"설치하시기 바랍니다"
+msgstr "이 패키지 뿐만 아니라 테마 전체 스크린렛츠를 포함하는 스크린렛츠를 사용하여 설치하시기 바랍니다"
 
 #: src/share/screenlets-manager/screenlets-manager.py:790
 msgid "This package doesnt seem to contain a theme"
@@ -308,9 +302,9 @@ msgid "Theme installed , please restart %s"
 msgstr "테마 설치됨, %s 재시작 하세요"
 
 #: src/share/screenlets-manager/screenlets-manager.py:818
-msgid "Theme install error 2 found - Theme not installed or already installed"
-msgstr ""
-"테마 설치중 오류2개 발생- 태마가 이미 설치되었거나 설치되지 않았습니다."
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
+msgstr "테마 설치중 오류2개 발생- 태마가 이미 설치되었거나 설치되지 않았습니다."
 
 #: src/share/screenlets-manager/screenlets-manager.py:908
 msgid "Install SuperKaramba Theme"
@@ -540,18 +534,16 @@ msgid "Width"
 msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:110
-#, fuzzy
 msgid "Width of the widget"
-msgstr "위젯의 이름"
+msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:118
 msgid "Height"
 msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:119
-#, fuzzy
 msgid "Height of the widget"
-msgstr "위젯의 이름"
+msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:127
 msgid "Border width"
@@ -599,9 +591,7 @@ msgstr ""
 
 #: src/lib/install.py:120
 msgid "Archive is damaged or unsupported, use only tar, bz2 or gz."
-msgstr ""
-"압축 파일이 손상되었거나 지원 하지 않습니다. 오직 tar, bz2, gz 이 가능 합니"
-"다."
+msgstr "압축 파일이 손상되었거나 지원 하지 않습니다. 오직 tar, bz2, gz 이 가능 합니다."
 
 #. check if screenlet is already installed
 #. found_path = screenlets.utils.find_first_screenlet_path(name)
@@ -641,8 +631,7 @@ msgstr "karamba 테마가 성공적으로 설치됨"
 msgid ""
 "Invalid archive. Archive does not contain a screenlet or a valid karamba "
 "theme."
-msgstr ""
-"잘못된 압축. 압축이 스크린렛츠 또는 유효한 karamba 테마를 포함하지 않습니다."
+msgstr "잘못된 압축. 압축이 스크린렛츠 또는 유효한 karamba 테마를 포함하지 않습니다."
 
 #: src/lib/install.py:200
 #, python-format
@@ -666,9 +655,7 @@ msgstr "%s 스크린렛츠가 성공적으로 설치 되었습니다."
 msgid ""
 "There is no existing autostart directory for your user account yet. Do you "
 "want me to automatically create it for you?"
-msgstr ""
-"사용자 계정에 대한 기존의 자동 시작 디렉터리가 아직입니다. 자동으로 그것을 만"
-"드시겠습니까?"
+msgstr "사용자 계정에 대한 기존의 자동 시작 디렉터리가 아직입니다. 자동으로 그것을 만드시겠습니까?"
 
 #: src/lib/utils.py:132 src/lib/utils.py:626
 #, python-format
@@ -720,3 +707,10 @@ msgstr ""
 #, python-format
 msgid "Failed to add %sScreenlet."
 msgstr "%s 스크린렛츠 추가  실패"
+
+#~ msgid "Restart all screenlets that have auto start at login"
+#~ msgstr "모든 스크린렛츠를 재로그인시 자동으로 다시 시작합니다."
+
+#~ msgid ""
+#~ "Reset this Screenlet configuration (will only work if screenlet isnt running)"
+#~ msgstr "스크린렛츠 구성 초기화(실행중이 아닌 스크린렛츠에만 가능)"

@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2011-01-11 17:17+0000\n"
 "Last-Translator: Nedim Muminović <nedimmuminovic@gmail.com>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
-"Language: bs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-12-22 05:21+0000\n"
-"X-Generator: Launchpad (build 14560)\n"
+"X-Launchpad-Export-Date: 2012-01-04 04:41+0000\n"
+"X-Generator: Launchpad (build 14616)\n"
+"Language: bs\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:127
 msgid "Screenlets daemon"
@@ -194,21 +194,18 @@ msgid "Permanently uninstall/delete the currently selected Screenlet ..."
 msgstr "Zauvijek deinstaliraj/obriši trenutno odabrani screenlet..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:415
-#, fuzzy
 msgid ""
 "Reset this Screenlet configuration (will only work if Screenlet isn't "
 "running)"
 msgstr ""
-"Resetuj konfiguraciju ovog screenleta (raditi će ako screenlet nije pokrenut)"
 
 #: src/share/screenlets-manager/screenlets-manager.py:416
 msgid "Install new theme for this screenlet"
 msgstr "Instaliraj novu temu za ovaj screenlet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:417
-#, fuzzy
 msgid "Restart all Screenlets that have auto start at login"
-msgstr "Resetuj sve screenlete koji se automatski pokreću pri logiranju"
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:418
 msgid "Close all Screenlets running"
@@ -313,7 +310,8 @@ msgid "Theme installed , please restart %s"
 msgstr "Tema instalirana, molimo resetujte %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:818
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Nađene 2 greške pri instalaciji teme - Tema nije instalirana ili je već "
 "instalirana"
@@ -546,18 +544,16 @@ msgid "Width"
 msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:110
-#, fuzzy
 msgid "Width of the widget"
-msgstr "Ime widgeta"
+msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:118
 msgid "Height"
 msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:119
-#, fuzzy
 msgid "Height of the widget"
-msgstr "Ime widgeta"
+msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:127
 msgid "Border width"
@@ -724,3 +720,11 @@ msgstr ""
 #, python-format
 msgid "Failed to add %sScreenlet."
 msgstr "Dodavanje %s screenleta nije uspjelo"
+
+#~ msgid "Restart all screenlets that have auto start at login"
+#~ msgstr "Resetuj sve screenlete koji se automatski pokreću pri logiranju"
+
+#~ msgid ""
+#~ "Reset this Screenlet configuration (will only work if screenlet isnt running)"
+#~ msgstr ""
+#~ "Resetuj konfiguraciju ovog screenleta (raditi će ako screenlet nije pokrenut)"

@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2011-04-04 11:28+0000\n"
 "Last-Translator: Jurgen Gaeremyn <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
-"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-12-22 05:21+0000\n"
-"X-Generator: Launchpad (build 14560)\n"
+"X-Launchpad-Export-Date: 2012-01-04 04:42+0000\n"
+"X-Generator: Launchpad (build 14616)\n"
+"Language: nl\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:127
 msgid "Screenlets daemon"
@@ -67,9 +67,9 @@ msgid ""
 msgstr ""
 "Deze applicatie is vrijgegeven onder de voorwaarden van de GNU General "
 "Public License v3 (of, naar u keuze, enige latere versie). U kan de "
-"volledige tekst van deze licentie vinden op http://www.gnu.org/licenses/gpl."
-"txt. Als u deze software gebruikt, wijzigt en/of verspreidt dan gaat u "
-"akkoord met de termen van deze licentie.\r\n"
+"volledige tekst van deze licentie vinden op "
+"http://www.gnu.org/licenses/gpl.txt. Als u deze software gebruikt, wijzigt "
+"en/of verspreidt dan gaat u akkoord met de termen van deze licentie.\r\n"
 "Dank u voor het gebruik van deze vrije software."
 
 #: src/share/screenlets-manager/screenlets-daemon.py:323
@@ -108,7 +108,8 @@ msgstr "Fout"
 msgid ""
 "Do you really want to permanently uninstall and delete the %sScreenlet from "
 "your system?"
-msgstr "Wilt u zeker %sScreenlet de-installeren en verwijderen van uw systeem?"
+msgstr ""
+"Wilt u zeker %sScreenlet de-installeren en verwijderen van uw systeem?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:153
 msgid "Delete Screenlet"
@@ -196,24 +197,18 @@ msgid "Permanently uninstall/delete the currently selected Screenlet ..."
 msgstr "Deïnstalleer/verwijder de huidige geselecteerde Screenlet ..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:415
-#, fuzzy
 msgid ""
 "Reset this Screenlet configuration (will only work if Screenlet isn't "
 "running)"
 msgstr ""
-"Reset deze Screenlet configuratie (werkt alleen als de Screenlet niet aan "
-"staat)"
 
 #: src/share/screenlets-manager/screenlets-manager.py:416
 msgid "Install new theme for this screenlet"
 msgstr "Installeer een nieuw thema voor deze Screenlet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:417
-#, fuzzy
 msgid "Restart all Screenlets that have auto start at login"
 msgstr ""
-"Herstart alle Screenlets die bij het inloggen op automatisch opstarten "
-"ingesteld staan"
 
 #: src/share/screenlets-manager/screenlets-manager.py:418
 msgid "Close all Screenlets running"
@@ -318,7 +313,8 @@ msgid "Theme installed , please restart %s"
 msgstr "Thema geïnstalleerd, herstart %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:818
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Thema-installatiefout 2 gevonden - Het thema is niet geïnstalleerd òf reeds "
 "geïnstalleerd"
@@ -558,18 +554,16 @@ msgid "Width"
 msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:110
-#, fuzzy
 msgid "Width of the widget"
-msgstr "De naam van het widget"
+msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:118
 msgid "Height"
 msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:119
-#, fuzzy
 msgid "Height of the widget"
-msgstr "De naam van het widget"
+msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:127
 msgid "Border width"
@@ -748,3 +742,14 @@ msgstr "Mislukt!"
 #, python-format
 msgid "Failed to add %sScreenlet."
 msgstr "Toevoegen van %sScreenlet mislukt."
+
+#~ msgid ""
+#~ "Reset this Screenlet configuration (will only work if screenlet isnt running)"
+#~ msgstr ""
+#~ "Reset deze Screenlet configuratie (werkt alleen als de Screenlet niet aan "
+#~ "staat)"
+
+#~ msgid "Restart all screenlets that have auto start at login"
+#~ msgstr ""
+#~ "Herstart alle Screenlets die bij het inloggen op automatisch opstarten "
+#~ "ingesteld staan"

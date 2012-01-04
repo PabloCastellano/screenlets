@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2011-10-02 09:16+0000\n"
 "Last-Translator: Walter Cheuk <wwycheuk@gmail.com>\n"
 "Language-Team: Traditional Chinese <zh_TW@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-12-22 05:21+0000\n"
-"X-Generator: Launchpad (build 14560)\n"
+"X-Launchpad-Export-Date: 2012-01-04 04:42+0000\n"
+"X-Generator: Launchpad (build 14616)\n"
+"Language: \n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:127
 msgid "Screenlets daemon"
@@ -65,10 +65,9 @@ msgid ""
 "distributing this software you agree to the terms and conditions of this "
 "license. Thank you for using free software!"
 msgstr ""
-"此應用程式是基於「自由軟件協會（GNU General Public License v3）」下發布的。您"
-"可以在「http://www.gnu.org/licenses/gpl.txt」頁面檢視「許可證(license)」。在"
-"使用，編輯或散布此應用程式時，您必須遵守頁面中「許可正(license)」的項目與條"
-"件。感謝您使用此自由軟體！"
+"此應用程式是基於「自由軟件協會（GNU General Public License "
+"v3）」下發布的。您可以在「http://www.gnu.org/licenses/gpl.txt」頁面檢視「許可證(license)」。在使用，編輯或散"
+"布此應用程式時，您必須遵守頁面中「許可正(license)」的項目與條件。感謝您使用此自由軟體！"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:323
 msgid "Install a Screenlet"
@@ -79,9 +78,7 @@ msgid ""
 "Important! You are running this application as root user, almost all "
 "functionality is disabled. You can use this to install screenlets into the "
 "system-wide path."
-msgstr ""
-"請注意！！現正以系統管理員(Root)權限執行此程式，幾乎所有功能已禁用。您可以此"
-"權限把 Screenlet 安裝至對全系統有效的路徑。"
+msgstr "請注意！！現正以系統管理員(Root)權限執行此程式，幾乎所有功能已禁用。您可以此權限把 Screenlet 安裝至對全系統有效的路徑。"
 
 #: src/share/screenlets-manager/screenlets-manager.py:94
 msgid "Warning!"
@@ -182,28 +179,25 @@ msgstr "啟動或添加所選 Screenlet 的新執行實體 ..."
 #: src/share/screenlets-manager/screenlets-manager.py:413
 msgid ""
 "Install a new Screenlet, SuperKaramba or Web Widget or Web Application  ..."
-msgstr ""
-"安裝新的 Screenlet、SuperKaramba、網頁小工具(Web Widget)或網路應用程式 ..."
+msgstr "安裝新的 Screenlet、SuperKaramba、網頁小工具(Web Widget)或網路應用程式 ..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:414
 msgid "Permanently uninstall/delete the currently selected Screenlet ..."
 msgstr "永久移除／刪除目前所選的 Screenlet ..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:415
-#, fuzzy
 msgid ""
 "Reset this Screenlet configuration (will only work if Screenlet isn't "
 "running)"
-msgstr "重置此 Screenlet 的設定 (只有當沒在執行時才有效)"
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:416
 msgid "Install new theme for this screenlet"
 msgstr "替此 Screenlet 安裝新主題"
 
 #: src/share/screenlets-manager/screenlets-manager.py:417
-#, fuzzy
 msgid "Restart all Screenlets that have auto start at login"
-msgstr "重新啟動登入時啟動的 Screenlet"
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:418
 msgid "Close all Screenlets running"
@@ -304,7 +298,8 @@ msgid "Theme installed , please restart %s"
 msgstr "已安裝主題，請重新啟動 %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:818
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr "碰到主題安裝錯誤2 - 主題沒有安裝或已經安裝"
 
 #: src/share/screenlets-manager/screenlets-manager.py:908
@@ -537,18 +532,16 @@ msgid "Width"
 msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:110
-#, fuzzy
 msgid "Width of the widget"
-msgstr "這個小工具的名稱"
+msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:118
 msgid "Height"
 msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:119
-#, fuzzy
 msgid "Height of the widget"
-msgstr "這個小工具的名稱"
+msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:127
 msgid "Border width"
@@ -689,9 +682,8 @@ msgid ""
 "and by clicking on an AptURL on web pages like Gnome-look.org. Would you "
 "like to add the Screenlets PPA to your system?"
 msgstr ""
-"軟體來源未列有該 Screenlet 的 PPA。添加之可讓您於 Gnome-look.org 等網頁點擊 "
-"AptURL 時自動以套件管理員（或軟體中心）安裝個別 Screenlet。是否添加該 "
-"Screenlet 的 PPA？"
+"軟體來源未列有該 Screenlet 的 PPA。添加之可讓您於 Gnome-look.org 等網頁點擊 AptURL "
+"時自動以套件管理員（或軟體中心）安裝個別 Screenlet。是否添加該 Screenlet 的 PPA？"
 
 #: src/lib/utils.py:204
 msgid "Do you want to enable the Screenlets PPA?"
@@ -717,3 +709,10 @@ msgstr "失敗！"
 #, python-format
 msgid "Failed to add %sScreenlet."
 msgstr "新增 %sScreenlet 失敗。"
+
+#~ msgid "Restart all screenlets that have auto start at login"
+#~ msgstr "重新啟動登入時啟動的 Screenlet"
+
+#~ msgid ""
+#~ "Reset this Screenlet configuration (will only work if screenlet isnt running)"
+#~ msgstr "重置此 Screenlet 的設定 (只有當沒在執行時才有效)"

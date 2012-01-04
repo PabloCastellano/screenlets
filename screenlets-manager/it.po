@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2011-08-06 13:39+0000\n"
 "Last-Translator: Lelio Giaccone <Unknown>\n"
 "Language-Team: Italian <it@li.org>\n"
-"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-12-22 05:21+0000\n"
-"X-Generator: Launchpad (build 14560)\n"
+"X-Launchpad-Export-Date: 2012-01-04 04:42+0000\n"
+"X-Generator: Launchpad (build 14616)\n"
+"Language: it\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:127
 msgid "Screenlets daemon"
@@ -197,22 +197,18 @@ msgstr ""
 "Disinstalla/Rimuovi permanentemente la Screenlet attualmente selezionata ..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:415
-#, fuzzy
 msgid ""
 "Reset this Screenlet configuration (will only work if Screenlet isn't "
 "running)"
 msgstr ""
-"Azzera le configurazioni per questa Screenlet (funziona solo se la la "
-"screenlet non è in esecuzione)"
 
 #: src/share/screenlets-manager/screenlets-manager.py:416
 msgid "Install new theme for this screenlet"
 msgstr "Installa un nuovo tema per questa screenlet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:417
-#, fuzzy
 msgid "Restart all Screenlets that have auto start at login"
-msgstr "Riavvia tutte le screenlet impostate per l'avvio automatico al login"
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:418
 msgid "Close all Screenlets running"
@@ -317,7 +313,8 @@ msgid "Theme installed , please restart %s"
 msgstr "Tema installato , riavvia %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:818
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Installazione Tema trovato errore 2 - Tema non installato o già installato"
 
@@ -461,7 +458,8 @@ msgstr "Trovato percorso \"%s\"."
 
 #: src/share/screenlets-manager/screenlets-packager.py:82
 msgid "Failed to extract screenlet name from path."
-msgstr "Fallimento durante l'estrazione del nome della screenlet dal percorso."
+msgstr ""
+"Fallimento durante l'estrazione del nome della screenlet dal percorso."
 
 #: src/share/screenlets-manager/screenlets-packager.py:83
 #, python-format
@@ -557,18 +555,16 @@ msgid "Width"
 msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:110
-#, fuzzy
 msgid "Width of the widget"
-msgstr "Nome del widget"
+msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:118
 msgid "Height"
 msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:119
-#, fuzzy
 msgid "Height of the widget"
-msgstr "Nome del widget"
+msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:127
 msgid "Border width"
@@ -676,7 +672,8 @@ msgstr ""
 
 #: src/lib/install.py:203
 msgid "This package was not packaged with the screenlet packager."
-msgstr "Questo pacchetto non è stato impacchettato con lo screenlet packager."
+msgstr ""
+"Questo pacchetto non è stato impacchettato con lo screenlet packager."
 
 #. set msg/result
 #: src/lib/install.py:212
@@ -747,3 +744,12 @@ msgstr "Non riuscito!"
 #, python-format
 msgid "Failed to add %sScreenlet."
 msgstr "Aggiunta della Screenlet %s fallita"
+
+#~ msgid "Restart all screenlets that have auto start at login"
+#~ msgstr "Riavvia tutte le screenlet impostate per l'avvio automatico al login"
+
+#~ msgid ""
+#~ "Reset this Screenlet configuration (will only work if screenlet isnt running)"
+#~ msgstr ""
+#~ "Azzera le configurazioni per questa Screenlet (funziona solo se la la "
+#~ "screenlet non è in esecuzione)"

@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2011-01-11 19:50+0000\n"
 "Last-Translator: tabbernuk <boamaod@gmail.com>\n"
 "Language-Team: Lithuanian <lt@li.org>\n"
-"Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-12-22 05:21+0000\n"
-"X-Generator: Launchpad (build 14560)\n"
+"X-Launchpad-Export-Date: 2012-01-04 04:42+0000\n"
+"X-Generator: Launchpad (build 14616)\n"
+"Language: lt\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:127
 msgid "Screenlets daemon"
@@ -66,10 +66,10 @@ msgid ""
 "license. Thank you for using free software!"
 msgstr ""
 "Ši programa išleista su GNU General Public Licencija v3 (arba,jūsų atvėju, "
-"naujesne versija). Jūs galite rasti pilną licencijos tekstą http://www.gnu."
-"org/licenses/gpl.txt. Keičiant ar kitaip naudojant šią programinę įrangą jūs "
-"sutinkate su šios licencijos terminais ir sąlygomis. Ačių, kad naudojatės "
-"laisva programine įranga!"
+"naujesne versija). Jūs galite rasti pilną licencijos tekstą "
+"http://www.gnu.org/licenses/gpl.txt. Keičiant ar kitaip naudojant šią "
+"programinę įrangą jūs sutinkate su šios licencijos terminais ir sąlygomis. "
+"Ačių, kad naudojatės laisva programine įranga!"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:323
 msgid "Install a Screenlet"
@@ -194,22 +194,18 @@ msgid "Permanently uninstall/delete the currently selected Screenlet ..."
 msgstr "Pašalinti valdiklį ..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:415
-#, fuzzy
 msgid ""
 "Reset this Screenlet configuration (will only work if Screenlet isn't "
 "running)"
 msgstr ""
-"Atstatyti šio valdiklio konfigūraciją (veiks tik jei valdiklis nepaleistas)"
 
 #: src/share/screenlets-manager/screenlets-manager.py:416
 msgid "Install new theme for this screenlet"
 msgstr "Įdiegti naują temą šiam valdikliui"
 
 #: src/share/screenlets-manager/screenlets-manager.py:417
-#, fuzzy
 msgid "Restart all Screenlets that have auto start at login"
 msgstr ""
-"Paleisti iš naujo visus valdiklis, kurie pasileidžia įjungus kompiuterį"
 
 #: src/share/screenlets-manager/screenlets-manager.py:418
 msgid "Close all Screenlets running"
@@ -313,7 +309,8 @@ msgid "Theme installed , please restart %s"
 msgstr "Tema įdiegta , prašome paleisti iš naujo %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:818
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr "Rasta 2 temos įdiegimo klaidos - tema neįdiegta arba jau įdiegta"
 
 #: src/share/screenlets-manager/screenlets-manager.py:908
@@ -547,18 +544,16 @@ msgid "Width"
 msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:110
-#, fuzzy
 msgid "Width of the widget"
-msgstr "Valdiklio pavadinimas"
+msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:118
 msgid "Height"
 msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:119
-#, fuzzy
 msgid "Height of the widget"
-msgstr "Valdiklio pavadinimas"
+msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:127
 msgid "Border width"
@@ -606,7 +601,8 @@ msgstr ""
 
 #: src/lib/install.py:120
 msgid "Archive is damaged or unsupported, use only tar, bz2 or gz."
-msgstr "Archyvas sugadintas arba nepalaikomas, naudokite tik tar, bz2 arba gz."
+msgstr ""
+"Archyvas sugadintas arba nepalaikomas, naudokite tik tar, bz2 arba gz."
 
 #. check if screenlet is already installed
 #. found_path = screenlets.utils.find_first_screenlet_path(name)
@@ -730,3 +726,12 @@ msgstr ""
 #, python-format
 msgid "Failed to add %sScreenlet."
 msgstr "Nepavyko pridėti %svaldiklio."
+
+#~ msgid "Restart all screenlets that have auto start at login"
+#~ msgstr ""
+#~ "Paleisti iš naujo visus valdiklis, kurie pasileidžia įjungus kompiuterį"
+
+#~ msgid ""
+#~ "Reset this Screenlet configuration (will only work if screenlet isnt running)"
+#~ msgstr ""
+#~ "Atstatyti šio valdiklio konfigūraciją (veiks tik jei valdiklis nepaleistas)"

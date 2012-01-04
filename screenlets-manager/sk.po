@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2011-08-08 07:56+0000\n"
 "Last-Translator: Eduard Hummel <22edel22@gmail.com>\n"
 "Language-Team: Slovak <sk@li.org>\n"
-"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-12-22 05:21+0000\n"
-"X-Generator: Launchpad (build 14560)\n"
+"X-Launchpad-Export-Date: 2012-01-04 04:42+0000\n"
+"X-Generator: Launchpad (build 14616)\n"
+"Language: sk\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:127
 msgid "Screenlets daemon"
@@ -196,22 +196,18 @@ msgid "Permanently uninstall/delete the currently selected Screenlet ..."
 msgstr "Trvalo odinštalovať/zmazať aktuálne zvolený Screenlet ..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:415
-#, fuzzy
 msgid ""
 "Reset this Screenlet configuration (will only work if Screenlet isn't "
 "running)"
 msgstr ""
-"Reset tejto Screenlet konfigurácie (bude fungovať iba v prípade, že "
-"screenlet nie je spustený)"
 
 #: src/share/screenlets-manager/screenlets-manager.py:416
 msgid "Install new theme for this screenlet"
 msgstr "Inštalovať nový motív pre tento screenlet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:417
-#, fuzzy
 msgid "Restart all Screenlets that have auto start at login"
-msgstr "Reštartujte všetky screenlets, ktoré majú autoštart pri prihlásení"
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:418
 msgid "Close all Screenlets running"
@@ -316,7 +312,8 @@ msgid "Theme installed , please restart %s"
 msgstr "Téma nainštalovaná, prosím reštartujte %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:818
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Inštalátor tém našiel 2 chyby - Téma nenainštalovaná alebo už nainštalovaná"
 
@@ -415,7 +412,8 @@ msgstr "Krok 2 :Skopírujte a vložte HTML z widget do políčka nižšie"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1072
 msgid "Step 3 : Give it a name in the box below and click on Ok to convert"
-msgstr "Krok 3 :Napíšte názov do políčka nižšie a kliknutím na OK konvertujte."
+msgstr ""
+"Krok 3 :Napíšte názov do políčka nižšie a kliknutím na OK konvertujte."
 
 #: src/share/screenlets-manager/screenlets-manager.py:1073
 msgid "The name of the widget"
@@ -548,18 +546,16 @@ msgid "Width"
 msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:110
-#, fuzzy
 msgid "Width of the widget"
-msgstr "Názov widgetu"
+msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:118
 msgid "Height"
 msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:119
-#, fuzzy
 msgid "Height of the widget"
-msgstr "Názov widgetu"
+msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:127
 msgid "Border width"
@@ -729,3 +725,12 @@ msgstr ""
 #, python-format
 msgid "Failed to add %sScreenlet."
 msgstr "Zlyhalo pridanie %sScreenletu"
+
+#~ msgid "Restart all screenlets that have auto start at login"
+#~ msgstr "Reštartujte všetky screenlets, ktoré majú autoštart pri prihlásení"
+
+#~ msgid ""
+#~ "Reset this Screenlet configuration (will only work if screenlet isnt running)"
+#~ msgstr ""
+#~ "Reset tejto Screenlet konfigurácie (bude fungovať iba v prípade, že "
+#~ "screenlet nie je spustený)"

@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2011-01-11 15:05+0000\n"
 "Last-Translator: tabbernuk <boamaod@gmail.com>\n"
 "Language-Team: Catalan <ca@li.org>\n"
-"Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-12-22 05:21+0000\n"
-"X-Generator: Launchpad (build 14560)\n"
+"X-Launchpad-Export-Date: 2012-01-04 04:41+0000\n"
+"X-Generator: Launchpad (build 14616)\n"
+"Language: ca\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:127
 msgid "Screenlets daemon"
@@ -186,7 +186,8 @@ msgstr "Executa/afegeix una instància nova de l'Screenlet seleccionat ..."
 #: src/share/screenlets-manager/screenlets-manager.py:413
 msgid ""
 "Install a new Screenlet, SuperKaramba or Web Widget or Web Application  ..."
-msgstr "Instal·la un Screenlet, SuperKaramba, giny web o aplicació web nou ..."
+msgstr ""
+"Instal·la un Screenlet, SuperKaramba, giny web o aplicació web nou ..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:414
 msgid "Permanently uninstall/delete the currently selected Screenlet ..."
@@ -194,23 +195,18 @@ msgstr ""
 "Desinstal·la/suprimeix permanentment l'Screenlet seleccionat actualment ..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:415
-#, fuzzy
 msgid ""
 "Reset this Screenlet configuration (will only work if Screenlet isn't "
 "running)"
 msgstr ""
-"Reinicia la configuració d'aquest Screenlet (només funcionarà si l'Screenlet "
-"no s'està executant)"
 
 #: src/share/screenlets-manager/screenlets-manager.py:416
 msgid "Install new theme for this screenlet"
 msgstr "Instal·la un tema nou per a aquest Screenlet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:417
-#, fuzzy
 msgid "Restart all Screenlets that have auto start at login"
 msgstr ""
-"Reincia tots els Screenlets que s'han d'executar automàticament en entrar"
 
 #: src/share/screenlets-manager/screenlets-manager.py:418
 msgid "Close all Screenlets running"
@@ -315,7 +311,8 @@ msgid "Theme installed , please restart %s"
 msgstr "Tema instal·lat, reinicieu %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:818
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "S'ha produït un error en instal·lar el tema - El tema no està instal·lat o "
 "ja està instal·lat"
@@ -493,7 +490,8 @@ msgstr "No s'ha pogut importar la classe des del mòdul."
 
 #: src/share/screenlets-manager/screenlets-packager.py:106
 msgid "The class inside the module is no subclass of screenlets.Screenlet."
-msgstr "La classe dins del mòdul no és una subclasse de screenlets.Screenlet."
+msgstr ""
+"La classe dins del mòdul no és una subclasse de screenlets.Screenlet."
 
 #: src/share/screenlets-manager/screenlets-packager.py:107
 #, python-format
@@ -553,18 +551,16 @@ msgid "Width"
 msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:110
-#, fuzzy
 msgid "Width of the widget"
-msgstr "El nom del giny"
+msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:118
 msgid "Height"
 msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:119
-#, fuzzy
 msgid "Height of the widget"
-msgstr "El nom del giny"
+msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:127
 msgid "Border width"
@@ -735,3 +731,13 @@ msgstr ""
 #, python-format
 msgid "Failed to add %sScreenlet."
 msgstr "No s'ha pogut afegir el %sScreenlet."
+
+#~ msgid ""
+#~ "Reset this Screenlet configuration (will only work if screenlet isnt running)"
+#~ msgstr ""
+#~ "Reinicia la configuració d'aquest Screenlet (només funcionarà si l'Screenlet "
+#~ "no s'està executant)"
+
+#~ msgid "Restart all screenlets that have auto start at login"
+#~ msgstr ""
+#~ "Reincia tots els Screenlets que s'han d'executar automàticament en entrar"

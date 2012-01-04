@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2011-09-27 11:31+0000\n"
 "Last-Translator: Richard Somlói <ricsipontaz@gmail.com>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
-"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-12-22 05:21+0000\n"
-"X-Generator: Launchpad (build 14560)\n"
+"X-Launchpad-Export-Date: 2012-01-04 04:42+0000\n"
+"X-Generator: Launchpad (build 14616)\n"
+"Language: hu\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:127
 msgid "Screenlets daemon"
@@ -195,21 +195,18 @@ msgid "Permanently uninstall/delete the currently selected Screenlet ..."
 msgstr "Végleg törli a kiválasztott Screenletet …"
 
 #: src/share/screenlets-manager/screenlets-manager.py:415
-#, fuzzy
 msgid ""
 "Reset this Screenlet configuration (will only work if Screenlet isn't "
 "running)"
 msgstr ""
-"Törli a Screenlet beállításait (Csak akkor működik, ha a Screenlet nem fut)"
 
 #: src/share/screenlets-manager/screenlets-manager.py:416
 msgid "Install new theme for this screenlet"
 msgstr "Új téma telepítése ehhez a Screenlethez"
 
 #: src/share/screenlets-manager/screenlets-manager.py:417
-#, fuzzy
 msgid "Restart all Screenlets that have auto start at login"
-msgstr "Az összes automatikusan induló Screenlet újraindítása"
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:418
 msgid "Close all Screenlets running"
@@ -313,8 +310,10 @@ msgid "Theme installed , please restart %s"
 msgstr "Téma telepítve, %s újraindítása szükséges"
 
 #: src/share/screenlets-manager/screenlets-manager.py:818
-msgid "Theme install error 2 found - Theme not installed or already installed"
-msgstr "Téma telepítési hiba 2 - A téma nincs telepítve vagy már telepítve van"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
+msgstr ""
+"Téma telepítési hiba 2 - A téma nincs telepítve vagy már telepítve van"
 
 #: src/share/screenlets-manager/screenlets-manager.py:908
 msgid "Install SuperKaramba Theme"
@@ -407,7 +406,8 @@ msgstr "1. Lépés: Keressen egy konvertálni kívánt widgetet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1071
 msgid "Step 2 : Copy and Paste the HTML from the widget in the box below"
-msgstr "2. Lépés: Másolja és illessze be a widget HTML kódját a lenti dobozba"
+msgstr ""
+"2. Lépés: Másolja és illessze be a widget HTML kódját a lenti dobozba"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1072
 msgid "Step 3 : Give it a name in the box below and click on Ok to convert"
@@ -553,18 +553,16 @@ msgid "Width"
 msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:110
-#, fuzzy
 msgid "Width of the widget"
-msgstr "A widget neve"
+msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:118
 msgid "Height"
 msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:119
-#, fuzzy
 msgid "Height of the widget"
-msgstr "A widget neve"
+msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:127
 msgid "Border width"
@@ -744,3 +742,11 @@ msgstr "Sikertelen!"
 #, python-format
 msgid "Failed to add %sScreenlet."
 msgstr "%sScreenlet hozzáadása sikertelen."
+
+#~ msgid "Restart all screenlets that have auto start at login"
+#~ msgstr "Az összes automatikusan induló Screenlet újraindítása"
+
+#~ msgid ""
+#~ "Reset this Screenlet configuration (will only work if screenlet isnt running)"
+#~ msgstr ""
+#~ "Törli a Screenlet beállításait (Csak akkor működik, ha a Screenlet nem fut)"

@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2011-01-11 16:52+0000\n"
 "Last-Translator: tabbernuk <boamaod@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
-"Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-12-22 05:21+0000\n"
-"X-Generator: Launchpad (build 14560)\n"
+"X-Launchpad-Export-Date: 2012-01-04 04:42+0000\n"
+"X-Generator: Launchpad (build 14616)\n"
+"Language: hr\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:127
 msgid "Screenlets daemon"
@@ -187,30 +187,26 @@ msgstr "Pokreni/dodaj novu instancu odabranog Screenleta ..."
 msgid ""
 "Install a new Screenlet, SuperKaramba or Web Widget or Web Application  ..."
 msgstr ""
-"Instaliraj novi Screenlet, SuperKaramba ili Web widget ili Web "
-"aplikaciju  ..."
+"Instaliraj novi Screenlet, SuperKaramba ili Web widget ili Web aplikaciju  "
+"..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:414
 msgid "Permanently uninstall/delete the currently selected Screenlet ..."
 msgstr "Trajno deinstaliraj/izbriši odabrani Screenlet ..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:415
-#, fuzzy
 msgid ""
 "Reset this Screenlet configuration (will only work if Screenlet isn't "
 "running)"
 msgstr ""
-"Vrati postavke ovog Screenleta u početno stanje (radit će samo ako screenlet "
-"nije pokrenut)"
 
 #: src/share/screenlets-manager/screenlets-manager.py:416
 msgid "Install new theme for this screenlet"
 msgstr "Instaliraj novu temu za ovaj screenlet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:417
-#, fuzzy
 msgid "Restart all Screenlets that have auto start at login"
-msgstr "Ponovo pokreni sve screenlete koji se automatski pokreću kod prijave"
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:418
 msgid "Close all Screenlets running"
@@ -315,7 +311,8 @@ msgid "Theme installed , please restart %s"
 msgstr "Tema je instalirana , molim vas ponovno pokrenite %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:818
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Pronađena je greška 2 prilikom instaliranja teme - Tema nije instalirana ili "
 "je već ranije instalirana"
@@ -549,18 +546,16 @@ msgid "Width"
 msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:110
-#, fuzzy
 msgid "Width of the widget"
-msgstr "Ime widgeta"
+msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:118
 msgid "Height"
 msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:119
-#, fuzzy
 msgid "Height of the widget"
-msgstr "Ime widgeta"
+msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:127
 msgid "Border width"
@@ -608,7 +603,8 @@ msgstr ""
 
 #: src/lib/install.py:120
 msgid "Archive is damaged or unsupported, use only tar, bz2 or gz."
-msgstr "Arhiva je oštećena ili nije podržana, koristite samo tar, bz2 ili gz."
+msgstr ""
+"Arhiva je oštećena ili nije podržana, koristite samo tar, bz2 ili gz."
 
 #. check if screenlet is already installed
 #. found_path = screenlets.utils.find_first_screenlet_path(name)
@@ -729,3 +725,12 @@ msgstr ""
 #, python-format
 msgid "Failed to add %sScreenlet."
 msgstr "Nije uspjelo dodavanje %s Screenleta."
+
+#~ msgid ""
+#~ "Reset this Screenlet configuration (will only work if screenlet isnt running)"
+#~ msgstr ""
+#~ "Vrati postavke ovog Screenleta u početno stanje (radit će samo ako screenlet "
+#~ "nije pokrenut)"
+
+#~ msgid "Restart all screenlets that have auto start at login"
+#~ msgstr "Ponovo pokreni sve screenlete koji se automatski pokreću kod prijave"

@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2011-05-10 18:20+0000\n"
 "Last-Translator: Adrian Guniš <andygun696@gmail.com>\n"
 "Language-Team: Czech <cs@li.org>\n"
-"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-12-22 05:21+0000\n"
-"X-Generator: Launchpad (build 14560)\n"
+"X-Launchpad-Export-Date: 2012-01-04 04:41+0000\n"
+"X-Generator: Launchpad (build 14616)\n"
+"Language: cs\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:127
 msgid "Screenlets daemon"
@@ -66,10 +66,10 @@ msgid ""
 "license. Thank you for using free software!"
 msgstr ""
 "Tato aplikace je vydávána pod licencí GNU General Public Licence v3 (nebo "
-"kompatibilní). Plné znění licence můžete najít na http://www.gnu.org/"
-"licenses/gpl.txt. Používáním, upravováním nebo distribuováním tohoto "
-"programu souhlasíte s podmínkami této licence. Děkujeme za používání "
-"svobodného softwaru!"
+"kompatibilní). Plné znění licence můžete najít na "
+"http://www.gnu.org/licenses/gpl.txt. Používáním, upravováním nebo "
+"distribuováním tohoto programu souhlasíte s podmínkami této licence. "
+"Děkujeme za používání svobodného softwaru!"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:323
 msgid "Install a Screenlet"
@@ -194,22 +194,18 @@ msgid "Permanently uninstall/delete the currently selected Screenlet ..."
 msgstr "Natrvalo odinstalovat/smazat současný Screenlet..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:415
-#, fuzzy
 msgid ""
 "Reset this Screenlet configuration (will only work if Screenlet isn't "
 "running)"
 msgstr ""
-"Restartovat tuto Screenlet konfiguraci (bude fungovat pouze, pokud není "
-"screenlet zapnutý)"
 
 #: src/share/screenlets-manager/screenlets-manager.py:416
 msgid "Install new theme for this screenlet"
 msgstr "Nainstalovat nový styl pro tento screenlet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:417
-#, fuzzy
 msgid "Restart all Screenlets that have auto start at login"
-msgstr "Restartovat všechny screenlety, které se spouští samy při přihlášení"
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:418
 msgid "Close all Screenlets running"
@@ -314,7 +310,8 @@ msgid "Theme installed , please restart %s"
 msgstr "Styl nainstalován, prosím, restartujte %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:818
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Zjištěna 2. chyba během instalace stylu - Styl nebyl nainstalován nebo již "
 "byl nainstalován."
@@ -549,18 +546,16 @@ msgid "Width"
 msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:110
-#, fuzzy
 msgid "Width of the widget"
-msgstr "Název widgetu"
+msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:118
 msgid "Height"
 msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:119
-#, fuzzy
 msgid "Height of the widget"
-msgstr "Název widgetu"
+msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:127
 msgid "Border width"
@@ -730,3 +725,12 @@ msgstr ""
 #, python-format
 msgid "Failed to add %sScreenlet."
 msgstr "Chyba při přidání %sScreenletu"
+
+#~ msgid ""
+#~ "Reset this Screenlet configuration (will only work if screenlet isnt running)"
+#~ msgstr ""
+#~ "Restartovat tuto Screenlet konfiguraci (bude fungovat pouze, pokud není "
+#~ "screenlet zapnutý)"
+
+#~ msgid "Restart all screenlets that have auto start at login"
+#~ msgstr "Restartovat všechny screenlety, které se spouští samy při přihlášení"

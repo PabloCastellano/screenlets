@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2011-01-11 20:49+0000\n"
 "Last-Translator: Nawaf Alsallami <nawafnaim@gmail.com>\n"
 "Language-Team: Arabic <ar@li.org>\n"
-"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-12-22 05:21+0000\n"
-"X-Generator: Launchpad (build 14560)\n"
+"X-Launchpad-Export-Date: 2012-01-04 04:41+0000\n"
+"X-Generator: Launchpad (build 14616)\n"
+"Language: ar\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:127
 msgid "Screenlets daemon"
@@ -66,9 +66,10 @@ msgid ""
 "license. Thank you for using free software!"
 msgstr ""
 "يصدر هذا التطبيق تحت الرخصة العمومية العامة جنو النسخة الثالثة (أو أي نسخة "
-"أقدم حسب اختيارك), و بإمكانك الإطلاع على النسخة الكاملة للرخصة هنا http://"
-"www.gnu.org/licenses/gpl.txt. علماً أن بإستخدامك أو تحريرك أو نشرك لهذا "
-"البرنامج أنت مقر بأحكام و شروط هذه الرخصة. شكراً لإستخدامك للبرمجيات الحرة!"
+"أقدم حسب اختيارك), و بإمكانك الإطلاع على النسخة الكاملة للرخصة هنا "
+"http://www.gnu.org/licenses/gpl.txt. علماً أن بإستخدامك أو تحريرك أو نشرك "
+"لهذا البرنامج أنت مقر بأحكام و شروط هذه الرخصة. شكراً لإستخدامك للبرمجيات "
+"الحرة!"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:323
 msgid "Install a Screenlet"
@@ -192,20 +193,18 @@ msgid "Permanently uninstall/delete the currently selected Screenlet ..."
 msgstr "أزل تثبيت/إحذف نهائياً الشُويشة المختارة حالياً ..."
 
 #: src/share/screenlets-manager/screenlets-manager.py:415
-#, fuzzy
 msgid ""
 "Reset this Screenlet configuration (will only work if Screenlet isn't "
 "running)"
-msgstr "صفر إعدادات هذه الشُويشة (سيعمل فقط إذا كانت الشُويشة مغلقة)"
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:416
 msgid "Install new theme for this screenlet"
 msgstr "ثبت سِمة جديدة لهذه الشُويشة"
 
 #: src/share/screenlets-manager/screenlets-manager.py:417
-#, fuzzy
 msgid "Restart all Screenlets that have auto start at login"
-msgstr "أعد بدء جميع الشُويشات اللتي تبدأ تلقائياً عند الولوج"
+msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:418
 msgid "Close all Screenlets running"
@@ -288,7 +287,8 @@ msgstr "عُثر على خطأ"
 #: src/share/screenlets-manager/screenlets-manager.py:767
 msgid ""
 "Theme install error 1 found - Theme not installed , maybe a package error "
-msgstr "عُثر على ١ خطأ في تثبيت السِمة - لم تثبت السِمة، قد يكون خطأ في الحزمة "
+msgstr ""
+"عُثر على ١ خطأ في تثبيت السِمة - لم تثبت السِمة، قد يكون خطأ في الحزمة "
 
 #: src/share/screenlets-manager/screenlets-manager.py:778
 msgid ""
@@ -308,8 +308,10 @@ msgid "Theme installed , please restart %s"
 msgstr "ثُبتت السِمة ، أعد تشغيل %s من فضلك"
 
 #: src/share/screenlets-manager/screenlets-manager.py:818
-msgid "Theme install error 2 found - Theme not installed or already installed"
-msgstr "عثُر على ٢ أخطأ تثبيت سِمة - إما أن السِمة غير مثبته أو أنها مثبته مسبقاً"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
+msgstr ""
+"عثُر على ٢ أخطأ تثبيت سِمة - إما أن السِمة غير مثبته أو أنها مثبته مسبقاً"
 
 #: src/share/screenlets-manager/screenlets-manager.py:908
 msgid "Install SuperKaramba Theme"
@@ -539,18 +541,16 @@ msgid "Width"
 msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:110
-#, fuzzy
 msgid "Width of the widget"
-msgstr "اسم الودجة"
+msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:118
 msgid "Height"
 msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:119
-#, fuzzy
 msgid "Height of the widget"
-msgstr "اسم الودجة"
+msgstr ""
 
 #: src/share/screenlets-manager/WebappScreenlet.py:127
 msgid "Border width"
@@ -646,7 +646,8 @@ msgstr ""
 msgid ""
 "%s was not packaged with the screenlet packager. Do you wish to continue and "
 "try to install it?"
-msgstr "لم تُحزَّم %s بواسطة مُحزِّم الشُويشات. هل ترغب في المتابعة ومحاولة تثبيتها؟"
+msgstr ""
+"لم تُحزَّم %s بواسطة مُحزِّم الشُويشات. هل ترغب في المتابعة ومحاولة تثبيتها؟"
 
 #: src/lib/install.py:203
 msgid "This package was not packaged with the screenlet packager."
@@ -663,7 +664,8 @@ msgstr "ثُبتت شُويشة %s بنجاح."
 msgid ""
 "There is no existing autostart directory for your user account yet. Do you "
 "want me to automatically create it for you?"
-msgstr "لايوجد دليل لتشغيل التلقائي لحسابك بعد. هل ترغب أن أُنشاءه لك تلقائياً؟"
+msgstr ""
+"لايوجد دليل لتشغيل التلقائي لحسابك بعد. هل ترغب أن أُنشاءه لك تلقائياً؟"
 
 #: src/lib/utils.py:132 src/lib/utils.py:626
 #, python-format
@@ -715,3 +717,10 @@ msgstr ""
 #, python-format
 msgid "Failed to add %sScreenlet."
 msgstr "فشلة عملية إضافة الشُويشة %s"
+
+#~ msgid "Restart all screenlets that have auto start at login"
+#~ msgstr "أعد بدء جميع الشُويشات اللتي تبدأ تلقائياً عند الولوج"
+
+#~ msgid ""
+#~ "Reset this Screenlet configuration (will only work if screenlet isnt running)"
+#~ msgstr "صفر إعدادات هذه الشُويشة (سيعمل فقط إذا كانت الشُويشة مغلقة)"

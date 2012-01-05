@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: screenlets-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-05 01:41+0200\n"
-"PO-Revision-Date: 2011-01-11 19:13+0000\n"
+"PO-Revision-Date: 2012-01-05 02:43+0000\n"
 "Last-Translator: tabbernuk <boamaod@gmail.com>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
-"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-01-04 04:42+0000\n"
-"X-Generator: Launchpad (build 14616)\n"
+"X-Launchpad-Export-Date: 2012-01-05 05:21+0000\n"
+"X-Generator: Launchpad (build 14625)\n"
+"Language: pt\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:127
 msgid "Screenlets daemon"
@@ -313,7 +313,8 @@ msgid "Theme installed , please restart %s"
 msgstr "Tema instalado, por favor reinicie %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:818
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Encontrado erro número 2 da instalação de temas - O tema não foi instalado "
 "ou talvez já instalado"
@@ -412,7 +413,8 @@ msgstr "Passo 1: Encontrar a Widget que deseja converter"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1094
 msgid "Step 2 : Copy and Paste the HTML from the widget in the box below"
-msgstr "Passo 2: Copiar e colar o código HTML da Widget para a caixa em baixo"
+msgstr ""
+"Passo 2: Copiar e colar o código HTML da Widget para a caixa em baixo"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1095
 msgid "Step 3 : Give it a name in the box below and click on Ok to convert"
@@ -493,7 +495,8 @@ msgstr "Não foi possível importar class do módulo."
 
 #: src/share/screenlets-manager/screenlets-packager.py:106
 msgid "The class inside the module is no subclass of screenlets.Screenlet."
-msgstr "A classe dentro do módulo não é uma subclasse de screenlets.Screenlet."
+msgstr ""
+"A classe dentro do módulo não é uma subclasse de screenlets.Screenlet."
 
 #: src/share/screenlets-manager/screenlets-packager.py:107
 #, python-format
@@ -650,13 +653,11 @@ msgid "Failed to add %sScreenlet."
 msgstr "Falhou ao adicionar %sScreenlet"
 
 #~ msgid ""
-#~ "Reset this Screenlet configuration (will only work if screenlet isnt "
-#~ "running)"
+#~ "Reset this Screenlet configuration (will only work if screenlet isnt running)"
 #~ msgstr ""
 #~ "Voltar aos valores por omissão da configuração deste Screenlet (apenas "
 #~ "funciona se o screenlet não estiver a correr)"
 
 #~ msgid "Restart all screenlets that have auto start at login"
 #~ msgstr ""
-#~ "Reiniciar todos os screenlets que iniciam automaticamente no início de "
-#~ "sessão"
+#~ "Reiniciar todos os screenlets que iniciam automaticamente no início de sessão"

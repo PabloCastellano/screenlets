@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: screenlets-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-05 01:41+0200\n"
-"PO-Revision-Date: 2011-07-24 23:08+0000\n"
+"PO-Revision-Date: 2012-01-05 01:56+0000\n"
 "Last-Translator: Rafael Baboni Dominiquini <rafaeldominiquini@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
-"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-01-04 04:42+0000\n"
-"X-Generator: Launchpad (build 14616)\n"
+"X-Launchpad-Export-Date: 2012-01-05 05:22+0000\n"
+"X-Generator: Launchpad (build 14625)\n"
+"Language: pt_BR\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:127
 msgid "Screenlets daemon"
@@ -118,7 +118,8 @@ msgstr "Apagar Screenlet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:158
 msgid "Do you also want to remove the Screenlet configuration files?"
-msgstr "Você também deseja remover os arquivos de configuração do Screenlet ?"
+msgstr ""
+"Você também deseja remover os arquivos de configuração do Screenlet ?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:162
 msgid "Can't delete system-wide screenlets."
@@ -313,7 +314,8 @@ msgid "Theme installed , please restart %s"
 msgstr "Tema instalado, por favor reinicie o screenlet %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:818
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Instalação de temas, erro 2 encontrado - Tema não instalado ou já instalado"
 
@@ -493,7 +495,8 @@ msgstr "Não foi possível importar a classe do módulo."
 
 #: src/share/screenlets-manager/screenlets-packager.py:106
 msgid "The class inside the module is no subclass of screenlets.Screenlet."
-msgstr "A classe dentro do módulo não é uma subclasse de screenlets.Screenlet."
+msgstr ""
+"A classe dentro do módulo não é uma subclasse de screenlets.Screenlet."
 
 #: src/share/screenlets-manager/screenlets-packager.py:107
 #, python-format
@@ -658,8 +661,7 @@ msgstr "Falha ao adicionar %s Screenlet"
 #~ msgstr "Reiniciar todos os screenlets que tem auto-inicialização no login"
 
 #~ msgid ""
-#~ "Reset this Screenlet configuration (will only work if screenlet isnt "
-#~ "running)"
+#~ "Reset this Screenlet configuration (will only work if screenlet isnt running)"
 #~ msgstr ""
 #~ "Resetar a configuração desse Screenlet (só funcionará se o screenlet não "
 #~ "estiver ativo)"

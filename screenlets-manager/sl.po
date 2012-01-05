@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2011-01-11 17:08+0000\n"
 "Last-Translator: tabbernuk <boamaod@gmail.com>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
-"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-01-04 04:42+0000\n"
-"X-Generator: Launchpad (build 14616)\n"
+"X-Launchpad-Export-Date: 2012-01-05 05:21+0000\n"
+"X-Generator: Launchpad (build 14625)\n"
+"Language: sl\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:127
 msgid "Screenlets daemon"
@@ -296,7 +296,8 @@ msgid "Theme installed , please restart %s"
 msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:818
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:914
@@ -497,7 +498,8 @@ msgstr ""
 
 #: src/lib/install.py:120
 msgid "Archive is damaged or unsupported, use only tar, bz2 or gz."
-msgstr "Arhiv je poškodovan ali nepodprt, uporabite le arhive tar, bz2 ali gz."
+msgstr ""
+"Arhiv je poškodovan ali nepodprt, uporabite le arhive tar, bz2 ali gz."
 
 #. check if screenlet is already installed
 #. found_path = screenlets.utils.find_first_screenlet_path(name)

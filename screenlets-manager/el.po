@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-01-05 05:21+0000\n"
-"X-Generator: Launchpad (build 14625)\n"
+"X-Launchpad-Export-Date: 2012-01-06 04:44+0000\n"
+"X-Generator: Launchpad (build 14637)\n"
 "Language: el\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:127
@@ -669,14 +669,3 @@ msgstr "Αποτυχία!"
 #, python-format
 msgid "Failed to add %sScreenlet."
 msgstr "Αποτυχία προσθήκης %sScreenlets."
-
-#~ msgid "Restart all screenlets that have auto start at login"
-#~ msgstr ""
-#~ "Επανεκκίνηση όλων των screenlets που διαθέτουν αυτόματη εκκίνηση κατά τη "
-#~ "σύνδεση."
-
-#~ msgid ""
-#~ "Reset this Screenlet configuration (will only work if screenlet isnt running)"
-#~ msgstr ""
-#~ "Επαναφορά ρυθμίσεων αυτού του Screenlet (μόνον εάν το Screenlet δεν "
-#~ "εκτελείται)"

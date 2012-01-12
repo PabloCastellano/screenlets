@@ -230,6 +230,8 @@ class WidgetScreenlet (screenlets.Screenlet):
 
 		if self.widget_info.startswith('<script src='):
 			self.url = self.widget_info[13:][:(len(self.widget_info)-24)]
+			if self.url.startswith("//"):
+				self.url = "http:" + self.url
 			
 			self.engine = 'google'
 		self.view.load_uri(self.url)

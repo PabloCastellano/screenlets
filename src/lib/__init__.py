@@ -324,7 +324,7 @@ class ScreenletTheme (dict):
 		theme_name = ''
 		# loop through overrides and appply them
 		for name in self.option_overrides:
-			print "Override: " + name
+#			print "Override: " + name
 			o = screenlet.get_option_by_name(name)
 			if o and not o.protected:
 				if name == 'theme_name':
@@ -335,7 +335,8 @@ class ScreenletTheme (dict):
 					setattr(screenlet, name, 
 						o.on_import(self.option_overrides[name]))
 			else:
-				print "WARNING: Option '%s' not found or protected." % name
+#				print "WARNING: Option '%s' not found or protected." % name
+				pass
 		# now apply theme
 		if theme_name != '':
 			screenlet.theme_name = theme_name
@@ -571,13 +572,14 @@ class ScreenletTheme (dict):
 				if opts:
 					for o in opts:
 						self.option_overrides[o[0]] = o[1]
-			print "Loaded theme config from:", filename
-			print "\tName: " + str(self.__name__)
-			print "\tAuthor: " +str(self.__author__)
-			print "\tVersion: " +str(self.__version__)
-			print "\tInfo: " +str(self.__info__)
+#			print "Loaded theme config from:", filename
+#			print "\tName: " + str(self.__name__)
+#			print "\tAuthor: " +str(self.__author__)
+#			print "\tVersion: " +str(self.__version__)
+#			print "\tInfo: " +str(self.__info__)
 		else:
-			print "Failed to theme config from", filename
+#			print "Failed to theme config from", filename
+			pass
 	
 
 	def load_svg (self, filename):
@@ -601,7 +603,7 @@ class ScreenletTheme (dict):
 				# set width/height
 				self.width = self[filename].get_width()
 				self.height = self[filename].get_height()
-			print str(ex)
+#			print str(ex)
 			return True
 
 		else:
@@ -642,7 +644,7 @@ class ScreenletTheme (dict):
 				if self.load_png(fname) == False:
 					return False
 			elif fname == "theme.conf":
-				print "theme.conf found! Loading option-overrides."
+#				print "theme.conf found! Loading option-overrides."
 				# theme.conf
 				if self.load_conf(file) == False:
 					return False
@@ -1046,7 +1048,7 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 			#self.__dict__ ['theme_name'] = value
 			#self.load_theme(self.get_theme_dir() + value)
 			# load theme
-			print "Theme set to: '%s'" % value
+#			print "Theme set to: '%s'" % value
 			path = self.find_theme(value)
 			if path:
 				self.load_theme(path)
@@ -1153,7 +1155,7 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 	def add_default_menuitems (self, flags=DefaultMenuItem.STANDARD):
 		"""Appends the default menu-items to self.menu. You can add on OR'ed
 		   flag with DefaultMenuItems you want to add."""
-		if not self.has_started: print 'WARNING - add_default_menuitems and add_menuitems should be set in on_init ,menu values will be displayed incorrectly'
+#		if not self.has_started: print 'WARNING - add_default_menuitems and add_menuitems should be set in on_init ,menu values will be displayed incorrectly'
 		
 		menu = self.menu
 		
@@ -1268,7 +1270,7 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 		This function wraps screenlets.menu.add_menuitem.
 		For backwards compatibility, the order of the parameters
 		to this function is switched."""
-		if not self.has_started: print 'WARNING - add_default_menuitems and add_menuitems should be set in on_init ,menu values will be displayed incorrectly'
+#		if not self.has_started: print 'WARNING - add_default_menuitems and add_menuitems should be set in on_init ,menu values will be displayed incorrectly'
 		if callback is None:
 			callback = self.menuitem_callback
 		# call menu.add_menuitem
@@ -1276,7 +1278,7 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 	
 	def add_submenuitem (self, id, label, lst, callback=None):
 		"""Simple way to add submenuitems to the right-click menu through a list."""
-		if not self.has_started: print 'WARNING - add_default_menuitems and add_menuitems should be set in on_init ,menu values will be displayed incorrectly'
+#		if not self.has_started: print 'WARNING - add_default_menuitems and add_menuitems should be set in on_init ,menu values will be displayed incorrectly'
 
 		submenu = gtk.MenuItem(label)
 		submenu.show()
@@ -1559,12 +1561,17 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 	def show (self):
 		"""Show this Screenlet's underlying gtk.Window"""
 		# Hack for Ubuntu Oneiric, see https://bugs.launchpad.net/screenlets/+bug/885322 and https://bugs.launchpad.net/unity/+bug/904040
-		while True and os.environ.get('DESKTOP_SESSION') == "ubuntu": 
+		waited = False
+		while os.environ.get('DESKTOP_SESSION') == "ubuntu": 
 			if os.system("pgrep -fl unity-panel-service | grep -v pgrep") == 0:
-				print "PANEL-SERVICE OK"
+#				print "PANEL-SERVICE OK"
 				break
-			print "WAITING..."
+			waited = True
+#			print "WAITING..."
 			time.sleep(1)
+		if waited: # add extra second, since the hack is heuristic
+			time.sleep(1)
+		#EOH
 		self.window.move(self.x, self.y)
 		self.window.show()
 		self.on_show()
@@ -1951,7 +1958,7 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 		return False
 	
 	def button_release (self, widget, event):
-		print "Button release"
+#		print "Button release"
 		if event.button==1:
 			self.focus_in_event(self, None)
 		self.is_dragged = False	# doesn't work!!! we don't get an event when move_drag ends :( ...
@@ -2007,9 +2014,9 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 	
 	def delete_event (self, widget, event, data=None):
 		# cancel event?
-		print "delete_event"
+#		print "delete_event"
 		if self.on_delete() == True:
-			print "Cancel delete_event"
+#			print "Cancel delete_event"
 			return True
 		else:
 			self.close()
@@ -2029,7 +2036,7 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 			del self		# ??? does this really work???
 	
 	def drag_begin (self, widget, drag_context):
-		print "Start drag"
+#		print "Start drag"
 		self.is_dragged = True
 		self.on_drag_begin(drag_context)
 		#return False
@@ -2038,7 +2045,7 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 		return self.on_drop(x, y, sel_data, timestamp)
 	
 	def drag_end (self, widget, drag_context):
-		print "End drag"
+#		print "End drag"
 		self.is_dragged = False
 		return False
 	
@@ -2123,7 +2130,7 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 				# notify about being rmeoved (does this get send???)
 				self.service.instance_removed(self.id)
 		elif id == "quit_instance":
-			print 'Quitting current screenlet instance'
+#			print 'Quitting current screenlet instance'
 			self.session.quit_instance (self.id)
 			self.service.instance_removed(self.id)
 		elif id == "quit":
@@ -2142,7 +2149,7 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 			self.height = int(id[5:])
 			self.update_shape()
 		elif id[:6]=="theme:":
-			print "Screenlet: Set theme %s" % id[6:]
+#			print "Screenlet: Set theme %s" % id[6:]
 			# set theme
 			self.theme_name = id[6:]
 		elif id[:8] == "setting:":
@@ -2290,11 +2297,12 @@ class ShapedWidget (gtk.DrawingArea):
 		ctx.paint()
 		self.draw_shape(ctx)
 		self.input_shape_combine_mask(bitmap, 0, 0)
-		print "Updating shape."
+#		print "Updating shape."
 	
 	def button_press (self, widget, event):
 		if event.button==1:
-			print "left button pressed!"
+#			print "left button pressed!"
+			pass
 		return False
 		
 	def button_release (self, widget, event):
@@ -2623,7 +2631,7 @@ def launch_screenlet (name, debug=False):
 		# get full path of screenlet's file
 		slfile = path + '/' + name + 'Screenlet.py'
 		# launch screenlet as separate process
-		print "Launching Screenlet from: %s" % slfile
+#		print "Launching Screenlet from: %s" % slfile
 		if debug:
 			print "Logging output goes to: "+DIR_CONFIG+"/%sScreenlet.log" % name
 			out = DIR_CONFIG+'/%sScreenlet.log' % name
@@ -2632,7 +2640,7 @@ def launch_screenlet (name, debug=False):
 		os.system('python -u %s > %s &' % (slfile, out))
 		return True
 	else:
-		print "Screenlet '%s' could not be launched." % name
+#		print "Screenlet '%s' could not be launched." % name
 		return False
 
 def show_message (screenlet, message, title=''):

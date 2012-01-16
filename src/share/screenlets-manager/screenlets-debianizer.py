@@ -17,7 +17,7 @@
 # A small app to package a screenlet into an easily distributible archive
 # Useful for screenlet-developers ..
 #
-# (c) Guido Tabbernuk 2010
+# (c) Guido Tabbernuk 2010, 2012
 # <boamaod@gmail.com>
 #
 # Used code from:
@@ -27,6 +27,7 @@
 import sys, os, subprocess
 from datetime import datetime
 import screenlets
+import textwrap
 import gettext
 
 gettext.textdomain('screenlets-manager')
@@ -34,29 +35,6 @@ gettext.bindtextdomain('screenlets-manager', screenlets.INSTALL_PREFIX +  '/shar
 
 def _(s):
 	return gettext.gettext(s)
-
-def word_wrap(string, width=80, ind1=0, ind2=0, prefix=''):
-    """ word wrapping function.
-        string: the string to wrap
-        width: the column number to wrap at
-        prefix: prefix each line with this string (goes before any indentation)
-        ind1: number of characters to indent the first line
-        ind2: number of characters to indent the rest of the lines
-    """
-    string = prefix + ind1 * " " + string
-    newstring = ""
-    while len(string) > width:
-        # find position of nearest whitespace char to the left of "width"
-        marker = width - 1
-        while not string[marker].isspace():
-            marker = marker - 1
-
-        # remove line from original string and add it to the new string
-        newline = string[0:marker] + "\n"
-        newstring = newstring + newline
-        string = prefix + ind2 * " " + string[marker + 1:]
-
-    return newstring + string
 
 def write_conf_file(path, contents):
 	f = open(path, 'w')
@@ -153,10 +131,40 @@ msg(_('Successfully got class from module: %s') % str(sl_class))
 deb_name = screenlets.utils.get_screenlet_linux_name_by_class_name(sl_class.__name__)
 deb_requires = ", ".join(map(str, sl_class.__requires__))
 deb_packager = os.popen("bzr whoami").readline().replace('\n', '')
-deb_desc = " "
-for line in sl_class.__desc__.split('\n'):
-	line = word_wrap(line, 72, ind2=1)
-	deb_desc += line + "\n .\n "
+
+paragraphed_desc = sl_class.__desc__.replace("\t", " ").strip().split('\n\n')
+
+desktop_desc = " ".join(paragraphed_desc[0].split())
+
+deb_synopsis = None
+deb_desc = ""
+for line in paragraphed_desc:
+	print line
+	if deb_synopsis is None:
+		lead = line.split("\n")
+		wrapped = textwrap.wrap(lead[0].strip(), 63)
+		deb_synopsis = wrapped[0]
+		if len(wrapped) > 1:
+			del(lead[0])
+			del(wrapped[0])
+			line = "\n".join(wrapped) + "\n".join(lead) # will continue the sentence truncated in synopsis
+			print "SYN(CUT_WRAP)", deb_synopsis
+		else:
+			if len(lead) > 1:
+				del(lead[0])
+				line = "\n".join(lead) # will continue the sentence truncated in synopsis
+				print "SYN(CUT_LEAD)", deb_synopsis
+			else:
+				print "SYN", deb_synopsis
+				continue # description starts as a new paragraph
+	current_addition = " " + "\n ".join(textwrap.wrap(" ".join(line.split()), 76)) + "\n .\n"
+	print current_addition
+	deb_desc += current_addition
+if deb_desc.endswith(" .\n"):
+	deb_desc = deb_desc[:len(deb_desc)-3]
+
+if deb_synopsis is None:
+	deb_synopsis = "a screenlet called" + sl_class.__name__
 screenlet_author = sl_class.__author__
 
 print "Going for: %s" % deb_name
@@ -172,7 +180,8 @@ Standards-Version: 3.7.2
 Package: %s
 Depends: screenlets (>= 0.1.2-9), %s
 Architecture: all
-Description:%sCreated by: %s""" % (deb_name, deb_packager, screenlet_author, deb_name, deb_requires, deb_desc, screenlet_author)
+Description: %s
+%s""" % (deb_name, deb_packager, screenlet_author, deb_name, deb_requires, deb_synopsis, deb_desc)
 
 release = os.popen("lsb_release -cs").readline().replace('\n', '')
 deb_date = os.popen("date -R").readline().replace('\n', '')
@@ -251,8 +260,10 @@ Name=%s
 Encoding=UTF-8
 Version=1.0
 Type=Application
+GenericName=Desktop widget
+Comment=%s
 Exec= python -u /usr/share/screenlets/%s/%sScreenlet.py
-""" % (sl_name, sl_name, sl_name)
+""" % (sl_name, desktop_desc, sl_name, sl_name)
 
 try:
 

@@ -4,7 +4,7 @@ screenlets (0.1.6) oneiric; urgency=low
   * Add switching EWMH params for Unity/GNOME, fix focus/drag problems.
   * Fix not showing options if value 'None' exists.
   * By default start screenlet at the center of the screen.
-  * Fix web application installing.
+  * Fix web application installing (use Webframe).
   * Present screenlet install dialog with radio buttons.
 
  -- Guido Tabbernuk <boamaod@gmail.com>  Tue, 18 Oct 2011 10:33:15 +0300

@@ -1569,8 +1569,8 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 			waited = True
 #			print "WAITING..."
 			time.sleep(1)
-		if waited: # add extra second, since the hack is heuristic
-			time.sleep(1)
+		if waited: # add extra seconds, since the hack is heuristic
+			time.sleep(3)
 		#EOH
 		self.window.move(self.x, self.y)
 		self.window.show()

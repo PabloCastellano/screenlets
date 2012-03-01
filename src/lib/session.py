@@ -179,6 +179,8 @@ class ScreenletSession (object):
 					os.rmdir(self.path)
 				except:
 					print "Failed to remove session dir '%s' - not empty?" % self.name
+				# will delete the last screenlet autostart launcher without needing to use manager
+				utils.delete_autostarter(sl.get_short_name())
 				# ...
 				# quit gtk on closing screenlet
 				sl.quit_on_close = True

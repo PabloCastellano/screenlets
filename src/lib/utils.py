@@ -168,7 +168,7 @@ def create_autostarter (name):
 		print "Starter already exists."
 		return True
 
-def delete_autostarter ( name):
+def delete_autostarter(name):
 	"""Delete the autostart for the given screenlet."""
 	if name.endswith('Screenlet'):
 		name = name[:-9]

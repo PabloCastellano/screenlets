@@ -1013,11 +1013,7 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 			
 		if show_window:
 			self.window.show()
-			if self.__name__.endswith("Screenlet"):
-				short_name = self.__name__[:-9]
-			else:
-				short_name = self.__name__
-			if not os.path.exists(DIR_CONFIG + '/' + short_name + '/default/'+ self.id + '.ini'):
+			if not os.path.exists(DIR_CONFIG + '/' + self.get_short_name() + '/default/'+ self.id + '.ini'):
 				self.first_run = True
 			self.window.hide()	
 

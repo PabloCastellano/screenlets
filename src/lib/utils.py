@@ -13,7 +13,7 @@
 
 #  screenlets.utils (c) Whise (Helder Fraga) 2008 <helder.fraga@hotmail.com>
 #  Originaly by RYX (Rico Pfaus) 2007 <ryx@ryxperience.com>
-#
+#  
 # TODO: move more functions here when possible
 #
 
@@ -325,6 +325,14 @@ def get_screenlet_metadata_by_path (path):
 		author = getBetween(sldata,'__author__','\n')
 		author1 = getBetween(author ,"'","'")
 		if author1.find(' = ') != -1: author1 = getBetween(author ,chr(34),chr(34))
+		category = getBetween(sldata,'__category__','\n')
+		category1 = getBetween(category ,"'","'")
+		if category1.find(' = ') != -1: category1 = getBetween(category ,chr(34),chr(34))
+		try: 
+			category1=int(category1)
+		except:
+			category1=10
+
 		version = getBetween(sldata,'__version__','\n')
 		version1 = getBetween(version ,"'","'")
 		if version1.find(' = ') != -1: version1 = getBetween(version ,chr(34),chr(34))
@@ -338,6 +346,7 @@ def get_screenlet_metadata_by_path (path):
 		return {'name'	: name1, 
 			'info'		: gettext.dgettext(get_screenlet_linux_name_by_class_name(name1), info1), 
 			'author'	: author1, 
+			'category'	: category1,
 			'version'	: version1,
 			'requires'	: requires1
 			}		
@@ -352,6 +361,7 @@ def get_screenlet_metadata_by_path (path):
 			return {'name'	: cls.__name__, 
 				'info'		: gettext.dgettext(get_screenlet_linux_name_by_class_name(cls.__name__), cls.__desc__), 
 				'author'	: cls.__author__, 
+				'category'	: cls.__category__,
 				'version'	: cls.__version__,
 				'requires'	: cls.__requires__
 				}
@@ -670,16 +680,17 @@ def xdg_open(name):
 class ScreenletInfo(object):
 	"""A container with info about a screenlet."""
 
-	def __init__ (self, name, lname, info, author, version, icon):
-		self.name		= name
-		self.lname		= lname
-		self.info		= info.replace("\n", '').replace('\t', ' ')
-		self.author		= author
-		self.version	= version
-		self.icon		= icon
-		self.active		= False
-		self.system		= not os.path.isfile('%s/%s/%sScreenlet.py' % (DIR_USER, name, name))
-		self.autostart	= os.path.isfile(DIR_AUTOSTART + '/' + name + 'Screenlet.desktop')
+	def __init__ (self, name, lname, info, author, category,  version, icon):
+		self.name	= name
+		self.lname	= lname
+		self.info	= info.replace("\n", '').replace('\t', ' ')
+		self.author	= author
+        	self.category 	= category
+        	self.version	= version
+        	self.icon	= icon
+       		self.active	= False
+        	self.system	= not os.path.isfile('%s/%s/%sScreenlet.py' % (DIR_USER, name, name))
+        	self.autostart	= os.path.isfile(DIR_AUTOSTART + '/' + name + 'Screenlet.desktop')
 
 
 

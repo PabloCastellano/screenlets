@@ -13,7 +13,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-# Screenlets Manager - (c) RYX (Rico Pfaus) 2007  / Whise (Helder Fraga) <helder.fraga@hotmail.com>
+# Screenlets Manager - (c) RYX (Rico Pfaus) 2007  / Whise (Helder Fraga) <helder.fraga@hotmail.com>, rastkokaradzic (Rastko Karadzic) <rastkokaradzic@gmail.com>
 #
 # + INFO:
 # This is a graphical manager application that simplifies managing and
@@ -21,12 +21,13 @@
 # per-user Screenlets.
 #
 # + TODO:
+# - Implement filter for screenlet-items, appending them every time all over again is too slow
 # - support for using sessions (via commandline), (NOTE: if a session is selected
 #   all autostart-files need to be removed and created new)
 # - Help-button
 # - menu
 #    - different View-modes (icons/details)
-#
+#	
 
 import pygtk
 pygtk.require('2.0')
@@ -84,6 +85,21 @@ class ScreenletsManager(object):
 	daemon_iface = None
 	
 	def __init__ (self):
+		#dict of categories that will be shown in combobox
+		self.available_categories = {
+		0: _('All'),
+		1: _('Alarms and alerts'),
+		2: _('Date and time'),
+		3: _('Fund and amusements'),
+		4: _('Internet and email'),
+		5: _('News'),
+		6: _('System information'),
+		7: _('Toolbars and launchers'),
+		8: _('Weather'),
+		9: _('Dictionaries and translations'),
+		10: _('Miscellaneous')
+		}
+		
 		# create ui and populate it
 		self.create_ui()
 		# populate UI
@@ -179,6 +195,7 @@ class ScreenletsManager(object):
 		lst_filtered = []
 		filter_input = str(self.txtsearch.get_text()).lower()
 		combo_sel = self.combo.get_active()
+		combo_cat_sel = self.combo1.get_active()
 		if filter_input != '':
 			for s in lst_a:
 				filter_slname = str(s).lower()
@@ -207,9 +224,17 @@ class ScreenletsManager(object):
 				name	= setfield('name', '')
 				info	= setfield('info', '')
 				author	= setfield('author', '')
+				category= setfield('category', 10)
 				version	= setfield('version', '')
+				#If found defined category checks if its available, if not put in Miscellaneous
+				if category in self.available_categories.keys():
+					category = self.available_categories[category]
+				else:
+					category = self.available_categories[10]
+
+				
 				# get info
-				slinfo = utils.ScreenletInfo(s, name, info, author, version, img)
+				slinfo = utils.ScreenletInfo(s, name, info, author,category, version, img)
 				# check if already running
 				if lst_r.count(s + 'Screenlet'):
 					slinfo.active = True
@@ -219,20 +244,29 @@ class ScreenletsManager(object):
 				#	info.system = True
 			else:
 				print 'Error while loading screenlets metadata for "%s".' % s
-				slinfo = utils.ScreenletInfo(s, '', '', '', '', img)
+				slinfo = utils.ScreenletInfo(s, '','', '','', '', img)
 			# add to model
+			
+			wshow = True
+			if self.available_categories.values()[combo_cat_sel]=='All':
+				wshow = True
+			elif self.available_categories.values()[combo_cat_sel]==slinfo.category:
+				wshow = True
+			else:
+				wshow = False
 
 
-			if combo_sel == 0:
-				self.model.append(['<span size="9000">%s</span>' % s, img, slinfo])	
-			elif combo_sel == 1:
-				if slinfo.active :self.model.append(['<span size="9000">%s</span>' % s, img, slinfo])	
-			elif combo_sel == 2:
-				if slinfo.autostart == True :self.model.append(['<span size="9000">%s</span>' % s, img, slinfo])	
-			elif combo_sel == 3:
-				if slinfo.system == True :self.model.append(['<span size="9000">%s</span>' % s, img, slinfo])	
-			elif combo_sel == 4:
-				if slinfo.system == False:self.model.append(['<span size="9000">%s</span>' % s, img, slinfo])				
+			if wshow:
+				if combo_sel == 0:
+					self.model.append(['<span size="9000">%s</span>' % s, img, slinfo])	
+				elif combo_sel == 1:
+					if slinfo.active :self.model.append(['<span size="9000">%s</span>' % s, img, slinfo])	
+				elif combo_sel == 2:
+					if slinfo.autostart == True :self.model.append(['<span size="9000">%s</span>' % s, img, slinfo])	
+				elif combo_sel == 3:
+					if slinfo.system == True :self.model.append(['<span size="9000">%s</span>' % s, img, slinfo])	
+				elif combo_sel == 4:
+					if slinfo.system == False:self.model.append(['<span size="9000">%s</span>' % s, img, slinfo])				
 
 
 	
@@ -444,6 +478,12 @@ class ScreenletsManager(object):
 		self.combo.set_active(0)
     		self.combo.connect("changed",self.redraw_screenlets, 'enter')
 		self.combo.show()
+		self.combo1 = gtk.combo_box_new_text()
+		for cat in self.available_categories.values():
+			self.combo1.append_text(_(cat))
+		self.combo1.set_active(0)
+		self.combo1.connect("changed",self.redraw_screenlets, 'enter')
+		self.combo1.show()
 		butbox.pack_start(but1, False)
 		butbox.pack_start(but2, False)
 		butbox.pack_start(but3, False)
@@ -456,6 +496,7 @@ class ScreenletsManager(object):
 		#butbox.pack_start(sep2, False,False,5)
 		butbox.pack_start(but8, False)
 		butbox.pack_start(self.combo, False)
+		butbox.pack_start(self.combo1, False)
 		#butbox.pack_start(self.label, False)
 		butbox.show_all()
 		hbox.pack_start(butbox, False, False, 10)

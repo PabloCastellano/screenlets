@@ -147,10 +147,10 @@ APP_NAME = "Screenlets"
 VERSION = "0.1.7"
 
 # the application copyright
-COPYRIGHT = "(c) RYX (Rico Pfaus) <ryx@ryxperience.com>\nWhise (Helder Fraga) <helder.fraga@hotmail.com>\nNatan Yellin (Aantn) <aantny@gmail.com>\nGuido Tabbernuk <boamaod@gmail.com>"
+COPYRIGHT = "(c) RYX (Rico Pfaus) <ryx@ryxperience.com>\nWhise (Helder Fraga) <helder.fraga@hotmail.com>\nNatan Yellin (Aantn) <aantny@gmail.com>\nGuido Tabbernuk <boamaod@gmail.com> \nRastko Karadzic <rastkokaradzic@gmail.com>"
 
 # the application authors
-AUTHORS = ["RYX (Rico Pfaus) <ryx@ryxperience.com>", "Whise (Helder Fraga) <helder.fraga@hotmail.com>", "Sorcerer (Hendrik Kaju)", "Natan Yellin (Aantn) <aantny@gmail.com>", "Guido Tabbernuk <boamaod@gmail.com>" ]
+AUTHORS = ["RYX (Rico Pfaus) <ryx@ryxperience.com>", "Whise (Helder Fraga) <helder.fraga@hotmail.com>", "Sorcerer (Hendrik Kaju)", "Natan Yellin (Aantn) <aantny@gmail.com>", "Guido Tabbernuk <boamaod@gmail.com>", "Rastko Karadzic <rastkokaradzic@gmail.com>" ]
 
 # the application comments
 COMMENTS = "Screenlets is a widget framework that consists of small owner-drawn applications (written in Python, a very simple object-oriented programming-language) that can be described as 'the virtual representation of things lying/standing around on your desk'. Sticknotes, clocks, rulers, ... the possibilities are endless. Screenlet also tries to include some compatibility with other widget frameworks,like web widgets and super karamba themes"
@@ -719,7 +719,8 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 	__name__	= _('No name set for this Screenlet')
 	__version__	= '0.0'
 	__author__	= _('No author defined for this Screenlet')
-	__desc__	= _('No info set for this Screenlet')
+    	__category__ 	= '10'
+    	__desc__	= _('No info set for this Screenlet')
 	__requires__	= []
 	#__target_version__ = '0.0.0'
 	#__backend_version__ = '0.0.1'

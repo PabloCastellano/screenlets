@@ -74,7 +74,7 @@ class Drawing(object):
 		else: pass
 		self.p_fdesc.set_family_static(font)
                 if size is not None:
-                         self.p_fdesc.set_size(size * pango.SCALE)
+                         self.p_fdesc.set_size(int(round(size * pango.SCALE)))
                 else: pass         
 		self.p_layout.set_font_description(self.p_fdesc)
 		self.p_layout.set_text(text)
@@ -131,7 +131,7 @@ class Drawing(object):
 		else:
 			self.p_fdesc.set_family_static(font)
 		if size is not None:
-			self.p_fdesc.set_size(size * pango.SCALE)
+			self.p_fdesc.set_size(int(round(size * pango.SCALE)))
 		if weight is not None:
 			self.p_fdesc.set_weight(weight)
 		self.p_layout.set_font_description(self.p_fdesc)

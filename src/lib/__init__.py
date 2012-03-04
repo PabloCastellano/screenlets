@@ -400,7 +400,7 @@ class ScreenletTheme (dict):
 			ctx.update_layout(self.p_layout)
 		self.p_fdesc = pango.FontDescription()
 		self.p_fdesc.set_family_static(font)
-		self.p_fdesc.set_size(size * pango.SCALE)
+		self.p_fdesc.set_size(int(round(size * pango.SCALE)))
 		self.p_fdesc.set_weight(weight)
 		self.p_layout.set_font_description(self.p_fdesc)
 		self.p_layout.set_width(width * pango.SCALE)

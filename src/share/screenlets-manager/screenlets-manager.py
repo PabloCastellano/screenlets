@@ -87,7 +87,7 @@ class ScreenletsManager(object):
 	def __init__ (self):
 		#dict of categories that will be shown in combobox
 		self.available_categories = {
-		0: _('All'),
+		0: _('All categories'),
 		1: _('Alarms and alerts'),
 		2: _('Date and time'),
 		3: _('Fund and amusements'),
@@ -365,7 +365,7 @@ class ScreenletsManager(object):
 		iv.connect("drag_data_received", self.drag_data_received)
 		# wrap iconview in scrollwin
 		sw = self.slwindow = gtk.ScrolledWindow()
-		sw.set_size_request(560, 350)
+		sw.set_size_request(560, 380)
 		sw.set_shadow_type(gtk.SHADOW_IN)
 		sw.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
 		sw.add(iv)
@@ -458,6 +458,7 @@ class ScreenletsManager(object):
 		self.label.set_alignment(0, 0)
 		self.label.set_size_request(-1, 65)
     		self.btnsearch = gtk.Button()
+		self.filterbox = gtk.VBox()
     		self.searchbox = gtk.HBox()
     		self.txtsearch = gtk.Entry()
 		self.btnsearch.set_image(gtk.image_new_from_stock(gtk.STOCK_CLOSE, 
@@ -468,7 +469,8 @@ class ScreenletsManager(object):
 
     		self.searchbox.pack_start(self.txtsearch, 1)
     		self.searchbox.pack_start(self.btnsearch, False)
-		butbox.pack_start(self.searchbox, False,0,3)
+		self.filterbox.pack_start(self.searchbox, False)
+
 		self.combo = gtk.combo_box_new_text()
 		self.combo.append_text(_('All Screenlets'))
 		self.combo.append_text(_('Running Screenlets'))
@@ -484,6 +486,9 @@ class ScreenletsManager(object):
 		self.combo1.set_active(0)
 		self.combo1.connect("changed",self.redraw_screenlets, 'enter')
 		self.combo1.show()
+		self.filterbox.pack_start(self.combo1, False)
+		self.filterbox.pack_start(self.combo, False)
+		butbox.pack_start(self.filterbox, False,0,3)
 		butbox.pack_start(but1, False)
 		butbox.pack_start(but2, False)
 		butbox.pack_start(but3, False)
@@ -495,8 +500,6 @@ class ScreenletsManager(object):
 		#sep2 =   gtk.HSeparator()
 		#butbox.pack_start(sep2, False,False,5)
 		butbox.pack_start(but8, False)
-		butbox.pack_start(self.combo, False)
-		butbox.pack_start(self.combo1, False)
 		#butbox.pack_start(self.label, False)
 		butbox.show_all()
 		hbox.pack_start(butbox, False, False, 10)

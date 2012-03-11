@@ -301,6 +301,16 @@ def getBetween(data, first, last):
 	end = data.find(last, begin)
 	return data[begin:end]
 
+def getCatBetween(data, first, last):
+	x = len(first)
+	f=data.find(first)
+	if f==-1:
+		return 'Miscellaneous'
+	else:
+		begin = f +x
+		end = data.find(last, begin)
+		return data[begin:end]
+
 def get_screenlet_metadata_by_path (path):
 	"""Returns a dict with name, info, author and version of the given
 	screenlet. Use with care because it may import the screenlet 
@@ -325,14 +335,10 @@ def get_screenlet_metadata_by_path (path):
 		author = getBetween(sldata,'__author__','\n')
 		author1 = getBetween(author ,"'","'")
 		if author1.find(' = ') != -1: author1 = getBetween(author ,chr(34),chr(34))
-		category = getBetween(sldata,'__category__','\n')
-		category1 = getBetween(category ,"'","'")
-		if category1.find(' = ') != -1: category1 = getBetween(category ,chr(34),chr(34))
-		try: 
-			category1=int(category1)
-		except:
-			category1=10
-
+		category = getCatBetween(sldata,'__category__','\n')
+		category1 = getCatBetween(category ,"'","'")
+		if category1.find(' = ') != -1: 
+			category1 = getCatBetween(category ,chr(34),chr(34))
 		version = getBetween(sldata,'__version__','\n')
 		version1 = getBetween(version ,"'","'")
 		if version1.find(' = ') != -1: version1 = getBetween(version ,chr(34),chr(34))

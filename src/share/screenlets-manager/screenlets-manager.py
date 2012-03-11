@@ -86,24 +86,21 @@ class ScreenletsManager(object):
 	
 	def __init__ (self):
 		#dict of categories that will be shown in combobox
-		self.available_categories = {
-		0: _('All categories'),
-		1: _('Alarms and alerts'),
-		2: _('Date and time'),
-		3: _('Fund and amusements'),
-		4: _('Internet and email'),
-		5: _('News'),
-		6: _('System information'),
-		7: _('Toolbars and launchers'),
-		8: _('Weather'),
-		9: _('Dictionaries and translations'),
-		10: _('Miscellaneous')
-		}
+		self.available_categories = [_('All categories')]
 		
 		# create ui and populate it
 		self.create_ui()
 		# populate UI
 		self.load_screenlets()
+		
+		tcats = sorted(self.tmp_cats.items(),key=lambda(k,v):(v,k))[::-1]
+		i = 0
+		while (i<min(10,len(tcats)-1)):
+			self.available_categories.append(_(tcats[i][0]))
+			i=i+1
+		for cat in self.available_categories:
+			self.combo1.append_text(cat)
+		self.combo1.set_active(0)
 		# if we are running as root, show error
 		if USER == 0:
 			screenlets.show_error(None, _("""Important! You are running this application as root user, almost all functionality is disabled. You can use this to install screenlets into the system-wide path."""), 
@@ -115,10 +112,6 @@ class ScreenletsManager(object):
 			self.connect_daemon()	
 		
 	# screenlets stuff
-
-
-	
-
 	
 	def lookup_daemon (self):
 		"""Find the screenlets-daemon or try to launch it. Initializes 
@@ -161,9 +154,9 @@ class ScreenletsManager(object):
 		"""Delete the selected screenlet from the user's screenlet dir."""
 		sel = self.view.get_selected_items()
 		if sel and len(sel) > 0 and len(sel[0]) > 0:
-			it = self.model.get_iter(sel[0][0])
+			it = self.model_filter.get_iter(sel[0][0])
 			if it:
-				info = self.model.get_value(it, 2)
+				info = self.model_filter.get_value(it, 2)
 				if info and not info.system:
 					# delete the file
 					if screenlets.show_question(None, _('Do you really want to permanently uninstall and delete the %sScreenlet from your system?') % info.name, _('Delete Screenlet')):
@@ -178,7 +171,61 @@ class ScreenletsManager(object):
 					screenlets.show_error(None, _('Can\'t delete system-wide screenlets.'))
 		return False
 	
+
 	def load_screenlets (self):
+		"""Load all available screenlets, create ScreenletInfo-objects for
+		them and add them into global dictionary used later for filtering."""
+		# fallback icon
+		self.noimg = gtk.gdk.pixbuf_new_from_file_at_size(\
+			screenlets.INSTALL_PREFIX + '/share/screenlets-manager/noimage.svg', 
+			56, 56)
+		# get list of available/running screenlets
+		self.loaded_screenlets = {}
+		self.tmp_cats = {}
+		lst_a = utils.list_available_screenlets()
+		lst_a.sort()
+		for s in lst_a:
+			try:
+				img = utils.get_screenlet_icon(s, 56, 56)
+			except Exception, ex:
+				#print "Exception while loading icon '%s': %s" % (path, ex)
+				img = self.noimg
+			# get metadata and create ScreenletInfo-object from it
+			meta = utils.get_screenlet_metadata(s)
+			if meta:
+				# get meta values
+				def setfield(name, default):
+					if meta.has_key(name):
+						if meta[name] != None:
+							return meta[name]
+						else:
+							return default
+					else:
+						return default
+				name	= setfield('name', '')
+				info	= setfield('info', '')
+				author	= setfield('author', '')
+				category= setfield('category', 'Miscellaneous')
+				version	= setfield('version', '')
+				#Appends category into dict of categories that counts how much screenlets have defined that category.
+				#It's used later to load top defined categories in category filter combobox 
+				if self.tmp_cats.has_key(category):
+					self.tmp_cats[category] += 1
+				else:
+					self.tmp_cats[category] = 1
+
+				
+				# get info
+				slinfo = utils.ScreenletInfo(s, name, info, author,category, version, img)
+			else:
+				print 'Error while loading screenlets metadata for "%s".' % s
+				slinfo = utils.ScreenletInfo(s, '','', '','', '', img)
+			#Append screenlet info into global dictionary used later to filter screenlets
+			self.loaded_screenlets[slinfo.name] = slinfo
+			self.model.append(['<span size="9000">%s</span>' % s, img, slinfo])	
+	
+
+	def load_screenletss (self):
 		"""Load all available screenlets, create ScreenletInfo-objects for
 		them and add them to the iconview-model."""
 		# fallback icon
@@ -224,7 +271,7 @@ class ScreenletsManager(object):
 				name	= setfield('name', '')
 				info	= setfield('info', '')
 				author	= setfield('author', '')
-				category= setfield('category', 10)
+				category = setfield('category', 10)
 				version	= setfield('version', '')
 				#If found defined category checks if its available, if not put in Miscellaneous
 				if category in self.available_categories.keys():
@@ -248,7 +295,7 @@ class ScreenletsManager(object):
 			# add to model
 			
 			wshow = True
-			if self.available_categories.values()[combo_cat_sel]=='All':
+			if self.available_categories.values()[combo_cat_sel]=='All categories':
 				wshow = True
 			elif self.available_categories.values()[combo_cat_sel]==slinfo.category:
 				wshow = True
@@ -272,7 +319,7 @@ class ScreenletsManager(object):
 	
 	def get_Info_by_name (self, name):
 		"""Returns a ScreenletInfo-object for the screenlet with given name."""
-		for row in self.model:
+		for row in self.model_filter:
 			if row[2] and row[2].name == name:
 				return row[2]
 		return None
@@ -282,17 +329,17 @@ class ScreenletsManager(object):
 		int the IconView."""
 		sel = self.view.get_selected_items()
 		if sel and len(sel)>0 and len(sel[0])>0:
-			it = self.model.get_iter(sel[0][0])
+			it = self.model_filter.get_iter(sel[0][0])
 			if it:
-				return self.model.get_value(it, 2)
+				return self.model_filter.get_value(it, 2)
 		return None
 	
 	def reset_selected_screenlet(self):
 		sel = self.view.get_selected_items()
 		if sel and len(sel) > 0 and len(sel[0]) > 0:
-			it = self.model.get_iter(sel[0][0])
+			it = self.model_filter.get_iter(sel[0][0])
 			if it:
-				info = self.model.get_value(it, 2)
+				info = self.model_filter.get_value(it, 2)
 				if screenlets.show_question(None, _('Do you really want to reset the %sScreenlet configuration?') % info.name, _('Reset Screenlet')):
 					# delete screenlet's config directory 
 					os.system('rm -rf %s/%s' % (screenlets.DIR_CONFIG, info.name))
@@ -306,7 +353,7 @@ class ScreenletsManager(object):
 	
 	def set_screenlet_active (self, name, active):
 		"""Set the screenlet's active-state to active (True/False)."""
-		for row in self.model:
+		for row in self.model_filter:
 			if row[2].name == name[:-9]:
 				row[2].active = active
 				# if selected, also toggle checkbox
@@ -314,7 +361,67 @@ class ScreenletsManager(object):
 				if sel and sel.name == name[:-9]:
 					self.recreate_infobox(sel)
 				break
-	
+	def visible_cb(self, model, iter, data):
+        	slinfo = model.get_value(iter,2)
+		if(slinfo != None):
+			#Check if filter box value matches screenlet name
+			if self.filter_input != '':
+				filter_slname = str(slinfo.name).lower()
+				filter_find = filter_slname.find(self.filter_input)
+				if filter_find == -1:
+					return False
+			
+			wshow = True
+			#Check if screenlet is currently running
+			if self.combo_type_sel == 1: 
+				if self.loaded_screenlets[slinfo.name].active == False:
+					return False
+			elif self.combo_type_sel == 2:
+				if slinfo.autostart != True:	
+					return False
+			elif self.combo_type_sel == 3:
+				if slinfo.system != True:
+					return False
+			elif self.combo_type_sel == 4:
+				if slinfo.system != False:
+					return False
+			#Check if category selection matches screenlet category
+			if self.available_categories[self.combo_cat_sel]=='All categories':
+				wshow = True
+			elif self.available_categories[self.combo_cat_sel]==slinfo.category:
+				wshow = True
+			elif (not(slinfo.category in self.available_categories)) and self.available_categories[self.combo_cat_sel]=='Miscellaneous':
+				wshow = True
+			else:
+				wshow = False
+			return wshow
+
+
+
+
+		else:
+			return False
+
+
+
+	def refilter_screenlets(self,widget,id):
+		if id == 'search_clean':
+			self.txtsearch.set_text('')
+			self.filter_input = ''
+		elif id == 'search_changed':
+			self.filter_input = str(self.txtsearch.get_text()).lower()
+		elif id == 'type_changed':
+			self.combo_type_sel = self.combo.get_active()
+			if(self.combo_type_sel == 1):
+				lst_r = utils.list_running_screenlets()
+				if lst_r != None:
+					for item in lst_r:
+						if item[:-9] in self.loaded_screenlets.keys():
+							self.loaded_screenlets[item[:-9]].active=True
+						
+		elif id == 'category_changed':
+			self.combo_cat_sel = self.combo1.get_active()
+		self.model_filter.refilter()
 	# ui creation
 	
 	def create_ui (self):
@@ -345,10 +452,11 @@ class ScreenletsManager(object):
 		vbox.pack_start(hbox, True, True)
 		hbox.show()
 		# iconview
-		self.model= gtk.ListStore(object)
 		self.view = iv = gtk.IconView()
 		self.model = gtk.ListStore(str, gtk.gdk.Pixbuf, object)
-		iv.set_model(self.model)
+		self.model_filter = self.model.filter_new()
+		self.model_filter.set_visible_func(self.visible_cb, None)
+		iv.set_model(self.model_filter)
 		iv.set_markup_column(0)
 		iv.set_pixbuf_column(1)
 		# disable UI for root user
@@ -457,15 +565,16 @@ class ScreenletsManager(object):
 		self.label.set_width_chars(70)
 		self.label.set_alignment(0, 0)
 		self.label.set_size_request(-1, 65)
+		self.filter_input=''
     		self.btnsearch = gtk.Button()
 		self.filterbox = gtk.VBox()
     		self.searchbox = gtk.HBox()
     		self.txtsearch = gtk.Entry()
 		self.btnsearch.set_image(gtk.image_new_from_stock(gtk.STOCK_CLOSE, 
 			gtk.ICON_SIZE_BUTTON))
-    		self.btnsearch.connect("clicked",self.redraw_screenlets, 'clean')
-    		self.txtsearch.connect("changed",self.redraw_screenlets, 'enter')
-    		self.txtsearch.connect("backspace",self.redraw_screenlets, 'backspace')
+    		self.btnsearch.connect("clicked",self.refilter_screenlets, 'search_clean')
+    		self.txtsearch.connect("changed",self.refilter_screenlets, 'search_changed')
+    		
 
     		self.searchbox.pack_start(self.txtsearch, 1)
     		self.searchbox.pack_start(self.btnsearch, False)
@@ -477,14 +586,14 @@ class ScreenletsManager(object):
 		self.combo.append_text(_('Autostart Screenlets'))
 		self.combo.append_text(_('Only native Screenlets'))
 		self.combo.append_text(_('Only third party'))
+		self.combo_type_sel=0
 		self.combo.set_active(0)
-    		self.combo.connect("changed",self.redraw_screenlets, 'enter')
+    		self.combo.connect("changed",self.refilter_screenlets, 'type_changed')
 		self.combo.show()
 		self.combo1 = gtk.combo_box_new_text()
-		for cat in self.available_categories.values():
-			self.combo1.append_text(_(cat))
+		self.combo_cat_sel=0
 		self.combo1.set_active(0)
-		self.combo1.connect("changed",self.redraw_screenlets, 'enter')
+		self.combo1.connect("changed",self.refilter_screenlets, 'category_changed')
 		self.combo1.show()
 		self.filterbox.pack_start(self.combo1, False)
 		self.filterbox.pack_start(self.combo, False)
@@ -619,10 +728,7 @@ class ScreenletsManager(object):
 		self.bbox.pack_start(ibox, False,False)
 
 	def redraw_screenlets(self,widget,id):
-		if id == 'backspace':
-			if len(self.txtsearch.get_text()) == 1:
-				self.txtsearch.set_text('')
-		elif id == 'clean':
+		if id == 'clean':
 			self.txtsearch.set_text('')
 		else:
 			self.model.clear()
@@ -939,6 +1045,7 @@ class ScreenletsManager(object):
 					os.system('sh '+ DIR_AUTOSTART + s + ' &')	
 		elif id == 'closeall':
 			utils.quit_all_screenlets()
+			self.refilter_screenlets(None,'type_changed')
 
 		elif id == 'download':
 			if screenlets.UBUNTU:
@@ -1301,6 +1408,7 @@ class ScreenletsManager(object):
 					widget.set_sensitive(False)
 			else:
 				utils.delete_autostarter(info.name)
+				self.refilter_screenlets(None,'None')
 
 	def toggle_tray (self, widget):
 		"""Callback for handling changes to the tray-CheckButton."""

@@ -9,7 +9,7 @@
 #
 
 VERSION		= `cat VERSION`
-PREFIX		= /usr/local
+PREFIX		= /usr
 INSTALL_LOG	= install.log
 
 .PHONY : docs

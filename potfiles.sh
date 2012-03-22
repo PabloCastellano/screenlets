@@ -14,7 +14,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 VERSION=$(cat VERSION)
-
+INDIV_ROOT=../indiv-screenlets/
 function po()
 {
 	tmpname="/tmp/$(uuidgen).pot"
@@ -67,7 +67,23 @@ function po()
 	fi
 }
 
+function po_categories() {
+	SAVEIFS=$IFS
+	IFS=$(echo -en "\n\b")
+	CAT_LIST=`cat $INDIV_ROOT/src/*/*.py | grep __category__ | awk -F\' '{print tolower($(NF-1))}'  | sort -r |uniq -c| awk '{for(i=2;i<=NF;i++)
+printf "%s ",$i;print "" }'`
+	echo -e "\n#Extracted categories from indiv-screenlets\n" >> $1/$1.pot
+	for i in $CAT_LIST 
+	do
+		i=`echo $i | sed 's/ *$//g'`
+		l=`echo ${i:0:1} | tr "[:lower:]" "[:upper:]"`
+		echo -e "msgid \"$l${i:1}\"\nmsgstr \"\"\n" >> $1/$1.pot
+	done
+	IFS=$SAVEIFS
+}
+
 po "screenlets"
 po "screenlets-manager"
+po_categories "screenlets-manager"
 
 

@@ -67,6 +67,9 @@ else:
 	DIR_USER		= screenlets.DIR_USER
 	DIR_AUTOSTART = utils.get_autostart_dir()
 
+CATEGORIES_ALL = _("All categories")
+CATEGORIES_MISC = _("Miscellaneous")
+
 # classes
 
 
@@ -86,7 +89,7 @@ class ScreenletsManager(object):
 	
 	def __init__ (self):
 		#dict of categories that will be shown in combobox
-		self.available_categories = [_('All categories')]
+		self.available_categories = [CATEGORIES_ALL]
 		
 		# create ui and populate it
 		self.create_ui()
@@ -170,7 +173,6 @@ class ScreenletsManager(object):
 				else:
 					screenlets.show_error(None, _('Can\'t delete system-wide screenlets.'))
 		return False
-	
 
 	def load_screenlets (self):
 		"""Load all available screenlets, create ScreenletInfo-objects for
@@ -205,7 +207,7 @@ class ScreenletsManager(object):
 				name	= setfield('name', '')
 				info	= setfield('info', '')
 				author	= setfield('author', '')
-				category= setfield('category', 'Miscellaneous')
+				category= setfield('category', CATEGORIES_MISC)
 				version	= setfield('version', '')
 				#Appends category into dict of categories that counts how much screenlets have defined that category.
 				#It's used later to load top defined categories in category filter combobox 
@@ -223,99 +225,6 @@ class ScreenletsManager(object):
 			#Append screenlet info into global dictionary used later to filter screenlets
 			self.loaded_screenlets[slinfo.name] = slinfo
 			self.model.append(['<span size="9000">%s</span>' % s, img, slinfo])	
-	
-
-	def load_screenletss (self):
-		"""Load all available screenlets, create ScreenletInfo-objects for
-		them and add them to the iconview-model."""
-		# fallback icon
-		noimg = gtk.gdk.pixbuf_new_from_file_at_size(\
-			screenlets.INSTALL_PREFIX + '/share/screenlets-manager/noimage.svg', 
-			56, 56)
-		# get list of available/running screenlets
-		lst_a = utils.list_available_screenlets()
-		lst_r = utils.list_running_screenlets()
-
-		if not lst_r:
-			lst_r = []
-		lst_a.sort()
-		lst_filtered = []
-		filter_input = str(self.txtsearch.get_text()).lower()
-		combo_sel = self.combo.get_active()
-		combo_cat_sel = self.combo1.get_active()
-		if filter_input != '':
-			for s in lst_a:
-				filter_slname = str(s).lower()
-				filter_find = filter_slname.find(filter_input)
-				if filter_input == None or filter_find != -1:
-					lst_filtered.append(s)
-		if lst_filtered == [] and filter_input == '': lst_filtered = lst_a
-		for s in lst_filtered:
-			try:
-				img = utils.get_screenlet_icon(s, 56, 56)
-			except Exception, ex:
-				#print "Exception while loading icon '%s': %s" % (path, ex)
-				img = noimg
-			# get metadata and create ScreenletInfo-object from it
-			meta = utils.get_screenlet_metadata(s)
-			if meta:
-				# get meta values
-				def setfield(name, default):
-					if meta.has_key(name):
-						if meta[name] != None:
-							return meta[name]
-						else:
-							return default
-					else:
-						return default
-				name	= setfield('name', '')
-				info	= setfield('info', '')
-				author	= setfield('author', '')
-				category = setfield('category', 10)
-				version	= setfield('version', '')
-				#If found defined category checks if its available, if not put in Miscellaneous
-				if category in self.available_categories.keys():
-					category = self.available_categories[category]
-				else:
-					category = self.available_categories[10]
-
-				
-				# get info
-				slinfo = utils.ScreenletInfo(s, name, info, author,category, version, img)
-				# check if already running
-				if lst_r.count(s + 'Screenlet'):
-					slinfo.active = True
-				# check if system-wide
-				#if path.startswith(screenlets.INSTALL_PREFIX):
-				#	print "SYSTEM: %s" % s
-				#	info.system = True
-			else:
-				print 'Error while loading screenlets metadata for "%s".' % s
-				slinfo = utils.ScreenletInfo(s, '','', '','', '', img)
-			# add to model
-			
-			wshow = True
-			if self.available_categories.values()[combo_cat_sel]=='All categories':
-				wshow = True
-			elif self.available_categories.values()[combo_cat_sel]==slinfo.category:
-				wshow = True
-			else:
-				wshow = False
-
-
-			if wshow:
-				if combo_sel == 0:
-					self.model.append(['<span size="9000">%s</span>' % s, img, slinfo])	
-				elif combo_sel == 1:
-					if slinfo.active :self.model.append(['<span size="9000">%s</span>' % s, img, slinfo])	
-				elif combo_sel == 2:
-					if slinfo.autostart == True :self.model.append(['<span size="9000">%s</span>' % s, img, slinfo])	
-				elif combo_sel == 3:
-					if slinfo.system == True :self.model.append(['<span size="9000">%s</span>' % s, img, slinfo])	
-				elif combo_sel == 4:
-					if slinfo.system == False:self.model.append(['<span size="9000">%s</span>' % s, img, slinfo])				
-
-
 	
 	def get_Info_by_name (self, name):
 		"""Returns a ScreenletInfo-object for the screenlet with given name."""
@@ -386,11 +295,11 @@ class ScreenletsManager(object):
 				if slinfo.system != False:
 					return False
 			#Check if category selection matches screenlet category
-			if self.available_categories[self.combo_cat_sel]=='All categories':
+			if self.available_categories[self.combo_cat_sel]==CATEGORIES_ALL:
 				wshow = True
 			elif self.available_categories[self.combo_cat_sel]==slinfo.category:
 				wshow = True
-			elif (not(slinfo.category in self.available_categories)) and self.available_categories[self.combo_cat_sel]=='Miscellaneous':
+			elif (not(slinfo.category in self.available_categories)) and self.available_categories[self.combo_cat_sel]==CATEGORIES_MISC:
 				wshow = True
 			else:
 				wshow = False

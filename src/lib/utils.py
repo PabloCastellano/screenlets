@@ -305,7 +305,7 @@ def getCatBetween(data, first, last):
 	x = len(first)
 	f=data.find(first)
 	if f==-1:
-		return 'Miscellaneous'
+		return _('Miscellaneous')
 	else:
 		begin = f +x
 		end = data.find(last, begin)

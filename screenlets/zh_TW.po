@@ -7,191 +7,191 @@ msgid ""
 msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-10 05:23+0900\n"
+"POT-Creation-Date: 2012-03-25 00:17+0200\n"
 "PO-Revision-Date: 2011-10-22 22:40+0000\n"
 "Last-Translator: Walter Cheuk <wwycheuk@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2012-03-12 04:32+0000\n"
 "X-Generator: Launchpad (build 14933)\n"
-"Language: \n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
-#: src/lib/__init__.py:99
+#: src/lib/__init__.py:168
 msgid "http://www.screenlets.org/index.php/Get_more_screenlets"
 msgstr ""
 
 #. default meta-info for Screenlets
-#: src/lib/__init__.py:613
+#: src/lib/__init__.py:719
 msgid "No name set for this Screenlet"
 msgstr "此 Screenlet 的名稱尚未設定"
 
-#: src/lib/__init__.py:615
+#: src/lib/__init__.py:721
 msgid "No author defined for this Screenlet"
 msgstr "此 Screenlet 作者不明"
 
-#: src/lib/__init__.py:616
+#: src/lib/__init__.py:723
 msgid "No info set for this Screenlet"
 msgstr "此 Screenlet 無資料"
 
-#: src/lib/__init__.py:726
+#: src/lib/__init__.py:833
 msgid "The basic settings for this Screenlet-instance."
 msgstr "此 Screenlet 執行實體的基本設定。"
 
-#: src/lib/__init__.py:741
+#: src/lib/__init__.py:848
 msgid "X-Position"
 msgstr "水平位置"
 
-#: src/lib/__init__.py:741
+#: src/lib/__init__.py:849
 msgid "The X-position of this Screenlet ..."
 msgstr "此 Screenlet 的水平位置 ..."
 
-#: src/lib/__init__.py:744
+#: src/lib/__init__.py:852
 msgid "Y-Position"
 msgstr "垂直位置"
 
-#: src/lib/__init__.py:744
+#: src/lib/__init__.py:853
 msgid "The Y-position of this Screenlet ..."
 msgstr "此 Screenlet 的垂直位置 ..."
 
-#: src/lib/__init__.py:747
+#: src/lib/__init__.py:856
 msgid "Width"
 msgstr "寬度"
 
-#: src/lib/__init__.py:747
+#: src/lib/__init__.py:857
 msgid "The width of this Screenlet ..."
 msgstr "此 Screenlet 的寬度 ..."
 
-#: src/lib/__init__.py:750
+#: src/lib/__init__.py:860
 msgid "Height"
 msgstr "高度"
 
-#: src/lib/__init__.py:750
+#: src/lib/__init__.py:861
 msgid "The height of this Screenlet ..."
 msgstr "此 Screenlet 的高度 ..."
 
-#: src/lib/__init__.py:753
+#: src/lib/__init__.py:864
 msgid "Scale"
 msgstr "縮放"
 
-#: src/lib/__init__.py:753
+#: src/lib/__init__.py:865
 msgid "The scale-factor of this Screenlet ..."
 msgstr "此 Screenlet 的縮放比例 ..."
 
-#: src/lib/__init__.py:756
+#: src/lib/__init__.py:868
 msgid "Opacity"
 msgstr "混濁度"
 
-#: src/lib/__init__.py:756
+#: src/lib/__init__.py:869
 msgid "The opacity of the Screenlet window ..."
 msgstr "Screenlet 視窗的混濁度 ..."
 
-#: src/lib/__init__.py:759
+#: src/lib/__init__.py:872
 msgid "Stick to Desktop"
 msgstr "固定 Screenlet 位置"
 
-#: src/lib/__init__.py:760
+#: src/lib/__init__.py:873
 msgid "Show this Screenlet on all workspaces ..."
 msgstr "讓此 Screenlet 出現在所有工作區 ..."
 
-#: src/lib/__init__.py:762
+#: src/lib/__init__.py:875
 msgid "Treat as Widget"
 msgstr "把 Screeenlet 置於 Widget 層"
 
-#: src/lib/__init__.py:763
+#: src/lib/__init__.py:876
 msgid "Treat this Screenlet as a \"Widget\" ..."
 msgstr "將此 Screeenlet 視為「桌面小工具」 ..."
 
-#: src/lib/__init__.py:771
+#: src/lib/__init__.py:887
 msgid "Lock position"
 msgstr "鎖定位置"
 
-#: src/lib/__init__.py:772
+#: src/lib/__init__.py:888
 msgid "Stop the screenlet from being moved..."
 msgstr "讓 Screenlet 不要移動 ..."
 
 #. add "Keep above"-menuitem
-#: src/lib/__init__.py:774 src/lib/__init__.py:1091
+#: src/lib/__init__.py:890 src/lib/__init__.py:1229
 msgid "Keep above"
 msgstr "不會被遮蓋"
 
-#: src/lib/__init__.py:775
+#: src/lib/__init__.py:891
 msgid "Keep this Screenlet above other windows ..."
 msgstr "讓 Screenlet 不會被其他視窗所遮蓋 ..."
 
 #. add "Keep Below"-menuitem
-#: src/lib/__init__.py:777 src/lib/__init__.py:1098
+#: src/lib/__init__.py:893 src/lib/__init__.py:1236
 msgid "Keep below"
 msgstr "保持在所有視窗的最底層"
 
-#: src/lib/__init__.py:778
+#: src/lib/__init__.py:894
 msgid "Keep this Screenlet below other windows ..."
 msgstr "讓此 Screenlet 保持在所有視窗的最底層 ..."
 
-#: src/lib/__init__.py:780
+#: src/lib/__init__.py:896
 msgid "Draw button controls"
 msgstr ""
 
-#: src/lib/__init__.py:781
+#: src/lib/__init__.py:897
 msgid "Draw buttons in top right corner"
 msgstr ""
 
-#: src/lib/__init__.py:783
+#: src/lib/__init__.py:899
 msgid "Skip Pager"
 msgstr ""
 
-#: src/lib/__init__.py:784
+#: src/lib/__init__.py:900
 msgid "Set this Screenlet to show/hide in pagers ..."
 msgstr "設定讓此 Screenlet 出現/隱藏於桌面切換器 ..."
 
-#: src/lib/__init__.py:786
+#: src/lib/__init__.py:902
 msgid "Skip Taskbar"
 msgstr ""
 
-#: src/lib/__init__.py:787
+#: src/lib/__init__.py:903
 msgid "Set this Screenlet to show/hide in taskbars ..."
 msgstr "設定讓此 Screenlet 出現/隱藏於工作列 ..."
 
-#: src/lib/__init__.py:789
+#: src/lib/__init__.py:905
 msgid "Resize on mouse scroll"
 msgstr "使用滑鼠滾輪調整比例"
 
-#: src/lib/__init__.py:791
+#: src/lib/__init__.py:908
 msgid "Ignore requirements"
 msgstr ""
 
-#: src/lib/__init__.py:792
+#: src/lib/__init__.py:909
 msgid "Set this Screenlet to ignore/demand DEB requirements ..."
 msgstr "讓此 Screenlet 忽略/要求 套件條件 ..."
 
-#: src/lib/__init__.py:796
+#: src/lib/__init__.py:913
 msgid "Allow overriding Options"
 msgstr ""
 
-#: src/lib/__init__.py:797
+#: src/lib/__init__.py:914
 msgid "Allow themes to override options in this screenlet ..."
 msgstr "讓佈景主題優先此 Screenlet 的選項 ..."
 
-#: src/lib/__init__.py:799
+#: src/lib/__init__.py:916
 msgid "Ask on Override"
 msgstr ""
 
-#: src/lib/__init__.py:800
+#: src/lib/__init__.py:917
 msgid "Show a confirmation-dialog when a theme wants to override "
 msgstr ""
 
-#: src/lib/__init__.py:801
+#: src/lib/__init__.py:918
 msgid "the current options of this Screenlet ..."
 msgstr "當前此 Screenlet 的選項"
 
 #. version of the deb package if unspecified
-#: src/lib/__init__.py:994
+#: src/lib/__init__.py:1132
 msgid "?"
 msgstr ""
 
-#: src/lib/__init__.py:999
+#: src/lib/__init__.py:1137
 #, python-format
 msgid ""
 "\n"
@@ -200,7 +200,7 @@ msgstr ""
 "\n"
 "必需 %(package)s 套件的 %(version)s 版，但未安裝！"
 
-#: src/lib/__init__.py:1002
+#: src/lib/__init__.py:1140
 #, python-format
 msgid ""
 "\n"
@@ -209,7 +209,7 @@ msgstr ""
 "\n"
 "已安裝 %(package)s 套件的 %(version)s 版，必需的是 %(required)s。"
 
-#: src/lib/__init__.py:1012
+#: src/lib/__init__.py:1150
 #, python-format
 msgid ""
 "Requirements for the Screenlet are not satisfied! Use the package manager of "
@@ -219,153 +219,164 @@ msgid ""
 "%s"
 msgstr ""
 
-#: src/lib/__init__.py:1034
+#: src/lib/__init__.py:1172
 msgid "Size"
 msgstr "大小"
 
-#: src/lib/__init__.py:1049
+#: src/lib/__init__.py:1187
 msgid "Theme"
 msgstr "佈景主題"
 
-#: src/lib/__init__.py:1064
+#: src/lib/__init__.py:1202
 msgid "Window"
 msgstr "視窗"
 
 #. add "lock"-menuitem
-#: src/lib/__init__.py:1070
+#: src/lib/__init__.py:1208
 msgid "Lock"
 msgstr "鎖定"
 
 #. add "Sticky"-menuitem
-#: src/lib/__init__.py:1077
+#: src/lib/__init__.py:1215
 msgid "Sticky"
 msgstr "Sticky"
 
 #. add "Widget"-menuitem
-#: src/lib/__init__.py:1084
+#: src/lib/__init__.py:1222
 msgid "Widget"
 msgstr "Widget層"
 
-#: src/lib/__init__.py:1108
+#: src/lib/__init__.py:1246
 msgid "Properties..."
 msgstr "屬性..."
 
-#: src/lib/__init__.py:1111
+#: src/lib/__init__.py:1249
 msgid "Info..."
 msgstr "資訊..."
 
-#: src/lib/__init__.py:1115
+#: src/lib/__init__.py:1253
 #, python-format
 msgid "Add one more %s"
 msgstr "再多一個 %s"
 
-#: src/lib/__init__.py:1118
+#: src/lib/__init__.py:1256
 #, python-format
 msgid "Delete this %s"
 msgstr "刪除此 %s"
 
-#: src/lib/__init__.py:1122
+#: src/lib/__init__.py:1260
 #, python-format
 msgid "Quit this %s"
 msgstr "結束此 %s"
 
-#: src/lib/__init__.py:1125
+#: src/lib/__init__.py:1263
 #, python-format
 msgid "Quit all %ss"
 msgstr "結束所有 %ss"
 
-#: src/lib/__init__.py:1376
+#: src/lib/__init__.py:1510
 msgid ""
 "This theme wants to override your settings for this Screenlet. Do you want "
 "to allow that?"
 msgstr ""
 
-#: src/lib/__init__.py:1610
+#: src/lib/__init__.py:1756
 #, python-format
 msgid "To quit all %s's, use 'Quit' instead. "
 msgstr "要結束所有 %s's，請改用「結束」指令。 "
 
-#: src/lib/__init__.py:1611
+#: src/lib/__init__.py:1757
 #, python-format
 msgid "Really delete this %s and its settings?"
 msgstr "真要刪除此「%s」及其設定？"
 
-#: src/lib/options.py:653
+#: src/lib/options/account_option.py:109 src/lib/options/base.py:439
+msgid "Apply"
+msgstr "套用"
+
+#: src/lib/options/account_option.py:115
+msgid "Apply username/password ..."
+msgstr "套用「使用者名稱」與「密碼」 ..."
+
+#: src/lib/options/account_option.py:116
+msgid "Enter username here ..."
+msgstr "在此輸入使用者名稱 ..."
+
+#: src/lib/options/account_option.py:117
+msgid "Enter password here ..."
+msgstr "在此輸入密碼 ..."
+
+#: src/lib/options/base.py:309
 msgid "Edit Options"
 msgstr "編輯選項"
 
-#: src/lib/options.py:855
+#: src/lib/options/base.py:536
 msgid "About "
 msgstr "關於 "
 
-#: src/lib/options.py:867
+#: src/lib/options/base.py:548
 msgid "Options "
 msgstr "選項 "
 
 #. create info-text list
-#: src/lib/options.py:874
+#: src/lib/options/base.py:555
 msgid ""
 "Themes allow you to easily switch the appearance of your Screenlets. On this "
 "page you find a list of all available themes for this Screenlet."
-msgstr "佈景主題讓你輕鬆改變 Screenlet 的外觀。此頁提供可用於此 Screenlet 的主題。"
+msgstr ""
+"佈景主題讓你輕鬆改變 Screenlet 的外觀。此頁提供可用於此 Screenlet 的主題。"
 
-#: src/lib/options.py:903
+#: src/lib/options/base.py:584
 msgid "Themes "
 msgstr "佈景主題 "
 
-#: src/lib/options.py:916
+#: src/lib/options/base.py:597
 msgid "no info available"
 msgstr "沒資訊"
 
-#: src/lib/options.py:1007
+#: src/lib/options/file_option.py:41
 msgid "Choose File"
 msgstr "選擇檔案"
 
-#: src/lib/options.py:1016
+#: src/lib/options/file_option.py:96
 msgid "Choose Directory"
 msgstr "選擇目錄"
 
-#: src/lib/options.py:1042
+#: src/lib/options/file_option.py:101
 msgid "Choose Image"
 msgstr "選取圖像"
 
-#: src/lib/options.py:1109
+#. add tooltips
+#: src/lib/options/file_option.py:126
+msgid "Select Image ..."
+msgstr ""
+
+#: src/lib/options/list_option.py:48
 msgid "Open List-Editor ..."
 msgstr "開啟清單編輯 ..."
 
-#: src/lib/options.py:1130
-msgid "Apply username/password ..."
-msgstr "套用「使用者名稱」與「密碼」 ..."
+#: src/lib/options/number_option.py:39
+#, python-format
+msgid "Error during on_import - option: %s.\n"
+msgstr ""
 
-#: src/lib/options.py:1131
-msgid "Enter username here ..."
-msgstr "在此輸入使用者名稱 ..."
-
-#: src/lib/options.py:1132
-msgid "Enter password here ..."
-msgstr "在此輸入密碼 ..."
-
-#: src/lib/options.py:1187
-msgid "Apply"
-msgstr "套用"
-
-#: src/lib/sensors.py:165
+#: src/lib/sensors.py:171
 #, python-format
 msgid "%(days)s days, %(hours)s hours and %(minutes)s minutes"
 msgstr "%(days)s 日、%(hours)s 小時又 %(minutes)s 分鐘"
 
-#: src/lib/sensors.py:276
+#: src/lib/sensors.py:282
 msgid "Can't get KDE version"
 msgstr "無法取得 KDE 版本"
 
-#: src/lib/sensors.py:286
+#: src/lib/sensors.py:292
 msgid "Can't get Gnome version"
 msgstr "無法取得 GNOME 版本"
 
-#: src/lib/sensors.py:474
+#: src/lib/sensors.py:480
 msgid "Cannot get ip"
 msgstr "無法取得 IP 位址"
 
-#: src/lib/sensors.py:568 src/lib/sensors.py:581
+#: src/lib/sensors.py:574 src/lib/sensors.py:587
 msgid "Not connected"
 msgstr "未連接"

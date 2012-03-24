@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: screenlets-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-05 01:41+0200\n"
+"POT-Creation-Date: 2012-03-25 00:33+0200\n"
 "PO-Revision-Date: 2012-01-05 02:23+0000\n"
 "Last-Translator: tabbernuk <boamaod@gmail.com>\n"
 "Language-Team: Danish <da@li.org>\n"
+"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2012-03-12 04:33+0000\n"
 "X-Generator: Launchpad (build 14933)\n"
-"Language: da\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:127
 msgid "Screenlets daemon"
@@ -25,14 +25,14 @@ msgstr ""
 #. create top menuitems
 #. name/version of this app
 #: src/share/screenlets-manager/screenlets-daemon.py:169
-#: src/share/screenlets-manager/screenlets-manager.py:54
-#: src/share/screenlets-manager/screenlets-manager.py:1329
+#: src/share/screenlets-manager/screenlets-manager.py:55
+#: src/share/screenlets-manager/screenlets-manager.py:1390
 msgid "Screenlets Manager"
 msgstr "Screenlets Manager"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:171
-#: src/share/screenlets-manager/screenlets-manager.py:910
-#: src/share/screenlets-manager/screenlets-manager.py:936
+#: src/share/screenlets-manager/screenlets-manager.py:970
+#: src/share/screenlets-manager/screenlets-manager.py:996
 msgid "Install Screenlet"
 msgstr "Installér Screenlet"
 
@@ -58,7 +58,7 @@ msgid "Quit the Screenlets"
 msgstr "Hent flere Screenlets"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:291
-#: src/share/screenlets-manager/screenlets-manager.py:599
+#: src/share/screenlets-manager/screenlets-manager.py:658
 msgid ""
 "This application is released under the GNU General Public License v3 (or, at "
 "your option, any later version). You can find the full text of the license "
@@ -67,16 +67,24 @@ msgid ""
 "license. Thank you for using free software!"
 msgstr ""
 "Dette program er frigivet under GNU General Public License v3 (eller, efter "
-"dit valgt, en senere version). Du kan finde licensens fulde ordlyd på "
-"http://www.gnu.org/licenses/gpl.txt. Ved at bruge, ændre og/eller "
-"distribuere denne software accepterer du licensens vilkår og betingelser. "
-"Tak fordi du bruger fri software!"
+"dit valgt, en senere version). Du kan finde licensens fulde ordlyd på http://"
+"www.gnu.org/licenses/gpl.txt. Ved at bruge, ændre og/eller distribuere denne "
+"software accepterer du licensens vilkår og betingelser. Tak fordi du bruger "
+"fri software!"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:323
 msgid "Install a Screenlet"
 msgstr "Installer en Screenlet"
 
-#: src/share/screenlets-manager/screenlets-manager.py:93
+#: src/share/screenlets-manager/screenlets-manager.py:70
+msgid "All categories"
+msgstr ""
+
+#: src/share/screenlets-manager/screenlets-manager.py:71 src/lib/utils.py:308
+msgid "Miscellaneous"
+msgstr ""
+
+#: src/share/screenlets-manager/screenlets-manager.py:109
 msgid ""
 "Important! You are running this application as root user, almost all "
 "functionality is disabled. You can use this to install screenlets into the "
@@ -86,214 +94,214 @@ msgstr ""
 "deaktiveret. Du kan bruge dette til at installere screenlets som "
 "systeminstallerede."
 
-#: src/share/screenlets-manager/screenlets-manager.py:94
+#: src/share/screenlets-manager/screenlets-manager.py:110
 msgid "Warning!"
 msgstr "Advarsel!"
 
-#: src/share/screenlets-manager/screenlets-manager.py:125
+#: src/share/screenlets-manager/screenlets-manager.py:137
 msgid ""
 "Unable to connect or launch daemon. Some values may be displayed incorrectly."
 msgstr ""
 "Ikke muligt at forbinde eller starte daemon. Nogle værdier vil ikke blive "
 "vist korrekt."
 
-#: src/share/screenlets-manager/screenlets-manager.py:125 src/lib/utils.py:128
-#: src/lib/utils.py:132 src/lib/utils.py:622 src/lib/utils.py:626
+#: src/share/screenlets-manager/screenlets-manager.py:137 src/lib/utils.py:128
+#: src/lib/utils.py:132 src/lib/utils.py:638 src/lib/utils.py:642
 msgid "Error"
 msgstr "Fejl"
 
 #. delete the file
-#: src/share/screenlets-manager/screenlets-manager.py:153
+#: src/share/screenlets-manager/screenlets-manager.py:165
 #, python-format
 msgid ""
 "Do you really want to permanently uninstall and delete the %sScreenlet from "
 "your system?"
 msgstr ""
 
-#: src/share/screenlets-manager/screenlets-manager.py:153
+#: src/share/screenlets-manager/screenlets-manager.py:165
 msgid "Delete Screenlet"
 msgstr "Slet Screenlet"
 
-#: src/share/screenlets-manager/screenlets-manager.py:158
+#: src/share/screenlets-manager/screenlets-manager.py:170
 msgid "Do you also want to remove the Screenlet configuration files?"
 msgstr "Vil du også fjerne Screenlet konfigurations filerne?"
 
-#: src/share/screenlets-manager/screenlets-manager.py:162
+#: src/share/screenlets-manager/screenlets-manager.py:174
 msgid "Can't delete system-wide screenlets."
 msgstr "Kan ikke slette system-installerede screenlets."
 
-#: src/share/screenlets-manager/screenlets-manager.py:262
+#: src/share/screenlets-manager/screenlets-manager.py:252
 #, python-format
 msgid "Do you really want to reset the %sScreenlet configuration?"
 msgstr ""
 
-#: src/share/screenlets-manager/screenlets-manager.py:262
+#: src/share/screenlets-manager/screenlets-manager.py:252
 msgid "Reset Screenlet"
 msgstr "Nulstil Screenlet"
 
-#: src/share/screenlets-manager/screenlets-manager.py:351
+#: src/share/screenlets-manager/screenlets-manager.py:402
 msgid "Launch/Add"
 msgstr "Kør/Tilføj"
 
-#: src/share/screenlets-manager/screenlets-manager.py:355
-#: src/share/screenlets-manager/screenlets-manager.py:924
+#: src/share/screenlets-manager/screenlets-manager.py:406
+#: src/share/screenlets-manager/screenlets-manager.py:984
 msgid "Install"
 msgstr "Installér"
 
 #. but2.set_image(gtk.image_new_from_stock(gtk.STOCK_ADD,
 #. gtk.ICON_SIZE_BUTTON))
-#: src/share/screenlets-manager/screenlets-manager.py:358
+#: src/share/screenlets-manager/screenlets-manager.py:409
 msgid "Uninstall"
 msgstr "Afinstallér"
 
 #. but3.set_image(gtk.image_new_from_stock(gtk.STOCK_DELETE,
 #. gtk.ICON_SIZE_BUTTON))
-#: src/share/screenlets-manager/screenlets-manager.py:362
+#: src/share/screenlets-manager/screenlets-manager.py:413
 msgid "Reset Screenlet Config"
 msgstr "Nulstil Screenlet konfiguration"
 
 #. but4.set_image(gtk.image_new_from_stock(gtk.STOCK_CLEAR,
 #. gtk.ICON_SIZE_BUTTON))
-#: src/share/screenlets-manager/screenlets-manager.py:366
+#: src/share/screenlets-manager/screenlets-manager.py:417
 msgid "Install New Theme"
 msgstr "Installér nyt tema"
 
 #. but5.set_image(gtk.image_new_from_stock(gtk.STOCK_ADD,
 #. gtk.ICON_SIZE_BUTTON))
-#: src/share/screenlets-manager/screenlets-manager.py:370
+#: src/share/screenlets-manager/screenlets-manager.py:421
 msgid "Re-Start All"
 msgstr "Genstart alle"
 
 #. but6.set_image(gtk.image_new_from_stock(gtk.STOCK_REFRESH,
 #. gtk.ICON_SIZE_BUTTON))
-#: src/share/screenlets-manager/screenlets-manager.py:374
+#: src/share/screenlets-manager/screenlets-manager.py:425
 msgid "Close All"
 msgstr "Luk alt"
 
 #. but7.set_image(gtk.image_new_from_stock(gtk.STOCK_REMOVE,
 #. gtk.ICON_SIZE_BUTTON))
-#: src/share/screenlets-manager/screenlets-manager.py:378
+#: src/share/screenlets-manager/screenlets-manager.py:429
 msgid "Options"
 msgstr "Indstillinger"
 
-#: src/share/screenlets-manager/screenlets-manager.py:380
+#: src/share/screenlets-manager/screenlets-manager.py:431
 msgid "Create Desktop Shortcut"
 msgstr "Opret genvej"
 
-#: src/share/screenlets-manager/screenlets-manager.py:412
+#: src/share/screenlets-manager/screenlets-manager.py:463
 msgid "Launch/add a new instance of the selected Screenlet ..."
 msgstr "Start/tilføj en ny instans af den valgte Screenlet ..."
 
-#: src/share/screenlets-manager/screenlets-manager.py:413
+#: src/share/screenlets-manager/screenlets-manager.py:464
 msgid ""
 "Install a new Screenlet, SuperKaramba or Web Widget or Web Application  ..."
 msgstr ""
-"Installer en ny Screenlet, SuperKaramba eller Web Widget eller Web Program "
-"..."
+"Installer en ny Screenlet, SuperKaramba eller Web Widget eller Web "
+"Program ..."
 
-#: src/share/screenlets-manager/screenlets-manager.py:414
+#: src/share/screenlets-manager/screenlets-manager.py:465
 msgid "Permanently uninstall/delete the currently selected Screenlet ..."
 msgstr "Fjern/slet den valgte Screenlet permanent ..."
 
-#: src/share/screenlets-manager/screenlets-manager.py:415
+#: src/share/screenlets-manager/screenlets-manager.py:466
 msgid ""
 "Reset this Screenlet configuration (will only work if Screenlet isn't "
 "running)"
 msgstr ""
 
-#: src/share/screenlets-manager/screenlets-manager.py:416
+#: src/share/screenlets-manager/screenlets-manager.py:467
 msgid "Install new theme for this screenlet"
 msgstr "Installér nyt tema for denne screenlet"
 
-#: src/share/screenlets-manager/screenlets-manager.py:417
+#: src/share/screenlets-manager/screenlets-manager.py:468
 msgid "Restart all Screenlets that have auto start at login"
 msgstr ""
 
-#: src/share/screenlets-manager/screenlets-manager.py:418
+#: src/share/screenlets-manager/screenlets-manager.py:469
 msgid "Close all Screenlets running"
 msgstr "Luk alle kørende Screenlets"
 
-#: src/share/screenlets-manager/screenlets-manager.py:419
+#: src/share/screenlets-manager/screenlets-manager.py:470
 msgid "New Screenlets Options/Properties"
 msgstr "Nye Screenlets Indstillinger/Egenskaber"
 
-#: src/share/screenlets-manager/screenlets-manager.py:420
+#: src/share/screenlets-manager/screenlets-manager.py:471
 msgid "Create a Desktop shortcut for this Screenlet"
 msgstr "Opret en Skrivebords genvej til denne Screenlet"
 
-#: src/share/screenlets-manager/screenlets-manager.py:439
+#: src/share/screenlets-manager/screenlets-manager.py:493
 msgid "All Screenlets"
 msgstr "Alla Screenlets"
 
-#: src/share/screenlets-manager/screenlets-manager.py:440
+#: src/share/screenlets-manager/screenlets-manager.py:494
 msgid "Running Screenlets"
 msgstr "Kørende Screenlets"
 
-#: src/share/screenlets-manager/screenlets-manager.py:441
+#: src/share/screenlets-manager/screenlets-manager.py:495
 msgid "Autostart Screenlets"
 msgstr "Autostart Screenlets"
 
-#: src/share/screenlets-manager/screenlets-manager.py:442
+#: src/share/screenlets-manager/screenlets-manager.py:496
 msgid "Only native Screenlets"
 msgstr "Kun indbyggede Screenlets"
 
-#: src/share/screenlets-manager/screenlets-manager.py:443
+#: src/share/screenlets-manager/screenlets-manager.py:497
 msgid "Only third party"
 msgstr "Only tredjeparts"
 
-#: src/share/screenlets-manager/screenlets-manager.py:469
+#: src/share/screenlets-manager/screenlets-manager.py:531
 msgid "Get more screenlets"
 msgstr "Hent flere screenletter"
 
-#: src/share/screenlets-manager/screenlets-manager.py:475
+#: src/share/screenlets-manager/screenlets-manager.py:537
 msgid "Show info about this dialog ..."
 msgstr "Vis information om denne dialog..."
 
-#: src/share/screenlets-manager/screenlets-manager.py:476
+#: src/share/screenlets-manager/screenlets-manager.py:538
 msgid "Download more screenlets ..."
 msgstr "Download flere screenletter"
 
-#: src/share/screenlets-manager/screenlets-manager.py:477
+#: src/share/screenlets-manager/screenlets-manager.py:539
 msgid "Close this dialog ..."
 msgstr "Luk denne dialog..."
 
 #. create checkboxes
-#: src/share/screenlets-manager/screenlets-manager.py:511
+#: src/share/screenlets-manager/screenlets-manager.py:573
 msgid "Start/Stop"
 msgstr "Start/Stop"
 
-#: src/share/screenlets-manager/screenlets-manager.py:512
+#: src/share/screenlets-manager/screenlets-manager.py:574
 msgid "Auto start on login"
 msgstr "Autostart ved login"
 
-#: src/share/screenlets-manager/screenlets-manager.py:513
+#: src/share/screenlets-manager/screenlets-manager.py:575
 msgid "Show daemon in tray"
 msgstr "Vis daemon i panelet"
 
-#: src/share/screenlets-manager/screenlets-manager.py:644
+#: src/share/screenlets-manager/screenlets-manager.py:703
 #, python-format
 msgid "Invalid string: %s."
 msgstr "Ugyldig streng: %s."
 
-#: src/share/screenlets-manager/screenlets-manager.py:679
+#: src/share/screenlets-manager/screenlets-manager.py:738
 msgid "Install a Screenlet or SuperKaramba theme"
 msgstr "Installer en Screenlet eller SuperKaramba tema"
 
-#: src/share/screenlets-manager/screenlets-manager.py:717
+#: src/share/screenlets-manager/screenlets-manager.py:776
 msgid "Install a new theme for the selected Screenlet"
 msgstr "Installér et nyt tema for den valgte screenlet"
 
-#: src/share/screenlets-manager/screenlets-manager.py:762
+#: src/share/screenlets-manager/screenlets-manager.py:821
 msgid "Error Found"
 msgstr "Fejl fundet"
 
-#: src/share/screenlets-manager/screenlets-manager.py:767
+#: src/share/screenlets-manager/screenlets-manager.py:826
 msgid ""
 "Theme install error 1 found - Theme not installed , maybe a package error "
 msgstr ""
 "Tema installation fejl 1 fundet - Tema ikke installeret, måske en pakke fejl "
 
-#: src/share/screenlets-manager/screenlets-manager.py:778
+#: src/share/screenlets-manager/screenlets-manager.py:837
 msgid ""
 "This package seams to contain a full Screenlet and not just a theme, please "
 "use the screenlet install instead"
@@ -301,81 +309,80 @@ msgstr ""
 "Denne pakke ser ud til at indeholde en fuld Screenlet og ikke kun et tema, "
 "brug venligst screenlet installationen istedet"
 
-#: src/share/screenlets-manager/screenlets-manager.py:790
+#: src/share/screenlets-manager/screenlets-manager.py:849
 msgid "This package doesnt seem to contain a theme"
 msgstr "Denne pakke ser ikke ud til at indeholde et tema"
 
-#: src/share/screenlets-manager/screenlets-manager.py:813
+#: src/share/screenlets-manager/screenlets-manager.py:872
 #, python-format
 msgid "Theme installed , please restart %s"
 msgstr "Tema installeret, genstart venligst %s"
 
-#: src/share/screenlets-manager/screenlets-manager.py:818
-msgid ""
-"Theme install error 2 found - Theme not installed or already installed"
+#: src/share/screenlets-manager/screenlets-manager.py:877
+msgid "Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Tema installation fejl 2 fundet - Tema ikke installeret eller allerede "
 "installeret"
 
-#: src/share/screenlets-manager/screenlets-manager.py:914
-#: src/share/screenlets-manager/screenlets-manager.py:936
+#: src/share/screenlets-manager/screenlets-manager.py:974
+#: src/share/screenlets-manager/screenlets-manager.py:996
 msgid "Install SuperKaramba Theme"
 msgstr ""
 
-#: src/share/screenlets-manager/screenlets-manager.py:917
-#: src/share/screenlets-manager/screenlets-manager.py:938
+#: src/share/screenlets-manager/screenlets-manager.py:977
+#: src/share/screenlets-manager/screenlets-manager.py:998
 msgid "Convert Web Widget"
 msgstr ""
 
-#: src/share/screenlets-manager/screenlets-manager.py:920
-#: src/share/screenlets-manager/screenlets-manager.py:940
-#: src/share/screenlets-manager/screenlets-manager.py:1032
+#: src/share/screenlets-manager/screenlets-manager.py:980
+#: src/share/screenlets-manager/screenlets-manager.py:1000
+#: src/share/screenlets-manager/screenlets-manager.py:1092
 msgid "Install Web Application"
 msgstr "Installér webbapplikation"
 
-#: src/share/screenlets-manager/screenlets-manager.py:945
+#: src/share/screenlets-manager/screenlets-manager.py:1005
 msgid "New screenlets atributes.."
 msgstr "Nye screenlets attributter..."
 
-#: src/share/screenlets-manager/screenlets-manager.py:946
+#: src/share/screenlets-manager/screenlets-manager.py:1006
 msgid "Lock"
 msgstr "Lås"
 
-#: src/share/screenlets-manager/screenlets-manager.py:947
+#: src/share/screenlets-manager/screenlets-manager.py:1007
 msgid "Sticky"
 msgstr "Sticky"
 
-#: src/share/screenlets-manager/screenlets-manager.py:948
+#: src/share/screenlets-manager/screenlets-manager.py:1008
 msgid "Widget"
 msgstr "Widget"
 
-#: src/share/screenlets-manager/screenlets-manager.py:949
+#: src/share/screenlets-manager/screenlets-manager.py:1009
 msgid "Keep above"
 msgstr "Behold over"
 
-#: src/share/screenlets-manager/screenlets-manager.py:951
+#: src/share/screenlets-manager/screenlets-manager.py:1011
 msgid "Keep below"
 msgstr "Behold under"
 
-#: src/share/screenlets-manager/screenlets-manager.py:952
+#: src/share/screenlets-manager/screenlets-manager.py:1012
 msgid "Show buttons"
 msgstr "Vis knapper"
 
-#: src/share/screenlets-manager/screenlets-manager.py:984
+#: src/share/screenlets-manager/screenlets-manager.py:1044
 msgid "New Screenlets atributes"
 msgstr "Nye screenlets attributter"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1022
+#: src/share/screenlets-manager/screenlets-manager.py:1082
 msgid "Web Application Url"
 msgstr "Web Program URL"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1023
+#: src/share/screenlets-manager/screenlets-manager.py:1083
 msgid "Web Application Name"
 msgstr "Web Program Navn"
 
 #. found_path != None:
-#: src/share/screenlets-manager/screenlets-manager.py:1055
-#: src/share/screenlets-manager/screenlets-manager.py:1146
+#: src/share/screenlets-manager/screenlets-manager.py:1115
+#: src/share/screenlets-manager/screenlets-manager.py:1206
 msgid ""
 "There is already a screenlet with that name installed\n"
 "Do you wish to continue?"
@@ -383,59 +390,58 @@ msgstr ""
 "Der er allerede en screenlet installeret med det navn\n"
 "Ønsker du at fortsætte?"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1083
+#: src/share/screenlets-manager/screenlets-manager.py:1143
 msgid "Web Application was successfully installed"
 msgstr "Webbapplikationen er installeret"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1086
+#: src/share/screenlets-manager/screenlets-manager.py:1146
 msgid "Error installing!!!"
 msgstr "Fejl ved installation!"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1087
-#: src/share/screenlets-manager/screenlets-manager.py:1171
+#: src/share/screenlets-manager/screenlets-manager.py:1147
+#: src/share/screenlets-manager/screenlets-manager.py:1231
 msgid "Please specify a name for the widget"
 msgstr "Specificer venligst et navn til widgeten"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1088
-#: src/share/screenlets-manager/screenlets-manager.py:1172
+#: src/share/screenlets-manager/screenlets-manager.py:1148
+#: src/share/screenlets-manager/screenlets-manager.py:1232
 msgid "No HTML code found"
 msgstr "Ingen HTML-kode fundet"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1092
+#: src/share/screenlets-manager/screenlets-manager.py:1152
 msgid "Convert any webpage widget into a Screenlet."
 msgstr "Konverter hvilken som helst web widget om til en Screenlet."
 
-#: src/share/screenlets-manager/screenlets-manager.py:1093
+#: src/share/screenlets-manager/screenlets-manager.py:1153
 msgid "Step 1 : Find the widget you want to convert"
 msgstr "Punkt 1 : Find den widget du ønsker at konvertere"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1094
+#: src/share/screenlets-manager/screenlets-manager.py:1154
 msgid "Step 2 : Copy and Paste the HTML from the widget in the box below"
-msgstr ""
-"Punkt 2 : Kopier og indsæt HTML koden fra widgeten i boksen nedenunder"
+msgstr "Punkt 2 : Kopier og indsæt HTML koden fra widgeten i boksen nedenunder"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1095
+#: src/share/screenlets-manager/screenlets-manager.py:1155
 msgid "Step 3 : Give it a name in the box below and click on Ok to convert"
 msgstr ""
 "Punkt 3 : Giv den et navn i boksen nedenunder og klik Ok for at konvertere"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1096
+#: src/share/screenlets-manager/screenlets-manager.py:1156
 msgid "The name of the widget"
 msgstr "Navn på Widgeten"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1120
+#: src/share/screenlets-manager/screenlets-manager.py:1180
 msgid "Widget converter"
 msgstr "Widget konvertering"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1167
+#: src/share/screenlets-manager/screenlets-manager.py:1227
 msgid "Widget was successfully converted"
 msgstr "Widget blev konverteret"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1170
+#: src/share/screenlets-manager/screenlets-manager.py:1230
 msgid "Error converting!!!"
 msgstr "Fejl ved konverteringen!!"
 
-#: src/share/screenlets-manager/screenlets-manager.py:1292
+#: src/share/screenlets-manager/screenlets-manager.py:1353
 msgid "Screenlets-Manager must now be restarted"
 msgstr "Screenlets-Manager skal genstartes nu"
 
@@ -502,8 +508,7 @@ msgstr "Fik klasse fra modul: %s"
 #: src/share/screenlets-manager/screenlets-packager.py:138
 #, python-format
 msgid "Failed to create package info in \"%s\" (no permission?)."
-msgstr ""
-"Fejlede under oprettelse af pakke info i \"%s\" (ingen rettigheder?)."
+msgstr "Fejlede under oprettelse af pakke info i \"%s\" (ingen rettigheder?)."
 
 #: src/share/screenlets-manager/screenlets-packager.py:139
 msgid "Created package info file."
@@ -589,7 +594,7 @@ msgid "The %sScreenlet has been succesfully installed."
 msgstr "The %sScreenlet er korrekt installeret."
 
 #. create autostart directory, if not existent
-#: src/lib/utils.py:127 src/lib/utils.py:622
+#: src/lib/utils.py:127 src/lib/utils.py:638
 msgid ""
 "There is no existing autostart directory for your user account yet. Do you "
 "want me to automatically create it for you?"
@@ -597,7 +602,7 @@ msgstr ""
 "Der er ingen eksisterende autostart mappe til din bruger konto endnu. Vil du "
 "have mig til at oprette en automatisk for dig?"
 
-#: src/lib/utils.py:132 src/lib/utils.py:626
+#: src/lib/utils.py:132 src/lib/utils.py:642
 #, python-format
 msgid ""
 "Automatic creation failed. Please manually create the directory:\n"
@@ -606,7 +611,7 @@ msgstr ""
 "Automatisk oprettelse slog fejl. Foretag en manuel oprettelse af mappen:\n"
 "%s"
 
-#: src/lib/utils.py:135 src/lib/utils.py:629
+#: src/lib/utils.py:135 src/lib/utils.py:645
 #, python-format
 msgid ""
 "Please manually create the directory:\n"
@@ -643,7 +648,15 @@ msgstr ""
 msgid "Failed!"
 msgstr ""
 
-#: src/lib/utils.py:658
+#: src/lib/utils.py:674
 #, python-format
 msgid "Failed to add %sScreenlet."
 msgstr "Tilføjelsen af %sScreenlet fejlede."
+
+# Extracted categories from indiv-screenlets
+msgid "Fun and amusement"
+msgstr ""
+
+# Extracted categories from indiv-screenlets
+msgid "Date and time"
+msgstr ""

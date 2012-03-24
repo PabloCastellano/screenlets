@@ -34,7 +34,11 @@ function po()
 		else
 			notprinted=true
 		fi
-		
+
+		if [ "$1" == "screenlets-manager" ]; then
+			po_categories "screenlets-manager"
+		fi
+
 		cd $1
 #		pwd
 		for x in $(ls *.po 2>/dev/null)
@@ -84,6 +88,5 @@ printf "%s ",$i;print "" }'`
 
 po "screenlets"
 po "screenlets-manager"
-po_categories "screenlets-manager"
 
 

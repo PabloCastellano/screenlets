@@ -7,205 +7,205 @@ msgid ""
 msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-10 05:23+0900\n"
+"POT-Creation-Date: 2012-03-25 00:17+0200\n"
 "PO-Revision-Date: 2011-01-11 20:33+0000\n"
 "Last-Translator: Ketil Wendelbo Aanensen <ketil.w.aanensen@gmail.com>\n"
 "Language-Team: Norwegian Bokmal <nb@li.org>\n"
+"Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2012-03-12 04:32+0000\n"
 "X-Generator: Launchpad (build 14933)\n"
-"Language: nb\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
-#: src/lib/__init__.py:99
+#: src/lib/__init__.py:168
 msgid "http://www.screenlets.org/index.php/Get_more_screenlets"
 msgstr ""
 
 #. default meta-info for Screenlets
-#: src/lib/__init__.py:613
+#: src/lib/__init__.py:719
 msgid "No name set for this Screenlet"
 msgstr "Ingen navn gitt for denne Screenlet"
 
-#: src/lib/__init__.py:615
+#: src/lib/__init__.py:721
 msgid "No author defined for this Screenlet"
 msgstr "Ingen forfatter gitt for denne Screenlet"
 
-#: src/lib/__init__.py:616
+#: src/lib/__init__.py:723
 msgid "No info set for this Screenlet"
 msgstr "Ingen info gitt for denne Screenlet"
 
-#: src/lib/__init__.py:726
+#: src/lib/__init__.py:833
 msgid "The basic settings for this Screenlet-instance."
 msgstr "Grunnleggende innstillinger for dette Screenlet-tilfellet"
 
-#: src/lib/__init__.py:741
+#: src/lib/__init__.py:848
 msgid "X-Position"
 msgstr "X-posisjon"
 
-#: src/lib/__init__.py:741
+#: src/lib/__init__.py:849
 msgid "The X-position of this Screenlet ..."
 msgstr "X-posisjonen for denne Screenlet ..."
 
-#: src/lib/__init__.py:744
+#: src/lib/__init__.py:852
 msgid "Y-Position"
 msgstr "Y-posisjon"
 
-#: src/lib/__init__.py:744
+#: src/lib/__init__.py:853
 msgid "The Y-position of this Screenlet ..."
 msgstr "Y-posisjonen for denne Screenlet ..."
 
-#: src/lib/__init__.py:747
+#: src/lib/__init__.py:856
 msgid "Width"
 msgstr "Bredde"
 
-#: src/lib/__init__.py:747
+#: src/lib/__init__.py:857
 msgid "The width of this Screenlet ..."
 msgstr "Bredden på denne Screenlet ..."
 
-#: src/lib/__init__.py:750
+#: src/lib/__init__.py:860
 msgid "Height"
 msgstr "Høyde"
 
-#: src/lib/__init__.py:750
+#: src/lib/__init__.py:861
 msgid "The height of this Screenlet ..."
 msgstr "Høyden på denne Screenlet ..."
 
-#: src/lib/__init__.py:753
+#: src/lib/__init__.py:864
 msgid "Scale"
 msgstr "Størrelse"
 
-#: src/lib/__init__.py:753
+#: src/lib/__init__.py:865
 msgid "The scale-factor of this Screenlet ..."
 msgstr "Størrelsesfaktor for denne Screenlet ..."
 
-#: src/lib/__init__.py:756
+#: src/lib/__init__.py:868
 msgid "Opacity"
 msgstr "Dekkevne"
 
-#: src/lib/__init__.py:756
+#: src/lib/__init__.py:869
 msgid "The opacity of the Screenlet window ..."
 msgstr "Screenlet-vinduets dekkevne ..."
 
-#: src/lib/__init__.py:759
+#: src/lib/__init__.py:872
 msgid "Stick to Desktop"
 msgstr "Klistre til skrivebord"
 
-#: src/lib/__init__.py:760
+#: src/lib/__init__.py:873
 msgid "Show this Screenlet on all workspaces ..."
 msgstr "Vis denne Screenlet på alle arbeidsområder ..."
 
-#: src/lib/__init__.py:762
+#: src/lib/__init__.py:875
 msgid "Treat as Widget"
 msgstr "Behandle som miniprogram (widget)"
 
-#: src/lib/__init__.py:763
+#: src/lib/__init__.py:876
 msgid "Treat this Screenlet as a \"Widget\" ..."
 msgstr "Behandle denne Screenlet som miniprogram (widget)"
 
-#: src/lib/__init__.py:771
+#: src/lib/__init__.py:887
 msgid "Lock position"
 msgstr "Lås posisjon"
 
-#: src/lib/__init__.py:772
+#: src/lib/__init__.py:888
 msgid "Stop the screenlet from being moved..."
 msgstr "Hindre Screenlet i å bli flyttet ..."
 
 #. add "Keep above"-menuitem
-#: src/lib/__init__.py:774 src/lib/__init__.py:1091
+#: src/lib/__init__.py:890 src/lib/__init__.py:1229
 msgid "Keep above"
 msgstr "Hold over"
 
-#: src/lib/__init__.py:775
+#: src/lib/__init__.py:891
 msgid "Keep this Screenlet above other windows ..."
 msgstr "Holde denne Screenlet over andre vinduer ..."
 
 #. add "Keep Below"-menuitem
-#: src/lib/__init__.py:777 src/lib/__init__.py:1098
+#: src/lib/__init__.py:893 src/lib/__init__.py:1236
 msgid "Keep below"
 msgstr "Hold under"
 
-#: src/lib/__init__.py:778
+#: src/lib/__init__.py:894
 msgid "Keep this Screenlet below other windows ..."
 msgstr "Hold denne Screenlet under andre vinduer ..."
 
-#: src/lib/__init__.py:780
+#: src/lib/__init__.py:896
 msgid "Draw button controls"
 msgstr "Tegn knappekontroller"
 
-#: src/lib/__init__.py:781
+#: src/lib/__init__.py:897
 msgid "Draw buttons in top right corner"
 msgstr "Tegn knapper i øvre høyre hjørne"
 
-#: src/lib/__init__.py:783
+#: src/lib/__init__.py:899
 msgid "Skip Pager"
 msgstr "Hopp over skrivebordsoversikt"
 
-#: src/lib/__init__.py:784
+#: src/lib/__init__.py:900
 msgid "Set this Screenlet to show/hide in pagers ..."
 msgstr "La denne Screenlet vises/skjules i skrivebordsoversikter ..."
 
-#: src/lib/__init__.py:786
+#: src/lib/__init__.py:902
 msgid "Skip Taskbar"
 msgstr "Hopp over oppgavelinje"
 
-#: src/lib/__init__.py:787
+#: src/lib/__init__.py:903
 msgid "Set this Screenlet to show/hide in taskbars ..."
 msgstr "La denne Screenlet vises/skjules i oppgavelinjer ..."
 
-#: src/lib/__init__.py:789
+#: src/lib/__init__.py:905
 msgid "Resize on mouse scroll"
 msgstr "Endre størrelse ved muserulling"
 
-#: src/lib/__init__.py:791
+#: src/lib/__init__.py:908
 msgid "Ignore requirements"
 msgstr ""
 
-#: src/lib/__init__.py:792
+#: src/lib/__init__.py:909
 msgid "Set this Screenlet to ignore/demand DEB requirements ..."
 msgstr ""
 
-#: src/lib/__init__.py:796
+#: src/lib/__init__.py:913
 msgid "Allow overriding Options"
 msgstr "Tillat overstyrende valg"
 
-#: src/lib/__init__.py:797
+#: src/lib/__init__.py:914
 msgid "Allow themes to override options in this screenlet ..."
 msgstr "La temaer overstyre valgene for denne Screenlet ..."
 
-#: src/lib/__init__.py:799
+#: src/lib/__init__.py:916
 msgid "Ask on Override"
 msgstr "Spør ved overstyring"
 
-#: src/lib/__init__.py:800
+#: src/lib/__init__.py:917
 msgid "Show a confirmation-dialog when a theme wants to override "
 msgstr "Vis en bekreftelsesdialog når et tema ønsker å overstyre "
 
-#: src/lib/__init__.py:801
+#: src/lib/__init__.py:918
 msgid "the current options of this Screenlet ..."
 msgstr "nåværende valg for denne Screenlet ..."
 
 #. version of the deb package if unspecified
-#: src/lib/__init__.py:994
+#: src/lib/__init__.py:1132
 msgid "?"
 msgstr ""
 
-#: src/lib/__init__.py:999
+#: src/lib/__init__.py:1137
 #, python-format
 msgid ""
 "\n"
 "%(package)s %(version)s required, NOT INSTALLED!"
 msgstr ""
 
-#: src/lib/__init__.py:1002
+#: src/lib/__init__.py:1140
 #, python-format
 msgid ""
 "\n"
 "%(package)s %(version)s installed, req %(required)s."
 msgstr ""
 
-#: src/lib/__init__.py:1012
+#: src/lib/__init__.py:1150
 #, python-format
 msgid ""
 "Requirements for the Screenlet are not satisfied! Use the package manager of "
@@ -215,62 +215,62 @@ msgid ""
 "%s"
 msgstr ""
 
-#: src/lib/__init__.py:1034
+#: src/lib/__init__.py:1172
 msgid "Size"
 msgstr "Størrelse"
 
-#: src/lib/__init__.py:1049
+#: src/lib/__init__.py:1187
 msgid "Theme"
 msgstr "Tema"
 
-#: src/lib/__init__.py:1064
+#: src/lib/__init__.py:1202
 msgid "Window"
 msgstr "Vindu"
 
 #. add "lock"-menuitem
-#: src/lib/__init__.py:1070
+#: src/lib/__init__.py:1208
 msgid "Lock"
 msgstr "Lås"
 
 #. add "Sticky"-menuitem
-#: src/lib/__init__.py:1077
+#: src/lib/__init__.py:1215
 msgid "Sticky"
 msgstr "Klistre"
 
 #. add "Widget"-menuitem
-#: src/lib/__init__.py:1084
+#: src/lib/__init__.py:1222
 msgid "Widget"
 msgstr "Miniprogram (widget)"
 
-#: src/lib/__init__.py:1108
+#: src/lib/__init__.py:1246
 msgid "Properties..."
 msgstr "Egenskaper..."
 
-#: src/lib/__init__.py:1111
+#: src/lib/__init__.py:1249
 msgid "Info..."
 msgstr "Info..."
 
-#: src/lib/__init__.py:1115
+#: src/lib/__init__.py:1253
 #, python-format
 msgid "Add one more %s"
 msgstr ""
 
-#: src/lib/__init__.py:1118
+#: src/lib/__init__.py:1256
 #, python-format
 msgid "Delete this %s"
 msgstr ""
 
-#: src/lib/__init__.py:1122
+#: src/lib/__init__.py:1260
 #, python-format
 msgid "Quit this %s"
 msgstr ""
 
-#: src/lib/__init__.py:1125
+#: src/lib/__init__.py:1263
 #, python-format
 msgid "Quit all %ss"
 msgstr ""
 
-#: src/lib/__init__.py:1376
+#: src/lib/__init__.py:1510
 msgid ""
 "This theme wants to override your settings for this Screenlet. Do you want "
 "to allow that?"
@@ -278,30 +278,46 @@ msgstr ""
 "Dette temaet ønsker å overstyre dine innstillinger for denne Screenlet. Vil "
 "du tillate dette?"
 
-#: src/lib/__init__.py:1610
+#: src/lib/__init__.py:1756
 #, python-format
 msgid "To quit all %s's, use 'Quit' instead. "
 msgstr "For å avslutte alle %s-er, bruk 'Avslutt' i stedet. "
 
-#: src/lib/__init__.py:1611
+#: src/lib/__init__.py:1757
 #, python-format
 msgid "Really delete this %s and its settings?"
 msgstr "Virkelig slette denne %s og dets innstillinger?"
 
-#: src/lib/options.py:653
+#: src/lib/options/account_option.py:109 src/lib/options/base.py:439
+msgid "Apply"
+msgstr "Bruk"
+
+#: src/lib/options/account_option.py:115
+msgid "Apply username/password ..."
+msgstr "Bruk brukernavn/passord ..."
+
+#: src/lib/options/account_option.py:116
+msgid "Enter username here ..."
+msgstr "Skriv inn brukernavn her ..."
+
+#: src/lib/options/account_option.py:117
+msgid "Enter password here ..."
+msgstr "Skriv inn passord her ..."
+
+#: src/lib/options/base.py:309
 msgid "Edit Options"
 msgstr "Endre innstillinger"
 
-#: src/lib/options.py:855
+#: src/lib/options/base.py:536
 msgid "About "
 msgstr "Om "
 
-#: src/lib/options.py:867
+#: src/lib/options/base.py:548
 msgid "Options "
 msgstr "Valg "
 
 #. create info-text list
-#: src/lib/options.py:874
+#: src/lib/options/base.py:555
 msgid ""
 "Themes allow you to easily switch the appearance of your Screenlets. On this "
 "page you find a list of all available themes for this Screenlet."
@@ -309,63 +325,57 @@ msgstr ""
 "Temaer lar deg enkelt bytte utseendet på dine Screenlets. På denne siden "
 "finner du en liste over alle tilgjengelige temaer for denne Screenlet."
 
-#: src/lib/options.py:903
+#: src/lib/options/base.py:584
 msgid "Themes "
 msgstr "Tema "
 
-#: src/lib/options.py:916
+#: src/lib/options/base.py:597
 msgid "no info available"
 msgstr "ingen info tilgjengelig"
 
-#: src/lib/options.py:1007
+#: src/lib/options/file_option.py:41
 msgid "Choose File"
 msgstr "Velg fil"
 
-#: src/lib/options.py:1016
+#: src/lib/options/file_option.py:96
 msgid "Choose Directory"
 msgstr "Velg katalog"
 
-#: src/lib/options.py:1042
+#: src/lib/options/file_option.py:101
 msgid "Choose Image"
 msgstr "Velg bilde"
 
-#: src/lib/options.py:1109
+#. add tooltips
+#: src/lib/options/file_option.py:126
+msgid "Select Image ..."
+msgstr ""
+
+#: src/lib/options/list_option.py:48
 msgid "Open List-Editor ..."
 msgstr "Åpne listeredigerer ..."
 
-#: src/lib/options.py:1130
-msgid "Apply username/password ..."
-msgstr "Bruk brukernavn/passord ..."
+#: src/lib/options/number_option.py:39
+#, python-format
+msgid "Error during on_import - option: %s.\n"
+msgstr ""
 
-#: src/lib/options.py:1131
-msgid "Enter username here ..."
-msgstr "Skriv inn brukernavn her ..."
-
-#: src/lib/options.py:1132
-msgid "Enter password here ..."
-msgstr "Skriv inn passord her ..."
-
-#: src/lib/options.py:1187
-msgid "Apply"
-msgstr "Bruk"
-
-#: src/lib/sensors.py:165
+#: src/lib/sensors.py:171
 #, python-format
 msgid "%(days)s days, %(hours)s hours and %(minutes)s minutes"
 msgstr ""
 
-#: src/lib/sensors.py:276
+#: src/lib/sensors.py:282
 msgid "Can't get KDE version"
 msgstr "Kan ikke få KDE-versjon"
 
-#: src/lib/sensors.py:286
+#: src/lib/sensors.py:292
 msgid "Can't get Gnome version"
 msgstr "Kan ikke få Gnome-versjon"
 
-#: src/lib/sensors.py:474
+#: src/lib/sensors.py:480
 msgid "Cannot get ip"
 msgstr "Kan ikke få IP"
 
-#: src/lib/sensors.py:568 src/lib/sensors.py:581
+#: src/lib/sensors.py:574 src/lib/sensors.py:587
 msgid "Not connected"
 msgstr "Ikke tilkoblet"

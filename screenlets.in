@@ -2,7 +2,16 @@ src/lib/backend.py
 src/lib/drawing.py
 src/lib/__init__.py
 src/lib/menu.py
-src/lib/options.py
+src/lib/options/account_option.py
+src/lib/options/base.py
+src/lib/options/boolean_option.py
+src/lib/options/colour_option.py
+src/lib/options/file_option.py
+src/lib/options/font_option.py
+src/lib/options/list_option.py
+src/lib/options/number_option.py
+src/lib/options/string_option.py
+src/lib/options/time_option.py
 src/lib/Plugins.py
 src/lib/sensors.py
 src/lib/services.py

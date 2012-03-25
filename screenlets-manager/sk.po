@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2012-01-05 02:11+0000\n"
 "Last-Translator: Eduard Hummel <22edel22@gmail.com>\n"
 "Language-Team: Slovak <sk@li.org>\n"
-"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-12 04:33+0000\n"
-"X-Generator: Launchpad (build 14933)\n"
+"X-Launchpad-Export-Date: 2012-03-25 04:44+0000\n"
+"X-Generator: Launchpad (build 14981)\n"
+"Language: sk\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:127
 msgid "Screenlets daemon"
@@ -321,7 +321,8 @@ msgid "Theme installed , please restart %s"
 msgstr "Téma nainštalovaná, prosím reštartujte %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:877
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Inštalátor tém našiel 2 chyby - Téma nenainštalovaná alebo už nainštalovaná"
 
@@ -423,7 +424,8 @@ msgstr "Krok 2 :Skopírujte a vložte HTML z widget do políčka nižšie"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1155
 msgid "Step 3 : Give it a name in the box below and click on Ok to convert"
-msgstr "Krok 3 :Napíšte názov do políčka nižšie a kliknutím na OK konvertujte."
+msgstr ""
+"Krok 3 :Napíšte názov do políčka nižšie a kliknutím na OK konvertujte."
 
 #: src/share/screenlets-manager/screenlets-manager.py:1156
 msgid "The name of the widget"
@@ -650,10 +652,8 @@ msgstr ""
 msgid "Failed to add %sScreenlet."
 msgstr "Zlyhalo pridanie %sScreenletu"
 
-# Extracted categories from indiv-screenlets
 msgid "Fun and amusement"
 msgstr ""
 
-# Extracted categories from indiv-screenlets
 msgid "Date and time"
 msgstr ""

@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2011-06-09 09:06+0000\n"
 "Last-Translator: Takeshi Matsubara <Unknown>\n"
 "Language-Team: Japanese <ja@li.org>\n"
-"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-12 04:32+0000\n"
-"X-Generator: Launchpad (build 14933)\n"
+"X-Launchpad-Export-Date: 2012-03-25 04:43+0000\n"
+"X-Generator: Launchpad (build 14981)\n"
+"Language: ja\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
 #: src/lib/__init__.py:168
@@ -274,15 +274,12 @@ msgstr "%s をすべて終了"
 msgid ""
 "This theme wants to override your settings for this Screenlet. Do you want "
 "to allow that?"
-msgstr ""
-"このテーマはこの Sceenlet の設定値の書き換えを要求しています。書き換えを許可"
-"しますか？"
+msgstr "このテーマはこの Sceenlet の設定値の書き換えを要求しています。書き換えを許可しますか？"
 
 #: src/lib/__init__.py:1756
 #, python-format
 msgid "To quit all %s's, use 'Quit' instead. "
-msgstr ""
-"全ての %s を終了させるには、削除の代わりに '終了' を使用してください。 "
+msgstr "全ての %s を終了させるには、削除の代わりに '終了' を使用してください。 "
 
 #: src/lib/__init__.py:1757
 #, python-format
@@ -323,8 +320,7 @@ msgid ""
 "Themes allow you to easily switch the appearance of your Screenlets. On this "
 "page you find a list of all available themes for this Screenlet."
 msgstr ""
-"Screenlet の外観はテーマによって簡単に切り替えられます。この Screenlet に使用"
-"可能な全テーマのリストがこのページに掲載されています。"
+"Screenlet の外観はテーマによって簡単に切り替えられます。この Screenlet に使用可能な全テーマのリストがこのページに掲載されています。"
 
 #: src/lib/options/base.py:584
 msgid "Themes "

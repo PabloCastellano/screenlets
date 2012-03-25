@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2012-01-05 03:12+0000\n"
 "Last-Translator: tabbernuk <boamaod@gmail.com>\n"
 "Language-Team: Lithuanian <lt@li.org>\n"
-"Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-12 04:33+0000\n"
-"X-Generator: Launchpad (build 14933)\n"
+"X-Launchpad-Export-Date: 2012-03-25 04:44+0000\n"
+"X-Generator: Launchpad (build 14981)\n"
+"Language: lt\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:127
 msgid "Screenlets daemon"
@@ -67,10 +67,10 @@ msgid ""
 "license. Thank you for using free software!"
 msgstr ""
 "Ši programa išleista su GNU General Public Licencija v3 (arba,jūsų atvėju, "
-"naujesne versija). Jūs galite rasti pilną licencijos tekstą http://www.gnu."
-"org/licenses/gpl.txt. Keičiant ar kitaip naudojant šią programinę įrangą jūs "
-"sutinkate su šios licencijos terminais ir sąlygomis. Ačių, kad naudojatės "
-"laisva programine įranga!"
+"naujesne versija). Jūs galite rasti pilną licencijos tekstą "
+"http://www.gnu.org/licenses/gpl.txt. Keičiant ar kitaip naudojant šią "
+"programinę įrangą jūs sutinkate su šios licencijos terminais ir sąlygomis. "
+"Ačių, kad naudojatės laisva programine įranga!"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:323
 msgid "Install a Screenlet"
@@ -318,7 +318,8 @@ msgid "Theme installed , please restart %s"
 msgstr "Tema įdiegta , prašome paleisti iš naujo %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:877
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr "Rasta 2 temos įdiegimo klaidos - tema neįdiegta arba jau įdiegta"
 
 #: src/share/screenlets-manager/screenlets-manager.py:974
@@ -526,7 +527,8 @@ msgstr ""
 
 #: src/lib/install.py:120
 msgid "Archive is damaged or unsupported, use only tar, bz2 or gz."
-msgstr "Archyvas sugadintas arba nepalaikomas, naudokite tik tar, bz2 arba gz."
+msgstr ""
+"Archyvas sugadintas arba nepalaikomas, naudokite tik tar, bz2 arba gz."
 
 #. check if screenlet is already installed
 #. found_path = screenlets.utils.find_first_screenlet_path(name)
@@ -651,10 +653,8 @@ msgstr ""
 msgid "Failed to add %sScreenlet."
 msgstr "Nepavyko pridėti %svaldiklio."
 
-# Extracted categories from indiv-screenlets
 msgid "Fun and amusement"
 msgstr ""
 
-# Extracted categories from indiv-screenlets
 msgid "Date and time"
 msgstr ""

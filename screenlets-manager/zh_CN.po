@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2012-03-13 07:08+0000\n"
 "Last-Translator: Wang Dianjin <Unknown>\n"
 "Language-Team: Simplified Chinese <zh_CN@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-14 04:37+0000\n"
-"X-Generator: Launchpad (build 14933)\n"
+"X-Launchpad-Export-Date: 2012-03-25 04:44+0000\n"
+"X-Generator: Launchpad (build 14981)\n"
+"Language: \n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:127
 msgid "Screenlets daemon"
@@ -66,10 +66,9 @@ msgid ""
 "distributing this software you agree to the terms and conditions of this "
 "license. Thank you for using free software!"
 msgstr ""
-"该应用程序基于 GNU General Public License v3 发布（或者，根据您的选择，任何后"
-"续许可协议版本）。 您可以在 http://www.gnu.org/licenses/gpl.txt 查看完整的许"
-"可协议文本。 使用、编辑和/或分发该软件都意味着您赞同该许可的条款和前提。感谢"
-"您使用自由软件！"
+"该应用程序基于 GNU General Public License v3 发布（或者，根据您的选择，任何后续许可协议版本）。 您可以在 "
+"http://www.gnu.org/licenses/gpl.txt 查看完整的许可协议文本。 "
+"使用、编辑和/或分发该软件都意味着您赞同该许可的条款和前提。感谢您使用自由软件！"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:323
 msgid "Install a Screenlet"
@@ -89,9 +88,8 @@ msgid ""
 "functionality is disabled. You can use this to install screenlets into the "
 "system-wide path."
 msgstr ""
-"请注意！你正在以root身份运行该应用程序，因此几乎所有的功能都被禁用。但你可以"
-"在系统级别安装screenlets（安装到程序的数据目录而不是用户的配置目录下，即对所"
-"有用户都可用）。"
+"请注意！你正在以root身份运行该应用程序，因此几乎所有的功能都被禁用。但你可以在系统级别安装screenlets（安装到程序的数据目录而不是用户的配置目"
+"录下，即对所有用户都可用）。"
 
 #: src/share/screenlets-manager/screenlets-manager.py:110
 msgid "Warning!"
@@ -299,9 +297,7 @@ msgstr "发现安装主题的错误1－主题没有被安装。可能有一个�
 msgid ""
 "This package seams to contain a full Screenlet and not just a theme, please "
 "use the screenlet install instead"
-msgstr ""
-"这个包似乎包含了一个完整的 Screenlet，而不是一个主题。请改用 screenlet 安装功"
-"能。"
+msgstr "这个包似乎包含了一个完整的 Screenlet，而不是一个主题。请改用 screenlet 安装功能。"
 
 #: src/share/screenlets-manager/screenlets-manager.py:849
 msgid "This package doesnt seem to contain a theme"
@@ -313,7 +309,8 @@ msgid "Theme installed , please restart %s"
 msgstr "主题已被安装，请重启 %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:877
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr "发现主题安装错误2 －主题没有被安装或已被安装"
 
 #: src/share/screenlets-manager/screenlets-manager.py:974
@@ -613,9 +610,8 @@ msgid ""
 "and by clicking on an AptURL on web pages like Gnome-look.org. Would you "
 "like to add the Screenlets PPA to your system?"
 msgstr ""
-"Screenlets PPA 未在软件源列表中。添加 PPA 可从软件包管理器(或软件中心)安装单"
-"个 screenlet，并像 Gnome-look.org 一样在网页上点击一个 AptURL。您想要将 "
-"Screenlets PPA 添加到您的系统吗？"
+"Screenlets PPA 未在软件源列表中。添加 PPA 可从软件包管理器(或软件中心)安装单个 screenlet，并像 Gnome-"
+"look.org 一样在网页上点击一个 AptURL。您想要将 Screenlets PPA 添加到您的系统吗？"
 
 #: src/lib/utils.py:204
 msgid "Do you want to enable the Screenlets PPA?"
@@ -642,10 +638,8 @@ msgstr "失败！"
 msgid "Failed to add %sScreenlet."
 msgstr "添加 %s Screenlets 失败。"
 
-# Extracted categories from indiv-screenlets
 msgid "Fun and amusement"
 msgstr ""
 
-# Extracted categories from indiv-screenlets
 msgid "Date and time"
 msgstr ""

@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2011-02-04 14:01+0000\n"
 "Last-Translator: George Karavasilev <motorslav@gmail.com>\n"
 "Language-Team: Bulgarian <bg@li.org>\n"
-"Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-12 04:32+0000\n"
-"X-Generator: Launchpad (build 14933)\n"
+"X-Launchpad-Export-Date: 2012-03-25 04:43+0000\n"
+"X-Generator: Launchpad (build 14981)\n"
+"Language: bg\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
 #: src/lib/__init__.py:168
@@ -282,7 +282,8 @@ msgstr "Затвори всички %s"
 msgid ""
 "This theme wants to override your settings for this Screenlet. Do you want "
 "to allow that?"
-msgstr "Тази тема ще презапише настройките ви за тази джаджа. Желаете ли това?"
+msgstr ""
+"Тази тема ще презапише настройките ви за тази джаджа. Желаете ли това?"
 
 #: src/lib/__init__.py:1756
 #, python-format

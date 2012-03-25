@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2012-01-05 02:43+0000\n"
 "Last-Translator: tabbernuk <boamaod@gmail.com>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
-"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-12 04:33+0000\n"
-"X-Generator: Launchpad (build 14933)\n"
+"X-Launchpad-Export-Date: 2012-03-25 04:44+0000\n"
+"X-Generator: Launchpad (build 14981)\n"
+"Language: pt\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:127
 msgid "Screenlets daemon"
@@ -321,7 +321,8 @@ msgid "Theme installed , please restart %s"
 msgstr "Tema instalado, por favor reinicie %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:877
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Encontrado erro número 2 da instalação de temas - O tema não foi instalado "
 "ou talvez já instalado"
@@ -420,7 +421,8 @@ msgstr "Passo 1: Encontrar a Widget que deseja converter"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1154
 msgid "Step 2 : Copy and Paste the HTML from the widget in the box below"
-msgstr "Passo 2: Copiar e colar o código HTML da Widget para a caixa em baixo"
+msgstr ""
+"Passo 2: Copiar e colar o código HTML da Widget para a caixa em baixo"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1155
 msgid "Step 3 : Give it a name in the box below and click on Ok to convert"
@@ -501,7 +503,8 @@ msgstr "Não foi possível importar class do módulo."
 
 #: src/share/screenlets-manager/screenlets-packager.py:106
 msgid "The class inside the module is no subclass of screenlets.Screenlet."
-msgstr "A classe dentro do módulo não é uma subclasse de screenlets.Screenlet."
+msgstr ""
+"A classe dentro do módulo não é uma subclasse de screenlets.Screenlet."
 
 #: src/share/screenlets-manager/screenlets-packager.py:107
 #, python-format
@@ -657,10 +660,8 @@ msgstr ""
 msgid "Failed to add %sScreenlet."
 msgstr "Falhou ao adicionar %sScreenlet"
 
-# Extracted categories from indiv-screenlets
 msgid "Fun and amusement"
 msgstr ""
 
-# Extracted categories from indiv-screenlets
 msgid "Date and time"
 msgstr ""

@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2012-01-05 03:13+0000\n"
 "Last-Translator: tabbernuk <boamaod@gmail.com>\n"
 "Language-Team: Indonesian <id@li.org>\n"
-"Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-12 04:33+0000\n"
-"X-Generator: Launchpad (build 14933)\n"
+"X-Launchpad-Export-Date: 2012-03-25 04:44+0000\n"
+"X-Generator: Launchpad (build 14981)\n"
+"Language: id\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:127
 msgid "Screenlets daemon"
@@ -322,7 +322,8 @@ msgid "Theme installed , please restart %s"
 msgstr "Theme terpasang , silahkan menghidupkan ulang %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:877
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Theme terpasang ditemukan 2 kesalahan - Theme tidak terpasang atau sudah "
 "tersedia yang terpasang"
@@ -642,10 +643,8 @@ msgstr "Gagal!"
 msgid "Failed to add %sScreenlet."
 msgstr ""
 
-# Extracted categories from indiv-screenlets
 msgid "Fun and amusement"
 msgstr ""
 
-# Extracted categories from indiv-screenlets
 msgid "Date and time"
 msgstr ""

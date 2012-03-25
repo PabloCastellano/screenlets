@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2012-01-05 02:56+0000\n"
 "Last-Translator: Jacky Alciné <jacky.alcine@thesii.org>\n"
 "Language-Team: Haitian; Haitian Creole <ht@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-12 04:33+0000\n"
-"X-Generator: Launchpad (build 14933)\n"
+"X-Launchpad-Export-Date: 2012-03-25 04:44+0000\n"
+"X-Generator: Launchpad (build 14981)\n"
+"Language: \n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:127
 msgid "Screenlets daemon"
@@ -116,7 +116,8 @@ msgstr "Erè"
 msgid ""
 "Do you really want to permanently uninstall and delete the %sScreenlet from "
 "your system?"
-msgstr "Èske ou vle reyèlman pèmanans unenstal ak delete %s la nan sistèm ou?"
+msgstr ""
+"Èske ou vle reyèlman pèmanans unenstal ak delete %s la nan sistèm ou?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:165
 msgid "Delete Screenlet"
@@ -320,7 +321,8 @@ msgid "Theme installed , please restart %s"
 msgstr "Tèm enstale. Souple redemare %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:877
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Erè 2 lè n'ap instale tèm nan - Tèm nan pa enstale oubyen li enstale deja"
 
@@ -607,7 +609,8 @@ msgstr ""
 msgid ""
 "Automatic creation failed. Please manually create the directory:\n"
 "%s"
-msgstr "Kreyasyon otomatik la pa t' ka fèt. Souple, kreye dosye a poukont ou."
+msgstr ""
+"Kreyasyon otomatik la pa t' ka fèt. Souple, kreye dosye a poukont ou."
 
 #: src/lib/utils.py:135 src/lib/utils.py:645
 #, python-format
@@ -651,10 +654,8 @@ msgstr ""
 msgid "Failed to add %sScreenlet."
 msgstr "Nou pa t' ka ajoute screenlet %s la."
 
-# Extracted categories from indiv-screenlets
 msgid "Fun and amusement"
 msgstr ""
 
-# Extracted categories from indiv-screenlets
 msgid "Date and time"
 msgstr ""

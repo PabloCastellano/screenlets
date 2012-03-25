@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2012-01-05 01:59+0000\n"
 "Last-Translator: George Karavasilev <motorslav@gmail.com>\n"
 "Language-Team: Bulgarian <bg@li.org>\n"
-"Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-12 04:33+0000\n"
-"X-Generator: Launchpad (build 14933)\n"
+"X-Launchpad-Export-Date: 2012-03-25 04:44+0000\n"
+"X-Generator: Launchpad (build 14981)\n"
+"Language: bg\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:127
 msgid "Screenlets daemon"
@@ -67,8 +67,8 @@ msgid ""
 "license. Thank you for using free software!"
 msgstr ""
 "Това приложение се разпространява под GNU General Public License v3 (или "
-"всяка по-късна версия). Можете да намерите пълния текст на лиценза на http://"
-"www.gnu.org/licenses/gpl.txt . Като, използвате, променяте и,или "
+"всяка по-късна версия). Можете да намерите пълния текст на лиценза на "
+"http://www.gnu.org/licenses/gpl.txt . Като, използвате, променяте и,или "
 "разпространявате този софтуер Вие приемате реда и условията на този лиценз. "
 "Благодаря че изпозвате свободен софтуер!"
 
@@ -323,7 +323,8 @@ msgid "Theme installed , please restart %s"
 msgstr "Темата е инсталирана, моля рестартирайте %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:877
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Получи се грешка 2 при инсталиране на темата - темата не е инсталирана или "
 "вече е инсталирана"
@@ -427,7 +428,8 @@ msgstr ""
 
 #: src/share/screenlets-manager/screenlets-manager.py:1155
 msgid "Step 3 : Give it a name in the box below and click on Ok to convert"
-msgstr "Стъпка 3: Въведете име в полето по-долу и цъкнете ОК за преобразуване"
+msgstr ""
+"Стъпка 3: Въведете име в полето по-долу и цъкнете ОК за преобразуване"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1156
 msgid "The name of the widget"
@@ -635,8 +637,8 @@ msgid ""
 msgstr ""
 "PPA за Джаджи не е във вашите хранилища за софтуер.Добавянето му ще разреши "
 "инсталация на индивидуални джаджи от Мениджъра на пакети (или Софтуерния "
-"център) и чрез кликването на AptURL на уеб страници като Gnome-look.org."
-"Искате ли добавите PPA-то за джаджи на вашата система?"
+"център) и чрез кликването на AptURL на уеб страници като Gnome-"
+"look.org.Искате ли добавите PPA-то за джаджи на вашата система?"
 
 #: src/lib/utils.py:204
 msgid "Do you want to enable the Screenlets PPA?"
@@ -663,10 +665,8 @@ msgstr "Провал!"
 msgid "Failed to add %sScreenlet."
 msgstr "Джаджата %s не можа да се добави"
 
-# Extracted categories from indiv-screenlets
 msgid "Fun and amusement"
 msgstr ""
 
-# Extracted categories from indiv-screenlets
 msgid "Date and time"
 msgstr ""

@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2012-01-16 08:39+0000\n"
 "Last-Translator: Richard Somlói <ricsipontaz@gmail.com>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
-"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-12 04:33+0000\n"
-"X-Generator: Launchpad (build 14933)\n"
+"X-Launchpad-Export-Date: 2012-03-25 04:44+0000\n"
+"X-Generator: Launchpad (build 14981)\n"
+"Language: hu\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:127
 msgid "Screenlets daemon"
@@ -321,8 +321,10 @@ msgid "Theme installed , please restart %s"
 msgstr "Téma telepítve, %s újraindítása szükséges"
 
 #: src/share/screenlets-manager/screenlets-manager.py:877
-msgid "Theme install error 2 found - Theme not installed or already installed"
-msgstr "Téma telepítési hiba 2 - A téma nincs telepítve vagy már telepítve van"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
+msgstr ""
+"Téma telepítési hiba 2 - A téma nincs telepítve vagy már telepítve van"
 
 #: src/share/screenlets-manager/screenlets-manager.py:974
 #: src/share/screenlets-manager/screenlets-manager.py:996
@@ -418,7 +420,8 @@ msgstr "1. Lépés: Keressen egy konvertálni kívánt widgetet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1154
 msgid "Step 2 : Copy and Paste the HTML from the widget in the box below"
-msgstr "2. Lépés: Másolja és illessze be a widget HTML kódját a lenti dobozba"
+msgstr ""
+"2. Lépés: Másolja és illessze be a widget HTML kódját a lenti dobozba"
 
 #: src/share/screenlets-manager/screenlets-manager.py:1155
 msgid "Step 3 : Give it a name in the box below and click on Ok to convert"
@@ -668,10 +671,8 @@ msgstr "Sikertelen!"
 msgid "Failed to add %sScreenlet."
 msgstr "%sScreenlet hozzáadása sikertelen."
 
-# Extracted categories from indiv-screenlets
 msgid "Fun and amusement"
 msgstr ""
 
-# Extracted categories from indiv-screenlets
 msgid "Date and time"
 msgstr ""

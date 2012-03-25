@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2012-01-05 03:15+0000\n"
 "Last-Translator: tabbernuk <boamaod@gmail.com>\n"
 "Language-Team: Dutch <nl@li.org>\n"
-"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-12 04:33+0000\n"
-"X-Generator: Launchpad (build 14933)\n"
+"X-Launchpad-Export-Date: 2012-03-25 04:44+0000\n"
+"X-Generator: Launchpad (build 14981)\n"
+"Language: nl\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:127
 msgid "Screenlets daemon"
@@ -68,9 +68,9 @@ msgid ""
 msgstr ""
 "Deze applicatie is vrijgegeven onder de voorwaarden van de GNU General "
 "Public License v3 (of, naar u keuze, enige latere versie). U kan de "
-"volledige tekst van deze licentie vinden op http://www.gnu.org/licenses/gpl."
-"txt. Als u deze software gebruikt, wijzigt en/of verspreidt dan gaat u "
-"akkoord met de termen van deze licentie.\r\n"
+"volledige tekst van deze licentie vinden op "
+"http://www.gnu.org/licenses/gpl.txt. Als u deze software gebruikt, wijzigt "
+"en/of verspreidt dan gaat u akkoord met de termen van deze licentie.\r\n"
 "Dank u voor het gebruik van deze vrije software."
 
 #: src/share/screenlets-manager/screenlets-daemon.py:323
@@ -117,7 +117,8 @@ msgstr "Fout"
 msgid ""
 "Do you really want to permanently uninstall and delete the %sScreenlet from "
 "your system?"
-msgstr "Wilt u zeker %sScreenlet de-installeren en verwijderen van uw systeem?"
+msgstr ""
+"Wilt u zeker %sScreenlet de-installeren en verwijderen van uw systeem?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:165
 msgid "Delete Screenlet"
@@ -321,7 +322,8 @@ msgid "Theme installed , please restart %s"
 msgstr "Thema geïnstalleerd, herstart %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:877
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Thema-installatiefout 2 gevonden - Het thema is niet geïnstalleerd òf reeds "
 "geïnstalleerd"
@@ -667,10 +669,8 @@ msgstr "Mislukt!"
 msgid "Failed to add %sScreenlet."
 msgstr "Toevoegen van %sScreenlet mislukt."
 
-# Extracted categories from indiv-screenlets
 msgid "Fun and amusement"
 msgstr ""
 
-# Extracted categories from indiv-screenlets
 msgid "Date and time"
 msgstr ""

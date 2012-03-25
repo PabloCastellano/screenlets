@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2012-01-05 03:11+0000\n"
 "Last-Translator: Adam Czabara <kolofaza@o2.pl>\n"
 "Language-Team: Polish <pl@li.org>\n"
-"Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-12 04:33+0000\n"
-"X-Generator: Launchpad (build 14933)\n"
+"X-Launchpad-Export-Date: 2012-03-25 04:44+0000\n"
+"X-Generator: Launchpad (build 14981)\n"
+"Language: pl\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:127
 msgid "Screenlets daemon"
@@ -321,7 +321,8 @@ msgid "Theme installed , please restart %s"
 msgstr "Motyw zainstalowany, proszę ponownie uruchomić %s"
 
 #: src/share/screenlets-manager/screenlets-manager.py:877
-msgid "Theme install error 2 found - Theme not installed or already installed"
+msgid ""
+"Theme install error 2 found - Theme not installed or already installed"
 msgstr ""
 "Błąd instalacji motywu nr 2 - Motyw nie został zainstalowany, lub był "
 "zainstalowany już wcześniej"
@@ -477,7 +478,8 @@ msgstr "Nazwa screenletu: %s."
 #: src/share/screenlets-manager/screenlets-packager.py:87
 #, python-format
 msgid "No screenlet-file \"%sScreenlet.py\" found in the given path."
-msgstr "Nie znaleziono pliku screenletu \"%sScreenlet.py\" w podanej ścieżce."
+msgstr ""
+"Nie znaleziono pliku screenletu \"%sScreenlet.py\" w podanej ścieżce."
 
 #: src/share/screenlets-manager/screenlets-packager.py:88
 #, python-format
@@ -510,7 +512,8 @@ msgstr "Udało się pobrać klasę z modułu: %s"
 #: src/share/screenlets-manager/screenlets-packager.py:138
 #, python-format
 msgid "Failed to create package info in \"%s\" (no permission?)."
-msgstr "Nie udało się utworzyć informacji o archiwum w \"%s\" (brak dostępu?)."
+msgstr ""
+"Nie udało się utworzyć informacji o archiwum w \"%s\" (brak dostępu?)."
 
 #: src/share/screenlets-manager/screenlets-packager.py:139
 msgid "Created package info file."
@@ -662,10 +665,8 @@ msgstr "Błąd!"
 msgid "Failed to add %sScreenlet."
 msgstr "Nie udało się dodać screenletu %s"
 
-# Extracted categories from indiv-screenlets
 msgid "Fun and amusement"
 msgstr ""
 
-# Extracted categories from indiv-screenlets
 msgid "Date and time"
 msgstr ""

@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2011-01-10 16:31+0000\n"
 "Last-Translator: Screenlets Dev Team <screenlets-dev@lists.launchpad.net>\n"
 "Language-Team: Finnish <fi@li.org>\n"
-"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-12 04:32+0000\n"
-"X-Generator: Launchpad (build 14933)\n"
+"X-Launchpad-Export-Date: 2012-03-25 04:43+0000\n"
+"X-Generator: Launchpad (build 14981)\n"
+"Language: fi\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
 #: src/lib/__init__.py:168
@@ -276,7 +276,8 @@ msgstr ""
 msgid ""
 "This theme wants to override your settings for this Screenlet. Do you want "
 "to allow that?"
-msgstr "Tämä teema haluaa muuttaa asetuksia tälle Screenletille. Sallitko sen?"
+msgstr ""
+"Tämä teema haluaa muuttaa asetuksia tälle Screenletille. Sallitko sen?"
 
 #: src/lib/__init__.py:1756
 #, python-format

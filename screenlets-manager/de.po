@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: screenlets-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-25 00:33+0200\n"
-"PO-Revision-Date: 2012-02-29 13:21+0000\n"
+"PO-Revision-Date: 2012-03-25 10:19+0000\n"
 "Last-Translator: Sascha Biermanns <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-25 04:44+0000\n"
-"X-Generator: Launchpad (build 14981)\n"
+"X-Launchpad-Export-Date: 2012-03-26 04:34+0000\n"
+"X-Generator: Launchpad (build 15008)\n"
 "Language: de\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:127
@@ -78,11 +78,11 @@ msgstr "Installiere ein Screenlet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:70
 msgid "All categories"
-msgstr ""
+msgstr "Alle Kategorien"
 
 #: src/share/screenlets-manager/screenlets-manager.py:71 src/lib/utils.py:308
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Verschiedenes"
 
 #: src/share/screenlets-manager/screenlets-manager.py:109
 msgid ""
@@ -674,7 +674,7 @@ msgid "Failed to add %sScreenlet."
 msgstr "Kann %sScreenlet nicht hinzufügen."
 
 msgid "Fun and amusement"
-msgstr ""
+msgstr "Spaß und Unterhaltung"
 
 msgid "Date and time"
-msgstr ""
+msgstr "Datum und Uhrzeit"

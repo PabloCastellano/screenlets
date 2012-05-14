@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-25 00:17+0200\n"
-"PO-Revision-Date: 2011-01-12 10:51+0000\n"
-"Last-Translator: Screenlets Dev Team <screenlets-dev@lists.launchpad.net>\n"
+"PO-Revision-Date: 2012-05-13 16:25+0000\n"
+"Last-Translator: Martino Barbon <Unknown>\n"
 "Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-25 04:43+0000\n"
-"X-Generator: Launchpad (build 14981)\n"
+"X-Launchpad-Export-Date: 2012-05-14 04:35+0000\n"
+"X-Generator: Launchpad (build 15238)\n"
 "Language: it\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
@@ -361,7 +361,7 @@ msgstr "Scegliere una immagine"
 #. add tooltips
 #: src/lib/options/file_option.py:126
 msgid "Select Image ..."
-msgstr ""
+msgstr "Seleziona immagine ..."
 
 #: src/lib/options/list_option.py:48
 msgid "Open List-Editor ..."
@@ -370,7 +370,7 @@ msgstr "Apro List-Editor ..."
 #: src/lib/options/number_option.py:39
 #, python-format
 msgid "Error during on_import - option: %s.\n"
-msgstr ""
+msgstr "Errore su on_import - opzione: %s.\n"
 
 #: src/lib/sensors.py:171
 #, python-format

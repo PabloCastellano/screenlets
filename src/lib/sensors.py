@@ -476,6 +476,16 @@ def net_get_ip(): # by Whise
 		ipc = ip[:ip.find(" ")]
 		if ipc != '127.0.0.1' and ipc != None and ipc !='1': 
 			return ipc
+	command = "ip addr show | grep inet | awk '{print $2}'"
+	ip = commands.getoutput(command)
+	while True:
+		ips = ip.split("\n");
+		for n in ips:
+			ipc = n[0:n.find("/")]
+			if ipc != '127.0.0.1' and ipc != None and ipc !='1': 
+				return ipc
+
+		
 
 	return _('Cannot get ip')
 

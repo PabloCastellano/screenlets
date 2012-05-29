@@ -461,7 +461,7 @@ def disk_get_disk_list():
 #             Internet                    #
 #                                         #
 ###########################################
-
+#TODO Add method to get ipv6 address
 def net_get_ip(): # by Whise
 	"""Returns ip if it can"""
 	command = 'ifconfig'
@@ -476,7 +476,7 @@ def net_get_ip(): # by Whise
 		ipc = ip[:ip.find(" ")]
 		if ipc != '127.0.0.1' and ipc != None and ipc !='1': 
 			return ipc
-	command = "ip addr show | grep inet | awk '{print $2}'"
+	command = "ip addr show | grep inet\ | awk '{print $2}'"
 	ip = commands.getoutput(command)
 	while True:
 		ips = ip.split("\n");

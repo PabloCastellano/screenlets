@@ -104,7 +104,7 @@ class Weather(object):
 				#Text description of wind direction
 				result["wind_direction_descr"] = self.getBetween(chunk,"<t>","</t>")
 				#Humidity value
-				result["hmid"] = self.getBetween(data,"<hmid>","</hmid>") + "%"
+				result["hmid"] = self.getBetween(data,"<hmid>","</hmid>")
 				#Visibility
 				result["vis"] = self.getBetween(data,"<vis>","</vis>")
 				chunk = self.getBetween(data,"<uv>", "</uv>")

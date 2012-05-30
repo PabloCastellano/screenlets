@@ -39,8 +39,8 @@ class BoolOption(Option):
         if not self.widget:
             self.widget = gtk.CheckButton()
             self.set_value(value)
-	    if self.realtime:
-                self.widget.connect("toggled", self.has_changed)
+	if self.realtime:
+            self.widget.connect("toggled", self.has_changed)
         return self.widget
 
     def set_value(self, value):

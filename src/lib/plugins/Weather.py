@@ -60,7 +60,10 @@ class Weather(object):
 		self.partner_key = "1003666583"
 
 	
-	
+	def update_zip(self, ZIP, use_metrics=True):
+		self.ZIP = ZIP
+		self.use_metrics = use_metrics
+		
 	def getCurrentConditions(self):
 		""" Downloads and parses current weather conditions.	
 			Returns detailed current weather condition info(temperature, wind...) stored in a dictionary.

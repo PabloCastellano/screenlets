@@ -253,7 +253,7 @@ class ScreenletSession (object):
 		else:
 			# create new first instance
 			print 'No instance(s) found in session-path, creating new one.'
-			sl = self.screenlet(session=self, id=self.__get_next_id())
+			sl = self.screenlet(session=self, id=self.__get_next_id(), show_window=False)
 			if sl:
 				# add screenlet to session
 				self.instances.append(sl)

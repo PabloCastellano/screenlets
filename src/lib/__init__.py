@@ -1966,11 +1966,9 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 	def composite_changed(self,widget):
 		#this handle is called when composition changed
 		self.remove_shape() # removing previous set shape , this is absolutly necessary
-		self.window.hide() # hiding the window and showing it again so the window can convert to the right composited state
 		self.is_sticky = self.is_sticky	 #changing from non composited to composited makes the screenlets loose sticky state , this fixes that
 		self.keep_above= self.keep_above
 		self.keep_below= self.keep_below
-		self.window.show()
 		#print 'Compositing method changed to %s' % str(self.window.is_composited())
 		self.update_shape()
 		self.redraw_canvas()

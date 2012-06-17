@@ -1596,6 +1596,7 @@ class Screenlet (gobject.GObject, EditableOptions, Drawing):
 		else:
 			self.update_shape()
 		se.destroy()
+		self.redraw_canvas()
 	
 	def redraw_canvas (self):
 		"""Redraw the entire Screenlet's window area.

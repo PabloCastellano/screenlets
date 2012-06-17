@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-25 00:33+0200\n"
-"PO-Revision-Date: 2012-01-05 02:41+0000\n"
-"Last-Translator: tabbernuk <boamaod@gmail.com>\n"
+"PO-Revision-Date: 2012-06-16 08:04+0000\n"
+"Last-Translator: Grecu Ionut Florin <protos87@yahoo.co.uk>\n"
 "Language-Team: Romanian <ro@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-06-10 04:33+0000\n"
-"X-Generator: Launchpad (build 15376)\n"
+"X-Launchpad-Export-Date: 2012-06-17 04:31+0000\n"
+"X-Generator: Launchpad (build 15419)\n"
 "Language: ro\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:127
@@ -211,6 +211,8 @@ msgid ""
 "Reset this Screenlet configuration (will only work if Screenlet isn't "
 "running)"
 msgstr ""
+"Resetați configurarea acestui Screenlet (funcționează doar dacă Screenlet-ul "
+"nu rulează)"
 
 #: src/share/screenlets-manager/screenlets-manager.py:467
 msgid "Install new theme for this screenlet"
@@ -218,7 +220,7 @@ msgstr "Instalează temă nouă pentru acest screenlet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:468
 msgid "Restart all Screenlets that have auto start at login"
-msgstr ""
+msgstr "Restartați toate Screenlet-urile care pornesc automat la login"
 
 #: src/share/screenlets-manager/screenlets-manager.py:469
 msgid "Close all Screenlets running"
@@ -669,7 +671,7 @@ msgid "Failed to add %sScreenlet."
 msgstr "Adăugarea screenletului %s a eșuat."
 
 msgid "Fun and amusement"
-msgstr ""
+msgstr "Distracție și amuzament"
 
 msgid "Date and time"
 msgstr ""

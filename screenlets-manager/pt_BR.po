@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: screenlets-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-25 00:33+0200\n"
-"PO-Revision-Date: 2012-01-05 01:56+0000\n"
-"Last-Translator: Rafael Baboni Dominiquini <rafaeldominiquini@gmail.com>\n"
+"PO-Revision-Date: 2012-06-21 18:24+0000\n"
+"Last-Translator: Rafael Ferreira <rafael.f.f1@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-06-10 04:33+0000\n"
-"X-Generator: Launchpad (build 15376)\n"
+"X-Launchpad-Export-Date: 2012-06-22 04:33+0000\n"
+"X-Generator: Launchpad (build 15461)\n"
 "Language: pt_BR\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:127
@@ -78,11 +78,11 @@ msgstr "Instalar um Screenlet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:70
 msgid "All categories"
-msgstr ""
+msgstr "Todas as categorias"
 
 #: src/share/screenlets-manager/screenlets-manager.py:71 src/lib/utils.py:308
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Miscelânea"
 
 #: src/share/screenlets-manager/screenlets-manager.py:109
 msgid ""
@@ -210,6 +210,8 @@ msgid ""
 "Reset this Screenlet configuration (will only work if Screenlet isn't "
 "running)"
 msgstr ""
+"Redefinir as configurações deste Screenlet (somente funcionará se o "
+"Screenlet não estiver em execução)"
 
 #: src/share/screenlets-manager/screenlets-manager.py:467
 msgid "Install new theme for this screenlet"
@@ -217,7 +219,7 @@ msgstr "Instalar novo tema para esse screenlet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:468
 msgid "Restart all Screenlets that have auto start at login"
-msgstr ""
+msgstr "Reiniciar todos Screenlets definidos para auto-inicializar no login"
 
 #: src/share/screenlets-manager/screenlets-manager.py:469
 msgid "Close all Screenlets running"
@@ -666,7 +668,7 @@ msgid "Failed to add %sScreenlet."
 msgstr "Falha ao adicionar %s Screenlet"
 
 msgid "Fun and amusement"
-msgstr ""
+msgstr "Diversão e entretenimento"
 
 msgid "Date and time"
-msgstr ""
+msgstr "Data e hora"

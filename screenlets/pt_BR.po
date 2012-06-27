@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: screenlets\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-25 00:17+0200\n"
-"PO-Revision-Date: 2011-01-25 16:24+0000\n"
-"Last-Translator: nerling <Unknown>\n"
+"PO-Revision-Date: 2012-06-26 13:51+0000\n"
+"Last-Translator: Rafael Ferreira <rafael.f.f1@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-06-10 04:33+0000\n"
-"X-Generator: Launchpad (build 15376)\n"
+"X-Launchpad-Export-Date: 2012-06-27 05:14+0000\n"
+"X-Generator: Launchpad (build 15482)\n"
 "Language: pt_BR\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
@@ -294,7 +294,7 @@ msgstr "Para sair de todos os %s's, use apenas 'Sair'. "
 #: src/lib/__init__.py:1757
 #, python-format
 msgid "Really delete this %s and its settings?"
-msgstr "Realmente remover este %s e as suas configurações?"
+msgstr "Realmente excluit este %s e as suas configurações?"
 
 #: src/lib/options/account_option.py:109 src/lib/options/base.py:439
 msgid "Apply"
@@ -357,7 +357,7 @@ msgstr "Selecionar Imagem"
 #. add tooltips
 #: src/lib/options/file_option.py:126
 msgid "Select Image ..."
-msgstr ""
+msgstr "Selecione imagem ..."
 
 #: src/lib/options/list_option.py:48
 msgid "Open List-Editor ..."
@@ -366,7 +366,7 @@ msgstr "Abrir Editor de Lista"
 #: src/lib/options/number_option.py:39
 #, python-format
 msgid "Error during on_import - option: %s.\n"
-msgstr ""
+msgstr "Erro durante importação - opção: %s.\n"
 
 #: src/lib/sensors.py:171
 #, python-format

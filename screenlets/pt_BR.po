@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: screenlets\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-25 00:17+0200\n"
-"PO-Revision-Date: 2012-06-28 04:29+0000\n"
+"PO-Revision-Date: 2012-06-28 04:38+0000\n"
 "Last-Translator: Rafael Ferreira <rafael.f.f1@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-06-28 04:31+0000\n"
+"X-Launchpad-Export-Date: 2012-06-29 04:33+0000\n"
 "X-Generator: Launchpad (build 15505)\n"
 "Language: pt_BR\n"
 
@@ -315,7 +315,7 @@ msgstr "Digite a senha aqui ..."
 
 #: src/lib/options/base.py:309
 msgid "Edit Options"
-msgstr "Editar Opções"
+msgstr "Editar opções"
 
 #: src/lib/options/base.py:536
 msgid "About "
@@ -341,28 +341,28 @@ msgstr "Temas "
 
 #: src/lib/options/base.py:597
 msgid "no info available"
-msgstr "sem informações disponíveis"
+msgstr "nunhuma informação disponível"
 
 #: src/lib/options/file_option.py:41
 msgid "Choose File"
-msgstr "Selecionar Arquivo"
+msgstr "Selecionar arquivo"
 
 #: src/lib/options/file_option.py:96
 msgid "Choose Directory"
-msgstr "Selecionar Diretório"
+msgstr "Selecionar diretório"
 
 #: src/lib/options/file_option.py:101
 msgid "Choose Image"
-msgstr "Selecionar Imagem"
+msgstr "Selecionar imagem"
 
 #. add tooltips
 #: src/lib/options/file_option.py:126
 msgid "Select Image ..."
-msgstr "Selecione imagem ..."
+msgstr "Selecione uma imagem ..."
 
 #: src/lib/options/list_option.py:48
 msgid "Open List-Editor ..."
-msgstr "Abrir Editor de Lista"
+msgstr "Abrir editor de lista"
 
 #: src/lib/options/number_option.py:39
 #, python-format
@@ -376,7 +376,7 @@ msgstr "%(days)s dias, %(hours)s horas e %(minutes)s minutos"
 
 #: src/lib/sensors.py:282
 msgid "Can't get KDE version"
-msgstr "Não foi possível obter versão do KDE"
+msgstr "Não foi possível obter a versão do KDE"
 
 #: src/lib/sensors.py:292
 msgid "Can't get Gnome version"

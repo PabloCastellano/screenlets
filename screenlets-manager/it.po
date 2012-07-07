@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: screenlets-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-25 00:33+0200\n"
-"PO-Revision-Date: 2012-01-05 02:14+0000\n"
-"Last-Translator: tabbernuk <boamaod@gmail.com>\n"
+"PO-Revision-Date: 2012-07-06 05:45+0000\n"
+"Last-Translator: Gianfranco Frisani <gfrisani@libero.it>\n"
 "Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-06-10 04:33+0000\n"
-"X-Generator: Launchpad (build 15376)\n"
+"X-Launchpad-Export-Date: 2012-07-07 04:36+0000\n"
+"X-Generator: Launchpad (build 15558)\n"
 "Language: it\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:127
@@ -78,11 +78,11 @@ msgstr "Installa una Screenlet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:70
 msgid "All categories"
-msgstr ""
+msgstr "Tutte le categorie"
 
 #: src/share/screenlets-manager/screenlets-manager.py:71 src/lib/utils.py:308
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Varie"
 
 #: src/share/screenlets-manager/screenlets-manager.py:109
 msgid ""
@@ -210,6 +210,8 @@ msgid ""
 "Reset this Screenlet configuration (will only work if Screenlet isn't "
 "running)"
 msgstr ""
+"Reimposta questa configurazione di Screenlet (funziona solo se Screenlet non "
+"è in esecuzione)"
 
 #: src/share/screenlets-manager/screenlets-manager.py:467
 msgid "Install new theme for this screenlet"
@@ -218,6 +220,7 @@ msgstr "Installa un nuovo tema per questa screenlet"
 #: src/share/screenlets-manager/screenlets-manager.py:468
 msgid "Restart all Screenlets that have auto start at login"
 msgstr ""
+"Riavvia tutte le Screenlet che sono state avviate automaticamente all'avvio"
 
 #: src/share/screenlets-manager/screenlets-manager.py:469
 msgid "Close all Screenlets running"
@@ -672,7 +675,7 @@ msgid "Failed to add %sScreenlet."
 msgstr "Aggiunta della Screenlet %s fallita"
 
 msgid "Fun and amusement"
-msgstr ""
+msgstr "Spasso e divertimento"
 
 msgid "Date and time"
-msgstr ""
+msgstr "Data e ora"

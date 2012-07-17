@@ -421,15 +421,20 @@ class ScreenletSession (object):
 		screenlet.disable_updates = True
 		# get options for SL from backend
 		opts = self.backend.load_instance(screenlet.id)
-		if opts:
-			for o in opts:
-				# get the attribute's Option-object from Screenlet
-				opt = screenlet.get_option_by_name(o)
-				# NOTE: set attribute in Screenlet by calling the
-				# on_import-function for the Option (to import
-				# the value as the required type)
-				if opt:
-					setattr(screenlet, opt.name, opt.on_import(opts[o]))
+        if opts:
+            #theme must be read in first so the user's options are not overridden
+            for o in opts:
+                opt = screenlet.get_option_by_name(o)
+                if opt and opt.name=="theme_name":
+                    setattr(screenlet, opt.name, opt.on_import(opts[o]))
+            for o in opts:
+                # get the attribute's Option-object from Screenlet
+                opt = screenlet.get_option_by_name(o)
+                # NOTE: set attribute in Screenlet by calling the
+                # on_import-function for the Option (to import
+                # the value as the required type)
+                if opt and opt.name!="theme_name":
+                    setattr(screenlet, opt.name, opt.on_import(opts[o]))
 		# re-enable updates and call redraw/reshape
 		screenlet.disable_updates = False
 		screenlet.redraw_canvas()

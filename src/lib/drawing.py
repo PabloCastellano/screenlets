@@ -123,15 +123,18 @@ class Drawing(object):
 			ctx.update_layout(self.p_layout)
 		if self.p_fdesc == None:self.p_fdesc = pango.FontDescription(font)
 		else: pass
-		# using "Ubuntu Bold 12" is new standard, detecting spaces is lousy, but no better idea
-		if font.find(" ") >= 0:
-			self.p_fdesc = pango.FontDescription(font)
-		# but we should keep old standard describing just font family "Ubuntu"
-		# this is probably not needed, but max compatibility!!!
-		else:
-			self.p_fdesc.set_family_static(font)
 		if size is not None:
-			self.p_fdesc.set_size(int(round(size * pango.SCALE)))
+			# to be able to set custom size and "ubuntu bold 12" at the same time
+			try:
+				res = float(font.strip().rsplit(" ", 1)[-1])
+				font = font.strip().rsplit(" ", 1)[0]
+				self.p_fdesc = pango.FontDescription(font + " " + str(size))
+			except:
+				self.p_fdesc.set_size(int(round(size * pango.SCALE)))
+				self.p_fdesc.set_family_static(font)
+		else:
+			# default to fontdescription string if no size specified
+			self.p_fdesc = pango.FontDescription(font)
 		if weight is not None:
 			self.p_fdesc.set_weight(weight)
 		self.p_layout.set_font_description(self.p_fdesc)

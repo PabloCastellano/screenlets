@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-25 00:17+0200\n"
-"PO-Revision-Date: 2011-01-04 16:14+0000\n"
-"Last-Translator: Screenlets Dev Team <screenlets-dev@lists.launchpad.net>\n"
+"PO-Revision-Date: 2012-10-01 12:45+0000\n"
+"Last-Translator: Hector A. Mantellini <Unknown>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-06-10 04:33+0000\n"
-"X-Generator: Launchpad (build 15376)\n"
+"X-Launchpad-Export-Date: 2012-10-02 05:07+0000\n"
+"X-Generator: Launchpad (build 16061)\n"
 "Language: es\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
@@ -42,7 +42,7 @@ msgstr "Configuración básica de esta instancia del Screenlet"
 
 #: src/lib/__init__.py:848
 msgid "X-Position"
-msgstr "Posición X"
+msgstr "Posición-X"
 
 #: src/lib/__init__.py:849
 msgid "The X-position of this Screenlet ..."
@@ -50,7 +50,7 @@ msgstr "La posición en el eje X de este Screenlet..."
 
 #: src/lib/__init__.py:852
 msgid "Y-Position"
-msgstr "Posición Y"
+msgstr "Posición-Y"
 
 #: src/lib/__init__.py:853
 msgid "The Y-position of this Screenlet ..."
@@ -58,23 +58,23 @@ msgstr "La posición en el eje Y de este Screenlet..."
 
 #: src/lib/__init__.py:856
 msgid "Width"
-msgstr "Anchura"
+msgstr "Ancho"
 
 #: src/lib/__init__.py:857
 msgid "The width of this Screenlet ..."
-msgstr "La anchura de este Screenlet ..."
+msgstr "Ancho de este Screenlet ..."
 
 #: src/lib/__init__.py:860
 msgid "Height"
-msgstr "Altura"
+msgstr "Alto"
 
 #: src/lib/__init__.py:861
 msgid "The height of this Screenlet ..."
-msgstr "La altura de este Screenlet..."
+msgstr "Alto de este Screenlet..."
 
 #: src/lib/__init__.py:864
 msgid "Scale"
-msgstr "Escala"
+msgstr "Redimensionar"
 
 #: src/lib/__init__.py:865
 msgid "The scale-factor of this Screenlet ..."
@@ -148,7 +148,7 @@ msgstr "Define si el screenlet debe aparecer en el paginador de tareas..."
 
 #: src/lib/__init__.py:902
 msgid "Skip Taskbar"
-msgstr "Aparecer en la barra de tareas."
+msgstr "Saltear la barra de tareas"
 
 #: src/lib/__init__.py:903
 msgid "Set this Screenlet to show/hide in taskbars ..."
@@ -204,7 +204,7 @@ msgid ""
 "%(package)s %(version)s required, NOT INSTALLED!"
 msgstr ""
 "\n"
-"Se requiere %(package)s %(version)s, y no se ha instalado."
+"Se requiere %(package)s %(version)s, NO INSTALADO!"
 
 #: src/lib/__init__.py:1140
 #, python-format
@@ -268,7 +268,7 @@ msgstr "Informacion..."
 #: src/lib/__init__.py:1253
 #, python-format
 msgid "Add one more %s"
-msgstr "Agregar un mas %s"
+msgstr "Agregar uno más %s"
 
 #: src/lib/__init__.py:1256
 #, python-format
@@ -314,11 +314,11 @@ msgstr "Aplicar usuario/contraseña"
 
 #: src/lib/options/account_option.py:116
 msgid "Enter username here ..."
-msgstr "Pon aqui el usuario ..."
+msgstr "Ingrese nombre de usuario aquí..."
 
 #: src/lib/options/account_option.py:117
 msgid "Enter password here ..."
-msgstr "Pon  aquí la contraseña ..."
+msgstr "Ingrese contraseña aquí..."
 
 #: src/lib/options/base.py:309
 msgid "Edit Options"
@@ -352,29 +352,29 @@ msgstr "sin información disponible"
 
 #: src/lib/options/file_option.py:41
 msgid "Choose File"
-msgstr "Escoger arechivo"
+msgstr "Elegir Archivo"
 
 #: src/lib/options/file_option.py:96
 msgid "Choose Directory"
-msgstr "Escojer Directorio"
+msgstr "Elegir un directorio"
 
 #: src/lib/options/file_option.py:101
 msgid "Choose Image"
-msgstr "Escojer Imagen"
+msgstr "Elegir una imagen"
 
 #. add tooltips
 #: src/lib/options/file_option.py:126
 msgid "Select Image ..."
-msgstr ""
+msgstr "Seleccionar Imagen..."
 
 #: src/lib/options/list_option.py:48
 msgid "Open List-Editor ..."
-msgstr "Abrir el editor de lista"
+msgstr "Abrir el Editor de Lista"
 
 #: src/lib/options/number_option.py:39
 #, python-format
 msgid "Error during on_import - option: %s.\n"
-msgstr ""
+msgstr "Error durante la importacion de opciones: %s.\n"
 
 #: src/lib/sensors.py:171
 #, python-format

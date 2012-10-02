@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-25 00:33+0200\n"
-"PO-Revision-Date: 2012-01-05 01:48+0000\n"
-"Last-Translator: tabbernuk <boamaod@gmail.com>\n"
+"PO-Revision-Date: 2012-10-01 10:21+0000\n"
+"Last-Translator: Javier Antonio Nisa Avila <Unknown>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-06-10 04:33+0000\n"
-"X-Generator: Launchpad (build 15376)\n"
+"X-Launchpad-Export-Date: 2012-10-02 05:07+0000\n"
+"X-Generator: Launchpad (build 16061)\n"
 "Language: ca\n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:127
@@ -51,11 +51,11 @@ msgstr "Tanca tots els Screenlets"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:186
 msgid "Restart all Screenlets"
-msgstr ""
+msgstr "Reiniciar tots els Screenlets"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:189
 msgid "Quit the Screenlets"
-msgstr ""
+msgstr "Quitar els Screenlets"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:291
 #: src/share/screenlets-manager/screenlets-manager.py:658
@@ -78,11 +78,11 @@ msgstr "Instal·la un Screenlet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:70
 msgid "All categories"
-msgstr ""
+msgstr "Totes les Categories"
 
 #: src/share/screenlets-manager/screenlets-manager.py:71 src/lib/utils.py:308
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Varis"
 
 #: src/share/screenlets-manager/screenlets-manager.py:109
 msgid ""
@@ -116,7 +116,7 @@ msgstr "Error"
 msgid ""
 "Do you really want to permanently uninstall and delete the %sScreenlet from "
 "your system?"
-msgstr ""
+msgstr "Está segur de desinstalar permanentment %sScreenlet del seu sistema?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:165
 msgid "Delete Screenlet"
@@ -133,7 +133,7 @@ msgstr "No es poden suprimir els Screenlets del sistema."
 #: src/share/screenlets-manager/screenlets-manager.py:252
 #, python-format
 msgid "Do you really want to reset the %sScreenlet configuration?"
-msgstr ""
+msgstr "Está segur de resetear la configuración de %sScreenlet?"
 
 #: src/share/screenlets-manager/screenlets-manager.py:252
 msgid "Reset Screenlet"
@@ -329,12 +329,12 @@ msgstr ""
 #: src/share/screenlets-manager/screenlets-manager.py:974
 #: src/share/screenlets-manager/screenlets-manager.py:996
 msgid "Install SuperKaramba Theme"
-msgstr ""
+msgstr "Instalar Tema SuperKaramba"
 
 #: src/share/screenlets-manager/screenlets-manager.py:977
 #: src/share/screenlets-manager/screenlets-manager.py:998
 msgid "Convert Web Widget"
-msgstr ""
+msgstr "Convertir a widget web"
 
 #: src/share/screenlets-manager/screenlets-manager.py:980
 #: src/share/screenlets-manager/screenlets-manager.py:1000
@@ -643,7 +643,7 @@ msgstr ""
 
 #: src/lib/utils.py:207
 msgid "Success!"
-msgstr ""
+msgstr "Correcte"
 
 #: src/lib/utils.py:209
 msgid "Adding the Screenlets PPA failed."
@@ -651,7 +651,7 @@ msgstr ""
 
 #: src/lib/utils.py:209
 msgid "Failed!"
-msgstr ""
+msgstr "Error"
 
 #: src/lib/utils.py:674
 #, python-format
@@ -659,7 +659,7 @@ msgid "Failed to add %sScreenlet."
 msgstr "No s'ha pogut afegir el %sScreenlet."
 
 msgid "Fun and amusement"
-msgstr ""
+msgstr "Diversió i entreteniment"
 
 msgid "Date and time"
-msgstr ""
+msgstr "Data i hora"

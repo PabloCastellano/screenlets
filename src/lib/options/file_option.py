@@ -156,7 +156,9 @@ class ImageOption(FileOption):
         dlg.set_preview_widget(box)
         response = dlg.run()
         if response == gtk.RESPONSE_OK:
-            self._entry.set_text(dlg.get_filename())
+            fn = dlg.get_filename()
+            if not fn: fn = ""
+            self._entry.set_text(fn)
             widget.set_image(self.create_preview(dlg.get_filename()))
             self.has_changed(self.widget)
         dlg.destroy()

@@ -36,7 +36,7 @@ class Drawing(object):
 			ctx.update_layout(self.p_layout)
 		if self.p_fdesc == None:self.p_fdesc = pango.FontDescription()
 		else: pass
-		self.p_fdesc.set_family_static(font)
+		self.p_fdesc.set_family(font)
 		self.p_layout.set_font_description(self.p_fdesc)
 		self.p_layout.set_text(text)
 		extents, lextents = self.p_layout.get_pixel_extents()
@@ -54,7 +54,7 @@ class Drawing(object):
 			ctx.update_layout(self.p_layout)
 		if self.p_fdesc == None:self.p_fdesc = pango.FontDescription()
 		else: pass
-		self.p_fdesc.set_family_static(font)
+		self.p_fdesc.set_family(font)
 		self.p_layout.set_font_description(self.p_fdesc)
 		self.p_layout.set_text(text)
 		extents, lextents = self.p_layout.get_pixel_extents()
@@ -72,7 +72,7 @@ class Drawing(object):
 			ctx.update_layout(self.p_layout)
 		if self.p_fdesc == None:self.p_fdesc = pango.FontDescription()
 		else: pass
-		self.p_fdesc.set_family_static(font)
+		self.p_fdesc.set_family(font)
                 if size is not None:
                          self.p_fdesc.set_size(int(round(size * pango.SCALE)))
                 else: pass         
@@ -92,7 +92,7 @@ class Drawing(object):
 			ctx.update_layout(self.p_layout)
 		if self.p_fdesc == None:self.p_fdesc = pango.FontDescription()
 		else: pass
-		self.p_fdesc.set_family_static(font)
+		self.p_fdesc.set_family(font)
 		self.p_layout.set_font_description(self.p_fdesc)
 		self.p_layout.set_text(text)
 		ctx.restore()
@@ -131,7 +131,7 @@ class Drawing(object):
 				self.p_fdesc = pango.FontDescription(font + " " + str(size))
 			except:
 				self.p_fdesc.set_size(int(round(size * pango.SCALE)))
-				self.p_fdesc.set_family_static(font)
+				self.p_fdesc.set_family(font)
 		else:
 			# default to fontdescription string if no size specified
 			self.p_fdesc = pango.FontDescription(font)

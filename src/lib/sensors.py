@@ -462,32 +462,22 @@ def disk_get_disk_list():
 #                                         #
 ###########################################
 #TODO Add method to get ipv6 address
-def net_get_ip(): # by Whise
-	"""Returns ip if it can"""
-	command = 'ifconfig'
-	command_path=os.popen("whereis -b "+command+" | sed 's/"+command+": //g'").readlines()
-	command_string = ''.join(command_path)[:-1]
-	ip = commands.getoutput("LANG=\"\" "+command_string)
-	while True:
-		ip = ip[ip.find("inet "):]
-		if len(ip) < 7:
-			break
-		ip = ip[ip.find(":")+1:]
-		ipc = ip[:ip.find(" ")]
-		if ipc != '127.0.0.1' and ipc != None and ipc !='1': 
-			return ipc
-	command = "ip addr show | grep inet\ | awk '{print $2}'"
-	ip = commands.getoutput(command)
-	while True:
-		ips = ip.split("\n");
-		for n in ips:
-			ipc = n[0:n.find("/")]
-			if ipc != '127.0.0.1' and ipc != None and ipc !='1': 
-				return ipc
 
-		
+def net_get_ifaces():
+	"""Returns available network interfaces"""
+	command = "ip link | grep state | awk '{print $2}' | cut -d ':' -f 1"
+	return commands.getoutput(command).split("\n")
 
-	return _('Cannot get ip')
+	
+def net_get_ip(iface=None):
+	"""Returns ip for a specified iface (default lo)"""
+	if iface==None:
+		iface='lo'
+	command = "ip addr show "+iface+" | grep inet\ | awk '{print $2}' | cut -d '/' -f 1"
+	res = commands.getoutput(command)
+	if res.startswith("Device"):
+		return _('Cannot get ip (no such interface)')
+	return res
 
 
 def net_get_updown():

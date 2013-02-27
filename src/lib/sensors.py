@@ -461,23 +461,44 @@ def disk_get_disk_list():
 #             Internet                    #
 #                                         #
 ###########################################
-#TODO Add method to get ipv6 address
 
 def net_get_ifaces():
 	"""Returns available network interfaces"""
 	command = "ip link | grep state | awk '{print $2}' | cut -d ':' -f 1"
 	return commands.getoutput(command).split("\n")
 
-	
 def net_get_ip(iface=None):
-	"""Returns ip for a specified iface (default lo)"""
+	"""Returns ip if it can"""
 	if iface==None:
-		iface='lo'
+		ifaces = net_get_ifaces()
+		for i in ifaces:
+			if i != 'lo':
+				iface = i
+				break
+		if iface == None:
+			return _('Cannot get ip')
 	command = "ip addr show "+iface+" | grep inet\ | awk '{print $2}' | cut -d '/' -f 1"
 	res = commands.getoutput(command)
 	if res.startswith("Device"):
 		return _('Cannot get ip (no such interface)')
 	return res
+
+
+def net_get_ipv6(iface=None):
+	"""Returns ipv6 if it can"""
+        if iface==None:
+                ifaces = net_get_ifaces()
+                for i in ifaces:
+                        if i != 'lo':
+                                iface = i
+                                break
+                if iface == None:
+                        return _('Cannot get ipv6')
+        command = "ip -6 addr show "+iface+" | grep inet6 | awk '{print $2}' | cut -d '/' -f 1"
+        res = commands.getoutput(command)
+        if res.startswith("Device"):
+                return _('Cannot get ipv6 (no such interface)')
+        return res
 
 
 def net_get_updown():

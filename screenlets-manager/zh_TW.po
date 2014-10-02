@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-25 00:33+0200\n"
-"PO-Revision-Date: 2012-01-05 02:54+0000\n"
-"Last-Translator: Walter Cheuk <wwycheuk@gmail.com>\n"
+"PO-Revision-Date: 2014-10-01 12:12+0000\n"
+"Last-Translator: Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>\n"
 "Language-Team: Traditional Chinese <zh_TW@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-03-05 04:33+0000\n"
-"X-Generator: Launchpad (build 16514)\n"
+"X-Launchpad-Export-Date: 2014-10-02 05:33+0000\n"
+"X-Generator: Launchpad (build 17196)\n"
 "Language: \n"
 
 #: src/share/screenlets-manager/screenlets-daemon.py:127
@@ -76,11 +76,11 @@ msgstr "安裝 Screenlet"
 
 #: src/share/screenlets-manager/screenlets-manager.py:70
 msgid "All categories"
-msgstr ""
+msgstr "所有分類"
 
 #: src/share/screenlets-manager/screenlets-manager.py:71 src/lib/utils.py:308
 msgid "Miscellaneous"
-msgstr ""
+msgstr "雜項"
 
 #: src/share/screenlets-manager/screenlets-manager.py:109
 msgid ""
@@ -198,7 +198,7 @@ msgstr "永久移除／刪除目前所選的 Screenlet ..."
 msgid ""
 "Reset this Screenlet configuration (will only work if Screenlet isn't "
 "running)"
-msgstr ""
+msgstr "重設這個 Screenlet 組態 (只有在 Screenlet 未執行時有效)"
 
 #: src/share/screenlets-manager/screenlets-manager.py:467
 msgid "Install new theme for this screenlet"
@@ -206,7 +206,7 @@ msgstr "替此 Screenlet 安裝新主題"
 
 #: src/share/screenlets-manager/screenlets-manager.py:468
 msgid "Restart all Screenlets that have auto start at login"
-msgstr ""
+msgstr "重新啟動所有在登入時自動啟動的 Screenlets"
 
 #: src/share/screenlets-manager/screenlets-manager.py:469
 msgid "Close all Screenlets running"
@@ -637,7 +637,7 @@ msgid "Failed to add %sScreenlet."
 msgstr "新增 %sScreenlet 失敗。"
 
 msgid "Fun and amusement"
-msgstr ""
+msgstr "興趣與趣味"
 
 msgid "Date and time"
-msgstr ""
+msgstr "日期與時刻"

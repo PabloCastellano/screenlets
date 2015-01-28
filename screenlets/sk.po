@@ -8,53 +8,53 @@ msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-25 00:17+0200\n"
-"PO-Revision-Date: 2011-08-08 07:36+0000\n"
-"Last-Translator: Eduard Hummel <22edel22@gmail.com>\n"
+"PO-Revision-Date: 2015-01-27 23:44+0000\n"
+"Last-Translator: tibbi <tibbbi2@gmail.com>\n"
 "Language-Team: Slovak <sk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-03-05 04:32+0000\n"
-"X-Generator: Launchpad (build 16514)\n"
+"X-Launchpad-Export-Date: 2015-01-28 05:42+0000\n"
+"X-Generator: Launchpad (build 17306)\n"
 "Language: sk\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
 #: src/lib/__init__.py:168
 msgid "http://www.screenlets.org/index.php/Get_more_screenlets"
-msgstr "http://www.screenlets.org/index.php/Získať viac screenlets"
+msgstr "http://www.screenlets.org/index.php/Get_more_screenlets"
 
 #. default meta-info for Screenlets
 #: src/lib/__init__.py:719
 msgid "No name set for this Screenlet"
-msgstr "Screenlet bez názvu"
+msgstr "Tento screenlet nemá názov"
 
 #: src/lib/__init__.py:721
 msgid "No author defined for this Screenlet"
-msgstr "Tento Screenlet nemá nastaveného autora"
+msgstr "Tento screenlet nemá autora"
 
 #: src/lib/__init__.py:723
 msgid "No info set for this Screenlet"
-msgstr "Tento Screenlet nemá žiadne informácie"
+msgstr "O tomto screenlete nie sú k dispozícií žiadne informácie"
 
 #: src/lib/__init__.py:833
 msgid "The basic settings for this Screenlet-instance."
-msgstr "Jednoduché nastavenie pre tento Screenlet-instance"
+msgstr "Základné nastavenie tohto Screenletu."
 
 #: src/lib/__init__.py:848
 msgid "X-Position"
-msgstr "X_Pozícia"
+msgstr "Pozícia X"
 
 #: src/lib/__init__.py:849
 msgid "The X-position of this Screenlet ..."
-msgstr "X_pozícia tohoto Screenletu..."
+msgstr "Pozícia X tohto screenletu..."
 
 #: src/lib/__init__.py:852
 msgid "Y-Position"
-msgstr "Y_Pozícia"
+msgstr "Pozícia Y"
 
 #: src/lib/__init__.py:853
 msgid "The Y-position of this Screenlet ..."
-msgstr "Y-pozícia tohoto Screenletu..."
+msgstr "Pozícia Y tohto screenletu..."
 
 #: src/lib/__init__.py:856
 msgid "Width"
@@ -62,7 +62,7 @@ msgstr "Šírka"
 
 #: src/lib/__init__.py:857
 msgid "The width of this Screenlet ..."
-msgstr "Šírka tohoto Screenletu ..."
+msgstr "Šírka tohto screenletu..."
 
 #: src/lib/__init__.py:860
 msgid "Height"
@@ -70,15 +70,15 @@ msgstr "Výška"
 
 #: src/lib/__init__.py:861
 msgid "The height of this Screenlet ..."
-msgstr "Výška tohoto Screenletu ..."
+msgstr "Výška tohto screenletu..."
 
 #: src/lib/__init__.py:864
 msgid "Scale"
-msgstr "Rozsah"
+msgstr "Mierka"
 
 #: src/lib/__init__.py:865
 msgid "The scale-factor of this Screenlet ..."
-msgstr "Rozsah zobrazenia tohoto Screenletu ..."
+msgstr "Rozsah zobrazenia tohto screenletu..."
 
 #: src/lib/__init__.py:868
 msgid "Opacity"
@@ -90,19 +90,19 @@ msgstr "Priehľadnosť okna screenletu..."
 
 #: src/lib/__init__.py:872
 msgid "Stick to Desktop"
-msgstr "Prilepiť na Plochu"
+msgstr "Prilepiť na plochu"
 
 #: src/lib/__init__.py:873
 msgid "Show this Screenlet on all workspaces ..."
-msgstr "Zobraziť tento screenlets na všetkých plochách..."
+msgstr "Zobraziť tento screenlet na všetkých pracovných plochách..."
 
 #: src/lib/__init__.py:875
 msgid "Treat as Widget"
-msgstr "Pokladať za Widget"
+msgstr "Pokladať za widget"
 
 #: src/lib/__init__.py:876
 msgid "Treat this Screenlet as a \"Widget\" ..."
-msgstr "Pokládať tento Screenlet za \"Widget\" ..."
+msgstr "Pokladať tento screenlet za \"Widget\"..."
 
 #: src/lib/__init__.py:887
 msgid "Lock position"
@@ -110,7 +110,7 @@ msgstr "Zamknúť pozíciu"
 
 #: src/lib/__init__.py:888
 msgid "Stop the screenlet from being moved..."
-msgstr "Zakázať presunutie tohto Screenletu ..."
+msgstr "Zakázať presunutie tohto screenletu..."
 
 #. add "Keep above"-menuitem
 #: src/lib/__init__.py:890 src/lib/__init__.py:1229
@@ -119,7 +119,7 @@ msgstr "Stále v popredí"
 
 #: src/lib/__init__.py:891
 msgid "Keep this Screenlet above other windows ..."
-msgstr "Držať tento Screenlet nad ostatnými oknami ..."
+msgstr "Držať tento Screenlet nad ostatnými oknami..."
 
 #. add "Keep Below"-menuitem
 #: src/lib/__init__.py:893 src/lib/__init__.py:1236
@@ -128,15 +128,15 @@ msgstr "Stále na pozadí"
 
 #: src/lib/__init__.py:894
 msgid "Keep this Screenlet below other windows ..."
-msgstr "Držať tento Screenlet pod ostatnými oknami ..."
+msgstr "Držať tento Screenlet pod ostatnými oknami..."
 
 #: src/lib/__init__.py:896
 msgid "Draw button controls"
-msgstr "Zobraz ovládacie tlačítka"
+msgstr "Zobraziť ovládacie tlačidlá"
 
 #: src/lib/__init__.py:897
 msgid "Draw buttons in top right corner"
-msgstr "Zobrazí tlačítka v pravom hornom rohu"
+msgstr "Zobraziť tlačidlá v pravom hornom rohu"
 
 #: src/lib/__init__.py:899
 msgid "Skip Pager"
@@ -144,7 +144,7 @@ msgstr "Preskočiť prepínač"
 
 #: src/lib/__init__.py:900
 msgid "Set this Screenlet to show/hide in pagers ..."
-msgstr "Zobrazit/skryť tento Screenlet v zozname plôch ..."
+msgstr "Zobrazit/skryť tento screenlet v zozname plôch ..."
 
 #: src/lib/__init__.py:902
 msgid "Skip Taskbar"
@@ -152,7 +152,7 @@ msgstr "Preskočiť zoznam okien"
 
 #: src/lib/__init__.py:903
 msgid "Set this Screenlet to show/hide in taskbars ..."
-msgstr "Zobrazit/skryť tento Screenlet v zozname okien ..."
+msgstr "Zobrazit/skryť tento screenlet v zozname okien..."
 
 #: src/lib/__init__.py:905
 msgid "Resize on mouse scroll"
@@ -160,32 +160,32 @@ msgstr "Zmeniť veľkosť koliečkom myši"
 
 #: src/lib/__init__.py:908
 msgid "Ignore requirements"
-msgstr ""
+msgstr "Ignorovať požiadavky"
 
 #: src/lib/__init__.py:909
 msgid "Set this Screenlet to ignore/demand DEB requirements ..."
-msgstr ""
+msgstr "Nastaviť tento screenlet na ignoráciu/požadovanie DEB požiadaviek..."
 
 #: src/lib/__init__.py:913
 msgid "Allow overriding Options"
-msgstr "Povoliť prepísanie Nastavení"
+msgstr "Povoliť prepisovanie možností"
 
 #: src/lib/__init__.py:914
 msgid "Allow themes to override options in this screenlet ..."
-msgstr "Povoliť motívom prepisovať vlastnosti tohoto screenletu ..."
+msgstr "Povoliť motívom prepisovať vlastnosti tohto screenletu..."
 
 #: src/lib/__init__.py:916
 msgid "Ask on Override"
-msgstr "Opýtať pri Prepísaní"
+msgstr "Opýtať sa pri prepísaní"
 
 #: src/lib/__init__.py:917
 msgid "Show a confirmation-dialog when a theme wants to override "
 msgstr ""
-"Zobrazí potvrdzovacie okno, ked bude motiv žiadat o prepísanie vlastností "
+"Zobrazí potvrdzovacie okno, ked bude motiv žiadat prepísanie vlastností "
 
 #: src/lib/__init__.py:918
 msgid "the current options of this Screenlet ..."
-msgstr "terajšie nastavenia tohoto Screenletu ..."
+msgstr "súčasné nastavenia tohto screenletu..."
 
 #. version of the deb package if unspecified
 #: src/lib/__init__.py:1132
@@ -199,7 +199,7 @@ msgid ""
 "%(package)s %(version)s required, NOT INSTALLED!"
 msgstr ""
 "\n"
-"%(package)s %(version)s požadovaný, NIE JE NAINŠTALOVANÝ!"
+"Je požadovaná verzia %(version)s balíka %(package)s, NIE JE NAINŠTALOVANǍ!"
 
 #: src/lib/__init__.py:1140
 #, python-format
@@ -208,7 +208,8 @@ msgid ""
 "%(package)s %(version)s installed, req %(required)s."
 msgstr ""
 "\n"
-"%(package)s %(version)s inštalované, req %(required)s."
+"Je nainštalovaná verzia %(version)s balíka %(package)s, ale je potrebná "
+"verzia %(required)s."
 
 #: src/lib/__init__.py:1150
 #, python-format
@@ -219,6 +220,11 @@ msgid ""
 "REQUIREMENTS:\n"
 "%s"
 msgstr ""
+"Požiadavky pre screenlet nie sú uspokojené! Pre inštaláciu potrebných "
+"balíkov použite Správcu balíkov.\n"
+"\n"
+"POŽIADAVKY:\n"
+"%s"
 
 #: src/lib/__init__.py:1172
 msgid "Size"
@@ -249,44 +255,44 @@ msgstr "Widget"
 
 #: src/lib/__init__.py:1246
 msgid "Properties..."
-msgstr "Vlastnosti ..."
+msgstr "Vlastnosti..."
 
 #: src/lib/__init__.py:1249
 msgid "Info..."
-msgstr "Info ..."
+msgstr "Info..."
 
 #: src/lib/__init__.py:1253
 #, python-format
 msgid "Add one more %s"
-msgstr ""
+msgstr "Pridať ďalší %s"
 
 #: src/lib/__init__.py:1256
 #, python-format
 msgid "Delete this %s"
-msgstr ""
+msgstr "Odstrániť tento %s"
 
 #: src/lib/__init__.py:1260
 #, python-format
 msgid "Quit this %s"
-msgstr ""
+msgstr "Ukončiť tento %s"
 
 #: src/lib/__init__.py:1263
 #, python-format
 msgid "Quit all %ss"
-msgstr ""
+msgstr "Ukončiť vśetky %s"
 
 #: src/lib/__init__.py:1510
 msgid ""
 "This theme wants to override your settings for this Screenlet. Do you want "
 "to allow that?"
 msgstr ""
-"Tento motív chce prepísať niekteré nastavenia vášho Screenletu. Chcete to "
+"Tento motív chce prepísať niekteré nastavenia vášho screenletu. Chcete to "
 "povoliť?"
 
 #: src/lib/__init__.py:1756
 #, python-format
 msgid "To quit all %s's, use 'Quit' instead. "
-msgstr "K ukončeniu všetkých %s's, použi príkaz  'Zavrieť'. "
+msgstr "K ukončeniu všetkých %s použite radšej 'Zavrieť'. "
 
 #: src/lib/__init__.py:1757
 #, python-format
@@ -299,23 +305,23 @@ msgstr "Použiť"
 
 #: src/lib/options/account_option.py:115
 msgid "Apply username/password ..."
-msgstr "Použi meno užívateľa/heslo..."
+msgstr "Použiť meno používateľa/heslo..."
 
 #: src/lib/options/account_option.py:116
 msgid "Enter username here ..."
-msgstr "Vložte užívateľské meno ..."
+msgstr "Zadajte používateľské meno..."
 
 #: src/lib/options/account_option.py:117
 msgid "Enter password here ..."
-msgstr "Vložte heslo ..."
+msgstr "Zadajte heslo..."
 
 #: src/lib/options/base.py:309
 msgid "Edit Options"
-msgstr "Úprava Nastavenia"
+msgstr "Upraviť voľby"
 
 #: src/lib/options/base.py:536
 msgid "About "
-msgstr "O... "
+msgstr "O "
 
 #: src/lib/options/base.py:548
 msgid "Options "
@@ -327,8 +333,8 @@ msgid ""
 "Themes allow you to easily switch the appearance of your Screenlets. On this "
 "page you find a list of all available themes for this Screenlet."
 msgstr ""
-"Motivy vám umožňujú jednoducho menit vzhľad vašich Screenletov. Na tejto "
-"stránke je zoznam motivov dostupných pre tento Screenlet."
+"Motivy vám umožňujú jednoducho menit vzhľad vašich screenletov. Na tejto "
+"stránke je zoznam motivov dostupných pre tento screenlet."
 
 #: src/lib/options/base.py:584
 msgid "Themes "
@@ -336,51 +342,51 @@ msgstr "Motívy "
 
 #: src/lib/options/base.py:597
 msgid "no info available"
-msgstr "žiadna informácia"
+msgstr "nie sú dostupné žiadne informácie"
 
 #: src/lib/options/file_option.py:41
 msgid "Choose File"
-msgstr "Vyber Súbor"
+msgstr "Vybrať súbor"
 
 #: src/lib/options/file_option.py:96
 msgid "Choose Directory"
-msgstr "Vyber Adresár"
+msgstr "Zvoliť priečinok"
 
 #: src/lib/options/file_option.py:101
 msgid "Choose Image"
-msgstr "Vyber Obrázok"
+msgstr "Vybrať obrázok"
 
 #. add tooltips
 #: src/lib/options/file_option.py:126
 msgid "Select Image ..."
-msgstr ""
+msgstr "Zvoliť obrázok"
 
 #: src/lib/options/list_option.py:48
 msgid "Open List-Editor ..."
-msgstr "Otvor Úpravu-Zoznamu"
+msgstr "Otvoriť editor zoznamu..."
 
 #: src/lib/options/number_option.py:39
 #, python-format
 msgid "Error during on_import - option: %s.\n"
-msgstr ""
+msgstr "Došlo k chybe počas on_import - voľba: %s\n"
 
 #: src/lib/sensors.py:171
 #, python-format
 msgid "%(days)s days, %(hours)s hours and %(minutes)s minutes"
-msgstr ""
+msgstr "%(days)s dní, %(hours)s hodín a %(minutes)s minút"
 
 #: src/lib/sensors.py:282
 msgid "Can't get KDE version"
-msgstr "Nemôžem získať verziu KDE"
+msgstr "Nepodarilo sa získať verziu KDE"
 
 #: src/lib/sensors.py:292
 msgid "Can't get Gnome version"
-msgstr "Nemôžem získať verziu Gnome"
+msgstr "Nepodarilo sa získať verziu Gnome"
 
 #: src/lib/sensors.py:480
 msgid "Cannot get ip"
-msgstr "Nemôžem získať ip"
+msgstr "Nepodarilo sa získať ip"
 
 #: src/lib/sensors.py:574 src/lib/sensors.py:587
 msgid "Not connected"
-msgstr "Nepripojený"
+msgstr "Nie je pripojený"

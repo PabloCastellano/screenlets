@@ -1,22 +1,21 @@
 # Serbian translation for screenlets
 # Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
 # This file is distributed under the same license as the screenlets package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
 # Саша Петровић <salepetronije@gmail.com>, 2012.
-#
+# Мирослав Николић <miroslavnikolic@rocketmail.com>, 2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: screenlets 0.1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-25 00:17+0200\n"
-"PO-Revision-Date: 2013-01-09 15:40+0000\n"
-"Last-Translator: Саша Петровић <salepetronije@gmail.com>\n"
-"Language-Team: српски <xfce-i18n@xfce.org>\n"
+"PO-Revision-Date: 2016-02-07 18:36+0000\n"
+"Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
+"Language-Team: Serbian <gnom@prevod.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-03-05 04:32+0000\n"
-"X-Generator: Launchpad (build 16514)\n"
+"X-Launchpad-Export-Date: 2016-02-08 05:10+0000\n"
+"X-Generator: Launchpad (build 17908)\n"
 "Language: sr\n"
 
 #. The Screenlets download page. Notice that if you translate this, you also have to create/translate the page for your language on the Screenlets.org (it's a Wiki!)
@@ -43,11 +42,11 @@ msgstr "Основне поставке за овај примерак спра�
 
 #: src/lib/__init__.py:848
 msgid "X-Position"
-msgstr "x положај"
+msgstr "Х положај"
 
 #: src/lib/__init__.py:849
 msgid "The X-position of this Screenlet ..."
-msgstr "X положај ове справице екрана ..."
+msgstr "Положај ове справице екрана на водоравној оси ..."
 
 #: src/lib/__init__.py:852
 msgid "Y-Position"
@@ -55,7 +54,7 @@ msgstr "Y положај"
 
 #: src/lib/__init__.py:853
 msgid "The Y-position of this Screenlet ..."
-msgstr "Y положај ове справице екрана"
+msgstr "Положај ове справице екрана на усправној оси ..."
 
 #: src/lib/__init__.py:856
 msgid "Width"
@@ -111,12 +110,12 @@ msgstr "Закључај положај"
 
 #: src/lib/__init__.py:888
 msgid "Stop the screenlet from being moved..."
-msgstr "Спречи померање справице површи..."
+msgstr "Спречи померање справице екрана..."
 
 #. add "Keep above"-menuitem
 #: src/lib/__init__.py:890 src/lib/__init__.py:1229
 msgid "Keep above"
-msgstr "Задржавај изнад"
+msgstr "Држи изнад"
 
 #: src/lib/__init__.py:891
 msgid "Keep this Screenlet above other windows ..."
@@ -125,7 +124,7 @@ msgstr "Увек држи ову справицу екрана изнад ост
 #. add "Keep Below"-menuitem
 #: src/lib/__init__.py:893 src/lib/__init__.py:1236
 msgid "Keep below"
-msgstr "Задржавај испод"
+msgstr "Држи испод"
 
 #: src/lib/__init__.py:894
 msgid "Keep this Screenlet below other windows ..."
@@ -133,15 +132,15 @@ msgstr "Држи ову справицу испод осталих прозор�
 
 #: src/lib/__init__.py:896
 msgid "Draw button controls"
-msgstr "Црта думад управљања"
+msgstr "Цртај думад управљања"
 
 #: src/lib/__init__.py:897
 msgid "Draw buttons in top right corner"
-msgstr "Исцртава дугмад у горњем десном углу"
+msgstr "Исцртавај дугмад у горњем десном углу"
 
 #: src/lib/__init__.py:899
 msgid "Skip Pager"
-msgstr "Обиђи страничник"
+msgstr "Заобиђи страничника"
 
 #: src/lib/__init__.py:900
 msgid "Set this Screenlet to show/hide in pagers ..."
@@ -151,7 +150,7 @@ msgstr ""
 
 #: src/lib/__init__.py:902
 msgid "Skip Taskbar"
-msgstr "Прескочи траку процеса"
+msgstr "Заобиђи траку процеса"
 
 #: src/lib/__init__.py:903
 msgid "Set this Screenlet to show/hide in taskbars ..."
@@ -202,7 +201,7 @@ msgid ""
 "%(package)s %(version)s required, NOT INSTALLED!"
 msgstr ""
 "\n"
-"%(package)s %(version)s  захтеване, НИСУ УГРАЂЕНЕ!"
+"%(package)s %(version)s захтеване, НИСУ УГРАЂЕНЕ!"
 
 #: src/lib/__init__.py:1140
 #, python-format
@@ -248,7 +247,7 @@ msgstr "Закључај"
 #. add "Sticky"-menuitem
 #: src/lib/__init__.py:1215
 msgid "Sticky"
-msgstr "Лепљив"
+msgstr "Прилепи"
 
 #. add "Widget"-menuitem
 #: src/lib/__init__.py:1222
@@ -257,7 +256,7 @@ msgstr "Справица површи"
 
 #: src/lib/__init__.py:1246
 msgid "Properties..."
-msgstr "Особине..."
+msgstr "Својства..."
 
 #: src/lib/__init__.py:1249
 msgid "Info..."
@@ -289,7 +288,7 @@ msgid ""
 "to allow that?"
 msgstr ""
 "Ова тема покушава да препише ваше поставке за ову справицу екрана. Да ли "
-"желите да то одобрите?"
+"желите то да одобрите?"
 
 #: src/lib/__init__.py:1756
 #, python-format
@@ -299,7 +298,7 @@ msgstr "Да напустите све %s, користите „Напусти�
 #: src/lib/__init__.py:1757
 #, python-format
 msgid "Really delete this %s and its settings?"
-msgstr "Заиста брисати овај %s и сва његова подешавања?"
+msgstr "Стварно да обришем овај %s и сва његова подешавања?"
 
 #: src/lib/options/account_option.py:109 src/lib/options/base.py:439
 msgid "Apply"
@@ -307,15 +306,15 @@ msgstr "Примени"
 
 #: src/lib/options/account_option.py:115
 msgid "Apply username/password ..."
-msgstr "Примени корисничко име/лозинку ..."
+msgstr "Примените корисничко име/лозинку ..."
 
 #: src/lib/options/account_option.py:116
 msgid "Enter username here ..."
-msgstr "Унесите корисничко име овде ..."
+msgstr "Овде унесите корисничко име ..."
 
 #: src/lib/options/account_option.py:117
 msgid "Enter password here ..."
-msgstr "Унесите лозинку овде ..."
+msgstr "Овде унесите лозинку ..."
 
 #: src/lib/options/base.py:309
 msgid "Edit Options"
@@ -335,8 +334,8 @@ msgid ""
 "Themes allow you to easily switch the appearance of your Screenlets. On this "
 "page you find a list of all available themes for this Screenlet."
 msgstr ""
-"Теме вам омогућују да лако измењујете изглед ваших спавица екрана. На овој "
-"страни ћете наћи списак свих доступних тема за ову справицу екрана."
+"Теме вам омогућују да лако мењате изглед ваших справица екрана. На овој "
+"страници ћете наћи списак свих доступних тема за ову справицу екрана."
 
 #: src/lib/options/base.py:584
 msgid "Themes "
@@ -348,15 +347,15 @@ msgstr "нема доступних података"
 
 #: src/lib/options/file_option.py:41
 msgid "Choose File"
-msgstr "Одаберите датотеку"
+msgstr "Изаберите датотеку"
 
 #: src/lib/options/file_option.py:96
 msgid "Choose Directory"
-msgstr "Одаберите фасциклу"
+msgstr "Изаберите фасциклу"
 
 #: src/lib/options/file_option.py:101
 msgid "Choose Image"
-msgstr "Одаберите слику"
+msgstr "Изаберите слику"
 
 #. add tooltips
 #: src/lib/options/file_option.py:126
@@ -370,7 +369,7 @@ msgstr "Отворите уређивач списка ..."
 #: src/lib/options/number_option.py:39
 #, python-format
 msgid "Error during on_import - option: %s.\n"
-msgstr "Десила се грешка приликом увоза - могућност: %s.\n"
+msgstr "Дошло је до грешке приликом увоза — могућност: %s.\n"
 
 #: src/lib/sensors.py:171
 #, python-format
@@ -379,15 +378,15 @@ msgstr "%(days)s дана, %(hours)s сати и %(minutes)s минута"
 
 #: src/lib/sensors.py:282
 msgid "Can't get KDE version"
-msgstr "Нисам успео добавити КДЕ издање"
+msgstr "Не могу добавити издање за КДЕ"
 
 #: src/lib/sensors.py:292
 msgid "Can't get Gnome version"
-msgstr "Нисам успео добавити Гном издање"
+msgstr "Не могу добавити издање за Гнома"
 
 #: src/lib/sensors.py:480
 msgid "Cannot get ip"
-msgstr "Нисам успео добавити ип"
+msgstr "Не могу добавити ип"
 
 #: src/lib/sensors.py:574 src/lib/sensors.py:587
 msgid "Not connected"
